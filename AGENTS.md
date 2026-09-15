@@ -76,6 +76,65 @@ Completed verification:
 
 Do not overwrite completed verification rounds.
 
+## File-First Research Output Policy
+
+**Terminal output is an execution interface, not the primary archive of research results.**
+
+For substantial research tasks, long analyses, literature reviews, scientific comparisons, model deconstruction, novelty audits, verification reports, research planning, or other durable research work:
+
+1. The complete deliverable MUST be written to a persistent file.
+2. Preferred destinations:
+   - `docs/` for durable human-readable research notes, explanations, learning documents, methodological guides, and thesis-oriented material.
+   - `outputs/` for generated pipeline results, machine-generated analyses, verification outputs, matrices, adjudications, and run-specific artifacts.
+3. The terminal/chat response MUST NOT be the only copy of a substantial research result.
+4. For long research tasks, terminal output should normally contain only:
+   - `SUCCESS` / `PARTIAL` / `FAILED`
+   - output file path(s)
+   - short execution summary
+   - important warnings
+   - unresolved evidence gaps
+5. Do not dump the complete research report into the terminal when a persistent Markdown or structured output file is appropriate.
+6. Markdown (`.md`) is the default human-readable format unless another format is explicitly required.
+7. Scientific reports should be self-contained and, where applicable, contain:
+   - research question or objective
+   - evidence status
+   - analysis
+   - equations with symbol definitions
+   - assumptions and limitations
+   - citations
+   - references
+   - provenance
+   - unresolved questions or evidence gaps
+8. Every important scientific claim must remain traceable to its evidence. Clearly distinguish:
+   - `VERIFIED FULL TEXT`
+   - `METADATA ONLY`
+   - `INFERENCE`
+9. Never invent:
+   - citations
+   - DOI values
+   - page numbers
+   - equation numbers
+   - figure numbers
+   - section names
+   - experimental results
+   - bibliographic metadata
+10. When exact source provenance is available in repository evidence, preserve it in the generated research file.
+11. A durable research file should be suitable for:
+    - later agent sessions
+    - supervisor discussion
+    - thesis literature review
+    - research proposal development
+    - Git history / diff inspection
+    - reconstruction of project context
+12. Before reporting `SUCCESS` for a file-first research task:
+    - confirm the output file exists
+    - confirm it is non-empty
+    - reopen/read it
+    - verify required sections exist
+    - verify no important content exists only in terminal output
+13. Do not modify scientific state, registry state, verification state, or historical outputs merely to satisfy the file-first rule.
+14. If the user explicitly requests terminal-only output, follow that request unless doing so would conflict with a higher-priority repository safety or preservation rule.
+
 ## Model Roles
 
 Recommended model allocation:
