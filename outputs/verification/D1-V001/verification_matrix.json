@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "verification_id": "D1-V001",
+  "created_at": "2026-09-14T15:42:21.948543+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 3,
+  "papers": [
+    {
+      "paper_id": "5f7ccd7357",
+      "filename": "2018-Mechanically Versatile Soft Machines through Laminar.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V001",
+      "screening_status": "included",
+      "screening_reason": "Foundational laminar-jamming study directly relevant to interlayer slip, friction, bending stiffness, and deformation-regime modeling; included as adversarial prior work for D1 verification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2018-Mechanically Versatile Soft Machines through Laminar_5f7ccd7357.json",
+      "evidence": {
+        "source": {
+          "paper_id": "5f7ccd7357",
+          "filename": "2018-Mechanically Versatile Soft Machines through Laminar.pdf",
+          "sha256": "5f7ccd7357928e6acbc35645bdd2cfadd1d6e63aa8212c62513a362ff71ec8e5",
+          "page_count": 9,
+          "char_count": 45934,
+          "source_type": "verification",
+          "verification_id": "D1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 27367,
+          "completion_tokens": 6676,
+          "total_tokens": 34043,
+          "thinking_tokens": 3918,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum pressure (pressure gradient)",
+            "pneumatic actuation",
+            "cable actuation"
+          ],
+          "authors": [
+            "Yashraj S. Narang",
+            "Joost J. Vlassak",
+            "Robert D. Howe"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "In analytical modeling, deformation is based on Euler-Bernoulli beam theory with axial strain approximated as a superposition of a linearly varying vertical field and a constant vertical field, with an interfacial displacement variable.",
+            "Interfacial interactions are modeled using Coulomb friction with a penalty friction formulation.",
+            "In finite element modeling of jamming structures, layers are treated as homogeneous 2D plane-strain linear elastic bodies with large-deformation analysis enabled.",
+            "In variable kinematics finite element simulations, unjammed jamming structures are approximated by scaling down the elastic modulus by a factor of n^2 (n = 20), and cable loading is approximated as a pure bending moment."
+          ],
+          "control_variables": [
+            "Layer dimensions (width, height/thickness, and length)",
+            "Layer material (HP Ultra White Multipurpose Copy Paper)",
+            "Envelope material and sealing process (thermoplastic polyurethane sheet, heat pressed at 100 °C, tube sealed at 171 °C)",
+            "Loading anvil displacement rate in three-point bending (25 mm min^-1)",
+            "Actuator and substrate elastomeric materials (Dragon Skin 10 Medium silicone, Sylgard 184 PDMS, and Ecoflex 00-10 silicone)"
+          ],
+          "dependent_variables": [
+            "Bending stiffness across pre-slip, transition, and full-slip regimes",
+            "Energy dissipation and damping",
+            "Elastica (deformation shape / transverse deflection)",
+            "Slip propagation length along layer interfaces",
+            "Critical transition loads (first and second transition loads)",
+            "Discreteness of bending quantified by the ratio of maximum to mean curvature (kappa_max / kappa_mean)",
+            "Multiaxis stiffness (in-plane bending, off-axis bending, and torsional stiffness)",
+            "Perturbation resistance / dislodging force in robotic grasping"
+          ],
+          "doi": "10.1002/adfm.201707136",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Laminar jamming structures subjected to a pressure gradient transition through three distinct mechanical regimes under load: pre-slip (cohesive layers, maximum stiffness scaling as n^2, zero damping), transition regime (progressive interfacial slip, declining stiffness, frictional damping), and full-slip (complete interfacial slip, minimal stiffness, maximal damping).",
+              "evidence_type": "analytical modeling, finite element simulation, and experimental observation",
+              "page_numbers": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "claim": "Two-dimensional plane-strain finite element models predict three-point bending force-deflection behavior of many-layer jamming structures with high accuracy across varying layer counts and vacuum pressures without fitting parameters, achieving a minimum coefficient of determination (R^2) of 0.9879.",
+              "evidence_type": "finite element simulation and experimental validation",
+              "page_numbers": [
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Integrating a 20-layer paper laminar jamming structure with a pneumatic soft bending actuator enables shape-locking, maintaining the actuated curved configuration upon depressurization with high geometric fidelity (R^2 = 0.9835) when an 85 kPa vacuum is applied.",
+              "evidence_type": "experimental demonstration",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "A composite structure comprising an elastic substrate and a segmented laminar jamming structure demonstrates variable kinematics, transitioning from continuous bending (vacuum off) to discrete jointed bending (vacuum on) with a 6.65-fold increase in the ratio of maximum to mean curvature.",
+              "evidence_type": "finite element simulation and experimental demonstration",
+              "page_numbers": [
+                4,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "A two-fingered grasper using variable kinematics fingers can perform wrap grasps on large objects (20 cm diameter) when unjammed and stable pinch grasps on small objects (one-eighth the diameter) when jammed, exhibiting a 32-fold increase in primary bending stiffness, a 2.5-fold increase in off-axis bending stiffness, a 2.7-fold increase in torsional stiffness, and an 8-fold increase in perturbation resistance.",
+              "evidence_type": "experimental characterization and physical demonstration",
+              "page_numbers": [
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Analytical and finite element modeling reveals that full-slip damping force scales linearly with the number of layers, the vacuum pressure, and the coefficient of friction (succinctly mu*P*b*h for a two-layer structure).",
+              "evidence_type": "analytical derivation and finite element scaling analysis",
+              "page_numbers": [
+                3,
+                6
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "HP Ultra White Multipurpose Copy Paper strips cut via laser cutter and enclosed within vacuum-formed thermoplastic polyurethane (TPU) envelopes heat-pressed at 100 °C with TPU tubing sealed at 171 °C.",
+            "Instron 5566 universal testing machine configured with a three-point bending fixture operated at a crosshead displacement rate of 25 mm min^-1.",
+            "Cole-Parmer manual vacuum regulator (EW-07061-30) for setting vacuum pressure levels.",
+            "Pneumatic soft bending actuator molded from Dragon Skin 10 Medium platinum-cure silicone rubber bonded to jamming structures using Dow Corning 795 silicone building sealant.",
+            "Variable kinematics substrate cast from Sylgard 184 PDMS with an internal channel for a braided polyethylene cable (Hollow Spectra) tensioned via a turnbuckle.",
+            "Fingertips for a two-fingered grasper cast from Ecoflex 00-10 silicone rubber.",
+            "Chatillon DFI10 digital force gauge with custom fixtures for multiaxis stiffness and grasp perturbation measurements."
+          ],
+          "future_work": [
+            "Approximating high-layer-count jamming structures as a single crystal with a single slip system to reduce finite element computational runtime.",
+            "Incorporating a one-way valve to maintain vacuum without requiring a tethered continuous vacuum source.",
+            "Using electrostatic actuation or elastic actuation (such as external elastic mesh envelopes or spring clips) to overcome ambient atmospheric pressure limits on normal force.",
+            "Applying variable kinematics to medical and surgical devices traversing vasculature before applying high forces, as well as continuum manipulators."
+          ],
+          "independent_variables": [
+            "Number of layers (e.g., 5, 10, 15, 20 layers; n=2 for analytical model)",
+            "Vacuum pressure (e.g., 0 kPa, 24 kPa, 47 kPa, 71 kPa, 85 kPa)",
+            "Coefficient of friction between layers (simulated at 0.25, 0.50, 0.65, 0.75)",
+            "Applied transverse load and deflection during bending",
+            "Actuation state (vacuum on vs. vacuum off; pneumatic inflation pressure at 16 kPa; cable tension)"
+          ],
+          "limitations_inferred": [
+            "Testing was conducted quasi-statically at a low displacement rate (25 mm min^-1), leaving dynamic response, high-rate impact behavior, fatigue, wear, and viscoelastic relaxation over extended cycling uncharacterized.",
+            "Cellulose paper layers and TPU envelopes may be susceptible to degradation, moisture absorption, and puncture failure in wet or rough operational environments.",
+            "Finite element and analytical formulations assume 2D plane-strain behavior, neglecting 3D edge effects, out-of-plane anticlastic curvature, and torsional-bending coupling in the jamming laminate itself."
+          ],
+          "limitations_stated_by_authors": [
+            "Finite element simulation execution time scales linearly with the number of layers, becoming computationally prohibitive for structures with exceptionally high layer counts.",
+            "The physical shape-locking prototype required a vacuum source to remain connected after actuator depressurization, complicating operation without external support equipment.",
+            "Vacuum actuation restricts the maximum pressure gradient to ambient atmospheric pressure, which caps the maximum load sustainable before the structure slips and softens.",
+            "As the number of layers increases, achieving a homogeneous vacuum pressure distribution throughout the structure may become physically challenging.",
+            "The coefficient of friction could not be precisely adjusted experimentally, preventing direct experimental validation of varying friction."
+          ],
+          "main_results": [
+            "Formulated an analytical model extending Euler-Bernoulli beam theory with interfacial friction and slip, capturing all three deformation regimes (pre-slip, transition, full-slip), slip propagation, and transition loads in two-layer jamming beams.",
+            "Constructed 2D plane-strain finite element models accurately capturing the mechanical response of many-layer jamming structures without fitting parameters, matching three-point bending data with R^2 >= 0.9879.",
+            "Extracted scaling relations showing full-slip damping scales linearly with layer count, vacuum pressure, and friction coefficient.",
+            "Achieved shape-locking in a pneumatic soft actuator, preserving its curved pressurized configuration upon depressurization with R^2 = 0.9835 when 85 kPa vacuum was applied.",
+            "Demonstrated variable kinematics in a hybrid cable-actuated beam, switching from continuous bending to discrete jointed bending with a 6.65x increase in peak-to-mean curvature ratio.",
+            "Fabricated a two-fingered grasper executing wrap grasps on a 20 cm ball and pinch grasps on a 2.5 cm ball, with jammed fingers providing >32x bending stiffness, 2.5x off-axis stiffness, 2.7x torsional stiffness, and >8x perturbation dislodging resistance."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli beam theory extended for vacuum pressure, interfacial friction, and interfacial slip",
+            "Boundary-value problem formulation and explicit analytical solution for cantilevered two-layer jamming beams under uniform distributed load",
+            "Two-dimensional plane-strain finite element analysis (ABAQUS 6.14r2) with penalty contact friction formulation and large-deformation analysis"
+          ],
+          "performance_metrics": [
+            "Bending stiffness (pre-slip, transition, and full-slip stiffness values; n^2 theoretical multiplier; >=32-fold measured increase in finger bending stiffness)",
+            "Goodness-of-fit coefficient of determination (R^2 >= 0.9879 for FEA vs. experimental bending force; R^2 = 0.9835 for shape-locking fidelity)",
+            "Discreteness ratio (maximum curvature to mean curvature, kappa_max / kappa_mean, increasing by a factor of 6.65)",
+            "Perturbation resistance force (at least 8-fold increase in dislodging force for pinch grasping)",
+            "Off-axis bending stiffness (2.5-fold increase under vacuum)",
+            "Torsional stiffness (2.7-fold increase under vacuum)",
+            "Full-slip damping force (analytically expressed as mu*P*b*h)",
+            "Experimental repeatability (maximum deviation of 0.24 N across loading cycles and samples)"
+          ],
+          "possible_gap_implications": [
+            "The validated analytical and finite element frameworks allow predictable, model-based design of variable-stiffness laminar jamming components without relying solely on iterative physical prototyping.",
+            "Variable kinematics demonstrates that soft robots can programmatically switch between continuous continuum deformation and discrete jointed kinematics, which may simplify sensing, state estimation, and control algorithms by leveraging multi-rigid-body dynamics.",
+            "Extending laminar jamming models from planar 2D bending to spatial 3D bending and coupled torsional deformations remains an opportunity for future continuum manipulator design."
+          ],
+          "research_objective": "To develop and experimentally validate comprehensive analytical and finite element models of laminar jamming across all deformation regimes, and to integrate jamming structures into soft machines to achieve shape-locking and variable kinematics (enabling reversible transitions between continuous soft deformation and discrete jointed rigid behavior).",
+          "research_problem": "Bridging the divide between compliant soft machines and high-force, precise rigid robots. Existing variable-stiffness technologies suffer from limited range/resolution per unit weight, slow transition speeds, poor bending resistance, and inability to transition between continuous and discrete jointed deformations. Furthermore, prior laminar jamming research lacked predictive models beyond pre-slip, hindering practical design and kinematic adaptation.",
+          "robot_type": "soft machines, pneumatic soft bending actuator, cable-actuated variable kinematics system, two-fingered grasper, continuum manipulators",
+          "stiffness_mechanism": [
+            "laminar jamming (layer jamming)"
+          ],
+          "title": "Mechanically Versatile Soft Machines through Laminar Jamming",
+          "year": "2018"
+        }
+      }
+    },
+    {
+      "paper_id": "652e62758f",
+      "filename": "2023-Caruso-Layer_Jamming_Modeling_and_Experimental_Validation.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V001",
+      "screening_status": "included",
+      "screening_reason": "Direct prior work on multi-layer vacuum layer jamming, interlayer slip propagation, bending stiffness, analytical modeling, finite-element simulation, and experimental validation; critical adversarial evidence for testing the novelty boundary of D1.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2023-Caruso-Layer_Jamming_Modeling_and_Experimental_Validation_652e62758f.json",
+      "evidence": {
+        "source": {
+          "paper_id": "652e62758f",
+          "filename": "2023-Caruso-Layer_Jamming_Modeling_and_Experimental_Validation.pdf",
+          "sha256": "652e62758fe4816182d09ed860dc18e8cd4d65004191b63f84a56c9293eccaee",
+          "page_count": 10,
+          "char_count": 53129,
+          "source_type": "verification",
+          "verification_id": "D1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 29003,
+          "completion_tokens": 5774,
+          "total_tokens": 34777,
+          "thinking_tokens": 3512,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum pressure",
+            "transverse mechanical loading"
+          ],
+          "authors": [
+            "Fabio Caruso",
+            "Giacomo Mantriota",
+            "Vincenzo Moramarco",
+            "Giulio Reina"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Linear isotropic elastic material behavior for layers (Young's modulus E = 1.7 GPa, Poisson's ratio nu = 0.156)",
+            "Plane-strain condition (E / (1 - nu^2)) applied because layer width is much greater than layer thickness (b >> h)",
+            "Coulomb friction limit at layer interfaces defined by tau_slip = mu * p",
+            "Uniform vacuum pressure p acting over outer boundaries of the structure",
+            "Idealized clamped boundary condition at the support lines after initial slip to account for cohesive overhanging regions",
+            "Piecewise linear mechanical behavior governed by sequential interlayer slipping events",
+            "Euler-Bernoulli beam theory kinematics for deflection calculations"
+          ],
+          "control_variables": [
+            "Layer dimensions: width b = 6 cm, total length L = 18 cm, single-layer thickness h = 0.1 mm",
+            "Span distance between support rollers = 10 cm",
+            "Layer material: Fabriano Copy2 copy paper (E = 1.7 GPa, nu = 0.156, mu = 0.55)",
+            "Displacement rate: 5 mm/min loading and unloading up to 8 mm maximum central deflection",
+            "Envelope material: thermoplastic polyurethane (TPU) film of 0.009 mm thickness",
+            "Support roller diameter: 1 cm",
+            "Specimen pre-test flattening on a rigid planar shelf and centering on supports"
+          ],
+          "dependent_variables": [
+            "Transverse reaction force (F)",
+            "Central deflection (w)",
+            "Bending stiffness (slope of force-deflection curve)",
+            "Critical loads (F_0, F_1, F_i) and deflections (w_0, w_1, w_i) for interface slip transitions",
+            "Energy dissipated by friction during a load-unload cycle (hysteresis loop area)",
+            "Interfacial shear stress and spatial distribution of slip along interfaces"
+          ],
+          "doi": "10.1016/j.ijmecsci.2023.108325",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Layer jamming structures subjected to three-point bending transition through three distinct deformation regimes: pre-slip, partial-slip, and full-slip, with slip initiating at the central interface and propagating outward, causing progressive loss of bending stiffness.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                8
+              ]
+            },
+            {
+              "claim": "During the pre-slip phase, all layer interfaces remain cohesive, and bending stiffness is maximal, scaling with the cube of the number of layers (n^3) while remaining independent of vacuum pressure.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                2,
+                3,
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "The first interfacial slip occurs when the maximum longitudinal shear stress reaches the friction limit (mu * p), with the transition load scaling linearly with n and the transition deflection scaling inversely with n^2.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Overhanging portions of the structure outside the support rollers experience near-zero transverse shear and remain cohesive, causing curvature reversal and increasing post-slip bending stiffness toward a clamped-clamped beam upper limit.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                1,
+                3,
+                4,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Energy dissipated by friction during a complete load-unload cycle increases with the number of layers and scales almost linearly with both vacuum pressure and the interlayer friction coefficient.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                1,
+                5,
+                6,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "The proposed analytical model matches experimental three-point bending tests and finite element simulations without empirical fitting parameters, although it slightly underestimates stiffness at higher deflections because local contact pressure concentrations at the supports are omitted.",
+              "evidence_type": "analytical, experimental, and numerical",
+              "page_numbers": [
+                1,
+                5,
+                6,
+                8
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Three-point bending setup using an MTS Alliance RT/30 electromechanical machine equipped with a 1 kN load cell (MTS-E31665, 0.01 N resolution)",
+            "Support rollers of 1 cm diameter set at a 10 cm span distance",
+            "Loading and unloading applied at a constant displacement rate of 5 mm/min up to a maximum deflection of 8 mm",
+            "Data acquisition of force and central displacement sampled at 10 Hz",
+            "Piab M10A6-BN vacuum pump connected via manual vacuum regulator and flexible TPU tubing to generate internal negative pressure",
+            "Fabricated test specimens comprising paper strips (Fabriano Copy2, h = 0.1 mm, 18 cm x 6 cm) enclosed in a sealed TPU film envelope (0.009 mm thickness) with a 3D-printed connector and silicone sealant"
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Number of layers n (evaluated experimentally at 8, 12, 16, and 20 layers)",
+            "Vacuum pressure p (evaluated experimentally at 24, 48, and 68 kPa; simulated at 70 kPa)",
+            "Interlayer coefficient of friction mu (evaluated numerically at 0.2, 0.3, 0.4, and 0.5)",
+            "Overhang length L_h outside supports (evaluated numerically)",
+            "Imposed transverse deflection w (up to 8 mm experimentally, 4 mm in overhang numerical study)"
+          ],
+          "limitations_inferred": [
+            "The formulation and experimental validation are restricted to quasi-static 2D three-point bending of rectangular beams, without considering dynamic loads, torsion, or complex multi-axial deformations.",
+            "The model assumes uniform Coulomb friction and homogeneous isotropic layer behavior, which may not capture wear, surface degradation, or localized wrinkling over prolonged cyclic use.",
+            "Out-of-plane effects and the structural compliance of the surrounding thin TPU envelope are treated as negligible."
+          ],
+          "limitations_stated_by_authors": [
+            "The analytical model underestimates bending stiffness at high deflections for structures with higher layer counts and higher vacuum pressures, likely due to neglected increases in contact pressure at the supports.",
+            "The assumption of a perfectly clamped boundary at the supports idealizes the overhang transition, whereas sliding actually propagates to a lesser extent into the external overhanging regions.",
+            "The influence of the friction coefficient was examined only via finite element simulations rather than experimental tests due to the difficulty of precisely controlling friction experimentally.",
+            "Poisson's ratio was not measured directly due to experimental measurement difficulties and was instead adopted from existing literature."
+          ],
+          "main_results": [
+            "An extended analytical model based on Euler-Bernoulli beam theory accurately predicts the force-deflection curve of multi-layer jamming structures across pre-slip, partial-slip, and full-slip phases without fitting parameters.",
+            "Pre-slip bending stiffness is unaffected by vacuum pressure and scales with n^3, while post-slip stiffness degrades in a piecewise manner as slip propagates sequentially from the central interface outward.",
+            "Overhanging sections outside supports remain cohesive and induce curvature reversal, significantly increasing post-slip bending stiffness, which falls between simply supported and clamped-clamped boundary conditions.",
+            "Energy dissipated by friction during a load-unload cycle increases with layer count and scales almost linearly with both vacuum pressure and the friction coefficient.",
+            "Experimental three-point bending measurements on 8, 12, 16, and 20 layer specimens at 24, 48, and 68 kPa validate the theoretical predictions and finite element simulations."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli beam theory",
+            "Jourawski formula for shear stress distribution in rectangular cross-sections",
+            "Piecewise linear approximation of stiffness degradation corresponding to discrete slip propagation steps",
+            "Clamped boundary condition representation at support lines to capture overhanging stiffness contributions",
+            "Finite element analysis (FEA) in Abaqus/Standard 2017 using 2D four-node bilinear hybrid plane strain elements with reduced integration (CPE4RH), penalty friction formulation, and geometric nonlinearity (Nlgeom ON)"
+          ],
+          "performance_metrics": [
+            "Force versus deflection response across deformation regimes",
+            "Critical transition loads (F_0, F_1, F_i) and deflections (w_0, w_1, w_i)",
+            "Variable stiffness ratio between jammed and unjammed states (scaling with n^2)",
+            "Energy dissipated per load-unload cycle (hysteresis loop area)"
+          ],
+          "possible_gap_implications": [
+            "The closed-form analytical expressions provide a computationally efficient alternative to finite element simulations for predicting multi-layer jamming behavior, which may assist rapid parameter sizing and control in variable-stiffness soft robotic devices.",
+            "Because the model is derived specifically for 2D bending of simple rectangular geometries under idealized clamped overhang conditions, an open gap remains in predicting the behavior of layer jamming structures under multi-axial bending, twisting, or complex boundary interactions in physical robotic applications."
+          ],
+          "research_objective": "To formulate and experimentally validate an extended analytical model that predicts the mechanical response, slip propagation, and stiffness changes of multi-layer jamming structures across all deformation phases (pre-slip, partial-slip, and full-slip) in three-point bending, explicitly accounting for the stiffening effect caused by overhanging regions outside constraining supports without empirical fitting parameters.",
+          "research_problem": "Existing analytical models for layer jamming structures fail to predict mechanical behavior beyond the initial pre-slip deformation phase, while finite element models incur prohibitive computational time as the number of layers increases; furthermore, prior analytical formulations omit the stiffening effect and curvature reversal caused by overhanging sections outside the supports.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "vacuum jamming",
+            "interlayer friction coupling"
+          ],
+          "title": "Layer jamming: Modeling and experimental validation",
+          "year": "2023"
+        }
+      }
+    },
+    {
+      "paper_id": "56d058a34a",
+      "filename": "2024-Layer Jamming of Magnetorheological Elastomers for Variable Stiffness in Soft Robots.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V001",
+      "screening_status": "included",
+      "screening_reason": "Recent layer-jamming study directly relevant to pre-slip, partial-slip, full-slip, friction assumptions, and stiffness evolution; included to test the mechanics and novelty claims of D1.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2024-Layer Jamming of Magnetorheological Elastomers for Variable Stiffness in Soft Robots_56d058a34a.json",
+      "evidence": {
+        "source": {
+          "paper_id": "56d058a34a",
+          "filename": "2024-Layer Jamming of Magnetorheological Elastomers for Variable Stiffness in Soft Robots.pdf",
+          "sha256": "56d058a34a4d9708da644187fd8bd519eca480f77398e1922f89225af06f2846",
+          "page_count": 12,
+          "char_count": 52208,
+          "source_type": "verification",
+          "verification_id": "D1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 30405,
+          "completion_tokens": 9279,
+          "total_tokens": 39684,
+          "thinking_tokens": 6185,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "magnetic",
+            "flexible NdFeB permanent magnets"
+          ],
+          "authors": [
+            "T. Atakuru",
+            "G. Züngör",
+            "E. Samur"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Isotropic MRE material behavior resulting from curing without an applied magnetic field",
+            "Neo-Hookean strain energy function for hyperelastic behavior of MRE samples and NdFeB magnets up to 25% strain",
+            "Constant Young's modulus in the incompressibility factor formulation",
+            "Constant kinetic friction coefficient at MRE-to-MRE and MRE-to-NdFeB contact interfaces, neglecting static friction variation",
+            "Relative magnetic permeability assumed as 1 for PDMS, and 1.6, 2.2, 3.7, and 6 for MRE volume fractions of 10%, 20%, 30%, and 40%, respectively",
+            "NdFeB magnet magnetic parameters estimated from volumetric loading of magnetic powder (retentivity 447 mT, coercivity 296 kA/m)",
+            "Euler-Bernoulli beam theory assumptions for pre-slip cohesive beam action and post-slip independent layer summation"
+          ],
+          "control_variables": [
+            "Overall dimensions of the jamming specimen: length 60 mm, width 10 mm, and total thickness 10 mm",
+            "Thickness of outer flexible NdFeB magnet layers (2.5 mm each)",
+            "Elastomer matrix composition: Sylgard 184 PDMS mixed at 10:1 base-to-curing-agent ratio with 30 wt% thinner",
+            "Carbonyl iron particle size (5 µm) and NdFeB particle grade (MQP-S-11-9-20001)",
+            "Curing conditions: 100 °C for 1 h in aluminum molds without magnetic field",
+            "Tensile testing displacement rate (0.2 mm/s) and maximum strain limit (25%)",
+            "Friction test displacement (10 mm) and sliding velocity (0.1 mm/s)",
+            "Maximum 3-point bending deflection (5 mm)",
+            "Preconditioning protocols to mitigate the Mullins effect (six cycles for tensile tests, manual pre-bending for 3-point bending)",
+            "Magnetization field strength for NdFeB magnets (2.1 T uniform field)",
+            "Number of test repetitions (3 for tensile and friction tests, 5 for 3-point bending tests)"
+          ],
+          "dependent_variables": [
+            "Bending force and bending stiffness (slopes of force vs. deflection curves)",
+            "Stiffness ratio K (ratio of jammed ON-state stiffness to unjammed OFF-state stiffness)",
+            "Slip initiation deflection and full-slip deflection",
+            "Magnetic surface jamming force and spatial force distribution",
+            "Tensile stress-strain behavior",
+            "Kinetic coefficient of friction between contact layers",
+            "Hyperelastic constitutive parameters (shear modulus µ, incompressibility factor D1, Poisson's ratio ν)"
+          ],
+          "doi": "10.1007/s11340-024-01031-7",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Multi-layer structures composed of MRE sheets and flexible NdFeB magnets exhibit higher bending stiffness when magnetized, displaying pre-slip, partial-slip, and full-slip deformation regimes under 3-point bending.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                3,
+                6,
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Substituting non-magnetic PDMS layers with MRE layers in a 7-layer jamming structure increases the experimental stiffness ratio K from 2.35 to 3.66 at a 40% volume fraction, demonstrating combined stiffening from layer jamming and MRE viscoelasticity modification.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                7,
+                9
+              ]
+            },
+            {
+              "claim": "Higher carbonyl iron particle volume fractions in MREs increase the material shear modulus from 0.19 MPa for pure PDMS to 1.30 MPa at 40% volume fraction, while simultaneously increasing the magnetic jamming normal force between the flexible magnets.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "The theoretical N^2 stiffness scaling from Euler-Bernoulli beam theory does not hold experimentally because the magnetic jamming force decreases and loses spatial uniformity as the structure undergoes bending deflection.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                3,
+                6,
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "The enhanced stiffness of the magnetically jammed MRE multi-layer structure is maintained only over small deflections, with experimental slip beginning at an average of 0.35 mm deflection and full slip occurring at 0.88 mm.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "2D quasi-static finite element simulations incorporating Neo-Hookean hyperelasticity, magnetostatic surface forces, and contact friction capture the stiffening trends but predict slip initiation earlier than experiments due to assuming a constant kinetic friction coefficient.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                5,
+                6,
+                8,
+                9
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Uniaxial tensile testing system with a 3-kg miniature load cell, micrometer screw gauge (0.01 mm resolution), stepper motor operating at 0.2 mm/s, 3D-printed clamps, and an optical digital image correlation (DIC) system (Pike F505B camera) using a painted white speckle pattern over a 6-cycle loading protocol",
+            "Magnetization setup using a dipole electromagnet (5403AC, GMW Associates) delivering a 2.1 T uniform magnetic field, paired with a Teslameter (PCE-MFM 2400) for field measurement",
+            "Friction measurement setup adapted from the tensile rig using 3D-printed specimen fixtures, a known normal mass, and a horizontal displacement of 10 mm at 0.1 mm/s across 10 distinct material pairs",
+            "Three-point bending test fixture with a vertical force measuring unit deflecting 10-mm-thick multi-layer jamming beam specimens by up to 5 mm across 30 test configurations (5 volume fractions, ON/OFF magnetic states, and 3 layer configurations)"
+          ],
+          "future_work": [
+            "Employing electronically controlled electro-permanent magnets (EPMs) or electromagnets to allow rapid millisecond switching between jammed and unjammed states with low power consumption, eliminating manual magnet exchange",
+            "Reducing MRE sheet thickness via micro-molding or extrusion-based 3D printing to enable stacking a higher number of layers",
+            "Fabricating anisotropic MREs with aligned CIP chains parallel to the magnetic field direction to enhance the MR effect",
+            "Utilizing elastomer matrices with lower modulus to increase the relative stiffening ratio of the MREs",
+            "Developing a soft robot integrating axial MRE fibers within a central channel enclosed by radially polarized EPMs to achieve multi-directional variable bending stiffness"
+          ],
+          "independent_variables": [
+            "Carbonyl iron particle volume fraction in MREs (0%, 10%, 20%, 30%, 40%)",
+            "Magnetic state of flexible NdFeB magnets (ON State / magnetized vs. OFF State / unmagnetized)",
+            "Number of layers and layer thickness configuration (3 layers with 5 mm core MRE; 4 layers with two 2.5 mm MREs; 7 layers with five 1 mm MREs; total thickness constant at 10 mm)",
+            "Bending deflection / displacement (up to 5 mm in 3-point bending; 0 mm, 2.5 mm, 4 mm, 5 mm in magnetic simulations)",
+            "Engineering strain (up to 25% in uniaxial tensile tests)",
+            "Interfacial material contact pair in friction tests (10 combinations of MRE-MRE and MRE-NdFeB)"
+          ],
+          "limitations_inferred": [
+            "Relatively large layer thicknesses (1 mm to 5 mm) restrict the total number of layers that can be stacked within compact soft robotic dimensions, limiting achievable stiffness ratios",
+            "Manual preconditioning (hand bending) to mitigate the Mullins effect in bending tests may introduce operator-dependent inconsistencies in initial material states",
+            "High material densities of MREs (up to 3.62 g/cc) and flexible NdFeB magnets (5.00 g/cc) add substantial passive mass, potentially reducing the payload and dynamic performance of lightweight soft robots",
+            "Measured interfacial friction coefficients decreased substantially as iron particle volume fraction increased (dropping from 1.42 to 0.62 for MRE-to-MRE), which counteracts the normal friction enhancements sought in layer jamming"
+          ],
+          "limitations_stated_by_authors": [
+            "The jamming transition was induced mechanically by manually swapping magnetized and non-magnetized NdFeB magnets, rather than electronically",
+            "Enhanced stiffness is sustained only across a limited range of loads/deflections because magnetic forces generate relatively low interfacial shear forces",
+            "Inability to experimentally isolate and quantify the individual contributions of the MR effect versus the increased magnetic jamming force to the overall stiffness change",
+            "Practical inability to establish a matching external magnetic field for single-layer MRE bending tests without causing non-uniform field concentrations at sharp corners that induce specimen bending",
+            "Variable stiffness in planar layer jamming is effective only in a single bending direction",
+            "FEA simulations overpredicted stiffness ratios and anticipated slip earlier than experiments due to using constant kinetic friction instead of static friction and because permanent magnets suffered production-related magnetic attenuation losses",
+            "Magnetic force profiles lose spatial uniformity and decrease in magnitude as the beam structure deflects due to differing radii of curvature of the outer magnets",
+            "Actual implementation of the proposed hybrid stiffening mechanism on an operational soft robot was outside the scope of the study"
+          ],
+          "main_results": [
+            "Bending stiffness in the pre-slip regime is consistently higher in the ON state than in the OFF state across all volume fractions and layer counts",
+            "Using MRE layers rather than non-magnetic PDMS layers produces greater stiffness variation; for N=7, the experimental stiffness ratio K is 2.35 for pure PDMS (jamming alone) and reaches 3.66 for f=0.4 MRE (hybrid jamming and MR effect)",
+            "The highest experimental stiffness ratio K achieved is 3.66 for a 7-layer structure with a 40% MRE volume fraction",
+            "In the unjammed OFF state, bending stiffness decreases as the number of stacked layers increases (e.g., at f=0.2, OFF stiffness decreases from 0.52 N/mm for N=3 to 0.38 N/mm for N=4, and 0.30 N/mm for N=7)",
+            "The theoretical N^2 relationship from Euler-Bernoulli beam theory does not hold experimentally (e.g., predicted K of 9, 16, 49 vs. measured K of 2.55, 3.17, 3.66 for N=3, 4, 7 at f=0.4) due to non-uniform and deflection-dependent magnetic force degradation",
+            "Magnetic surface force increases with higher core MRE iron fraction (0.49 N at f=0 to 0.56 N at f=0.4 at zero deflection), but decreases and loses uniformity upon beam deflection (e.g., dropping to 0.28 N on top and 0.17 N on bottom at 5 mm deflection for f=0.1)",
+            "Stiffness enhancement is sustained only under small deflections, with average slip initiation observed at 0.35 mm and full slip occurring at 0.88 mm deflection"
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli beam theory for pre-slip and post-slip bending stiffness formulations and area moment of inertia scaling",
+            "Hyperelastic material modeling using the Neo-Hookean strain energy function calibrated from uniaxial tensile data",
+            "3D magnetostatic finite element analysis in ANSYS to compute magnetic surface force magnitudes and distributions as a function of beam deflection and MRE volume fraction",
+            "2D quasi-static finite element analysis in ANSYS with large deflection using plane-stress elements and frictional contact pairs"
+          ],
+          "performance_metrics": [
+            "Bending stiffness (N/mm) in ON and OFF states",
+            "Stiffness ratio K (ratio of ON-state stiffness to OFF-state stiffness)",
+            "Mean slip initiation deflection (mm)",
+            "Full slip deflection (mm)",
+            "Average magnetic jamming force (N)",
+            "Kinetic coefficient of friction (µ)"
+          ],
+          "possible_gap_implications": [
+            "Demonstrating dry magnetic jamming of MRE sheets without fluid envelopes indicates that MRE-based jamming could eliminate leakage and sealing membrane failure modes associated with vacuum or MR fluid systems",
+            "The rapid onset of interfacial slip at sub-millimeter deflections implies that magnetic layer jamming may require mechanical interlocking, surface texturing, or higher magnetic clamping pressures to be viable for high-load robotic grasping or manipulation",
+            "The single-axis bending limitation of planar layer jamming highlights that transitioning to fibrous MRE geometries is essential for multi-axis or omnidirectional compliance control in continuum manipulators"
+          ],
+          "research_objective": "To investigate the mechanics of magnetic jamming of magnetorheological elastomer (MRE) layers and explore stiffness variation resulting from the combination of layer jamming and variable viscoelasticity as a first step toward a hybrid stiffening approach for soft robotics.",
+          "research_problem": "Achieving variable and controllable stiffness in soft robotics while overcoming the integration complexities, slow destiffening speeds, vacuum pump dependencies, atmospheric pressure limits of vacuum jamming, and the particle settling or fluid leakage issues of magnetorheological fluids.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "multi-layer jamming",
+            "magnetic jamming",
+            "magnetorheological elastomer viscoelasticity change"
+          ],
+          "title": "Layer Jamming of Magnetorheological Elastomers for Variable Stiffness in Soft Robots",
+          "year": "2024"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "2c56d866b44ed148fa8c78f70e77bf1ed4f54c2b6e026582cefeb6cd44cec213"
+}

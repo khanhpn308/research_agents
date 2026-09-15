@@ -1,0 +1,190 @@
+{
+  "source": {
+    "paper_id": "e3ce477955",
+    "filename": "2018-Modeling of grasping force for a soft robotic gripper with variable stiffness.pdf",
+    "sha256": "e3ce477955d22f1819d4d565392c86342305c9ab84c9e72038d3f8c98945e57e",
+    "page_count": 21,
+    "char_count": 55107,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 31169,
+    "completion_tokens": 10563,
+    "total_tokens": 41732,
+    "thinking_tokens": 7588,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "direct electrothermal actuation",
+      "thermal-induced SMA fiber with contraction in length (SMA-1, NiTi alloy, BMF150)",
+      "tendon-like pulling wire wrapped around pulleys to generate bending torque"
+    ],
+    "authors": [
+      "Yin Haibin",
+      "Kong Cheng",
+      "Li Junfeng",
+      "Yang Guilin"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Planar bending deflection is confined to the XOZ plane because the second moment of area Iy is significantly smaller than Ix (Iy << Ix)",
+      "Stretch and compression along the centerline of the soft finger are neglected (linear rate of change vl(s) = [0, 0, 1]^T)",
+      "Distributed external moment along the length of the rod is zero (tau = 0)",
+      "Distributed external force along the finger is solely due to gravity (f(s) = rho * A * g * eg)",
+      "Grasped objects are assumed to be rigid cuboids with vertical planar contact boundaries represented by X = H",
+      "Contact mechanics between the fingertip and the grasped object follow an ordinary Coulomb friction model (F_f = mu * F_N)",
+      "Linear elastic constitutive moment-curvature relationship for rod bending (m_y(s) = E * Iy * theta'(s))",
+      "Equivalent composite bending stiffness formulated as EIy = E3 * I3 + 4 * E2 * I2",
+      "Poisson's ratio is assumed to be 0.3, resulting in an effective shear modulus of G = E / 2.6"
+    ],
+    "control_variables": [
+      "Effective working length of SMA-2 and SMA-3 wires (L2 = L3 = 100 mm)",
+      "Diameter of SMA-1 wire (0.15 mm) and nominal length (1200 mm)",
+      "Diameter of SMA-2 wires (0.5 mm)",
+      "Diameter of SMA-3 wire (0.6 mm) and Young's modulus (56 GPa)",
+      "Lever arm of the pulling force (d = 8 mm)",
+      "Spacing between parallel SMA-2 wires (l_SMA = 4.5 mm)",
+      "Distance between 3D-printed brackets (lzj = 2.5 * d = 20 mm)",
+      "Number of fingers in the gripper (N = 2)",
+      "Baseline Young's modulus of unheated SMA-2 at ambient temperature (E2 = 25 GPa)",
+      "Numerical shooting algorithm convergence tolerance (e_H = 0.1 mm), grasping force step size (0.01 N), and torque step size (1 Nmm)"
+    ],
+    "dependent_variables": [
+      "Normal grasping force (F_N) of the soft finger and gripper",
+      "Fingertip position coordinates (Xp, Zp) and vertical offset displacement (Delta Z)",
+      "Fingertip position error (ep) between theoretical simulation and experiment",
+      "Grasping force error (e_F and e_Fmg) between model prediction and experimental measurement",
+      "Maximum sustainable object gravity / payload weight before slip (F_mg = F_f)",
+      "No-load initial contact torque and critical detachment bending torque"
+    ],
+    "doi": "10.1016/j.mechmachtheory.2018.05.005",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Structural decoupling of bending actuation and variable stiffness mechanisms is realized using separate shape memory alloy elements: an electrothermal contracting SMA-1 fiber for bending actuation, thermal-induced SMA-2 wires without length change for variable stiffness, and a superelastic SMA-3 central wire for elastic restoration.",
+        "evidence_type": "mechanism design and experimental implementation",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "The response characteristics of the soft finger backbone do not comply with constant-curvature models when subjected to combined gravity, grasping contact forces, and driving torques, necessitating a Cosserat rod theory formulation.",
+        "evidence_type": "theoretical modeling justification",
+        "page_numbers": [
+          1,
+          2,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Increasing the Young's modulus of the SMA-2 variable stiffness wires from 25 GPa to 48 GPa via electrical heating increases the maximum grasping force of the soft finger by 48.7% experimentally and 42.5% in simulation.",
+        "evidence_type": "experimental and numerical result",
+        "page_numbers": [
+          1,
+          11,
+          17
+        ]
+      },
+      {
+        "claim": "Increasing the object offset distance H from 30 mm to 60 mm increases the required no-load bending torque to reach contact but decreases the attainable maximum grasping force.",
+        "evidence_type": "experimental and numerical result",
+        "page_numbers": [
+          9,
+          10,
+          12
+        ]
+      },
+      {
+        "claim": "Finite element modeling in ABAQUS showed close agreement with the Cosserat rod formulation, exhibiting grasping force differences between 0.005 N and 0.032 N across object offsets from 30 mm to 60 mm at a bending torque of 20 Nmm.",
+        "evidence_type": "comparative simulation data",
+        "page_numbers": [
+          9,
+          10,
+          13
+        ]
+      },
+      {
+        "claim": "Discrepancies observed between initial multi-finger gripper simulations and experiments were demonstrated not to stem from force closure failure or internal pulley friction, but from surface wear on 3D-printed PLA fingertips that lowered the contact friction coefficient from 0.426 to 0.335.",
+        "evidence_type": "experimental hypothesis testing and error analysis",
+        "page_numbers": [
+          15,
+          16,
+          17
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Two-finger soft robotic gripper mounted on a 3D-printed polylactic acid (PLA) base bed with PLA finger brackets spaced at 20 mm to prevent wire kinking",
+      "SMA-3 superelastic core wire (0.6 mm diameter) providing structural backbone and elastic return",
+      "Four SMA-2 wires (0.5 mm diameter) fixed in parallel to SMA-3 without length change, connected to an electrical DC power supply (0 to 1.70 A) for thermal stiffness variation",
+      "Single 1200 mm U-shaped SMA-1 wire (0.15 mm diameter, Toki BMF150) routed through fingers and pulleys to provide bilateral bending actuation powered by an independent DC current supply (0 to 0.36 A)",
+      "Force sensor to measure tendon pulling force (F_p) and tip contact normal force (F_N)",
+      "Graded background scale and graph paper setup for tracking fingertip deflection coordinates (X, Z)",
+      "3D-printed hollow PLA test boxes with adjustable internal masses used to determine maximum liftable gravity (F_mg)",
+      "Comparative noncompact gripper configuration with four ball-bearing pulleys and adjustable inextensible insulating wire used to isolate internal pulley friction effects"
+    ],
+    "future_work": [
+      "Optimizing and controlling the soft robotic gripper system to manipulate heavier objects based on the grasping force model",
+      "Conducting future experimental investigations on friction coefficients across diverse fingertip contact surfaces and materials"
+    ],
+    "independent_variables": [
+      "Heating current applied to the SMA-1 actuation wire (0 to 0.36 A), corresponding to driving torque (Td) or pulling force (Fp)",
+      "Heating current applied to the SMA-2 variable stiffness wires (0 A, 0.73 A, 1.70 A), setting Young's modulus E2 (25 GPa, 37 GPa, 48 GPa)",
+      "Object offset distance H along the X direction (tested at 20 mm, 30 mm, 40 mm, 50 mm, and 60 mm)",
+      "Fingertip contact surface condition and friction coefficient mu (fresh PLA at 0.426 vs. rubbed/worn PLA at 0.335)",
+      "Mass / gravity of the grasped object (F_mg)"
+    ],
+    "limitations_inferred": [
+      "The modeling and experimental evaluations are restricted to two-dimensional planar bending in the XOZ plane, leaving 3D out-of-plane torsional or lateral deflections unmodeled",
+      "Objects are restricted to rigid flat cuboids; compliance, curvature, and geometric irregularities of grasped objects are not represented in the formulation",
+      "Thermal dynamics, heat dissipation rates, cooling transition latencies, and hysteretic behavior during cycling of the SMA wires were not incorporated into the static model",
+      "Closed-loop real-time force feedback control was not demonstrated on the physical prototype, relying instead on static position-based (Z offset) estimation and open-loop thermal actuation"
+    ],
+    "limitations_stated_by_authors": [
+      "The Cosserat-based grasping force formulation is highly nonlinear and lacks an analytical closed-form solution, requiring iterative shooting numerical computations",
+      "Model predictive errors increase markedly when bending torque exceeds 40 Nmm or deflection offset Z exceeds 55 mm because large deformations near the critical bending torque cause complex nonlinear responses that cannot be easily modeled",
+      "Direct closed-loop feedback control of pulling force using a sensor is difficult because the SMA-1 wire is wrapped tightly around pulleys inside a cavity too small to accommodate a force sensor",
+      "Electrothermal contraction of SMA-1 exhibits an inherently nonlinear response that complicates controller design",
+      "Friction coefficients at the fingertip degrade over repeated grasping trials due to surface wear on the 3D-printed PLA, leading to modeling mismatches if static friction values are assumed"
+    ],
+    "main_results": [
+      "A Cosserat theory-based static grasping model was successfully formulated and quantitatively validated for a soft finger and two-finger gripper under complex external loadings including gravity, contact normal force, friction, and actuation torque",
+      "Thermal activation of embedded SMA-2 wires increased their Young's modulus from 25 GPa to 48 GPa, yielding a 48.7% increase in measured maximum grasping force (42.5% in simulation) at an object offset of 50 mm",
+      "Increasing object offset H resulted in higher required no-load initiation torques (from 4 Nmm at H = 30 mm to 9 Nmm at H = 60 mm) and reduced maximum grasping forces (from 0.676 N at H = 30 mm to 0.265 N at H = 60 mm)",
+      "ABAQUS FEM static analysis confirmed the validity of the Cosserat model with discrepancies limited to 0.005 N - 0.032 N across offsets from 30 mm to 60 mm under 20 Nmm torque",
+      "Experimental testing with a low-friction ball-bearing noncompact gripper disproved internal pulley friction/force closure failure as the origin of gripper model discrepancy; updating the friction coefficient to account for PLA surface wear (mu = 0.335) reduced prediction errors below 0.04 N"
+    ],
+    "modeling_methods": [
+      "Cosserat rod theory (formulating planar equilibrium of a 1D rod under tip point forces, bending moments, and distributed gravity)",
+      "Classical Coulomb friction law for fingertip-object contact mechanics",
+      "Numerical shooting method / iterative step-adjustment algorithm using step sizes Delta F_N = 0.01 N and Delta T_d = 1 Nmm with an error tolerance e_H = 0.1 mm",
+      "Finite element method (FEM) static simulation in ABAQUS for validation"
+    ],
+    "performance_metrics": [
+      "Normal grasping force (F_N, measured in N)",
+      "Percentage increase in maximum grasping force due to variable stiffness activation (48.7% measured, 42.5% simulated)",
+      "Maximum payload gravity sustained before slippage (F_mg, measured in N)",
+      "Fingertip position error (ep in mm) and grasping force error (e_F and e_Fmg in N)",
+      "No-load initiation torque and critical detachment torque (in Nmm)"
+    ],
+    "possible_gap_implications": [
+      "The absence of active thermal-electric dynamic modeling and integrated force sensing suggests that future research could focus on embedded micro-sensing and active cooling schemes to enable closed-loop force control and faster cycling times",
+      "The reliance on planar Coulomb contact mechanics against rigid flat surfaces indicates a need to investigate spatial 3D Cosserat contact mechanics for conformable grasping of soft, delicate, or irregular geometries"
+    ],
+    "research_objective": "To develop, model, and experimentally validate a grasping force model based on Cosserat rod theory for a soft robotic gripper featuring structurally decoupled SMA actuation and variable stiffness mechanisms, enabling quantitative prediction and tuning of grasping forces under varying stiffness, object offsets, and surface friction.",
+    "research_problem": "Conventional constant-curvature models cannot accurately predict the grasping force and deflection of soft robotic fingers subjected to complex loads such as gravity, driving torques, and contact forces; moreover, compact variable stiffness soft grippers typically suffer from coupling between actuation and stiffness-tuning mechanisms, or lack adequate load capacity.",
+    "robot_type": "soft robotic gripper",
+    "stiffness_mechanism": [
+      "thermal-induced SMA wire without change in length (four SMA-2 NiTi wires whose Young's modulus transitions from 25 GPa to 48 GPa via phase transformation upon Joule heating)",
+      "stress-induced SMA fiber with super elasticity (SMA-3 NiTi core wire providing base elasticity and elastic restoration)",
+      "structural decoupling of variable stiffness mechanism from actuation mechanism"
+    ],
+    "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+    "year": "2018"
+  }
+}

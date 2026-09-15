@@ -1,0 +1,218 @@
+{
+  "source": {
+    "paper_id": "4dac06062a",
+    "filename": "2019-Long Shape Memory Alloy Tendonbased Soft Robotic Actuators and Implementation as a soft Gripper.pdf",
+    "sha256": "4dac06062a7e0423e08f7abf4a1d21540f0b0a78baeb8c16410826e67d874653",
+    "page_count": 12,
+    "char_count": 49493,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29907,
+    "completion_tokens": 7846,
+    "total_tokens": 37753,
+    "thinking_tokens": 4605,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Shape memory alloy (SMA) wire tendons (Flexinol LT, Dynalloy)",
+      "Joule heating / electric current actuation (0.95 A)"
+    ],
+    "authors": [
+      "Ji-Hyeong Lee",
+      "Yoon Seop Chung",
+      "Hugo Rodrigue"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "One-dimensional constitutive behavior of SMA wire based on Brinson thermoconstitutive model",
+      "Initial stress in the SMA wire is assumed to be zero (sigma_0 = 0)",
+      "Initial strain in the SMA wire is assumed to equal maximum recoverable strain (epsilon_0 = epsilon_L)",
+      "Phase transformation contribution tensor Omega is assumed equal to -E * epsilon_L",
+      "Thermoelastic coefficient Theta is assumed to be zero",
+      "Martensite is assumed fully detwinned during pre-straining and during elastic matrix recovery upon cooling (initial martensite fraction xi_0 = 1)",
+      "Actuation starts from a fully martensitic state (minimum martensite fraction xi_M = 1)",
+      "Linear elastic beam behavior for the polymeric matrix (PDMS) with defined Young's modulus, cross-sectional area, and moment of inertia",
+      "Pure bending strain distribution varying linearly with distance from the actuator neutral plane",
+      "Dimensionless SMA curve-fitting parameter C_A set to 10.3 from literature"
+    ],
+    "control_variables": [
+      "Actuator matrix length (100 mm) and width (25 mm) for uniform rectangular specimens",
+      "Actuation electric current (fixed at 0.95 A)",
+      "Thermal cycle timing during fatigue tests (1 s heating, 9 s cooling)",
+      "Matrix material and curing protocol (Sylgard-184 PDMS cured at 55 °C for 8 hours)",
+      "Silicone guide tube inner diameter (300 µm) for 203 µm diameter SMA wire",
+      "Ambient room conditions and starting configuration (straight/unactuated)"
+    ],
+    "dependent_variables": [
+      "Bending angle (degrees)",
+      "Tip force (N)",
+      "Gripper pulling force (N)",
+      "Pulling displacement sustained before slip or grip release (mm)",
+      "Adaptive grasping capability across diverse object geometries and weights",
+      "Cyclic repeatability / retention of maximum and minimum bending angle over 100 cycles",
+      "Actuator out-of-plane twist/torsion during asymmetric tendon actuation"
+    ],
+    "doi": "10.1038/s41598-019-47794-1",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Decoupling the length of the polymeric matrix from the SMA wire by using free-sliding tendons through silicone tubes enables large increases in bending angle (up to 400 degrees) and tip force (up to 0.89 N).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ]
+      },
+      {
+        "claim": "A quasi-static mechanical model coupling beam strain mechanics with Brinson's 1D SMA constitutive model accurately predicts bending angle as a function of tendon length up to physical contact limits.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Uneven tendon lengths on either side of the U-shaped routing produce pure planar bending without torsion due to tension distribution through free sliding in the silicone sleeve.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Modular finger packaging with V-shaped bearings routes 300 mm tendons compactly and withstands 100 continuous thermal cycles without degradation of maximum bending angle.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Three-fingered antagonistic and triangular soft grippers adaptively grasp diverse objects weighing from 5 g up to 1.5 kg (and withstand a 2 kg test weight).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The soft gripper achieves maximum pulling forces of 25 N in point contact and 30 N in power grasp using 0.305 mm SMA wires, maintaining high force over 40 mm displacement.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "Wrapping actuator fingers in a low-friction TPU-coated sleeve drops maximum pulling force from 25-30 N to 7-13 N, demonstrating the critical role of interfacial friction in load capacity.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "The modular soft gripper can be integrated as an end-effector on a commercial 6-DOF industrial robot arm (UR10) to execute pick-and-place tasks on real-world objects.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7,
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Actuator fabrication: 203 µm Flexinol LT SMA wire placed inside 300 µm inner-diameter silicone tubing routed in a U-shape within a 3D-printed ABS mold, cast in Sylgard-184 PDMS, and cured at 55 °C for 8 hours",
+      "Bending angle characterization jig: Clamped actuator base with adjustable external fixation points (0 to 350 mm tendon length) for 3 mm, 5 mm, and 8 mm thick specimens, plus a tapered specimen (5 mm to 2.5 mm thickness, 680 mm tendon length)",
+      "Tip force characterization jig: Adjustable-angle guide jig with a Da Cell CB1-600gf load cell measuring tip force in 30° increments up to 120°",
+      "Asymmetric tendon test setup: 5 mm thick actuator with one tendon fixed at 10 mm and the opposite tendon varied from 50 to 200 mm to monitor out-of-plane twist",
+      "Compact finger modules: 8 mm thick matrix with 300 mm tendon routed internally over V-shaped bearings",
+      "Cyclic test bench: Automated thermal cycling for 100 cycles (1 s heating at 0.95 A, 9 s passive cooling)",
+      "Adaptive grasping trials: Three-finger antagonistic and triangular configurations tested across 36 diverse everyday objects (5 g to 1513 g, plus a 2000 g block) in horizontal and vertical orientations",
+      "Pulling force tensile test bench: Cometech QC-506 tensile testing machine evaluating 0.203 mm and 0.305 mm wire diameters against elliptical prism, half-cylinder, and inverted triangular prism jigs, with and without TPU-coated polyester low-friction sleeves",
+      "Robotic arm deployment: Modular gripper mounted as end-effector on a Universal Robots UR10 manipulator performing pick-and-place of a 273 g can"
+    ],
+    "future_work": [
+      "Improving the gripper to produce faster actuation and stronger grasping forces for industrial applications",
+      "Investigating active cooling mechanisms for the tendons to prevent excessive heat accumulation in the matrix and module housing",
+      "Exploring alternative heating methods beyond Joule heating to enhance heating speed and energy efficiency for extremely long SMA wires",
+      "Optimizing polymeric matrix geometry and cross-sectional profile in tandem with long SMA tendons to further enhance performance",
+      "Redesigning the module to be more compact using stiffer materials, smaller bearings, and optimized tendon arrangements",
+      "Adapting the long-tendon architecture to other robotic devices, mechanisms, and medical tools"
+    ],
+    "independent_variables": [
+      "Tendon length (0 to 350 mm for uniform specimens; up to 680 mm for tapered specimen; 50 to 200 mm for uneven tendon tests)",
+      "Actuator matrix thickness (3 mm, 5 mm, 8 mm, and tapered 5 mm to 2.5 mm)",
+      "Tendon symmetry (even vs uneven tendon lengths)",
+      "SMA wire diameter (0.203 mm vs 0.305 mm)",
+      "Contact jig geometry in tensile tests (elliptical prism, half-cylinder, inverted triangular prism)",
+      "Surface friction condition (bare PDMS matrix vs low-friction TPU-coated polyester sleeve)",
+      "Gripper finger arrangement (three-finger antagonistic vs three-finger triangular)",
+      "Object geometry and mass (5 g to 1513 g everyday objects; 2000 g weight)",
+      "Bending angle during force measurement (0° to 120° in 30° increments)"
+    ],
+    "limitations_inferred": [
+      "The quasi-static mechanical model ignores dynamic inertial forces, rate-dependent viscoelastic effects of PDMS, frictional dissipation between sliding wire and silicone tube, and 3D contact mechanics during grasping",
+      "Actuation is entirely open-loop (constant current and duration), lacking closed-loop force, position, or temperature feedback control",
+      "Passive cooling (9 s cooling required for 1 s heating) severely limits actuation frequency to approximately 0.1 Hz",
+      "Routing long wires over mechanical V-shaped bearings introduces mechanical complexity, potential friction losses, and mechanical wear not present in monolithic soft actuators"
+    ],
+    "limitations_stated_by_authors": [
+      "Actuator bending deformation can be physically limited by the actuator contacting its own driving tendons, the mounting jig, or folding onto itself",
+      "Tip force measurement was restricted to a maximum angle of 120° due to physical space limitations for positioning the load cell",
+      "Heat accumulation inside the matrix during repeated cycling causes an increase in the minimum unactuated bending angle during cooling",
+      "Thinner actuators exhibit poorer tip force transmission compared to thicker actuators due to intermediate compliance between base and tip",
+      "High pulling forces rely heavily on friction; reducing surface friction drastically reduces pulling capacity",
+      "Increasing wire diameter, wire count, or tendon length escalates electrical power demands and increases risk of heat accumulation",
+      "Standard Joule heating may become speed- and efficiency-limited when scaling to extremely long SMA wire lengths",
+      "Actuation speed remains slower than pneumatic actuators, requiring further design refinements before competing in high-speed industrial environments"
+    ],
+    "main_results": [
+      "Decoupling wire length from matrix length enabled significant increases in bending angle: the 3 mm thick actuator produced 213° at 100 mm tendon length and reached its physical limit of 270° at 200 mm; 5 mm thick reached 143° at 100 mm and reached its physical limit at 350 mm; 8 mm thick achieved 75° at 100 mm and 168° at 350 mm",
+      "A tapered actuator (5 mm base to 2.5 mm tip) with a 680 mm tendon achieved a maximum bending angle of 400°, reported as the largest among surveyed SMA-based soft actuators",
+      "Actuator tip force reached up to 0.89 N at 0° and decreased nearly linearly with bending angle; thicker actuators maintained higher tip forces throughout the deformation range",
+      "Asymmetric tendon lengths produced purely planar bending without torsion because tension equalized across the sliding U-shaped loop in the silicone guide channel",
+      "Across 100 continuous thermal cycles, the modular actuator exhibited no degradation in peak bending angle, with only a minor offset in minimum uncooled angle due to heat accumulation",
+      "The antagonistic three-finger gripper successfully grasped objects weighing from 5 g to 1513 g (full 1.5 L bottle) in horizontal and vertical orientations, while the triangular gripper grasped objects including a 2 kg block",
+      "Tensile testing demonstrated pulling forces up to 25 N under point contact and up to 30 N under full adaptive power grasp with 0.305 mm wires, sustaining near-peak force through 40 mm displacement and holding grip until 60-72 mm displacement",
+      "Reducing contact friction with a TPU-coated sleeve lowered maximum pulling force from 25-30 N to 7 N (0.203 mm wire) and 13 N (0.305 mm wire) on the elliptical jig",
+      "The modular gripper mounted to a UR10 robotic arm successfully executed grasping, transport, and release of a 273 g beverage can"
+    ],
+    "modeling_methods": [
+      "Quasi-static beam bending equilibrium model equating SMA wire actuation stress with polymeric matrix bending resistance",
+      "Actuator center plane strain and SMA wire plane strain calculation using linear elastic cross-sectional beam properties (eccentricity, Young's modulus, cross-sectional area, and moment of inertia)",
+      "Geometric kinematic relation between matrix length, tendon length, actuator plane strain, and net SMA wire strain",
+      "Brinson one-dimensional thermoconstitutive model for SMA stress-strain-temperature behavior with cosine-based martensite fraction evolution during strain recovery"
+    ],
+    "performance_metrics": [
+      "Maximum bending angle (degrees)",
+      "Tip force as a function of bending angle (N)",
+      "Maximum gripper pulling force (N)",
+      "Sustained displacement under tensile load before grip failure (mm)",
+      "Maximum payload capacity / gripped object weight (g and kg)",
+      "Actuation response time to reach full deformation (s)",
+      "Cyclic durability (number of cycles without degradation of maximum bending angle)"
+    ],
+    "possible_gap_implications": [
+      "Decoupling smart-material stroke from structural body length via low-friction sliding channels provides a generalizable design paradigm for overcoming intrinsic strain limits in 1D smart materials without sacrificing cross-sectional stiffness",
+      "However, scaling tendon length increases thermal mass and cooling latency under Joule heating, highlighting an unresolved trade-off between stroke magnification and cycle bandwidth in thermally driven soft robotics",
+      "The reliance on high interfacial friction for payload retention underscores the need for integrating active variable-friction surfaces or mechanical interlocks in tendon-driven soft grippers"
+    ],
+    "research_objective": "To develop and evaluate soft robotic bending actuators and modular soft grippers utilizing long, free-sliding shape memory alloy (SMA) wire tendons routed through polymeric matrices to decouple wire stroke from matrix length, achieve compact mechanical packaging via pulley/bearing modules, and significantly enhance bending deformation and grasping forces.",
+    "research_problem": "In conventional SMA wire-based soft actuators, embedding the wire directly within the polymeric matrix restricts the active wire length to the matrix length. Because SMA wires have a small recoverable stroke (4-8%), this direct coupling imposes an intrinsic trade-off between bending angle and force, leading to poor grasping and deformation performance relative to other soft actuation technologies.",
+    "robot_type": "soft robotic actuators and soft gripper",
+    "stiffness_mechanism": [],
+    "title": "Long Shape Memory Alloy Tendon-based Soft Robotic Actuators and Implementation as a Soft Gripper",
+    "year": "2019"
+  }
+}

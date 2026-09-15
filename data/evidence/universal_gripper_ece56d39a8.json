@@ -1,0 +1,174 @@
+{
+  "source": {
+    "paper_id": "ece56d39a8",
+    "filename": "universal_gripper.pdf",
+    "sha256": "ece56d39a84b4d574135dff7e544010a4a37670d69f3ef24f8be29c852c4c499",
+    "page_count": 19,
+    "char_count": 40747,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 18080,
+    "completion_tokens": 7267,
+    "total_tokens": 25347,
+    "thinking_tokens": 5104,
+    "cache_read_tokens": 8158
+  },
+  "paper": {
+    "actuation": [
+      "electric vacuum pump",
+      "medical syringe",
+      "manual actuation (lung deflation via straw)"
+    ],
+    "authors": [
+      "Anglet Chiramal Jacob",
+      "Emanuele Lindo Secco"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "Object hold duration of 5 seconds to determine grasping success",
+      "Number of experimental trials per condition (5 trials per object-actuator combination)",
+      "Balloon membrane material (latex selected via 24-hour inflation retention testing)",
+      "Vacuum pump operating condition and oil level (maintained at at least 75% full scale)",
+      "Funnel preparation protocol (stem trimmed by 0.5 inches and joined with duct tape)"
+    ],
+    "dependent_variables": [
+      "Grasping success rate (% of trials where the object was held securely for 5 seconds)",
+      "Granular interlocking and conforming capability",
+      "Membrane conformation time (seconds)",
+      "Gripping force modulation (qualitative variation relative to filling volume and air volume)"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A universal gripper can be fabricated at low cost (less than $20) using a latex balloon filled with granular material attached to a 4 cm radius funnel with a cloth filter.",
+        "evidence_type": "design",
+        "page_numbers": [
+          1,
+          6,
+          7,
+          9,
+          16
+        ]
+      },
+      {
+        "claim": "Optimization of filling volume to 50% and funnel radius to 4 cm enables complete membrane deflation and firm granular interlocking around objects, whereas over-filling (75%) or smaller funnels (3.5 cm) constrain granule mobility.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Actuation via a 220 V electric vacuum pump achieved a 100% grasping success rate (5/5 trials) across 8 daily-life objects of varying shapes, sizes, and stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "A 60 ml medical syringe can act as a manual vacuum actuator, achieving membrane conformation in under 2 seconds with grasping success rates between 60% and 100% across tested objects.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          11,
+          13,
+          15
+        ]
+      },
+      {
+        "claim": "Fine gram flour powder provides superior interlocking capability and grasping performance compared to coarse ground coffee powder due to finer particle geometry.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Grasping force fluctuates with the volume of granular filling and the volume of evacuated air inside the flexible membrane.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          11,
+          16
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Universal gripper end-effector constructed from an elastic latex balloon, a plastic funnel (tested at 3.5 cm and 4.0 cm radius, with stem trimmed by 0.5 inches), duct tape, and a breathable cloth filter to prevent granule ingestion.",
+      "Two granular media tested: coarse ground coffee powder and fine gram flour powder (evaluated at 75% and 50% volume filling).",
+      "Three vacuum actuation sources: (1) 220 V/50 Hz dual-stage oil-lubricated vacuum pump (Model VPB-1D, 200 W, 45 l/min displacement), (2) 60 ml VET-type syringe, and (3) manual lung deflation via a straw.",
+      "Target test set consisting of 8 daily-life objects: bottle cap, glue stick, pen drive, small pebble, ball pen, funnel, coffee lid, and air hose pipe.",
+      "Standard testing protocol of 120 total trials (8 objects x 5 trials x 3 actuation conditions), where the manually handled gripper contacts the object, vacuum is applied, and the object is lifted and held for 5 seconds.",
+      "Simulation and trajectory planning environment using CPRog software on Windows (or ROS on Linux) configured for a Mover 6 6-DoF robotic arm."
+    ],
+    "future_work": [
+      "Integrating pressure sensors or strain gauges into the flexible container to measure internal pressure during actuation.",
+      "Integrating pressure regulators to modulate vacuum pressure relative to grasping performance.",
+      "Characterizing gripper performance across additional granule types, shapes, and sizes (such as rice or other fine powders).",
+      "Performing finite element method (FEM) analysis and experimental setups for stiffness analysis and granular/object contact force characterization.",
+      "Validating the universal gripper system in real industrial pick-and-place tasks beyond preliminary laboratory settings.",
+      "Executing full automated integration and grasping trials on the Mover 6 6-DoF robotic arm."
+    ],
+    "independent_variables": [
+      "Actuation method (220 V electric vacuum pump vs. 60 ml syringe vs. manual lung deflation)",
+      "Granular material type (coarse coffee powder vs. fine gram flour powder)",
+      "Target object type and geometry (8 daily-life objects: bottle cap, glue stick, pen drive, small pebble, ball pen, funnel, coffee lid, air hose pipe)",
+      "Funnel radius (3.5 cm vs. 4.0 cm)",
+      "Granular filling volume fraction (75% vs. 50%)"
+    ],
+    "limitations_inferred": [
+      "Grasping evaluation relied on a small sample size (5 trials per condition) with binary pass/fail criteria (held for 5 s) rather than continuous force, payload, or slip measurements.",
+      "All 120 grasping trials were executed via manual operator handling and positioning of the gripper, meaning automated robotic positioning errors and dynamic arm accelerations were not evaluated.",
+      "Membrane wear, puncture susceptibility against sharp objects, and fatigue life under cyclic jamming were not investigated.",
+      "Manual lung deflation via a straw is impractical and unhygienic for real-world assistive applications, and data for it was only reported for 2 of the 8 objects.",
+      "No mathematical or numerical constitutive continuum/discrete models were developed to describe the mechanics of jamming and contact."
+    ],
+    "limitations_stated_by_authors": [
+      "Testing is preliminary and limited to a controlled laboratory environment rather than industrial pick-and-place scenarios.",
+      "Initial vacuum pump tests failed to jam granules until fabric porosity and filling volume constraints were adjusted.",
+      "Current system connects directly to the vacuum source without pressure regulation to modulate negative pressure against grasping performance.",
+      "Grasping performance drops significantly (down to 40%) for small objects (e.g., bottle cap, glue stick) when using weaker actuation methods.",
+      "The prototype lacks sensory feedback (e.g., internal pressure or tactile sensing).",
+      "Detailed stiffness analysis, force characterization, and finite element modeling (FEM) were not performed in this study.",
+      "Testing was conducted using manual handling rather than full autonomous robotic arm deployment."
+    ],
+    "main_results": [
+      "The 220 V electric vacuum pump achieved a 100% grasping success rate (5/5 trials) across all 8 tested daily-life objects.",
+      "The 60 ml syringe actuator achieved 100% success for pen, funnel, and coffee lid; 80% for pen drive, bottle cap, air hose pipe, and small pebble; and 60% for glue stick.",
+      "Manual lung deflation achieved 60% success for the small pebble and 40% for the bottle cap across reported trials.",
+      "Fine gram flour powder exhibited superior interlocking capability and gripping performance compared to coarse ground coffee powder due to finer particle geometry.",
+      "A 50% filling volume of granules allowed sufficient space for granules to flow and lock around objects upon vacuum application, whereas 75% filling restricted granule rearrangement.",
+      "A larger funnel radius (4.0 cm vs. 3.5 cm) was necessary to prevent geometric constraint of granule reconfiguration during object grasping.",
+      "Membrane conformation time with the syringe actuator was under 2 seconds.",
+      "The total fabrication cost of the end-effector was under $20 (approx. £15), excluding the vacuum pump and robotic arm."
+    ],
+    "modeling_methods": [
+      "Coordinate relationship model between the end-effector and joint coordinates (stated conceptually in text, though mathematical formulations are not presented)",
+      "Kinematic trajectory and 3-D environment simulation using CPRog software for the Mover 6 robotic arm"
+    ],
+    "performance_metrics": [
+      "Grasping success rate (% of trials where an object remains attached for 5 seconds out of 5 trials)",
+      "Membrane conformation time (seconds)",
+      "End-effector fabrication cost (USD / GBP)"
+    ],
+    "possible_gap_implications": [
+      "Demonstrating successful grasping using a low-cost medical syringe suggests the viability of lightweight, portable jamming grippers without heavy vacuum pumps, although lack of automated pressure regulation presents a key translational gap.",
+      "The observed performance disparity between gram flour and coffee powder highlights the need for systematic constitutive and discrete-element modeling of granule morphology and friction in soft jamming end-effectors."
+    ],
+    "research_objective": "To design, integrate, and conduct preliminary experimental trials of a low-cost (< $20), easily assembled universal gripper based on granular jamming, evaluating multiple granule types and actuation methods (electric vacuum pump, medical syringe, manual deflation) for grasping unstructured daily-life objects in assistive domestic and healthcare contexts.",
+    "research_problem": "Conventional robotic grippers are often costly, difficult to control, and struggle to adapt to unfamiliar objects of dissimilar shapes, sizes, and stiffness, limiting their usability in domestic and healthcare assistance for individuals with motor impairments.",
+    "robot_type": "universal gripper",
+    "stiffness_mechanism": [
+      "granular jamming"
+    ],
+    "title": "Design of a Granular Jamming Universal Gripper",
+    "year": ""
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "source": {
+    "paper_id": "a2fce8b2df",
+    "filename": "2022-IEEE Elongatable_Gripper_Fingers_With_Integrated_Stretchable_Tactile_Sensors_for_Underactuated_Grasping_and_Dexterous_Manipulation.pdf",
+    "sha256": "a2fce8b2df24f2a5db0373fd6f1a58cae2fd0bb1c8bc14d741e6d54cebf2eb52",
+    "page_count": 15,
+    "char_count": 74989,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27548,
+    "completion_tokens": 7083,
+    "total_tokens": 34631,
+    "thinking_tokens": 4310,
+    "cache_read_tokens": 8167
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven antagonistic pairs",
+      "dc gear motors"
+    ],
+    "authors": [
+      "Sohee John Yoon",
+      "Minsik Choi",
+      "Bomin Jeong",
+      "Yong-Lae Park"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Tendon cables are inextensible and negligibly thin.",
+      "Pulleys are uniform circles and tendons are wound with a small number of turns to always form tangents with pulley geometry.",
+      "Revolute joints are frictionless pulleys with negligible inertia.",
+      "Prismatic joints are frictionless uniaxial rectangular prism slots.",
+      "Compression springs follow the linear Hookean relation (fs = kx) and only maintain tendon tension without providing geometrical constraints.",
+      "Static loading conditions are considered without frictional forces or inertial effects.",
+      "Grasping contact forces are primarily normal to the link surface with zero external force along the local link longitudinal axes.",
+      "Elastomer sensor material satisfies volume conservation under large strain: (1 + epsilon)(1 - nu * epsilon)^2 = 1.",
+      "Liquid metal microchannel electrical resistance follows the resistivity relation R = rho * L / A with deformation under uniaxial strain."
+    ],
+    "control_variables": [
+      "Motor shaft diameter after tendon winding (4 mm).",
+      "Linear spring stiffness constant (0.429 N/mm, unloaded length 20 mm, fully compressed length 5 mm).",
+      "Soft tactile sensor dimensions (16 mm x 26 mm, thickness 2.4 mm).",
+      "Motorized tensile tester elongation/loading rate (13 mm/min).",
+      "Gripper orientation parallel to floor during kinematic tracking to eliminate gravitational torque on joint angles.",
+      "Sensor data acquisition rates (860 Hz during tensile calibration, ~90 Hz during grasping feedback).",
+      "Predefined contact pressure setpoint during closed-loop balloon grasping."
+    ],
+    "dependent_variables": [
+      "Individual joint angles (theta_i) and individual link lengths (L_j).",
+      "Total finger joint angle sum and link length sum.",
+      "Tendon tensions (flexor and extensor).",
+      "Grasp success or failure across different object sizes and geometries.",
+      "Retention peak pull-away force across pulling angles (0 to 180 degrees).",
+      "Normalized tactile sensor resistance change (Delta R / R_0).",
+      "Sensor pressure sensitivity at varying strain levels.",
+      "Regulated contact pressure during closed-loop dynamic balloon inflation."
+    ],
+    "doi": "10.1109/TRO.2022.3144949",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Antagonistic tendon length sum controls total link length sum while tendon length difference controls total joint angle sum, achieving decoupled control when pulley radii are equal.",
+        "evidence_type": "kinematic modeling and experimental validation",
+        "page_numbers": [
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Static kinetic modeling shows that contact forces applied to the distal phalanx yield a determinate configuration where contact force transmits through tendons and compression springs.",
+        "evidence_type": "kinetic modeling",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Experimental tracking of the finger prototype demonstrated average errors within 20 degrees for joint angles, 2 mm for link lengths, and 0.2 N for tendon tensions relative to kinetic model predictions.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "A serpentine microchannel design with a 4:1 horizontal-to-vertical length ratio maintains normalized resistance change below 1% under 0 to 100% strain, effectively decoupling strain from pressure detection.",
+        "evidence_type": "analytical modeling and mechanical testing",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Finger elongation enlarges the reachable workspace enabling successful grasp of a 140 mm cylinder, whereas finger contraction reduces inter-finger gaps allowing secure grasp of a 73 mm sphere.",
+        "evidence_type": "experimental grasping demonstrations",
+        "page_numbers": [
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Closed-loop force feedback using stretchable tactile sensors maintains desired contact pressure during dynamic balloon inflation by modulating either joint angle sum or link length sum.",
+        "evidence_type": "control experiment",
+        "page_numbers": [
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Peak pull retention forces are higher when fingers are contracted than when elongated due to greater compression of the internal Hookean springs.",
+        "evidence_type": "experimental mechanics characterization",
+        "page_numbers": [
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Multimodal manipulation combining underactuated flexion with active link contraction generates tangential contact forces through friction, enabling unscrewing of a bottle cap.",
+        "evidence_type": "manipulation demonstration",
+        "page_numbers": [
+          12,
+          13
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Commercial 6-DOF robot arm (Universal Robots UR5) mounting the gripper as an end-effector.",
+      "Seven 12-V DC gear motors equipped with optical rotary encoders (5462 counts/rev) and custom ARM-based motor driver boards (STM32F405RGT6, DRV8848).",
+      "Optical smartphone camera (Samsung Galaxy A20) with accelerometer alignment and steel ruler calibration for planar 2D position tracking of joint axle pins.",
+      "Motorized tensile test stand (Mark-10 ESM 303) paired with force gauges (Mark-10 M7-05) for tendon tension and cylinder retention testing.",
+      "Multi-axis load cell (ATI Industrial Automation Nano17) mounted on a tensile tester for calibrating tactile sensor normal pressure response.",
+      "Test objects including 3D-printed cylinders (100 mm, 140 mm, 180 mm diameter), a 73 mm spherical plastic ball, an 8 mm slender rod, an inflating rubber balloon, and a screw-top water bottle."
+    ],
+    "future_work": [
+      "Exploring gripper designs with higher degrees of freedom and varying module counts.",
+      "Developing deeper analysis and optimization of control schemes, such as determining appropriate finger length based on object geometry.",
+      "Investigating larger finger elongations paired with sensors capable of enduring higher strains.",
+      "Applying the elongatable linkage mechanism to other robotic structures such as wrists or robot arms."
+    ],
+    "independent_variables": [
+      "Tendon length sum (L_tendon,extensor + L_tendon,flexor) / commanded link elongation state.",
+      "Tendon length difference (L_tendon,extensor - L_tendon,flexor) / commanded joint angle flexion state.",
+      "Target object diameter and shape (100, 140, 180 mm cylinders; 73 mm sphere; 8 mm rod; dynamically inflating balloon).",
+      "Pull-away angle during retention testing (0 to 180 degrees in 10-degree increments).",
+      "Applied external tip load (0 to 0.6 N in 0.2 N increments).",
+      "Microchannel horizontal-to-vertical length ratio (L*, 1:1 through 7:1).",
+      "Applied tensile strain on the soft sensor (0% to 100%).",
+      "Applied contact force/pressure on the soft sensor (0 to 12 N)."
+    ],
+    "limitations_inferred": [
+      "Tactile sensor pressure sensitivity increases at higher tensile strains, which may require strain-dependent recalibration for accurate quantitative pressure measurement.",
+      "Tactile sensing is limited to discrete pads on phalanx links, leaving unmonitored dead zones at revolute joints and pulleys.",
+      "Structural components are made of 3D-printed rigid acrylic resin and snap-fit anchors, confining compliance strictly to the internal springs and sensor skins rather than the structural frame.",
+      "Dynamic high-speed grasping and impact loading were not evaluated; tests were performed under quasi-static conditions with settling times."
+    ],
+    "limitations_stated_by_authors": [
+      "Internal compression springs used to maintain tendon tension cannot withstand external compressive forces directed along the prismatic slot axes without deflection, and stiffer springs require higher tendon tensions.",
+      "Maximum finger elongation is constrained by the maximum endurable strain limit of the integrated tactile sensors.",
+      "Frictional effects, link inertia, and internal stiffness differences cause discrepancies from ideal models, such as joint angle tracking errors (up to 20 degrees, especially at the base joint) and an undetermined configuration in the unloaded state.",
+      "Gripper position control operates in a feedforward manner because joint angles and link lengths are not measured in real time.",
+      "Finger closure sequence and individual joint movements are underactuated and cannot be directly commanded independently of contact conditions.",
+      "Elongation increases the aspect ratio of fingers and widens gaps between them, allowing smaller objects to slip through during grasping."
+    ],
+    "main_results": [
+      "Derived geometric kinematic relations proving that the sum of tendon lengths decouples and controls total link length, while the difference of tendon lengths decouples and controls total joint angle sum (simplified to linear constraints when pulley radii are equal).",
+      "Kinetic modeling validated experimentally with average joint angle errors within 20 degrees, link length errors within 2 mm, and tendon tension errors within 0.2 N.",
+      "Identified a 4:1 horizontal-to-vertical microchannel length ratio that decouples tensile strain from electrical resistance, yielding less than 1% normalized resistance change across 0 to 100% strain without external pressure.",
+      "Demonstrated that elongated fingers succeeded in grasping a 140 mm cylinder where contracted fingers failed, while contracted fingers successfully grasped a 73 mm sphere where elongated fingers allowed it to escape through widened inter-finger gaps.",
+      "Achieved closed-loop force-feedback regulation on an inflating balloon by independently commanding joint angle sums (flexion mode) or link length sums (elongation mode) using ~90 Hz tactile sensor feedback.",
+      "Characterized grasp stability, showing a larger acquisition area when elongated, but higher pull retention forces when contracted due to Hookean spring compression.",
+      "Demonstrated multimodal manipulation by combining underactuated flexion with active link contraction to generate tangential friction forces that unscrewed a bottle cap over three cycles."
+    ],
+    "modeling_methods": [
+      "Geometric kinematic modeling using four-quadrant arctangent formulations and tangent tendon lengths.",
+      "Robot screw theory kinematics via Product of Exponentials (PoE) representation for revolute-prismatic (RP) serial chains.",
+      "Static kinetic modeling based on 2D force and moment equilibrium on pulleys, axle pins, and links.",
+      "Linear Hookean spring constitutive modeling (fs = kx) for prismatic link extension and compression.",
+      "Electrical resistance modeling of microchannel liquid conductors using resistivity equations and elastomer volume conservation under large uniaxial strain."
+    ],
+    "performance_metrics": [
+      "Kinematic and kinetic model tracking errors (degrees for angles, mm for lengths, N for tensions).",
+      "Normalized sensor resistance drift over tensile strain (Delta R / R_0 over 0-100% strain).",
+      "Tactile sensor resistance sensitivity to normal force/pressure across various strain levels.",
+      "Grasp acquisition success workspace area (planar spatial envelope).",
+      "Grasp retention peak pull-away force (N) across varying pulling angles.",
+      "Contact pressure regulation capability during dynamic balloon expansion."
+    ],
+    "possible_gap_implications": [
+      "Integrating continuous proprioceptive link-length sensors could eliminate feedforward position reliance and enable automated compensation for the strain-dependent pressure sensitivity of the soft sensors.",
+      "Developing bidirectional locking or variable-stiffness prismatic joints could overcome axial load vulnerability without requiring high constant tendon pretension.",
+      "Autonomous grasp planners combining visual size estimation with active link length adjustment could dynamically prevent small-object escapement while maximizing grasp envelope."
+    ],
+    "research_objective": "To design, model, fabricate, and experimentally evaluate an underactuated robotic gripper finger featuring a length-adjustable linkage mechanism driven by an antagonistic tendon pair (allowing simultaneous control of joint angle sum and link length sum), integrated with stretchable hyperelastic liquid-metal tactile sensors for contact pressure feedback during underactuated grasping and dexterous manipulation.",
+    "research_problem": "Adapting robotic grippers to objects of diverse shapes and sizes typically requires high degrees of freedom that complicate control, while underactuated revolute-joint fingers are limited to fixed link lengths and restricted task spaces. Additionally, integrating tactile sensing onto elongatable fingers is hindered because conventional tactile sensors cannot withstand large strains without functional failure or leaving link sections uncovered.",
+    "robot_type": "underactuated tendon-driven gripper",
+    "stiffness_mechanism": [
+      "passive linear compression springs in prismatic joints"
+    ],
+    "title": "Elongatable Gripper Fingers With Integrated Stretchable Tactile Sensors for Underactuated Grasping and Dexterous Manipulation",
+    "year": "2022"
+  }
+}

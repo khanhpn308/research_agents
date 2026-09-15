@@ -1,0 +1,167 @@
+{
+  "source": {
+    "paper_id": "39520ca4cd",
+    "filename": "2023-IEEE A_Palm-Shape_Variable-Stiffness_Gripper_Based_on_3D-Printed_Fabric_Jamming.pdf",
+    "sha256": "39520ca4cd41c36fd63fafdc71190e9edabb01869b99d808d9512ff3936e9709",
+    "page_count": 8,
+    "char_count": 43757,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27634,
+    "completion_tokens": 6162,
+    "total_tokens": 33796,
+    "thinking_tokens": 3955,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "soft pneumatic actuators (positive pressure up to 120 kPa)",
+      "vacuum pump (negative pressure down to -90 kPa)"
+    ],
+    "authors": [
+      "Yuchen Zhao",
+      "Yifan Wang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "positive actuation pressure during gripping and conformability tests (120 kPa)",
+      "vacuum pressure in jammed state (-90 kPa)",
+      "pulling speed during maximum gripping force tests (2 mm/s)",
+      "lifting speed during object gripping tests (0.5 m/min)",
+      "default spacing between palms (8 cm, unless adjusted to 6 or 7 cm for slender/slippery objects)",
+      "jamming media weight across rectangular palm comparisons (22 g)",
+      "dimensions of jamming volume (10 cm x 8 cm) and silicone membrane (10 cm x 9.4 cm)",
+      "silicone elastomer curing conditions (room temperature)"
+    ],
+    "dependent_variables": [
+      "maximum gripping force (pulling force at detachment)",
+      "pinch force (force exerted at the palm tip against a load sensor)",
+      "grip-to-pinch force ratio",
+      "jammed-to-unjammed gripping force ratio",
+      "palm conformability metric (average slope angle theta of the bottom edge profile)",
+      "grasping success across various test items"
+    ],
+    "doi": "10.1109/LRA.2023.3266667",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Jamming of 3D-printed structured fabrics consisting of interlocking octahedron trusses provides reversible stiffening under vacuum, enabling the soft palm gripper to reach a maximum gripping force of 17 N and a grip-to-pinch force ratio of 42.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Geometric interlocking dominates the gripping force for curved enclosing shapes (spheres and horizontal cylinders), where jamming increases gripping force up to 4.6 times, whereas frictional contact dominates for vertical flat surfaces (cubes and vertical cylinders) where jamming produces minimal change.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Structured fabric jamming exhibits higher conformability than paper layer jamming because the discrete chain-mail-like elements require minimal elastic energy to adapt to curved surfaces compared to continuous elastic sheets.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Adding a 0.1 mm PET plastic sheet liner between the fabric and silicone membrane significantly increases jammed gripping force (from 8 N to 17 N on a 7 cm cylinder) by enhancing composite bending stiffness, with a slight reduction in conformability and unjammed pinch force.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The palm-shaped gripper applies small active pinching forces (0.2 N to 0.6 N) and requires zero pushing force prior to gripping, enabling damage-free handling of delicate and soft items.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Universal testing machine (Mark-10 F305) with a moving force sensor to pull the gripper off fixed test objects at a constant speed of 2 mm/s to measure gripping force versus displacement.",
+      "Object lifting test setup using the Mark-10 F305 at a constant lift speed of 0.5 m/min across 12 diverse objects (3 g to 454 g).",
+      "Pinch force measurement apparatus where a single palm pressurized to 120 kPa presses its tip against a rod connected to a force sensor.",
+      "Conformability imaging setup with the gripper suspended above a transparent acrylic plate, an underside camera calibrated with MATLAB cameraCalibrator and a checkerboard pattern, and edge coordinate tracking of the deformed palm bottom.",
+      "Dual pneumatic supply system with positive pressure (0 to 120 kPa) routed to four pneumatic network bending actuators and a vacuum pump (-90 kPa) routed to the palm jamming chambers."
+    ],
+    "future_work": [
+      "Optimizing actuator placements to enhance gripper conformability and overall gripping performance.",
+      "Improving the stiffness variation of fabric jamming by designing alternative fabric structures and fabric-liner-membrane compositions.",
+      "Exploring alternative actuation mechanisms such as stimulus-responsive materials or bidirectional positive/negative pneumatic actuators.",
+      "Developing more compact pneumatic control systems using vacuum-powered or electric-powered actuators."
+    ],
+    "independent_variables": [
+      "gripper design and jamming medium configuration (F1 with fabrics and PET liner, F2 with fabrics without PET liner, L1 with paper layer jamming, T1 with trapezoidal fabric jamming palm)",
+      "jamming state / vacuum pressure level (unjammed at 0 kPa vs. jammed at -90 kPa)",
+      "pneumatic actuator positive pressure (varied from 0 to 120 kPa)",
+      "object geometry (spheres, horizontal cylinders, cubes, vertical cylinders)",
+      "object characteristic dimensions (3 cm, 5 cm, and 7 cm diameter/length)",
+      "cube orientation relative to the palm during conformability testing (parallel vs. 45 degrees)",
+      "palm spacing (adjusted between 6 cm, 7 cm, and 8 cm for specific object types)"
+    ],
+    "limitations_inferred": [
+      "Quasi-static testing only: dynamic grasping, high-speed manipulation, and acceleration effects were not evaluated.",
+      "Lack of embedded sensing or closed-loop feedback control for contact force, pressure, or shape adaptation.",
+      "Long-term cyclic fatigue, wear, and potential fracture of SLA 3D-printed resin trusses under repeated high-vacuum jamming were not investigated.",
+      "Manual adjustment of palm spacing was required to handle slender or slippery objects rather than adaptive autonomous adjustment."
+    ],
+    "limitations_stated_by_authors": [
+      "Current palm designs have limited bending deformation and reduced conformability because each palm is driven by only two bending actuators along its sides.",
+      "There is an apparent negative trade-off between conformability and gripping force, as more compliant jamming materials achieve lower stiffness upon jamming (e.g., L1 had highest force but lowest conformability).",
+      "Vacuum-induced jamming causes slight palm volume decrease and deformation, leading to pinch force variations and fluctuations between individual palms due to residual stresses, fabric packing variation, and fabrication misalignments.",
+      "The trapezoidal palm design (T1) exhibited reduced palm bending and the lowest conformability across all tested shapes due to its actuator layout."
+    ],
+    "main_results": [
+      "Gripper F1 successfully picked up 12 representative daily and standard objects spanning 3 g to 454 g, including delicate items (shuttlecock, ping pong ball) without damage and slippery/soft items (wet hydrogel sphere, pitaya) using jamming.",
+      "Maximum gripping force reached 17 N for F1 and 19 N for L1 when gripping a 7 cm horizontal cylinder at -90 kPa vacuum.",
+      "Geometric interlocking dominated gripping force for spheres and horizontal cylinders, resulting in a 4.6-fold force increase upon jamming for the 7 cm sphere, while frictional contact dominated cubes and vertical cylinders where jamming caused little force change.",
+      "Pinch forces were low (0.2 N to 0.6 N across designs at 120 kPa), and vacuum jamming had minimal impact on active pinch force.",
+      "High grip-to-pinch force ratios were achieved (42 for F1, 62 for F2, 33 for L1), surpassing previous jamming-based soft pneumatic grippers.",
+      "Fabric jamming grippers exhibited higher conformability (measured via average bottom edge angle theta) than paper layer jamming (L1), with F2 showing the highest conformability due to the absence of the stiffer PET liner."
+    ],
+    "modeling_methods": [
+      "Parabolic curve fitting (y = ax^2 + bx + c) applied to traced palm bottom edge profiles to calculate the average slope angle theta as a quantitative conformability metric."
+    ],
+    "performance_metrics": [
+      "maximum gripping force (N)",
+      "pinch force (N)",
+      "maximum gripping-to-pinch force ratio",
+      "jammed-to-unjammed gripping force ratio",
+      "average palm bottom edge slope angle theta (degrees)",
+      "maximum payload mass (g)"
+    ],
+    "possible_gap_implications": [
+      "The trade-off between unjammed conformability and jammed load capacity suggests a need for spatially graded, anisotropic, or hybrid jamming structures rather than uniform planar jamming media.",
+      "Actuation limitations of side-mounted bending actuators indicate that distributed multi-DOF actuation or active robotic surface morphing could decouple conformability from palm stiffness.",
+      "The lack of analytical mechanical modeling for 3D-printed interlocking truss jamming under composite membrane constraints points to an open gap in predictive constitutive models for non-convex granular and fabric jamming."
+    ],
+    "research_objective": "To design, fabricate, and systematically evaluate a palm-shape anthropomorphic variable-stiffness soft gripper driven by soft pneumatic actuators and enabled by vacuum jamming of 3D-printed structured fabrics covering a large surface area, achieving gentle conformability with low pinch force and high gripping strength when jammed.",
+    "research_problem": "Universal granular jamming grippers conform well to objects but require a large pushing force before picking up, which can damage or displace soft and free-hanging objects. Conversely, soft anthropomorphic multi-finger grippers avoid pushing forces but possess limited contact area, low conformability, and risk losing objects through finger gaps or twisting.",
+    "robot_type": "palm-shape variable-stiffness soft pneumatic gripper",
+    "stiffness_mechanism": [
+      "fabric jamming (jamming of 3D-printed structured fabrics)",
+      "layer jamming (evaluated in comparative gripper L1)",
+      "pneumatic jamming (vacuum-induced jamming)"
+    ],
+    "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+    "year": "2023"
+  }
+}

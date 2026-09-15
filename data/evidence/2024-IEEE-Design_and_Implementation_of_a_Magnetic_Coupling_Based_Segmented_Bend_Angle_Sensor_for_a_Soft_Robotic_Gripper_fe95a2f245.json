@@ -1,0 +1,172 @@
+{
+  "source": {
+    "filename": "2024-IEEE-Design_and_Implementation_of_a_Magnetic_Coupling_Based_Segmented_Bend_Angle_Sensor_for_a_Soft_Robotic_Gripper.pdf",
+    "sha256": "fe95a2f245396f7c18e4afa035a52e3282774bb396e81015cecb42126e9dc143",
+    "page_count": 10,
+    "char_count": 44959
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26656,
+    "completion_tokens": 6847,
+    "total_tokens": 33503,
+    "thinking_tokens": 4321,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic actuation"
+    ],
+    "authors": [
+      "Debasrita Kar",
+      "Boby George",
+      "K. Sridharan"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Planar sensing coils are attached to rigid internal fins, assuming the coil plane remains in quadrature with the inner tangent of the finger during bending.",
+      "The inner periphery (grasping area) length remains constant during bending, while the outer periphery expands.",
+      "Relative movement at the bottom edges of the coils (<0.5 mm) has a negligible effect on mutual inductance compared to the angular displacement at the outer edges (5 mm).",
+      "Operating below the self-resonance frequency (200 kHz) at 50 kHz ensures inductive coil impedance dominates and parasitic capacitance effects are negligible.",
+      "Constant current excitation prevents changes in coil contact resistance or ambient temperature from altering primary excitation current.",
+      "Small DC offsets and op-amp bias currents do not induce secondary AC voltages."
+    ],
+    "control_variables": [
+      "Excitation frequency (50 kHz) and voltage (1 V p-p)",
+      "Primary coil excitation current (1.6 mA) set via 220 Ohm input resistor",
+      "Instrumentation amplifier gain (G = 100, AD620)",
+      "Planar coil geometry (16 mm x 16 mm PCB, 26 turns, 0.127 mm trace width/spacing, 0.035 mm copper thickness, 0.3 mm substrate thickness)",
+      "Initial coil spacing in relaxed state (~5 mm)",
+      "Gripper finger dimensions (11.5 cm length, 2.5 cm width, 5.5 cm finger-to-finger distance)",
+      "Silicone elastomer material (Smooth-On Dragon Skin 20 Platinum cure silicone) and PLA structural fins",
+      "DAQ sampling rate (500 kHz)"
+    ],
+    "dependent_variables": [
+      "Secondary coil induced voltage (Vp-p or Voi)",
+      "Mutual inductance between coil pairs (M1, M2, M3)",
+      "Segment bend angles (theta_1, theta_2, theta_3 for tip, middle, and base segments)",
+      "Polynomial calibration coefficients (k0, k1, k2) and goodness-of-fit (R^2)",
+      "Sensor repeatability and standard deviation"
+    ],
+    "doi": "10.1109/TIM.2024.3373061",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Mutual inductance between flexible planar coil pairs attached to internal rigid fins decreases monotonically as bend angle increases from 0 to 120 degrees due to increasing upper-edge separation.",
+        "evidence_type": "simulation_and_experimental",
+        "page_numbers": [
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "claim": "Segmented bend angle sensing using three independent coil pairs across base, middle, and tip regions successfully distinguishes grasp modes (pinch vs. enveloping) and object shapes (spherical vs. rectangular).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "The magnetic coupling bend sensor achieved an average sensitivity of 1.05 mV/deg with a second-order polynomial fit R^2 of 0.999 over 0 to 120 degrees, with repeatability within 0.5 degrees (0.11 mV standard deviation).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "A series-connected current source excitation scheme eliminates measurement sensitivity to contact resistance variations and ambient temperature fluctuations.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          6
+        ]
+      },
+      {
+        "claim": "Grasping ferromagnetic objects (relative permeability 1200) and conductive copper objects caused negligible interference in mutual inductance due to spatial separation (8 mm) and localized core flux.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "Optical validation using CAD image analysis verified dynamic bend angle tracking with errors ranging from 0.1 to 0.9 degrees relative to visual ground truth.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Pneumatically actuated two-finger soft robotic gripper fabricated by casting Smooth-On Dragon Skin 20 silicone onto a 3D-printed PLA mold with internal PLA rigid fins (finger dimensions: 11.5 cm x 2.5 cm; limb spacing: 5.5 cm).",
+      "Six identical planar spiral coil flexible PCBs (16 mm x 16 mm x 0.3 mm, 26 turns, 4.95 uH self-inductance) mounted on internal rigid fins forming three sensor pairs (tip, middle, base).",
+      "Current source driver using an LF347 quad JFET op-amp supplying 1.6 mA AC current at 50 kHz across series-connected primary coils.",
+      "Signal conditioning unit with AD620 instrumentation amplifiers (gain = 100) and bandpass filtering.",
+      "National Instruments NI ELVIS II+ DAQ unit running custom LabVIEW software sampling at 500 kHz.",
+      "Static calibration jig with precision grooves from 0 to 120 degrees in 20-degree increments.",
+      "CAD-based optical angle verification using camera recordings and Autodesk Inventor.",
+      "Grasping test rig evaluating pinch and enveloping grasps on spherical, rectangular, ferromagnetic (steel tube, relative permeability 1200), and conductive (copper) targets."
+    ],
+    "future_work": [
+      "Using the combined multi-segment bend angle outputs to automate recognition and classification of object shapes.",
+      "Implementing synchronous demodulation signal processing and dynamic excitation frequency switching to mitigate external time-varying magnetic interference."
+    ],
+    "independent_variables": [
+      "Bend angle of the soft robotic finger segment (0 to 120 degrees in 20-degree increments; dynamic cyclic bending)",
+      "Primary excitation AC frequency (50 kHz) and voltage (1 V p-p)",
+      "Grasping modality (enveloping grasp vs. pinch grasp)",
+      "Object geometry/shape (spherical balls, square/rectangular blocks, varying diameters)",
+      "Object material electromagnetic properties (ferromagnetic with relative permeability 1200, conductive copper)"
+    ],
+    "limitations_inferred": [
+      "The sensor architecture requires pre-existing internal rigid fins or skeleton structures for mounting, making it difficult to implement in finless, entirely elastomeric, or hollow soft actuators without structural modifications.",
+      "Sensing is restricted to single-axis planar bending; out-of-plane lateral deflection, torsional twisting, or elongation are not measured or decoupled.",
+      "The sensor provides proprioceptive curvature information only and cannot measure contact forces or grasp pressure.",
+      "Object shape identification is currently qualitative based on discrete segment angles; no automated classification algorithm was implemented or demonstrated.",
+      "Long-term cyclic fatigue of PCB traces, bonding durability to PLA fins, and lead-wire fatigue under extended cycles were not evaluated."
+    ],
+    "limitations_stated_by_authors": [
+      "Misalignment of PCBs in the relaxed position and non-uniform periphery expansion from fabrication defects cause minor parameter variations across individual sensor calibration curves.",
+      "Anatomical irregularities in finger design (unequal slice counts per segment replicating human finger anatomy) prevent the finger from being segmented into equal geometric thirds.",
+      "Susceptibility to interference if exposed to external time-varying magnetic fields operating near the excitation frequency.",
+      "Coil turn count and maximum mutual inductance are limited by PCB manufacturing constraints on minimum trace width and trace gap.",
+      "PCB physical dimensions must not exceed the internal rigid fin profile (15 mm x 15 mm or 16 mm x 16 mm) and must remain very thin to avoid restricting finger flexibility."
+    ],
+    "main_results": [
+      "Demonstrated monotonic decrease in mutual inductance and secondary induced voltage as bend angle increases from 0 to 120 degrees, matching finite element simulation results.",
+      "Established high measurement linearity to a second-order polynomial calibration curve with R^2 = 0.999 and average sensitivity of 1.05 mV/deg.",
+      "Achieved high repeatability across cyclic actuation with a maximum standard deviation of 0.11 mV (corresponding to 0.5 degrees at maximum bend angle) and agreement within 0.1 to 0.9 degrees of CAD image references.",
+      "Successfully distinguished object geometry and grasp modes: spherical objects yielded near-equal tip and middle angles (theta_1 ~= theta_2), rectangular objects yielded distinct segment angles, and pinch grasps produced higher overall bend angles than enveloping grasps.",
+      "Demonstrated immunity to conductive and ferromagnetic objects placed in the grasp region (8 mm separation), exhibiting negligible interference on mutual inductance measurements."
+    ],
+    "modeling_methods": [
+      "Finite element analysis (FEA) using the AC/DC magnetic field (mf) module in COMSOL Multiphysics software to model mutual inductance versus bend angle from 0 to 50 degrees.",
+      "Analytical formula calculating mutual inductance from secondary induced voltage: M = Vs / (omega * Ip).",
+      "Second-order polynomial empirical regression curve fitting: Voi = k2*theta^2 - k1*theta + k0.",
+      "Analytical transfer relationship for instrumentation amplifier output: Voi = (omega * Vs * G / R1) * Mi.",
+      "CAD-based geometric angle extraction using Autodesk Inventor on digital camera images of the bending actuator."
+    ],
+    "performance_metrics": [
+      "Bend angle measurement range: 0 to 120 degrees",
+      "Average sensitivity: 1.05 mV/deg",
+      "Goodness of fit (second-order polynomial): R^2 = 0.999",
+      "Output repeatability / standard deviation: maximum SD of 0.0023 V (calibration) and 0.11 mV (dynamic cycling, corresponding to 0.5 degrees at maximum bend angle)",
+      "Optical CAD reference comparison absolute error: 0.1 to 0.9 degrees",
+      "Planar coil coupling coefficient: 0.1 (parallel, unbent configuration)",
+      "Coil self-inductance: 4.95 uH (self-resonance frequency: 200 kHz)"
+    ],
+    "possible_gap_implications": [
+      "Integrating localized non-contact inductive bend angle sensing into soft pneumatic fingers provides proprioceptive feedback immune to resistive hysteresis and capacitive environmental drift, potentially enabling closed-loop shape-adaptive grasping and object recognition. However, adapting this approach to general soft continuum robots requires overcoming reliance on rigid internal mounting fins, addressing multi-axis bending and twisting, and developing automated shape reconstruction algorithms."
+    ],
+    "research_objective": "To design, fabricate, and experimentally evaluate a flexible planar-coil-based segmented bend angle sensor integrated into the internal fins of a soft robotic gripper, using series current-source excitation to accurately measure local bend angles up to 120 degrees and provide object shape feedback during grasping.",
+    "research_problem": "Exact dynamic modeling and control of soft robotic grippers are challenging due to non-linear material properties, and existing bend angle sensors (resistive, capacitive, optical) suffer from hysteresis, environmental susceptibility (humidity, dust, temperature), high power/cost, or measure only overall structure displacement rather than segmented, localized bend angles necessary to identify non-circular object shapes.",
+    "robot_type": "soft robotic gripper",
+    "stiffness_mechanism": [],
+    "title": "Design and Implementation of a Magnetic Coupling Based Segmented Bend Angle Sensor for a Soft Robotic Gripper",
+    "year": "2024"
+  }
+}

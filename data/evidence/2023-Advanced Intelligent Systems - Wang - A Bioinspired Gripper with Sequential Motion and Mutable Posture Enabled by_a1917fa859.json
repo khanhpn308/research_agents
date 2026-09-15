@@ -1,0 +1,209 @@
+{
+  "source": {
+    "paper_id": "a1917fa859",
+    "filename": "2023-Advanced Intelligent Systems - Wang - A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by.pdf",
+    "sha256": "a1917fa859af7887d372bac53820f07d89240a806432fec24ff69af2ddca9226",
+    "page_count": 12,
+    "char_count": 50001,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28689,
+    "completion_tokens": 6267,
+    "total_tokens": 34956,
+    "thinking_tokens": 3708,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven",
+      "rotatory DC motor (DJI RoboMaster M3508 P19) with actuating tendon",
+      "servomotors (TianKongRC TD-8320MG) driving antagonist tendons"
+    ],
+    "authors": [
+      "Tianhong Wang",
+      "Tao Jin",
+      "Quan Zhang",
+      "Long Li",
+      "Guopeng Wang",
+      "Yingzhong Tian",
+      "Sicheng Yi",
+      "Yangqiao Lin"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Soft material is incompressible and homogeneous",
+      "No strain exists in the tendon (inextensible tendon)",
+      "Tendon channel is frictionless",
+      "Strain only lies in the junction zone, while other regions are rigid enough without any deformation (stress concentration assumption)",
+      "The spring during bending is approximated as an arc shape",
+      "Spring length is constant under pretension force, but undergoes length variation along with joint bending when pretension force is removed",
+      "Deformation is modeled as a quasi-static process",
+      "Angle variation of each joint is assumed to be equal under small displacement at the fingertip (alpha1 = alpha2)"
+    ],
+    "control_variables": [
+      "Finger dimensions and structural geometry (junction zone parameters a, b, c, and tendon distance)",
+      "Hyperelastic material coefficients for Agilus 30 (C1 = 0.168, C2 = 0.023) and junction zone expansion factor (mu = 2)",
+      "Number of repeated experimental trials per condition (3 repetitions averaged)",
+      "Initial contact force before dynamic oscillation (set to 0.5 N)",
+      "Displacement testing increment for stiffness characterization (1 mm interval up to 8 mm)"
+    ],
+    "dependent_variables": [
+      "Joint bending angle (theta)",
+      "Bending moment (actuating moment, resistance moment, and spring rotational moment)",
+      "Finger and joint bending stiffness (N/mm)",
+      "Fingertip workspace and deformation profile",
+      "Normal clamping force (N)",
+      "Horizontal pulling resistance force / load capacity (N)",
+      "Lateral grasping / pulling force (N)",
+      "Deformation or structural damage of fragile objects (paper ring, plasticine cylinder, paper cup)",
+      "Dynamic grasp stability and contact force oscillation during periodic reciprocal motion"
+    ],
+    "doi": "10.1002/aisy.202200304",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Combining spring stiffness and pretension under the antagonistic mechanism can enhance fingertip stiffness up to 6.4 times compared to a finger without springs.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "The joint bending deformation and resistance moment can be modeled using second-order Yeoh hyperelastic strain energy density combined with a stress-concentration sector geometry.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "Finger stiffness can be predicted via virtual work and equivalent series joint stiffness, showing positive correlation with spring pretension and bending angle.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Selective spring pretensioning allows single-joint bending where the stiffened joint remains unbent while the compliant joint bends up to 70 degrees under load.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "A stiffness gradient decreasing from base to tip produces sequential motion (proximal sweeping followed by distal caging) that enlarges contact area and reduces mismatching zones across various cylinder curvatures.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Increasing spring pretension and wire diameter decreases normal clamping force because the antagonistic effect offsets bending torque, enabling gentle contact.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Stiffening the distal joint is more effective at strengthening lateral load capacity than stiffening the proximal joint.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "Variable joint stiffness protects delicate objects, allowing undamaged grasping of paper rings and plasticine cylinders that deform or fail under uniform stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Antagonistic pretensioning enables stable dynamic grasping of a 100 g weighted paper cup under reciprocal motion (1.4 s cycle) without slip, whereas fingers without pretension bend passively and fail due to inertial forces.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Multimaterial 3D printing of fingers using PolyJet 750 (Stratasys Inc.) with Vero PureWhite for rigid backbones and Agilus 30 for soft attachments",
+      "Actuation test rig using a rotatory DC motor (DJI RoboMaster M3508 P19) for the actuating tendon and two servomotors (TianKongRC TD-8320MG) for antagonist spring tendons",
+      "Deformation measurement platform with finger mounted on a 3D-printed holder and positions tracked on grid paper under 300 g and 500 g hanging weights",
+      "Stiffness testing platform using a force meter (SF-200, Aipu) mounted on a linear screw guide pushing the fingertip horizontally by 8 mm in 1 mm increments",
+      "Clamping force and load capacity station using a flexible force sensor (FlexiForce A201, Tekscan Inc.) attached to the distal phalange and pulling force measured axially and laterally during object escape",
+      "Dynamic manipulation setup with SRSG mounted on a robotic manipulator performing reciprocal motion with a 1.4 s period while holding a paper cup containing 100 g weight",
+      "Grasping verification across diverse shapes: cylinders (35, 45, 55, 60, 75 mm), cuboids (50, 80 mm), triangular prism, paper cups with weights (100 g, 200 g), 1 kg weight, 410 mL drink, paper ring, and plasticine cylinder"
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Spring wire diameter (e.g., 0.6 mm vs. other diameters / without springs)",
+      "Spring pretension force and elongation length (0 to 8 mm; up to 2.9 N)",
+      "Actuating tendon force / applied hanging weight (e.g., 300 g, 500 g, up to 9.7 N)",
+      "Joint bending angle (e.g., 10 deg, 20 deg, up to 70 deg or 90 deg)",
+      "Joint stiffness configuration/gradient (uniform, base-to-tip decreasing, proximal stiffened)",
+      "Target object geometry, dimension, and deformability (curvatures of 35-75 mm, flat cuboids, triangular shape, fragile/compliant items)",
+      "Dynamic oscillation state (reciprocal manipulator motion with 1.4 s period)"
+    ],
+    "limitations_inferred": [
+      "Multi-material 3D-printed elastomer-to-rigid interfaces (Agilus 30 to Vero PureWhite) may be vulnerable to fatigue and delamination under repetitive antagonistic loading.",
+      "The variable stiffness mechanism relies on pre-programmed open-loop servo positions without real-time closed-loop contact force or stiffness sensing.",
+      "Each finger is mechanically constrained to single-plane bending without lateral adduction/abduction or spatial compliance.",
+      "External actuators (DC motor, multiple servos, and controller) add system bulk, limiting self-contained untethered deployment."
+    ],
+    "limitations_stated_by_authors": [
+      "Discrepancies and errors exist between theoretical modeling predictions and experimental results due to nonlinear material behavior and approximate mathematical solutions.",
+      "The gripper without spring pretension suffers from insufficient stiffness to resist inertial forces during dynamic acceleration and deceleration, causing passive bending and grasp failure."
+    ],
+    "main_results": [
+      "The finger stiffness increased up to 6.4-fold when combining spring stiffness and pretension compared to the finger without springs.",
+      "Applying spring pretension up to 2.9 N increased finger stiffness from 0.223 to 0.425 N/mm at a 20-degree joint angle.",
+      "Stiffness gradient allocation enabled sequential motion (proximal bending sweeping followed by distal caging), significantly enlarging contact area across various object curvatures (35, 55, and 75 mm diameters).",
+      "Higher distal joint stiffness contributed more significantly to lateral load capacity than proximal joint stiffness.",
+      "Antagonistic pretensioning reduced peak contact clamping force while elevating structural resistance, allowing gentle and safe grasping of fragile paper rings and plasticine cylinders without damage.",
+      "The gripper lifted heavy items (1 kg weights, 410 mL drink) and maintained dynamic grasp stability on a 100 g weighted paper cup over four 1.4 s reciprocal cycles without slipping, whereas fingers without pretension dropped the object."
+    ],
+    "modeling_methods": [
+      "Moment equilibrium modeling considering actuating moment, joint hyperelastic resistance moment, and spring rotational moment",
+      "Stress concentration modeling idealizing the deformed junction zone as a sector of bending angle theta with expansion factor mu = 2",
+      "Second-order Yeoh hyperelastic strain energy density formulation for incompressible, homogeneous soft material",
+      "Virtual work principle formulating joint reaction torque and stiffness from total strain and potential energy",
+      "Series equivalent stiffness model for two independent joints in series (Kf = K1*K2 / (K1 + K2))"
+    ],
+    "performance_metrics": [
+      "Finger stiffness (N/mm) and stiffness enhancement ratio (up to 6.4x)",
+      "Maximum joint bending angle (up to 90 degrees per joint)",
+      "Normal clamping force (N)",
+      "Horizontal pulling resistance force / axial load capacity (N)",
+      "Lateral grasping / pulling force (N)",
+      "Contact area and surface conformity (reduction of mismatching interaction zone)",
+      "Preservation of fragile object geometry without deformation/damage",
+      "Dynamic grip retention under reciprocal motion cycles (1.4 s period)"
+    ],
+    "possible_gap_implications": [
+      "Although the antagonistic tendon-spring mechanism avoids the bulky fluidic hardware of pneumatic variable-stiffness grippers, achieving autonomous stiffness adaptation in unstructured environments will likely require integrating tactile/proprioceptive feedback.",
+      "While sequential planar motion improves curvature enveloping, grasping highly irregular three-dimensional or asymmetric objects with antagonistic variable stiffness remains an open research avenue.",
+      "The durability, creep, and fatigue life of multimaterial 3D-printed joints subjected to continuous antagonistic pretension warrant systematic cyclic endurance testing."
+    ],
+    "research_objective": "To develop, model, and experimentally validate a bioinspired soft-rigid structured gripper (SRSG) utilizing an antagonistic tendon-spring mechanism to achieve variable joint stiffness, sequential motion, and mutable postures for conformal, safe, and stable grasping of delicate and varied objects.",
+    "research_problem": "Conventional soft grippers struggle to reconcile high compliance with variable stiffness for delicate and high-load tasks, while existing variable stiffness mechanisms often suffer from poor repeatability, slow response, or complex control; furthermore, uniform curvature deformation limits adaptability to diverse curvatures and risks damaging fragile items.",
+    "robot_type": "soft-rigid structured gripper",
+    "stiffness_mechanism": [
+      "antagonistic mechanism",
+      "spring pretension",
+      "multimaterial soft joint with spring connecting adjacent backbones"
+    ],
+    "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+    "year": "2023"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "source": {
+    "paper_id": "ca52258155",
+    "filename": "Soft_robotics_gripper_technology_in_medical_surger.pdf",
+    "sha256": "ca522581558e9c9399cf3ec3b711f45fced77a2b4422f5758bdd10fc51d2fbc8",
+    "page_count": 33,
+    "char_count": 155120,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 57705,
+    "completion_tokens": 8122,
+    "total_tokens": 65827,
+    "thinking_tokens": 5006,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic (soft pneumatic actuators, fluidic actuators)",
+      "tendon/cable-driven",
+      "hydraulic",
+      "shape memory alloys (SMA)",
+      "electroactive polymers (EAP)",
+      "linear motor",
+      "leadscrew mechanism and four-bar linkage",
+      "hybrid actuation (e.g., cable-pneumatic hybrid)",
+      "magnetic actuation"
+    ],
+    "authors": [
+      "Ilham Saputra",
+      "Aulia Fajrin",
+      "Ulfi Sartika Lubis",
+      "Adhan Efendi"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Elastomer-based devices and biological tissues exhibit nonlinear material properties and time-dependent behaviors",
+      "Hyperelastic material formulation used for soft robotic gripper modeling",
+      "Polymer chain reorganization and micro-structural fatigue causing cyclic degradation (Mullins-like softening effect observed in Ecoflex silicone elastomer testing)"
+    ],
+    "control_variables": [
+      "Inclusion of full-text, peer-reviewed journal articles indexed in Scopus published between August 7, 2015, and July 17, 2024",
+      "English language restriction for literature selection",
+      "Predefined keyword-based search queries targeting soft robotics and surgical grippers",
+      "Standardized surgical procedure tasks (e.g., bowel anastomosis, tissue clutching, suturing geometry) in reviewed experimental setups"
+    ],
+    "dependent_variables": [
+      "Article selection counts across PRISMA screening stages and distribution across thematic domains (Robotics, Medical Surgery, Engineering, Computer Science/AI)",
+      "Machine learning optimization score (scale 1 to 5) evaluating precision, adaptability, force control, safety, and real-time performance",
+      "Contact pressure and contact area during tissue grasping",
+      "Suture placement accuracy and procedural completion time",
+      "Cyclic fatigue lifespan (number of cycles before structural failure) and modulus retention under cyclic loading",
+      "Manufacturing and operational costs of surgical instruments"
+    ],
+    "doi": "10.1007/s41315-026-00538-7",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Soft robotic grippers fabricated from compliant materials (silicone, elastomers, hydrogels) conform to irregular tissue shapes and distribute pressure evenly, minimizing peak contact stresses and reducing the risk of tissue trauma during surgical manipulation compared to rigid instruments.",
+        "evidence_type": "systematic_review_synthesis",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          9,
+          16,
+          19,
+          20
+        ]
+      },
+      {
+        "claim": "Soft morphing jaws can increase contact area by 20% to 30% over maximum allowable loads of rigid jaws and reduce contact pressure by approximately 30%, decreasing histological damage during simulated laparoscopic procedures.",
+        "evidence_type": "experimental_and_simulation_review",
+        "page_numbers": [
+          21,
+          26
+        ]
+      },
+      {
+        "claim": "Cyclic mechanical loading on Ecoflex silicone elastomer showed a Young's modulus decrease of approximately 20% between the first and second cycles due to polymer chain reorganization and microstructural fatigue.",
+        "evidence_type": "experimental_mechanics",
+        "page_numbers": [
+          18
+        ]
+      },
+      {
+        "claim": "Fatigue testing on silicone rubber cast soft pneumatic actuators demonstrated structural failure at an average of 3,439 inflation-deflation cycles under operational pressure, with observable micro-tears developing prior to rupture.",
+        "evidence_type": "experimental_mechanics",
+        "page_numbers": [
+          18
+        ]
+      },
+      {
+        "claim": "Variable-stiffness mechanisms (including granular jamming, layer jamming, and hybrid pneumatic locking actuators) permit real-time modulation between low compliance for safe tissue handling and higher rigidity for precise tasks such as suturing or retraction.",
+        "evidence_type": "mechanism_review",
+        "page_numbers": [
+          8,
+          10,
+          13,
+          16,
+          17,
+          26
+        ]
+      },
+      {
+        "claim": "A clear functional division exists between continuum robot arms (which serve as hyper-redundant flexible robot bodies for anatomical navigation) and soft grippers (which serve as end-effectors for safe grasping and atraumatic tissue manipulation).",
+        "evidence_type": "conceptual_framework",
+        "page_numbers": [
+          16,
+          19,
+          20
+        ]
+      },
+      {
+        "claim": "Topology optimization and Finite Element Analysis (FEA) enable optimized material distribution and prediction of stress, deformation, and response time in soft robotic grippers prior to fabrication.",
+        "evidence_type": "computational_modeling",
+        "page_numbers": [
+          8,
+          12,
+          21,
+          26
+        ]
+      },
+      {
+        "claim": "Supervised autonomous algorithms and reinforcement learning in soft tissue robotic systems (such as the STAR platform) enable autonomous suturing and anastomosis with greater consistency and fewer mistakes compared to manual execution.",
+        "evidence_type": "experimental_validation",
+        "page_numbers": [
+          13,
+          14,
+          15,
+          22,
+          27
+        ]
+      },
+      {
+        "claim": "Soft robotic grippers manufactured via 3D printing or casting can be produced at low unit costs (under $200 to $500, or actuator costs under $1,000) compared to traditional rigid robotic systems that cost approximately $20,000.",
+        "evidence_type": "cost_analysis",
+        "page_numbers": [
+          21,
+          28
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "PRISMA 2020 systematic review methodology analyzing 24 selected peer-reviewed studies retrieved from Scopus-indexed databases (MDPI, Wiley, ScienceDirect, Mary Ann Liebert, AAAS, Frontiers, IEEE Xplore, Springer Nature, Elsevier)",
+      "Uniaxial tensile cyclic testing and characterization benchtop setups for elastomer specimens (e.g., Ecoflex)",
+      "Cyclic pneumatic pressure inflation-deflation rigs for fatigue testing of cast silicone elastomer soft actuators",
+      "Simulated laparoscopic and minimally invasive surgical platforms, including integration with UR5 robotic arms and the da Vinci Research Kit (dVRK)",
+      "Ex vivo and in vivo autonomous soft tissue suturing and anastomosis setups using the Smart Tissue Autonomous Robot (STAR) with 3D plenoptic and near-infrared fluorescence (NIRF) imaging"
+    ],
+    "future_work": [
+      "Developing smart, self-healing materials, thermally stable elastomers, and nanostructured surface coatings (such as plasma treatments) to withstand repeated autoclave sterilization cycles without mechanical degradation",
+      "Employing biomimetic principles, modular design strategies, and AI-assisted finite element simulations to miniaturize gripper components without compromising dexterity or force capacity",
+      "Integrating high-resolution, multimodal flexible sensors (force, tactile, strain, impedance) with closed-loop AI controllers (reinforcement learning and deep learning) for real-time adaptive grasping and tissue identification",
+      "Establishing standardized universal mechanical and communication interfaces to streamline the retrofitting of soft grippers onto existing commercial surgical platforms like the da Vinci system",
+      "Exploring federated learning frameworks to train AI-driven surgical soft robotic models across multiple clinical institutions without compromising patient data privacy"
+    ],
+    "independent_variables": [
+      "Literature search criteria (time window: August 2015 to July 2024; Scopus database; language: English)",
+      "Actuator design type and operational input parameters (pneumatic pressure, cable tension, motor displacement, thermal input for SMA)",
+      "Elastomeric material formulations and composite architectures (silicone, Ecoflex, PDMS, hydrogels, shape memory polymers)",
+      "Machine learning control framework (reinforcement learning, supervised learning, deep learning CNNs, model-based control)",
+      "Gripper structural morphology (multi-fingered anthropomorphic, continuum-structure, morphing-jaw, modular hybrid)"
+    ],
+    "limitations_inferred": [
+      "The systematic literature review is restricted to 24 included studies matching narrow search keywords within Scopus-indexed journals (2015-2024), which may overlook relevant developments in conference proceedings, non-indexed literature, or other databases",
+      "The 1 to 5 optimization scoring assigned to machine learning algorithms appears to be a heuristic/qualitative assessment synthesized by the review authors rather than a pooled statistical meta-analysis across standardized benchmark tasks",
+      "Several reported clinical benefits (such as exact wound healing times, pain scores, and reoperation rates in summary tables) represent projected or preliminary claims from selected trials/simulations rather than outcomes established across large-scale randomized human clinical trials",
+      "Mathematical constitutive formulations (e.g., specific hyperelastic strain energy functions) and analytical continuum mechanics models are mentioned only broadly without comparative mathematical depth"
+    ],
+    "limitations_stated_by_authors": [
+      "Elastomeric soft materials (e.g., silicone, Ecoflex) are prone to chemical degradation and mechanical fatigue under repeated high-temperature autoclave sterilization, restricting clinical reusability",
+      "The inherent compliance and nonlinear material behavior of soft actuators lead to precision control difficulties, low structural stiffness during heavy manipulation, and instability during delicate tasks like nerve repair",
+      "Embedded flexible sensors frequently have limited sensitivity, durability, and resolution, hindering high-fidelity real-time closed-loop force feedback",
+      "Miniaturization is difficult because embedding actuators, sensors, and structural elements into small surgical form factors introduces mechanical complexity and trade-offs in force output",
+      "Pneumatic systems can be bulky, while shape memory alloys suffer from slow cooling rates and limited dynamic response times",
+      "Retrofitting soft grippers onto existing surgical platforms (such as the da Vinci robot) is impeded by a lack of standardization, custom interfacing needs, and significant software/hardware modifications"
+    ],
+    "main_results": [
+      "A systematic review of 24 articles (published 2015-2024) reveals rapid growth in soft surgical robotic grippers, with 50% focusing on robotics, 29% on medical surgery, 13% on engineering, and 8% on computer science/AI",
+      "Pneumatic and tendon/cable-driven actuation methods dominate the literature due to their inherent compliance and motion responsiveness, supplemented by emerging hybrid soft-rigid and variable-stiffness mechanisms",
+      "6 out of 24 studies (25%) incorporate machine learning algorithms (reinforcement learning, deep learning CNNs, supervised learning, supervised autonomy), which achieve superior scores (up to 5/5) in real-time adaptability, force regulation, and handling dynamic surgical environments compared to traditional control (3.75/5)",
+      "Soft grippers substantially reduce tissue trauma, with morphing jaws demonstrating a 30% reduction in peak contact pressure and up to 20-30% increase in contact area during tissue grasping",
+      "Quantitative experimental mechanics data cited show Ecoflex loses ~20% of its Young's modulus after the initial cycle, and cast silicone actuators fail at an average of 3,439 inflation-deflation cycles under operational pressure",
+      "Economic evaluations indicate soft robotic grippers manufactured via 3D printing or casting have unit costs under $200-$500 and low maintenance requirements, offering potential cost savings over traditional rigid instruments ($20,000)"
+    ],
+    "modeling_methods": [
+      "3D topology optimization (for material distribution and adaptive finger structures)",
+      "Finite Element Analysis (FEA / ANSYS) for structural simulation, stress distribution, and deformation modeling",
+      "Inverse kinematics modeling for multi-DOF soft/cable-driven structures",
+      "Model-based control combined with machine learning algorithms",
+      "Data-driven performance modeling and joint angle prediction using supervised and reinforcement learning",
+      "Convolutional Neural Networks (CNNs) for vision-based tissue classification and object recognition"
+    ],
+    "performance_metrics": [
+      "Machine learning optimization score (scale 1 to 5 across precision, adaptability, force control, safety, real-time performance)",
+      "Contact pressure reduction (e.g., 30% reduction) and contact area increase (20-30%)",
+      "Suture placement accuracy improvement (e.g., 25% improvement in neural microdissection)",
+      "Fatigue failure cycles (e.g., mean of 3,439 inflation-deflation cycles) and percentage change in elastic modulus under cyclic loading (~20% drop in Ecoflex)",
+      "Surgical completion time and percentage of surgeon supervisory time (12.9% in STAR system; up to 20% overall surgery time reduction)",
+      "Manufacturing unit cost (e.g., <$200 to <$500 per unit vs. $20,000 for rigid instruments; actuator cost <$1,000)",
+      "Postoperative clinical metrics: wound healing duration (3-8 days vs. 5-14 days), pain scores (2-4/10 vs. 6-8/10), and projected reoperation rate (<=3% vs. 8-12%)"
+    ],
+    "possible_gap_implications": [
+      "The absence of standardized cyclic fatigue and autoclave degradation models for soft elastomeric polymers may delay regulatory approvals and hinder clinical translation of reusable soft surgical tools",
+      "The reliance on qualitative or heuristic scoring metrics for AI-driven soft robotic control highlights the need for standardized benchmark datasets and validation protocols across varied tissue types",
+      "Without universally accepted hardware and software interfacing standards, integrating soft robotic end-effectors into established surgical platforms (such as the da Vinci) remains limited to bespoke research prototypes",
+      "The gap between ex vivo/simulation performance and in vivo clinical trial data suggests that claims regarding improved clinical outcomes (reduced healing time, lower pain scores) require rigorous in vivo surgical verification"
+    ],
+    "research_objective": "To systematically review and synthesize the technological advancements, machine learning control integration, clinical surgical applications, economic viability, and key engineering challenges of soft robotic grippers in medical surgery according to PRISMA 2020 guidelines.",
+    "research_problem": "Conventional rigid surgical grippers apply concentrated forces that risk causing tissue damage and surgical complications during delicate tissue manipulation, while soft robotic alternatives face multidisciplinary challenges in precision control, material durability, sterilization, and system integration that lack comprehensive technical, clinical, and economic synthesis.",
+    "robot_type": "soft robotic grippers (including multi-fingered anthropomorphic grippers, continuum-structure double-finger grippers, modular soft manipulators, and hybrid soft-rigid grippers)",
+    "stiffness_mechanism": [
+      "granular-jamming stiffening",
+      "layer jamming mechanism",
+      "pneumatic locking actuators / hybrid soft-pneumatic locking mechanisms",
+      "variable-stiffness actuators",
+      "shape memory alloys (SMA phase transformation)"
+    ],
+    "title": "Soft robotics gripper technology in medical surgery application: a systematic literature review",
+    "year": "2026"
+  }
+}

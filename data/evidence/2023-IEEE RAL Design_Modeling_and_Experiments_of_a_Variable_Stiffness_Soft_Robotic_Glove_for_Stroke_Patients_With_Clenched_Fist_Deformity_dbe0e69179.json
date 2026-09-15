@@ -1,0 +1,208 @@
+{
+  "source": {
+    "paper_id": "dbe0e69179",
+    "filename": "2023-IEEE RAL Design_Modeling_and_Experiments_of_a_Variable_Stiffness_Soft_Robotic_Glove_for_Stroke_Patients_With_Clenched_Fist_Deformity.pdf",
+    "sha256": "dbe0e69179543b5591331e94fecfce0055fae770625804346396febb8e5fe52d",
+    "page_count": 8,
+    "char_count": 43984,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27565,
+    "completion_tokens": 6913,
+    "total_tokens": 34478,
+    "thinking_tokens": 3926,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic actuation (positive air pressure)",
+      "vacuum pressure"
+    ],
+    "authors": [
+      "Xiangli Li",
+      "Yufei Hao",
+      "Jianhua Zhang",
+      "Chang Wang",
+      "Dai Li",
+      "Jianjun Zhang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Homogeneous incompressible hyperelastic material for silicone rubber body (Dragon Skin 30) modeled with a third-order Ogden strain energy potential",
+      "Constant cross-section of the multi-stage articulated elastomer (MSAE) during bending deformation",
+      "Circumferential stretch λ2 = 1 due to fiber reinforcement constraint",
+      "Zero radial nominal stress (σ3 = 0)",
+      "Small deflection assumption for spring steel sheet bending where deflection angle θ ≈ 2lδ/(l^2 - δ^2) and sliding distance dL ≈ 2hθ",
+      "Deformed spring steel sheet profile approximated as a circular arc",
+      "Actuator end cap does not deform during bending"
+    ],
+    "control_variables": [
+      "Actuator dimensions and geometry (e.g., index finger actuator length 120 mm, width 16 mm, height 6 mm)",
+      "Actuator elastomer material (Dragon Skin 30 silicone rubber)",
+      "Fiber reinforcement material and diameter (0.25 mm Kevlar fiber)",
+      "Strain limiting layer and rigid layer material (0.1 mm glass fiber)",
+      "Friction enhancement surface layer (printing paper attached via hot melt film)",
+      "Benchmark load level for single joint resistance tests (6 N)",
+      "Sliding table travel limit in stiffness characterization (20 mm)",
+      "Number of repeated test cycles (3 trials for bending angle test)"
+    ],
+    "dependent_variables": [
+      "Actuator bending angle (degrees)",
+      "Fingertip output force (N)",
+      "Actuator stiffness (N/mm, slope of force-displacement curve)",
+      "Joint resistance force in stroke patients (N)",
+      "Displacement under applied joint load (mm)",
+      "Artificial hand extension angle α (degrees)",
+      "Actuator response speed (seconds)"
+    ],
+    "doi": "10.1109/LRA.2023.3279613",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A variable stiffness actuator integrates a fiber-reinforced pneumatic actuator with a multi-stage articulated elastomer (MSAE) consisting of three layers of spring steel sheets hinged by rope, utilizing vacuum-driven layer jamming to increase elasticity and facilitate finger extension.",
+        "evidence_type": "design and mechanism",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Measurement of PIP joint resistance across 30 stroke patients aged 40 to 90 years showed resistance ranging from 2 N to 6 N, providing an empirical benchmark of 6 N for rehabilitation actuator design.",
+        "evidence_type": "clinical measurement",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Applying a vacuum pressure of -90 kPa increases the actuator stiffness by 2.4 times (from 0.0174 N/mm to 0.0415 N/mm) and single-joint stiffness by 2.36 times under a 6 N load.",
+        "evidence_type": "experimental measurement",
+        "page_numbers": [
+          1,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The actuator achieves a bending angle of 155° at 300 kPa, a maximum limiting bending angle of 235° at 450 kPa with response time under 1 s, and generates up to 1.54 N fingertip output force at 300 kPa.",
+        "evidence_type": "experimental measurement",
+        "page_numbers": [
+          1,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "On an artificial hand model mimicking clenched fist deformity with 6 N joint resistance, applying -90 kPa vacuum with 0.25 mm spring steel sheets reduces the extension angle to 8.2°, verifying extension facilitation.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "A mechanical analytical framework combining third-order Ogden hyperelastic strain energy and sliding friction work models the bending angle under positive pressure and predicting stiffness under vacuum.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "A lightweight (170 g) five-finger soft robotic glove prototype successfully executed typical rehabilitation gestures and grasped 10 daily objects of diverse shapes and sizes.",
+        "evidence_type": "experimental demonstration",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "Cracks introduced in the spring steel sheets on both sides of the PIP joint reduce unwanted resistance caused by silicone extrusion during low-stiffness bending, provided upper and lower cracks are misaligned.",
+        "evidence_type": "design principle",
+        "page_numbers": [
+          2
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Bending angle characterization platform: actuator clamped at one end, SMC ISE30A-01 pressure sensor, positive pressure supplied in 30 kPa increments up to 450 kPa, image processing of stabilized bending profiles",
+      "Fingertip output force test rig: actuator fixed on support against a digital force meter (0-10 N range, 0.001 N resolution) across four initial pressurization states (0, 30, 60, 90 kPa) up to 300 kPa",
+      "Stroke patient joint resistance test: pull force meter measuring extension resistance of middle finger PIP joint across 30 stroke patients (20 males, 10 females, ages 40-90)",
+      "Variable stiffness testing platform: actuator mounted on an adjustable bracket, sliding table traveling 20 mm connected by rope to force meter, SMC ZSE30A-01 vacuum sensor measuring vacuum levels (0, -30, -60, -90 kPa)",
+      "Single-joint (PIP) stiffness test: force-displacement testing under different spring steel sheet thicknesses (0.10 mm vs 0.25 mm) and vacuum pressures up to 6 N load",
+      "Clenched artificial hand validation: index finger equipped with torsion springs at PIP and DIP joints calibrated to simulate 6 N human joint resistance, measuring extension angle α under varied vacuum pressures and sheet thicknesses",
+      "Five-channel soft robotic glove system: five actuators integrated into a fingerless glove with Velcro straps, driven by SMC ITV0050 proportional valves and SMC VX210/VT307 solenoid valves for gesture and grasping evaluation"
+    ],
+    "future_work": [
+      "Conduct practical clinical experiments on stroke patients to evaluate the therapeutic rehabilitation effectiveness of the soft robotic glove",
+      "Advance control research to increase device intelligence, including integrating various sensors",
+      "Combine surface electromyographic (sEMG) signals to achieve robust glove control for patient intent understanding and precise assistive actuation"
+    ],
+    "independent_variables": [
+      "Input positive air pressure (0 to 450 kPa in 30 kPa increments)",
+      "Vacuum pressure (0, -30, -60, -90 kPa)",
+      "Spring steel sheet thickness (0.10 mm, 0.25 mm)",
+      "Initial pressurization state (0, 30, 60, 90 kPa)",
+      "Patient age group (40-90 years in 10-year brackets)",
+      "Sliding table displacement (0 to 20 mm)"
+    ],
+    "limitations_inferred": [
+      "The glove was evaluated on healthy subjects and a mechanical artificial hand, leaving therapeutic efficacy, comfort, and spasticity mitigation unverified in actual stroke patients.",
+      "Long-term mechanical fatigue, cyclic wear of the paper friction layers, and delamination risks between silicone and spring steel sheets under repeated actuation were not assessed.",
+      "Friction coefficients were treated as static constants and approximated rather than dynamically characterized under cyclic loading.",
+      "Portability is limited due to the need for external pressurized air and vacuum sources and multi-channel valve arrays."
+    ],
+    "limitations_stated_by_authors": [
+      "The theoretical bending angle model underestimates experimental values due to simplifications of load and complex deformation, as well as actuator manufacturing errors (page 5).",
+      "The theoretical stiffness model overestimates experimental stiffness due to inaccurate parameter assumptions (e.g., estimation of friction coefficients μl and μe), possible warping of the MSAE cross-section during bending that violates the constant cross-section assumption, and installation errors (page 6).",
+      "Excessive increase in spring steel sheet thickness consumes more air pressure during bending (page 6).",
+      "Practical experiments on stroke patients to evaluate clinical effectiveness have not yet been conducted (page 8).",
+      "The system currently lacks integrated sensing and intelligent control based on user intent understanding (page 8)."
+    ],
+    "main_results": [
+      "Clinical resistance testing on 30 stroke patients established that PIP joint extension resistance ranges from 2 N to 6 N, defining 6 N as the design benchmark.",
+      "The fiber-reinforced soft actuator achieves a bending angle of 155° at 300 kPa, a limiting bending angle of 235° at 450 kPa, and a response time of less than 1 s.",
+      "Fingertip output force increases approximately linearly with positive air pressure up to 1.54 N at 300 kPa, maintaining consistent force generation across different initial states.",
+      "Actuator stiffness increases by 2.4 times under -90 kPa vacuum pressure (from 0.0174 N/mm to 0.0415 N/mm at 20 mm displacement).",
+      "Under a 6 N joint resistance force, increasing spring steel sheet thickness from 0.10 mm to 0.25 mm reduces deflection from 5.2 mm to 2.5 mm; increasing vacuum pressure from 0 to -90 kPa reduces single-joint deflection from 5.9 mm to 2.5 mm (a 2.36-fold stiffness change).",
+      "On a clenched artificial hand with 6 N resistance, the variable stiffness actuator with 0.25 mm sheets under -90 kPa vacuum reduced the residual extension angle to 8.2°.",
+      "A five-actuator soft robotic glove weighing 170 g successfully performed seven typical rehabilitation gestures and grasped ten daily objects of varying shapes and weights."
+    ],
+    "modeling_methods": [
+      "Three-point bending boundary condition model for force calculation at the PIP joint at a given deflection",
+      "Relative sliding friction dissipation work model for layer jamming between spring steel sheets and between spring steel and silicone rubber",
+      "Third-order Ogden strain energy model for homogeneous incompressible hyperelastic material behavior of silicone rubber",
+      "Static moment balance formulation equating internal stress moment to moment from chamber air pressure at the end cap",
+      "Work-energy balance relationship (Wr = Wθ + Wlay) to model bending angle under combined positive pressure and vacuum jamming",
+      "Nonlinear finite element method (FEM) simulation in ABAQUS using solid (C3D8R), shell (S4R), and beam (B32) elements with friction contact modeling"
+    ],
+    "performance_metrics": [
+      "Fingertip output force (up to 1.54 N at 300 kPa)",
+      "Stiffness variation ratio (2.4 times overall increase from 0.0174 N/mm to 0.0415 N/mm; 2.36 times single-joint increase)",
+      "Maximum bending angle (155° at 300 kPa, limiting angle of 235° at 450 kPa)",
+      "Actuator response time (< 1 s)",
+      "Artificial hand extension angle α under 6 N joint resistance (8.2° at -90 kPa with 0.25 mm sheet thickness)",
+      "Deflection under 6 N load (reduced to 2.5 mm)",
+      "Total glove weight (170 g; individual index finger actuator weight ~34 g)",
+      "Stroke patient joint resistance range (2 N to 6 N)"
+    ],
+    "possible_gap_implications": [
+      "The trade-off between increasing spring steel sheet thickness/stiffness and the higher positive air pressure needed to bend the actuator indicates an optimization challenge between extension assistance and flexion actuation efficiency.",
+      "Using paper layers bonded via hot melt film as a friction interface introduces questions regarding cyclic mechanical durability, delamination, and humidity sensitivity in wearable rehabilitation devices.",
+      "The gap between theoretical and measured stiffness due to out-of-plane warping highlights the need for advanced non-planar beam/shell contact models in soft-rigid hybrid jamming mechanisms."
+    ],
+    "research_objective": "To design, model, fabricate, and experimentally validate a variable stiffness soft robotic glove combining a fiber-reinforced soft pneumatic bending actuator with a multi-stage articulated elastomer (MSAE) layer jamming mechanism to facilitate finger extension and reciprocating rehabilitation in stroke patients with clenched fist deformity across varying muscular tension levels.",
+    "research_problem": "Stroke patients frequently develop clenched fist deformity due to increased muscular tension, making voluntary finger extension difficult. Existing soft robotic gloves primarily assist flexion and rely on passive material elasticity that cannot overcome high joint resistance for extension, while bidirectional actuators increase bulk and existing layer jamming gloves impede reciprocating flexion-extension training due to conformal resistance.",
+    "robot_type": "soft robotic glove",
+    "stiffness_mechanism": [
+      "layer jamming",
+      "multi-stage articulated elastomer (MSAE) consisting of spring steel sheets",
+      "vacuum-induced friction between spring steel sheets and silicone rubber"
+    ],
+    "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+    "year": "2023"
+  }
+}

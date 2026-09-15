@@ -1,0 +1,188 @@
+{
+  "source": {
+    "paper_id": "75ecb1291a",
+    "filename": "2017-Soft_Robotic_Grippers_Based_on_Particle_Transmission.pdf",
+    "sha256": "75ecb1291a52e43e441ff1d93d5eaa9fb978a02a390a556be105bd811e08a058",
+    "page_count": 10,
+    "char_count": 48743,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28286,
+    "completion_tokens": 6722,
+    "total_tokens": 35008,
+    "thinking_tokens": 4371,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "particle transmission",
+      "piston actuation driven by an electric motor"
+    ],
+    "authors": [
+      "Yingtian Li",
+      "Yonghua Chen",
+      "Yang Yang",
+      "Yunquan Li"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Silicone rubber is treated as an incompressible, homogeneous Neo-Hookean material",
+      "The bending actuator is assumed to deform into the geometry of a torus segment with uniform cross section",
+      "The cross-sectional perimeter C and initial cross-sectional area A0 remain constant due to the inextensible strain-limited layer and densely wound fiber reinforcement",
+      "Circumferential strain λ2 is assumed to be 1 and the corresponding principal stress σ2 is assumed to be zero",
+      "The material incompressibility condition λ1*λ2*λ3 = 1 is assumed, resulting in λ3 = 1/λ1",
+      "For small deformation distances dF during stiffness testing, the moment arm length lF is assumed to remain constant"
+    ],
+    "control_variables": [
+      "In particle diameter tests: braiding angle θ = 130°, wall thickness d0 = 2 mm, hardness H = 5D",
+      "In braiding angle tests: particle diameter φ = 2 mm, wall thickness d0 = 2 mm, hardness H = 5D",
+      "In wall thickness tests: particle diameter φ = 2 mm, braiding angle θ = 130°, hardness H = 5D",
+      "In material hardness tests: particle diameter φ = 2 mm, braiding angle θ = 130°, wall thickness d0 = 2 mm",
+      "In medium comparison tests: φ = 2 mm, θ = 130°, d0 = 2 mm, H = 5D",
+      "Indenter displacement during rotational stiffness testing fixed at 10 mm",
+      "Number of experimental repeats: 30 replicates per volume ratio for stiffness and motion range; 10 repeats for accuracy tests",
+      "Silicone mixing ratio fixed at 1:1.01 (EON-A to EON-B) with a 3-hour cure time"
+    ],
+    "dependent_variables": [
+      "Actuator range of motion / bending angle α",
+      "Rotational stiffness SR",
+      "Actuation output force",
+      "Input piston force",
+      "Repeatability / standard deviation of range of motion",
+      "Retraction / restoration angle after piston release"
+    ],
+    "doi": "10.1109/TMECH.2019.2907045",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Using particle transmission driven by a motor-actuated piston circumvents fluid-sealing challenges while enabling combined actuation and variable stiffness without bulky pumps or valve manifolds.",
+        "evidence_type": "design and experimental demonstration",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Injecting solid particles up to 1.8 times the initial volume produces bending up to 60 degrees and increases rotational stiffness by nearly seven-fold from the unactuated state.",
+        "evidence_type": "experimental measurement",
+        "page_numbers": [
+          1,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Kinematic bending range and rotational stiffness can be modeled analytically by assuming torus segment expansion and calculating inter-particle contact forces and friction moments from Neo-Hookean membrane tension.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Solid glassy glass balls demonstrated superior performance over stainless steel balls, plastic balls, and beans owing to high hardness, low thermal conductivity, and small friction coefficient.",
+        "evidence_type": "experimental screening",
+        "page_numbers": [
+          3
+        ]
+      },
+      {
+        "claim": "Smaller particle diameters (2 mm vs. 3 mm and 4 mm) generate a more linear bending response, larger angular deflection, and higher rotational stiffness.",
+        "evidence_type": "experimental parametric study",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "At an injected volume ratio of 1.8, particle transmission generates nearly six-fold greater stiffness and over five-fold greater bending deflection than compressed air, and roughly three-fold higher stiffness than water.",
+        "evidence_type": "comparative experimental analysis",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Incomplete elastic restoration occurs after piston retraction due to inter-particle jamming, but embedding miniature vibrators into the strain-limiting layer enables complete recovery to the initial position.",
+        "evidence_type": "experimental demonstration",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Silicone rubber bending actuator (EON series) reinforced with double-stranded woven fiberglass thread and molded with 3D-printed PLA molds",
+      "Solid glassy glass particles (diameters 2 mm, 3 mm, and 4 mm) driven through a connected cylinder via an electrically driven piston",
+      "Test bench equipped with a motorized stage and a force gauge displaced by 10 mm against the actuator endpoint to measure deflection angle, moment arm, and rotational stiffness",
+      "Dual-force gauge test bench simultaneously measuring vertical input piston force and horizontal endpoint actuation force",
+      "Two 3-finger soft robotic gripper configurations: one with fixed actuator mounting positions and one mounted on a mechanism to enlarge the grasping space for irregularly shaped and heavy tools",
+      "Miniature vibration motors embedded in the strain-limiting layer near the cylinder-actuator interface to evaluate recovery dynamics during piston retraction"
+    ],
+    "future_work": [
+      "Investigating the optimum operating power and vibration frequency of the embedded vibrators for actuator restoration",
+      "Further exploring the mechanics of particle chain formation and destruction under granular mechanics principles"
+    ],
+    "independent_variables": [
+      "Injected particle volume ratio V (from 1.0 to 1.8 in increments of 0.1)",
+      "Particle diameter φ (2 mm, 3 mm, 4 mm)",
+      "Braiding angle θ (110°, 120°, 130°)",
+      "Actuator wall thickness d0 (2 mm, 3 mm, 4 mm)",
+      "Silicone rubber hardness H (0D, 5D, 10D)",
+      "Transmission medium type (glass particles, unpressurized/pressurized air, unpressurized/pressurized water)",
+      "Vibration state during piston retraction (vibrators ON vs. OFF)"
+    ],
+    "limitations_inferred": [
+      "Analytical model treats deformation as an idealized uniform torus and ignores localized bulging, cylinder wall friction, and dynamic granular packing effects",
+      "Integrating rigid electric drive cylinders and vibration motors introduces rigid elements, mass, and wiring that compromise the total compliance and compactness of the soft robotic system",
+      "Long-term durability, cyclic fatigue of the silicone membrane, particle wear, and actuation speed/bandwidth were not evaluated"
+    ],
+    "limitations_stated_by_authors": [
+      "Actuator range of motion reaches an upper limit around a volume ratio of 1.8 where force chains cause particles to behave as a rigid solid, resisting further bending and risking membrane rupture near the inlet",
+      "Bending angle of the prototype actuator is relatively small (around 90°), requiring an additional mechanism to grasp large objects",
+      "The actuator cannot fully restore to its unactuated baseline without active external vibration due to particle jamming and limited silicone restoring force",
+      "Introduced vibration may be undesirable in certain operating environments",
+      "Optimal power and frequency for the embedded vibrators were not determined",
+      "High stiffness increase may be unsuitable for delicate objects requiring gentle contact, such as eggs",
+      "Actuation output force is significantly lower than input piston force because much of the input work is redirected into particle jamming",
+      "Motion accuracy and repeatability degrade as injected volume increases (standard deviation increases up to 3° at V = 1.8)"
+    ],
+    "main_results": [
+      "Increasing injected particle volume from 1.0 to 1.8 times the initial volume enabled the actuator to bend up to 60° (with up to ~90° maximum prototype bending range) and increased rotational stiffness by nearly seven-fold from its unactuated state",
+      "Smaller particle size (2 mm) yielded superior linearity, higher angular deflection, and higher rotational stiffness compared to 3 mm and 4 mm particles",
+      "Lower braiding angles yielded larger bending motion, whereas braiding angle and wall thickness exhibited minimal impact on rotational stiffness",
+      "Lower silicone hardness produced higher rotational stiffness but smaller angular motion at high particle fill levels",
+      "Particle transmission achieved roughly 1.5 times higher rotational stiffness than water and twice that of compressed air at equivalent bending angles, while showing nearly six-fold higher stiffness than air and three-fold higher stiffness than water at a volume ratio of 1.8",
+      "Output force was lower than input force due to energy dissipation into particle jamming, directly enabling stiffness modulation",
+      "Standard deviation of range of motion increased with volume ratio (from 1.8° at V = 1.5 to 3° at V = 1.8)",
+      "Embedding vibrators into the strain-limiting layer successfully resolved jamming hysteresis upon piston retraction, achieving complete return to zero angle"
+    ],
+    "modeling_methods": [
+      "Kinematic volume-expansion modeling linking injected volume ratio to torus-segment bending angle under constant perimeter constraints",
+      "Constitutive stress modeling of the silicone unit cell using incompressible Neo-Hookean hyperelastic strain energy and the Young-Laplace equation",
+      "Inter-particle contact mechanics modeling normal forces, sliding friction, and resultant resistive friction moments summed across particle layers to determine rotational stiffness"
+    ],
+    "performance_metrics": [
+      "Bending range of motion / angle α (degrees)",
+      "Rotational stiffness SR (FlF / β in N·m/rad or equivalent)",
+      "Fold change in rotational stiffness (ratio relative to initial state or fluid baselines)",
+      "Input piston force vs. output actuation force (N)",
+      "Motion repeatability / standard deviation of bending angle (degrees)",
+      "Restoration / retract angle (degrees) with and without vibration"
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that dry granular materials can act simultaneously as an actuation transmission medium and a variable stiffness mechanism, bypassing the need for fluid seals and pneumatic pumps; however, this single study does not prove general suitability across all soft robotics due to motion range saturation and the necessity of auxiliary vibrators for restoration."
+    ],
+    "research_objective": "To propose, model, fabricate, and experimentally evaluate a novel particle transmission mechanism for soft robotic bending actuators and grippers, enabling simultaneous actuation and multi-fold stiffness modulation via motor-driven piston displacement without requiring strict fluid sealing or pneumatic pumps.",
+    "research_problem": "Soft robotic actuators traditionally depend on pneumatic or hydraulic transmissions that suffer from sealing difficulties, complex valve arrangements, bulky tethered pumps, and limited ranges of stiffness modulation during grasping.",
+    "robot_type": "soft robotic gripper",
+    "stiffness_mechanism": [
+      "particle jamming",
+      "particle transmission"
+    ],
+    "title": "Soft Robotic Grippers Based on Particle Transmission",
+    "year": "2019"
+  }
+}

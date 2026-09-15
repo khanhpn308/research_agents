@@ -1,0 +1,192 @@
+{
+  "source": {
+    "paper_id": "fdd30f539d",
+    "filename": "Soft robotic grippers A review on technologies, materials, and applications .pdf",
+    "sha256": "fdd30f539d5f40a7e2fa686ee4bc4752fe2994b0d43b30ef811cfd85a9dc1feb",
+    "page_count": 17,
+    "char_count": 125152,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 52530,
+    "completion_tokens": 6389,
+    "total_tokens": 58919,
+    "thinking_tokens": 4062,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Fluidic elastomer actuators (FEAs) / Soft pneumatic actuators (SPAs)",
+      "Pneunets actuators",
+      "Pneuflex actuators",
+      "McKibben pneumatic artificial muscles",
+      "Passive structures with external motors (tendon-driven and contact-driven deformation)",
+      "Dielectric elastomer actuators (DEAs)",
+      "Ionic polymer-metal composites (IPMCs) / soft electrochemical actuators",
+      "Shape memory alloys (SMAs)",
+      "Electrohydraulic actuators / hydraulic hydrogel actuators",
+      "Controllable electro-adhesion",
+      "Gecko-inspired dry adhesion",
+      "Suction-based actuation",
+      "Magnetic actuation"
+    ],
+    "authors": [
+      "Yahia A. AboZaid",
+      "Mahmoud T. Aboelrayat",
+      "Irene S. Fahim",
+      "Ahmed G. Radwan"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Hyperelasticity in elastomeric bladders and pneumatic network channels",
+      "Viscoelasticity in soft polymers (PDMS, hydrogels) exhibiting both loss and storage moduli for dynamic energy dissipation",
+      "Purely elastic response in rigid support structures without loss modulus",
+      "Infinite degrees of freedom continuum deformation in soft elastomeric bodies",
+      "Inextensible layer / inextensible reinforcement threads inducing bending motion upon pressurization"
+    ],
+    "control_variables": [
+      "Operating environment (ambient air, underwater, clean, dry, wet)",
+      "Geometry, mass, and rigidity of grasped target objects",
+      "Supply fluid pressure limits and gas volume",
+      "Applied voltage and electric field intensity limits",
+      "Thermal boundaries and heating current for phase-change or shape-memory materials"
+    ],
+    "dependent_variables": [
+      "Maximum grasping force, holding force, and pull force",
+      "Actuation strain, elongation, and bending curvature",
+      "Actuator response time and bandwidth / actuation frequency",
+      "Stiffness tuning range and variable stiffness ratio",
+      "Payload-to-weight ratio",
+      "Fatigue life and actuation cycle durability"
+    ],
+    "doi": "10.1016/j.sna.2024.115380",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Fluidic elastomer actuators offer compliant deformation and simple fabrication, but external compressors/pumps restrict portability and fluidic channel impedance restricts response frequencies above 1 Hz.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Granular and particle jamming mechanisms achieve rapid transition from compliant adaptation to rigid holding under vacuum, though conforming to deformable items after jamming remains problematic.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Combining soft fluidic actuation with controllable adhesion or jamming enables decoupled shape and stiffness control, supporting payloads up to 100 to 1000 times the gripper self-weight.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Dielectric elastomer actuators achieve actuation strains exceeding 100 percent with high energy density, but typically require high operating voltages and external rigid support frames to maintain stress output.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          6
+        ]
+      },
+      {
+        "claim": "Underactuation and virtually infinite degrees of freedom in soft continuum structures complicate modeling and control, prompting the use of reduced-order models and SOFA-based numerical simulation frameworks.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          12
+        ]
+      },
+      {
+        "claim": "Biodegradable gelatin biogels and elastomer formulations achieve ultimate strains over 300 percent and withstand more than 100,000 cycles, showing promise for sustainable or disposable soft robotic tools.",
+        "evidence_type": "literature_review",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Tensile force and pull-off holding force testing across diverse object profiles",
+      "Bioimpedance sensor integration and measurement setups on fruit models",
+      "In vivo biopsy procedures in porcine bile duct models",
+      "Deep-sea robotic deployments (including universal jamming grippers on ROV Hercules at 1200 m depth) and shallow-water trials",
+      "Cyclic fatigue and durability actuation rigs exceeding 100,000 to 700,000 cycles",
+      "Additive manufacturing (extrusion, multimaterial 3D printing, PolyJet) and double-casting elastomer mold configurations"
+    ],
+    "future_work": [
+      "Establishing standardized characterization and benchmarking protocols for soft gripper performance",
+      "Developing accurate reduced-order models (ROMs) and open simulation frameworks to bypass empirical trial-and-error",
+      "Advancing multimaterial 3D printing and 4D printing to integrate sensors, smart materials, and time-dependent reconfiguration",
+      "Improving untethered operation through compact power supplies, miniaturized pressure sources, and embedded tactile feedback",
+      "Expanding commercialization beyond fixture actuation and simple pick-and-place tasks into complex industrial, medical, and agricultural environments"
+    ],
+    "independent_variables": [
+      "Fluidic actuation pressure / vacuum level",
+      "Applied voltage and electric field magnitude",
+      "Thermal stimulus / Joule heating input",
+      "Actuator cross-sectional geometry, chamber patterning, fiber angles, and initial curvature",
+      "Material formulation, composite layering, and cellular/TPMS structural topologies"
+    ],
+    "limitations_inferred": [
+      "The review does not provide new empirical measurements or independently validated constitutive models of its own",
+      "Quantitative performance metrics compiled from disparate literature sources cannot be directly benchmarked against each other due to differing experimental protocols, object shapes, and testing conditions",
+      "Discussion regarding long-term chemical resilience and degradation of soft materials in harsh agricultural chemicals or marine salinity remains primarily qualitative"
+    ],
+    "limitations_stated_by_authors": [
+      "FEAs rely heavily on cumbersome, weighty external compressors and pumps, hindering untethered operation, and suffer from limited response frequencies due to channel fluidic impedance",
+      "PSEMs present miniaturization difficulties that restrict deployment on compact mobile platforms",
+      "DEAs require high voltages, suffer from compliant electrode reliability issues, and exhibit low stress output when rigid support frames are omitted",
+      "IPMCs demonstrate sluggish response speeds and relatively low force/stress generation",
+      "SMAs have limited actuation strain data reported in literature, suffer from thermal hysteresis, and are restricted to wire or sheet geometries",
+      "Granular jamming cannot readily conform to deformable items once stiffened, and low-melting-point alloys exhibit slow thermal response times",
+      "Electro-adhesion is vulnerable to contact peeling failure, while gecko dry adhesion performance drops sharply on dusty, irregular, or porous substrates",
+      "Continuous deformation and infinite degrees of freedom lead to complex mechanical modeling and under-actuated control challenges, often necessitating repeated trial-and-error",
+      "Lack of standardized testing protocols and design automation tools for 3D-printed soft grippers, alongside commercialization barriers tied to controllability and cost"
+    ],
+    "main_results": [
+      "Systematic categorization of soft grasping into three foundational pillars: actuation, controlled stiffness, and controlled adhesion, alongside hybrid combinations",
+      "Demonstration that hybridizing pneumatic actuators with electroadhesion or particle jamming overcomes trade-offs between compliance and holding capacity",
+      "Survey of material systems showing silicone elastomers and polyurethanes as dominant, with viable emerging options in biodegradable biogels and bioplastics",
+      "Review of successful field implementations across medicine (neuroprosthetics, MIS, swab sampling), agriculture (damage-free crop harvesting), industry (high-speed food packaging), and underwater exploration (deep-sea sampling to 1200 m)",
+      "Highlighting reduced-order modeling (ROMs) and numerical frameworks (SOFA platform) as critical pathways to manage computational complexity in continuum soft robot design"
+    ],
+    "modeling_methods": [
+      "Numerical modeling via the Simulation Open Framework Architecture (SOFA) platform for soft finger bending behavior",
+      "Reduced-order models (ROMs) for lowering computational complexity of continuum soft robots while preserving prediction accuracy",
+      "Finite element analysis (FEA) and finite element simulations for hyperelastic deformation and contact mechanics",
+      "Mathematical modeling of triply periodic minimal surfaces (TPMS) for interpenetrating phase composite stiffness tuning"
+    ],
+    "performance_metrics": [
+      "Grasping and holding force ranges (reported from 0.12 N up to 164.64 N across reviewed models)",
+      "Payload-to-weight ratios (e.g., handling objects 100 to over 1000 times the gripper self-weight)",
+      "Actuation strain levels (>100% in DEAs, >300% in gelatin biogels)",
+      "Stiffness tuning ratios (e.g., 5.6-fold variation in origami joints; ~90-fold increase using low-melting-point alloys)",
+      "Operational bandwidth and cycle speed (e.g., packaging throughput of 3 items per minute; pneumatic actuation limited above 1 Hz)",
+      "Durability and fatigue life (>100,000 cycles for electrohydraulic biogels; 200,000 to 700,000 cycles for sleeved bending actuators)"
+    ],
+    "possible_gap_implications": [
+      "The absence of standardized performance characterization protocols suggests that reported force and payload metrics across soft robotic literature are not directly comparable, demonstrating the need for standardized benchmarking standards",
+      "The heavy reliance on trial-and-error design highlights an unmet need for validated, real-time reduced-order and multiphysics modeling frameworks for soft continuum structures",
+      "The inherent trade-off between soft compliance and heavy load-carrying capacity indicates that hybrid variable-stiffness mechanisms represent a critical open avenue for high-payload delicate handling"
+    ],
+    "research_objective": "To provide a comprehensive review of soft robotic grippers by examining grasping techniques, materials, fabrication strategies, domain applications in medicine, agriculture, industry, and underwater settings, while identifying key mechanical modeling, control, and commercialization challenges.",
+    "research_problem": "Rigid grippers lack the adaptability and compliance needed to safely interact with humans and manipulate delicate or irregular objects across unstructured environments; meanwhile, soft grippers face persistent engineering challenges in mechanical modeling, actuation trade-offs, miniaturization, material durability, and commercialization.",
+    "robot_type": "Soft robotic grippers",
+    "stiffness_mechanism": [
+      "Tendon-driven antagonistic configurations",
+      "Granular jamming / particle pack jamming under vacuum",
+      "Low-melting-point alloys (LMPA) embedded in substrates",
+      "Shape memory polymers (SMP) with adjustable stiffness joints",
+      "Joule heating / electro-thermal variable stiffness of conductive polymers (conductive PLA, TPU)",
+      "Pneumatic muscle length-constraining mechanisms"
+    ],
+    "title": "Soft robotic grippers: A review on technologies, materials, and applications",
+    "year": "2024"
+  }
+}

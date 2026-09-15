@@ -1,0 +1,172 @@
+{
+  "source": {
+    "paper_id": "6f076ab4d4",
+    "filename": "2023-IEEE Single-Motor_Robotic_Gripper_With_Three_Functional_Modes_for_Grasping_in_Confined_Spaces.pdf",
+    "sha256": "6f076ab4d44fa2964a04e94fcb4bd853e48134506974ac5179af80174f134e91",
+    "page_count": 8,
+    "char_count": 45054,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27915,
+    "completion_tokens": 6915,
+    "total_tokens": 34830,
+    "thinking_tokens": 4574,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "single motor"
+    ],
+    "authors": [
+      "Toshihiro Nishimura",
+      "Tetsuyou Watanabe"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Quasi-static equilibrium is assumed for motion transitions and force/moment balances.",
+      "Motor torque is evenly distributed between the two symmetrical drive shaft sprockets (tau_m / 2 = tau_rc2).",
+      "Parasitic friction forces (Delta f) and torques (Delta tau) on contact surfaces outside the thread are assumed to be negligibly small.",
+      "Pitch radii of the drive shaft sprocket and motor sprocket are identical; pitch radii of sprocket 1 and sprocket 2 are identical.",
+      "Friction follows Coulomb friction behavior with constant static (mu_st) and kinetic (mu_kn) friction coefficients.",
+      "No slippage occurs between the conveyor belt and the grasped object during pull-in mode."
+    ],
+    "control_variables": [
+      "Motor rotational velocity (held constant at 14 deg/s during mechanism characterization tests).",
+      "Initial separation distance between the fingertip and target object (set to 10 mm in mechanism A tests).",
+      "Calculated motor torque cutoff limit (0.8 Nm in mechanism A tests).",
+      "Motor rotation angle limit (180 deg in mechanism B tests).",
+      "Target motor torque thresholds (tau_target_m = 0.3 Nm for standard objects; 0.1 Nm for fragile egg) corresponding to desired contact forces (28 N and 9 N)."
+    ],
+    "dependent_variables": [
+      "Fingertip rotational angle (theta_f) and sprocket rotational angles (theta_sp1, theta_sp2).",
+      "Finger translational displacement (d_f).",
+      "Torque transmitted through roller chain 2 (tau_rc2) and calculated motor torque (tau_m).",
+      "Fingertip contact force (f_tip).",
+      "Linear pull-in displacement of the grasped object (d_PI).",
+      "Mode switching sequence behavior and stability.",
+      "Object grasp and release success across varied test scenarios."
+    ],
+    "doi": "10.1109/LRA.2023.3315559",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The robotic gripper realizes three sequential functional modes (grasping, finger-bending, and pull-in) driven by a single motor through two self-motion switching mechanisms that respond to motion obstruction.",
+        "evidence_type": "mechanism design and operational demonstration",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          8
+        ]
+      },
+      {
+        "claim": "SMS mechanism A utilizes a screw feed mechanism to switch between finger-bending/pull-in rotation and grasping translation depending on whether chain resistance torque exceeds lead-screw frictional resistance.",
+        "evidence_type": "theoretical modeling and experimental validation",
+        "page_numbers": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "SMS mechanism B employs a preloaded screw and a mechanical hard-stop to switch from finger-bending rotation to belt-conveyor translation once bending reaches 90 degrees.",
+        "evidence_type": "theoretical modeling and experimental validation",
+        "page_numbers": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "A thread lead angle of lambda = 30 degrees provides stable sequential motion switching, whereas lambda = 20 degrees results in erratic mixed motion and lambda = 60 degrees significantly reduces achievable tip force.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "The gripper can perform in-hand reorientation and translation to retrieve objects from tight, boxed shelf compartments where standard parallel grippers cannot operate.",
+        "evidence_type": "experimental demonstration",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The single-motor gripper achieves a maximum payload of 30.8 N in grasping mode and 29.4 N in pull-in mode with an initial finger width of 40 mm.",
+        "evidence_type": "experimental measurement",
+        "page_numbers": [
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "SMS mechanism A single-finger evaluation testbed: fingertip unit locked to sprocket 2 to isolate grasping/bending; instrumented with an IMADA ZTS-500N force sensor for tip force, an IMADA HTGS-10N torque sensor for chain torque, and two Logicool C1000eR cameras tracking optical markers for finger translation and rotation; evaluated at thread lead angles of 20, 30, and 60 degrees.",
+      "SMS mechanism B single-finger evaluation testbed: finger body fixed and grasping mode omitted; instrumented with an IMADA HTGS-10N torque sensor between motor and sprocket 1, and a front-facing Logicool C1000eR camera tracking markers on the fingertip frame and sprocket 2; evaluated at screw tightening torques of 0.0, 0.46, and 0.75 Nm.",
+      "Confined-space grasping test setup: gripper mounted on a robotic manipulator operated via manual teaching to retrieve objects under four constrained geometries (open-top box in shelf with internal obstacle boxes, rotation-restricted box, partially covered box, and off-axis orientation requiring in-hand re-grasping).",
+      "Tabletop grasping test setup: grasping and releasing varied objects (15 mm die, 1.0 kg bottle, fragile egg, spherical golf ball, deformable toy doll) and releasing via motor reversal."
+    ],
+    "future_work": [
+      "Evaluating the effectiveness of the gripper in other manipulation scenarios.",
+      "Developing an optimization method for gripper design parameters.",
+      "Integrating sensory feedback to achieve fully automated object pickup."
+    ],
+    "independent_variables": [
+      "Thread lead angle (lambda = 20 deg, 30 deg, 60 deg) in SMS mechanism A.",
+      "Tightening torque of the preloading screw (T_scw = 0.0, 0.46, 0.75 Nm) in SMS mechanism B.",
+      "Motor rotational direction (forward vs. reverse) and motor angle/displacement.",
+      "Target object physical properties (mass, size, shape, stiffness/fragility).",
+      "Confined space geometry and obstacle configurations (Cases 1 through 4)."
+    ],
+    "limitations_inferred": [
+      "Reliance on mechanical friction thresholds and preloading may make motion-switching repeatability susceptible to wear, thermal changes, or surface contamination over time.",
+      "Indirect force estimation via motor current and lead-screw kinetics assumes known, constant friction coefficients that may fluctuate in real-world environments.",
+      "Symmetrical dual-finger operation relies on balanced external contact; asymmetric object contact or external disturbances could lead to uneven finger behavior.",
+      "Sequential mode triggering depends on unidirectional motor rotation and mechanical stops, preventing direct, arbitrary mode jumping without reversing or altering mechanical states."
+    ],
+    "limitations_stated_by_authors": [
+      "Incorporating SMS mechanism B increased finger thickness compared to simple thin-finger grippers, creating a disadvantage for insertion into extremely narrow gaps.",
+      "Downsizing components to thin the fingers introduces a trade-off with finger stiffness and structural durability.",
+      "The robotic arm equipped with the gripper required manual teaching for manipulation tests; autonomous operation requires additional sensors.",
+      "A trade-off exists between fingertip motion speed and achievable tip force governed by the lead angle lambda.",
+      "Tightening torque T_scw must remain within a bounded range so that the motor torque required for mode switching does not exceed motor capacity."
+    ],
+    "main_results": [
+      "Successfully demonstrated sequential activation of finger-bending, grasping, and pull-in modes using unidirectional rotation of a single motor via two passive self-motion switching mechanisms.",
+      "Identified lambda = 30 deg as the optimal thread lead angle for stable motion switching, confirming theoretical predictions of unstable motion at lambda = 20 deg and reduced tip force at lambda = 60 deg.",
+      "Demonstrated that screw preload torque T_scw = 0.46 Nm avoids premature pull-in activation while keeping motor torque requirements within operating limits.",
+      "Successfully executed in-hand translation (40-50 mm) and rotation to extract objects from four confined-space shelf configurations where parallel-jaw grippers fail.",
+      "Demonstrated stable grasping of diverse objects (15 mm die, 1.0 kg bottle, raw egg, golf ball, toy doll) and controlled release via motor reversal.",
+      "Achieved experimental payloads of 30.8 N in grasping mode and 29.4 N in pull-in mode."
+    ],
+    "modeling_methods": [
+      "Quasi-static force and moment equilibrium modeling of lead-screw drive and chain-sprocket transmission.",
+      "Classical lead screw mechanics relating thrust force and actuation torque through thread lead angle and friction coefficient.",
+      "Static and kinetic friction threshold conditions governing transition between nut translation (grasping) and nut rotation (bending/pull-in).",
+      "Kinematic transmission modeling relating roller radius, gear train reduction, and motor rotation to object pull-in displacement."
+    ],
+    "performance_metrics": [
+      "Maximum payload in grasping mode: 30.8 N",
+      "Maximum payload in pull-in mode: 29.4 N",
+      "Finger width in initial extended configuration: 40 mm",
+      "Finger-bending angle range: 0 to 90 degrees",
+      "Target grasping force range: 9 N (fragile egg) to 28 N (general objects)",
+      "Pull-in translational distance: 40 mm to 50 mm demonstrated"
+    ],
+    "possible_gap_implications": [
+      "Presents a mechanical strategy to execute multi-modal in-hand manipulation with a single actuator, reducing weight and complexity for end-effectors in space-constrained robotic manipulation.",
+      "Highlights the viability of passive self-motion switching mechanisms in replacing multi-actuator systems, though sensitivity to friction, component wear, and lack of autonomous perception remain challenges for industrial deployment."
+    ],
+    "research_objective": "To develop, analyze, control, and validate a compact robotic gripper driven by a single motor with thin fingers that achieves sequential grasping, finger-bending, and pull-in modes via novel self-motion switching mechanisms for in-hand manipulation in confined spaces without environmental support.",
+    "research_problem": "Retrieving objects from confined spaces (such as boxes on shelves) requires changing object position and posture to prevent collisions, which typically requires a large manipulator workspace. Existing in-hand manipulation end-effectors either require multiple actuators (increasing size and complexity) or rely on environmental supports/external forces (applicable only in restricted situations).",
+    "robot_type": "underactuated robotic gripper",
+    "stiffness_mechanism": [],
+    "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+    "year": "2023"
+  }
+}

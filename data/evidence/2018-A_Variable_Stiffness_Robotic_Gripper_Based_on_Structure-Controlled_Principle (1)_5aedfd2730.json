@@ -1,0 +1,187 @@
+{
+  "source": {
+    "paper_id": "5aedfd2730",
+    "filename": "2018-A_Variable_Stiffness_Robotic_Gripper_Based_on_Structure-Controlled_Principle (1).pdf",
+    "sha256": "5aedfd2730a760571b1728ca94a496da295b04d1e4294385161e5c720a9b663f",
+    "page_count": 10,
+    "char_count": 48954,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28455,
+    "completion_tokens": 6634,
+    "total_tokens": 35089,
+    "thinking_tokens": 4343,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "DC stepper motor with lead screw transmission (right-hand and left-hand threads) for finger opening and closing",
+      "DC stepper motor with non-back-drivable worm gear transmission for rotating the inner flexure hinge shaft"
+    ],
+    "authors": [
+      "Xiong Li",
+      "Wenjie Chen",
+      "Wei Lin",
+      "Kin Huat Low"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Small deflection assumption for Euler-Bernoulli beam theory formulations",
+      "Linear elastic material behavior adhering to Hooke's Law in Cartesian space",
+      "Superposition principle applies to sum individual section deflections to find total tip displacement",
+      "Rigid body assumption for non-hinge finger components due to large stiffness differentials",
+      "Zero-based cyclic loading type for finite element fatigue analysis"
+    ],
+    "control_variables": [
+      "Open-loop position control commands (gripper opening and stroke)",
+      "Approach safety factor (n = 1.5)",
+      "Maximum permitted approach closing speed based on object crush threshold and lowest stiffness",
+      "Structural materials: AL7075 for the outer frame and Ti6Al4V (Grade 5) for the inner shaft",
+      "Pre-set gripper opening (caliper reading 29.58 mm during comparative eggshell and stone grasp tests)",
+      "Object lift height of approximately 20 cm from the worktable during grasp validation"
+    ],
+    "dependent_variables": [
+      "Cartesian stiffness and compliance of the gripper finger",
+      "Fingertip Cartesian deflection under applied load",
+      "Gripping contact force and dynamic impact force overshoot ratio",
+      "Fatigue life cycle count",
+      "Grasping outcome (success or failure by dropping or crushing)"
+    ],
+    "doi": "10.1109/TASE.2017.2732729",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Rotating an embedded flexure hinge shaft relative to a stationary flexure housing alters the effective second moment of area, modulating Cartesian stiffness continuously following a cosine curve as a function of the rotation angle.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Adopting corner-filleted flexure hinges of short length instead of uniform leaf springs suppresses lateral buckling during rotation, as the critical buckling load increases inversely with the square of hinge length.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "claim": "Non-back-drivable worm gear transmission holds the rotation angle of the inner flexure shaft without requiring active motor torque or electrical power to maintain finger stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Finite element analysis in ANSYS predicts a fatigue life of 1.8 x 10^4 cycles under zero-based bending at the lowest stiffness state, exceeding the 10^4 cycle design target.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "The prototype finger achieved an empirical stiffness range ratio of approximately 53.3, with measured stiffness varying between 0.13 N/mm and 4.99 N/mm over rotation angles from 0 to 63 degrees.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Fast dynamic grasping at the highest stiffness state caused an instantaneous impact force overshoot of approximately 30%, whereas grasping at the lowest stiffness state exhibited a gradual rise to the target force without overshoot.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "At the lowest stiffness state (0.13 N/mm), the gripper passively accommodated position misalignments up to 17 mm with a contact force of approximately 2.2 N.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "The gripper successfully grasped eight varied objects spanning 5.0 g to 500 g (including an eggshell, raw egg, tomato, stone, and metal block) under open-loop position control without tactile/force sensors or soft rubber pads.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Two-finger parallel robotic gripper prototype driven by two DC stepper motors with DRV8825 drivers and an Arduino Uno microcontroller",
+      "Optical displacement sensor (Keyence LK-5402) and precision weight sets for Cartesian stiffness and deflection characterization",
+      "6-DoF industrial robot arm (Universal Robots UR10) for manipulation and dynamic grasping trials",
+      "6-DoF force and torque sensor (ATI Industrial Automation MINI 45) connected to a metal cylinder to measure contact forces during misaligned grasping",
+      "Dynamic contact force sensor setup to evaluate force overshoot during rapid closing",
+      "Eight daily-life test objects spanning fragile/light to heavy/rigid: empty eggshell, raw egg, sponge, tomato, light bulb, stone, cake, and metal block"
+    ],
+    "future_work": [
+      "Implement the variable stiffness finger technology in real industrial applications for sensitive part handling"
+    ],
+    "independent_variables": [
+      "Rotation angle of the rotary flexure hinge shaft (alpha, 0 to 90 degrees)",
+      "Hinge geometric dimensions and aspect ratios (h/r, l/r, win/r, thickness h, length l, inner width win, outer width wo, fillet radius r)",
+      "Applied static loading weights on the fingertip",
+      "Centerline offset distance during misaligned grasping tests",
+      "Target object properties (mass, dimensions, crush threshold, rigidity)"
+    ],
+    "limitations_inferred": [
+      "Open-loop operation requires prior knowledge of object dimensions and crush thresholds; unexpected variations or slip cannot be sensed or corrected on-the-fly.",
+      "Close mechanical tolerances between the rotating inner shaft and the outer frame are critical; excessive clearance or wear could introduce backlash or degrade stiffness predictability.",
+      "A 90-degree rotation time of ~0.8 s may constrain applications requiring millisecond-scale on-the-fly stiffness switching during high-speed cycle times.",
+      "Orthogonal arrangement of two flexure sections limits variable compliance primarily to the 2D plane (XY), offering limited compliance to out-of-plane torsional or axial shock loads."
+    ],
+    "limitations_stated_by_authors": [
+      "The empirical finger stiffness was lower than theoretical predictions due to compliance in the mechanical connections between the finger and the gripper body.",
+      "The dynamic contact force magnitude was constrained by the physical limits of the prototype components.",
+      "The open-loop control scheme requires desired gripping forces, object sizes, and crush thresholds to be predefined or premeasured experimentally before execution.",
+      "Grasping capacity is subject to the payload, size, and motor torque limits of the physical prototype."
+    ],
+    "main_results": [
+      "Formulated and validated the structure-controlled stiffness principle demonstrating a cosine relationship between shaft rotation angle and Cartesian stiffness.",
+      "Fabricated a compact two-finger parallel gripper prototype capable of tuning stiffness from 0.13 N/mm to 4.99 N/mm (stiffness range ratio of ~53.3) in ~0.8 s.",
+      "Demonstrated through FEA that the design achieves 1.8 x 10^4 cycles under zero-based bending, meeting the 10^4 cycle fatigue life goal.",
+      "Showed that low-stiffness grasping eliminates the ~30% dynamic impact force overshoot observed at high stiffness during fast contact.",
+      "Demonstrated passive compliance accommodating up to 17 mm positional misalignment with contact forces restricted to ~2.2 N at the lowest stiffness setting.",
+      "Successfully handled objects with a 100-fold weight variation (5.0 g to 500 g) and diverse fragilities using open-loop position control without tactile sensors or soft pads."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory under small deflections",
+      "Coordinate transformation of the second moment of area for the rotating shaft",
+      "Hooke's Law and Cartesian stiffness modeling using the superposition principle for multi-section flexures",
+      "Corner-filleted flexure hinge compliance analytical equations (referencing Lobontiu et al.)",
+      "Finite element analysis (FEA) using ANSYS for fatigue life and fatigue sensitivity simulations",
+      "Polynomial regression (degree 7 polynomial) for empirical stiffness curve fitting"
+    ],
+    "performance_metrics": [
+      "Stiffness range ratio (~53.3)",
+      "Stiffness adjustment speed (approx. 0.8 s per 90-degree rotation)",
+      "Fatigue life cycles (1.8 x 10^4 cycles in FEA vs. 10^4 cycle design goal)",
+      "Passive contact force during misalignment (~2.2 N at 17 mm offset)",
+      "Dynamic impact overshoot percentage (~30% overshoot in stiff state vs. 0% in compliant state)",
+      "Grasping success rate across objects ranging from 5.0 g to 500 g"
+    ],
+    "possible_gap_implications": [
+      "Integrating tactile, slip, or proximity sensing could eliminate the dependency on premeasuring object dimensions and crush thresholds, allowing fully autonomous grasping of unmodeled objects.",
+      "Extending the flexure mechanism to 3D spatial arrangements could provide multi-axis compliant shock absorption and out-of-plane grasp adaptation.",
+      "Investigating alternative high-speed rotary actuators or lightweight composite alloys could reduce stiffness adjustment time below 0.8 s and increase payload capacity."
+    ],
+    "research_objective": "To design, model, prototype, and experimentally evaluate a structure-controlled variable stiffness robotic gripper that continuously varies its finger compliance over a wide range by rotating an embedded flexure hinge shaft, enabling adaptive grasping of fragile to rigid objects without soft pads or closed-loop sensor feedback.",
+    "research_problem": "Rigid grippers lack inherent passive safety and can damage fragile objects without complex active compliance and sensitive sensors, whereas soft grippers lack the stiffness required to exert high forces or transport heavy objects; furthermore, existing variable stiffness mechanisms rely on slow material phase changes, granular jamming with limited stiffness thresholds, or bulky gear trains with springs that prevent high rigidity.",
+    "robot_type": "variable stiffness robotic gripper",
+    "stiffness_mechanism": [
+      "structure-controlled variable stiffness",
+      "effective second moment of area variation via rotating an inner flexure hinge shaft (RFS) within a stationary flexure hinge housing (SFH)"
+    ],
+    "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+    "year": "2018"
+  }
+}

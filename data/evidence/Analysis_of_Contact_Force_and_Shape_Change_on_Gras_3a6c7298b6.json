@@ -1,0 +1,171 @@
+{
+  "source": {
+    "paper_id": "3a6c7298b6",
+    "filename": "Analysis_of_Contact_Force_and_Shape_Change_on_Gras.pdf",
+    "sha256": "3a6c7298b69b5f4c9dcfc9e23f1200521bed1b85f4eac2ab85718b927d0df18a",
+    "page_count": 21,
+    "char_count": 50847,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29350,
+    "completion_tokens": 7055,
+    "total_tokens": 36405,
+    "thinking_tokens": 4388,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Parallel open/close drive system driven by two electric motors (Robotis Dynamixel XM540)"
+    ],
+    "authors": [
+      "Takahide Kitamura",
+      "Kojiro Matsushita",
+      "Naoki Nakatani"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The UV-curable rubber-like resin (Elastic50A) used for 3D printing the Fin Ray structure has a static friction coefficient of approximately 0.88 and kinetic friction coefficient of approximately 0.79 on an aluminum plate",
+      "Friction between each object and each Fin Ray soft gripper is assumed to remain constant throughout the experiment"
+    ],
+    "control_variables": [
+      "Contact surface width of the Fin Ray soft gripper fingers (kept uniform across all five tested structures)",
+      "Material of the Fin Ray structures (Formlabs Elastic50A UV-curable resin)",
+      "Base structural dimensions and profile derived from Festo DHAS-GF-120 CAD data",
+      "Actuation open/close speed and motor platform parameters",
+      "Data acquisition sampling rate (1 kHz at 16-bit resolution) and video capture rate (1280 x 720 px at 60 fps)",
+      "Number of measurement repetitions averaged per experimental condition (10 runs)"
+    ],
+    "dependent_variables": [
+      "16-channel normal contact force distribution and peak contact force values (N)",
+      "Structural deformation and 2D displacement trajectories of 23 marker nodes on the Fin Ray finger",
+      "Forward and backward displacement of the grasped object (handling start, handling, and handling end positions in mm)"
+    ],
+    "doi": "10.3390/s23249827",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Conventional finite element method (FEM) simulations struggle to accurately reflect material and geometric discrepancies in 3D-printed soft fingers, and face difficulties predicting buckling, crossbeam contact, and slippage when grasping angled objects.",
+        "evidence_type": "Background rationale / literature analysis",
+        "page_numbers": [
+          2,
+          3,
+          20
+        ]
+      },
+      {
+        "claim": "Embedding multiple single-axis force sensors inside the grasped object rather than inside the soft finger avoids altering the finger's compliant grasping kinematics, eliminates sensor damage, and provides high spatial resolution normal contact force distributions.",
+        "evidence_type": "Methodological design rationale",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "For cylindrical objects, crossbeam angles near 0 degrees and -15 degrees provide the widest contact force distribution and superior enveloping grasping, whereas a -30 degree angle causes premature crossbeam-to-crossbeam contact and S-shaped buckling, and a +30 degree angle causes raised buckling at the finger base.",
+        "evidence_type": "Experimental findings",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          20
+        ]
+      },
+      {
+        "claim": "When grasping square objects in a 0-degree orientation, contact occurs at the lower and upper corners; an FRSG with a +15 degree crossbeam angle prevents crossbeam collision at the lower corner while allowing the finger tip to wrap over the upper corner.",
+        "evidence_type": "Experimental findings",
+        "page_numbers": [
+          12,
+          13,
+          20
+        ]
+      },
+      {
+        "claim": "For square objects oriented at 45 degrees, stable wrapping grasping can be achieved by employing non-uniform crossbeam angles: positive angles (+15 or +30 degrees) below the contact point to prevent crossbeam contact, and negative angles (-15 or -30 degrees) above the contact point to promote wraparound deformation.",
+        "evidence_type": "Experimental findings and analytical deduction",
+        "page_numbers": [
+          16,
+          20
+        ]
+      },
+      {
+        "claim": "During gripper opening, the finger separates starting from the tip, which reduces contact area, causes slip, and prevents the grasped object from returning to its initial position, producing positional misalignment.",
+        "evidence_type": "Experimental findings",
+        "page_numbers": [
+          8,
+          9,
+          10,
+          11,
+          20
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Two-finger Fin Ray soft gripper mounted on a custom ABS parallel open/close drive mechanism powered by two Robotis Dynamixel XM540 servomotors",
+      "Five interchangeable Fin Ray finger structures with crossbeam angles of -30, -15, 0, +15, and +30 degrees, 3D-printed with Elastic50A resin via a Formlabs Form 3 printer",
+      "16/16 contact force measurement device comprising 16 single-axis load cells (2 kg rated capacity) embedded along the circumference of a cylinder or square socket (0-degree and 45-degree configurations) measuring normal contact force",
+      "Dedicated mounting plate on an aluminum frame with a linear slide mechanism enabling forward/backward movement of the grasped object",
+      "Panasonic HG-C1100 micro laser rangefinder measuring object translation with 200 um accuracy reflected off Kent paper",
+      "Instrumentation amplifier circuit connected to a National Instruments DAQ (USB-6218) acquiring 16 analog channels at 1 kHz and 16-bit resolution into MATLAB R2023a with Savitzky-Golay filtering",
+      "Vision tracking system using an ELP 4K USB camera (1280 x 720 px, 60 fps) mounted on an automated Dynamixel XM540 motor base to track 23 red color markers placed at beam intersections, processed via MATLAB Image Processing Toolbox with color segmentation, Kalman filter tracking, and Savitzky-Golay smoothing",
+      "Testing across three initial grasping positions: reference center, 10 mm upward, and 20 mm upward from the contact center"
+    ],
+    "future_work": [
+      "Implementing countermeasures against post-grasp object misalignment, including introducing position sensors to track object position, increasing contact surface friction, and controlling release trajectory errors",
+      "Fabricating and experimentally evaluating Fin Ray soft grippers with heterogeneous, non-uniform crossbeam angle arrangements (e.g., positive angles below the contact point and negative angles above)",
+      "Developing real-time contact force feedback control (monitoring base sensors ch 6/7 and tip sensors ch 2/3) to stop the closing motion before force levels become excessive or cause finger damage"
+    ],
+    "independent_variables": [
+      "Crossbeam angle of the Fin Ray structure (-30, -15, 0, +15, and +30 degrees)",
+      "Grasped object geometry and orientation (cylinder, square at 0 degrees, and square at 45 degrees)",
+      "Initial grasping position relative to the finger contact surface center (reference center, +10 mm upward, +20 mm upward)"
+    ],
+    "limitations_inferred": [
+      "Measurement of deformation was restricted to 2D planar displacements along the side profile using camera tracking; out-of-plane, twisting, or lateral 3D deformations were not captured",
+      "Experiments evaluated only rigid aluminum contact interfaces; performance on soft, compliant, fragile, or irregularly textured surfaces was not investigated",
+      "Only one elastomer resin (Elastic50A) and one nominal finger size scale were tested, limiting direct generalizability to other soft materials or scales",
+      "Tests were conducted under pre-programmed open/close motor strokes without active real-time closed-loop contact force control"
+    ],
+    "limitations_stated_by_authors": [
+      "When the gripper opens, release begins from the finger tip, reducing contact area and causing slipping that leads to positional misalignment between initial and final object positions",
+      "Closing the Fin Ray soft gripper completely can lead to structural breakage",
+      "If the tip of the Fin Ray finger does not extend sufficiently past the upper corner of a square body, it pushes the object forward and fails to establish a stable pincer grasp",
+      "Excessive positive crossbeam angles can cause excessive warping at the finger tip, preventing successful grasping",
+      "The proposed optimal design combining non-uniform crossbeam angles (+30 degrees below and -30 degrees above contact) for 45-degree square grasping was derived as an estimation/deduction rather than experimentally built and validated in this study"
+    ],
+    "main_results": [
+      "For cylinder grasping, fingers with crossbeam angles near 0 degrees and -15 degrees demonstrated the widest contact force distribution and achieved the most effective enveloping grasp; peak contact forces at the center position were 3.3 N (-30 deg), 3.6 N (-15 deg), 2.4 N (0 deg), 4.0 N (+15 deg), and 2.3 N (+30 deg)",
+      "Negative crossbeam angles (-30 degrees) promoted crossbeam-to-crossbeam contact and S-shaped back-beam buckling, narrowing contact area and pushing the cylinder forward by up to +10.8 mm",
+      "Positive crossbeam angles (+15 and +30 degrees) suppressed crossbeam contact but induced raised buckling near the base of the contact surface, pushing the cylinder forward by up to +13.8 mm",
+      "For square objects at 0 degrees, contact occurred predominantly at two or three distinct corner points; the +15 degree finger at center position yielded the most stable grasp by preventing crossbeam contact at the lower corner while allowing the tip to wrap over the upper corner (peak force 20.8 N for 0 deg at center, 14.1 N for -15 deg at +10 mm, 4.6 N for -15 deg at +20 mm)",
+      "For square objects at 45 degrees, the object retracted toward the gripper root upon initial contact; the 0-degree finger achieved moderate performance with two-point or three-point contact",
+      "The authors concluded that an ideal Fin Ray gripper for grasping 45-degree square objects should have non-uniform crossbeam angles: positive angles (+15 to +30 degrees) below the contact point to prevent crossbeam jamming and negative angles (-15 to -30 degrees) above the contact point to enable wraparound grasping"
+    ],
+    "modeling_methods": [
+      "No mechanical or finite element modeling was conducted by the authors in this study; an experimental measurement approach was utilized instead, supported by Kalman filter marker tracking and Savitzky-Golay digital filtering for signal smoothing"
+    ],
+    "performance_metrics": [
+      "Peak contact force (N)",
+      "Contact force distribution width across the 16 load cell segments (evaluating enveloping/wrapping extent)",
+      "Marker displacement loci and conformity to object contours",
+      "Forward and backward displacement of the grasped object (mm) relative to initial position",
+      "Occurrence of crossbeam contact, S-shaped back-beam buckling, and base raised buckling"
+    ],
+    "possible_gap_implications": [
+      "Highlights the necessity of developing design frameworks and fabrication processes for soft grippers with spatially varying (heterogeneous) internal beam geometries tailored to complex non-cylindrical objects",
+      "Points to an unresolved gap in tactile-guided closing strategies that dynamically monitor discrete corner contact events to arrest gripper closure before structural overload occurs",
+      "Identifies post-grasp positional drift upon release as a critical operational challenge requiring advanced release trajectory or friction control in precision soft robotic handling"
+    ],
+    "research_objective": "To experimentally analyze the relationship between contact force distribution and structural deformation in an actual 3D-printed Fin Ray soft gripper across five different crossbeam angles grasping cylindrical and square objects (at 0 degrees and 45 degrees) from multiple grasping positions, using object-embedded force sensors and optical marker tracking to provide structural design guidelines for stable grasping.",
+    "research_problem": "Conventional finite element method (FEM) simulations struggle to accurately predict buckling, slippage, and geometry/material discrepancies in actual 3D-printed Fin Ray soft grippers when grasping objects with angles. Moreover, existing experimental evaluation methods that embed sensors within the Fin Ray structure interfere with compliant grasping kinematics and are prone to sensor damage, while existing object-embedded sensor setups measure only composite single-point forces without the spatial resolution required to quantitatively evaluate enveloping contact.",
+    "robot_type": "Fin Ray-type soft gripper (FRSG)",
+    "stiffness_mechanism": [
+      "Fin Ray bio-mimetic flexible structure passive deformation",
+      "Contact between crossbeams (crossbeam-to-crossbeam contact causing stiffness variation and buckling suppression based on crossbeam angle and arrangement)"
+    ],
+    "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+    "year": "2023"
+  }
+}

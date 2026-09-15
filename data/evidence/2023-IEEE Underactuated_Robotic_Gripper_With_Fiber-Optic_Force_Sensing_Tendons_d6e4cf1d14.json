@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "d6e4cf1d14",
+    "filename": "2023-IEEE Underactuated_Robotic_Gripper_With_Fiber-Optic_Force_Sensing_Tendons.pdf",
+    "sha256": "d6e4cf1d1430d039921e7a1a62b7eadb84440873b822631db4154725bde7d0d0",
+    "page_count": 8,
+    "char_count": 40451,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26469,
+    "completion_tokens": 6600,
+    "total_tokens": 33069,
+    "thinking_tokens": 4044,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven",
+      "underactuated",
+      "DC motor",
+      "active optical fiber tendon (single-mode optical fiber with embedded FBG)",
+      "passive elastomer tendon (Dragon Skin 10 soft elastomer)"
+    ],
+    "authors": [
+      "Jaehyun Yi",
+      "Byungchul Kim",
+      "Kyu-Jin Cho",
+      "Yong-Lae Park"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear relationship between optical fiber strain, Fiber Bragg Grating (FBG) peak wavelength shift, and tendon tension force",
+      "Euler's belt formula (capstan equation) assuming exponential tension amplification and frictional stress distribution along wound fiber-disc contacts",
+      "Identical material stiffness and cross-sectional dimensions across passive elastomer tendons, with sequential joint motion governed purely by geometric moment arm variations",
+      "Dahlquist criterion assumption that soft materials with shear modulus below 100 kPa exhibit higher tackiness, resulting in reduced slip duration during grasp contact",
+      "Negligible thermal strain effect under experimentally controlled constant ambient temperature"
+    ],
+    "control_variables": [
+      "Ambient room temperature (kept constant during experiments)",
+      "Pre-tensioned joint angles during stiffness tests (PIP and DIP joints fixed at 45 degrees)",
+      "Tendon displacement amplitude during stiffness sensing (approximately 1.8 mm) and object grasping tests (approximately 5.1 mm)",
+      "Mechanical joint range of motion constraints (limited to 0 to 45 degrees per joint)",
+      "Passive tendon thickness (3.0 mm) and material (Dragon Skin 10 silicone elastomer)",
+      "Optical fiber cladding diameter (125 micrometers) and coating material (polyimide sheath)"
+    ],
+    "dependent_variables": [
+      "FBG peak wavelength shift",
+      "Tendon tension force",
+      "MCP, PIP, and DIP joint angles and sequence of motion",
+      "Motor shaft velocity and target velocity",
+      "Grasping force and force tracking error",
+      "Initial contact displacement point and slip duration during object grasping"
+    ],
+    "doi": "10.1109/LRA.2023.3315204",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Single-mode optical fibers with embedded FBGs can function as active tendons in an underactuated robotic finger, demonstrating high linear correlation (R^2 = 0.997) between wavelength shift and tension force up to 15 N.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          6
+        ]
+      },
+      {
+        "claim": "Wrapping the optical fiber around grooved discs according to Euler's belt formula mitigates stress concentrations, prevents outer coating delamination, and prevents tendon slipping.",
+        "evidence_type": "theoretical and experimental",
+        "page_numbers": [
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "claim": "Varying the normal distance from joints to passive elastomer tendons enables predictable sequential joint flexion and extension in an underactuated finger without changing tendon material properties.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          4,
+          6
+        ]
+      },
+      {
+        "claim": "Object stiffness can be distinguished from the slope of the tendon tension-displacement curve without direct contact force sensors at the fingertip.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5,
+          7
+        ]
+      },
+      {
+        "claim": "Grasping contact points and slip duration differ systematically according to object dimension and material tackiness/friction governed by the Dahlquist criterion.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Closed-loop admittance force control based on FBG tension feedback maintains stable gripping under dynamic manipulation perturbations with accelerations up to 1.8 m/s^2.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Single-finger characterization bench comprising 3D-printed rigid links (Clear V4 resin), revolute pin joints with miniature ball bearings, linear guide unit, DC motor, ATI Nano-17 load cell (3.18 mN resolution) tied along Kevlar line, HYPERION si255 optical interrogator, and 2D motion tracking software (ProAnalyst)",
+      "Stiffness evaluation apparatus with six test blocks (EcoFlex 00-10, EcoFlex 00-30, Dragon Skin 10, Dragon Skin 30, Smooth-Sil 950, and Onyx) fixed at the fingertip under pre-bent joint configurations across 10 repeated pulling cycles",
+      "Three-fingered underactuated gripper mounted on a 3D-printed wrist housing DC motors, linear guides, grooved discs, and an Arduino Mega 2560 microcontroller, evaluated with spherical objects of 2 diameters (73.0 mm and 83.5 mm) made from Onyx, EcoFlex 00-30, and Dragon Skin 10",
+      "Dynamic manipulation testbed pairing the sensorized gripper as an end-effector on a Universal Robots UR5e 6-DOF robotic arm equipped with an IMU, executing multi-axis translational trajectories with accelerations up to 1.8 m/s^2"
+    ],
+    "future_work": [
+      "Implementing active temperature compensation using dual FBG configurations or wavelength-division multiplexing within the same fiber to decouple mechanical strain from thermal strain",
+      "Integrating more powerful actuator motors and designing advanced control architectures",
+      "Overcoming controller-interrogator communication latency to increase control loop bandwidth toward hundreds of hertz",
+      "Multiplexing multiple FBGs along the tendon from wrist to fingertip to measure distributed tactile and contact data alongside tendon tension",
+      "Tuning and customizing optical fiber diameter and disc winding geometry to scale up maximum endurable tension and gripper payload capacity"
+    ],
+    "independent_variables": [
+      "Motor pulling displacement and velocity",
+      "Object diameter (73.0 mm vs. 83.5 mm)",
+      "Object material and elastic modulus (EcoFlex 00-10, EcoFlex 00-30, Dragon Skin 10, Dragon Skin 30, Smooth-Sil 950, Onyx)",
+      "Sinusoidal reference frequency for force control (0.5 Hz and 1.0 Hz)",
+      "External dynamic disturbance / robotic arm translational acceleration (up to 1.8 m/s^2)",
+      "Passive tendon moment arm anchor heights (2.3 mm at PIP, 3.8 mm at MCP, 5.3 mm at DIP)",
+      "Fiber coating sheath material (acrylate vs. polyimide)"
+    ],
+    "limitations_inferred": [
+      "The gripper mechanism employs rigid resin links and discrete revolute joints, meaning passive conformability to complex, irregular geometries is constrained compared to fully continuous or soft elastomeric grippers",
+      "Repeated sliding and bending across miniature pulleys and grooved discs poses risk of mechanical fatigue or micro-abrasion of the silica optical fiber over extended operational cycles",
+      "Tension-based sensing alone cannot localize the exact point of contact along a finger phalanx without multiplexing additional sensors",
+      "Maximum gripping force is modest (approximately 6 N), which restricts suitability to lightweight grasping tasks"
+    ],
+    "limitations_stated_by_authors": [
+      "Optical fibers are fragile when subjected to sharp curvatures or localized stress concentrations, risking core breakage or coating delamination",
+      "Maximum endurable tension of the 125-micrometer optical fiber tendon in this setup is restricted to 15 N, limiting the scale and gripping force of the mechanism",
+      "Communication latency between the optical interrogator and the main controller capped the force control frequency at 25 Hz despite a 50 Hz sensor read rate and 1 kHz interrogator acquisition rate",
+      "FBG sensors are inherently sensitive to ambient temperature variations, and active temperature compensation was not incorporated in the current prototype",
+      "Tension-displacement slope changes tend to saturate for highly rigid materials, diminishing stiffness discrimination sensitivity among stiff objects",
+      "Direct contact forces at the fingertip are not directly measured and can only be estimated through tendon tension",
+      "Only basic low-level PD admittance control and low-end motors were evaluated"
+    ],
+    "main_results": [
+      "The FBG-integrated active tendon exhibited a strong linear calibration response against a reference load cell with R^2 = 0.997",
+      "Sequential joint flexion (MCP -> PIP -> DIP) and reverse extension were reliably achieved by varying normal tendon distances (2.3, 3.8, and 5.3 mm) using uniform elastomer bands",
+      "Object stiffnesses were successfully differentiated through the slopes of the tension-displacement curves obtained during 1.8 mm tendon pulling trials",
+      "Grasp contact onset and slip duration distinguished ball dimensions and surface tackiness/friction governed by the Dahlquist criterion",
+      "Admittance force control followed 0.5 Hz and 1.0 Hz reference signals and sustained grasp stability under dynamic arm perturbations with accelerations up to 1.8 m/s^2",
+      "The gripper demonstrated reliable generation of approximately 6 N gripping force over cyclic trials"
+    ],
+    "modeling_methods": [
+      "Euler's belt formula / capstan equation (T_2 = T_1 * e^(mu * phi)) for modeling friction and exponential tension distribution around grooved discs and pulleys",
+      "Linear calibration model correlating FBG reflection wavelength peak shifts with applied tendon tension",
+      "Proportional-differential (PD) admittance force control model relating tension error and motor velocity (theta_dot_m,des = -K_p * e_T - K_d * theta_dot_m)",
+      "Tension-displacement slope analysis for object stiffness classification",
+      "Dahlquist criterion application relating material shear modulus (< 100 kPa) to surface tackiness and slip behavior"
+    ],
+    "performance_metrics": [
+      "Calibration linearity coefficient of determination (R^2 = 0.997)",
+      "Tendon tensile loading capacity (up to 15 N)",
+      "Gripper grasp force output (approximately 6 N)",
+      "Control loop frequency (25 Hz) and data sampling frequency (50 Hz)",
+      "Dynamic perturbation resistance (up to 1.8 m/s^2 acceleration)",
+      "Tracking accuracy across 0.5 Hz and 1.0 Hz sinusoidal force trajectories (0.04 s time resolution)",
+      "Joint range of motion limit (0 to 45 degrees per joint)"
+    ],
+    "possible_gap_implications": [
+      "Demonstrating that an optical fiber can simultaneously serve as an actuation tendon and a proprioceptive load sensor offers an avenue to reduce bulk and wiring complexity in underactuated multi-fingered hands",
+      "Future soft or continuum robotic implementations will need to address optical fiber bend limits and temperature decoupling to operate reliably in unconstrained environments",
+      "Because tendon tension conflates drive dynamics, internal friction, and contact interactions, multi-point FBG multiplexing along the tendon path is needed to isolate external contact state"
+    ],
+    "research_objective": "To design, fabricate, and characterize an underactuated multi-fingered robotic gripper using fiber-optically sensorized active tendons (FBG-embedded optical fibers) inspired by biological Golgi tendon organs, enabling proprioceptive tension sensing, force control, and object stiffness estimation in a compact and lightweight form factor.",
+    "research_problem": "Conventional robotic grippers rely on separate, non-integrated force sensors (such as load cells or tactile arrays) that do not directly capture actuator states and significantly increase system bulk, mass, and mechanical complexity, lacking the integrated proprioceptive capability found in biological muscle-tendon units.",
+    "robot_type": "underactuated robotic gripper",
+    "stiffness_mechanism": [
+      "passive elastomer tendons (Dragon Skin 10)"
+    ],
+    "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+    "year": "2023"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "source": {
+    "filename": "2024-IEEE-A_Human_Finger-Inspired_Shape-Locking_Pneumatic_Gripper_Enabled_by_Folding_Laminar_Jamming_Structure.pdf",
+    "sha256": "5bdf50c59986430fea7771145cf86a0bf561285d1ed9e69fc4a9ffda11a27fb3",
+    "page_count": 12,
+    "char_count": 56751
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32166,
+    "completion_tokens": 5582,
+    "total_tokens": 37748,
+    "thinking_tokens": 3160,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "soft pneumatic actuator (SPA) / positive air pressure",
+      "vacuum / negative pressure (for laminar jamming)"
+    ],
+    "authors": [
+      "Xuanchun Yin",
+      "Pengyu Zhou",
+      "Junliang Xie",
+      "Shijie Tang",
+      "Sheng Wen",
+      "Jiantao Zhang",
+      "Jiehao Li"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Silicone rubber elastomer (Dragon Skin 30) is modeled as an incompressible hyperelastic material.",
+      "Chamber lateral walls are treated as plane strain membranes undergoing equi-biaxial stretching at the pole (lambda_xi = lambda_phi = lambda).",
+      "Neo-Hookean strain energy density model is assumed for analytical membrane tension derivation, while a two-parameter Yeoh model (C10 = 0.14 MPa, C20 = 0.001 MPa) is fitted for finite element analysis.",
+      "Laminar jamming structures (FLJS and TLJS) are assumed inextensible and compliant when deactivated.",
+      "Radial expansion of the soft pneumatic actuator is assumed negligible due to constraint from the top and bottom laminar jamming structures.",
+      "Bending curvature along the soft pneumatic actuator is assumed to be uniform.",
+      "The activated FLJS is assumed to operate in the preslip regime where all laminate sections are cohesive.",
+      "The FLJS with variable moment of inertia is approximated as an equivalent simply supported beam with a constant moment of inertia using the first Fourier series coefficient.",
+      "Bending creases in the FLJS are assumed noncurvature with zero horizontal offset between outer and middle creases due to minimal sandpaper layer thickness.",
+      "Displacement/deflection alteration of the actuator upon contacting the target object is neglected in the tip force analytical formulation (theta_unhold = theta_hold = theta)."
+    ],
+    "control_variables": [
+      "Actuator geometry and chamber dimensions (chamber height, width, wall thickness, chamber length, and gap length).",
+      "Laminar jamming design parameters (sandpaper grade P15000, 5 core layers and 4 segmented face layers for FLJS, 12 layers for TLJS, TPU envelope material, and PU tube diameter).",
+      "Silicone rubber material properties and density (1917.4 kg/m^3 in FEA).",
+      "Mounting geometry and contact positioning against the load cell."
+    ],
+    "dependent_variables": [
+      "Finger bending angle (degrees).",
+      "Fingertip output force (N).",
+      "Deformation and structural integrity of target fragile objects during grasping and lifting."
+    ],
+    "doi": "10.1109/TMECH.2024.3352643",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Decoupling span and grasping force through finger shape locking allows soft pneumatic grippers to grasp fragile, deformable objects safely without crushing them.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          10
+        ]
+      },
+      {
+        "claim": "Integrating a folding laminar jamming structure on the chamber top surface provides shape locking, while a typical laminar jamming structure on the bottom enhances bending stiffness and payload capacity.",
+        "evidence_type": "experimental/mechanical design",
+        "page_numbers": [
+          2,
+          4,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The variable moment of inertia of a folding laminar jamming structure can be converted into an equivalent constant moment of inertia via Fourier series expansion for both active and passive states.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Locking the finger shape at a pregrasp pressure allows outputting a tunable range of tip forces at a constant finger span as input pressure increases.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The analytical model predicts tip force with higher deviation (36.8% error) when the variable stiffness mechanism is inactive due to rapid and large deformation of the unconstrained silicone elastomer.",
+        "evidence_type": "experimental/modeling evaluation",
+        "page_numbers": [
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Shape-locking finger mounted on an aluminous support via a 3D-printed connecting component.",
+      "Camera vision setup to record finger bending motion and measure bending angles.",
+      "Tip force measurement rig featuring a load cell, proportional pressure regulator valve (SMC ITV2031-212L), solenoid valve, STM32 microcontroller, relay, power supply, and air compressor.",
+      "Vacuum circuit with two ball valves and a vacuum meter to seal, decompress, and monitor vacuum levels in the FLJS and TLJS.",
+      "Food-handling validation testbed using deformable fragile items: plastic cup containing a 100-g weight, tofu (49.5 g), cake (13.4 g), mochi (38.7 g), and jelly (80 g)."
+    ],
+    "future_work": [
+      "Incorporating proprioceptive sensing into the finger to detect target object shape and size for autonomous grasping.",
+      "Refining the theoretical model to capture the soft pneumatic actuator deformation and tip forces more accurately, particularly when the variable stiffness mechanism is deactivated."
+    ],
+    "independent_variables": [
+      "Positive internal pneumatic input pressure (0 to 55 kPa).",
+      "Activation state of the folding laminar jamming structure (vacuum on/off).",
+      "Activation state of the typical laminar jamming structure (vacuum on/off).",
+      "Pregrasp shape-locking pressure level (locking at 5, 15, 25, 35, 45, or 50 kPa).",
+      "Target object type and surface deformability (plastic cup with 100-g weight, tofu, cake, mochi, jelly)."
+    ],
+    "limitations_inferred": [
+      "The gripper requires multiple pneumatic supply lines (positive pressure line for actuation and separate vacuum lines for FLJS and TLJS), increasing overall system bulk and tethering complexity.",
+      "The pregrasp, shape-locking, and pressure ramp-up sequence was demonstrated via open-loop or manual coordination without automated real-time closed-loop contact detection.",
+      "Long-term cyclic durability, abrasive degradation of the sandpaper layers, and vacuum seal reliability over extended cycles were not evaluated.",
+      "Testing was limited to two-finger pinching of quasi-static, relatively symmetric objects; dynamic handling and grasping of irregular objects were not investigated."
+    ],
+    "limitations_stated_by_authors": [
+      "The prototype finger exhibits a nonzero initial bending angle of 8.2 degrees at 0 kPa because the folded FLJS exerts a restoring torque resisting return to an entirely flat state.",
+      "The theoretical tip force model fails to track the experimental trend accurately when the TLJS is deactivated, showing a large discrepancy (36.8% error) due to unmodeled large and rapid deformation of the soft silicone rubber.",
+      "Activating the FLJS induces a slight reverse displacement of the fingertip, which must be compensated by subsequent increases in positive actuation pressure.",
+      "The maximum achievable bending angle of the finger is constrained by the total length of the FLJS and the chamber gap geometry.",
+      "The gripper currently lacks proprioceptive sensing capabilities to measure object shape and size automatically."
+    ],
+    "main_results": [
+      "Finger bending angle increased almost linearly with positive pressure; maximum experimental bending angles were 42.1 degrees at 50 kPa (TLJS off, 7.8% model error) and 43.8 degrees at 55 kPa (TLJS on, 1.2% model error).",
+      "Activating the TLJS increased overall finger stiffness, allowing higher pressure tolerance and increasing peak experimental tip force from 1.14 N (at 50 kPa, TLJS off) to 1.44 N (at 55 kPa, TLJS on).",
+      "After locking finger shape with the FLJS at a pregrasp pressure, the finger produced a continuous span of tip forces at constant span (e.g., 0.007 to 1.237 N when locked at 5 kPa without TLJS; 0.014 to 1.380 N when locked at 5 kPa with TLJS).",
+      "The CSF gripper successfully grasped and lifted a plastic cup with a 100-g weight, 49.5 g tofu, 13.4 g cake, 38.7 g mochi, and 80 g jelly without damage or severe deformation, whereas conventional grasping without shape-locking crushed the tofu and jelly and heavily deformed the cake and mochi."
+    ],
+    "modeling_methods": [
+      "Analytical moment equilibrium modeling balancing pressure-induced bending moment, gap layer restoring moment, FLJS resistive moment, and TLJS resistive moment.",
+      "Plane strain membrane mechanics with Neo-Hookean strain energy formulation for chamber wall tension under equi-biaxial stretch.",
+      "Geometric formulation relating lateral wall deflection to actuator bending angle for multichamber SPAs with large chamber gaps.",
+      "Equivalent beam modeling using Fourier series expansion to derive constant equivalent moments of inertia for folding laminar jamming structures in active and inactive states.",
+      "Linear tip force formulation derived from overall bending stiffness and moment balance at the fingertip.",
+      "Finite element analysis (FEA) calibrated with uniaxial tensile test data fitted to a Yeoh hyperelastic model to obtain chamber edge angles and gap deformation parameters."
+    ],
+    "performance_metrics": [
+      "Finger bending angle (degrees) as a function of pressure (0 to 55 kPa).",
+      "Finger tip output force (N).",
+      "Relative error percentage between analytical model predictions and experimental measurements for bending angle and tip force.",
+      "Maximum payload capability and deformation severity when gripping fragile food items."
+    ],
+    "possible_gap_implications": [
+      "Although laminar jamming enables effective span-force decoupling in soft pneumatic fingers, integrating embedded tactile and shape sensors could be critical to autonomously determine optimal pregrasp locking thresholds across unknown target stiffness profiles.",
+      "Modeling SPAs with large chamber gaps and integrated jamming layers still requires more accurate non-linear hyperelastic contact formulations to avoid significant underprediction when stiffening mechanisms are unjammed.",
+      "Optimizing the origami crease geometry and layer configuration of folding laminar jamming structures could minimize residual restoring torques while preserving maximum bending stroke."
+    ],
+    "research_objective": "To design, model, and validate a human-finger-inspired controllable span and force (CSF) soft pneumatic gripper that decouples finger span and grasping force using a folding laminar jamming structure (FLJS) and a typical laminar jamming structure (TLJS) to safely grasp deformable fragile objects.",
+    "research_problem": "Traditional soft pneumatic grippers relying on impactive gripping inevitably increase pinching force as finger span narrows, which risks crushing or severely deforming fragile objects with delicate, deformable surfaces (such as tofu, cake, mochi, and jelly).",
+    "robot_type": "soft pneumatic gripper (SPG)",
+    "stiffness_mechanism": [
+      "folding laminar jamming structure (FLJS)",
+      "typical laminar jamming structure (TLJS)",
+      "laminar jamming structure / layer jamming"
+    ],
+    "title": "A Human Finger-Inspired Shape-Locking Pneumatic Gripper Enabled by Folding Laminar Jamming Structure",
+    "year": "2024"
+  }
+}

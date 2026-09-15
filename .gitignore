@@ -1,0 +1,29 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Credentials and private-key material must never be committed.
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Raw and duplicate paper PDFs are large binary inputs. Their canonical
+# content hashes and byte sizes are recorded in data/paper_registry.json.
+data/**/*.pdf
+
+# Interrupted atomic writes and other transient files.
+*.tmp
+*.temp
+
+# Generated outputs remain ignored by default. Frozen source-of-truth
+# research outputs are force-tracked selectively in the baseline commit.
+outputs/

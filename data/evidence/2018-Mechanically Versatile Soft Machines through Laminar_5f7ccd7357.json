@@ -1,0 +1,179 @@
+{
+  "source": {
+    "paper_id": "5f7ccd7357",
+    "filename": "2018-Mechanically Versatile Soft Machines through Laminar.pdf",
+    "sha256": "5f7ccd7357928e6acbc35645bdd2cfadd1d6e63aa8212c62513a362ff71ec8e5",
+    "page_count": 9,
+    "char_count": 45934,
+    "source_type": "verification",
+    "verification_id": "D1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27367,
+    "completion_tokens": 6676,
+    "total_tokens": 34043,
+    "thinking_tokens": 3918,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "vacuum pressure (pressure gradient)",
+      "pneumatic actuation",
+      "cable actuation"
+    ],
+    "authors": [
+      "Yashraj S. Narang",
+      "Joost J. Vlassak",
+      "Robert D. Howe"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "In analytical modeling, deformation is based on Euler-Bernoulli beam theory with axial strain approximated as a superposition of a linearly varying vertical field and a constant vertical field, with an interfacial displacement variable.",
+      "Interfacial interactions are modeled using Coulomb friction with a penalty friction formulation.",
+      "In finite element modeling of jamming structures, layers are treated as homogeneous 2D plane-strain linear elastic bodies with large-deformation analysis enabled.",
+      "In variable kinematics finite element simulations, unjammed jamming structures are approximated by scaling down the elastic modulus by a factor of n^2 (n = 20), and cable loading is approximated as a pure bending moment."
+    ],
+    "control_variables": [
+      "Layer dimensions (width, height/thickness, and length)",
+      "Layer material (HP Ultra White Multipurpose Copy Paper)",
+      "Envelope material and sealing process (thermoplastic polyurethane sheet, heat pressed at 100 °C, tube sealed at 171 °C)",
+      "Loading anvil displacement rate in three-point bending (25 mm min^-1)",
+      "Actuator and substrate elastomeric materials (Dragon Skin 10 Medium silicone, Sylgard 184 PDMS, and Ecoflex 00-10 silicone)"
+    ],
+    "dependent_variables": [
+      "Bending stiffness across pre-slip, transition, and full-slip regimes",
+      "Energy dissipation and damping",
+      "Elastica (deformation shape / transverse deflection)",
+      "Slip propagation length along layer interfaces",
+      "Critical transition loads (first and second transition loads)",
+      "Discreteness of bending quantified by the ratio of maximum to mean curvature (kappa_max / kappa_mean)",
+      "Multiaxis stiffness (in-plane bending, off-axis bending, and torsional stiffness)",
+      "Perturbation resistance / dislodging force in robotic grasping"
+    ],
+    "doi": "10.1002/adfm.201707136",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Laminar jamming structures subjected to a pressure gradient transition through three distinct mechanical regimes under load: pre-slip (cohesive layers, maximum stiffness scaling as n^2, zero damping), transition regime (progressive interfacial slip, declining stiffness, frictional damping), and full-slip (complete interfacial slip, minimal stiffness, maximal damping).",
+        "evidence_type": "analytical modeling, finite element simulation, and experimental observation",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Two-dimensional plane-strain finite element models predict three-point bending force-deflection behavior of many-layer jamming structures with high accuracy across varying layer counts and vacuum pressures without fitting parameters, achieving a minimum coefficient of determination (R^2) of 0.9879.",
+        "evidence_type": "finite element simulation and experimental validation",
+        "page_numbers": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Integrating a 20-layer paper laminar jamming structure with a pneumatic soft bending actuator enables shape-locking, maintaining the actuated curved configuration upon depressurization with high geometric fidelity (R^2 = 0.9835) when an 85 kPa vacuum is applied.",
+        "evidence_type": "experimental demonstration",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "A composite structure comprising an elastic substrate and a segmented laminar jamming structure demonstrates variable kinematics, transitioning from continuous bending (vacuum off) to discrete jointed bending (vacuum on) with a 6.65-fold increase in the ratio of maximum to mean curvature.",
+        "evidence_type": "finite element simulation and experimental demonstration",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "A two-fingered grasper using variable kinematics fingers can perform wrap grasps on large objects (20 cm diameter) when unjammed and stable pinch grasps on small objects (one-eighth the diameter) when jammed, exhibiting a 32-fold increase in primary bending stiffness, a 2.5-fold increase in off-axis bending stiffness, a 2.7-fold increase in torsional stiffness, and an 8-fold increase in perturbation resistance.",
+        "evidence_type": "experimental characterization and physical demonstration",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Analytical and finite element modeling reveals that full-slip damping force scales linearly with the number of layers, the vacuum pressure, and the coefficient of friction (succinctly mu*P*b*h for a two-layer structure).",
+        "evidence_type": "analytical derivation and finite element scaling analysis",
+        "page_numbers": [
+          3,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "HP Ultra White Multipurpose Copy Paper strips cut via laser cutter and enclosed within vacuum-formed thermoplastic polyurethane (TPU) envelopes heat-pressed at 100 °C with TPU tubing sealed at 171 °C.",
+      "Instron 5566 universal testing machine configured with a three-point bending fixture operated at a crosshead displacement rate of 25 mm min^-1.",
+      "Cole-Parmer manual vacuum regulator (EW-07061-30) for setting vacuum pressure levels.",
+      "Pneumatic soft bending actuator molded from Dragon Skin 10 Medium platinum-cure silicone rubber bonded to jamming structures using Dow Corning 795 silicone building sealant.",
+      "Variable kinematics substrate cast from Sylgard 184 PDMS with an internal channel for a braided polyethylene cable (Hollow Spectra) tensioned via a turnbuckle.",
+      "Fingertips for a two-fingered grasper cast from Ecoflex 00-10 silicone rubber.",
+      "Chatillon DFI10 digital force gauge with custom fixtures for multiaxis stiffness and grasp perturbation measurements."
+    ],
+    "future_work": [
+      "Approximating high-layer-count jamming structures as a single crystal with a single slip system to reduce finite element computational runtime.",
+      "Incorporating a one-way valve to maintain vacuum without requiring a tethered continuous vacuum source.",
+      "Using electrostatic actuation or elastic actuation (such as external elastic mesh envelopes or spring clips) to overcome ambient atmospheric pressure limits on normal force.",
+      "Applying variable kinematics to medical and surgical devices traversing vasculature before applying high forces, as well as continuum manipulators."
+    ],
+    "independent_variables": [
+      "Number of layers (e.g., 5, 10, 15, 20 layers; n=2 for analytical model)",
+      "Vacuum pressure (e.g., 0 kPa, 24 kPa, 47 kPa, 71 kPa, 85 kPa)",
+      "Coefficient of friction between layers (simulated at 0.25, 0.50, 0.65, 0.75)",
+      "Applied transverse load and deflection during bending",
+      "Actuation state (vacuum on vs. vacuum off; pneumatic inflation pressure at 16 kPa; cable tension)"
+    ],
+    "limitations_inferred": [
+      "Testing was conducted quasi-statically at a low displacement rate (25 mm min^-1), leaving dynamic response, high-rate impact behavior, fatigue, wear, and viscoelastic relaxation over extended cycling uncharacterized.",
+      "Cellulose paper layers and TPU envelopes may be susceptible to degradation, moisture absorption, and puncture failure in wet or rough operational environments.",
+      "Finite element and analytical formulations assume 2D plane-strain behavior, neglecting 3D edge effects, out-of-plane anticlastic curvature, and torsional-bending coupling in the jamming laminate itself."
+    ],
+    "limitations_stated_by_authors": [
+      "Finite element simulation execution time scales linearly with the number of layers, becoming computationally prohibitive for structures with exceptionally high layer counts.",
+      "The physical shape-locking prototype required a vacuum source to remain connected after actuator depressurization, complicating operation without external support equipment.",
+      "Vacuum actuation restricts the maximum pressure gradient to ambient atmospheric pressure, which caps the maximum load sustainable before the structure slips and softens.",
+      "As the number of layers increases, achieving a homogeneous vacuum pressure distribution throughout the structure may become physically challenging.",
+      "The coefficient of friction could not be precisely adjusted experimentally, preventing direct experimental validation of varying friction."
+    ],
+    "main_results": [
+      "Formulated an analytical model extending Euler-Bernoulli beam theory with interfacial friction and slip, capturing all three deformation regimes (pre-slip, transition, full-slip), slip propagation, and transition loads in two-layer jamming beams.",
+      "Constructed 2D plane-strain finite element models accurately capturing the mechanical response of many-layer jamming structures without fitting parameters, matching three-point bending data with R^2 >= 0.9879.",
+      "Extracted scaling relations showing full-slip damping scales linearly with layer count, vacuum pressure, and friction coefficient.",
+      "Achieved shape-locking in a pneumatic soft actuator, preserving its curved pressurized configuration upon depressurization with R^2 = 0.9835 when 85 kPa vacuum was applied.",
+      "Demonstrated variable kinematics in a hybrid cable-actuated beam, switching from continuous bending to discrete jointed bending with a 6.65x increase in peak-to-mean curvature ratio.",
+      "Fabricated a two-fingered grasper executing wrap grasps on a 20 cm ball and pinch grasps on a 2.5 cm ball, with jammed fingers providing >32x bending stiffness, 2.5x off-axis stiffness, 2.7x torsional stiffness, and >8x perturbation dislodging resistance."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory extended for vacuum pressure, interfacial friction, and interfacial slip",
+      "Boundary-value problem formulation and explicit analytical solution for cantilevered two-layer jamming beams under uniform distributed load",
+      "Two-dimensional plane-strain finite element analysis (ABAQUS 6.14r2) with penalty contact friction formulation and large-deformation analysis"
+    ],
+    "performance_metrics": [
+      "Bending stiffness (pre-slip, transition, and full-slip stiffness values; n^2 theoretical multiplier; >=32-fold measured increase in finger bending stiffness)",
+      "Goodness-of-fit coefficient of determination (R^2 >= 0.9879 for FEA vs. experimental bending force; R^2 = 0.9835 for shape-locking fidelity)",
+      "Discreteness ratio (maximum curvature to mean curvature, kappa_max / kappa_mean, increasing by a factor of 6.65)",
+      "Perturbation resistance force (at least 8-fold increase in dislodging force for pinch grasping)",
+      "Off-axis bending stiffness (2.5-fold increase under vacuum)",
+      "Torsional stiffness (2.7-fold increase under vacuum)",
+      "Full-slip damping force (analytically expressed as mu*P*b*h)",
+      "Experimental repeatability (maximum deviation of 0.24 N across loading cycles and samples)"
+    ],
+    "possible_gap_implications": [
+      "The validated analytical and finite element frameworks allow predictable, model-based design of variable-stiffness laminar jamming components without relying solely on iterative physical prototyping.",
+      "Variable kinematics demonstrates that soft robots can programmatically switch between continuous continuum deformation and discrete jointed kinematics, which may simplify sensing, state estimation, and control algorithms by leveraging multi-rigid-body dynamics.",
+      "Extending laminar jamming models from planar 2D bending to spatial 3D bending and coupled torsional deformations remains an opportunity for future continuum manipulator design."
+    ],
+    "research_objective": "To develop and experimentally validate comprehensive analytical and finite element models of laminar jamming across all deformation regimes, and to integrate jamming structures into soft machines to achieve shape-locking and variable kinematics (enabling reversible transitions between continuous soft deformation and discrete jointed rigid behavior).",
+    "research_problem": "Bridging the divide between compliant soft machines and high-force, precise rigid robots. Existing variable-stiffness technologies suffer from limited range/resolution per unit weight, slow transition speeds, poor bending resistance, and inability to transition between continuous and discrete jointed deformations. Furthermore, prior laminar jamming research lacked predictive models beyond pre-slip, hindering practical design and kinematic adaptation.",
+    "robot_type": "soft machines, pneumatic soft bending actuator, cable-actuated variable kinematics system, two-fingered grasper, continuum manipulators",
+    "stiffness_mechanism": [
+      "laminar jamming (layer jamming)"
+    ],
+    "title": "Mechanically Versatile Soft Machines through Laminar Jamming",
+    "year": "2018"
+  }
+}

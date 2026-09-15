@@ -1,0 +1,143 @@
+{
+  "source": {
+    "paper_id": "fa47e75f9a",
+    "filename": "2022-Snake_Robot_Gripper_Module_for_Search_and_Rescue_in_Narrow_Spaces.pdf",
+    "sha256": "fa47e75f9a3944933c7bf1daf7e0106585ff5e6c1af0b3dbd6a419c122730750",
+    "page_count": 7,
+    "char_count": 30647,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 23694,
+    "completion_tokens": 5443,
+    "total_tokens": 29137,
+    "thinking_tokens": 3514,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "geared DC motor"
+    ],
+    "authors": [
+      "Sangchul Han",
+      "Sanguk Chon",
+      "JungYeong Kim",
+      "Jeahong Seo",
+      "Dong Gwan Shin",
+      "Sangshin Park",
+      "Jin Tak Kim",
+      "Jinhyeon Kim",
+      "Maolin Jin",
+      "Jungsan Cho"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "Control cycle period of 1 ms on the embedded GCU microcontroller (STM32F446)",
+      "Inner-loop current control with outer-loop PID position control architecture",
+      "Geared DC motor drive limits (rated torque 147 mNm, stall torque 343 mNm)",
+      "Target workspace constraints (tunnel diameter of 100 mm and curvature radius of 250 mm; gripper module diameter <= 68 mm and length <= 106 mm)"
+    ],
+    "dependent_variables": [
+      "Finger joint angle tracking performance over time (commanded vs. measured joint positions)",
+      "Gripper grasping force / payload (measured in kgf)",
+      "Fingertip camera viewing orientation across three dimensions",
+      "Grasping stability across various object geometries",
+      "Outer module envelope diameter during finger folding/accommodation"
+    ],
+    "doi": "10.1109/LRA.2022.3140812",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The T2 Snake-3 robot utilizes an omnidirectional soft gripper for manipulation and valve rotation, demonstrating high object-handling capability, but its overall size is large for narrow spaces and it cannot support sensor attachment on the gripper.",
+        "evidence_type": "literature review / comparative analysis",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Soft robotic grippers utilizing fluidic (pneumatic or hydraulic) pressurization of elastomer chambers provide inherent compliance to adapt to complex shapes without force control, but they suffer from durability constraints and require complex joint control systems.",
+        "evidence_type": "literature review / comparative analysis",
+        "page_numbers": [
+          2
+        ]
+      },
+      {
+        "claim": "Kinematic analysis of finger link lengths and joint ranges of motion establishes that a pan-tilt roll-pitch configuration (MCP and PIP) on two fingers alongside pitch-pitch DOFs on a third finger can generate hemispherical and semicircular workspaces sufficient for pinch and power grasping despite minimal finger workspace overlap.",
+        "evidence_type": "mechanical modeling / kinematic analysis",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Experimental mechanics testing with a 500 kgf capacity load cell shows that the 3-finger gripper module achieves a stably maintainable payload grasping force of 2.48 kgf, while reaching peak forces around 3 kgf introduces the danger of structural breakage.",
+        "evidence_type": "experimental mechanics / force testing",
+        "page_numbers": [
+          5,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Four-mode transition experiment: Validated switching sequence between moving mode (fingers accommodated), power grasping mode, pinch grasping mode, and searching mode by tracking Finger 3 joint angles over time at a 1 ms control cycle.",
+      "Fingertip visual inspection experiment: Mounted an 8 mm diameter camera on the tip of Finger 3 and verified 3D directional viewing without snake robot body movement.",
+      "Grasping force measurement: Clamped an SBA-500 L load cell (500 kgf maximum capacity, 0.15 kgf measurement error) within a 3-finger grip to record grasping force under position-based current control over time.",
+      "Object grasping pose test: Assessed grasping stability across diverse shapes including circular (spherical baseball and disk), rectangular (varying thicknesses), and pillar-shaped (varying diameters) items in power and pinch grasping modes.",
+      "Integrated snake robot validation: Mounted the gripper module onto the head of a multi-segment snake-like robot to verify locomotion mode changes, survivor approach, and debris clearance in a simulated collapsed environment."
+    ],
+    "future_work": [
+      "Deploying and validating the integrated snake-like robot and gripper module in harsh collapsed real-world environments"
+    ],
+    "independent_variables": [
+      "Operational gripper mode (moving mode, power grasping mode, pinch grasping mode, searching mode)",
+      "Commanded joint position trajectories and current setpoints",
+      "Object geometric shape, cross-section, and dimensions (spherical baseball, flat disk, rectangular objects of varying thickness, pillar objects of varying diameter)"
+    ],
+    "limitations_inferred": [
+      "The rigid-link design with exposed body grooves could be prone to mechanical jamming or particle ingress when operating in wet or dusty collapsed rubble.",
+      "Asymmetric kinematics resulting from omitting the MCP joint on Finger 1 limits dexterous, high-level in-hand manipulation to simpler pinch and power grasps.",
+      "The gripper relies on preset current limits and lacks tactile or closed-loop force sensing at the fingertips, preventing safe handling of fragile or brittle objects like glass."
+    ],
+    "limitations_stated_by_authors": [
+      "The overlap area of the workspaces of the three fingers is small compared to human hands.",
+      "Finger 1 lacks an MCP joint, which precludes high-level in-hand manipulation capabilities.",
+      "The gripper cannot manipulate objects with very small volumes or very small thicknesses due to workspace constraints.",
+      "The maximum safe payload is limited to 2.48 kgf because higher peak loads (~3 kgf) risk mechanical breakage of the module.",
+      "The module lacks sophisticated force control, making it unsuitable for handling fragile objects such as glass."
+    ],
+    "main_results": [
+      "Developed a lightweight (0.4 kg), compact (68 mm outer diameter, 106 mm height) 8-DOF 3-finger gripper module capable of folding its fingers completely inside body grooves.",
+      "Achieved a verified stable grasping payload of 2.48 kgf using small commercial geared DC motors (GM12F and GM12 L).",
+      "Enabled omnidirectional 3D searching in narrow spaces using an 8 mm diameter camera integrated into the tip of Finger 3 without requiring base locomotion.",
+      "Successfully executed power and pinch grasping across circular, rectangular, and pillar-shaped objects using current-based position control.",
+      "Integrated the module onto a snake-like robot and experimentally validated debris removal and survivor approach within simulated narrow collapsed environments."
+    ],
+    "modeling_methods": [
+      "Kinematic modeling of finger links (MCP, PIP, DIP joints) and determination of motion ranges (PIP > 180 deg, MCP 164 deg, DIP 90 deg)",
+      "Point cloud workspace analysis to evaluate finger manipulability and workspace overlap for power and pinch grasping"
+    ],
+    "performance_metrics": [
+      "Outer diameter of gripper module with folded fingers: 68 mm",
+      "Height of gripper module: 106 mm",
+      "Weight of gripper module: 0.4 kg (including electrical components)",
+      "Degrees of freedom: 8 DOFs across 3 fingers (Finger 1: 2 DOFs; Fingers 2 and 3: 3 DOFs each)",
+      "Stably maintainable grasping force / payload: 2.48 kgf (peak force approximately 3 kgf)",
+      "Actuator rated torque: 147 mNm (stall torque: 343 mNm)",
+      "Fingertip camera diameter: approximately 8 mm",
+      "Target environment operational dimensions: 100 mm diameter and 250 mm radius of curvature"
+    ],
+    "possible_gap_implications": [
+      "The durability limitations and bulk of fluid-driven soft grippers in confined disaster zones highlight an ongoing research opportunity for hybrid soft-rigid or variable-stiffness snake robot end-effectors that combine compliance with compact mechanical stowage.",
+      "The risk of structural breakage under peak forces (~3 kgf) in rigid miniature linkages underscores the potential value of passive compliance or variable stiffness joints to absorb shock loads during urban search and rescue."
+    ],
+    "research_objective": "To develop and experimentally validate a compact, lightweight, 8-DOF three-finger gripper module integrated with a fingertip camera that can fold its fingers into body grooves for snake-like robots operating in narrow collapsed search and rescue environments.",
+    "research_problem": "Urban search and rescue robots operating in narrow collapsed spaces need to navigate confined passages (e.g., 100 mm diameter with 250 mm curvature radius), perform multi-directional visual search without moving their entire bodies, and clear irregular debris, whereas existing grippers and soft hands are either too bulky, lack fingertip sensor integration, have exposed fingers that impede locomotion, or lack sufficient durability and force control simplicity.",
+    "robot_type": "snake-like robot",
+    "stiffness_mechanism": [],
+    "title": "Snake Robot Gripper Module for Search and Rescue in Narrow Spaces",
+    "year": "2022"
+  }
+}

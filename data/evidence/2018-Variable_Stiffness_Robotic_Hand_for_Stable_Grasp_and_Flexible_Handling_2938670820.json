@@ -1,0 +1,182 @@
+{
+  "source": {
+    "paper_id": "2938670820",
+    "filename": "2018-Variable_Stiffness_Robotic_Hand_for_Stable_Grasp_and_Flexible_Handling.pdf",
+    "sha256": "293867082056d29a1a486437b9dacee97c9ae479841ae288b425be4700f2e5c9",
+    "page_count": 15,
+    "char_count": 69673,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 34474,
+    "completion_tokens": 6231,
+    "total_tokens": 40705,
+    "thinking_tokens": 3956,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Two rotational electric actuators (7 Nm DC servo motors M1 and M2)",
+      "Tendon-pulley-slider mechanism translating M2 rotation into linear displacement along the wrist axis",
+      "Non-stretchable / inelastic tendon driving the fingers"
+    ],
+    "authors": [
+      "Saber Mahboubi",
+      "Steven Davis",
+      "Samia Nefti-Meziani"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Tendon is perfectly inelastic and non-stretchable",
+      "Actuator motors are non-backdrivable",
+      "Shear deformation of the rigid rod is negligible",
+      "Integrated compression spring exhibits ideal linear elasticity with constant K",
+      "Friction between the rigid rod and holding pins is neglected in the dynamic model formulation",
+      "Grasp stiffness is modeled as the partial derivative of applied tendon force with respect to displacement",
+      "Cumulative disturbance and modeling uncertainties (unmodeled friction, object stiffness variations, contact dynamics) are bounded"
+    ],
+    "control_variables": [
+      "Sliding mode control gain Gamma (set to 220 deg/s in experiments)",
+      "Error convergence rate eta (arbitrary positive constant, set to 20 in experiments)",
+      "Quasi-sliding mode control input omega_R (rotational velocity of the shaft of motor M2)",
+      "Inner-loop anti-windup PI controller gains (KP, KI, Kaw, and conversion gain Kbeta)",
+      "Motor M1 shaft rotation angle theta bounded in [0, pi/2]",
+      "Motor operating voltage EM2"
+    ],
+    "dependent_variables": [
+      "Tendon displacement d under applied external force",
+      "Compression of the linear spring Zs'",
+      "Apparent output stiffness of the hand/fingers delta_o",
+      "Actual angular motion/trajectory of the fingers and tracking error",
+      "Grip force Fg exerted on grasped objects",
+      "Mechanical hysteresis band width during loading-unloading cycles",
+      "Peak magnitude of finger motion in frequency response Bode plots",
+      "Sliding variable sigma and sliding surface reaching time Ts"
+    ],
+    "doi": "10.1109/ACCESS.2018.2879633",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Coupling an object with unknown stiffness to a robotic gripper can shift system poles into the right half-plane and induce grasp instability, which can be mitigated by introducing passive compliance into the actuation system.",
+        "evidence_type": "Theoretical modeling and root locus analysis",
+        "page_numbers": [
+          1,
+          4
+        ]
+      },
+      {
+        "claim": "The apparent stiffness of the robotic hand is analytically governed by the angle between the tendon and the spring-loaded rod, varying from the linear spring constant K when parallel up to theoretically infinite stiffness when perpendicular.",
+        "evidence_type": "Analytical kinematic and geometric derivation",
+        "page_numbers": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Static force-displacement characterization demonstrates that tendon elongation for a given applied tensile force decreases monotonically as the rod angle theta increases from 5 to 55 degrees.",
+        "evidence_type": "Experimental mechanics characterization",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "Increasing finger stiffness via the variable stiffness mechanism improves trajectory tracking accuracy under sinusoidal inputs and reduces the peak magnitude in frequency response Bode plots.",
+        "evidence_type": "Dynamic trajectory tracking and frequency analysis experiments",
+        "page_numbers": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The robotic hand exhibits mechanical hysteresis during cyclic tendon loading and unloading, but the hysteresis band narrows as the rod angle theta increases.",
+        "evidence_type": "Cyclic mechanical testing",
+        "page_numbers": [
+          9,
+          10,
+          13
+        ]
+      },
+      {
+        "claim": "A first-order sliding mode controller combined with an inner anti-windup PI velocity loop converges error states to zero in finite time and achieves stable grip force tracking across objects of varying stiffness with small steady-state error and zero or negligible overshoot.",
+        "evidence_type": "Robotic control experiment on hardware testbed",
+        "page_numbers": [
+          11,
+          12,
+          13,
+          14
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "VSH1 robotic hand prototypes with 3 fingers / 6 joints and 2 fingers / 2 joints actuated by two 7 Nm DC servo motors",
+      "Tensile characterization rig using hung deadweights to measure tendon elongation d across various rod angles theta with a 0.3 N/mm spring",
+      "Trajectory tracking setup comprising a sinusoidal motion input to motor M2, a rigid fire brick obstacle, a rotational joint encoder, and a Force Sensitive Resistor (FSR)",
+      "Hysteresis testing rig using gradual loading and unloading of external force on a 0.55 N/mm spring across discrete rod angles",
+      "Two-finger VSH1 mounted as an end-effector on an ABB IRB 1200 6-axis industrial robot (7 kg payload)",
+      "Custom Variable Stiffness Object (VSO) testbed with interchangeable compression springs (Kb = 1.0, 1.25, 2.6, and 3.3 N/mm) and a linear potentiometer sampled via an Arduino Mega (9600 bps)"
+    ],
+    "future_work": [
+      "Redesigning mechanical couplings to minimize friction and damping in order to narrow the mechanical hysteresis band"
+    ],
+    "independent_variables": [
+      "Rod angle / servo motor M1 angle theta (evaluated at discrete angles from 0 deg to 55 deg)",
+      "Applied external tensile force / weight hung on tendon",
+      "Stiffness constant K of the integrated linear compression spring (0.3 N/mm and 0.55 N/mm)",
+      "Linear distance B between the motor M1 shaft center and the hand wrist axis",
+      "Stiffness of the grasped object Kb (1.0, 1.25, 2.6, and 3.3 N/mm in the VSO)",
+      "Desired grip force profile Fd (step inputs of increasing amplitude and sinusoidal inputs)"
+    ],
+    "limitations_inferred": [
+      "Grip force and trajectory tracking evaluations were restricted to planar 1D contact against a stationary block or single-axis spring mechanism, without evaluating multi-finger grasping of arbitrary 3D geometry objects during manipulator motion.",
+      "Both finger sets are driven through a single shared rod-spring-tendon mechanism, preventing independent stiffness modulation across individual fingers or individual joints.",
+      "The assumption of an inelastic tendon may degrade over extensive cyclic operation due to tendon creep or elasticity, affecting stiffness calibration and force precision.",
+      "Mounting motor M1 directly on a translating slider introduces added moving mass and inertia to the linear wrist axis, which may constrain high-speed dynamic response."
+    ],
+    "limitations_stated_by_authors": [
+      "The initial prototype displays a noticeable hysteresis band attributable to friction and damping across mechanical couplings.",
+      "Friction between the sliding rod and holding pins was neglected in the dynamic model formulation for simplicity.",
+      "The stiffness of unknown grasped objects cannot be calculated in advance, making precise model-based grasp modeling inherently inaccurate and necessitating robust control.",
+      "System feedback relies on an inexpensive (£9) 1D Force Sensing Resistor (FSR) with variable resistance rather than a precision multi-axis load cell."
+    ],
+    "main_results": [
+      "Derived and validated an analytical closed-form model relating tendon force, displacement, spring constant, and rod angle theta, showing stiffness increases monotonically with theta.",
+      "Demonstrated a broad stiffness variation range from the minimum spring rate K (at theta = 0 deg) up to very stiff behavior approaching 90 deg perpendicularity.",
+      "Showed experimentally that increasing the mechanism stiffness stabilizes trajectory tracking under sinusoidal disturbance inputs and attenuates dynamic resonance peaks in Bode plots.",
+      "Identified that mechanical hysteresis is angle-dependent, narrowing as rod angle theta increases.",
+      "Successfully demonstrated robust force tracking on an industrial manipulator across diverse object stiffnesses (1.0 to 3.3 N/mm) using a hybrid PI-sliding mode controller, achieving finite-time convergence of the sliding variable, negligible overshoot, and steady-state errors that decrease at higher stiffness settings."
+    ],
+    "modeling_methods": [
+      "Kinematic and geometric modeling using the law of sines to formulate spring compression and tendon displacement relationships",
+      "Grasp stiffness derivation through partial differentiation of applied tendon force with respect to displacement",
+      "Second-order lumped parameter electromechanical dynamic modeling of the robotic hand and DC servo motor system",
+      "First-order sliding mode controller (FSMC) design using a quasi-sliding mode saturation function coupled with an inner anti-windup PI velocity feedback loop",
+      "Lyapunov stability and reachability analysis under bounded cumulative system disturbances and uncertainties"
+    ],
+    "performance_metrics": [
+      "Stiffness tuning range (from baseline spring stiffness K up to near-rigid stiffness)",
+      "Trajectory tracking error under sinusoidal motion input Sin(5t)",
+      "Grip force tracking accuracy (steady-state error and percent overshoot under step and sinusoidal reference forces)",
+      "Mechanical hysteresis band width across loading-unloading cycles",
+      "Sliding manifold reaching time Ts and finite-time error convergence to zero",
+      "Peak magnitude attenuation in frequency response Bode plots"
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that a broad range of variable stiffness can be realized using only two standard servo motors and a single linear compression spring, demonstrating an alternative to complex multi-actuator antagonistic systems.",
+      "Shows that combining passive serial compliance with robust sliding mode control allows stable grip force regulation on unknown stiffness objects even when using low-cost, low-accuracy tactile sensors.",
+      "Highlights that mechanical hysteresis arising from friction and mechanical couplings is a key limiting factor in tendon-driven variable stiffness actuators that requires careful mechanical optimization."
+    ],
+    "research_objective": "To design, model, and experimentally evaluate an affordable, durable, adaptable, and compliant variable stiffness robotic hand (VSH1) for industrial applications that provides a wide stiffness adjustment range, low hysteresis, rapid impedance control, and robust grip force regulation under object uncertainties.",
+    "research_problem": "Robotic grasping of objects with unknown dynamic properties and mechanical parameters easily becomes unstable under conventional fixed-gain control, while existing compliant and variable stiffness grippers often suffer from design complexity, small force/stiffness operating ranges, high cost, weight, and durability limitations in industrial environments.",
+    "robot_type": "variable stiffness hand",
+    "stiffness_mechanism": [
+      "serial elastic actuation",
+      "passive adjustable compliance mechanism",
+      "tendon-rod-spring configuration with a single linear compression spring and rigid sliding rod"
+    ],
+    "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+    "year": "2018"
+  }
+}

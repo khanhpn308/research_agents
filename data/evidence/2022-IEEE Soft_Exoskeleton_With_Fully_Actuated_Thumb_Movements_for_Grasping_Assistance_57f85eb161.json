@@ -1,0 +1,181 @@
+{
+  "source": {
+    "paper_id": "57f85eb161",
+    "filename": "2022-IEEE Soft_Exoskeleton_With_Fully_Actuated_Thumb_Movements_for_Grasping_Assistance.pdf",
+    "sha256": "57f85eb1619cbf18199b186109ca5a7241f655cf0e1427a6d37035503595b55b",
+    "page_count": 14,
+    "char_count": 61758,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 31772,
+    "completion_tokens": 7300,
+    "total_tokens": 39072,
+    "thinking_tokens": 4881,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven",
+      "series elastic actuation (SEA) mechanism",
+      "micro servo linear motors",
+      "pulley mechanism",
+      "tendon-driven flexible link"
+    ],
+    "authors": [
+      "Wenyuan Chen",
+      "Guangyong Li",
+      "Ning Li",
+      "Wenxue Wang",
+      "Peng Yu",
+      "Ruiqian Wang",
+      "Xiujuan Xue",
+      "Xingang Zhao",
+      "Lianqing Liu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The thumb interphalangeal (IP) and metacarpophalangeal (MCP) joints are assumed to act as simple planar hinge joints.",
+      "The thumb carpometacarpal (CMC) joint is assumed to behave as a special spherical hinge joint constrained within the thumb motion space, with twisting motion coupled to abduction/adduction.",
+      "Thumb skeletal segments are assumed to be rigid vectors connecting anatomical joint rotation centers.",
+      "Tendon cables (fishing lines) are assumed to transmit tension along designated routing paths without elongation or bidirectional driving capability without antagonistic pairs or pulley mechanisms.",
+      "Contact surfaces on the glove are designed with soft material for patient safety, whereas palm/dorsal supports and pipelines are rigid to sustain mechanical loads."
+    ],
+    "control_variables": [
+      "Actuator travel distance limit (50 mm) and motor peak force rating (50 N).",
+      "Allowable maximum interaction force threshold set via GUI software to avoid excessive tissue loading.",
+      "Rest interval between sequential pressing/releasing actions during force characterization (7 seconds).",
+      "Trajectory angle-to-position mapping derived from pre-recorded healthy subject experimental motion profile.",
+      "Fixed optical marker placement sites on anatomical bony landmarks across evaluation trials."
+    ],
+    "dependent_variables": [
+      "Thumb fingertip force generation (peak force, continuous force capability, baseline release force).",
+      "Thumb 3D fingertip and joint motion trajectories.",
+      "Thumb joint angles across time: CMC(z), CMC(x), MCP, and IP.",
+      "Range of motion (ROM) across individual joints and average ROM across all thumb joints.",
+      "Thumb encircling trajectory surface area (AREA).",
+      "Fingertip trajectory curve arc length (ARC LENGTH).",
+      "Similarity index (SI) of ROM and ARC LENGTH compared to a healthy subject reference.",
+      "Completion status of functional activities of daily living and rehabilitation tasks."
+    ],
+    "doi": "10.1109/TRO.2022.3148909",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A hybrid actuation architecture integrating a tendon-driven flexible link with direct fingertip tendons enables multi-DoF thumb movements (abduction/adduction and flexion/extension) while mitigating tendon attachment point shifting.",
+        "evidence_type": "mechanical design and kinematic concept",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Integrating a series elastic actuation (SEA) mechanism with pulleys allows bidirectional actuation and simultaneous release of opposing tendons, driving full-hand DoFs with four linear actuators.",
+        "evidence_type": "actuation and mechanical transmission",
+        "page_numbers": [
+          2,
+          4
+        ]
+      },
+      {
+        "claim": "Thumb kinematics can be modeled by treating the CMC joint as a constrained non-orthogonal spherical joint, tracking joint coordinate axes, and estimating orientation through Rodrigues' rotation formula under wrist displacement.",
+        "evidence_type": "kinematic modeling",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Tendon-driven exoskeleton assistance doubled thumb fingertip force from ~5 N to over 10 N, enabled sustained rather than impulsive force, and eliminated a 2 N residual resting force to allow full release.",
+        "evidence_type": "experimental mechanics and force measurement",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Exoskeleton assistance enlarged the stroke patient's thumb encircling area from 0.53 cm^2 to 48.7 cm^2 (healthy reference: 128.9 cm^2) and bottle grasping arc length from 0.67 cm to 5.46 cm (healthy reference: 7.85 cm).",
+        "evidence_type": "experimental kinematics and motion capture",
+        "page_numbers": [
+          7,
+          9
+        ]
+      },
+      {
+        "claim": "Post-stroke joint alterations such as spasticity and elevated joint stiffness, combined with underactuated robot constraints, create inevitable trajectory deviations between assisted patient motion and healthy benchmarks.",
+        "evidence_type": "biomechanical discussion",
+        "page_numbers": [
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Wearable glove fabricated using multimaterial 3D printing (Stratasys J735) with rigid load-bearing supports/tubing and soft skin-interface elements, secured with a soft wristband.",
+      "Backpack-mounted remote actuation system (RAS) housing four micro servo linear motors (INSPIRE-ROBOTS LAF50), motor driver board (AES-LA-31-06), and a lithium battery.",
+      "Computer control interface running on a touchscreen for task selection, trajectory generation, and safety emergency halting.",
+      "Fingertip force measurement apparatus utilizing a load cell pressure sensor (FUTEK LSB200) to evaluate pressing and releasing profiles.",
+      "Motion tracking system utilizing an optical capture system (OptiTrack, LEYARO) and reflective markers attached to the wrist, CMC, MCP, IP joints, and thumb tip.",
+      "Human participant testing conducted under rehabilitation medical supervision, evaluating one 46-year-old stroke patient with hemiplegia alongside one 26-year-old healthy subject."
+    ],
+    "future_work": [
+      "Investigating approaches to minimize kinematic trajectory mismatch between patient motion and healthy references.",
+      "Combining the hand exoskeleton with a soft upper-limb exoskeleton to provide coordinated assistance across both hand and arm motions.",
+      "Implementing biological signal-based active intention control, including EEG and EMG interfaces, for self-directed rehabilitation tasks."
+    ],
+    "independent_variables": [
+      "Assistance mode: voluntary unassisted motion (Stroke-vol, Health-vol) versus exoskeleton-assisted motion (Stroke-exo).",
+      "Subject neurological status: healthy participant versus hemiplegic stroke patient.",
+      "Task type: thumb fingertip force pressing/releasing, thumb encircling, bottle grasping, and six functional rehabilitation/ADL tasks."
+    ],
+    "limitations_inferred": [
+      "The experimental evaluation was conducted on a single stroke patient and a single healthy control, limiting statistical generalization across different hand sizes and impairment levels.",
+      "Optical motion tracking is subject to marker occlusion during certain functional hand gestures, such as turning over a piece of paper.",
+      "Trajectory planning relied on pre-calibrated look-up tables from a healthy subject rather than adaptive, real-time closed-loop user-interaction modeling.",
+      "Long-term motor recovery and neuroplasticity benefits were not assessed longitudinally beyond immediate task-execution trials."
+    ],
+    "limitations_stated_by_authors": [
+      "Kinematic mismatches exist between assisted patient trajectories and target profiles due to post-stroke joint stiffness/spasticity and underactuated hand exoskeleton architecture.",
+      "The device does not assist arm movements, obliging the stroke patient to physically support the paretic limb with their unimpaired arm during reach-dependent tasks.",
+      "The control architecture is currently limited to a manual touch-screen GUI without active biological signal control (such as EEG or EMG).",
+      "Donning and doffing requires approximately 2 minutes with external assistance from another person."
+    ],
+    "main_results": [
+      "Fingertip force capability improved from ~5 N (voluntary) to >10 N (with exoskeleton), transformed impulsive pressing into sustained force, and reduced resting baseline force from ~2 N to 0 N to enable complete release.",
+      "Thumb encircling workspace area (AREA) increased from 0.53 cm^2 unassisted to 48.7 cm^2 assisted, with average joint ROM similarity index rising from 20% to 80%.",
+      "Bottle grasping thumb trajectory arc length (ARC LENGTH) expanded from 0.67 cm unassisted to 5.46 cm assisted, with average joint ROM similarity index increasing from 12% to 60%.",
+      "The stroke patient successfully executed all six functional ADL training tasks (block throwing, card pinching, key inserting, pin moving, paper turning, letter writing) with assistance, while achieving none unassisted.",
+      "The lightweight glove (<200 g) achieved dexterous multi-DoF thumb and full-digit actuation utilizing only four actuators through the hybrid tendon and flexible-link architecture."
+    ],
+    "modeling_methods": [
+      "Planar kinematic modeling for thumb MCP and IP hinge joints.",
+      "Constrained spherical hinge joint kinematic modeling for the thumb CMC joint with non-orthogonal CMC(x) and CMC(z) angular definitions.",
+      "Rodrigues' rotation formula combined with translation vectors to track coordinate frame shifts caused by wrist translation and rotation.",
+      "Surface fitting in MATLAB (z = f(x, y)) to integrate surface AREA for thumb encircling trajectories.",
+      "Curve fitting in MATLAB to integrate ARC LENGTH for thumb fingertip movement profiles."
+    ],
+    "performance_metrics": [
+      "Thumb fingertip force magnitude (N).",
+      "Thumb encircling trajectory area (AREA, cm^2).",
+      "Fingertip motion trajectory arc length (ARC LENGTH, cm).",
+      "Joint range of motion (ROM, degrees) for CMC(z), CMC(x), MCP, IP, and overall thumb average.",
+      "Similarity Index (SI, %) of ROM and ARC LENGTH relative to healthy benchmark movements.",
+      "Glove weight (<200 g).",
+      "Donning and doffing duration (~2 minutes with assistance).",
+      "Battery operational duration (>0.5 day).",
+      "Functional task completion success rate across six ADL paradigms."
+    ],
+    "possible_gap_implications": [
+      "Integrating tunable or variable stiffness elements into soft wearable exoskeletons could allow the device to match patient joint resistance and adapt to stroke-induced spasticity.",
+      "Developing multi-segment continuum mechanic models for hybrid tendon-flexible link systems could enhance trajectory tracking fidelity across non-orthogonal anatomical joints.",
+      "Co-designing distal soft hand exoskeletons with proximal soft continuum arm manipulators could resolve the limitation of unassisted arm transport in post-stroke motor therapy."
+    ],
+    "research_objective": "To design, model, and experimentally validate a lightweight tendon-driven soft hand exoskeleton employing a hybrid flexible-link and tendon mechanism that achieves multi-degree-of-freedom thumb movements and full-hand actuation using a minimal number of actuators (four in total) for post-stroke grasping assistance and rehabilitation.",
+    "research_problem": "Accommodating sufficient actuators within the compact, narrow digit space (especially the thumb) to realize high-DoF assistance in hand exoskeletons without adding excessive weight, causing joint misalignment, shifting tendon attachment points, or severely restricting thumb range of motion.",
+    "robot_type": "tendon-driven soft hand exoskeleton",
+    "stiffness_mechanism": [],
+    "title": "Soft Exoskeleton With Fully Actuated Thumb Movements for Grasping Assistance",
+    "year": "2022"
+  }
+}

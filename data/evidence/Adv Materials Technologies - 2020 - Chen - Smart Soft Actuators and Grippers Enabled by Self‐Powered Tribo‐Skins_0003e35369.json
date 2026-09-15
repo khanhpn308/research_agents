@@ -1,0 +1,173 @@
+{
+  "source": {
+    "filename": "Adv Materials Technologies - 2020 - Chen - Smart Soft Actuators and Grippers Enabled by Self‐Powered Tribo‐Skins.pdf",
+    "sha256": "0003e353698504c4c21a05471925ef6feb4dccfdcdf4da534b2c5d7876d620d8",
+    "page_count": 10,
+    "char_count": 47922
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29900,
+    "completion_tokens": 6948,
+    "total_tokens": 36848,
+    "thinking_tokens": 4568,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "cable-driven",
+      "miniature DC motor"
+    ],
+    "authors": [
+      "Shoue Chen",
+      "Yaokun Pang",
+      "Hongyan Yuan",
+      "Xiaobo Tan",
+      "Changyong Cao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Ogden hyperelastic constitutive model for Ecoflex 00-30 silicone elastomer with parameters: µ1 = 0.001887, α1 = -3.848, µ2 = 0.02225, α2 = 0.663, µ3 = 0.003574, α3 = 4.225, D1 = 2.93, D2 = 0, D3 = 0"
+    ],
+    "control_variables": [
+      "Motor rotation speed during angular displacement sweeps",
+      "Excitation frequency (1 Hz) and force amplitude (7 N, 8 N, or 5 N) held constant across specific comparative tests",
+      "Tribo-skin micropyramid dimensions (1.5 mm width × 1.2 mm height) and material formulation (Ecoflex 00-30 1:1 ratio)",
+      "Curing conditions (80 °C for 2 h for actuator body, room temperature for 30 min for tribo-skin)"
+    ],
+    "dependent_variables": [
+      "Open-circuit voltage of inner contact–separation TENG (V)",
+      "Open-circuit voltage of single-electrode tribo-skin patches (V)",
+      "Short-circuit current of tribo-skin (nA)",
+      "Transferred charge of tribo-skin (nC)",
+      "Capacitor stored voltage during energy harvesting (V)",
+      "Angular displacement / bending angle α of the actuator (deg)",
+      "Simulated strain distribution and grasping force in FEM",
+      "Phalanx contact sequence and real-time voltage profiles during grasping, holding, and release"
+    ],
+    "doi": "10.1002/admt.201901075",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Integration of cable-driven actuation with embedded contact–separation TENG strips and single-electrode tribo-skins enables concurrent actuation, self-powered bending sensing, and contact pressure sensing.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Finite element modeling with ABAQUS using four-node tetrahedral elements and a 3-term Ogden model accurately captures the nonlinear bending deformation and strain distribution of the notched silicone actuator under cable tension.",
+        "evidence_type": "computational",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "The inner TENG generates open-circuit voltage pulses whose peak amplitude scales with the bending angle α, reaching 8 V at 600° motor rotation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Micropyramid-structured tribo-skin patches exhibit pressure-dependent electrical outputs from 4.8 V to 41 V as applied force increases from 2 N to 10 N at 1 Hz, with saturation occurring beyond 10 N.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Tribo-skin voltage output depends on contact frequency (increasing from 18.7 V to 23.6 V between 0.3 Hz and 2.2 Hz at 7 N) and contacting material composition, while demonstrating durability over 1000 cycles at 1 Hz.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "A modular three-fingered soft gripper discriminates geometric contact sequences, detects object release and secondary impacts, and differentiates object mass based on voltage signal amplitudes.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Mechanical energy harvested during cyclic grasping charges a 0.1 µF capacitor through a rectifier bridge to 1.6 V in 30 s.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Actuator bending characterization: Arduino UNO controlling a miniature DC motor (6 V, 90 rpm) with an encoder for bi-directional rotation from 60° to 600°, Keithley 6514 System Electrometer for signal measurement, and LabVIEW for real-time data acquisition",
+      "Tribo-skin electromechanical testing: LinMot linear motor (MBT-37×120) with attached force gauge and glass slide for controlled cyclic compression across varying frequencies (0.3–2.2 Hz) and forces (2–10 N), plus 1000-cycle endurance evaluation",
+      "Gripper evaluation: Three finger actuators mounted at 120° intervals on a 3D-printed stand with adjustable grasp span (32–82 mm diameter), grasping acrylic spherical shells, PLA hexagonal prisms, and tomato samples (156 g, 180 g, 236 g)",
+      "Energy harvesting circuit: Rectifier circuit connecting tribo-skins to a 0.1 µF storage capacitor"
+    ],
+    "future_work": [
+      "Developing the skin TENG using contact–separation mode rather than single-electrode mode to eliminate sensitivity to contact materials and ambient environmental factors like humidity",
+      "Integrating machine learning methods with sensory feedback to identify object features such as shape and hardness"
+    ],
+    "independent_variables": [
+      "Motor rotation angle / cable displacement (60° to 600°)",
+      "Applied contact compression force (2 N to 10 N, and >10 N)",
+      "Contact frequency of linear motor (0.3 Hz to 2.2 Hz)",
+      "Contacting object materials (human skin, glass, paper, etc.)",
+      "Object geometry (acrylic spherical shell vs PLA hexagonal prism)",
+      "Object weight/mass (e.g., tomatoes of 156 g, 180 g, 236 g)",
+      "Elastomer body material (Ecoflex 00-30 vs Dragon Skin 10)",
+      "Number of contact–separation cycles (up to 1000 cycles)"
+    ],
+    "limitations_inferred": [
+      "Actuator extension relies passively on material elasticity, meaning return dynamics and straight-state recovery are slow and unactuated compared to cable-pulled flexion",
+      "Triboelectric voltage signals are fundamentally rate-dependent and transient, complicating sustained static force sensing during stationary holding without dynamic motion",
+      "Cross-sensitivity between contact material dielectric properties, contact surface area, and applied force makes isolated, deterministic force calibration difficult without prior knowledge of the target object",
+      "Maximum lifting capacity is restricted (approx. 500 g even when fabricated with stiffer Dragon Skin 10), limiting utility to lightweight handling"
+    ],
+    "limitations_stated_by_authors": [
+      "The electrical output of the inner TENG is not very competitive for energy harvesting due to relatively low grasping frequencies in practical applications",
+      "The sensing output of the single-electrode tribo-skin is strongly affected by external factors, including contacting object material, ambient humidity, and temperature",
+      "The contact area of the tribo-skin varies between partial and full surface depending on object geometry, presenting calibration challenges",
+      "The tribo-skin exhibits a sensing saturation limit for forces exceeding 10 N"
+    ],
+    "main_results": [
+      "Demonstrated a smart soft finger actuator combining silicone elastomer bodies, cable-driven actuation, and dual-mode TENG sensors for self-powered bending and contact sensing",
+      "Inner contact–separation TENG generated open-circuit voltages up to 8 V corresponding to finger curvature and bending degree under motor actuation",
+      "Micropyramid-patterned single-electrode tribo-skin generated open-circuit voltages from 4.8 V to 41 V over a 2–10 N force range at 1 Hz, with stable response across 1000 continuous cycles",
+      "Assembled three-fingered soft gripper successfully grasped objects with diameters from 32 to 82 mm, charged a 0.1 µF capacitor to 1.6 V in 30 s, and identified contact order, dropping events, secondary impacts, and object weights up to 500 g (using Dragon Skin 10)"
+    ],
+    "modeling_methods": [
+      "Finite element method (FEM) using ABAQUS 6.14",
+      "Four-node tetrahedral element discretization for the soft actuator elastomer body",
+      "Hyperelastic constitutive modeling using the Ogden model"
+    ],
+    "performance_metrics": [
+      "Peak open-circuit voltage: up to 8 V for inner TENG; 4.8 V to 41 V for tribo-skin under 2–10 N force",
+      "Current output: 50–60 nA for tribo-skin at 8 N (1 Hz)",
+      "Transferred charge: ~7.5 nC for tribo-skin at 8 N (1 Hz)",
+      "Force sensing range: 2 N to 10 N (saturates above 10 N)",
+      "Endurance: stable voltage output over 1000 contact cycles at 1 Hz (~16.6 min)",
+      "Energy harvesting rate: 1.6 V stored on a 0.1 µF capacitor in 30 s",
+      "Grasp diameter range: 32 mm to 82 mm",
+      "Maximum grasping weight: ~500 g (with Dragon Skin 10)"
+    ],
+    "possible_gap_implications": [
+      "Single-electrode triboelectric skins require decoupling strategies (such as enclosed contact-separation architectures or multi-modal tactile sensing) to prevent environmental humidity and target material composition from confounding force measurements",
+      "Dynamic triboelectric sensing mechanisms leave an open need for hybridizing with piezoresistive or capacitive modes to enable drift-free, long-duration static force feedback in soft end effectors"
+    ],
+    "research_objective": "To design, fabricate, model, and evaluate a smart, cable-driven soft finger actuator and modular three-fingered soft gripper integrated with self-powered TENG sensors (single-electrode tribo-skin for contact pressure and inner contact–separation strips for bending curvature) for dexterous grasping, sensory feedback, and mechanical energy harvesting.",
+    "research_problem": "Traditional rigid grippers lack compliance, dexterity, and safe interaction with fragile objects, while existing soft actuators and sensors face limitations such as bulky pressure supplies for pneumatics, slow thermal response for shape memory alloys, high voltage hazards for dielectric elastomers, and external power requirements or rigid components for conventional soft tactile sensors.",
+    "robot_type": "soft gripper",
+    "stiffness_mechanism": [],
+    "title": "Smart Soft Actuators and Grippers Enabled by Self-Powered Tribo-Skins",
+    "year": "2020"
+  }
+}

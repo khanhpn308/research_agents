@@ -1,0 +1,186 @@
+{
+  "source": {
+    "paper_id": "4c30fda873",
+    "filename": "2020-A novel design of SMA based soft robotic gripper with variable stiffness.pdf",
+    "sha256": "4c30fda873ba94d65ea2b7715092eff6bd90783616cc9d13bc5def40b93811cc",
+    "page_count": 12,
+    "char_count": 45557,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26838,
+    "completion_tokens": 5594,
+    "total_tokens": 32432,
+    "thinking_tokens": 3229,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "shape-memory alloy (SMA) wire",
+      "Joule heating / ohmic heating",
+      "tendon-driven SMA wire contraction"
+    ],
+    "authors": [
+      "Mingfang Liu",
+      "Lina Hao",
+      "Wei Zhang",
+      "Zhirui Zhao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Thermal elasticity coefficient theta of the SMA wire is much smaller than phase transformation coefficient Omega and elastic modulus E, and is ignored.",
+      "Initial strain and stress values of the SMA wire are assumed to be 0.",
+      "Stress-induced martensite term (epsilon_L * xi_L) is small and neglected, simplifying the SMA constitutive equation.",
+      "The variable stiffness joint is assumed to behave as a cantilever beam.",
+      "Gravity is neglected in the joint deflection calculation.",
+      "The joint is assumed to deform in a circular arc under bending.",
+      "Heat loss from the paraffin to the environment is ignored due to encapsulation by the silicone membrane.",
+      "Initial phase fractions before transformation are initialized as martensite xi_M = 1 and austenite xi_A = 0."
+    ],
+    "control_variables": [
+      "Ambient temperature (25 °C)",
+      "Applied heating voltage to Ni-Cr wire (10 V)",
+      "Applied heating voltage to SMA wire (6 V)",
+      "Finger dimensions (length 120 mm, width 20 mm, thickness 30 mm)",
+      "Joint design parameters (l1 = 20 mm, l2 = 25 mm, assembly distance D = 30 mm, assembly angle theta = 70°)",
+      "Force sensor displacement rate and step interval (1 mm increments up to 10 mm)",
+      "Diameter of fixed cylinder during vertical pulling test (85 mm)",
+      "Vertical pull distance (42 mm)"
+    ],
+    "dependent_variables": [
+      "Paraffin temperature over time",
+      "Thermal response times (heating time to 58 °C and cooling time to solid state)",
+      "Fingertip reaction force under displacement",
+      "Robotic finger stiffness (slope of force vs. displacement)",
+      "Finger bending angle and multi-posture configurations",
+      "Vertical pulling force during upward motion",
+      "Grasping force (net pulling force minus gripper weight)",
+      "Holding capability / grasp stability with and without active SMA actuation"
+    ],
+    "doi": "10.1177/1729881420907813",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A single robotic finger achieves an approximate 18-fold stiffness variation between the liquid state (0.0136 N/mm) and solid state (0.2431 N/mm) of paraffin.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7,
+          8,
+          11
+        ]
+      },
+      {
+        "claim": "Variable stiffness joints enhance the gripper's maximum grasping force by approximately 10-fold, increasing from 0.57 N at low stiffness to 5.66 N at high stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8,
+          11
+        ]
+      },
+      {
+        "claim": "Paraffin heating to its melting point of 58 °C with an embedded Ni-Cr wire takes about 70 s at 10 V, while natural cooling to the solid state takes about 380 s.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "Independently modulating the stiffness of two embedded joints per finger combined with SMA wire actuation enables four distinct configurations: straight, joint-1 bending, joint-2 bending, and simultaneous bending.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          3,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "At high stiffness, the soft gripper can stably hold a 500 g water bottle even after turning off power to the SMA actuator wire.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "An analytical framework couples SMA Joule heating, empirical phase transformation kinetics, constitutive stress-strain relationships, and cantilever beam mechanics to relate heating time to joint bending angle.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Infrared thermometer setup measuring paraffin temperature variation at 10 s intervals during heating (10 V) and natural air cooling.",
+      "Fingertip stiffness measurement setup using a DYLY-103 tension-compression force sensor (range 0–50 N, comprehensive error 0.03% FS) driven along a screw linear guide over a 10 mm horizontal displacement (1 mm intervals) with a pre-tensioned pulling cord.",
+      "Maximum grasping force test bench where the three-fingered gripper grasps a fixed 85 mm cylinder and moves vertically upward by 42 mm while measuring vertical pulling force.",
+      "Multi-object manipulation testing platform demonstrating adaptive grasping on objects of various geometries (a square box, a smooth thin-walled cylinder, an orange, and a 500 g water bottle) under different stiffness and actuation states."
+    ],
+    "future_work": [
+      "Optimization and experiments to shorten the transition time required to change stiffness from low stiffness to high stiffness."
+    ],
+    "independent_variables": [
+      "Phase/temperature state of paraffin (solid vs. liquid / high vs. low stiffness) via Ni-Cr wire heating voltage and cooling duration",
+      "SMA actuation state (applied voltage of 6 V vs. unpowered)",
+      "Selective joint activation (joint-1, joint-2, or both joints)",
+      "Applied horizontal displacement at the fingertip (0 to 10 mm in 1 mm steps)",
+      "Object geometry, surface characteristics, and weight (box, smooth thin cylinder, orange, 500 g water bottle, 85 mm cylinder)"
+    ],
+    "limitations_inferred": [
+      "Reliance on passive natural cooling results in a slow cycle time (380 s to stiffen), which severely restricts operating speed and dynamic grasping tasks.",
+      "Continuous electrical power is required to hold the deformed configuration during the multi-minute cooling phase before the paraffin solidifies.",
+      "Heat dissipation through the silicone encapsulation over repeated thermal cycles may affect surrounding structures and repeatable phase transformation temperatures.",
+      "The payload capacity (500 g) and maximum grasping force (5.66 N) remain relatively low for heavier robotic manipulation tasks.",
+      "Cantilever beam and circular arc assumptions do not capture 3D multi-axial deformations, contact compliance, or viscoelastic effects in the silicone casing."
+    ],
+    "limitations_stated_by_authors": [
+      "A long time is required for changing the joint from low stiffness to high stiffness (380 s cooling time), which increases the overall time needed to grasp objects."
+    ],
+    "main_results": [
+      "The single robotic finger demonstrated an 18-fold stiffness change, with stiffness measuring 0.2431 N/mm in the solid state and 0.0136 N/mm in the liquid state.",
+      "The maximum grasping force of the three-fingered gripper increased by approximately 10 times with variable stiffness joints, reaching 5.66 N at high stiffness compared to 0.57 N at low stiffness.",
+      "Heating the paraffin to its 58 °C melting point required approximately 70 s, while natural cooling back to the solid state took approximately 380 s.",
+      "Each finger achieved four distinct postures (straight, joint-1 bending, joint-2 bending, simultaneous bending) through selective joint heating and SMA wire contraction.",
+      "The soft gripper successfully grasped objects of diverse shapes (square box, cylinder, orange) and stably held a 500 g water bottle at high stiffness without active SMA power."
+    ],
+    "modeling_methods": [
+      "Thermal heat transfer model of SMA wire considering Joule heating and convective cooling to ambient air",
+      "SMA hysteresis thermal phase transformation model (martensite-to-austenite and austenite-to-martensite kinetics)",
+      "SMA one-dimensional constitutive stress-strain formulation",
+      "Cantilever beam deflection model for the flexible joint under bending moment generated by SMA wire force",
+      "Ni-Cr wire electrical Joule heating and paraffin thermal absorption energy balance model",
+      "Kinematic model relating SMA wire shrinkage, joint deflection, and circular arc bending angle",
+      "Geometric gripping volume model determining minimum and maximum graspable object radii from base angle and finger dimensions"
+    ],
+    "performance_metrics": [
+      "Finger stiffness at high stiffness (K1 = 0.2431 N/mm) and low stiffness (K2 = 0.0136 N/mm), representing an 18-fold enhancement",
+      "Heating time to reach paraffin melting point (70 s) and cooling time to return to solid state (380 s)",
+      "Maximum reaction force at 10 mm displacement (2.21 N at high stiffness vs. 0.14 N at low stiffness)",
+      "Maximum vertical pulling force (8.73 N at high stiffness vs. 3.28 N at low stiffness)",
+      "Maximum grasping force (5.66 N at high stiffness vs. 0.57 N at low stiffness, ~10-fold ratio)",
+      "Theoretical object grasping diameter range (21 mm to 90 mm)",
+      "Maximum payload demonstrated without continuous SMA power (500 g water bottle)"
+    ],
+    "possible_gap_implications": [
+      "The long thermal relaxation time (~380 s) indicates that practical implementation of phase-change materials in soft robotics requires active cooling methods or hybrid mechanisms.",
+      "Simplifying assumptions in the joint model (ignoring heat dissipation through the elastomer and viscoelastic mechanics) suggest a need for comprehensive multi-physics thermo-mechanical models for encapsulated phase-change soft actuators.",
+      "The trade-off between compliance at low stiffness and modest maximum grasping force (5.66 N) highlights the potential for investigating hybrid rigid-soft reinforcement structures to achieve higher payloads."
+    ],
+    "research_objective": "To propose, model, fabricate, and experimentally validate an SMA-based soft robotic gripper with embedded variable stiffness paraffin joints capable of compliant grasping at low stiffness and shape-retentive, high-force holding at high stiffness for manipulating objects of irregular shapes and varied weights.",
+    "research_problem": "Soft robotic grippers suffer from low grasping forces due to soft actuator properties and an inability to vary stiffness during grasping, which limits their application range and load capacity.",
+    "robot_type": "soft robotic gripper",
+    "stiffness_mechanism": [
+      "paraffin phase-change variable stiffness joint",
+      "resistance wire (Ni-Cr) Joule heating and natural cooling",
+      "elastomeric silicone membrane encapsulation"
+    ],
+    "title": "A novel design of shape-memory alloy-based soft robotic gripper with variable stiffness",
+    "year": "2020"
+  }
+}

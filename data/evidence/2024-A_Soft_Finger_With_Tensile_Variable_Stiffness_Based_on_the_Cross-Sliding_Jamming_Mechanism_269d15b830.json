@@ -1,0 +1,167 @@
+{
+  "source": {
+    "filename": "2024-A_Soft_Finger_With_Tensile_Variable_Stiffness_Based_on_the_Cross-Sliding_Jamming_Mechanism.pdf",
+    "sha256": "269d15b83031841b76c965c392ef26e325ac938b50859569989ba9d496a4bc64",
+    "page_count": 8,
+    "char_count": 37662
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24909,
+    "completion_tokens": 5664,
+    "total_tokens": 30573,
+    "thinking_tokens": 3496,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic actuation (positive air pressure for actuator bending, negative vacuum pressure for jamming)"
+    ],
+    "authors": [
+      "Ling-Jie Gai",
+      "Jie Huang",
+      "Yuanyuan Zhang",
+      "Xiaofeng Zong",
+      "Huafeng Ding"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "sliding mold displacement (20 mm)",
+      "tennis ball drop height (400 mm) and ball diameter (65 mm)",
+      "inflation pressure during vibration experiments (45 kPa)",
+      "vacuum pressure during impact response testing (-80 kPa)",
+      "consistent layer jamming media material and dimensions between proposed and conventional layer jamming comparisons",
+      "number of measurement repetitions (10 repetitions for bending and stiffness tests)"
+    ],
+    "dependent_variables": [
+      "bending angle (degrees)",
+      "stiffness evaluation index K (slope of force-displacement curve, N/mm)",
+      "ball rebound height (mm)",
+      "contact surface deformation and PVDF sensor output signal fluctuation (voltage/amplitude)",
+      "grasping force fluctuation percentage and object retention/dropping during vibration",
+      "grasping and manipulation success across various object types"
+    ],
+    "doi": "10.1109/LRA.2024.3368235",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The soft finger achieves a bending angle of up to 105 degrees at 60 kPa input air pressure with a maximum repeatability error under 8 degrees.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "The Cross-Sliding jamming mechanism increases the stiffness of the uninflated finger by nearly 7 times as vacuum increases from 0 kPa to -80 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "As the actuator bending angle increases, the rate of stiffness change from the jamming effect decreases because the actuator's inherent pneumatic stiffness increases sharply and dominates total stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Direct impact on the soft bending actuator results in a rebound height of 80 mm, approximately 2.5 times lower than direct impact on the variable stiffness unit, showing superior impact absorption and cushioning.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Mounting the variable stiffness structure on the upper surface eliminates contact surface deformation and PVDF sensor signal disturbance during vacuum jamming compared to conventional particle and layer jamming.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "At 30 deg/s vibration amplitude, grasping force fluctuation with variable stiffness engaged is approximately 30% (about 2.5 times lower than without jamming), preventing object release, and maintains grasp stability up to 120 deg/s.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Positive inflation pressure to the actuator and vacuum pressure to the jamming structure cannot be applied simultaneously because negative pressure stiffens the jamming unit and resists actuator bending.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Bending test platform: Soft finger fixed to a holder and pressurized from 0 to 60 kPa in 5 kPa steps via an electromagnetic proportional regulator (vacuum at 0 kPa; 10 trials) to record bending angles.",
+      "Variable stiffness test platform: Finger mounted on a holder with a force sensor (ZhiQu Ltd.) on a horizontal sliding mold driven 20 mm in reverse motion at 0, 30, 60, and 90 degree bending angles under 0, -20, -40, -60, and -80 kPa vacuum (10 trials per condition).",
+      "Impact response (soft contact) test: High-speed camera recording a 65 mm tennis ball dropped from 400 mm onto the soft actuator surface versus the variable stiffness unit under -80 kPa vacuum to measure rebound height.",
+      "Jamming stability test: PVDF piezoelectric sensors attached to contact surfaces of the proposed finger, a conventional particle jamming finger (soybean grains), and a conventional layer jamming finger under vacuum to record surface deformation and signal fluctuations.",
+      "Grasping stability vibration test: Three-fingered gripper holding an object on a holder equipped with a flexible force sensor (FS-L-0095-103-ST), vibration motor, and IMU sensor measuring angular velocity amplitudes (~30 deg/s and ~120 deg/s) at 45 kPa inflation pressure with jamming on versus off.",
+      "Grasping performance test: Three-fingered gripper performing sequential positive pressure bending, negative pressure stiffening, lifting, and transferring across diverse items (fragile, soft, irregular, and daily objects)."
+    ],
+    "future_work": [
+      "Addressing anisotropic bending moments caused by the uneven distribution of single versus double jamming media along the Cross-Sliding mechanism.",
+      "Applying the Cross-Sliding jamming mechanism to rehabilitation soft robots requiring safe interaction alongside high output forces or high variable stiffness."
+    ],
+    "independent_variables": [
+      "actuator inflation air pressure (0 to 60 kPa; 45 kPa)",
+      "jamming vacuum pressure (0, -20, -40, -60, -80 kPa)",
+      "bending angle of the finger (0, 30, 60, 90 degrees)",
+      "contact surface location (soft bending actuator surface vs. variable stiffness unit surface)",
+      "jamming mechanism configuration (proposed Cross-Sliding jamming vs. conventional layer jamming vs. conventional soybean particle jamming)",
+      "variable stiffness activation state (jammed vs. unjammed)",
+      "vibration angular velocity amplitude (~30 deg/s, ~120 deg/s)",
+      "grasped object shapes, sizes, and compliance"
+    ],
+    "limitations_inferred": [
+      "No quantitative mathematical or numerical continuum mechanics models (analytical or finite element) were presented to predict sliding kinematics, contact forces, or stiffness scaling.",
+      "The freely suspended midair configuration constrained only by soft limiters and endpoints may pose risks of lateral torsional compliance, misalignment, or frictional wear during repeated high-cycle sliding.",
+      "Payload limits were not quantitatively mapped across systematic weight ranges in the reported experiments."
+    ],
+    "limitations_stated_by_authors": [
+      "The Cross-Sliding jamming structure has an uneven distribution (single jamming media at the ends, double jamming media at the middle section), causing anisotropic bending moments.",
+      "Positive actuation pressure and negative jamming pressure cannot occur simultaneously because negative pressure stiffens the jamming unit and impedes actuator bending.",
+      "As the bending angle increases, the rate of stiffness variation due to jamming diminishes because inherent positive-pressure stiffness dominates."
+    ],
+    "main_results": [
+      "The soft finger reached a bending angle of up to 105 degrees at 60 kPa input air pressure with repeatability error within 8 degrees.",
+      "At 0 degree bending angle, finger stiffness increased by nearly 7-fold as vacuum pressure went from 0 to -80 kPa.",
+      "Although total stiffness grew with bending angle, the stiffness variation rate contributed by jamming decreased at higher angles due to dominant inherent pneumatic actuator stiffness.",
+      "Soft contact directly with the actuator reduced impact rebound height to 80 mm (approx. 2.5 times lower than rigid contact on the jammed unit), showing superior energy absorption and cushioning.",
+      "Relocating the jamming structure to the dorsal surface eliminated contact surface deformation and PVDF signal fluctuations during vacuum application compared to conventional layer and particle jamming.",
+      "Under vibration (~30 deg/s and ~120 deg/s), variable stiffness reduced grasping force fluctuation to ~30% (2.5 times less than without jamming) and prevented object slippage/dropping.",
+      "A three-fingered gripper successfully grasped and manipulated a diverse variety of soft, fragile, and irregular objects using sequential positive-pressure bending followed by negative-pressure stiffening."
+    ],
+    "modeling_methods": [],
+    "performance_metrics": [
+      "maximum bending angle (105 degrees at 60 kPa) and repeatability error (<= 8 degrees)",
+      "stiffness evaluation index K (slope of displacement-force curve) and stiffness tuning ratio (~7-fold increase at 0 degrees)",
+      "impact rebound height (80 mm vs. ~200 mm)",
+      "contact surface PVDF sensor fluctuation amplitude",
+      "grasping force fluctuation percentage (~30% with jamming vs. ~2.5x higher without jamming)",
+      "successful grasping and transportation of diverse objects"
+    ],
+    "possible_gap_implications": [
+      "Placing stretchable jamming media on the non-contact dorsal surface provides an effective paradigm for decoupling tactile sensing/soft envelope adaptation from structural stiffening in soft actuators.",
+      "The occurrence of anisotropic bending moments points to an open mechanical modeling and design challenge in achieving uniform stiffness and curvature along multi-layered sliding structures."
+    ],
+    "research_objective": "To develop and experimentally evaluate a tensile Cross-Sliding jamming mechanism integrated on the upper surface of a soft bending actuator (and assemble a multi-fingered soft gripper) to remove assembly position restrictions, eliminate rigid contact with grasped objects, avoid contact surface disturbance during jamming, and achieve stable grasping with tunable stiffness.",
+    "research_problem": "Conventional variable stiffness structures for soft fingers lack stretchability and are therefore restricted to the lower/bending surface, causing rigid contact with objects during grasping, contact surface disturbances/fluctuations during jamming, and potential structural hollows/instabilities if stretched.",
+    "robot_type": "soft finger, multi-fingered soft gripper",
+    "stiffness_mechanism": [
+      "Cross-Sliding jamming mechanism",
+      "layered jamming",
+      "vacuum-induced jamming"
+    ],
+    "title": "A Soft Finger With Tensile Variable Stiffness Based on the Cross-Sliding Jamming Mechanism",
+    "year": "2024"
+  }
+}

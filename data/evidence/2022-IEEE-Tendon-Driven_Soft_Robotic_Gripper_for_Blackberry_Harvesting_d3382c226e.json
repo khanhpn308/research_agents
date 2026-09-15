@@ -1,0 +1,171 @@
+{
+  "source": {
+    "paper_id": "d3382c226e",
+    "filename": "2022-IEEE-Tendon-Driven_Soft_Robotic_Gripper_for_Blackberry_Harvesting.pdf",
+    "sha256": "d3382c226ed8da906c5ef527b48ee1f9ffb2905f815d11c2abb38dd296cd77a4",
+    "page_count": 8,
+    "char_count": 41676,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26779,
+    "completion_tokens": 6209,
+    "total_tokens": 32988,
+    "thinking_tokens": 3851,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven",
+      "stepper motor via lead screw"
+    ],
+    "authors": [
+      "Anthony L. Gunderman",
+      "Jeremy A. Collins",
+      "Andrea L. Myers",
+      "Renee T. Threlfall",
+      "Yue Chen"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Grasped objects are simplified to axis-symmetric geometry around the longitudinal axis for analytical contact modeling",
+      "Coulomb kinetic friction with a constant kinetic friction coefficient between the finger surface and the conical contact surface during insertion and removal",
+      "Super-elastic material behavior of the internal nitinol backbone strip",
+      "Linear relationship between applied load on the FlexiForce sensor and operational amplifier output voltage"
+    ],
+    "control_variables": [
+      "Cone insertion and retraction rate (1 mm/s)",
+      "Cone draft angle (15 degrees)",
+      "Finger geometry (6.45 cm length, 120-degree radial spacing, 20-degree vertical offset, 30-degree fingertip pad offset)",
+      "Control loop interrupt frequency (10 kHz on Arduino Mega 2560)",
+      "PID controller parameters (Kp = 4000, KI = 0, KD = 125, error shut-off tolerance = 0.025 N)",
+      "Postharvest storage environment (vented clamshell containers with 20 berries per clamshell at 2 degrees Celsius for 21 days)"
+    ],
+    "dependent_variables": [
+      "Applied fingertip contact force (measured by ATI force sensor and Vernier sensor)",
+      "Fingertip force tracking error and handling standard deviation",
+      "Cone insertion (push) and retraction (pull) forces",
+      "Harvesting reliability percentage (successful harvests divided by total attempts)",
+      "Red drupelet reversion (RDR) percentage after postharvest cold storage",
+      "Harvest cycle time per berry (seconds)"
+    ],
+    "doi": "10.1109/LRA.2022.3143891",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The tendon-driven soft robotic gripper with closed-loop contact force control applied forces from 0.50 N to 1.45 N with a mean tracking error of 0.046 N and a standard deviation of 0.027 N, achieving a 26-fold reduction in handling force variability compared to manual picking.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "In commercial field harvesting trials on blackberries, higher contact force increased harvesting reliability but also elevated red drupelet reversion; a 0.78 N setpoint resulted in 95.24% reliability and 16% RDR, whereas a 0.59 N setpoint yielded 0% RDR but lower reliability (81.08%).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Empirical contact force characterization using cone push-pull force summation eliminated the unknown friction coefficient to construct a 3D relationship between tendon displacement (5-9 mm), target diameter (0-47 mm), and normal contact force, peaking at 4.92 N.",
+        "evidence_type": "experimental and analytical",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Manual force tracking across 1,440 hand-picked blackberries revealed that thumb and middle fingers contribute the primary contact forces (0.782 N and 0.397 N), while the ring finger force is negligible.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Incorporating a 0.3 mm super-elastic nitinol backbone strip into molded silicone fingers increased transverse bending stiffness by 134 times while maintaining compliance in the flexure direction.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          3
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Manual harvesting force measurement apparatus equipped with FlexiForce A301 piezoresistive sensors mounted to fingers of an experienced harvester connected to a portable water-resistant processing case",
+      "Benchtop force control accuracy station comparing gripper fingertip forces against a rigid 6-axis ATI force sensor aligned parallel to the curved finger pad on a linear table",
+      "Empirical contact force characterization testbed comprising a 3D-printed cone (15-degree draft angle) driven at 1 mm/s by an SFU1605 ball screw and NEMA 23 stepper motor with a Vernier Go Direct force sensor",
+      "Grasping versatility testing on 12 objects of daily living with varied geometry, stiffness, and mass",
+      "Field harvesting trial on 240 Sweet-Ark Caddo blackberries at a commercial farm comparing three robot force setpoints against manual harvesting, evaluated after 21 days at 2 degrees Celsius"
+    ],
+    "future_work": [
+      "System-level integration of the soft gripper with a robotic arm and mobile robot chassis using SLAM and computer vision for autonomous localization and harvesting",
+      "Tuning PID control gains and optimizing pre-grasp home finger positions to decrease harvest cycle time",
+      "Incorporating fruit diameter into the control and positioning strategy to reduce actuation time",
+      "Estimating fingertip forces indirectly by mapping tendon tension in joint space to task space to eliminate rigid fingertip sensor supports",
+      "Optimizing fingertip geometry to enhance dexterity and grasping performance",
+      "Investigating gripper robustness and disturbance response against plant canes and foliage",
+      "Identifying an optimal contact force setpoint that balances harvest reliability and minimum red drupelet reversion"
+    ],
+    "independent_variables": [
+      "Target fingertip contact force setpoints (0.50 N to 1.45 N in benchtop testing; 0.59 N, 0.69 N, and 0.78 N in field harvesting tests)",
+      "Tendon retraction displacement (5 mm to 9 mm in 0.5 mm steps)",
+      "Grasped object diameter (0 mm to 47 mm across conical and ADL objects)",
+      "Object physical characteristics (geometry, stiffness, surface compliance across 12 test items)",
+      "Harvesting method (soft robotic gripper vs. manual hand harvesting)"
+    ],
+    "limitations_inferred": [
+      "Field harvesting evaluations were restricted to a single blackberry cultivar (Sweet-Ark Caddo) at a single location, leaving performance on other cultivars with differing detachment forces unverified",
+      "Contact force characterization employed a rigid 3D-printed cone, which does not simulate the local contact deformation and compliance of soft aggregate berries",
+      "Manual positioning of the gripper during field trials bypassed the dynamics, inaccuracies, and vibrations of an autonomous manipulator arm",
+      "Analytical contact formulation assumes idealized Coulomb friction, which may not capture adhesive or viscoelastic characteristics of biological produce"
+    ],
+    "limitations_stated_by_authors": [
+      "Gripper placement was executed manually rather than autonomously due to the difficulty of cane and berry localization",
+      "Robotic harvest cycle time (~4.8 s per berry) was approximately 3.4 times slower than hand harvesting (1.4 s per berry) due to slow actuator response",
+      "Control feedback is restricted solely to fingertip contact force, omitting berry diameter and task-space geometry",
+      "Rigid 3D-printed cylindrical PLA force sensor backing supports on the fingertips present a risk of fruit surface bruising",
+      "Objects with diameters below 10 mm cannot be sufficiently grasped by the gripper geometry",
+      "Silicone-only fingers have low transverse stiffness and are susceptible to disturbances from cane collisions without the nitinol strip"
+    ],
+    "main_results": [
+      "The closed-loop force-controlled gripper achieved an average contact force error of 0.046 N across setpoints from 0.50 N to 1.45 N, and reduced force standard deviation to 0.027 N compared to 0.702 N for human pickers",
+      "In field trials, the gripper at 0.78 N contact force achieved 95.24% harvesting reliability with 16% RDR at ~4.8 s per berry, outperforming manual harvest RDR (33.33%) while maintaining high reliability",
+      "Lower contact force (0.59 N) eliminated RDR entirely (0%) but decreased harvesting reliability to 81.08% and increased harvesting time to ~8.1 s per berry",
+      "Normal fingertip contact force was characterized up to 4.92 N at 9 mm tendon retraction and 47 mm diameter, demonstrating grasping capacity across common blackberry sizes (>20 mm)",
+      "Versatility testing confirmed stable grasping of diverse ADL objects including delicate produce, soft fabrics, rigid cans, and jars"
+    ],
+    "modeling_methods": [
+      "2D static equilibrium force balance on a conical geometry during push and pull phases to cancel kinetic friction and isolate the normal fingertip contact force",
+      "Empirical curve fitting and 3D surface mesh generation in MATLAB to model normal contact force as a function of tendon displacement and object diameter"
+    ],
+    "performance_metrics": [
+      "Contact force tracking error (N)",
+      "Contact force standard deviation across trials (N)",
+      "Maximum fingertip normal contact force (N)",
+      "Red drupelet reversion (RDR) incidence percentage (%) after 21-day cold storage",
+      "Harvesting reliability percentage (%)",
+      "Harvesting cycle duration per berry (seconds)"
+    ],
+    "possible_gap_implications": [
+      "The noticeable cycle time deficit compared to manual picking (~4.8 s vs. 1.4 s) indicates a need for faster tendon drive mechanisms and predictive trajectory planning before soft robotic harvesters become commercially viable",
+      "The trade-off between picking reliability and RDR suggests that fixed-force setpoints may be suboptimal, pointing toward multi-phase or variable-stiffness grasping where higher force is applied during detachment and reduced during holding",
+      "Reliance on rigid sensor backing discs highlights the gap in compliant, non-damaging tactile sensing integration for delicate agricultural soft robotics"
+    ],
+    "research_objective": "To design, fabricate, and experimentally evaluate a tendon-driven soft robotic gripper with closed-loop contact force control capable of harvesting delicate fresh-market blackberries gently and reliably to minimize red drupelet reversion (RDR).",
+    "research_problem": "Fresh-market blackberry harvesting is an expensive, labor-intensive process (accounting for up to 50% of production person-hours) where manual handling variability causes significant crop loss from red drupelet reversion (RDR, up to 85%), while conventional automated harvesting methods damage the delicate berry surface.",
+    "robot_type": "soft robotic gripper",
+    "stiffness_mechanism": [
+      "inherent passive compliance of silicone material",
+      "super-elastic nitinol strip internal backbone"
+    ],
+    "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+    "year": "2022"
+  }
+}

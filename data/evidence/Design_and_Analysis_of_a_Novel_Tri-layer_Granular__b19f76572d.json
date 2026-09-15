@@ -1,0 +1,143 @@
+{
+  "source": {
+    "paper_id": "b19f76572d",
+    "filename": "Design_and_Analysis_of_a_Novel_Tri-layer_Granular_.pdf",
+    "sha256": "b19f76572d23669fbb005ee782fe988adc8d9ec196083b51fe359ef2380bec06",
+    "page_count": 10,
+    "char_count": 24857,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 21039,
+    "completion_tokens": 5472,
+    "total_tokens": 26511,
+    "thinking_tokens": 3722,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Pneumatic actuation (vacuum extraction for granular jamming and positive air inflation for airbag expansion)"
+    ],
+    "authors": [
+      "Lefan Yang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "Environmental testing conditions",
+      "Granular medium particle type and quantity (millet, approximately 3.5 tablespoons)",
+      "Air pressure and vacuum strength settings",
+      "Duration of vacuum activation",
+      "Initial contact angle and force applied by the operator",
+      "Testing sequence procedure (alternating grippers and randomized object presentation order)",
+      "Single operator conducting all trials"
+    ],
+    "dependent_variables": [
+      "Grasping success rate (number of successful pick-and-lift trials out of 10 attempts per object)",
+      "Gripping force (mean tensile/pulling force measured in kilograms using a digital scale across two trials)"
+    ],
+    "doi": "10.54254/2755-2721/2025.CH24065",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Integrating an intermediate inflatable airbag between an outer rigid shell and a granular jamming bag exerts lateral pressure that increases contact area, friction, and interlocking resistance, enhancing grip strength and adaptability.",
+        "evidence_type": "Experimental / Empirical design verification",
+        "page_numbers": [
+          1,
+          3,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Traditional granular jamming grippers suffer from limited load capacity due to particle rearrangement under load, poor shape adaptability on complex/flat/open geometries, and slippage on smooth surfaces.",
+        "evidence_type": "Background literature analysis",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "In comparative pick-and-place tests with complex items (upright cone, inclined GU10 LED bulb, T-shaped hook, flat block piece), the tri-layer gripper achieved high grasping success while the control gripper failed or exhibited low reliability.",
+        "evidence_type": "Experimental comparative testing",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Tensile pull-off force measurements across five objects (rectangular LEGO block, ping pong ball, bottle cap, T-shaped hook, and GU10 LED bulb) confirmed that the tri-layer gripper delivered higher average gripping force than the standard granular jamming gripper.",
+        "evidence_type": "Quantitative force measurement",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Use of repurposed household materials and a manual syringe for inflation resulted in minor air leakage and imperfect geometric fit between the airbag and the rigid shell.",
+        "evidence_type": "Empirical prototype observation",
+        "page_numbers": [
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Comparative evaluation between the proposed tri-layer granular jamming gripper and a control standard granular jamming gripper lacking the intermediate airbag layer.",
+      "Prototype fabrication using repurposed household and hobby materials: cut plastic water bottle top as the rigid shell, an 18-inch latex balloon cut and rolled to form a hollow airbag, a 2.36-inch stress ball filled with approximately 3.5 tbsp of millet as the inner granular jamming bag, plastic tubing, an electric vacuum pump (Brekmis), and a 500 mL manual syringe (OLCANA) for inflation.",
+      "Operation protocol: pressing the rigid shell against the target object, inflating the intermediate airbag via syringe to compress the granular medium around the object, applying vacuum to jam the granular particles, and lifting the assembly via the rigid shell.",
+      "Grasping trials on eight household objects categorized into standard objects (rectangular block, ping pong ball, avocado core, bottle cap) and complex objects (upright cone, inclined GU10 LED bulb, T-shaped hook, flat block piece), with 10 grasping attempts per object.",
+      "Gripping force trials on five selected objects (rectangular LEGO block, ping pong ball, bottle cap, T-shaped hook, GU10 LED bulb) using a string handle connected to a portable digital scale, with two trials per object averaged."
+    ],
+    "future_work": [
+      "Optimizing material selection and fabrication processes to enhance durability, flexibility, and operational lifespan",
+      "Investigating size scalability, including miniaturization for delicate tasks and scaling up for heavy-duty applications",
+      "Optimizing airbag geometry and granular medium composition for stronger and more adaptive grasping",
+      "Refining the inflation mechanism to eliminate minor air leakage and manual inefficiencies",
+      "Integrating advanced sensors and intelligent closed-loop control systems for automated feedback in dynamic environments"
+    ],
+    "independent_variables": [
+      "Gripper design architecture (tri-layer gripper with intermediate inflatable airbag vs. conventional granular jamming gripper without airbag)",
+      "Object characteristics (geometry, dimensions, surface smoothness/roughness, and mass across standard and complex objects)"
+    ],
+    "limitations_inferred": [
+      "Manual operation of the gripper, syringe inflation, and digital scale pulling introduces potential human-induced variability compared to automated robotic manipulator testing.",
+      "Gripping force characterization relied on only two repetitions per object using a handheld digital scale, offering limited statistical power and precision.",
+      "No direct quantitative measurements of internal airbag pressure, vacuum level, contact surface area percentage, or interfacial friction coefficients were acquired.",
+      "Lack of analytical, constitutive, or numerical mechanical models to predict contact mechanics, stress distribution, or granular phase transition behavior.",
+      "Experimental evaluation was restricted to a small set of household items without systematic parametric variation of surface roughness, object compliance, or environmental conditions."
+    ],
+    "limitations_stated_by_authors": [
+      "The experimental prototype was constructed from rudimentary toy and household waste materials, constraining durability, efficiency, and longevity.",
+      "The oversized airbag did not always fit cleanly within the outer rigid shell.",
+      "The manual syringe inflation mechanism experienced inefficiencies and occasional minor air leakage.",
+      "Size scalability is constrained, limiting the range and dimensions of graspable objects.",
+      "Absence of advanced sensors and intelligent control systems for automated closed-loop operation."
+    ],
+    "main_results": [
+      "The tri-layer granular jamming gripper successfully picked up all objects that the conventional control gripper could handle, maintaining high success rates across standard items.",
+      "For complex, thin, or smooth items (upright cone, inclined GU10 LED bulb, T-shaped hook, and flat piece of block), the tri-layer gripper achieved consistent grasping, whereas the control gripper failed or struggled.",
+      "Gripping force measurements across all five evaluated objects demonstrated consistently higher pull-off forces for the tri-layer gripper compared to the conventional control gripper.",
+      "The intermediate airbag's active lateral pressure expanded surface contact area and promoted interlocking resistance and friction, notably improving stability on heavy and smooth-surfaced objects."
+    ],
+    "modeling_methods": [],
+    "performance_metrics": [
+      "Grasping success rate (number of successful picks out of 10 attempts per object)",
+      "Gripping force (mean maximum pull force measured in kilograms using a digital scale across two trials)"
+    ],
+    "possible_gap_implications": [
+      "While the empirical results indicate that introducing an active inflatable layer enhances granular conformity and grip force, the absence of continuum or granular mechanics modeling highlights a research gap in analytical predictive frameworks for multi-layer jamming-inflatable soft structures.",
+      "The demonstrated benefits of passive-active hybrid pneumatic jamming suggest potential for robust soft robotic end-effectors, but transitioning beyond proof-of-concept requires exploring advanced elastomeric manufacturing, automated pneumatic regulation, and integrated tactile sensing."
+    ],
+    "research_objective": "To design, fabricate, and experimentally evaluate a novel tri-layer granular jamming gripper incorporating an intermediate inflatable airbag between a rigid shell and a granular jamming medium to improve conformability, grip strength, and shape adaptability over conventional granular jamming grippers.",
+    "research_problem": "Conventional granular jamming (universal) grippers suffer from performance bottlenecks including limited load capacity due to particle shifting under load, insufficient shape adaptability for complex, thin, or flat geometries, and insufficient surface adaptability leading to slippage on smooth or irregular surfaces.",
+    "robot_type": "Tri-layer granular jamming gripper (soft robotic gripper)",
+    "stiffness_mechanism": [
+      "Granular jamming"
+    ],
+    "title": "Design and Analysis of a Novel Tri-layer Granular Jamming Gripper",
+    "year": "2025"
+  }
+}

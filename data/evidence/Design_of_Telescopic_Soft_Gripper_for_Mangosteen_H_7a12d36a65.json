@@ -1,0 +1,190 @@
+{
+  "source": {
+    "paper_id": "7a12d36a65",
+    "filename": "Design_of_Telescopic_Soft_Gripper_for_Mangosteen_H.pdf",
+    "sha256": "7a12d36a652cac83bdfe5e7889f17722c9a8388ac7efbc41e1162fc9d8dce851",
+    "page_count": 11,
+    "char_count": 49719,
+    "source_type": "seed",
+    "verification_id": null
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29142,
+    "completion_tokens": 6835,
+    "total_tokens": 35977,
+    "thinking_tokens": 3892,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic"
+    ],
+    "authors": [
+      "Kraiwit Thongprawit",
+      "Jutamanee Auysakul",
+      "Kunlapat Thongkaew",
+      "Chalita Hiransoog",
+      "Charoenyutr Dechawayukul"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Material is isotropic and hyperelastic, modeled via the Mooney-Rivlin strain energy function.",
+      "Material is fully incompressible (J_el = 1, I_3 = 0, lambda_1 * lambda_2 * lambda_3 = 1).",
+      "Air pressure and atmospheric pressure are held constant during simulation steps.",
+      "Actuator is assumed to be completely free of leaks.",
+      "Internal pneumatic pressure maintains a uniform, constant distribution across internal surfaces.",
+      "Two-dimensional plane strain solid structure formulation (Full & Herrmann Quad 80)."
+    ],
+    "control_variables": [
+      "Actuator outer diameter (90 mm) and initial retracted height (35 mm)",
+      "Number of silicone rubber fold layers (three layers)",
+      "Silicone material type (Dragon Skin 30)",
+      "Silicone mixing ratio (Part A to Part B in a 1:1 weight ratio with 10% excess for mold margin)",
+      "Silicone curing conditions (16 hours at room temperature)",
+      "Tensile testing rate (500 mm/min) and sample thickness (3 mm) per ASTM D412",
+      "Grasp holding duration in daily life object grasping trials (10 seconds)",
+      "Constant operating pressure during grasp force testing (20 kPa) and daily life object grasping (30 kPa)",
+      "Planar 2D quadrilateral mesh type with static large-strain ramp table (time step of 0.02 across 50 steps)"
+    ],
+    "dependent_variables": [
+      "Actuator extension / stretch displacement (mm)",
+      "Normal stress distribution and maximum stress values (kPa / MPa)",
+      "Extraction / adhesion grasp force (N)",
+      "Grasping outcome / success (Yes/No)",
+      "Harvesting time per fruit (seconds)"
+    ],
+    "doi": "https://doi.org/10.48084/etasr.10001",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A three-layer telescopic pneumatic actuator extends axially from a compact retracted height of 35 mm up to a maximum stretch of 132 mm.",
+        "evidence_type": "experimental and simulation",
+        "page_numbers": [
+          1,
+          3,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Finite Element Analysis identified that an internal wall thickness of 2.25 mm and an internal inclination angle of 10 degrees provides balanced extension (132 mm) and acceptable stress (99 kPa) at 20 kPa operating pressure.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          1,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Extraction adhesion force at 20 kPa increases with spherical fruit diameter (16-19 N for 50 mm, 19-22.5 N for 60 mm, and 24-26 N for 70 mm) and varies by shape (cube: 16.5-22 N, cylinder: 15-19 N).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7
+        ]
+      },
+      {
+        "claim": "The soft telescopic gripper successfully grasps everyday objects and fruits ranging from 50 mm to 85.2 mm in diameter and weighing up to 556.9 g, but fails on small-diameter cylinders (screwdrivers) and smooth rigid items (remotes).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Field harvesting of mangosteens requires 7 seconds for unripe fruit (Level 1) and decreases to 4 seconds for ripe fruit (Level 4); the soft gripper is faster than human farmers for Level 2 (5 s vs. 7 s), but slower for Levels 3 and 4.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Internal friction between folded layers causes the fabricated actuator to stretch more slowly than FEA predictions, though ultimate tip displacements align closely.",
+        "evidence_type": "experimental and simulation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Uniaxial tensile testing of 3 mm-thick Dragon Skin 30 silicone samples performed on a Zwick Roell Z005 machine at 500 mm/min until failure according to ASTM D412 standards.",
+      "Actuator fabrication via casting Dragon Skin 30 (1:1 ratio, vacuum-chamber degassed) in 3D-printed modular molds (Flashforge Adventurer 3) cured for 16 hours at room temperature.",
+      "Assembly of a 3D-printed rigid frame (mounting plate, gripper plate, grip frame) mounted to a Dobot CR5 robotic arm.",
+      "Pneumatic control system combining an analog pressure controller (0-50 kPa) and an SMC ITV2050 digital proportional pressure controller regulated via a potentiometer and voltage divider circuit.",
+      "Displacement validation bench measuring tip elongation against a vertical scale plate across pressure steps from 0 to 15 kPa in 5 kPa increments.",
+      "Grasp force extraction apparatus using an SF-100 digital force gauge to measure pull-off force at 20 kPa on 3D geometric shapes and varying spherical sizes.",
+      "Manipulation trials with 13 daily life objects and fruits at 30 kPa held for 10 seconds at tree-canopy-equivalent heights.",
+      "Field harvesting apparatus mounted on a retractable telescopic pole powered by an air compressor, tested on mangosteens across four ripeness stages and compared with human farmers using bamboo tools."
+    ],
+    "future_work": [
+      "Developing a more compact gripper design capable of picking mangosteens while actively avoiding obstacles such as foliage and branches.",
+      "Integrating advanced sensing technologies and obstacle-avoidance algorithms into the gripper system.",
+      "Incorporating an adaptive wrist mechanism or multi-axis rotation capability at the gripper base to enhance dexterity and posture adjustment in confined canopy spaces.",
+      "Mounting and automating the gripper on a multi-axis robotic arm to eliminate manual labor during harvesting.",
+      "Implementing image analysis software to classify and sort harvested mangosteens based on size and color/ripeness grade.",
+      "Employing robotic systems advancements and multi-agent reinforcement learning to improve harvesting efficiency and autonomy."
+    ],
+    "independent_variables": [
+      "Internal inclination angle of the actuator folds (5 degrees, 10 degrees, 15 degrees)",
+      "Material / fold wall thickness (1.5 mm, 2.25 mm, 3.0 mm)",
+      "Applied pneumatic gauge pressure (0 to 20 kPa in simulation; 0 to 15 kPa in elongation tests; 20 kPa in pull tests; 30 kPa in object grasping)",
+      "Object geometric cross-section (cubic, cylindrical, spherical)",
+      "Object size / diameter (50 mm, 60 mm, 70 mm spheres; 50 mm to 85.2 mm fruits; objects up to 195 mm in length)",
+      "Mangosteen ripeness / color maturity level (Level 1 green/unripe to Level 4 fully ripe)",
+      "Harvesting operator / tool (soft telescopic gripper vs. human farmers using traditional bamboo tools)"
+    ],
+    "limitations_inferred": [
+      "The finite element analysis was restricted to a 2D planar model, which omits three-dimensional non-axisymmetric buckling, out-of-plane twisting, and circumferential boundary effects.",
+      "Manual casting, bubble degassing, and hand-puncturing introduce specimen variability in wall thickness uniformity and material homogeneity.",
+      "Harvesting field tests were conducted using a manually operated retractable pole rather than an autonomous robotic arm navigating a dynamic natural orchard environment.",
+      "Long-term fatigue behavior, cyclic mechanical degradation, and silicone puncture vulnerability from sharp orchard branches were not tested or reported."
+    ],
+    "limitations_stated_by_authors": [
+      "The analytical simulation model neglects friction between internal folds, causing the simulation to predict faster elongation than observed experimentally.",
+      "Simulation is incapable of predicting physical manufacturing imperfections, such as microscopic entrapped air bubbles that alter material elasticity.",
+      "Silicone rods formed inside mold ventilation holes cause the physical actuator to extend farther than modeled when fully inflated.",
+      "The gripper creates a small central circular aperture during opposing extension, preventing it from holding small-diameter objects like screwdrivers.",
+      "Smooth, flat surfaces (e.g., remote controls) yield insufficient contact surface area, preventing secure grasping.",
+      "The gripper requires substantial open space for approach and departure, making it susceptible to retrieval obstruction by surrounding branches, twigs, and leaves.",
+      "The mechanism lacks posture adjustment range and wrist articulation, struggling to grasp fruits oriented at irregular angles or inside dense foliage.",
+      "The soft gripper is slower than experienced human farmers when picking ripe mangosteens at color levels 3 and 4."
+    ],
+    "main_results": [
+      "Dragon Skin 30 silicone exhibited a tensile strength of 2.5 MPa and elongation at break of 311%, yielding third-order Mooney-Rivlin coefficients of C10 = 0.1146 MPa, C01 = 1.472e-8 MPa, and C11 = 0.02971 MPa.",
+      "FEA optimization across nine configurations demonstrated that thinner walls (1.5 mm) increase stretching at the expense of higher stress, while larger internal angles (15 degrees) impede elongation due to deflection; Model 5 (2.25 mm thickness, 10-degree inclination) delivered optimal compromise with 132 mm stretch and 99 kPa stress at 20 kPa.",
+      "Physical actuators attained a maximum tip displacement of 132 mm at 15 kPa, closely matching the simulation endpoint despite lower intermediate elongation rates caused by fold friction.",
+      "At 20 kPa constant pressure, extraction resistance on 50 mm objects was highest for the cube (16.5-22 N), followed by the sphere (16-19 N) and cylinder (15-19 N); for spherical targets, resistance scaled positively with diameter from 16-19 N (50 mm) to 24-26 N (70 mm).",
+      "In daily life manipulation tests at 30 kPa, the gripper successfully grasped 11 out of 13 items weighing up to 556.9 g and measuring up to 85.2 mm in diameter for 10 seconds, failing only on the screwdriver and remote control.",
+      "In field harvesting trials, picking unripe mangosteens (Color Level 1) required 7 seconds, decreasing to 4 seconds for ripe mangosteens (Color Level 4); the gripper outperformed farmers at Color Level 2 (5 s vs. 7 s) but was slower at Levels 3 and 4."
+    ],
+    "modeling_methods": [
+      "Finite Element Analysis (FEA) / Finite Element Method (FEM) implemented in MSC Marc Mentat Software (version 2020.0.0).",
+      "Two-dimensional planar configuration utilizing quadrilateral elements.",
+      "Plane strain Full & Herrmann formulation (Quad 80) for solid hyperelastic structures.",
+      "Three-parameter Mooney-Rivlin strain energy density model.",
+      "Static non-linear large-strain analysis computed using a linear ramp table with a fixed time step of 0.02 over 50 increments up to 20 kPa."
+    ],
+    "performance_metrics": [
+      "Maximum elongation / stretch displacement (mm)",
+      "Stress at maximum stretch (kPa)",
+      "Tensile strength (MPa) and elongation at break (%)",
+      "Extraction / adhesion pull force (N)",
+      "Grasping success rate across varying weights and dimensions (binary Yes/No)",
+      "Harvesting time per mangosteen across ripeness stages (seconds)"
+    ],
+    "possible_gap_implications": [
+      "While telescopic pneumatic designs provide high axial stroke in confined footprints, their inability to articulate off-axis without substantial clearance demonstrates a clear research need for hybrid telescopic continuum structures or integrated multi-DoF orienting wrists for canopy harvesting.",
+      "The aperture formation and gripping failure on slender cylindrical items highlights an opportunity for adaptive interior geometry or hybrid finger-telescopic configurations that close the central gap under high pressure.",
+      "The observed discrepancies in stroke dynamics underscore the need for three-dimensional contact modeling incorporating inter-fold dry friction and fabrication imperfections into hyperelastic simulations."
+    ],
+    "research_objective": "To design, simulate, optimize, fabricate, and experimentally evaluate a pneumatically driven telescopic soft gripper with optimized fold thickness and internal inclination angle for rapid, damage-free harvesting of mangosteens across varying sizes and ripeness levels, comparing its operational speed against traditional manual harvesting.",
+    "research_problem": "Agricultural labor shortages and growing export demands in mangosteen production necessitate harvesting automation, but conventional rigid grippers damage delicate fruits, standard soft grippers lack telescopic extension/retraction for diverse fruit sizes and confined spaces, and prior telescopic actuators were not optimized for the geometric and detachment challenges of mangosteen harvesting.",
+    "robot_type": "telescopic soft gripper",
+    "stiffness_mechanism": [],
+    "title": "Design of Telescopic Soft Gripper for Mangosteen Harvesting",
+    "year": "2025"
+  }
+}
