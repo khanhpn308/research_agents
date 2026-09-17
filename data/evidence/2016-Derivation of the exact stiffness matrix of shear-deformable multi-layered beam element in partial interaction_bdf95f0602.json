@@ -1,0 +1,172 @@
+{
+  "source": {
+    "paper_id": "bdf95f0602",
+    "filename": "2016-Derivation of the exact stiffness matrix of shear-deformable multi-layered beam element in partial interaction.pdf",
+    "sha256": "bdf95f06027484b2b512ad9ad4c75712b1b0150775b2f02946b55c69d87c368f",
+    "page_count": 10,
+    "char_count": 43866,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 30911,
+    "completion_tokens": 6942,
+    "total_tokens": 37853,
+    "thinking_tokens": 4662,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Pisey Keo",
+      "Quang-Huy Nguyen",
+      "Hugues Somja",
+      "Mohammed Hjiaj"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Connected members are made of linear elastic, homogeneous, and isotropic materials.",
+      "Timoshenko kinematic assumptions are adopted for each layer, where cross-sections remain plane but not orthogonal to the beam axis after deformation.",
+      "Relative longitudinal slip is permitted at adjacent layer interfaces through a linear and continuous relationship between interface shear stress and slip (Dsci = ksci * gi).",
+      "Discretely located shear connectors are treated as continuously distributed along the beam length.",
+      "Transverse displacement v is assumed to be identical for all layers, neglecting transversal separation or uplift between adjacent layers.",
+      "Curvature and cross-section rotation are allowed to differ independently across different layers due to independent shear deformations.",
+      "Small strain and geometrically linear displacement kinematics are assumed.",
+      "External transverse distributed load py applied to the beam element is assumed to be constant along the element length, resulting in a linear total shear force distribution."
+    ],
+    "control_variables": [
+      "Layer material properties in numerical examples: Young's modulus E = 8000 MPa (Examples 1 and 2) or E = 50000 MPa (Example 3), and Poisson's ratio nu = 0.3.",
+      "Shear correction factor: 5/6 for rectangular sections in Examples 1 and 2; 1.0 in Example 3.",
+      "Identical layer width of 0.1 m (or 10 cm) across cross-sections.",
+      "Constant layer depths in each benchmark configuration (four 0.2 m layers in Example 1; two 0.2 m outer layers and one 0.4 m core in Example 2; layers of 10 cm, 6 cm, 8 cm, and 4 cm in Example 3).",
+      "Applied static loading magnitudes: 100 kN concentrated load (Example 1) or 10 kN/m uniformly distributed load (Examples 2 and 3).",
+      "Computing environment for processing time assessment: PC with 3.20 GHz CPU and 8 GB RAM."
+    ],
+    "dependent_variables": [
+      "Transverse displacement and mid-span / maximum deflection ratio (Timoshenko vs. Bernoulli models).",
+      "Interlayer slip distributions along the beam and end-beam slip values (g1, g2, g3).",
+      "Cross-section rotations of individual layers (theta_1, theta_2).",
+      "Internal forces and moments (maximum bending moment Mmax, normal force Ni, shear force Ti).",
+      "Total computational processing time in seconds across varying element discretizations."
+    ],
+    "doi": "10.1016/j.finel.2015.12.004",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The governing differential equations for a multi-layered beam with n+1 shear-deformable layers in partial interaction can be formulated in terms of interlayer slips and shear deformations as primary variables, and decoupled analytically via eigenvalue decomposition.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "The exact stiffness matrix for a shear-deformable multi-layered beam element with (4n+6) degrees of freedom can be derived in closed form using the direct stiffness method, eliminating locking phenomena and mesh dependence.",
+        "evidence_type": "analytical formulation / numerical implementation",
+        "page_numbers": [
+          2,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Transverse deflection is more significantly affected by cross-sectional shear flexibility than interlayer slip, with the discrepancy between shear-deformable and shear-rigid models diminishing toward unity as span-to-depth ratio increases.",
+        "evidence_type": "numerical simulation / parametric analysis",
+        "page_numbers": [
+          1,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Partial interaction at layer interfaces diminishes the impact of member shear flexibility on overall transverse displacement compared to fully composite interaction.",
+        "evidence_type": "numerical simulation / parametric analysis",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Interlayer slip values predicted by shear-deformable Timoshenko modeling are not monotonically larger than those predicted by shear-rigid Bernoulli modeling across all layers.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Reformulating integration constants with exponential scaling prevents numerical ill-conditioning in the element stiffness matrix for positive eigenvalues.",
+        "evidence_type": "analytical formulation",
+        "page_numbers": [
+          5
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Interface shear connector stiffness ksc (ranging from 0.1 MPa to 100000 MPa, including uniform and dissymmetric distributions).",
+      "Span-to-depth ratio L/H (ranging from low ratios below 2 up to 20).",
+      "Kinematic model formulation (shear-deformable Timoshenko beam model vs. shear-rigid Bernoulli beam model).",
+      "Number of finite elements used in discretization (2, 4, 8, 16, 32 elements).",
+      "Structural configuration and boundary conditions (simply supported 4-layered beam, two-span continuous 3-layered beam, and two-span continuous dissymmetric 4-layered beam)."
+    ],
+    "limitations_inferred": [
+      "Physical experimental validation was not performed; verification relies entirely on comparisons with prior analytical/numerical formulations.",
+      "Linear elastic interface spring assumptions cannot capture non-linear contact friction, plastic slip, stick-slip transitions, or interface damage.",
+      "Geometrically linear kinematics limit direct applicability to structures undergoing large rotations or large deflections typical of soft continuum robots.",
+      "Assumption of identical transverse displacement across all layers precludes modeling normal through-thickness stretching, transverse separation, or delamination."
+    ],
+    "limitations_stated_by_authors": [
+      "Transverse separation (uplift) of adjacent layers is not considered.",
+      "Materials are restricted to linear elastic, homogeneous, and isotropic behavior.",
+      "Interface shear connection is assumed to be continuous and linear.",
+      "Formulation is limited to geometrically linear elastic behavior.",
+      "All layers are constrained to have identical transverse displacement v.",
+      "External distributed load py is assumed constant along each element to ensure a linear shear force distribution."
+    ],
+    "main_results": [
+      "Derived the closed-form exact stiffness matrix for a shear-deformable multi-layered beam element in partial interaction with independent layer rotations and shear deformations.",
+      "Demonstrated that shear-deformable models predict larger deflections than shear-rigid models across all span-to-depth ratios, with the deflection ratio approaching infinity as L/H approaches zero and unity as L/H approaches infinity.",
+      "Found that partial interaction attenuates the influence of shear flexibility on transverse beam deflections compared to full composite interaction.",
+      "Demonstrated that transverse displacement is more sensitive to shear flexibility than interlayer slip, which approaches asymptotic behavior significantly faster as L/H increases.",
+      "Showed that interlayer slips from the shear-deformable formulation are not always larger than those from the shear-rigid model (e.g., intermediate slip g2 is smaller in Timoshenko kinematics).",
+      "Obtained close agreement with Sousa's (2013) exact flexibility matrix results for a dissymmetric 4-layered continuous beam (maximum moment 19.0288 kN*m vs. 19.0306 kN*m; slips agreeing to within tenths of a percent).",
+      "Verified that the exact stiffness element is locking-free and mesh-independent, requiring only 2 elements for multi-span continuous beams and maintaining execution times under 0.6 seconds up to 32 elements."
+    ],
+    "modeling_methods": [
+      "Timoshenko kinematic beam theory applied to individual layers with independent cross-section rotations and shear strains.",
+      "Continuous linear shear connection modeling between interface shear flow and interlayer slip.",
+      "Equilibrium formulation of differential multi-layer beam elements yielding coupled second-order ordinary differential equations.",
+      "Eigenvalue decomposition / diagonalization of system matrix A to uncouple the differential equations for interlayer slips and shear deformations.",
+      "Closed-form analytical integration of uncoupled differential equations under linear shear force distributions.",
+      "Direct stiffness method to construct the (4n+6) x (4n+6) exact element stiffness matrix and equivalent nodal force vector.",
+      "Displacement-based finite element implementation."
+    ],
+    "performance_metrics": [
+      "Mid-span and maximum deflection ratios between shear-deformable (Timoshenko) and shear-rigid (Bernoulli) models.",
+      "Interlayer slip ratios (Timoshenko to Bernoulli) at beam ends.",
+      "Cross-section rotation ratios (Timoshenko to Bernoulli) at beam ends.",
+      "Maximum bending moment Mmax (kN*m).",
+      "Interlayer slip magnitudes g1, g2, g3 (mm).",
+      "Computational processing time (seconds) versus element count."
+    ],
+    "possible_gap_implications": [
+      "The closed-form exact stiffness formulation could be extended to account for transverse separation/uplift and normal contact compliance between adjacent layers.",
+      "The formulation could serve as a linear foundation or co-rotational base for modeling large-deflection flexible multi-layered continuum structures or variable-stiffness laminates.",
+      "Formulation could be expanded to incorporate non-linear interface shear laws, friction, or elastoplastic constituent behavior.",
+      "Experimental testing on multi-layered physical specimens is needed to validate predicted slip-shear coupling effects."
+    ],
+    "research_objective": "To derive the exact finite element stiffness matrix from a closed-form solution of the coupled governing differential equations for linear elastic shear-deformable multi-layered beams in partial interaction, incorporating independent layer rotations and shear deformations while preventing numerical ill-conditioning and locking.",
+    "research_problem": "Most research on beam members in partial interaction is restricted to two-layered beams, with multi-layered beams receiving less attention. Existing multi-layered beam models often assume identical cross-section rotations across all layers despite shear deformation, or suffer from curvature/slip locking when using standard displacement-based finite element shape functions.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "shear connection",
+      "interlayer slip"
+    ],
+    "title": "Derivation of the exact stiffness matrix of shear-deformable multi-layered beam element in partial interaction",
+    "year": "2016"
+  }
+}

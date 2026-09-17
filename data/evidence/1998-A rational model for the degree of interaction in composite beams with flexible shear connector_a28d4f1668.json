@@ -1,0 +1,159 @@
+{
+  "source": {
+    "paper_id": "a28d4f1668",
+    "filename": "1998-A rational model for the degree of interaction in composite beams with flexible shear connector.pdf",
+    "sha256": "a28d4f16682f48d1a73608691767942d4bd9a95c171a1a44be51024643f152ce",
+    "page_count": 21,
+    "char_count": 32824,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24337,
+    "completion_tokens": 6073,
+    "total_tokens": 30410,
+    "thinking_tokens": 4444,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ninh T. Nguyen",
+      "Deric John Oehlers",
+      "Mark Andrew Bradford"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The steel and concrete elements are assumed to behave in a linear elastic fashion with constant Young's moduli.",
+      "Mechanical shear connectors are assumed to be perfectly plastic throughout the length of the beam when the beam is at its ultimate capacity.",
+      "Shear connectors prevent vertical separation at the steel-concrete interface, resulting in identical curvature in both elements at any given cross-section.",
+      "The shear connectors require interface slip to generate shear force via mechanical dowel action, inducing a step change in strain (slip strain) across the interface.",
+      "Compressive strength of the concrete cross-section is taken as 0.85*fc*Ac and tensile strength of the steel cross-section is As*fy.",
+      "The simply supported beam is subjected to a uniformly distributed load with uniformly distributed shear connectors."
+    ],
+    "control_variables": [],
+    "dependent_variables": [
+      "Curvature distribution along the span and maximum curvature",
+      "Slip strain distribution along the span and midspan slip strain",
+      "Longitudinal slip distribution and maximum slip at the supports",
+      "Neutral axis separation (distance between neutral axes of concrete and steel elements) at midspan",
+      "Degree of interaction",
+      "Degree of shear connection at full interaction"
+    ],
+    "doi": "10.1080/08905459808945426",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A mixed analytical formulation combining elastic beam elements with perfectly plastic shear connectors describes partial interaction and interface slip in composite beams.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The position of maximum curvature shifts away from midspan toward the quarter span as shear connector strength and composite action increase under uniformly distributed loading.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Slip strain requires a step change in the strain profile across the interface to activate dowel action of mechanical shear connectors.",
+        "evidence_type": "theoretical formulation",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Longitudinal slip at the supports depends linearly on the degree of interaction, with zero interaction producing four times the maximum slip observed at full interaction.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          11,
+          12,
+          15
+        ]
+      },
+      {
+        "claim": "Normalized neutral axis separation at midspan can be represented as a hyperbolic function of the degree of interaction and the maximum applied moment.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "The degree of interaction is mathematically related to the degree of shear connection by the ratio of the degree of shear connection to the degree of shear connection at full interaction.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          16,
+          17,
+          18
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Application of the research as part of an ongoing project on the upgrade and repair of reinforced concrete beams using externally bonded steel plates.",
+      "Using the derived interaction-connection relationships to estimate neutral axis separation and evaluate whether rigid plastic strength is reduced in structural design."
+    ],
+    "independent_variables": [
+      "Degree of shear connection",
+      "Applied moment / uniformly distributed load intensity",
+      "Position along the beam shear span",
+      "Beam span length",
+      "Geometric and material sectional rigidities (flexural and axial rigidities of steel and concrete, distance between centroids)",
+      "Shear connector shear strength per unit length"
+    ],
+    "limitations_inferred": [
+      "The paper is purely theoretical and analytical; it contains no experimental testing or empirical validation data.",
+      "The formulation relies on small-strain linear elasticity for beam elements and does not consider large-deflection kinematics, material non-linearities, or compliant soft materials.",
+      "The derivations are limited to simply supported beams under uniformly distributed loads and cannot be directly generalized to concentrated loads or non-uniform connector distributions without modification.",
+      "The study is developed specifically for civil engineering composite structures (steel and concrete) and does not examine robotic or continuum mechanics systems."
+    ],
+    "limitations_stated_by_authors": [
+      "The predicted variation of neutral axis separation at very small applied moments is illusionary because the model assumes shear connectors are fully plastic/loaded at small loads, which does not happen in practice without ductile connectors of very small capacity.",
+      "When the degree of shear connection is less than 1 at ultimate capacity, shear connectors are fully plastic so connector stiffness is indeterminate and the degree of interaction does not depend on connector stiffness."
+    ],
+    "main_results": [
+      "Derived closed-form equations for the longitudinal distribution of curvature, slip strain, and slip along composite beams with flexible/plastic shear connectors.",
+      "Demonstrated that the transition point of maximum curvature moves away from midspan toward quarter span as composite interaction increases.",
+      "Showed that maximum support slip has a direct linear relationship with the degree of interaction, where zero interaction causes four times the slip of full interaction.",
+      "Formulated the normalized neutral axis separation at midspan as a hyperbolic function of the degree of interaction.",
+      "Established the fundamental relationship phi = eta / eta_fi connecting the degree of interaction (phi) and the degree of shear connection (eta), showing that the degree of interaction at full shear connection is the inverse of the degree of shear connection at full interaction."
+    ],
+    "modeling_methods": [
+      "Mixed elastic-plastic beam analysis (elastic steel and concrete elements with perfectly plastic shear connectors)",
+      "Rigid plastic cross-sectional equilibrium analysis",
+      "Closed-form differential and integral formulations for curvature, slip strain, and interfacial slip",
+      "Non-dimensional parametric formulation for neutral axis separation and degrees of interaction/shear connection"
+    ],
+    "performance_metrics": [
+      "Maximum longitudinal slip at the supports (s_max)",
+      "Maximum slip strain ((ds/dx)_max) and midspan slip strain ((ds/dx)_mid)",
+      "Maximum curvature (phi_max) and its location along the beam span (x_m)",
+      "Neutral axis separation at midspan (h_na,mid / h_cs)",
+      "Degree of interaction (phi) and degree of shear connection (eta, eta_fi)"
+    ],
+    "possible_gap_implications": [
+      "The partial-interaction and interlayer slip formulations could potentially inform mechanical models of multi-layer flexible continuum structures or friction/shear-based variable-stiffness mechanisms, but extending the model would require adapting the formulation for large deformations and compliant polymers."
+    ],
+    "research_objective": "To develop a rational analytical model expanding the concept of degree of shear connection into a new concept of degree of interaction that accounts for interfacial slip and partial interaction, and to establish closed-form mathematical relationships among degree of interaction, degree of shear connection, slip strain, longitudinal slip, and neutral axis separation.",
+    "research_problem": "Traditional rigid plastic design of composite steel-concrete structures relies solely on the degree of shear connection, which measures only connector strength and fails to account for interfacial slip, partial interaction, neutral axis separation, and the risk of connector fracture due to excessive slip.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "flexible shear connectors",
+      "mechanical shear connectors"
+    ],
+    "title": "A Rational Model for the Degree of Interaction in Composite Beams with Flexible Shear Connectors",
+    "year": "1998"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "source": {
+    "paper_id": "8a6d33e527",
+    "filename": "1974-The dependence of shear lag on partial interaction in composite beams.pdf",
+    "sha256": "8a6d33e5275a76bdf6b18219589e88a88a5f75b8d247b6d1248b71d1d6db880b",
+    "page_count": 12,
+    "char_count": 22509,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 23316,
+    "completion_tokens": 8264,
+    "total_tokens": 31580,
+    "thinking_tokens": 6450,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "A. O. ADEKOLA"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Concrete slab behaves as a linear isotropic elastic material within classical plate theory",
+      "Steel beams follow linear elastic beam bending theory",
+      "Small deflections and linear elasticity apply to both components",
+      "Slip at the steel-concrete interface is linearly related to interface shear force through a constant shear connector stiffness modulus ks",
+      "Membrane stresses in the slab satisfy Airy stress function and biharmonic governing equations",
+      "Deflexion satisfies the two-dimensional biharmonic plate equation",
+      "Simply supported boundary conditions along transverse edges x = +/- a"
+    ],
+    "control_variables": [
+      "Beam span (2a = 7.63 m)",
+      "Steel section geometry (Universal Steel I-section 610 x 228 mm x 137 N, As = 1.789 x 10^-2 m^2, Is = 1.12 x 10^-3 m^4)",
+      "Modulus of elasticity of steel (Es = 2.085 kN/cm^2)",
+      "Concrete slab thickness (t = 152.4 mm)",
+      "Modular ratio between steel and concrete (Es/Ec = 10)",
+      "Poisson's ratio (mu = 0.2)",
+      "Vertical midspan point load magnitude (P = 299 kN)",
+      "Superimposed floor load equation (q = (2.873 + 0.2265t) kN/m^2)",
+      "Simply supported edge conditions at x = +/- a"
+    ],
+    "dependent_variables": [
+      "Transverse deflexion of the slab-beam system (w)",
+      "Deflexion factor (gamma_w)",
+      "In-plane slab longitudinal and transverse normal stresses (sigma_11, sigma_22)",
+      "Middle-plane slab stress at the slab-beam junction (sigma_m.s)",
+      "Maximum steel bottom flange stress (sigma_sb) and transformed section stress ratio (sigma_tr/sigma_sb)",
+      "Interfacial slip between steel beam and concrete slab (s)",
+      "Effective width factor based on stress distribution (beta)",
+      "Effective width factor based on deflexion (beta_w)"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Interfacial slip and shear lag in composite layered structures can be coupled analytically using biharmonic equations for bending and Airy stress functions alongside an interface slip-strain compatibility equation.",
+        "evidence_type": "analytical mathematical modeling",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "claim": "Increasing interface shear connector stiffness increases overall structural stiffness and reduces deflexion up to a limiting threshold, beyond which deflexion is not sensibly influenced.",
+        "evidence_type": "numerical simulation / parametric analysis",
+        "page_numbers": [
+          1,
+          6,
+          7,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Defining effective width based on deflexion rather than stress distribution provides a rational metric that reflects increased structural stiffness as interaction increases.",
+        "evidence_type": "theoretical analysis / parametric comparison",
+        "page_numbers": [
+          1,
+          8,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Theoretical full interaction requires infinite connector stiffness, but practical saturation of composite stiffness and bottom flange stress reduction occurs at connector stiffness values around 1.5% to 4% of the steel elastic modulus, while interface slip remains around 1% to 25% of central deflexion.",
+        "evidence_type": "numerical computation",
+        "page_numbers": [
+          9,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Degree of interaction / shear connector stiffness modulus parameter (ks or 100ks/Es)",
+      "Aspect ratio / slab width-to-span ratio (b/a)",
+      "Spatial coordinates along span and width (x, y, or normalized x/a)",
+      "Load distribution type (vertical midspan point load vs. uniformly distributed superimposed floor load)"
+    ],
+    "limitations_inferred": [
+      "The investigation is purely theoretical and computational; no physical experiments were conducted or reported to validate the analytical solutions.",
+      "The formulation is strictly linear elastic and does not consider concrete cracking, creep, shrinkage, or nonlinear load-slip behavior in shear connectors.",
+      "The model assumes small deflections and linear beam/plate theories, making it inapplicable without modification to large-deformation continuum systems or compliant soft robotics mechanisms.",
+      "The paper focuses entirely on civil/structural engineering composite beams and does not investigate robotic systems or active actuation."
+    ],
+    "limitations_stated_by_authors": [
+      "Concrete is treated within the classical theory for isotropic materials even though concrete is not truly an elastic material.",
+      "Boundary conditions assume simply supported edges at x = +/- a and equally spaced beams.",
+      "An infinite system of equations is solved approximately using a finite truncation/segmentation method (n = 5 or 7).",
+      "Full interaction theoretically requires an infinite value of connector stiffness ks, representing an impossible infinite number of shear connectors.",
+      "Transformed section theory slightly underestimates bottom flange stresses compared to the exact analysis for most interaction values."
+    ],
+    "main_results": [
+      "Formulated and solved by Fourier series an exact analytical solution coupling shear lag and partial interaction in composite beams satisfying all known boundary conditions.",
+      "Demonstrated that the classical stress-based definition of effective width is inadequate for partial interaction because it predicts decreasing effective width with increasing interaction despite increasing slab stress.",
+      "Established that a deflexion-based definition of effective width provides a physically consistent representation of increasing slab participation and composite stiffness as interaction increases.",
+      "Found that deflexion and bottom flange stress asymptotically reach limiting values rapidly as connector stiffness increases, allowing practical full interaction to be approximated at ks = 0.015Es to 0.04Es (or ks <= 0.02Es).",
+      "Showed that transformed section theory based on deflexion effective width predicts bottom flange stresses to within over 90% of values obtained from exact analysis."
+    ],
+    "modeling_methods": [
+      "Linear elastic plate bending theory using the biharmonic equation for deflexion",
+      "Airy stress function formulation using the biharmonic equation for in-plane slab stresses",
+      "Fourier series representations for applied loading, plate deflexion, and stress functions",
+      "Interface slip compatibility condition relating interface slip gradient to differential strain and connector stiffness",
+      "Boundary value problem solution using trigonometric orthogonality and the segmentation method (5x5 or 7x7) for truncated infinite linear systems",
+      "Transformed section theory for equivalent composite section properties"
+    ],
+    "performance_metrics": [
+      "Deflexion factor (gamma_w)",
+      "Effective width factor based on deflexion (beta_w)",
+      "Effective width factor based on longitudinal stress distribution (beta)",
+      "Stress ratio of transformed section theory to exact analytical stress (sigma_tr/sigma_sb)",
+      "Interface slip normalized as a fraction of maximum central deflexion",
+      "Reduction of steel bottom flange stress"
+    ],
+    "possible_gap_implications": [
+      "The analytical coupling of interfacial slip and shear lag provides foundational mechanics for layered structures with partial interfacial interaction, which may be relevant to modeling multi-layer variable stiffness structures; however, adapting this to soft robotics would require extending the model to large deflections, compliant polymers, and active actuation.",
+      "The observation that structural stiffness saturates at moderate interface connection stiffness could establish theoretical bounds on stiffness tuning ranges in layered variable-stiffness mechanisms, but empirical validation on soft materials remains necessary."
+    ],
+    "research_objective": "To formulate and solve constitutive equations relating partial interaction with shear lag in composite steel-concrete beams by series solutions satisfying all boundary conditions, examine the influence of flexible shear connectors, and establish a rational deflexion-based definition of effective width.",
+    "research_problem": "The dependence of shear lag on partial interaction in composite steel-concrete beams is little understood from classical elasticity, with prior solutions severely approximate by treating partial interaction alone while ignoring shear lag, or treating shear lag alone while ignoring partial interaction.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "flexible shear connectors"
+    ],
+    "title": "THE DEPENDENCE OF SHEAR LAG ON PARTIAL INTERACTION IN COMPOSITE BEAMS",
+    "year": "1974"
+  }
+}

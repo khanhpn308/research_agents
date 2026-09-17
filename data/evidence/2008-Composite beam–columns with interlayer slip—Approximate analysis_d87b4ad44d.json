@@ -1,0 +1,134 @@
+{
+  "source": {
+    "paper_id": "d87b4ad44d",
+    "filename": "2008-Composite beam–columns with interlayer slip—Approximate analysis.pdf",
+    "sha256": "d87b4ad44dc939484403061415baee3429b26c1af37a2cb124df357602017b7a",
+    "page_count": 14,
+    "char_count": 61104,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 35496,
+    "completion_tokens": 4752,
+    "total_tokens": 40248,
+    "thinking_tokens": 3228,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ulf Arne Girhammar"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Sub-elements and shear connectors exhibit linear-elastic behavior.",
+      "Euler-Bernoulli beam theory applies to the sub-elements (shear deformations and rotary inertia are neglected).",
+      "Mechanical fasteners are evenly spaced and modeled as providing uniformly distributed slip forces or interlayer shear stresses with a constant slip modulus K.",
+      "Axial compressive load is applied at the centroid of the fully composite section, producing uniform axial strain without inducing primary bending moments.",
+      "Buckling length coefficients for partially composite columns under the four Euler boundary conditions can be taken as practically identical to those for solid or fully composite columns."
+    ],
+    "control_variables": [
+      "Member lengths (L = 6 m for steel-concrete, L = 4 m for timber-concrete).",
+      "Sub-element cross-sectional dimensions and material moduli (modulus of elasticity, cross-sectional area, moment of inertia).",
+      "Centroidal position of the resultant axial compressive load."
+    ],
+    "dependent_variables": [
+      "Transverse deflections (total deflection, maximum deflection).",
+      "Internal bending moments of the total cross-section and individual sub-elements.",
+      "Internal axial and normal forces in the sub-elements.",
+      "Internal shear forces in the sub-elements.",
+      "Interlayer slip forces per unit length.",
+      "Magnification factors and convenience factors (chi) for deflection, moment, axial force, shear force, and slip force."
+    ],
+    "doi": "10.1016/j.ijmecsci.2008.09.003",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The effective bending stiffness of partially composite members can be formulated as a function of the fully composite and non-composite stiffnesses, buckling length coefficient, and the composite action parameter.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Second-order deflections and bending moments in composite beam-columns with interlayer slip can be approximated with high accuracy by applying magnification factors based on critical buckling load to first-order solutions.",
+        "evidence_type": "analytical derivation and case study validation",
+        "page_numbers": [
+          4,
+          5,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Using the deflection magnification factor instead of the shear magnification factor to scale slip forces substantially reduces approximation error and provides conservative estimates.",
+        "evidence_type": "comparative analytical case study",
+        "page_numbers": [
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Moment convenience factors show minimal sensitivity to the degree of interlayer slip, remaining close to values established for solid homogeneous beam-columns.",
+        "evidence_type": "analytical derivation and evaluation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Detailed evaluation and validation of exact and approximate convenience factors for beam-columns under other Euler boundary conditions and varied transverse loading configurations.",
+      "General application and validation of the approximate analysis method for design practice across practical ranges of geometric and elastic parameters."
+    ],
+    "independent_variables": [
+      "Composite action parameter (alpha * L) / shear connector slip modulus (K).",
+      "Relative bending stiffness ratio (EI_0 / EI_N).",
+      "Axial compressive load magnitude and load ratio (P / P_cr).",
+      "Transverse loading distribution (uniform distributed load, concentrated load, applied end moments).",
+      "Support boundary conditions (Euler cases 1, 2, 3, and 4)."
+    ],
+    "limitations_inferred": [
+      "No direct physical experiments were performed within the study; validation relied solely on comparisons with exact analytical closed-form solutions.",
+      "The formulation assumes constant linear slip modulus, neglecting nonlinear connector response, interfacial slip yielding, friction, and connector uplift/separation."
+    ],
+    "limitations_stated_by_authors": [
+      "The approximate procedure was evaluated in detail primarily for simply supported beam-columns and requires re-evaluation for other boundary and loading conditions.",
+      "Accuracy for shear forces and slip forces deteriorates significantly in members with very flexible shear connectors (very low shear connector stiffness).",
+      "In cases with applied end moments, the partial composite action theory gives incorrect values for slip forces at the boundary where the moment is applied.",
+      "For large asymmetric loading or asymmetric boundary conditions, a single magnification factor cannot accurately predict second-order deflections at arbitrary locations without deriving position-dependent deflection factors."
+    ],
+    "main_results": [
+      "For simply supported partially composite beam-columns, the approximate second-order method agreed closely with exact second-order analysis, yielding maximum errors under 0.2% for deflections, under 0.5% for internal moments, under 1.2% for axial forces, and under 1.4% for shear forces across practical composite action parameters.",
+      "Interlayer slip forces predicted via the shear magnification factor exhibited errors up to approximately 9%, but applying the deflection magnification factor reduced this error to about 1.3% while yielding conservative estimates.",
+      "For simply supported members with shear connector stiffness of structural significance, adopting the deflection magnification factor across all internal actions offers a simplified and accurate engineering analysis approach.",
+      "Approximating first-order deflections and slopes using the proposed effective bending stiffness introduced minimal error (+0.2% for maximum deflection and 0.8% for maximum slope in representative cases)."
+    ],
+    "modeling_methods": [
+      "First-order and second-order governing differential equations derived from Euler-Bernoulli beam theory for partial composite members with interlayer slip.",
+      "Magnification factor approach derived from initial deflected shapes and fundamental buckling loads (eigenvalues).",
+      "Effective bending stiffness formulation incorporating buckling length coefficients across Euler cases.",
+      "Decomposition of fixed-fixed (Euler case 4) and propped cantilever (Euler case 3) beam-columns at inflection (zero-moment) points into equivalent cantilever and hinged segments."
+    ],
+    "performance_metrics": [
+      "Percentage error of approximate second-order deflections and internal actions relative to exact second-order analytical solutions.",
+      "Critical buckling load (P_cr) and effective bending stiffness (EI_eff)."
+    ],
+    "possible_gap_implications": [
+      "The mechanics of partial interaction, interlayer slip, and effective bending stiffness under combined axial compression and bending could provide analytical modeling foundations for multi-layer variable-stiffness structures or continuum robotic mechanisms relying on layer jamming or interface shear."
+    ],
+    "research_objective": "To develop and evaluate a generalized, accurate approximate second-order analysis procedure using magnification factors applied to first-order solutions to estimate deflections and internal actions in composite beam-columns with interlayer slip under Euler boundary conditions.",
+    "research_problem": "Exact second-order analysis of composite beam-columns with interlayer slip under combined transverse and axial compressive loads is mathematically involved and cumbersome for practical engineering design.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer slip",
+      "shear connectors",
+      "partial composite action"
+    ],
+    "title": "Composite beam–columns with interlayer slip—Approximate analysis",
+    "year": "2008"
+  }
+}

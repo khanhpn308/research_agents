@@ -1,0 +1,134 @@
+{
+  "source": {
+    "paper_id": "d0699583ac",
+    "filename": "2002-Steel and concrete composite beams with flexible.pdf",
+    "sha256": "d0699583ac70b7885a5005d60f905c578d8c8fd7352d192105518deea4691fbe",
+    "page_count": 9,
+    "char_count": 28247,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 23595,
+    "completion_tokens": 5798,
+    "total_tokens": 29393,
+    "thinking_tokens": 4268,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ciro Faella",
+      "Enzo Martinelli",
+      "Emidio Nigro"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The steel girder and concrete slab are treated as two Euler-Bernoulli beams that maintain identical vertical deflection along their axes",
+      "The longitudinal shear force per unit length depends linearly on the interface slip between the slab and girder",
+      "Axial forces in the slab and steel girder are equal and opposite (Fa = Fc = F)",
+      "Concrete creep and shrinkage are represented using linear viscous algebraic methods (the effective modulus method and the mean stress method)",
+      "Concrete cracking in hogging moment regions is modeled by neglecting the slab contribution across 15% of the beam length adjacent to internal supports"
+    ],
+    "control_variables": [
+      "Beam geometry and span configuration (cross-sectional dimensions, distance between centroids d, span length L)",
+      "Material elastic moduli of steel (Ea) and concrete (Ec)",
+      "Transverse loading magnitude (uniformly distributed load q)",
+      "Cracked zone length fixed at 15% of beam span on each side of internal supports per Eurocode 4 guidelines"
+    ],
+    "dependent_variables": [
+      "Flexibility matrix coefficients and displacement-based stiffness matrix terms (kr)",
+      "Interface slip between slab and girder (s)",
+      "Beam vertical deflection (f) and deflection ratio relative to full interaction (f / ffull)",
+      "Bending moment redistribution ratio (delta = Mred / Mel and delta / dfull)",
+      "Vertical support reaction at internal supports (X)",
+      "Normal stress in the concrete slab at the central support"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Newmark's differential equation for two-layer beams with interlayer slip can be solved analytically to formulate an exact displacement-based finite element stiffness matrix without displacement field approximations.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Flexibility of the interlayer connection causes interface slip that reduces cross-sectional flexural stiffness, increasing deflections and altering bending moment redistribution in continuous indeterminate beams.",
+        "evidence_type": "analytical and parametric simulation",
+        "page_numbers": [
+          2,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "A dimensionless criterion combining connector stiffness (alpha*L) and flexural stiffness ratio (omega) defines a practical boundary where interlayer slip effects increase deflections and moment redistribution by only a few percent, allowing partial interaction to be neglected.",
+        "evidence_type": "parametric simulation",
+        "page_numbers": [
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Shear connection stiffness constant (k)",
+      "Dimensionless shear connection parameter (alpha * L)",
+      "Flexural stiffness ratio between absent interaction and full interaction (omega = EIabs / EIfull)",
+      "Concrete creep coefficient (phi)",
+      "Concrete shrinkage strain (esh)",
+      "Sectional state (uncracked versus cracked in hogging moment zones)"
+    ],
+    "limitations_inferred": [
+      "No new physical experimental testing was conducted; validation relies entirely on comparisons with prior numerical literature and parametric benchmarks.",
+      "The formulation assumes equal vertical deflection between layers, ignoring vertical separation or uplift at the interface.",
+      "Concrete cracking is treated using a simplified empirical length-reduction approach rather than detailed fracture mechanics or localized damage modeling.",
+      "The investigation is restricted to civil structural beams under static and quasi-static conditions and does not consider robotic mechanisms, large deflections, or dynamic actuation."
+    ],
+    "limitations_stated_by_authors": [
+      "The formulation considers a continuous, linearly behaving shear connection, whereas physical connectors (such as studs) are discontinuous and generally exhibit non-linear behavior, requiring an assumed secant stiffness.",
+      "The governing differential equation is strictly valid for beams with uniform geometrical and mechanical properties.",
+      "Internal nodes are required whenever there are variations in geometrical or mechanical properties or where concentrated loads are applied.",
+      "Complete analytical expressions for several stiffness and force functions (gi and gq) were omitted from the paper text for brevity and referenced to an internal institutional report."
+    ],
+    "main_results": [
+      "Derived exact analytical closed-form expressions for the stiffness matrix and fixed-end force vectors of a two-node composite beam element with interlayer slip based directly on Newmark's differential equation.",
+      "Demonstrated that linear analysis of statically determinate and continuous indeterminate composite beams can be performed using only a single finite element per member in the absence of property changes or concentrated loads.",
+      "Showed that support reactions and shrinkage stresses evaluated with the proposed element and algebraic viscous formulations agree well with step-by-step viscous analysis results from literature.",
+      "Established a simple analytical boundary relationship based on alpha*L and omega (with g1* = 0.95) that reliably identifies when shear connection flexibility alters deflections by less than 7% and moment redistribution by only a few percent, permitting partial interaction to be safely neglected."
+    ],
+    "modeling_methods": [
+      "Newmark's differential equation for composite beams with linear elastic shear connection",
+      "Principle of Virtual Work applied to compute flexibility coefficients of simply supported composite beams",
+      "Direct matrix inversion of the flexibility matrix to obtain displacement-based stiffness matrix terms",
+      "Compatibility equations for equivalent fixed-end nodal force vectors under distributed loads and shrinkage",
+      "Viscous algebraic formulations (effective modulus method and mean stress method / age-adjusted effective modulus method) for concrete creep and shrinkage"
+    ],
+    "performance_metrics": [
+      "Internal support reaction force (X)",
+      "Deflection ratio relative to full interaction (f / ffull)",
+      "Bending moment redistribution ratio (delta = Mred / Mel and delta / dfull)",
+      "Concrete slab normal stress at the central support"
+    ],
+    "possible_gap_implications": [
+      "While formulated for structural civil engineering composite beams, the exact analytical stiffness matrix formulation for two-layer beams with interlayer compliance may provide transferrable modeling insights for multi-layer flexible continuum robots or variable-stiffness laminates exhibiting interface shear slip.",
+      "The dimensionless parameter criterion (alpha*L and omega) could offer a systematic basis for assessing when interlayer friction or compliance can be safely neglected in composite continuum structures."
+    ],
+    "research_objective": "To formulate an exact displacement-based finite element for steel-concrete composite beams with flexible shear connections by directly deriving the stiffness matrix and nodal force vectors from the exact solution of Newmark's differential equation, enabling single-element-per-member modeling without displacement field approximations, and to provide a criterion for neglecting partial interaction effects.",
+    "research_problem": "Conventional finite element or finite difference methods for analyzing steel-concrete composite beams with interlayer slip rely on approximate displacement shape functions or fine meshes, which can introduce discretization errors, require multiple elements per member, and cause nodal force discontinuities in indeterminate structures.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "flexible shear connection"
+    ],
+    "title": "Steel and concrete composite beams with flexible shear connection: ‘‘exact’’ analytical expression of the stiffness matrix and applications",
+    "year": "2002"
+  }
+}

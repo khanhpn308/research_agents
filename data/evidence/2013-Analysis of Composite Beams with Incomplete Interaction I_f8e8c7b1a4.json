@@ -1,0 +1,171 @@
+{
+  "source": {
+    "paper_id": "f8e8c7b1a4",
+    "filename": "2013-Analysis of Composite Beams with Incomplete Interaction I.pdf",
+    "sha256": "f8e8c7b1a40c638ad9be438c64febcfcd93a616f092856b037705bd36bf06dcb",
+    "page_count": 8,
+    "char_count": 17014,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 25929,
+    "completion_tokens": 7006,
+    "total_tokens": 32935,
+    "thinking_tokens": 4664,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Satomi Sonoda"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear shear force-slip relationship for shear connectors (q = K * S)",
+      "Identical shear connectors arranged at constant spacing along the beam",
+      "Continuous distribution assumption of connector shear force q and axial force F in Newmark's theoretical method",
+      "Plane sections remain plane (equal curvature 1/rho for both upper and lower laminae)",
+      "No shear deformation within the beam laminae (Euler-Bernoulli beam bending assumption)",
+      "Loading and shear connector arrangements are symmetrical with respect to the mid-span",
+      "Slip distribution profile in incomplete composite beams is assumed to follow the slip distribution profile of a non-composite beam (in the approximation method)"
+    ],
+    "control_variables": [
+      "Symmetrical beam geometry and loading about mid-span",
+      "Simply supported boundary conditions",
+      "Linear connector slip stiffness K",
+      "Constant connector spacing / pitch",
+      "Lamina material properties and cross-sectional dimensions in benchmark verification (span L = 1800 mm, E = 10 GPa, lamina height 38 mm each, width 89 mm, pitch 90 mm, K = 1 kN/mm)"
+    ],
+    "dependent_variables": [
+      "Interlayer slip at the end span (S1 or S1,AP / S1,RG)",
+      "Axial force at mid-span (F_mu or F_mu,AP / F_mu,RG)",
+      "Axial force component of deflection at mid-span (delta_Fmu or delta_Fmu,NM / delta_Fmu,RG and delta_Fmu,AP / delta_Fmu,RG)",
+      "Total mid-span deflection (delta_mu)",
+      "Ratio and percentage error relative to the rigorous numerical method"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A two-layered beam with incomplete interaction exhibits an apparent bending stiffness between a non-composite beam (D = Et*It + Eb*Ib) and a fully composite beam (D + g^2/C), governed by the degree of interlayer slip restrained by shear connectors transmitting shear force into axial force.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "claim": "For Newmark's theoretical method on symmetrical simply supported beams, formulas relating deflection and deflection angle directly to the axial force and non-composite deflection can be derived, avoiding direct double integration of the axial force function.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Kamiya's rigorous numerical calculation method can be improved in precision and stability by defining explicit boundary conditions at mid-span (zero slip relaxation component and zero connector shear force) and eliminating numerical integration of external moment through standard beam deflection angle formulas.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Under the assumption of linear connector stiffness, an approximation method can determine interlayer slip and axial force directly from external load deflection angles without requiring iterative convergence calculations.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "When the degree of imperfection based on mid-span axial force (RFmu) is under 5% (beta*mu approximately 20 for central loading and 6 for uniform loading), the connector shear force distribution closely resembles that of a fully composite beam, and calculating deformation assuming complete interaction causes minimal error (e.g., 2.2% error in a 204 lumber nailed composite beam).",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Discrepancies between Newmark's theoretical method and the rigorous discrete solution increase as the number of shear connectors decreases and as the degree of imperfection increases, because Newmark's theory assumes a continuous shear connection and cannot reflect the discrete connector count.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The improved approximation method computes mid-span deflection due to axial force with errors within a few percent and axial force/slip within about 10% for realistic beams with RFmu up to 40%, with accuracy deteriorating when connector count is small or loading is highly concentrated.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          6,
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Numerical simulation environment using statistical language R (version 2.13.1) and the convergence function 'uniroot'",
+      "Two-layered simply supported beam model evaluated under central concentrated loading (CL) and uniformly distributed loading (UL)",
+      "Parametric sweep across beta*mu from 0.1 to 25 (corresponding to RFmu from 99.7% to 4% for CL) and number of connectors n from 3 to 1000",
+      "Benchmark calculation case based on a 204 lumber two-layered nailed beam (span L = 1800 mm, E = 10 GPa, height = 2 x 38 mm, width = 89 mm, connector pitch = 90 mm, slip stiffness K = 1 kN/mm)"
+    ],
+    "future_work": [
+      "Derivation of non-linear approximate solution methods",
+      "Application to three-layered beams widely used in practice, such as I-beams and box beams",
+      "Development of solution methods for conditions where external forces or shear connector arrangements are asymmetrical along the span"
+    ],
+    "independent_variables": [
+      "Non-dimensional parameter beta*mu (and corresponding degree of imperfection RFmu)",
+      "Number of shear connectors n",
+      "Loading configuration (central concentrated load CL vs. uniformly distributed load UL)",
+      "Stress/deflection calculation method (Newmark's theoretical method, improved Kamiya rigorous numerical method, improved Kamiya approximation method)"
+    ],
+    "limitations_inferred": [
+      "No physical experimental testing was performed within the study; validation relied strictly on numerical simulation comparisons against the improved rigorous method and past literature references.",
+      "Shear deformation within individual layers was omitted, which could impact accuracy in short or thick beams.",
+      "The models assume small deflections and linear elastic materials, limiting direct applicability to large-deflection flexible structures without nonlinear kinematic extensions."
+    ],
+    "limitations_stated_by_authors": [
+      "The scope is strictly limited to simply supported two-layered beams with loading and shear connector arrangements symmetrical about the mid-span.",
+      "The improved rigorous numerical method encounters difficulty or fails to reach a proper solution when the beam is extremely close to complete composite action (where the difference between non-composite and relaxation slip becomes minute).",
+      "Numerical evaluations were conducted assuming a linear shear force-slip relationship for connectors, omitting physical non-linear slip behavior.",
+      "Newmark's theoretical method cannot reflect the effect of the number of shear connectors (n), leading to caution-requiring errors for beams with few connectors.",
+      "The approximation method assumes the slip distribution shape equals that of a non-composite beam regardless of connector count, leading to decreased accuracy when connector count is small or loads are concentrated."
+    ],
+    "main_results": [
+      "Derived direct algebraic/integral expressions for deflection and deflection angle in Newmark's theoretical method using non-composite deflection and axial/shear force without requiring double integration of the axial force function.",
+      "Enhanced Kamiya's rigorous numerical method by adding explicit mid-span boundary conditions (SF,n+1 = 0, qn+1 = 0) and replacing external moment integration with standard deflection angle formulas, improving stability and computational simplicity.",
+      "Extended Kamiya's approximation method to compute slip, shear force, and axial force directly from applied load deflection angles under constant connector slip stiffness K without convergence iterations, also providing robust initial values for rigorous calculations.",
+      "Demonstrated via numerical experiments that the approximation method achieves good practical accuracy (within ~10% error for realistic beams with RFmu up to ~40%), with errors decreasing as connector count n increases.",
+      "Quantified the divergence of Newmark's theoretical method from the discrete rigorous solution for beams with few shear connectors and high imperfection degrees, confirming that Newmark's method is less accurate for small connector counts."
+    ],
+    "modeling_methods": [
+      "Newmark's theoretical method (continuous differential equation solution for incomplete interaction)",
+      "Improved Kamiya rigorous numerical method (recurrence difference equations solved from mid-span to support with explicit boundary conditions)",
+      "Improved Kamiya approximation method (non-iterative slip-profile ratio approximation using deflection angle formulas)",
+      "Superposition principle (decomposing total deflection and slope into non-composite and axial relaxation components)",
+      "Virtual work method (calculating deflection components from discrete shear connector forces)"
+    ],
+    "performance_metrics": [
+      "Ratio of approximate to rigorous end-span interlayer slip (S1,AP / S1,RG)",
+      "Ratio of approximate to rigorous mid-span axial force (F_mu,AP / F_mu,RG)",
+      "Ratio of mid-span deflection component due to axial force relative to rigorous method (delta_Fmu,AP / delta_Fmu,RG and delta_Fmu,NM / delta_Fmu,RG)",
+      "Percentage error of total mid-span deflection ((delta_mu - delta_mu,RG) / delta_mu,RG)"
+    ],
+    "possible_gap_implications": [
+      "Theoretical modeling of layered beams with partial composite action and discrete shear connections may provide foundational insights for modeling multi-layer variable stiffness mechanisms and continuum structures utilizing interlayer shear resistance.",
+      "However, applying these methods to soft robotics or continuum manipulators would require addressing major gaps including large deflection kinematics, multi-axial deformation, asymmetric loading, and non-linear or active friction/shear mechanisms."
+    ],
+    "research_objective": "To develop practical design methods for two-layered simply supported composite beams with incomplete interaction by deriving simplified deflection and deflection angle equations for Newmark's theoretical method, improving the accuracy, stability, and ease of Kamiya's rigorous numerical calculation method, establishing explicit load-to-stress formulations for Kamiya's approximation method, and verifying their accuracies and discrepancies via numerical experiments.",
+    "research_problem": "In practical design of layered timber structures, existing incomplete composite beam methods present challenges: Newmark's theoretical method requires solving differential equations for each loading type and involves tedious double integration to obtain deflections; Kamiya's rigorous numerical method requires iterative convergence and lacks explicit mid-span boundary conditions; and existing approximate methods lack explicit stress computation procedures directly from external loads.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "shear connector"
+    ],
+    "title": "Analysis of Composite Beams with Incomplete Interaction I. Theoretical study of bending stiffness of two-layered composite beams",
+    "year": "2013"
+  }
+}

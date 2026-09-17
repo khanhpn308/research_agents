@@ -252,7 +252,18 @@ STRICT RULES:
    proof of novelty.
 
 7. For evidence relevant to the research topic,
-   provide the supporting page number(s).
+   provide supporting page numbers using ONLY
+   the explicit machine-readable markers:
+
+   ===== PAGE N =====
+
+   These are PDF page indices starting from 1.
+
+   Do NOT use:
+   - printed journal page numbers
+   - volume pagination
+   - footer/header page labels
+   - page numbers shown inside the article text
 
 8. Paraphrase evidence. Do not fabricate
    quotations.

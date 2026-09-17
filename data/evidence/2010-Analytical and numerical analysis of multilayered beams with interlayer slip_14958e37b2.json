@@ -1,0 +1,150 @@
+{
+  "source": {
+    "paper_id": "14958e37b2",
+    "filename": "2010-Analytical and numerical analysis of multilayered beams with interlayer slip.pdf",
+    "sha256": "14958e37b2d6118fa074a83f7ae8c3c1ca37aaba3cbad2d8ebfb5bbaa964f400",
+    "page_count": 10,
+    "char_count": 38799,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27758,
+    "completion_tokens": 5060,
+    "total_tokens": 32818,
+    "thinking_tokens": 3387,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "João Batista M. Sousa Jr.",
+      "Amilton R. da Silva"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Plane sections remain plane for each constituent beam layer",
+      "Uniform transverse displacement across all layers without vertical separation or uplift (vi(x, y) = v(x))",
+      "Identical rotation for all constituent layers under Timoshenko beam kinematics",
+      "Linear elastic material behavior for all beam components (Hooke's law: Ni = (EA)i * dui/dx)",
+      "Linear elastic relationship for deformable interlayer connections (shear force Si = Ki * si)",
+      "Small displacements and small rotation kinematics",
+      "Negligible connection thickness modeled through zero-thickness interface kinematics"
+    ],
+    "control_variables": [
+      "Simply supported boundary conditions at member ends",
+      "Absence of applied axial end forces and zero curvature at ends",
+      "Zero transverse separation between adjacent layers along the beam span",
+      "Specified beam spans (300 cm for three-layer beam; 500 cm for four-layer beam)"
+    ],
+    "dependent_variables": [
+      "Interlayer slip distributions along the beam length (si(x))",
+      "Transverse displacements and maximum deflections (v(x), vmax)",
+      "Beam curvature distributions (chi(x))",
+      "Axial displacement distributions (ui(x))",
+      "Internal normal forces and bending moments along the layers"
+    ],
+    "doi": "10.1016/j.engstruct.2010.02.015",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The governing equations of multilayered beams with partial shear interaction can be expressed entirely in terms of interlayer slips, yielding a decoupled second-order ordinary differential equation system via eigenvalue transformation for statically determinate beams.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Interlayer slip distributions are identical under Euler-Bernoulli and Timoshenko beam theories for statically determinate multilayered members.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The difference between Timoshenko and Euler-Bernoulli transverse deflections for a multilayered beam under uniform load depends solely on the aggregate shear stiffness (GA)0, matching the expression known for two-layered beams.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          10
+        ]
+      },
+      {
+        "claim": "Combining conventional beam elements with zero-thickness interface elements accurately predicts interlayer slip and transverse deflections in multilayered composite members compared to closed-form solutions.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Using linear interpolation for axial displacements in interface elements causes severe slip and curvature locking under high connection stiffness, which is prevented by using at least quadratic axial interpolation.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Number of beam layers (3-layer and 4-layer configurations)",
+      "Interlayer connection shear stiffness (Ki, parameterized from flexible to near-rigid with gamma_i * L values of 1 and 50)",
+      "Elastic moduli and material properties of constituent layers (steel, concrete, and generic materials)",
+      "Cross-sectional geometry and dimensions of individual layers",
+      "Applied transverse loading conditions (uniformly distributed load q, central concentrated point load P)",
+      "Kinematic beam theories (Euler-Bernoulli vs. Timoshenko)",
+      "Finite element mesh discretization density (4, 8, and 20 elements per interface)",
+      "Order of displacement interpolation polynomials (linear vs. quadratic axial interpolation)"
+    ],
+    "limitations_inferred": [
+      "Linear elastic and small-deflection assumptions prevent the modeling of large rotations, geometric non-linearities, or material yielding/damage at the connections.",
+      "Enforcing identical transverse deflection across all layers precludes consideration of cross-sectional deformation, through-thickness strain, or interlaminar separation under peeling forces.",
+      "The study does not model friction-based hysteretic sliding or active normal force modulation that would be relevant to controllable friction/jamming systems.",
+      "No experimental physical testing was conducted on physical specimens to validate the numerical or analytical predictions."
+    ],
+    "limitations_stated_by_authors": [
+      "The slip-based analytical formulation requires the transverse shear force distribution V(x) to be known in advance, restricting closed-form solution derivation to statically determinate beams.",
+      "Transverse relative displacement (uplift) capabilities of the interface elements were not explored in the presented analyses.",
+      "Combining separate beam and interface elements increases the total number of system degrees of freedom compared to specialized multi-layer elements."
+    ],
+    "main_results": [
+      "A new analytical formulation based exclusively on interlayer slip unknowns was established, reducing the coupled structural equations to a second-order ordinary differential equation system that uncouples through eigenvalue decomposition for statically determinate beams.",
+      "For statically determinate beams, the interlayer slip distribution is shown to be mathematically identical under both Euler-Bernoulli and Timoshenko kinematic assumptions.",
+      "The analytical discrepancy between Timoshenko and Euler-Bernoulli deflections for a uniformly loaded multilayered beam is exactly equal to q(Lx - x^2) / (2(GA)0).",
+      "In finite element simulations, Euler-Bernoulli models slightly underestimate exact slips whereas Timoshenko models overestimate them, with both converging to closed-form analytical results under mesh refinement.",
+      "Interface elements with linear axial displacement interpolation (ILC) suffer from curvature and slip locking when connection stiffness is high, whereas quadratic axial interpolation (IQC and ITQ) prevents locking."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory with partial interaction",
+      "Timoshenko beam theory with partial interaction and shear correction factors",
+      "Interlayer slip-based analytical formulation (system of second-order differential equations in slip variables)",
+      "Eigenvalue decoupling method for differential equations of statically determinate beams",
+      "Zero-thickness interface finite elements based on Goodman-Taylor-Brekke element kinematics",
+      "Interface Linear Cubic (ILC) finite element formulation",
+      "Interface Quadratic Cubic (IQC) finite element formulation",
+      "Interface Timoshenko Quadratic (ITQ) finite element formulation"
+    ],
+    "performance_metrics": [
+      "Numerical accuracy of interlayer slips and maximum transverse displacements relative to closed-form analytical solutions",
+      "Finite element convergence rate across mesh refinements (4, 8, 20 elements per interface)",
+      "Curvature and slip distribution fidelity under high connection stiffness (evaluation of slip/curvature locking)"
+    ],
+    "possible_gap_implications": [
+      "The interlayer slip formulation could provide a theoretical foundation for modeling layer-sliding and variable-stiffness laminar jamming structures in soft robotics, but requires extension to large deformations and controllable non-linear contact friction.",
+      "Analytical decoupling techniques for layered sliding may assist in formulating continuum manipulator compliance models if applied shear force distributions can be resolved along the backbone."
+    ],
+    "research_objective": "To investigate the mechanical behavior of generic multilayered composite beams with interlayer slip under Euler-Bernoulli and Timoshenko beam theories, by developing an analytical formulation based solely on interlayer slip distributions and evaluating a numerical methodology coupling beam elements with zero-thickness interface elements to overcome slip and curvature locking.",
+    "research_problem": "The analytical and numerical complexity of modeling multilayered composite beams having multiple deformable interlayer slip planes, including coupled high-order governing differential equations and finite element slip/curvature locking under high connection stiffness.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "deformable connections allowing relative horizontal slip between layers (partial interaction)"
+    ],
+    "title": "Analytical and numerical analysis of multilayered beams with interlayer slip",
+    "year": "2010"
+  }
+}

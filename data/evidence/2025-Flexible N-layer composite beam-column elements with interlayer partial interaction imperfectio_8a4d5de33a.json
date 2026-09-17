@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "8a4d5de33a",
+    "filename": "2025-Flexible N-layer composite beam-column elements with interlayer partial interaction imperfectio.pdf",
+    "sha256": "8a4d5de33a0c1f35257ccffa6a82bd5c9f026dc4ea45897e514b71cc4833c6b2",
+    "page_count": 24,
+    "char_count": 117733,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 53294,
+    "completion_tokens": 7654,
+    "total_tokens": 60948,
+    "thinking_tokens": 4955,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Seyed Rasoul Atashipour",
+      "Noël Challamel",
+      "Ulf Arne Girhammar",
+      "Peter D. Folkow"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "All constituting layers are identical in geometry (thickness, width, length) and material properties (Young's modulus, shear modulus, density).",
+      "Interlayer partial interaction is represented by a linear shear spring-like model where interfacial shear force is proportional to relative slip via slip modulus k.",
+      "Linear elastic material behavior for individual layers and interface connections.",
+      "Constant through-depth shear strain across layers is compensated using a shear correction factor Ks (taken as 5/6 for rectangular sections).",
+      "Transverse normal deformation is neglected, assuming uniform transverse deflection w through the section.",
+      "External compressive axial load is identically shared among all constituent layers prior to buckling (Pi = P0 / N).",
+      "Euler-Bernoulli partial-composite (EBPC) formulation neglects transverse shear deformation and rotary inertia.",
+      "Timoshenko/Engesser partial-composite (TEPC) formulation incorporates shear deformation and rotary inertia with uniform cross-sectional rotation across layers.",
+      "Longitudinal mass inertia of the constituent layers is neglected in the simplified closed-form natural frequency equations."
+    ],
+    "control_variables": [
+      "Cross-section geometry and dimensions (individual layer thickness, width, total length).",
+      "Total height-to-length ratio when varying the number of constituent layers.",
+      "Shear correction factor (Ks = 5/6 for solid rectangular cross-sections).",
+      "Constituent layer material properties for test benchmarks (aluminum: E = 73.08 GPa, density = 2712 kg/m^3; glass/PVB properties; glulam GL30c orthotropic properties: EL = 13000 MPa, GLR = 650 MPa, density = 430 kg/m^3)."
+    ],
+    "dependent_variables": [
+      "Critical buckling load (P_cr, P_Imp_E, P_Imp_T).",
+      "Natural vibration frequencies / angular frequencies (f_n, omega_n, omega_Imp_n,E, omega_Imp_n,T).",
+      "Buckling conversion coefficients (eta_pc-0, eta_pc-infinity, psi_T-E).",
+      "Vibration frequency conversion coefficients (kappa_pc-0, kappa_pc-infinity, zeta_T-E).",
+      "Percentage discrepancies relative to experimental test data, FEM, and 3-D FEA results."
+    ],
+    "doi": "10.1016/j.compstruct.2025.119219",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Formulation of exact analytical solutions for stability and vibration of composite beam/columns with an arbitrary number N of identical layers having interlayer partial shear slip using Hamilton's principle and difference equations.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          1,
+          2,
+          5,
+          6,
+          7,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Derivation of closed-form conversion coefficients converting classical Euler column buckling and beam vibration formulae to multilayer partial-composite members based on both Euler-Bernoulli and Timoshenko/Engesser hypotheses.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          7,
+          8,
+          9,
+          11,
+          13,
+          14
+        ]
+      },
+      {
+        "claim": "Validation against published vibration test measurements of a three-layer beam with discrete mechanical connectors (rubber, polyethylene, nylon), showing discrepancies between analytical predictions and test data of less than 7.8%.",
+        "evidence_type": "experimental validation / literature data comparison",
+        "page_numbers": [
+          1,
+          12,
+          15
+        ]
+      },
+      {
+        "claim": "Validation against 3-D solid finite element analysis (Abaqus C3D8R) of a five-layer orthotropic glulam beam, showing TEPC model natural frequencies agree within 2% while the EBPC model error increases up to ~92% for higher modes under full interlayer interaction.",
+        "evidence_type": "numerical simulation / FEA",
+        "page_numbers": [
+          1,
+          14,
+          17
+        ]
+      },
+      {
+        "claim": "Demonstration that variation of the interlayer slip modulus shifts effective structural flexural stiffness and critical buckling load between lower-bound non-composite and upper-bound full-composite states.",
+        "evidence_type": "parametric / analytical modeling",
+        "page_numbers": [
+          1,
+          7,
+          8,
+          15,
+          17,
+          18
+        ]
+      },
+      {
+        "claim": "Demonstration that shear deformation effects are most pronounced for columns and beams with high interlayer interaction and low shear-to-Young's modulus ratios, where Euler-Bernoulli models significantly overestimate buckling loads and frequencies.",
+        "evidence_type": "analytical and parametric analysis",
+        "page_numbers": [
+          1,
+          14,
+          16,
+          18,
+          19,
+          20
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "No original physical experiments were conducted by the authors in this paper.",
+      "Validation was carried out using published experimental vibration test data from Henghold (1972) for a three-layer simply-supported aluminum beam (span 1778 mm, width 101.6 mm, layer thickness 6.50 mm) joined by two rows of discrete mechanical connectors made of rubber, low-density polyethylene, or nylon.",
+      "Connector slip moduli from literature were obtained via direct double shear joint tests and beam test methods.",
+      "Numerical 3-D finite element analysis (FEA) performed using Abaqus/CAE with eight-node brick elements (C3D8R) with reduced integration and enhanced hourglass control for a five-layer glulam GL30c timber beam."
+    ],
+    "future_work": [
+      "The authors did not include an explicit future work section or specific future work statements in the text."
+    ],
+    "independent_variables": [
+      "Number of constituent layers (N, evaluated from 1 to 10, and up to 100).",
+      "Dimensionless interlayer slip modulus / parameter (ke or k).",
+      "Dimensionless shear-effect parameter (G* = (G/E)*(Le/hTot)^2 / pi^2).",
+      "Boundary conditions / end restraints (simply-supported, clamped-free, clamped-clamped, clamped-sliding, clamped-pinned represented via effective length Le).",
+      "Vibration mode sequence / number (n = 1, 2, 3, ...).",
+      "Interlayer connector material and type (rubber, low-density polyethylene, nylon, PVB elastomeric polymer, soft-shear adhesive)."
+    ],
+    "limitations_inferred": [
+      "The formulation is restricted to linear elastic materials and linear shear spring slip behavior, excluding nonlinear slip laws, interfacial plastic deformation, creep, and viscoelastic responses.",
+      "The analysis assumes small deflections and linear kinematics, neglecting post-buckling behavior, large amplitude vibration, and geometric nonlinearities.",
+      "Cross-sectional rotation is assumed to be uniform across all layers in the Timoshenko/Engesser model, without considering differential rotation between individual layers.",
+      "The paper focuses strictly on structural engineering beam-column elements and does not model or evaluate robotics, soft robotic actuators, or controllable variable stiffness devices."
+    ],
+    "limitations_stated_by_authors": [
+      "The models and exact analytical solutions are restricted to members composed of identical constituent layers (identical geometry and material properties).",
+      "The study is primarily focused on interfacial bonding imperfections in the form of relative slip captured by a linear shear spring; all other forms of interfacial bonding imperfections (such as delamination, cracks, or normal separation) are beyond the scope of the article.",
+      "The study of the partial-composite/slip modulus and research on its determination falls outside the scope of the article.",
+      "The exact analytical solution is not directly applicable to clamped-pinned columns (though an effective length Le = 0.7L provides an approximation).",
+      "For clamped-clamped columns, the assumed displacement field does not strictly fulfill the axial natural boundary conditions at x = L, yielding slightly upper-bound results.",
+      "The closed-form natural frequency formulae neglect the longitudinal mass inertia of the constituent layers."
+    ],
+    "main_results": [
+      "Formulated exact analytical solutions and explicit conversion coefficients for linear buckling and natural vibration frequencies of beam-column elements with an arbitrary number N of identical layers and interlayer slip.",
+      "Demonstrated that the conversion coefficients formulated in terms of effective length accurately capture diverse classical end conditions (SS, CF, CC, CS).",
+      "Verified analytical predictions against published experimental vibration data (within 1.4% for rubber, 7.8% for polyethylene, and 6.4% for nylon connectors) and 3-D FEA (within 2% across five modes for a five-layer glulam beam).",
+      "Demonstrated that the largest reduction in buckling capacity and natural frequencies when moving from EBPC to TEPC occurs for elements with the highest interlayer interaction (full-composite), while error is minimal for non-composite elements.",
+      "Showed that the EBPC model overpredicts natural frequencies by up to ~92% for higher vibration modes in fully bonded five-layer glulam beams compared to 3-D FEA, whereas the TEPC model stays within 1.5%.",
+      "Showed that the influence of the interlayer interaction level on Euler-to-Timoshenko/Engesser conversion coefficients becomes less pronounced as the number of constituent layers increases.",
+      "Confirmed that constituent layers' longitudinal mass inertia has a negligible effect on natural vibration frequencies, with closed-form formulae deviating by less than 3.7% from exact nonlinear characteristic equation roots."
+    ],
+    "modeling_methods": [
+      "Extended Hamilton's variational energy principle for deriving governing differential equations and boundary conditions.",
+      "Euler-Bernoulli partial-composite (EBPC) beam-column model.",
+      "Timoshenko/Engesser partial-composite (TEPC) shear-deformable beam-column model.",
+      "Linear shear spring-like slip model correlating interlayer shear force to relative displacement.",
+      "Separation of variables for harmonic vibration modal analysis.",
+      "Reduction of coupled governing differential equations to second-order difference equations solved analytically using hyperbolic functions.",
+      "Effective buckling length and effective eigenmode length formulations for handling various boundary conditions.",
+      "Derivation of explicit dimensionless conversion coefficients (Euler-to-partial-composite and Euler-to-Timoshenko/Engesser)."
+    ],
+    "performance_metrics": [
+      "Critical buckling load (P).",
+      "Natural frequencies / angular frequencies of vibration (Hz or rad/s).",
+      "Percentage difference / discrepancy (% Diff) relative to experimental data, 3-D FEA, GEM/FEM benchmarks, and exact nonlinear characteristic roots.",
+      "Buckling conversion factors (eta_pc-0, eta_pc-infinity, psi_T-E).",
+      "Vibration frequency conversion factors (kappa_pc-0, kappa_pc-infinity, zeta_T-E)."
+    ],
+    "possible_gap_implications": [
+      "The analytical framework for N-layer partial-composite beams with interlayer shear slip provides mathematical tools that could potentially be adapted to model multi-layer variable stiffness mechanisms (e.g., layer jamming or friction laminates) in soft robotics, but the authors do not evaluate robotic systems or controllable actuation.",
+      "Because the model is restricted to identical layers with linear spring slip, there remains a research gap in extending the methodology to non-identical layers, non-linear friction/slip interfaces, and large-deformation kinematics characteristic of soft robotic continuum bodies."
+    ],
+    "research_objective": "To formulate the stability and linear vibration problems of beams and columns composed of an arbitrary number of identical constituent layers incorporating interlayer partial interaction imperfection using both Euler-Bernoulli (EBPC) and Timoshenko/Engesser (TEPC) partial-composite models, and to develop exact analytical solutions and explicit conversion coefficients generalizing classical Euler and Timoshenko formulae.",
+    "research_problem": "Existing vibration and buckling analysis models for partial-composite structural elements are restricted to a limited number of layers (predominantly two or three layers) due to the escalated mathematical complexity of the governing equations as the number of layers increases, lacking exact general analytical solutions and explicit formulae for N-layer elements.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Flexible N-layer composite beam/column elements with interlayer partial interaction imperfection–A novel approach to structural stability and dynamic analyses",
+    "year": "2025"
+  }
+}

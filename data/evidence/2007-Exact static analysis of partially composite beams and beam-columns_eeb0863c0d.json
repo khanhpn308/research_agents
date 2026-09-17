@@ -1,0 +1,195 @@
+{
+  "source": {
+    "paper_id": "eeb0863c0d",
+    "filename": "2007-Exact static analysis of partially composite beams and beam-columns.pdf",
+    "sha256": "eeb0863c0d2a2732bdda7c0cef32ea55573ed9b394375e71badced4628ad075d",
+    "page_count": 17,
+    "char_count": 69331,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 38854,
+    "completion_tokens": 6659,
+    "total_tokens": 45513,
+    "thinking_tokens": 4136,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ulf Arne Girhammar",
+      "Dan H. Pan"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic material behavior in tension and compression for all subcomponent materials (uncracked state assumed).",
+      "Linear elastic load-slip behavior for discretely located interlayer shear connectors, modeled as a continuous connection with a constant slip modulus K.",
+      "Interlayer slip is assumed small, with relative slip occurring at the interface while frictional effects and vertical uplift are neglected.",
+      "Curvature across all subcomponents in the composite cross-section is assumed identical.",
+      "Euler-Bernoulli beam theory applies to each subcomponent, neglecting shear deformation.",
+      "Axial loads are applied at the centroid of the transformed fully composite cross-section, inducing uniform axial strain without contributing directly to bending.",
+      "Uniform cross-section along the member length with continuous slope (constant bending stiffness).",
+      "Small deflections and small slopes in second-order analysis, permitting the axial load along the deformed axis to be approximated by its horizontal component and transverse load projections along the deformed axis to be neglected."
+    ],
+    "control_variables": [
+      "Uniform cross-sectional dimensions and constant material properties along the beam length",
+      "Centroidal application of external axial loads F to prevent load-eccentricity-induced bending moments",
+      "Neglect of vertical separation/uplift and interface friction at the connection boundary"
+    ],
+    "dependent_variables": [
+      "Transverse deflection w(x) and maximum deflection w_max",
+      "Internal bending moments (M, M1, M2)",
+      "Internal shear forces (V, V1, V2)",
+      "Internal axial/normal forces (N1, N2)",
+      "Interlayer slip (Delta u) and interface slip force per unit length (Vs)",
+      "Critical elastic buckling load (P_cr)",
+      "Buckling length coefficients (mu)",
+      "Second-order magnification factors for deflections and internal actions",
+      "Effective bending stiffness (EI_eff)"
+    ],
+    "doi": "10.1016/j.ijmecsci.2006.07.005",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The effective bending stiffness of a partially composite beam-column varies continuously between the non-composite lower bound (EI_0) and the fully composite upper bound (EI_infinity) as a function of the interface slip modulus K, geometry, and boundary conditions via the non-dimensional composite action parameter alpha*L.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          5,
+          12
+        ]
+      },
+      {
+        "claim": "Variational energy minimization using a Lagrange multiplier to enforce strain-deflection compatibility yields the sixth-order governing differential equations and mathematically consistent, admissible boundary conditions for first- and second-order beam-column analyses.",
+        "evidence_type": "variational mathematical derivation",
+        "page_numbers": [
+          5,
+          6,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "Consistent boundary conditions for a clamped end in a partially composite member dictate that either the internal axial force must vanish (axially sliding clamped) or the interface slip must be constant/zero (axially fixed clamped), proving that intuitive assumptions of non-zero slip with zero rotation and deflection are mathematically ill-posed.",
+        "evidence_type": "variational mathematical derivation",
+        "page_numbers": [
+          2,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Exact buckling length coefficients for partially composite columns with interlayer slip are strictly identical to classical solid-column Euler coefficients for clamped-free (mu = 2), pinned-pinned (mu = 1), and clamped-clamped (mu = 0.5) boundary conditions.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          12,
+          13,
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "For the clamped-pinned boundary condition (Euler case 3), the exact buckling length coefficient deviates by less than 1.8% from the classical solid-column value (0.699), and using the solid-column approximation results in a maximum deviation in buckling load of at most 2.5% on the safe side.",
+        "evidence_type": "analytical and numerical derivation",
+        "page_numbers": [
+          13,
+          15
+        ]
+      },
+      {
+        "claim": "For two-layer composite members of rectangular cross-sections, the relative bending stiffness parameter EI_0 / EI_infinity is theoretically bounded within the range 0.25 <= EI_0 / EI_infinity < 1.",
+        "evidence_type": "analytical proof",
+        "page_numbers": [
+          5,
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "In second-order beam-column analysis, internal axial forces do not magnify uniformly like bending moments and deflections, because only the portion of the normal force induced by bending is subject to second-order magnification.",
+        "evidence_type": "analytical and numerical demonstration",
+        "page_numbers": [
+          10,
+          12,
+          15
+        ]
+      },
+      {
+        "claim": "An effective bending stiffness (EI_eff) approximation predicts deflections and bending moments in partially composite members with high accuracy (errors under 3%), but produces higher errors (~15%) for interface slip and shear forces due to spatial differentiation.",
+        "evidence_type": "comparative analytical and numerical evaluation",
+        "page_numbers": [
+          14,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Dynamic analysis of composite beams and beam-columns with partial interaction (noted as addressed in a companion paper).",
+      "Extending the formulation to handle discontinuities in flexural stiffness and slope by superimposing Macauley's singularity functions onto the one-dimensional field."
+    ],
+    "independent_variables": [
+      "Non-dimensional composite action parameter (alpha * L)",
+      "Relative bending stiffness parameter (EI_0 / EI_infinity)",
+      "Boundary support conditions (Euler cases 1 through 4: clamped-free, pinned-pinned, clamped-pinned, clamped-clamped)",
+      "Transverse loading distribution and intensity q(x)",
+      "Axial compression load P or axial tension load F",
+      "Cross-sectional geometric dimensions (b1, b2, h1, h2, r1, r2, r) and constituent elastic moduli (E1, E2)",
+      "Connector slip modulus K"
+    ],
+    "limitations_inferred": [
+      "The formulation is restricted to one-dimensional kinematics and small deflections; it does not model large non-linear rotations, cross-sectional distortion, or three-dimensional out-of-plane torsional-flexural coupling.",
+      "No physical experimental testing was conducted in the paper; verification was performed solely through mathematical proofs and numerical comparisons against prior approximate formulas.",
+      "Time-dependent material effects such as viscoelastic creep, shrinkage, or relaxation are excluded from the model.",
+      "The model assumes identical curvature across sub-elements, which may break down if significant interfacial uplift or transverse normal compliance occurs."
+    ],
+    "limitations_stated_by_authors": [
+      "Euler-Bernoulli beam theory is adopted for individual components, neglecting shear deformation effects.",
+      "Interlayer slip is assumed small; frictional effects and vertical uplift at the interface are neglected.",
+      "Shear connectors are discrete in practice but modeled as a continuous connection with a constant linear elastic slip modulus K.",
+      "Constituent materials are restricted to linear elastic behavior in tension and compression.",
+      "The formulation assumes uniform cross-sections and continuous slopes along the member length.",
+      "The effective bending stiffness approximation is less accurate for slip forces and shear forces because they are obtained through differentiation of normal forces and moments."
+    ],
+    "main_results": [
+      "Derived the sixth-order ordinary differential equations and exact general solutions for deflections and internal actions of partially composite Euler-Bernoulli beams and beam-columns under first- and second-order static loading.",
+      "Formulated mathematically consistent and well-posed boundary conditions via variational calculus, establishing that a clamped support requires either zero axial normal force or zero interface slip.",
+      "Derived exact closed-form characteristic equations and proved that the fundamental buckling length coefficients for partially composite columns are identical to those of solid columns for clamped-free (mu = 2), pinned-pinned (mu = 1), and clamped-clamped (mu = 0.5) cases.",
+      "Showed that for the clamped-pinned condition (Euler case 3), the exact buckling length coefficient differs from the solid-column value by less than 1.8% (maximum near alpha*L ~ 7), corresponding to an error in critical buckling load of at most 2.5% on the safe side.",
+      "Proved mathematically that the theoretical relative bending stiffness ratio EI_0 / EI_infinity for two-subcomponent rectangular composite members is bounded within [0.25, 1.0).",
+      "Demonstrated that second-order magnification applies only to the bending-induced component of the internal axial force, rather than the direct applied load component.",
+      "Derived a generalized effective bending stiffness expression (EI_eff) enabling accurate approximate calculations of deflections (0.4% error) and moments (2.9% error), while noting larger errors (15.1%) for differentiated shear and slip forces."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam kinematics applied to individual sub-elements (neglecting shear deformation)",
+      "Variational energy minimization (principle of minimum potential energy) using Lagrange multipliers to incorporate the strain-deflection constraint",
+      "Sixth-order governing ordinary differential equations for transverse deflection w(x) and internal actions under first- and second-order static loading",
+      "Continuous linear elastic interface modeling characterized by a constant slip modulus K [N/m^2]",
+      "Characteristic equation derivation, Gaussian elimination, and determinant analysis of 6x6 boundary matrices for eigenvalue and buckling length coefficient evaluation",
+      "Effective bending stiffness (EI_eff) formulation for simplified first-order and buckling approximations"
+    ],
+    "performance_metrics": [
+      "Buckling length coefficient (mu)",
+      "Critical buckling load (P_cr)",
+      "Maximum transverse deflection (w_max)",
+      "Magnification factor (exact second-order / first-order ratio vs approximate 1 / (1 - P/P_cr))",
+      "Percentage error / deviation of approximate methods (solid-column coefficients or EI_eff) relative to exact solutions"
+    ],
+    "possible_gap_implications": [
+      "The linear elastic, small-displacement beam-column formulation with interlayer slip provides a theoretical basis for layered stiffness modeling, but does not capture the large geometric deflections, hyperelastic material response, or continuous active actuation seen in soft continuum robotic systems.",
+      "The exclusion of interfacial uplift and friction limits direct application to variable stiffness mechanisms relying on friction or vacuum-driven layer jamming, where normal interface pressure and separation play a dominant role."
+    ],
+    "research_objective": "To rigorously derive the governing differential equations, complete general solutions, and mathematically consistent boundary conditions for partially composite Euler-Bernoulli beams and beam-columns with interlayer slip under first- and second-order static loading using variational methods; to derive exact characteristic equations and buckling length coefficients for the four Euler boundary conditions; to determine the theoretical range of the relative bending stiffness; and to formulate an effective bending stiffness for approximate deflection and internal action analyses.",
+    "research_problem": "Establishing mathematically consistent and well-posed boundary conditions, exact governing differential equations, and closed-form characteristic equations and buckling length coefficients for partially composite beams and beam-columns with interlayer slip under first- and second-order static axial and transverse loading.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer slip",
+      "flexible shear connection",
+      "shear connectors with slip modulus K",
+      "partial composite action"
+    ],
+    "title": "Exact static analysis of partially composite beams and beam-columns",
+    "year": "2007"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "source": {
+    "paper_id": "aa091ea74d",
+    "filename": "2009-A simplified analysis method for composite beams with interlayer slip.pdf",
+    "sha256": "aa091ea74d07c5da4076bf121c2906d81e27a071df79867b1efdff0a7f9a1189",
+    "page_count": 16,
+    "char_count": 70176,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 38346,
+    "completion_tokens": 6337,
+    "total_tokens": 44683,
+    "thinking_tokens": 4390,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ulf Arne Girhammar"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "One-dimensional and linear elastic material behavior (Euler-Bernoulli beam theory).",
+      "Partial composite action theory based on the Stüssi-Granholm-Newmark-Pleshkov model.",
+      "Linear relationship between interlayer shear force per unit length and interlayer slip (Vs = K * Delta_u) using a constant slip modulus K (or secant modulus under static loading).",
+      "Mechanical fasteners are uniformly distributed along the beam length.",
+      "Axial load acts at the centroid of the fully composite cross-section, producing uniform axial strain without inducing bending."
+    ],
+    "control_variables": [
+      "Linear elastic conditions and constant slip modulus K.",
+      "Uniform fastener spacing along the beam length.",
+      "Euler boundary condition configurations (free-clamped, pinned-pinned, pinned-clamped, clamped-clamped)."
+    ],
+    "dependent_variables": [
+      "Transverse deflection w(x) and maximum deflection w_max (or effective deflection w_eff,max).",
+      "Effective composite bending stiffness EI_eff.",
+      "Internal normal forces Ni and maximum normal stresses sigma_i,max.",
+      "Internal bending moments Mi.",
+      "Internal shear forces Vi and maximum shear stresses tau_i,max.",
+      "Interlayer shear/slip force per unit length Vs and maximum slip force Vs,max.",
+      "Fastener shear force Fs and interlayer slip Delta_u.",
+      "Neutral axis positions zna,i and hna,i.",
+      "Percentage error between approximate and exact solutions."
+    ],
+    "doi": "10.1016/j.ijmecsci.2009.05.003",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "An effective composite bending stiffness (EI_eff) can be formulated to replace fully composite stiffness in static beam expressions by incorporating a composite action parameter, a relative bending stiffness parameter, and the buckling length corresponding to the column buckling problem.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          4,
+          14
+        ]
+      },
+      {
+        "claim": "Interlayer slip causes the effective bending stiffness to transition continuously between non-composite (lower bound) and fully composite (upper bound) stiffness based on interface connection stiffness.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Evaluating effective beam length via column buckling length yields deflection predictions with errors typically under 5% across various boundary conditions, substantially outperforming Eurocode 5 estimates for propped and clamped boundaries.",
+        "evidence_type": "comparative analytical validation",
+        "page_numbers": [
+          1,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "Simplified effective stiffness methods yield acceptable agreement for deflections and normal stresses (errors usually below 5%) but show higher errors (around 10% to 20%) for interlayer slip forces and shear stresses.",
+        "evidence_type": "comparative numerical validation",
+        "page_numbers": [
+          1,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Extending the simplified analysis and design procedure to multi-layered composite beams, especially three-layered members.",
+      "Extending the method to multiple stringer or joist systems with decking or sheathing.",
+      "Incorporating gaps in the decking or sheathing into the analysis.",
+      "Developing correction factors specifically for calculating interlayer shear forces.",
+      "Conducting sensitivity analyses across a broader range of practical cases prior to code implementation."
+    ],
+    "independent_variables": [
+      "Boundary conditions (free-clamped, pinned-pinned, pinned-clamped, clamped-clamped).",
+      "Effective beam length / buckling length coefficient mu.",
+      "Beam span length L.",
+      "Transverse loading type and magnitude (uniformly distributed load q0, midspan concentrated load Q).",
+      "Non-dimensional partial composite action parameter alpha*L (shear connector stiffness).",
+      "Non-dimensional relative bending stiffness parameter EI0/EI_infty.",
+      "Cross-section geometries, elastic moduli of individual sub-elements, fastener slip modulus K, and fastener spacing s.",
+      "Longitudinal coordinate x and depth coordinate z."
+    ],
+    "limitations_inferred": [
+      "The mechanical formulation is restricted to small-deflection, linear elastic Euler-Bernoulli assumptions and does not account for cross-sectional warping or shear deformation within individual layers.",
+      "Non-linear interfacial behavior (e.g., fastener yield, plastic slip, friction, softening, or hysteresis) is not captured by the constant slip modulus assumption.",
+      "The analysis addresses passive civil engineering beams subjected to external mechanical loads and does not model active actuation, variable contact pressures, or large-strain kinematics relevant to soft robotics."
+    ],
+    "limitations_stated_by_authors": [
+      "The simplified method is less accurate for interlayer shear stresses and slip forces (errors of about 10% to 20%) because they are obtained through differentiation of internal actions.",
+      "The formulations and illustrative cases in this paper are restricted to two-layered beams under linear elastic conditions.",
+      "Point loads induce discontinuous distributions of internal actions, introducing complications for stress quantities obtained by differentiation that are not addressed in this paper.",
+      "Accuracy was somewhat lower for unsymmetrical boundary conditions (e.g., pinned-clamped) than for symmetrical boundary conditions.",
+      "A sensitivity study is recommended before using the method for final design recommendations to ensure accuracy across varied practical cases."
+    ],
+    "main_results": [
+      "Replacing fully composite stiffness EIN with effective bending stiffness EIeff based on column buckling length accurately predicts beam deflections, with errors generally under 5% across various Euler boundary conditions.",
+      "The proposed method eliminates the substantial errors present in the Eurocode 5 procedure (which reached up to ~27-30% for clamped and propped beams due to inaccurate effective length recommendations).",
+      "Choosing the effective beam length as the distance between zero-moment points improves accuracy over Eurocode 5 but remains less accurate than using the column buckling length.",
+      "Normal and shear stresses calculated via the effective stiffness method show good agreement with exact solutions (errors typically under 5%, with some shear stresses up to 11%).",
+      "Interlayer slip force calculations exhibit errors around 14% to 18% in evaluated cases, reflecting the sensitivity of derivatives in approximate methods.",
+      "McCutcheon's composite bending stiffness formula was identified as an approximate special case of the proposed general procedure for simply supported beams."
+    ],
+    "modeling_methods": [
+      "Approximate static analysis replacing fully composite bending stiffness with effective composite bending stiffness in standard beam formulas.",
+      "Determination of effective beam length using the fundamental buckling length coefficient (mu) from the corresponding column buckling problem.",
+      "Exact static formulation based on the governing differential equations of partial composite action (Stüssi-Granholm-Newmark-Pleshkov model) for two-layer beams.",
+      "Closed-form analytical equations for deflections, normal stresses, shear stresses, and interlayer slip forces.",
+      "Navier's and Jouravski's stress formulations adapted for composite sections with partial interaction."
+    ],
+    "performance_metrics": [
+      "Percentage error between approximate (effective) predictions and exact analytical solutions for deflections, normal stresses, shear stresses, and interlayer slip forces.",
+      "Normalized maximum deflection ratio (w_max / w_infty,max).",
+      "Normalized maximum normal stress ratio (sigma_2,max / sigma_2,infty,max).",
+      "Normalized maximum shear stress ratio (tau_2,max / tau_2,infty,max).",
+      "Normalized maximum interlayer slip force ratio (Vs,max / Vs,infty,max)."
+    ],
+    "possible_gap_implications": [
+      "The analytical relationship between shear connector compliance (interlayer slip modulus) and overall effective bending stiffness could provide a theoretical modeling foundation for friction-based or layer-jamming variable-stiffness structures in robotics.",
+      "Adapting this civil engineering framework to soft robotics or continuum manipulators would require extending the model beyond small-deflection Euler-Bernoulli assumptions to encompass geometric non-linearities, hyperelastic materials, and actively modulated interlayer normal pressures."
+    ],
+    "research_objective": "To develop a simplified, general static analysis and design method for predicting deflections, internal actions, and stresses in partially composite beams with interlayer slip under arbitrary boundary, loading, and linear material/geometrical conditions, using an effective bending stiffness based on the corresponding column buckling length.",
+    "research_problem": "Exact analytical procedures for partially composite beams with interlayer slip are complex, cumbersome, and computationally demanding for practical engineering design, while existing simplified methods (such as Eurocode 5) are restricted or inaccurate for boundary conditions other than simply supported beams.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "partial composite action",
+      "interlayer slip",
+      "flexible shear connection with mechanical connectors (studs, screws, and nails)"
+    ],
+    "title": "A simplified analysis method for composite beams with interlayer slip",
+    "year": "2009"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "source": {
+    "paper_id": "99721ae369",
+    "filename": "1990-The deformation of composite beams with discrete flexible connection.pdf",
+    "sha256": "99721ae36938f6f5d6cb1512022de056983854f3744c62b6d27ceeb950c0e932",
+    "page_count": 16,
+    "char_count": 23724,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 22016,
+    "completion_tokens": 5620,
+    "total_tokens": 27636,
+    "thinking_tokens": 3748,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "H. D. Wright"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Shear deformation in solid beam sections is assumed to be very small and is neglected in overall deformation calculations.",
+      "Existing analytical closed-form solutions assume continuous (smeared) and linearly elastic connection stiffness along the beam.",
+      "Folded plate analysis treats concrete slab segments and steel beam components as elastic plates under three-dimensional elasticity.",
+      "The discrete connection interface is modeled as a free-slip boundary with discrete longitudinal reaction forces matched to empirical non-linear push-off load-slip relations.",
+      "Plastic section analysis assumes rigid-plastic behavior to compute upper-bound ultimate capacity of partially composite sections.",
+      "Standard linear methods assume connection stiffness evaluated as the secant modulus at 50% of the ultimate connector capacity."
+    ],
+    "control_variables": [
+      "Simply supported boundary conditions on roller supports.",
+      "Four-point loading arrangement with spreader beams across the slab width.",
+      "Defined steel beam profiles and profiled metal deck slab configurations across the test matrix."
+    ],
+    "dependent_variables": [
+      "Central beam deflection.",
+      "Longitudinal slip between concrete slab and steel beam along the span.",
+      "Beam secant stiffness at working load relative to theoretical fully composite stiffness.",
+      "Shear connector forces and non-linear load-slip behavior.",
+      "Ultimate load capacity and ductile failure mode."
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Discrete flexible shear connectors exhibit pronounced non-linear load-slip behavior in push-off tests, influenced by profiling geometry, reduction of concrete confinement in narrow troughs, and discrete separation by steel sheeting.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Four-point bending experiments on composite beams demonstrate that discrete flexible connections result in significant non-linear slip concentrated toward beam ends, leading to additional overall beam deflection.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          2,
+          3,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Standard closed-form and linear continuous connection models underestimate the stiffness of composite beams with partial interaction at working load levels and overestimate maximum end slip.",
+        "evidence_type": "modeling and simulation",
+        "page_numbers": [
+          6,
+          7,
+          12,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "An extended folded plate method incorporating a free-slip interface and iteratively applied discrete non-linear stud reactions accurately captures three-dimensional beam deformation and the flattening of slip distributions near supports.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          8,
+          9,
+          12,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "Connector stiffness within composite beams subjected to bending appears higher than that determined from pure shear push-off specimens, likely due to friction from support reactions and compressive bending confinement around connector heads.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          12,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Push-off test rigs: standard CP 117 push-off configuration and modified through-deck push-off specimens with profiled metal sheets.",
+      "Full-scale simply supported beam testing facility with roller supports and four-point loading via spreader beams.",
+      "Deflection and displacement transducers measuring central vertical deflection and longitudinal interfacial slip at discrete intervals along the span.",
+      "Eight full-scale composite beams tested with varying spans, decking types, and through-deck welded stud configurations."
+    ],
+    "future_work": [
+      "Investigating the mechanisms causing higher connector stiffness in beams relative to push-off tests.",
+      "Examining the influence of cross-beam hogging action in the concrete slab over the steel beam.",
+      "Conducting push-off tests with larger slab portions and six connectors instead of four.",
+      "Testing full-scale composite beams under negative (hogging) moment conditions over the beam.",
+      "Assessing the feasibility of reducing the standard code minimum interaction threshold below 50%."
+    ],
+    "independent_variables": [
+      "Degree of shear connection / design interaction (ratio of shear connectors relative to full interaction).",
+      "Profiled steel decking profile and trough geometry (e.g., standard CP 117, PMF cf 46 with stud at front or rear of trough, Metecno 55, Robertsons QL 60, Holorib).",
+      "Connector position along the span.",
+      "Applied load magnitude."
+    ],
+    "limitations_inferred": [
+      "The findings are derived specifically from static four-point bending of civil engineering structural composite beams and cannot be assumed to transfer directly to dynamic, cyclic, or robotic flexural systems without further verification.",
+      "The paper does not investigate soft robotic actuators, continuum robots, or miniaturized mechanical devices.",
+      "The uncoupled characterization of shear connectors through pure-shear push-off tests fails to capture normal stress and friction interactions present in flexural beam assemblies."
+    ],
+    "limitations_stated_by_authors": [
+      "The extended folded plate method requires iterative solution of a large system of simultaneous equations (four times the node count), making it computationally demanding and restricted to large computing platforms.",
+      "Individual connector forces could not be directly measured within the full-scale beam tests and could only be approximated by correlating measured slip with separate push-off curves.",
+      "The author's method underestimates the maximum end slip despite capturing the flattening of the slip curve near supports.",
+      "Existing closed-form analytical methods rely on the assumptions of linear connection stiffness and continuous smearing along the span, which are invalid for discrete flexible connectors."
+    ],
+    "main_results": [
+      "Through-deck welded shear studs show significant non-linearity in load-slip response during push-off tests, with reduced stiffness and strength compared to solid slab connectors.",
+      "In full-scale beam tests, slip between slab and beam causes marked additional deflection, with slip increasing towards the ends where shear forces are highest.",
+      "Beam failure across all eight full-scale tests was ductile, driven by steel yielding in the lower flange following substantial interfacial slip.",
+      "Linear and continuous connection models underestimate composite beam secant stiffness at working load levels and overestimate maximum end slip.",
+      "The author's non-linear discrete folded plate analysis provides closer agreement with experimental beam stiffness and captures the slip redistribution flattening observed near the beam supports.",
+      "Connection stiffness evaluated in full-scale beams is noticeably higher than the secant stiffness measured in isolated push-off tests."
+    ],
+    "modeling_methods": [
+      "Folded plate method extended to model discrete non-linear connection with free-slip interfaces and iterative stud reactions.",
+      "Plastic section analysis for ultimate flexural capacity.",
+      "Engineers' bending theory with modular ratio approach (assuming zero slip).",
+      "Empirical linear interaction modification based on degree of interaction (Johnson).",
+      "Closed-form second-order differential equations assuming continuous linear elastic connection (Newmark et al.; Johnson).",
+      "Finite difference formulation for partial interaction (Roberts).",
+      "Finite element analysis with discrete connector elements (Jefferson; Al-Hayderi)."
+    ],
+    "performance_metrics": [
+      "Central vertical beam deflection (mm).",
+      "Interfacial slip along the beam span and end slip (mm).",
+      "Secant stiffness at working load as a percentage of theoretical fully composite stiffness (%).",
+      "Total load capacity (kN) and distributed load capacity (kN/m²).",
+      "Degree of interaction (N/Nf).",
+      "Connector secant modulus (kN/mm²)."
+    ],
+    "possible_gap_implications": [
+      "Discrete non-linear interface modeling could be explored in layered compliant structures and multi-material beams where continuous bonding assumptions fail to capture localized slip and curvature redistribution.",
+      "Pure-shear characterization of flexible connections can underestimate in-situ interfacial stiffness when normal compressive stresses and confinement are present, suggesting the need for coupled interface models in composite flexural systems."
+    ],
+    "research_objective": "To investigate the effect of discrete flexible shear connection and partial interaction on the stiffness, deformation, and load-slip response of composite beams formed with profiled metal decking, and to present and validate a non-linear folded plate analysis method capable of modeling discrete connector behavior.",
+    "research_problem": "In composite beams designed with partial interaction—particularly those with profiled steel sheeting—discrete flexible shear connectors display non-linear load-slip behavior, causing additional beam deflection and slip that conventional analytical methods (which assume continuous and linear connection) fail to predict accurately.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "discrete flexible connection",
+      "shear connectors",
+      "through-deck welded studs",
+      "partial interaction"
+    ],
+    "title": "The Deformation of Composite Beams with Discrete Flexible Connection",
+    "year": "1990"
+  }
+}

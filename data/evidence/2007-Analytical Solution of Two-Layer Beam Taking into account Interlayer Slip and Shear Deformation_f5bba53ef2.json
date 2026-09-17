@@ -1,0 +1,172 @@
+{
+  "source": {
+    "paper_id": "f5bba53ef2",
+    "filename": "2007-Analytical Solution of Two-Layer Beam Taking into account Interlayer Slip and Shear Deformation.pdf",
+    "sha256": "f5bba53ef26fba82fd15cd77fb2747952132d7414a9a3af0b23e41efef1a2a5c",
+    "page_count": 9,
+    "char_count": 42612,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28299,
+    "completion_tokens": 7429,
+    "total_tokens": 35728,
+    "thinking_tokens": 4758,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Simon Schnabl",
+      "Miran Saje",
+      "Goran Turk",
+      "Igor Planinc"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Materials of both layers are linear elastic.",
+      "Displacements, strains, and rotations are assumed to be small.",
+      "Transverse shear deformations are accounted for in both layers using the Timoshenko beam theory (Reissner one-dimensional model).",
+      "Strains vary linearly over the depth of each individual layer (Bernoulli hypothesis for strain distribution within each layer).",
+      "Layers are continuously connected along the interface with a constant slip modulus K.",
+      "Friction between the layers is not considered.",
+      "Cross-sectional shapes are symmetrical with respect to the plane of deformation and remain unchanged in form and size during deformation.",
+      "Tangential slip can occur at the interface, but no delamination or transverse separation between layers is permitted (equal transverse deflections of layers at the contact line).",
+      "Shear coefficient ky is taken as 5/6 for rectangular cross sections of isotropic material."
+    ],
+    "control_variables": [
+      "Simply supported boundary conditions at beam ends.",
+      "Uniformly distributed transverse load (pz).",
+      "Beam length L and total cross-sectional depth h (fixed for specific parametric runs).",
+      "Assumed shear coefficient ky = 5/6.",
+      "Linear elastic constitutive relations for layer axial, shear, and bending responses.",
+      "Zero interlayer separation / delamination constraint (wa = wb)."
+    ],
+    "dependent_variables": [
+      "Vertical deflections along the span and at midspan (w, wT, wB).",
+      "Interlayer slip along the contact interface (Delta).",
+      "Normal contact traction (pn) and tangential contact traction (pt).",
+      "Axial forces (Na, Nb), shear forces (Qa, Qb), and bending moments (Ma, Mb) in each layer.",
+      "Total axial force (N), shear force (Q), and bending moment (M).",
+      "Extensional strains (epsilon_a, epsilon_b), pseudocurvatures (kappa_a, kappa_b), and transverse shear strains (gamma_a, gamma_b).",
+      "Longitudinal normal stress distribution (sigma_xx) and tangential/shear stress distribution (sigma_xz) over the beam depth."
+    ],
+    "doi": "10.1061/ASCE0733-94452007133:6886",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The analytical model derives exact solutions for a two-layer beam by formulating governing equations that couple interlayer slip and transverse shear deformation into a system of two higher-order linear differential equations for slip and normal contact traction.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Transverse shear deformation significantly increases vertical deflections in composite beams with small span-to-depth ratios (L/h <= 5), high flexural-to-shear moduli ratios (E/G >= 8.67), and high interlayer connection stiffness (K).",
+        "evidence_type": "parametric_study",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "claim": "For timber composite beams (E/G = 16), transverse shear increases midspan deflection by approximately 15.4% at L/h = 10, between 19.2% and 59.5% at L/h = 5, and up to over 250% for short beams (L/h = 3) with stiff connections.",
+        "evidence_type": "parametric_study",
+        "page_numbers": [
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "claim": "For beams with flexible shear connections (K between 0.001 and 1 kN/cm2), deflections can reach up to 3.5 times those of rigidly connected layered beams, confirming that partial interaction models are necessary.",
+        "evidence_type": "parametric_study",
+        "page_numbers": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Shear deformation substantially redistributes layer shear forces when layer depths are highly unequal (ha/hb <= 0.1), increasing layer shear forces up to 2.8 times compared to classical Euler-Bernoulli predictions for flexible connections.",
+        "evidence_type": "parametric_study",
+        "page_numbers": [
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "Classical solid beam models underestimate peak normal and shear stresses; in non-stiff connections, maximum tangential stresses can exceed solid beam predictions by up to 25%, exhibiting a piecewise quadratic shear stress profile and zig-zag linear normal stress distribution.",
+        "evidence_type": "parametric_study",
+        "page_numbers": [
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Span-to-depth ratio (L/h, evaluated across values including 3, 5, 10, and 15).",
+      "Interlayer slip modulus (K, varied from 0.001 to 1000 kN/cm2).",
+      "Flexural-to-shear moduli ratio (E/G, evaluated for 2.68, 8.67, 16, 20, and 100).",
+      "Layer depth ratio (ha/hb, varied across asymmetric layer thicknesses)."
+    ],
+    "limitations_inferred": [
+      "No physical experimental testing was conducted in the paper to experimentally validate the analytical derivations against measured specimen data.",
+      "The analytical solution is derived only for two-dimensional planar beams under simply supported boundary conditions and uniform distributed loading.",
+      "Dynamic loading, time-dependent effects (such as creep or relaxation), inelastic material behavior, and damage/debonding progression are not addressed."
+    ],
+    "limitations_stated_by_authors": [
+      "The formulation is restricted to geometrically and materially linear behavior under small displacements, small rotations, and small strains.",
+      "The Bernoulli hypothesis of linear strain distribution across the depth of each individual layer is assumed.",
+      "The connection between layers is assumed continuous with a constant slip modulus, without modeling discrete shear connectors.",
+      "Friction between the layers is not considered.",
+      "Delamination or transverse separation between the layers is assumed impossible (normal deflections of the layers at the interface are identical).",
+      "Higher-order deformation modes such as cross-sectional bulging and warping are omitted (only first-iteration Reissner/Timoshenko shear deformation is modeled).",
+      "Cross sections must be symmetrical with respect to the plane of deformation and remain unchanged in shape and size.",
+      "Closed-form analytical expressions were obtained using Mathematica but are too lengthy and complex to present explicitly in the paper."
+    ],
+    "main_results": [
+      "An exact analytical formulation was developed for two-layer composite beams incorporating both interlayer slip and transverse shear deformation via Timoshenko beam kinematics.",
+      "The effect of shear deformation on vertical deflections is more pronounced for short beams (small L/h), materials with high E/G ratios (e.g., timber or composites), and stiff interlayer connections (high K).",
+      "For isotropic metallic beams (E/G = 2.68 to 2.86), shear deformations contribute only 0.3% to 8.3% to vertical deflections for 5 <= L/h <= 15, meaning shear effects can generally be neglected except for very short beams (L/h <= 3) with high K.",
+      "For glass-fiber-reinforced unidirectional composite beams (E/G = 8.67), shear effects on deflection are under 8.4% for L/h >= 10, but increase to between 10.4% and 32.9% for L/h = 5, and reach up to 85% for short, rigidly connected beams.",
+      "For timber beams (E/G = 16), the shear contribution to midspan deflection reaches ~15.4% at L/h = 10, between 19.2% and 59.5% at L/h = 5, and over 250% at L/h = 3.",
+      "In slender composite beams (L/h >= 10) with K >= 10 kN/cm2, tangential contact tractions are approximately 20 times higher than normal contact tractions, and shear deformation impacts this ratio by over 29%.",
+      "For beams with asymmetric layer thicknesses (ha/hb <= 0.1) and flexible joints (K = 0.1 kN/cm2), layer shear forces can be 2.5 to 2.8 times greater than those predicted by Euler-Bernoulli beam theory.",
+      "Eurocode 5 deflection equations agree with the Euler-Bernoulli model for low (0.001 to 10 kN/cm2) and high (100 to 1000 kN/cm2) slip moduli, but differ by up to 22.5% in the intermediate range (10 to 100 kN/cm2).",
+      "Contact stiffness governs stress distributions: normal stresses follow a zig-zag linear pattern, and tangential stresses show a piecewise quadratic distribution that can exceed solid beam values by 25% for flexible connections."
+    ],
+    "modeling_methods": [
+      "Linear elastic Timoshenko beam theory incorporating transverse shear deformation in each layer via Reissner's one-dimensional beam kinematics.",
+      "Formulation of a system of 21 differential and algebraic governing equations combining kinematics, section equilibrium, constitutive equations, and interface constraints.",
+      "Derivation of a coupled system of two higher-order linear ordinary differential equations with constant coefficients for interlayer slip and normal contact traction.",
+      "Exact analytical solution of the differential equation system obtained using symbolic computation in Mathematica.",
+      "Global tangent stiffness matrix formulation to resolve boundary displacements, rotations, and end forces."
+    ],
+    "performance_metrics": [
+      "Ratio of Timoshenko vertical deflection to Euler-Bernoulli vertical deflection (wT / wB).",
+      "Deflection ratios relative to rigidly connected composite beams (wB / wB*, wT / wT*, wT / wB*).",
+      "Comparison ratios with Eurocode 5 empirical predictions (EC5 / wB, EC5 / wT).",
+      "Ratios of Timoshenko to Euler-Bernoulli static and kinematic quantities (wT/wB, Delta_T/Delta_B, phi_aT/phi_aB, phi_bT/phi_bB, epsilon_aT/epsilon_aB, epsilon_bT/epsilon_bB, NaT/NaB, kappa_aT/kappa_aB, pnT/pnB).",
+      "Ratio of tangential to normal contact tractions (pt / pn).",
+      "Longitudinal normal stress (sigma_xx) and tangential shear stress (sigma_xz) profiles across beam depth."
+    ],
+    "possible_gap_implications": [
+      "The analytical framework for modeling multi-layer structures with partial interlayer slip and transverse shear deformation could be adapted to model flexible layered composite segments, tendon friction, or layer-jamming mechanisms in continuum and soft robotic structures, provided it is extended to large deformations, non-linear material laws, and dry/Coulomb friction.",
+      "The paper's explicit assumption of small deformations and linear elasticity indicates a research gap for applications requiring large deflections, rotations, or delamination, which are critical in continuum and soft robotics."
+    ],
+    "research_objective": "To formulate a mathematical model and derive an exact analytical solution for geometrically and materially linear two-layer planar beams accounting for both interlayer slip and transverse shear deformation in each layer, and to evaluate through parametric studies the influence of shear deformations on static and kinematic quantities under various material and geometric configurations.",
+    "research_problem": "Existing exact analytical models for composite beams with partial interaction (interlayer slip) rely on the classical Euler-Bernoulli hypothesis, thereby neglecting transverse shear deformation, which leads to inaccurate predictions of deflections, stresses, and internal forces in short or thick composite beams and beams with large flexural-to-shear rigidity ratios.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Analytical Solution of Two-Layer Beam Taking into account Interlayer Slip and Shear Deformation",
+    "year": "2007"
+  }
+}

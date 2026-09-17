@@ -1,0 +1,148 @@
+{
+  "source": {
+    "paper_id": "c9bf5cb21f",
+    "filename": "2013-Exact finite elements for multilayered composite beam-columns with partial interaction.pdf",
+    "sha256": "c9bf5cb21f42b0e704ab206253bfb9a713f50b9e242646bf80ab9cf3d4f90f77",
+    "page_count": 10,
+    "char_count": 45516,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29641,
+    "completion_tokens": 5959,
+    "total_tokens": 35600,
+    "thinking_tokens": 4140,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "João Batista M. Sousa Jr"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic material behaviour for all layers (sigma_i = E_i * epsilon_i and tau_i = G_i * gamma_i).",
+      "Plane sections remain plane for each component layer.",
+      "Equal transverse displacement v(x) and section rotation theta(x) across all layers at any cross section.",
+      "Reference axis of each layer passes through the centroid of that component.",
+      "Interface shear force per unit length is directly proportional to interlayer slip (dSi/dx = K_i * s_i).",
+      "Constant transverse shear strain across all constituent layers and the cross section in the Timoshenko beam formulation (gamma_i = gamma = V / GA_0)."
+    ],
+    "control_variables": [
+      "Material elastic moduli (e.g., concrete E = 34,500 MPa and steel E = 200,000 MPa; uniform E = 50,000 MPa; or uniform E = 200,000,000 kPa in numerical examples).",
+      "Poisson ratios (e.g., nu = 0.2 for concrete, nu = 0.3 for steel).",
+      "Cross-sectional shear correction factors (taken as 5/6 or unity)."
+    ],
+    "dependent_variables": [
+      "Interlayer slip distributions and end slip values (s_i).",
+      "Transverse displacements and maximum deflections (v, v_max).",
+      "Section curvatures (kappa).",
+      "Internal bending moments (M, M_max).",
+      "Cross-section rotations (theta).",
+      "Axial displacements of individual layers (u_i)."
+    ],
+    "doi": "10.1016/j.compstruc.2013.04.008",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Conventional displacement-based finite elements for partially connected composite beams are susceptible to slip, curvature, and shear locking caused by inconsistent polynomial field expansions across coupled axial, transverse, and slip degrees of freedom.",
+        "evidence_type": "review",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "The governing differential equations for multilayered beams with partial interaction can be formulated purely in terms of interlayer slip variables, yielding an uncoupled system of second-order ordinary differential equations that remains independent of whether Euler-Bernoulli or Timoshenko kinematics are selected.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "An exact finite element can be formulated by analytically integrating the slip differential equations on a statically determinate basic system, forming the flexibility matrix, and inverting it via static-kinematic transformations to obtain the global stiffness matrix.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The exact finite element formulation remains completely locking-free even under very high interface stiffness conditions (e.g., alpha*L = 383.246), where conventional displacement-based elements suffer from severe slip and curvature locking.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "In shear-flexible composite beams with partial interaction, conventional displacement-based Timoshenko elements exhibit slower convergence and require significantly finer meshes to accurately predict support bending moments than shear-rigid Euler-Bernoulli formulations.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Number of constituent layers (3-layer, 4-layer, and 5-layer beams).",
+      "Interface connection shear stiffness (K_i values ranging from 5,000 kPa up to 4,000,000 MPa).",
+      "Kinematic beam model (Euler-Bernoulli shear-rigid vs. Timoshenko shear-flexible).",
+      "Beam boundary conditions (simply supported, continuous over intermediate supports, and clamped-supported).",
+      "Applied static loading conditions (point loads, uniform distributed loads, end bending moments, and axial compressive loads).",
+      "Mesh refinement and element interpolation order in comparison models (2, 4, and 20 elements; linear, quadratic, and cubic interpolations)."
+    ],
+    "limitations_inferred": [
+      "No physical experimental validation is conducted in the study; evaluation relies entirely on comparison with analytical solutions and existing numerical formulations.",
+      "Geometric non-linearities and large deflections are not accounted for in the derivation.",
+      "Interlayer separation or normal uplift is neglected by enforcing identical transverse displacement across all layers.",
+      "The study addresses civil engineering composite structural elements (e.g., steel-concrete and timber) rather than robotic mechanisms, continuum manipulators, or soft actuators."
+    ],
+    "limitations_stated_by_authors": [
+      "Closed-form analytical expressions cannot be directly written down for general multilayered beams with three or more slipping planes because numerical evaluation of eigenvalues and eigenvectors of matrix D is required.",
+      "Transverse displacement and section rotation are assumed identical across all layers, which prevents modeling different layer curvatures in shear-flexible beams.",
+      "Analytical derivation of the flexibility matrix relies on a statically determinate basic coordinate system with constant transverse shear force along the element, requiring equivalent load vectors for distributed element loads.",
+      "Formulation is restricted to linear elastic materials and linear connection stiffness."
+    ],
+    "main_results": [
+      "A new exact finite element formulation was successfully derived and implemented for multilayered composite beams with an arbitrary number of layers and partial interaction.",
+      "The formulation delivers exact nodal solutions and eliminates slip locking, curvature locking, and shear locking without requiring mesh refinement or artificial smoothing.",
+      "The element seamlessly accommodates both Euler-Bernoulli and Timoshenko beam theories with only minor modifications in the rotation and transverse displacement relationships.",
+      "Benchmark comparisons show that a single proposed element outperforms standard displacement-based elements, which require fine meshes to capture bending moments and slip profiles accurately."
+    ],
+    "modeling_methods": [
+      "System of second-order ordinary differential equations formulated in terms of interlayer slip variables.",
+      "Eigenvalue decomposition for decoupling the governing system of differential equations.",
+      "Euler-Bernoulli (shear-rigid) beam kinematics.",
+      "Timoshenko (shear-flexible) beam kinematics.",
+      "Flexibility-based exact finite element formulation using a statically determinate coordinate system.",
+      "Direct stiffness method via inversion of the flexibility matrix and static-kinematic transformation matrices.",
+      "Displacement-based finite elements (linear, quadratic, and cubic field interpolations) for comparative benchmark analyses."
+    ],
+    "performance_metrics": [
+      "End slip magnitudes (s_i in mm).",
+      "Midpoint and maximum transverse displacements (v_max in mm or m).",
+      "Intermediate support bending moments (M_max in kNm).",
+      "Convergence rate with respect to mesh refinement.",
+      "Absence of slip locking, curvature locking, and shear locking under high connection stiffnesses."
+    ],
+    "possible_gap_implications": [
+      "The exact finite element modeling methodology for multilayered beams with partial interaction could provide a rigorous theoretical framework for simulating multi-layer friction or layer-jamming mechanisms used in variable-stiffness continuum robots and soft grippers.",
+      "Eliminating slip and shear locking under high interface stiffness could resolve numerical stiffening instabilities when modeling transitions between free-sliding (flexible) and fully jammed (rigid) states in soft robotics.",
+      "Extending this formulation to incorporate large deflections, geometric non-linearities, and unilateral contact (interlayer uplift and non-linear frictional contact) is an open research need for soft robotic continuum applications."
+    ],
+    "research_objective": "To develop a new finite element formulation based on the analytical solution of the differential equations for partially connected multilayered composite beams and beam-columns, generalizing two-layer formulations to an arbitrary number of layers under Euler-Bernoulli and Timoshenko kinematics without locking phenomena.",
+    "research_problem": "Conventional displacement-based finite elements for partially connected composite beams are susceptible to slip, curvature, and shear locking due to inconsistent field interpolations, while existing exact analytical and finite element formulations have largely been restricted to two-layer systems rather than general multilayered composite beams.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Exact finite elements for multilayered composite beam-columns with partial interaction",
+    "year": "2013"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "source": {
+    "paper_id": "2ad029e62c",
+    "filename": "2008-Locking problems in the partial interaction analysis of multi-layered.pdf",
+    "sha256": "2ad029e62c20c7581f0a210fb66badf66e564e7feb82a3f924320411299e62d6",
+    "page_count": 12,
+    "char_count": 41750,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27909,
+    "completion_tokens": 11174,
+    "total_tokens": 39083,
+    "thinking_tokens": 9202,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Gianluca Ranzi"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Euler-Bernoulli beam theory applies to all individual layers, meaning plane sections remain plane, rigid, and perpendicular to the beam axis after deformation, with discontinuities only at the interface connections.",
+      "No vertical separation occurs between adjacent layers.",
+      "Linear-elastic material behavior in both tension and compression across all cross-sectional materials.",
+      "Linear-elastic behavior for the longitudinal interface shear connections, where interface shear flow per unit length is directly proportional to slip (qzj = kzj * szj).",
+      "Cross-section is symmetric about the plane of bending, with no torsional or out-of-plane flexural effects considered.",
+      "Stress-independent inelastic strains (e.g., thermal, prestressing) are linearly superposed."
+    ],
+    "control_variables": [
+      "Cross-sectional dimensions of the three-layered beam: concrete slab (2000 mm x 180 mm with 1% reinforcement), fabricated steel joist (flanges 250 mm x 16 mm, web 660 mm x 10 mm), longitudinal plate (250 mm x 16 mm).",
+      "Material elastic moduli: 210,000 MPa for steel joist, plate, and reinforcement; concrete compressive strength f'c of 32 MPa at 28 days.",
+      "Static uniformly distributed loading condition.",
+      "Number of layers (n = 3 in application examples)."
+    ],
+    "dependent_variables": [
+      "Vertical deflection v(z) along the beam.",
+      "Longitudinal interface slip szj(z) between adjacent layers.",
+      "Curvature distribution kappa(z) and occurrence of curvature locking.",
+      "Bending moment distribution M(z).",
+      "Axial force distributions in the constituent layers."
+    ],
+    "doi": "10.1016/j.engstruct.2008.04.006",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A weak formulation based on virtual work and strong form via integration by parts accurately model partial interaction in generic multi-layered composite beams interconnected by deformable interface connections.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Displacement-based finite elements with (2n + 4) degrees of freedom using cubic vertical deflection and linear axial displacement polynomials suffer from curvature locking when interface shear stiffness is high, because the vanishing slip condition artificially forces deflection to degenerate into a quadratic polynomial with constant curvature.",
+        "evidence_type": "algebraic demonstration",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Increasing the approximation order of axial displacements to parabolic polynomials in (3n + 4) degrees of freedom elements successfully eliminates curvature locking without artificially constraining the deflection polynomial.",
+        "evidence_type": "algebraic demonstration",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "For three-layered beams subjected to uniformly distributed loads across simply supported, propped cantilever, and fixed-ended conditions, the 10dof element exhibits artificial stiffness and severe errors in slip and moment under high shear connection rigidity, whereas the 13dof element provides robust and accurate results even with coarse discretisation.",
+        "evidence_type": "computational simulation",
+        "page_numbers": [
+          1,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Dimensionless interface shear connection stiffness parameter gamma_j*L (ranging from low rigidity gamma_j*L = 1 to high rigidity gamma_j*L = 50).",
+      "Structural boundary conditions (simply supported, propped cantilever, and fixed-ended beams).",
+      "Finite element formulation type and degrees of freedom: (2n + 4)dof / 10dof (linear axial displacement) versus (3n + 4)dof / 13dof (parabolic axial displacement).",
+      "Mesh discretisation level (4 elements versus refined 50 elements).",
+      "Longitudinal coordinate along the beam axis."
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted; results are based strictly on analytical derivations and numerical simulations.",
+      "Does not model geometric nonlinearities or large deformations, which are essential for flexible continuum and soft robotic structures.",
+      "Interfacial behavior is restricted to continuous linear-elastic springs without capturing friction, stick-slip transitions, contact pressure coupling, or delamination/debonding.",
+      "Numerical validation is limited to static uniformly distributed loading on symmetric three-layer configurations, leaving dynamic, cyclic, or localized loading unaddressed."
+    ],
+    "limitations_stated_by_authors": [
+      "Individual layers are assumed to follow Euler-Bernoulli beam theory, neglecting shear deformation within layers, torsional effects, and out-of-plane flexure (p. 2).",
+      "Assumes that no vertical separation occurs between adjacent layers (p. 1).",
+      "Material and interface connection constitutive responses are assumed to be linear-elastic, excluding material nonlinearity (p. 3).",
+      "The (2n + 4)dof finite element formulation suffers from curvature locking when at least one interface shear connection stiffness is high (p. 1, 5, 11)."
+    ],
+    "main_results": [
+      "Algebraically demonstrated that displacement-based finite elements for n-layered composite beams with (2n + 4) degrees of freedom experience curvature locking when at least one interface shear connection has high stiffness, causing the linear curvature variation to degenerate into a constant curvature.",
+      "Proved that adopting parabolic shape functions for axial displacements in (3n + 4) degrees of freedom elements removes the kinematic restraint, thereby preventing curvature locking across all interface stiffness levels.",
+      "Demonstrated through numerical examples of three-layered beams (simply supported, propped cantilever, fixed-ended) that the 10dof element yields excessively stiff deflections and distorted slip and bending moment distributions at high shear rigidities (gamma_j*L = 50).",
+      "Confirmed that the 13dof element maintains high accuracy and numerical stability even with a coarse mesh of 4 elements when benchmarked against a 50-element refined solution.",
+      "Concluded that the use of (3n + 4)dof elements (13dof for three layers) is recommended for partial interaction analysis of multi-layered beams, while (2n + 4)dof elements (10dof for three layers) are discouraged."
+    ],
+    "modeling_methods": [
+      "Principle of virtual work to derive the weak form of the multi-layered partial shear interaction problem.",
+      "Integration by parts to derive the strong form governing differential equations and static/kinematic boundary conditions.",
+      "Euler-Bernoulli beam theory for kinematic modeling of individual layers.",
+      "Continuous linear-elastic interface slip model relating shear flow to longitudinal slip discontinuity.",
+      "Displacement-based finite element formulation: (2n + 4)dof element (cubic deflection, linear axial displacement) and (3n + 4)dof element (cubic deflection, parabolic axial displacement with an internal node).",
+      "Specific three-layered beam finite element models: 10dof and 13dof elements."
+    ],
+    "performance_metrics": [
+      "Accuracy of calculated vertical deflection, interface slip, axial forces, and bending moments relative to a refined 50-element benchmark solution.",
+      "Resistance to curvature locking under high interface shear connection stiffness (gamma_j*L = 50).",
+      "Convergence and numerical robustness under coarse mesh discretisation (4 elements)."
+    ],
+    "possible_gap_implications": [
+      "While developed for structural/civil engineering composite beams, the mathematical treatment of interlayer slip and curvature locking provides foundational insights for modeling multi-layer variable-stiffness structures (e.g., layer jamming) in continuum robotics, though extension to large displacements and nonlinear contact mechanics would be required.",
+      "The formulation assumes continuous linear-elastic connections and zero transverse separation; robotic applications with controllable friction, vacuum-driven pressure, or clamping require modeling normal-pressure-dependent stick-slip and separation."
+    ],
+    "research_objective": "To formulate a generic analytical model (weak and strong forms) for n-layered composite beams with partial shear interaction, derive two displacement-based finite element formulations with (2n + 4) and (3n + 4) degrees of freedom, algebraically demonstrate the occurrence and mechanism of curvature locking, and evaluate the performance of 10dof and 13dof elements across different boundary conditions and interface stiffness levels.",
+    "research_problem": "Curvature locking in displacement-based finite element modeling of multi-layered composite beams with partial shear interaction, where low-order polynomial approximations for layer axial displacements cause artificial stiffening and erroneous curvature distributions when interface shear stiffness is high.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Locking problems in the partial interaction analysis of multi-layered composite beams",
+    "year": "2008"
+  }
+}

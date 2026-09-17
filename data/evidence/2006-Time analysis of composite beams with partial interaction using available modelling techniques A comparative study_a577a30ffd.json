@@ -1,0 +1,173 @@
+{
+  "source": {
+    "paper_id": "a577a30ffd",
+    "filename": "2006-Time analysis of composite beams with partial interaction using available modelling techniques A comparative study.pdf",
+    "sha256": "a577a30ffda18b192aeb732577402a6da296af2b561ec88d421048b9b369fa0f",
+    "page_count": 14,
+    "char_count": 41752,
+    "source_type": "verification",
+    "verification_id": "D1-V005"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26597,
+    "completion_tokens": 7560,
+    "total_tokens": 34157,
+    "thinking_tokens": 5208,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "F. Gara",
+      "G. Ranzi",
+      "G. Leoni"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Reinforcement and steel joist behave in a linear-elastic manner with elastic moduli Er and Es.",
+      "The shear connection between the concrete slab and steel joist is linear-elastic with modulus rho relating shear flow to interface slip.",
+      "The constitutive behavior of concrete is governed by an integral-type creep law, approximated using the age-adjusted effective modulus method (AEMM).",
+      "Euler-Bernoulli hypothesis applies to each component layer (plane sections remain plane) with identical curvature and linear strain distribution, except for an interface slip displacement and slip strain discontinuity (Newmark's model).",
+      "Identical vertical displacement across the composite cross-section without vertical separation or uplift between layers.",
+      "Symmetric cross-section loaded purely in the plane of symmetry, neglecting torsional and out-of-plane effects.",
+      "Quasi-static body and surface forces.",
+      "Only creep effects are considered in numerical evaluations; shrinkage effects are included in the theoretical formulation but neglected in the comparative numerical simulations."
+    ],
+    "control_variables": [
+      "Composite cross-section geometry: reinforced concrete slab of 2300 mm x 230 mm, fabricated steel joist with 300 mm x 20 mm top flange, 1550 mm x 15 mm web, and 450 mm x 30 mm bottom flange.",
+      "Slab reinforcement ratio of 1%.",
+      "Elastic modulus of steel reinforcement and steel joist: 210,000 MPa.",
+      "Concrete cylinder compressive strength f'c of 32 MPa.",
+      "Relative humidity of 70% per CEB-FIB Model Code 1990.",
+      "Loading age of concrete at t0 = 28 days and long-term time evaluation at tf = 25,550 days (70 years).",
+      "Uniformly distributed mechanical loading.",
+      "Uniform spatial grid spacing for FEM and FDM discretization comparisons."
+    ],
+    "dependent_variables": [
+      "Mid-span vertical deflection.",
+      "Interface end slip at roller support.",
+      "Long-term axial force resisted by the concrete slab component.",
+      "Long-term bending moment resisted by the concrete slab component.",
+      "Beam curvature along the length and at critical sections (mid-span or fixed supports).",
+      "Relative numerical error with respect to the exact analytical closed-form solution.",
+      "Inter-element nodal discontinuities (jumps) in axial force and curvature."
+    ],
+    "doi": "10.1016/j.jcsr.2005.11.024",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The direct stiffness method (DSM), derived from analytical solutions of governing differential equations for partial shear interaction, matches the exact closed-form analytical model identically in both instantaneous and time-dependent creep analyses without requiring spatial discretization.",
+        "evidence_type": "analytical / numerical comparison",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          8,
+          13
+        ]
+      },
+      {
+        "claim": "For layered structural members with partial interlayer slip, a 10-degree-of-freedom finite element formulation utilizing parabolic interpolation for axial displacement and slip prevents inter-element nodal jumps and achieves errors below 2% with coarse meshes (4 to 30 elements).",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "An 8-degree-of-freedom finite element formulation utilizing linear interpolation for axial displacement and interface slip suffers from severe inter-element stress and curvature discontinuities (nodal jumps) and fails to achieve acceptable accuracy (<2% error) for curvature even with 100 elements.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "The finite difference method (FDM) accurately captures beam curvature with as few as 9 points (<2% error) but requires a significantly finer uniform mesh (31 points) to resolve localized end slip under high shear connection stiffness.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "When evaluating time-dependent viscoelastic creep using the age-adjusted effective modulus method (AEMM), spatial discretization errors for well-formulated schemes (10 dof FEM and FDM) generally decrease or remain stable over time from instantaneous loading to long-term creep.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          12,
+          13,
+          14
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Investigating non-uniform spatial discretizations (such as mesh refinement near support regions for the finite difference method) to improve computational efficiency.",
+      "Applying the comparative findings to the modeling and design of multi-span continuous composite beam structures."
+    ],
+    "independent_variables": [
+      "Structural modeling technique / numerical formulation (closed-form exact analytical solution, direct stiffness method, 8 dof FEM, 10 dof FEM, FDM).",
+      "Spatial discretization density (number of elements: 4, 6, 8, 10, 12, 16, 20, 30, 40, 60, 80, 100 for FEM; number of discrete points for FDM).",
+      "Shear connection stiffness parameter alpha*L (alpha*L = 1 for weak shear interaction, alpha*L = 50 for high shear interaction).",
+      "Boundary conditions / structural static systems (simply supported beam, propped cantilever beam, fixed-ended beam).",
+      "Time of analysis (instantaneous analysis at t0 = 28 days versus long-term time analysis at tf = 25,550 days)."
+    ],
+    "limitations_inferred": [
+      "No physical experimental testing was conducted to corroborate the analytical benchmark against measured strain, slip, or deflection fields.",
+      "Material non-linearities (such as concrete cracking, concrete compressive crushing, steel yielding, or non-linear shear stud load-slip relationships) were omitted.",
+      "The structural member is restricted to one-dimensional beam kinematics, neglecting cross-sectional shear-lag and transverse warping effects in wide slabs.",
+      "The performance was demonstrated on specific civil engineering beam geometries under static uniform load and may not directly extend to dynamic, cyclic, or complex multi-axial loading states."
+    ],
+    "limitations_stated_by_authors": [
+      "No vertical separation or uplift is permitted between the concrete slab and steel joist.",
+      "Beams are assumed symmetric and loaded strictly in the plane of symmetry, precluding torsional and out-of-plane behaviors.",
+      "Linear-elastic material behavior is assumed for the steel joist, reinforcing steel, and interlayer shear connection.",
+      "Concrete creep superposition is approximated via the age-adjusted effective modulus method (AEMM) rather than a full step-by-step hereditary time integration.",
+      "Shrinkage effects were omitted in the numerical benchmark examples, evaluating creep effects exclusively.",
+      "Uniform mesh discretization was maintained across all simulations without local mesh refinement near boundary supports."
+    ],
+    "main_results": [
+      "The direct stiffness method (DSM) yields solutions identical to the exact analytical closed-form solution across all loading and time stages because its stiffness coefficients are derived directly from the governing differential equations.",
+      "The 10 dof finite element formulation demonstrated superior convergence and robustness, requiring 4 elements for deflection (<2% error), 6 elements for slip, 10 elements for concrete moment, 12 elements for concrete axial force, and 30 elements for curvature under high shear connection stiffness.",
+      "The 8 dof finite element formulation exhibited pronounced unphysical inter-element jumps at nodes for axial force and curvature and failed to achieve 2% accuracy for curvature even at 100 elements; its use was strongly discouraged.",
+      "The finite difference method demonstrated excellent accuracy for curvature (reaching <2% error with only 9 points) and concrete moment/axial force (11 points), but required 31 points for end slip under high shear connection stiffness.",
+      "Discretization errors for both 10 dof FEM and FDM generally decrease or stabilize over time between the instantaneous analysis and long-term creep analysis."
+    ],
+    "modeling_methods": [
+      "Exact analytical model / Closed-form solutions (CFS)",
+      "Direct stiffness method (DSM)",
+      "Finite element method with 8 degrees of freedom (FEM 8 dof)",
+      "Finite element method with 10 degrees of freedom (FEM 10 dof)",
+      "Finite difference method (FDM)",
+      "Age-adjusted effective modulus method (AEMM) for concrete creep modeling",
+      "Newmark's kinematic model for partial interaction with interlayer slip",
+      "Weak and strong variational formulations of the governing differential equations"
+    ],
+    "performance_metrics": [
+      "Percentage relative error evaluated against the exact analytical benchmark solution (with an acceptable error threshold defined as 2%).",
+      "Minimum number of elements (FEM) or grid points (FDM) required to achieve a relative error below 2%.",
+      "Presence and magnitude of unphysical inter-element nodal discontinuities (jumps) in stress resultants and curvature."
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that multi-layer continuum models undergoing interlayer slip require higher-order kinematic interpolations (such as parabolic slip and axial displacement fields) to eliminate spurious inter-element stress discontinuities, providing foundational guidance for finite element formulation of flexible layered or variable-stiffness continuum robotic devices.",
+      "Shows that direct stiffness approaches based on exact differential solutions bypass spatial discretization errors entirely, suggesting potential for computationally efficient simulation of continuum actuators with partial shear interaction.",
+      "Confirms that viscoelastic creep compliance does not aggravate numerical discretization errors when using appropriate displacement formulations, validating simplified algebraic effective-modulus methods for predicting long-term viscoelastic relaxation and drift in layered flexible systems."
+    ],
+    "research_objective": "To compare the accuracy, convergence, and required spatial discretizations of the finite element method (8 dof and 10 dof), finite difference method, direct stiffness method, and exact analytical solutions for instantaneous and long-term creep analyses of composite beams with partial shear interaction, and to quantify how discretization errors evolve over time.",
+    "research_problem": "Evaluating the accuracy, spatial discretization requirements, and error progression of different numerical and analytical modeling formulations for predicting the instantaneous and long-term (creep-affected) structural behavior of composite beams with partial shear interaction.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Time analysis of composite beams with partial interaction using available modelling techniques: A comparative study",
+    "year": "2006"
+  }
+}
