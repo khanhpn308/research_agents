@@ -1,0 +1,556 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "current_p1",
+    "executive_summary",
+    "model_families",
+    "strongest_falsifying_evidence",
+    "strongest_surviving_evidence",
+    "evidence_gap_matrix",
+    "fatal_novelty_conflicts",
+    "unresolved_questions",
+    "track_c_requirements",
+    "search_stop_condition",
+    "final_verdict_allowed",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIED",
+        "SUBSTANTIALLY_NARROWED",
+        "SURVIVES_WITH_REVISED_SCOPE",
+        "SURVIVES_SO_FAR"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "current_p1": {
+      "type": "string"
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "model_families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "family",
+          "papers",
+          "model_type",
+          "what_is_established",
+          "what_is_not_established",
+          "threat_to_p1"
+        ],
+        "properties": {
+          "family": {
+            "type": "string"
+          },
+          "papers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "model_type": {
+            "type": "string"
+          },
+          "what_is_established": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "what_is_not_established": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "threat_to_p1": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          }
+        }
+      }
+    },
+    "strongest_falsifying_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim",
+          "source",
+          "evidence_status",
+          "what_it_proves",
+          "what_it_does_not_prove"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "VERIFIED_FULL_TEXT",
+              "METADATA_ONLY",
+              "INFERENCE"
+            ]
+          },
+          "what_it_proves": {
+            "type": "string"
+          },
+          "what_it_does_not_prove": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "strongest_surviving_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gap",
+          "source_basis",
+          "evidence_status",
+          "why_it_survives",
+          "remaining_uncertainty"
+        ],
+        "properties": {
+          "gap": {
+            "type": "string"
+          },
+          "source_basis": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "VERIFIED_FULL_TEXT",
+              "METADATA_ONLY",
+              "INFERENCE"
+            ]
+          },
+          "why_it_survives": {
+            "type": "string"
+          },
+          "remaining_uncertainty": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence_gap_matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finite_layer_count_scaling",
+        "explicit_interlayer_slip",
+        "independent_layer_count_variation",
+        "pressure_dependence",
+        "curvature_dependence",
+        "bending_stiffness_prediction",
+        "experimental_validation",
+        "quantitative_prediction_error",
+        "continuum_vs_discrete_validation",
+        "tolerance_defined_validity_domain",
+        "breakdown_boundary"
+      ],
+      "properties": {
+        "finite_layer_count_scaling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "explicit_interlayer_slip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "independent_layer_count_variation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "pressure_dependence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "curvature_dependence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "bending_stiffness_prediction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "experimental_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "quantitative_prediction_error": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "continuum_vs_discrete_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "tolerance_defined_validity_domain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        },
+        "breakdown_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "interpretation"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PRESENT",
+                "PARTIAL",
+                "ABSENT",
+                "UNKNOWN"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "interpretation": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "fatal_novelty_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "track_c_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "search_target",
+          "why_it_matters",
+          "falsification_condition",
+          "suggested_queries"
+        ],
+        "properties": {
+          "search_target": {
+            "type": "string"
+          },
+          "why_it_matters": {
+            "type": "string"
+          },
+          "falsification_condition": {
+            "type": "string"
+          },
+          "suggested_queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "search_stop_condition": {
+      "type": "string"
+    },
+    "final_verdict_allowed": {
+      "type": "boolean"
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,1256 @@
+{
+  "schema_version": 1,
+  "batch_id": "B002",
+  "source_matrix": "outputs/literature_matrix.json",
+  "matrix_sha256": "869346a03b1d8a294c7519e667ea51ff3434ff5bae529120e994d5c8e54c31c3",
+  "paper_count": 6,
+  "paper_ids": [
+    "5aedfd2730",
+    "e3ce477955",
+    "6a92ae2d88",
+    "ccc528bd6a",
+    "2938670820",
+    "63719eca8e"
+  ],
+  "papers": [
+    {
+      "paper_id": "5aedfd2730",
+      "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+      "authors": [
+        "Xiong Li",
+        "Wenjie Chen",
+        "Wei Lin",
+        "Kin Huat Low"
+      ],
+      "year": "2018",
+      "doi": "10.1109/TASE.2017.2732729",
+      "robot_type": "variable stiffness robotic gripper",
+      "stiffness_mechanism": [
+        "structure-controlled variable stiffness",
+        "effective second moment of area variation via rotating an inner flexure hinge shaft (RFS) within a stationary flexure hinge housing (SFH)"
+      ],
+      "actuation": [
+        "DC stepper motor with lead screw transmission (right-hand and left-hand threads) for finger opening and closing",
+        "DC stepper motor with non-back-drivable worm gear transmission for rotating the inner flexure hinge shaft"
+      ],
+      "modeling_methods": [
+        "Euler-Bernoulli beam theory under small deflections",
+        "Coordinate transformation of the second moment of area for the rotating shaft",
+        "Hooke's Law and Cartesian stiffness modeling using the superposition principle for multi-section flexures",
+        "Corner-filleted flexure hinge compliance analytical equations (referencing Lobontiu et al.)",
+        "Finite element analysis (FEA) using ANSYS for fatigue life and fatigue sensitivity simulations",
+        "Polynomial regression (degree 7 polynomial) for empirical stiffness curve fitting"
+      ],
+      "performance_metrics": [
+        "Stiffness range ratio (~53.3)",
+        "Stiffness adjustment speed (approx. 0.8 s per 90-degree rotation)",
+        "Fatigue life cycles (1.8 x 10^4 cycles in FEA vs. 10^4 cycle design goal)",
+        "Passive contact force during misalignment (~2.2 N at 17 mm offset)",
+        "Dynamic impact overshoot percentage (~30% overshoot in stiff state vs. 0% in compliant state)",
+        "Grasping success rate across objects ranging from 5.0 g to 500 g"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "Rotating an embedded flexure hinge shaft relative to a stationary flexure housing alters the effective second moment of area, modulating Cartesian stiffness continuously following a cosine curve as a function of the rotation angle.",
+          "evidence_type": "theoretical",
+          "page_numbers": [
+            2,
+            3
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "Adopting corner-filleted flexure hinges of short length instead of uniform leaf springs suppresses lateral buckling during rotation, as the critical buckling load increases inversely with the square of hinge length.",
+          "evidence_type": "theoretical",
+          "page_numbers": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "Non-back-drivable worm gear transmission holds the rotation angle of the inner flexure shaft without requiring active motor torque or electrical power to maintain finger stiffness.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "Finite element analysis in ANSYS predicts a fatigue life of 1.8 x 10^4 cycles under zero-based bending at the lowest stiffness state, exceeding the 10^4 cycle design target.",
+          "evidence_type": "simulation",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "The prototype finger achieved an empirical stiffness range ratio of approximately 53.3, with measured stiffness varying between 0.13 N/mm and 4.99 N/mm over rotation angles from 0 to 63 degrees.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "Fast dynamic grasping at the highest stiffness state caused an instantaneous impact force overshoot of approximately 30%, whereas grasping at the lowest stiffness state exhibited a gradual rise to the target force without overshoot.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "At the lowest stiffness state (0.13 N/mm), the gripper passively accommodated position misalignments up to 17 mm with a contact force of approximately 2.2 N.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "title": "A Variable Stiffness Robotic Gripper Based on Structure-Controlled Principle",
+          "doi": "10.1109/TASE.2017.2732729",
+          "claim": "The gripper successfully grasped eight varied objects spanning 5.0 g to 500 g (including an eggshell, raw egg, tomato, stone, and metal block) under open-loop position control without tactile/force sensors or soft rubber pads.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            8,
+            9
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "author_stated",
+          "text": "The empirical finger stiffness was lower than theoretical predictions due to compliance in the mechanical connections between the finger and the gripper body."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "author_stated",
+          "text": "The dynamic contact force magnitude was constrained by the physical limits of the prototype components."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "author_stated",
+          "text": "The open-loop control scheme requires desired gripping forces, object sizes, and crush thresholds to be predefined or premeasured experimentally before execution."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "author_stated",
+          "text": "Grasping capacity is subject to the payload, size, and motor torque limits of the physical prototype."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "model_inferred",
+          "text": "Open-loop operation requires prior knowledge of object dimensions and crush thresholds; unexpected variations or slip cannot be sensed or corrected on-the-fly."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "model_inferred",
+          "text": "Close mechanical tolerances between the rotating inner shaft and the outer frame are critical; excessive clearance or wear could introduce backlash or degrade stiffness predictability."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "model_inferred",
+          "text": "A 90-degree rotation time of ~0.8 s may constrain applications requiring millisecond-scale on-the-fly stiffness switching during high-speed cycle times."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "source_type": "model_inferred",
+          "text": "Orthogonal arrangement of two flexure sections limits variable compliance primarily to the 2D plane (XY), offering limited compliance to out-of-plane torsional or axial shock loads."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "5aedfd2730",
+          "text": "Implement the variable stiffness finger technology in real industrial applications for sensitive part handling"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "5aedfd2730",
+          "status": "unverified_implication",
+          "text": "Integrating tactile, slip, or proximity sensing could eliminate the dependency on premeasuring object dimensions and crush thresholds, allowing fully autonomous grasping of unmodeled objects."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "status": "unverified_implication",
+          "text": "Extending the flexure mechanism to 3D spatial arrangements could provide multi-axis compliant shock absorption and out-of-plane grasp adaptation."
+        },
+        {
+          "paper_id": "5aedfd2730",
+          "status": "unverified_implication",
+          "text": "Investigating alternative high-speed rotary actuators or lightweight composite alloys could reduce stiffness adjustment time below 0.8 s and increase payload capacity."
+        }
+      ]
+    },
+    {
+      "paper_id": "e3ce477955",
+      "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+      "authors": [
+        "Yin Haibin",
+        "Kong Cheng",
+        "Li Junfeng",
+        "Yang Guilin"
+      ],
+      "year": "2018",
+      "doi": "10.1016/j.mechmachtheory.2018.05.005",
+      "robot_type": "soft robotic gripper",
+      "stiffness_mechanism": [
+        "thermal-induced SMA wire without change in length (four SMA-2 NiTi wires whose Young's modulus transitions from 25 GPa to 48 GPa via phase transformation upon Joule heating)",
+        "stress-induced SMA fiber with super elasticity (SMA-3 NiTi core wire providing base elasticity and elastic restoration)",
+        "structural decoupling of variable stiffness mechanism from actuation mechanism"
+      ],
+      "actuation": [
+        "direct electrothermal actuation",
+        "thermal-induced SMA fiber with contraction in length (SMA-1, NiTi alloy, BMF150)",
+        "tendon-like pulling wire wrapped around pulleys to generate bending torque"
+      ],
+      "modeling_methods": [
+        "Cosserat rod theory (formulating planar equilibrium of a 1D rod under tip point forces, bending moments, and distributed gravity)",
+        "Classical Coulomb friction law for fingertip-object contact mechanics",
+        "Numerical shooting method / iterative step-adjustment algorithm using step sizes Delta F_N = 0.01 N and Delta T_d = 1 Nmm with an error tolerance e_H = 0.1 mm",
+        "Finite element method (FEM) static simulation in ABAQUS for validation"
+      ],
+      "performance_metrics": [
+        "Normal grasping force (F_N, measured in N)",
+        "Percentage increase in maximum grasping force due to variable stiffness activation (48.7% measured, 42.5% simulated)",
+        "Maximum payload gravity sustained before slippage (F_mg, measured in N)",
+        "Fingertip position error (ep in mm) and grasping force error (e_F and e_Fmg in N)",
+        "No-load initiation torque and critical detachment torque (in Nmm)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "Structural decoupling of bending actuation and variable stiffness mechanisms is realized using separate shape memory alloy elements: an electrothermal contracting SMA-1 fiber for bending actuation, thermal-induced SMA-2 wires without length change for variable stiffness, and a superelastic SMA-3 central wire for elastic restoration.",
+          "evidence_type": "mechanism design and experimental implementation",
+          "page_numbers": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "The response characteristics of the soft finger backbone do not comply with constant-curvature models when subjected to combined gravity, grasping contact forces, and driving torques, necessitating a Cosserat rod theory formulation.",
+          "evidence_type": "theoretical modeling justification",
+          "page_numbers": [
+            1,
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "Increasing the Young's modulus of the SMA-2 variable stiffness wires from 25 GPa to 48 GPa via electrical heating increases the maximum grasping force of the soft finger by 48.7% experimentally and 42.5% in simulation.",
+          "evidence_type": "experimental and numerical result",
+          "page_numbers": [
+            1,
+            11,
+            17
+          ]
+        },
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "Increasing the object offset distance H from 30 mm to 60 mm increases the required no-load bending torque to reach contact but decreases the attainable maximum grasping force.",
+          "evidence_type": "experimental and numerical result",
+          "page_numbers": [
+            9,
+            10,
+            12
+          ]
+        },
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "Finite element modeling in ABAQUS showed close agreement with the Cosserat rod formulation, exhibiting grasping force differences between 0.005 N and 0.032 N across object offsets from 30 mm to 60 mm at a bending torque of 20 Nmm.",
+          "evidence_type": "comparative simulation data",
+          "page_numbers": [
+            9,
+            10,
+            13
+          ]
+        },
+        {
+          "paper_id": "e3ce477955",
+          "title": "Modeling of grasping force for a soft robotic gripper with variable stiffness",
+          "doi": "10.1016/j.mechmachtheory.2018.05.005",
+          "claim": "Discrepancies observed between initial multi-finger gripper simulations and experiments were demonstrated not to stem from force closure failure or internal pulley friction, but from surface wear on 3D-printed PLA fingertips that lowered the contact friction coefficient from 0.426 to 0.335.",
+          "evidence_type": "experimental hypothesis testing and error analysis",
+          "page_numbers": [
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "author_stated",
+          "text": "The Cosserat-based grasping force formulation is highly nonlinear and lacks an analytical closed-form solution, requiring iterative shooting numerical computations"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "author_stated",
+          "text": "Model predictive errors increase markedly when bending torque exceeds 40 Nmm or deflection offset Z exceeds 55 mm because large deformations near the critical bending torque cause complex nonlinear responses that cannot be easily modeled"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "author_stated",
+          "text": "Direct closed-loop feedback control of pulling force using a sensor is difficult because the SMA-1 wire is wrapped tightly around pulleys inside a cavity too small to accommodate a force sensor"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "author_stated",
+          "text": "Electrothermal contraction of SMA-1 exhibits an inherently nonlinear response that complicates controller design"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "author_stated",
+          "text": "Friction coefficients at the fingertip degrade over repeated grasping trials due to surface wear on the 3D-printed PLA, leading to modeling mismatches if static friction values are assumed"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "model_inferred",
+          "text": "The modeling and experimental evaluations are restricted to two-dimensional planar bending in the XOZ plane, leaving 3D out-of-plane torsional or lateral deflections unmodeled"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "model_inferred",
+          "text": "Objects are restricted to rigid flat cuboids; compliance, curvature, and geometric irregularities of grasped objects are not represented in the formulation"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "model_inferred",
+          "text": "Thermal dynamics, heat dissipation rates, cooling transition latencies, and hysteretic behavior during cycling of the SMA wires were not incorporated into the static model"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "source_type": "model_inferred",
+          "text": "Closed-loop real-time force feedback control was not demonstrated on the physical prototype, relying instead on static position-based (Z offset) estimation and open-loop thermal actuation"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "e3ce477955",
+          "text": "Optimizing and controlling the soft robotic gripper system to manipulate heavier objects based on the grasping force model"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "text": "Conducting future experimental investigations on friction coefficients across diverse fingertip contact surfaces and materials"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "e3ce477955",
+          "status": "unverified_implication",
+          "text": "The absence of active thermal-electric dynamic modeling and integrated force sensing suggests that future research could focus on embedded micro-sensing and active cooling schemes to enable closed-loop force control and faster cycling times"
+        },
+        {
+          "paper_id": "e3ce477955",
+          "status": "unverified_implication",
+          "text": "The reliance on planar Coulomb contact mechanics against rigid flat surfaces indicates a need to investigate spatial 3D Cosserat contact mechanics for conformable grasping of soft, delicate, or irregular geometries"
+        }
+      ]
+    },
+    {
+      "paper_id": "6a92ae2d88",
+      "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+      "authors": [
+        "Mohammed Al-Rubaiai",
+        "Thassyo Pinto",
+        "Chunqi Qian",
+        "Xiaobo Tan"
+      ],
+      "year": "2018",
+      "doi": "10.1089/soro.2018.0056",
+      "robot_type": "soft pneumatic actuator (SPA) / two-finger soft gripper",
+      "stiffness_mechanism": [
+        "thermally induced thermoplastic phase transition of 3D-printed conductive polylactic acid (CPLA) via electrical Joule heating"
+      ],
+      "actuation": [
+        "pneumatic actuation",
+        "electrical Joule heating"
+      ],
+      "modeling_methods": [
+        "Lumped-parameter dynamic heat transfer differential equation for electrical Joule heating and passive cooling",
+        "Linear regression fitting of temperature-dependent electrical resistance of CPLA",
+        "Hyperelastic material constitutive modeling using the Ogden model (N = 1) fitted to uniaxial tensile test data of Dragon Skin 30 silicone via least squares",
+        "Multi-physics Finite Element Method (FEM) simulation in ANSYS Workbench coupling electrical conduction (Joule heating), steady-state thermal analysis, and non-linear static structural mechanics"
+      ],
+      "performance_metrics": [
+        "Modulus reduction percentage (98.6% drop from 1 GPa at 25°C to 13.6 MPa at 80°C)",
+        "Glass transition temperature (Tg = 55°C) and melting peaks (124.4°C and 154°C)",
+        "Coefficient of thermal expansion (169 µm/(m*°C) below Tg, 420.16 µm/(m*°C) above Tg)",
+        "Passive cooling duration (~120 s from Tg to room temperature for a 10 mm x 10 mm x 2 mm sample)",
+        "Bending angle prediction error (<2° for most pressure levels; ~4° and ~7° at 18 psi for Hinges 2 and 3)",
+        "Maximum pneumatic operating pressure tested (24 psi)",
+        "Maximum payload capacity held in active (22 psi, 12V) and passive (0 psi, 0V) locked states (800 g)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "Conductive polylactic acid (CPLA) displays a 98.6% reduction in Young's modulus from 1 GPa at room temperature (25°C) to 13.6 MPa at 80°C, and fully recovers its stiffness upon cooling back to room temperature.",
+          "evidence_type": "experimental characterization",
+          "page_numbers": [
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "Differential scanning calorimetry indicates that CPLA has a glass transition temperature of 55°C, where its Young's modulus decreases to 60% of its room-temperature value, and exhibits melting peaks at 124.4°C and 154°C.",
+          "evidence_type": "experimental characterization",
+          "page_numbers": [
+            1,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "A lumped-parameter dynamic heat transfer model with linearized temperature-dependent resistivity accurately predicts the Joule heating and passive cooling dynamics of CPLA, with passive cooling from the glass transition temperature to room temperature requiring approximately 120 s for a 10 mm x 10 mm x 2 mm sample.",
+          "evidence_type": "experimental characterization and modeling",
+          "page_numbers": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "Finite element simulation integrating an electrical system, steady-state thermal analysis, and an Ogden hyperelastic structural model predicts actuator bending angles with discrepancies generally under 2 degrees compared to experimental measurements (with errors of ~4 and ~7 degrees occurring only at 18 psi for Hinges 2 and 3).",
+          "evidence_type": "simulation and experimental validation",
+          "page_numbers": [
+            7,
+            8,
+            9,
+            11,
+            12
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "Localized Joule heating of selected CPLA virtual hinges allows selective bending at targeted segments while unheated segments remain rigid, enabling reconfigurable bending shapes under pneumatic pressure.",
+          "evidence_type": "simulation and experimental demonstration",
+          "page_numbers": [
+            3,
+            4,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "A two-finger soft gripper employing CPLA-embedded actuators can execute distinct grasping postures (scooping, pinching, and parallel grabbing) to hold objects of varied geometry and compliance.",
+          "evidence_type": "experimental demonstration",
+          "page_numbers": [
+            9,
+            10,
+            12
+          ]
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "title": "Soft Actuators with Stiffness and Shape Modulation Using 3D-Printed Conductive Polylactic Acid Material",
+          "doi": "10.1089/soro.2018.0056",
+          "claim": "An actuator can lock its shape by cooling the CPLA hinges to room temperature while pressurized, successfully carrying a payload of up to 800 g passively without pressure or electrical power input.",
+          "evidence_type": "experimental demonstration",
+          "page_numbers": [
+            1,
+            2,
+            10,
+            13
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Thermal activation limits the approach to relatively low speed applications (1 Hz or lower)"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Passive cooling speed is limited by natural heat dissipation to the ambient environment (taking ~120 s to cool from Tg to room temperature for the tested sample)"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Bending angle discrepancies between simulation and experiments increased at higher pressures (~4° and ~7° errors at 18 psi for Hinges 2 and 3)"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Experiments were conducted in open-loop without closed-loop feedback control of temperature, stiffness, or bending angles"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Achieving the passive shape-locked state requires actively pressurizing the actuator and activating Joule heating before cooling and depressurizing"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "author_stated",
+          "text": "Object grasping demonstrations served only as a proof of concept without optimizing joint activation for different objects"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "model_inferred",
+          "text": "Thermal fatigue, cyclic life, and interface delamination between the silicone matrix and CPLA over extensive thermal-pneumatic cycling were not characterized"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "model_inferred",
+          "text": "Hysteresis between resistivity and temperature was neglected in favor of a linear approximation, which may introduce model inaccuracy during dynamic transient heating"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "model_inferred",
+          "text": "Natural cooling requires around two minutes, severely restricting operational bandwidth and grasping cycle frequency unless active cooling systems are introduced"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "source_type": "model_inferred",
+          "text": "Continuous power is required during the shape modulation and transition phase, which may impact energy efficiency during rapid dynamic tasks"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "6a92ae2d88",
+          "text": "Developing closed-loop control of hinge stiffness through electrical voltage adjustment to achieve arbitrary desired shapes under fixed pressure"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "text": "Integrating miniature temperature sensors at hinge locations or utilizing the strain-sensing capability of CPLA for feedback control"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "text": "Investigating simultaneous joint control of both pneumatic pressure input and electrical inputs for wider shape modulation"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "text": "Adopting active air or liquid cooling via embedded fluid channels for speed-critical applications"
+        },
+        {
+          "paper_id": "6a92ae2d88",
+          "text": "Investigating optimal activation of CPLA-enabled finger joints for handling different objects"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "6a92ae2d88",
+          "status": "unverified_implication",
+          "text": "The findings demonstrate that while CPLA provides an effective, low-cost means of achieving variable stiffness and passive shape holding, the reliance on passive thermal dissipation creates a speed bottleneck; addressing this through active cooling channels, closed-loop thermomechanical feedback, and dynamic electro-thermal-pneumatic co-design represents a critical gap for practical soft robotics adoption"
+        }
+      ]
+    },
+    {
+      "paper_id": "ccc528bd6a",
+      "title": "Soft Robotic Grippers",
+      "authors": [
+        "Jun Shintake",
+        "Vito Cacucciolo",
+        "Dario Floreano",
+        "Herbert Shea"
+      ],
+      "year": "2018",
+      "doi": "10.1002/adma.201707035",
+      "robot_type": "soft robotic grippers",
+      "stiffness_mechanism": [
+        "granular jamming",
+        "low-melting point alloys (LMPAs)",
+        "electrorheological (ER) fluids",
+        "magnetorheological (MR) fluids",
+        "shape memory polymers (SMPs)",
+        "shape memory alloys (SMAs)",
+        "thermoplastics",
+        "layer jamming",
+        "antagonistic tendon-driven configurations"
+      ],
+      "actuation": [
+        "passive structure with external motors (contact-driven deformation and tendon-driven)",
+        "fluidic elastomer actuators (FEAs)",
+        "electroactive polymers: dielectric elastomer actuators (DEAs)",
+        "electroactive polymers: ionic polymer-metal composites (IPMCs)",
+        "shape memory materials: shape memory alloys (SMAs)",
+        "shape memory materials: shape memory polymers (SMPs)",
+        "stimuli-responsive polymers and gels (thermal, magnetic, optical/light, humidity, pH, chemical, and bio-hydrogel swelling)"
+      ],
+      "modeling_methods": [
+        "Topological optimization for the design of compliant mechanism grasping structures",
+        "Morphological computation concepts evaluating control complexity reduction achieved through structural compliance",
+        "Scaling laws governing physical actuation and surface-force dominance below 50 micrometers"
+      ],
+      "performance_metrics": [
+        "Lifting ratio (object mass / gripper mass)",
+        "Gripper size [10^-2 m]",
+        "Object size [10^-2 m]",
+        "Response time / grasping time [s]",
+        "Power consumption [W]",
+        "Surface condition suitability (Any, Dry, Clean)",
+        "Blocked force [N]",
+        "Adhesion pressure in normal and shear directions [kPa]",
+        "Relative stiffness change"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Soft gripping technologies can be systematically categorized into three main operating mechanisms: actuation, controlled stiffness, and controlled adhesion, which can also be combined into hybrid systems.",
+          "evidence_type": "classification",
+          "page_numbers": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Material compliance and underactuation allow soft grippers to passively conform to varied object geometries, lowering control complexity via morphological computation.",
+          "evidence_type": "mechanical_principle",
+          "page_numbers": [
+            1,
+            2
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Fluidic elastomer actuators (FEAs) generate high blocked forces (e.g., 80 N at 300 kPa and 112 N at 200 kPa) and large bending angles, but are constrained by the mass and size of external compressors and fluidic channel impedance restricting response frequencies above 1 Hz.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            9,
+            11
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Dielectric elastomer actuators (DEAs) offer rapid response times under 200 microseconds and high strains, but produce low active stress and generally require high operating voltages on the order of kilovolts.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            11
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Granular jamming enables rapid reversible stiffness changes up to 24 times via vacuum-induced depressurization of granule-filled membranes, producing caging forces without high normal compressive loads, but cannot envelop flat objects.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            16,
+            18
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Low-melting point alloys (LMPAs) embedded in soft matrices demonstrate relative stiffness changes ranging from 25 to over 9000 times through thermal phase changes between 47 °C and 62 °C, though cooling times typically exceed 60 seconds.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            18
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Electrorheological (ER) and magnetorheological (MR) fluids transition to viscoelastic states within 10 milliseconds upon application of electric or magnetic fields, but their overall solidified stiffness is constrained by yield stresses up to 250 kPa.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            18,
+            20
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Controlled adhesion mechanisms such as electroadhesion and geckoadhesion produce high shear holding forces with minimal normal compressive forces, enabling high lifting ratios (reported up to 286.7 for geckoadhesion and 54.7 for electroadhesion), but require clean and dry surfaces.",
+          "evidence_type": "experimental_measurement",
+          "page_numbers": [
+            4,
+            20,
+            21,
+            22,
+            23
+          ]
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "title": "Soft Robotic Grippers",
+          "doi": "10.1002/adma.201707035",
+          "claim": "Integrating stretchable resistive, capacitive, optical waveguide, and magnetic Hall-effect sensors into compliant gripper structures facilitates proprioceptive finger curvature detection and exteroceptive object tactile characterization.",
+          "evidence_type": "sensor_integration",
+          "page_numbers": [
+            1,
+            24,
+            25,
+            26,
+            27
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Miniaturization of fluidic elastomer and externally motorized grippers is constrained by heavy and bulky external pumps, compressors, and motor assemblies"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "FEA actuation frequencies above 1 Hz are difficult to achieve due to fluidic channel impedance and required flow rates"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "DEAs produce low active output stress, necessitating multilayer stacking that complicates device fabrication"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "High operational voltages (several kilovolts) in DEAs and electroadhesion introduce risk of external electrical discharges"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "IPMC actuators exhibit slow operating response, low output stress, poor thermodynamic efficiency, and actuation hysteresis"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Thermal variable-stiffness materials (LMPAs, SMPs, SMAs) suffer from slow solidifying and cooling response times dominated by thermal conduction and convective dissipation"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "SMAs exhibit cyclic actuation hysteresis, require high electric driving currents, and possess low thermodynamic efficiency"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Granular jamming grippers cannot grasp flat objects due to inability to envelope/cage them, and cannot adjust to shape changes of deformable objects once solidified"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "ER and MR fluids provide relatively low absolute structural stiffness due to limited yield stress (up to 250 kPa)"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Electroadhesion and geckoadhesion require clean and relatively dry target surfaces, and electroadhesion exhibits residual charge hysteresis upon voltage removal"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Geckoadhesion struggles to adhere to rough surfaces and low surface-energy materials, and highly compliant substrates may hinder target release"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Suction mechanisms require smooth, nonporous object surfaces to maintain vacuum seals"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Elastomeric components often suffer from a lack of long-term mechanical robustness"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "author_stated",
+          "text": "Resistive strain sensors display history-dependent resistance (hysteresis) that complicates calibration, whereas capacitive sensors require more complex readout circuitry"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "model_inferred",
+          "text": "Performance metrics compiled across heterogeneous published studies reflect differing experimental methodologies and setups rather than standardized benchmarking protocols"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "model_inferred",
+          "text": "Long-term durability and environmental resilience of novel stimuli-responsive polymers (e.g., UV, dust, moisture, and temperature fluctuations) remain largely unaddressed under real-world industrial settings"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "source_type": "model_inferred",
+          "text": "Combining multiple functional modalities (e.g., actuation plus variable stiffness and sensing) substantially increases manufacturing complexity and failure modes"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Developing miniaturized, integrated soft fluidic pumps and transducers (such as electrohydrodynamic units) to enhance portability of fluidic elastomer grippers"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Accelerating thermal cooling and phase transition rates in LMPAs and SMPs via thermally conductive elastomer matrices, circulating fluid channels, or electrocaloric units"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Reducing actuation hysteresis in SMAs through magnetization and in SMPs via tailored polymer blending"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Integrating controlled adhesion or variable stiffness mechanisms into DEAs and jamming grippers to grasp flat and highly deformable objects"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Improving geckoadhesive performance on rough surfaces using microspines and enhanced pillar geometries, as well as incorporating self-cleaning properties"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Exploring self-healing polymers, recyclable formulations, and biodegradable or edible materials for sustainable and transient robotic devices"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Embedding stretchable multimodal distributed sensor networks (strain, pressure, optical, temperature, biochemical) paired with local signal processing for autonomous prehension"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "text": "Extending soft prehension mechanisms into whole-body robot prehension, locomotion, and shape control"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "ccc528bd6a",
+          "status": "unverified_implication",
+          "text": "Developing lightweight, integrated soft transducers for fluid pressurization and rapid cooling architectures would allow autonomous, untethered mobile soft robotic manipulation outside laboratory settings"
+        },
+        {
+          "paper_id": "ccc528bd6a",
+          "status": "unverified_implication",
+          "text": "Establishing standardized benchmarking protocols across diverse soft gripper technologies would enable objective cross-comparison and accelerate industrial adoption"
+        }
+      ]
+    },
+    {
+      "paper_id": "2938670820",
+      "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+      "authors": [
+        "Saber Mahboubi",
+        "Steven Davis",
+        "Samia Nefti-Meziani"
+      ],
+      "year": "2018",
+      "doi": "10.1109/ACCESS.2018.2879633",
+      "robot_type": "variable stiffness hand",
+      "stiffness_mechanism": [
+        "serial elastic actuation",
+        "passive adjustable compliance mechanism",
+        "tendon-rod-spring configuration with a single linear compression spring and rigid sliding rod"
+      ],
+      "actuation": [
+        "Two rotational electric actuators (7 Nm DC servo motors M1 and M2)",
+        "Tendon-pulley-slider mechanism translating M2 rotation into linear displacement along the wrist axis",
+        "Non-stretchable / inelastic tendon driving the fingers"
+      ],
+      "modeling_methods": [
+        "Kinematic and geometric modeling using the law of sines to formulate spring compression and tendon displacement relationships",
+        "Grasp stiffness derivation through partial differentiation of applied tendon force with respect to displacement",
+        "Second-order lumped parameter electromechanical dynamic modeling of the robotic hand and DC servo motor system",
+        "First-order sliding mode controller (FSMC) design using a quasi-sliding mode saturation function coupled with an inner anti-windup PI velocity feedback loop",
+        "Lyapunov stability and reachability analysis under bounded cumulative system disturbances and uncertainties"
+      ],
+      "performance_metrics": [
+        "Stiffness tuning range (from baseline spring stiffness K up to near-rigid stiffness)",
+        "Trajectory tracking error under sinusoidal motion input Sin(5t)",
+        "Grip force tracking accuracy (steady-state error and percent overshoot under step and sinusoidal reference forces)",
+        "Mechanical hysteresis band width across loading-unloading cycles",
+        "Sliding manifold reaching time Ts and finite-time error convergence to zero",
+        "Peak magnitude attenuation in frequency response Bode plots"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "Coupling an object with unknown stiffness to a robotic gripper can shift system poles into the right half-plane and induce grasp instability, which can be mitigated by introducing passive compliance into the actuation system.",
+          "evidence_type": "Theoretical modeling and root locus analysis",
+          "page_numbers": [
+            1,
+            4
+          ]
+        },
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "The apparent stiffness of the robotic hand is analytically governed by the angle between the tendon and the spring-loaded rod, varying from the linear spring constant K when parallel up to theoretically infinite stiffness when perpendicular.",
+          "evidence_type": "Analytical kinematic and geometric derivation",
+          "page_numbers": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "Static force-displacement characterization demonstrates that tendon elongation for a given applied tensile force decreases monotonically as the rod angle theta increases from 5 to 55 degrees.",
+          "evidence_type": "Experimental mechanics characterization",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "Increasing finger stiffness via the variable stiffness mechanism improves trajectory tracking accuracy under sinusoidal inputs and reduces the peak magnitude in frequency response Bode plots.",
+          "evidence_type": "Dynamic trajectory tracking and frequency analysis experiments",
+          "page_numbers": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "The robotic hand exhibits mechanical hysteresis during cyclic tendon loading and unloading, but the hysteresis band narrows as the rod angle theta increases.",
+          "evidence_type": "Cyclic mechanical testing",
+          "page_numbers": [
+            9,
+            10,
+            13
+          ]
+        },
+        {
+          "paper_id": "2938670820",
+          "title": "Variable Stiffness Robotic Hand for Stable Grasp and Flexible Handling",
+          "doi": "10.1109/ACCESS.2018.2879633",
+          "claim": "A first-order sliding mode controller combined with an inner anti-windup PI velocity loop converges error states to zero in finite time and achieves stable grip force tracking across objects of varying stiffness with small steady-state error and zero or negligible overshoot.",
+          "evidence_type": "Robotic control experiment on hardware testbed",
+          "page_numbers": [
+            11,
+            12,
+            13,
+            14
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "2938670820",
+          "source_type": "author_stated",
+          "text": "The initial prototype displays a noticeable hysteresis band attributable to friction and damping across mechanical couplings."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "author_stated",
+          "text": "Friction between the sliding rod and holding pins was neglected in the dynamic model formulation for simplicity."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "author_stated",
+          "text": "The stiffness of unknown grasped objects cannot be calculated in advance, making precise model-based grasp modeling inherently inaccurate and necessitating robust control."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "author_stated",
+          "text": "System feedback relies on an inexpensive (£9) 1D Force Sensing Resistor (FSR) with variable resistance rather than a precision multi-axis load cell."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "model_inferred",
+          "text": "Grip force and trajectory tracking evaluations were restricted to planar 1D contact against a stationary block or single-axis spring mechanism, without evaluating multi-finger grasping of arbitrary 3D geometry objects during manipulator motion."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "model_inferred",
+          "text": "Both finger sets are driven through a single shared rod-spring-tendon mechanism, preventing independent stiffness modulation across individual fingers or individual joints."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "model_inferred",
+          "text": "The assumption of an inelastic tendon may degrade over extensive cyclic operation due to tendon creep or elasticity, affecting stiffness calibration and force precision."
+        },
+        {
+          "paper_id": "2938670820",
+          "source_type": "model_inferred",
+          "text": "Mounting motor M1 directly on a translating slider introduces added moving mass and inertia to the linear wrist axis, which may constrain high-speed dynamic response."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "2938670820",
+          "text": "Redesigning mechanical couplings to minimize friction and damping in order to narrow the mechanical hysteresis band"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "2938670820",
+          "status": "unverified_implication",
+          "text": "Demonstrates that a broad range of variable stiffness can be realized using only two standard servo motors and a single linear compression spring, demonstrating an alternative to complex multi-actuator antagonistic systems."
+        },
+        {
+          "paper_id": "2938670820",
+          "status": "unverified_implication",
+          "text": "Shows that combining passive serial compliance with robust sliding mode control allows stable grip force regulation on unknown stiffness objects even when using low-cost, low-accuracy tactile sensors."
+        },
+        {
+          "paper_id": "2938670820",
+          "status": "unverified_implication",
+          "text": "Highlights that mechanical hysteresis arising from friction and mechanical couplings is a key limiting factor in tendon-driven variable stiffness actuators that requires careful mechanical optimization."
+        }
+      ]
+    },
+    {
+      "paper_id": "63719eca8e",
+      "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+      "authors": [
+        "Daniela Maffiodo",
+        "Terenziano Raparelli"
+      ],
+      "year": "2019",
+      "doi": "10.3390/machines7020040",
+      "robot_type": "gripping flexible fingers",
+      "stiffness_mechanism": [],
+      "actuation": [
+        "Nitinol shape memory alloy (SMA) wires",
+        "Joule effect heating"
+      ],
+      "modeling_methods": [
+        "2D lumped-parameter static moment equilibrium modeling.",
+        "Discretization of the flexible central rod into N rigid segments of length L/N interconnected by torsional springs.",
+        "Analytical formulation of active SMA moment considering constant nominal recovery force and deformation-dependent moment arm.",
+        "Analytical formulation of antagonist SMA moment as a function of strain-dependent force (Hooke's law in martensite) and deformation-dependent moment arm.",
+        "Analytical formulation of central rod elastic restoring moment based on beam stiffness parameters (Er*I/L * N*phi).",
+        "Numerical solution of static equilibrium (sum of moments equals zero) to compute the equilibrium bending angle phi.",
+        "Extension of the 2D planar model to 3D workspace via geometric symmetry across three main (1-wire) and three secondary (2-wire) actuation directions."
+      ],
+      "performance_metrics": [
+        "Reachable 3D workspace and X-Y planar projection boundary/area (mm)",
+        "Total bending deformation angle N*phi (rad)",
+        "Bending moments at equilibrium: SMA moment, antagonistic moment, and central rod restoring moment (Nm)",
+        "Repeatability of displacement and elastic recovery to undeformed rest configuration",
+        "Thermal endurance and cycle durability under repeated Joule heating"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "63719eca8e",
+          "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+          "doi": "10.3390/machines7020040",
+          "claim": "Modular flexible fingers actuated by three longitudinal SMA wires positioned at 120 degrees can achieve planar bending in any direction across 360 degrees, but inactive antagonistic SMA wires impose a major physical limitation on bending deformation.",
+          "evidence_type": "theoretical and experimental",
+          "page_numbers": [
+            1,
+            2,
+            3,
+            8,
+            11
+          ]
+        },
+        {
+          "paper_id": "63719eca8e",
+          "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+          "doi": "10.3390/machines7020040",
+          "claim": "A 2D static moment equilibrium model demonstrates that antagonist moments from inactive wires nearly balance the active SMA moment (e.g., 0.0400 Nm antagonist vs 0.0424 Nm SMA in main directions, and 0.0440 Nm antagonist vs 0.0454 Nm SMA in secondary directions), substantially restricting the resultant bending angle.",
+          "evidence_type": "modeling",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "63719eca8e",
+          "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+          "doi": "10.3390/machines7020040",
+          "claim": "Experimental tests on prototypes with inactive antagonist wires physically disassembled demonstrated a significant increase in the reachable 3D workspace and planar displacement compared to configurations with antagonist wires present.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            11,
+            12,
+            14
+          ]
+        },
+        {
+          "paper_id": "63719eca8e",
+          "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+          "doi": "10.3390/machines7020040",
+          "claim": "An SMA wire-driven locking and unlocking gripper-cylinder mechanism integrated into the module base releases inactive antagonist wires to slide freely during actuation, expanding the workspace compared to permanently locked antagonist configurations.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "paper_id": "63719eca8e",
+          "title": "Flexible Fingers Based on Shape Memory Alloy Actuated Modules",
+          "doi": "10.3390/machines7020040",
+          "claim": "Material trade-offs govern module performance: nylon offers good flexibility but melts near SMA operating temperatures (~120 °C); PTFE resists temperature (250 °C) but exhibits reduced workspace due to pretension; silicone rubber (LIM) withstands high temperatures but lacks sufficient elastic recall force to return the module to its undeformed state.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            9,
+            10,
+            11,
+            12,
+            14
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Low melting temperature of nylon (~120 °C) in Prototype A caused structural damage near contact areas with hot SMA wires after a relatively low number of cycles."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Inactive antagonistic SMA wires severely restrict the bending deformation and workspace of the flexible actuator."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Silicone rubber (LIM) in Prototype C was insufficient to exert the necessary elastic recall force to restore the finger to undeformed conditions at rest, leading to test non-repeatability."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Prototype D entails greater structural complexity and an increased component count."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Sliding friction between the gripper and cylinder in Prototype D prevented achieving the maximum deformation observed when antagonist wires were completely eliminated."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "Experimental execution suffered from difficulties in uniform SMA wire pretensioning and exact angular alignment on the test bench."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "author_stated",
+          "text": "General SMA limitations noted include low energy efficiency, fatigue problems, history-dependent characteristics, and low actuation frequency."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "model_inferred",
+          "text": "The lumped-parameter 2D model neglects thermal gradients, dynamic phase transformation kinetics, and hysteresis inherent to SMA wire operation."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "model_inferred",
+          "text": "Calm-air passive cooling and 30-second heating durations result in very low actuation bandwidth, making rapid gripping unfeasible without active cooling."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "model_inferred",
+          "text": "The addition of secondary SMA wires and gripper-cylinder mechanisms in Prototype D increases electrical power demands and overall system complexity."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "source_type": "model_inferred",
+          "text": "The experimental measurement method utilizing four weighted nylon wires may introduce slight mechanical loading and friction that influence measured deflections."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "63719eca8e",
+          "text": "Reducing sliding friction in the gripper-cylinder contact of Prototype D by exploring alternative material pairings with lower friction coefficients and improving surface roughness."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "text": "Resolving pretensioning variability and orientation/alignment difficulties through the implementation of dedicated assembly equipment."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "text": "Applying local thermal insulation or design modifications to prevent thermal damage in components with lower melting temperatures."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "text": "Assembling modular flexible fingers into multi-finger gripping hands ranging from two-finger grippers to anthropomorphic five-finger hands."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "63719eca8e",
+          "status": "unverified_implication",
+          "text": "Selectively disengaging or releasing antagonist tendons/wires via compact locking mechanisms represents a viable design strategy to mitigate stroke limitations in multi-directional flexible and continuum-style fingers."
+        },
+        {
+          "paper_id": "63719eca8e",
+          "status": "unverified_implication",
+          "text": "Friction management in miniature locking mechanisms and thermal dissipation in passive cooling are critical design hurdles that must be resolved to achieve practical cycle rates in modular smart-material grippers."
+        }
+      ]
+    }
+  ]
+}

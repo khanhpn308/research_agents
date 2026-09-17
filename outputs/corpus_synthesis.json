@@ -1,0 +1,235 @@
+{
+  "source_matrix_sha256": "ad79d5088ae1174db0be9d87971bb3b042f3593f6fdc7f26db9f7f169773adda",
+  "model": "gemini-3.8-flash-high",
+  "usage": {
+    "prompt_tokens": 25433,
+    "completion_tokens": 20881,
+    "total_tokens": 46314,
+    "thinking_tokens": 15318,
+    "cache_read_tokens": 0
+  },
+  "synthesis": {
+    "adjacent_paper_ids": [
+      "fe95a2f245",
+      "0003e35369"
+    ],
+    "candidate_gap_signals": [
+      {
+        "candidate_gap": "Autonomous closed-loop coordination combining real-time proprioceptive curvature or contact sensing with variable-stiffness jamming actuation to determine optimal pregrasp locking thresholds without manual tuning or open-loop sequences.",
+        "counterevidence_paper_ids": [
+          "fe95a2f245",
+          "0003e35369"
+        ],
+        "signal_strength": "strong_within_corpus",
+        "supporting_paper_ids": [
+          "5bdf50c599",
+          "f28f2201b8",
+          "269d15b830"
+        ],
+        "verification_needed": [
+          "Search broader soft robotics literature for closed-loop variable stiffness soft grippers.",
+          "Investigate whether sensorized layer jamming actuators have been demonstrated with embedded tactile or curvature feedback.",
+          "Check for autonomous shape-locking grippers with real-time contact-triggered locking controllers."
+        ],
+        "why_it_might_be_a_gap": "In 5bdf50c599, the authors explicitly acknowledge that their shape-locking gripper lacks proprioceptive sensing to measure object shape and size automatically, operating via open-loop pregrasp and locking sequences. f28f2201b8 relies on binary vacuum switching and open-loop thermal actuation, while 269d15b830 cannot actuate and jam simultaneously and lacks closed-loop feedback. Furthermore, gap implications in 5bdf50c599 state that integrating embedded sensors could be critical to autonomously determine optimal pregrasp locking thresholds across unknown object stiffness profiles.",
+        "why_it_might_not_be_a_gap": "The absence of closed-loop sensing in 5bdf50c599, f28f2201b8, and 269d15b830 may reflect the early proof-of-concept stage of these specific prototypes rather than a true absence in the wider soft robotics literature. Adjacent papers in this corpus (fe95a2f245, 0003e35369) establish that mature proprioceptive and contact sensing technologies exist for soft grippers, and external literature may already integrate such sensors with jamming mechanisms."
+      },
+      {
+        "candidate_gap": "Unified analytical and numerical mechanics models for variable-stiffness soft actuators that accurately capture both active jammed and inactive/compliant states by incorporating non-negligible passive layers (encapsulation envelopes, embedded heaters) and large non-linear hyperelastic deformations.",
+        "counterevidence_paper_ids": [],
+        "signal_strength": "strong_within_corpus",
+        "supporting_paper_ids": [
+          "f28f2201b8",
+          "5bdf50c599",
+          "269d15b830"
+        ],
+        "verification_needed": [
+          "Search solid mechanics and soft robotics literature for finite element and analytical models of multi-layer composite beam jamming.",
+          "Search for mechanics models incorporating hyperelastic sealing envelopes with internal frictional sliding contact.",
+          "Evaluate existing literature on modeling passive layer stiffness contributions in laminar jamming actuators across varying temperatures."
+        ],
+        "why_it_might_be_a_gap": "Author-stated limitations in f28f2201b8 acknowledge that omitting polyimide heating layers and polyethylene sealing envelopes caused theoretical discrepancies above 45 °C. Similarly, 5bdf50c599 explicitly reports a 36.8% error in tip force modeling when jamming is inactive due to unmodeled large deformations of the unconstrained silicone elastomer. In addition, 269d15b830 provides no quantitative analytical or numerical mechanical model at all for its sliding jamming unit.",
+        "why_it_might_not_be_a_gap": "This five-paper corpus includes only two analytical models (f28f2201b8, 5bdf50c599), both of which were formulated to provide first-order validation of specific mechanical concepts rather than exhaustive multi-physics models. Solid mechanics and composite beam literature outside this corpus may already possess advanced hyperelastic-frictional contact formulations for laminar jamming structures."
+      },
+      {
+        "candidate_gap": "Soft actuator architectures and control methodologies that overcome the mutual mechanical antagonism between positive bending actuation and negative vacuum jamming to enable simultaneous, independent regulation of curvature and stiffness.",
+        "counterevidence_paper_ids": [
+          "5bdf50c599",
+          "f28f2201b8"
+        ],
+        "signal_strength": "moderate",
+        "supporting_paper_ids": [
+          "269d15b830"
+        ],
+        "verification_needed": [
+          "Search literature on antagonistic soft actuators and co-actuated variable stiffness pneumatic actuators.",
+          "Investigate parallel versus series jamming configurations to determine whether simultaneous bending and jamming has been resolved.",
+          "Search for hybrid tendon-pneumatic actuators capable of concurrent curvature control and vacuum stiffening."
+        ],
+        "why_it_might_be_a_gap": "269d15b830 explicitly identifies as an author-stated limitation that positive actuation pressure and negative jamming vacuum cannot occur simultaneously because the stiffened jamming structure mechanically resists actuator bending. Furthermore, as bending angle increases, positive pneumatic pressure dominates, diminishing the relative tuning authority of the jamming unit.",
+        "why_it_might_not_be_a_gap": "In 5bdf50c599, the folding laminar jamming structure (FLJS) was specifically designed to decouple finger span from grasping force, allowing post-lock pressure increases to modulate output force without alteration of finger span. In f28f2201b8, tendon actuation operates alongside vacuum jamming, indicating that this antagonism may be specific to certain fluidic dorsal sliding configurations rather than an inherent barrier across all variable-stiffness soft actuators."
+      },
+      {
+        "candidate_gap": "Hybridized soft sensing architectures that integrate drift-free DC static grasping force measurement with low-hysteresis continuous bend angle proprioception in monolithic soft fingers.",
+        "counterevidence_paper_ids": [],
+        "signal_strength": "moderate",
+        "supporting_paper_ids": [
+          "fe95a2f245",
+          "0003e35369"
+        ],
+        "verification_needed": [
+          "Search soft robotic sensing literature for multi-modal tactile and proprioceptive skins.",
+          "Search for hybrid triboelectric-piezoresistive or triboelectric-capacitive sensor arrays for soft grippers.",
+          "Investigate magnetic or inductive tactile-kinematic sensors compatible with monolithic, finless soft fingers."
+        ],
+        "why_it_might_be_a_gap": "In 0003e35369, triboelectric skins are inherently rate-dependent and transient, unable to measure static forces during prolonged holding, and suffer from saturation beyond 10 N as well as cross-sensitivity to humidity and object materials. In fe95a2f245, magnetic bend angle sensing is highly accurate and drift-free, but only measures planar curvature, provides no contact force data, and requires rigid internal skeleton fins (15x15 mm PLA) incompatible with monolithic elastomers.",
+        "why_it_might_not_be_a_gap": "The corpus contains only two sensing papers (fe95a2f245, 0003e35369), neither of which attempted multi-modal tactile-proprioceptive integration. Piezoresistive, capacitive, or optical tactile sensor arrays documented in wider soft robotics literature may have already addressed static force and shape sensing in soft grippers."
+      },
+      {
+        "candidate_gap": "Quantitative empirical evaluation and tribological modeling of long-term cyclic durability, interfacial abrasive wear, and vacuum envelope seal fatigue under repeated frictional sliding and thermal cycling in variable-stiffness soft actuators.",
+        "counterevidence_paper_ids": [
+          "0003e35369"
+        ],
+        "signal_strength": "strong_within_corpus",
+        "supporting_paper_ids": [
+          "f28f2201b8",
+          "269d15b830",
+          "5bdf50c599"
+        ],
+        "verification_needed": [
+          "Search literature on cyclic durability and fatigue life of layer jamming and laminar jamming actuators.",
+          "Investigate wear mechanisms and friction coefficient evolution of abrasive sheets (e.g., sandpaper) in vacuum envelopes under repeated sliding.",
+          "Search for long-term reliability and seal integrity studies in shape-memory polymer variable stiffness mechanisms."
+        ],
+        "why_it_might_be_a_gap": "Across all three core variable-stiffness papers (f28f2201b8, 269d15b830, 5bdf50c599), cyclic wear and lifetime durability are listed as model-inferred limitations. f28f2201b8 tests thermal cycling and notes hysteresis enlargement but leaves fatigue unevaluated; 5bdf50c599 uses abrasive sandpaper sheets within an airtight envelope without assessing degradation; 269d15b830 relies on suspended midair sliding sheets vulnerable to misalignment. Only 0003e35369 conducts a 1000-cycle test, but exclusively on a non-jamming triboelectric skin.",
+        "why_it_might_not_be_a_gap": "The absence of endurance testing in these papers is a common characteristic of proof-of-concept academic papers presenting new actuation/stiffening mechanisms, and may not indicate that cyclic fatigue is unstudied in the broader layer jamming literature."
+      }
+    ],
+    "contradictions_or_tensions": [
+      {
+        "interpretation": "In 269d15b830, author-reported experimental data demonstrates that direct dynamic impact on the unjammed soft actuator body absorbs shock effectively (rebound height of 80 mm), whereas impact on the variable stiffness jamming unit yields a rebound height of ~200 mm (~2.5x higher), indicating that structural jamming increases rigidity at the expense of impact cushioning. In contrast, f28f2201b8 reports that engaging layer jamming and increasing temperature enlarges hysteresis loops due to interlayer frictional slippage and SMP viscoelasticity, showing high energy dissipation during flexure. This highlights a tension between dynamic impact reflection versus flexural damping in jamming structures.",
+        "issue": "Dynamic impact absorption versus flexural energy dissipation in jammed structures",
+        "paper_ids": [
+          "269d15b830",
+          "f28f2201b8"
+        ]
+      },
+      {
+        "interpretation": "269d15b830 explicitly treats the resistance of a jammed unit to positive pressure bending as an operational barrier, stating that actuation pressure and jamming vacuum cannot occur simultaneously. In contrast, 5bdf50c599 deliberately exploits this exact mechanical resistance: by locking the finger shape at a pregrasp pressure using the folding laminar jamming structure, subsequent increases in positive actuation pressure do not produce further bending but instead modulate fingertip contact force over a wide range at a constant finger span.",
+        "issue": "Actuation-jamming antagonism versus shape-locked force modulation",
+        "paper_ids": [
+          "269d15b830",
+          "5bdf50c599"
+        ]
+      },
+      {
+        "interpretation": "fe95a2f245 achieves high-precision (R^2 = 0.999, 0.5 deg repeatability) bend sensing by mounting planar coils onto pre-existing internal rigid fins (15x15 mm PLA structures). However, as noted in its model-inferred limitations, this approach requires internal rigid fins, making it incompatible with finless, monolithic, or fluidic chambers like those in 269d15b830 and 5bdf50c599. Conversely, 0003e35369 uses flexible, surface-bonded tribo-skins and embedded elastomeric TENG strips that conform directly to monolithic silicone actuators, avoiding rigid skeletons but suffering from substantial environmental susceptibility (humidity, material dependence) and force saturation (>10 N).",
+        "issue": "Proprioceptive sensor integration constraints: Rigid-fin internal mounting versus flexible skin surface mounting",
+        "paper_ids": [
+          "fe95a2f245",
+          "0003e35369"
+        ]
+      }
+    ],
+    "core_paper_ids": [
+      "f28f2201b8",
+      "269d15b830",
+      "5bdf50c599"
+    ],
+    "corpus_limitations": [
+      "Small corpus size consisting of exactly five papers (N = 5), limiting statistical breadth and generalizability across the wider field of soft robotics.",
+      "Narrow temporal coverage, with four papers published in 2024 and one in 2020, underrepresenting earlier foundational literature on variable stiffness and jamming.",
+      "Absence of key variable stiffness mechanisms, such as granular/particle jamming (mentioned only as background in 269d15b830), fiber jamming, magnetorheological fluids, and low-melting-point alloys.",
+      "Limited actuation modalities, restricted exclusively to positive/negative pneumatic pressure and tendon/cable drives powered by electric motors; hydraulic, dielectric elastomer, and magnetic actuation are absent.",
+      "Lack of demonstrated real-time closed-loop variable-stiffness control; all variable-stiffness papers implement open-loop, manual, or binary switching sequences.",
+      "Restriction to single-axis planar bending kinematics and sensing, omitting out-of-plane torsional, lateral, and elongational deformations."
+    ],
+    "corpus_scope": "The corpus comprises five peer-reviewed articles (2020–2024) with 33 extracted evidence claims, focusing on soft robotic end-effectors (fingers and grippers). Three core papers investigate variable stiffness and jamming mechanisms: hybrid thermal-vacuum layer jamming with shape memory polymers (f28f2201b8), dorsal cross-sliding layer jamming (269d15b830), and dual folding/typical laminar jamming for shape-locking (5bdf50c599). Two adjacent papers investigate enabling sensing modalities for soft grippers: inductive magnetic-coupling segmented bend angle sensors (fe95a2f245) and self-powered triboelectric nanogenerator skins (0003e35369). Actuation is restricted to fluidic/pneumatic and tendon/cable-driven systems. Continuum robot classification is explicitly supported in the corpus only for f28f2201b8.",
+    "cross_paper_patterns": [
+      "Layer/laminar jamming as the predominant variable-stiffness mechanism: All three core papers (f28f2201b8, 269d15b830, 5bdf50c599) utilize multi-layer laminar jamming governed by vacuum-induced normal forces and interlayer friction or variable moment of inertia.",
+      "Sequential rather than simultaneous actuation and jamming protocols: In pneumatic jamming systems (269d15b830, 5bdf50c599), actuation and stiffening are sequenced rather than operated simultaneously to prevent antagonistic stiffening during bending or to achieve shape-locked force decoupling.",
+      "Analytical and numerical modeling discrepancies in unconstrained compliant states: Both modeling papers (f28f2201b8, 5bdf50c599) report substantial discrepancies when simplifying assumptions neglect passive constituent layers (heater and envelope layers in f28f2201b8 above 45 °C) or large unconstrained elastomer deformations (36.8% tip force error in 5bdf50c599 when unjammed).",
+      "Integration of rigid or semi-rigid elements into soft architectures: Soft elastomeric structures are augmented with stiffer elements to achieve functional mechanical or sensing performance, such as rigid PLA fins in fe95a2f245, Kevlar fiber reinforcement and SMP sheets in f28f2201b8, and PET folding layers with sandpaper in 5bdf50c599.",
+      "Dorsal placement of variable-stiffness units to isolate contact surfaces: In both pneumatic jamming grippers (269d15b830, 5bdf50c599), the primary variable stiffness/locking mechanism is positioned on the dorsal surface, protecting palmar conformity and tactile sensing.",
+      "Absence of closed-loop sensory control of stiffness: All core variable-stiffness implementations (f28f2201b8, 269d15b830, 5bdf50c599) rely on open-loop or manual coordination without integrating real-time sensor feedback."
+    ],
+    "evidence_clusters": [
+      {
+        "consensus_level": "high",
+        "paper_ids": [
+          "f28f2201b8",
+          "269d15b830",
+          "5bdf50c599"
+        ],
+        "supporting_claims": [
+          "f28f2201b8: Hybrid variable stiffness achieves a 15.7-fold bending stiffness range (0.31 to 4.86 N/mm) and 16.0-fold load-bearing range (1.76 to 28.1 N); vacuum layer jamming alone enhances stiffness by 1.60 ± 0.30 and load capacity by 1.39 ± 0.15.",
+          "269d15b830: Cross-sliding jamming increases uninflated finger stiffness by nearly 7 times from 0 to -80 kPa; reduces grasp force fluctuation to ~30% under 30 deg/s vibration.",
+          "5bdf50c599: FLJS provides shape locking (span-force decoupling) while TLJS enhances bending stiffness and payload capacity, enabling safe grasping of fragile objects."
+        ],
+        "synthesis": "Across all core papers, vacuum-induced layer and laminar jamming mechanisms provide substantial reversible stiffness variation and payload enhancement in soft robotic fingers. When hybridized with thermal phase transitions (SMP in f28f2201b8), stiffness tuning ratios expand up to 15.7-fold. Origami folding architectures (FLJS in 5bdf50c599) provide shape locking by constraining moment of inertia, enabling decoupling of grip span from contact force.",
+        "theme": "Variable Stiffness and Shape Locking via Layer/Laminar Jamming and Phase Change"
+      },
+      {
+        "consensus_level": "high",
+        "paper_ids": [
+          "269d15b830",
+          "5bdf50c599"
+        ],
+        "supporting_claims": [
+          "269d15b830: Positive actuation pressure and negative jamming vacuum cannot occur simultaneously because vacuum stiffens the jamming unit and resists actuator bending.",
+          "269d15b830: As actuator bending angle increases, the rate of stiffness change from jamming decreases because inherent pneumatic stiffness dominates total stiffness.",
+          "5bdf50c599: Activating FLJS induces slight reverse fingertip displacement requiring pressure compensation; maximum bending angle is constrained by FLJS length and chamber gap geometry.",
+          "5bdf50c599: Nonzero initial bending angle (8.2 deg at 0 kPa) occurs due to residual restoring torque from folded FLJS."
+        ],
+        "synthesis": "Fluidic soft actuators with integrated jamming layers exhibit operational conflicts between actuation (bending deformation) and jamming activation (stiffening). In 269d15b830, simultaneous actuation and jamming is physically antagonistic, requiring sequential operation. Furthermore, positive pneumatic pressurization inherently stiffens the elastomer body, reducing the relative stiffness-tuning contribution of the jamming mechanism at high bending angles. In 5bdf50c599, folding mechanisms introduce residual torques (8.2 deg initial angle) and minor reverse displacement upon locking.",
+        "theme": "Actuation-Stiffening Interference and Kinematic Constraints in Jamming Systems"
+      },
+      {
+        "consensus_level": "medium",
+        "paper_ids": [
+          "f28f2201b8",
+          "5bdf50c599",
+          "269d15b830"
+        ],
+        "supporting_claims": [
+          "f28f2201b8: Analytical formulation K proportional to E(T)*I(P); FEA explicit dynamic modeling captures progressive interlayer slippage causing stiffness drop from 12 N/mm to 4 N/mm; analytical model omitted heater and sealing envelope layers, leading to discrepancies above 45 °C.",
+          "5bdf50c599: Moment equilibrium balancing pneumatic bending, gap restoring, FLJS resistive, and TLJS resistive moments, modeling FLJS moment of inertia via Fourier series; theoretical tip force exhibits 36.8% error when unjammed due to unmodeled large elastomer deformation.",
+          "269d15b830: Presents no quantitative mathematical or numerical continuum mechanics models for sliding kinematics, contact forces, or stiffness scaling."
+        ],
+        "synthesis": "Modeling variable-stiffness soft actuators requires coupling hyperelastic continuum mechanics with frictional contact mechanics and variable cross-sectional moments of inertia. Analytical formulations provide scaling insights (K proportional to E*I) but exhibit substantial discrepancies (up to 36.8% in 5bdf50c599, and divergence above 45 °C in f28f2201b8) when omitting passive constituent layers (encapsulation envelopes, heating layers) or neglecting large unconstrained elastomeric deformations in unjammed states. 269d15b830 lacks theoretical modeling entirely.",
+        "theme": "Analytical and Numerical Mechanics Modeling of Variable Stiffness Actuators"
+      },
+      {
+        "consensus_level": "high",
+        "paper_ids": [
+          "fe95a2f245",
+          "0003e35369",
+          "269d15b830"
+        ],
+        "supporting_claims": [
+          "fe95a2f245: Flexible planar coil pairs on internal rigid fins achieve 1.05 mV/deg sensitivity, R^2 = 0.999, repeatability within 0.5 deg, and classify grasp modes/shapes immune to temperature, contact resistance, and conductive/ferromagnetic interference.",
+          "0003e35369: Embedded contact-separation TENG strips provide bend angle sensing up to 8 V, and surface tribo-skins measure contact pressure from 4.8 to 41 V (2 to 10 N), enabling contact sequence discrimination and mechanical energy harvesting (1.6 V in 30 s).",
+          "269d15b830: Mounting cross-sliding jamming on the dorsal surface prevents contact surface deformation and PVDF sensor signal disturbance during vacuum jamming."
+        ],
+        "synthesis": "Sensing integration in soft grippers encompasses non-contact electromagnetic coupling and self-powered triboelectric transduction. Inductive planar coils provide highly linear, drift-free proprioceptive bend angle feedback across 0 to 120 degrees, but require rigid internal mounting fins and measure only planar bending. Triboelectric skins enable self-powered dynamic bending and contact pressure sensing but are rate-dependent, saturate beyond 10 N, and are sensitive to ambient humidity and target material composition. Dorsal placement of jamming structures preserves palmar tactile sensing fidelity.",
+        "theme": "Proprioceptive and Exteroceptive Sensing in Soft Grippers"
+      }
+    ],
+    "missing_evidence": [
+      "Long-term cyclic durability, fatigue life, and abrasive wear of jamming interfaces (sandpaper, SMP layers) and vacuum envelope seals over extended cycling.",
+      "Closed-loop control combining real-time proprioceptive or tactile sensor feedback with dynamic regulation of jamming vacuum pressure or temperature.",
+      "Three-dimensional, multi-axis continuum kinematics (torsion, lateral bending, axial elongation) for variable-stiffness fingers.",
+      "Generalizability of variable-stiffness finger mechanisms to multi-segment spatial continuum robots (supported explicitly only in f28f2201b8).",
+      "Direct experimental or theoretical comparison of layer jamming against granular jamming, fiber jamming, or fluidic phase-change mechanisms within the same platform.",
+      "Continuous proportional vacuum pressure regulation and control in variable-stiffness jamming systems (f28f2201b8 is binary; 269d15b830 uses static vacuum steps).",
+      "Measurement of sustained static contact force using self-powered soft sensors (triboelectric signals in 0003e35369 are dynamic and rate-dependent)."
+    ],
+    "recommended_next_searches": [
+      "\"closed-loop variable stiffness\" AND (\"soft gripper\" OR \"soft actuator\") AND (\"layer jamming\" OR \"laminar jamming\")",
+      "(\"layer jamming\" OR \"laminar jamming\") AND (\"analytical model\" OR \"finite element\") AND (\"envelope\" OR \"membrane\" OR \"encapsulation\") AND \"friction\"",
+      "(\"simultaneous bending and stiffening\" OR \"independent stiffness and shape\") AND \"soft pneumatic actuator\" AND \"jamming\"",
+      "(\"tactile\" OR \"force sensing\") AND (\"proprioception\" OR \"curvature sensing\") AND (\"soft gripper\" OR \"soft finger\") AND (\"hybrid sensor\" OR \"multimodal\")",
+      "(\"layer jamming\" OR \"laminar jamming\") AND (\"cyclic fatigue\" OR \"durability\" OR \"wear\" OR \"lifecycle\") AND (\"soft robotics\" OR \"soft actuator\")"
+    ]
+  }
+}

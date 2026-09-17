@@ -1,0 +1,1234 @@
+{
+  "schema_version": 1,
+  "batch_id": "B006",
+  "source_matrix": "outputs/literature_matrix.json",
+  "matrix_sha256": "869346a03b1d8a294c7519e667ea51ff3434ff5bae529120e994d5c8e54c31c3",
+  "paper_count": 6,
+  "paper_ids": [
+    "d3382c226e",
+    "a1a03d9a89",
+    "a1917fa859",
+    "7eddb5d92e",
+    "39520ca4cd",
+    "db0ccb7d74"
+  ],
+  "papers": [
+    {
+      "paper_id": "d3382c226e",
+      "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+      "authors": [
+        "Anthony L. Gunderman",
+        "Jeremy A. Collins",
+        "Andrea L. Myers",
+        "Renee T. Threlfall",
+        "Yue Chen"
+      ],
+      "year": "2022",
+      "doi": "10.1109/LRA.2022.3143891",
+      "robot_type": "soft robotic gripper",
+      "stiffness_mechanism": [
+        "inherent passive compliance of silicone material",
+        "super-elastic nitinol strip internal backbone"
+      ],
+      "actuation": [
+        "tendon-driven",
+        "stepper motor via lead screw"
+      ],
+      "modeling_methods": [
+        "2D static equilibrium force balance on a conical geometry during push and pull phases to cancel kinetic friction and isolate the normal fingertip contact force",
+        "Empirical curve fitting and 3D surface mesh generation in MATLAB to model normal contact force as a function of tendon displacement and object diameter"
+      ],
+      "performance_metrics": [
+        "Contact force tracking error (N)",
+        "Contact force standard deviation across trials (N)",
+        "Maximum fingertip normal contact force (N)",
+        "Red drupelet reversion (RDR) incidence percentage (%) after 21-day cold storage",
+        "Harvesting reliability percentage (%)",
+        "Harvesting cycle duration per berry (seconds)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "d3382c226e",
+          "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+          "doi": "10.1109/LRA.2022.3143891",
+          "claim": "The tendon-driven soft robotic gripper with closed-loop contact force control applied forces from 0.50 N to 1.45 N with a mean tracking error of 0.046 N and a standard deviation of 0.027 N, achieving a 26-fold reduction in handling force variability compared to manual picking.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "d3382c226e",
+          "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+          "doi": "10.1109/LRA.2022.3143891",
+          "claim": "In commercial field harvesting trials on blackberries, higher contact force increased harvesting reliability but also elevated red drupelet reversion; a 0.78 N setpoint resulted in 95.24% reliability and 16% RDR, whereas a 0.59 N setpoint yielded 0% RDR but lower reliability (81.08%).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "d3382c226e",
+          "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+          "doi": "10.1109/LRA.2022.3143891",
+          "claim": "Empirical contact force characterization using cone push-pull force summation eliminated the unknown friction coefficient to construct a 3D relationship between tendon displacement (5-9 mm), target diameter (0-47 mm), and normal contact force, peaking at 4.92 N.",
+          "evidence_type": "experimental and analytical",
+          "page_numbers": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "d3382c226e",
+          "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+          "doi": "10.1109/LRA.2022.3143891",
+          "claim": "Manual force tracking across 1,440 hand-picked blackberries revealed that thumb and middle fingers contribute the primary contact forces (0.782 N and 0.397 N), while the ring finger force is negligible.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "d3382c226e",
+          "title": "Tendon-Driven Soft Robotic Gripper for Blackberry Harvesting",
+          "doi": "10.1109/LRA.2022.3143891",
+          "claim": "Incorporating a 0.3 mm super-elastic nitinol backbone strip into molded silicone fingers increased transverse bending stiffness by 134 times while maintaining compliance in the flexure direction.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            3
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Gripper placement was executed manually rather than autonomously due to the difficulty of cane and berry localization"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Robotic harvest cycle time (~4.8 s per berry) was approximately 3.4 times slower than hand harvesting (1.4 s per berry) due to slow actuator response"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Control feedback is restricted solely to fingertip contact force, omitting berry diameter and task-space geometry"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Rigid 3D-printed cylindrical PLA force sensor backing supports on the fingertips present a risk of fruit surface bruising"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Objects with diameters below 10 mm cannot be sufficiently grasped by the gripper geometry"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "author_stated",
+          "text": "Silicone-only fingers have low transverse stiffness and are susceptible to disturbances from cane collisions without the nitinol strip"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "model_inferred",
+          "text": "Field harvesting evaluations were restricted to a single blackberry cultivar (Sweet-Ark Caddo) at a single location, leaving performance on other cultivars with differing detachment forces unverified"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "model_inferred",
+          "text": "Contact force characterization employed a rigid 3D-printed cone, which does not simulate the local contact deformation and compliance of soft aggregate berries"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "model_inferred",
+          "text": "Manual positioning of the gripper during field trials bypassed the dynamics, inaccuracies, and vibrations of an autonomous manipulator arm"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "source_type": "model_inferred",
+          "text": "Analytical contact formulation assumes idealized Coulomb friction, which may not capture adhesive or viscoelastic characteristics of biological produce"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "d3382c226e",
+          "text": "System-level integration of the soft gripper with a robotic arm and mobile robot chassis using SLAM and computer vision for autonomous localization and harvesting"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Tuning PID control gains and optimizing pre-grasp home finger positions to decrease harvest cycle time"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Incorporating fruit diameter into the control and positioning strategy to reduce actuation time"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Estimating fingertip forces indirectly by mapping tendon tension in joint space to task space to eliminate rigid fingertip sensor supports"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Optimizing fingertip geometry to enhance dexterity and grasping performance"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Investigating gripper robustness and disturbance response against plant canes and foliage"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "text": "Identifying an optimal contact force setpoint that balances harvest reliability and minimum red drupelet reversion"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "d3382c226e",
+          "status": "unverified_implication",
+          "text": "The noticeable cycle time deficit compared to manual picking (~4.8 s vs. 1.4 s) indicates a need for faster tendon drive mechanisms and predictive trajectory planning before soft robotic harvesters become commercially viable"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "status": "unverified_implication",
+          "text": "The trade-off between picking reliability and RDR suggests that fixed-force setpoints may be suboptimal, pointing toward multi-phase or variable-stiffness grasping where higher force is applied during detachment and reduced during holding"
+        },
+        {
+          "paper_id": "d3382c226e",
+          "status": "unverified_implication",
+          "text": "Reliance on rigid sensor backing discs highlights the gap in compliant, non-damaging tactile sensing integration for delicate agricultural soft robotics"
+        }
+      ]
+    },
+    {
+      "paper_id": "a1a03d9a89",
+      "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+      "authors": [
+        "Guo Liang Goh",
+        "Guo Dong Goh",
+        "Van Pho Nguyen",
+        "William Toh",
+        "Samuel Lee",
+        "Xin Li",
+        "Bohra Dhyan Sunil",
+        "Jian Yee Lim",
+        "Zhengchen Li",
+        "Anoop Kumar Sinha",
+        "Wai Yee Yeong",
+        "Domenico Campolo",
+        "Wai Tuck Chow",
+        "Teng Yong Ng",
+        "Boon Siew Han"
+      ],
+      "year": "2023",
+      "doi": "10.1002/admt.202301426",
+      "robot_type": "soft gripper",
+      "stiffness_mechanism": [
+        "thermoplastic phase change / glass transition thermal softening via Joule heating of conductive polylactic acid (c-PLA)",
+        "shape memory polymer effect"
+      ],
+      "actuation": [
+        "cable-driven actuation via stepper motor pulling nylon cables",
+        "thermal actuation via Joule heating of conductive polylactic acid (c-PLA) joints"
+      ],
+      "modeling_methods": [
+        "Finite Element Analysis (FEA) using Ansys Workbench 2020 to evaluate gripper deformation modes and stress distributions under rigid (1.5 GPa) and soft (0.15 GPa) joint stiffness conditions",
+        "Tunneling-percolation theory and Poisson's ratio considerations to model the negative gauge factor piezoresistive response of the conductive TPU nanocomposite under strain"
+      ],
+      "performance_metrics": [
+        "Storage modulus (MPa/GPa) and percentage reduction across the glass transition temperature",
+        "Interfacial tensile strength (MPa) and interlaminar shear strength (MPa)",
+        "Flexural stiffness (N/m)",
+        "Cyclic fatigue life (cycles to failure)",
+        "Heating duration to reach 70 °C (s) and energy consumption (J)",
+        "Cooling rate and temperature drop over time (°C/s)",
+        "Grip force (N) and percentage improvement in grip force over pure TPU",
+        "Sensor sensitivity, gauge factor, and normalized resistance change (ΔR/R0)",
+        "Maximum payload capacity (kg)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Bilayer conductive PLA and TPU joints allow temperature-controlled variable stiffness via Joule heating, dropping flexural stiffness from ~5000 N/m at 25 °C to less than 1000 N/m at 65 °C.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Heating c-PLA joints above their glass transition temperature (~60–65 °C) reduces bending stresses and prevents fatigue failure, whereas repeated bending in the high-stiffness state leads to cracks at approximately 400 cycles.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Embedding nichrome wire directly into conductive PLA during 3D printing creates robust electrical interconnects that provide uniform Joule heating and reduce heating time to reach 70 °C from >40 s at 0.1 A to <5 s at 0.3 A.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Integrating a c-PLA variable stiffness backbone with a soft TPU structure improves grasping force by up to 720% compared to an all-TPU counterpart, reaching a maximum grip force of 16.37 ± 0.33 N and supporting payloads up to 1.5 kg.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Multimaterial FFF 3D printing enables monolithic fabrication of a soft gripper with embedded conductive TPU resistive sensors that exhibit negative piezoresistive gauge behavior for tactile force sensing and object discrimination.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "title": "A 3D Printing-Enabled Artificially Innervated Smart Soft Gripper with Variable Joint Stiffness",
+          "doi": "10.1002/admt.202301426",
+          "claim": "Finite element analysis demonstrates that selectively softening joints reduces internal bending stresses while rigid joints provide load-bearing support and resist bending under cable tension.",
+          "evidence_type": "simulation",
+          "page_numbers": [
+            6
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "author_stated",
+          "text": "The gripper lacks a closed-loop temperature feedback control circuit, creating a risk of joint damage from localized or general overheating if unmonitored"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "author_stated",
+          "text": "Cooling rates evaluated in still air are relatively slow for rapid industrial cycles unless augmented by active cooling techniques"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "author_stated",
+          "text": "Interlaminar tensile (~1.5 MPa) and shear (~2.0 MPa) strengths between TPU and c-PLA are lower than bulk material values, requiring strategic placement near the neutral axis during bending"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "author_stated",
+          "text": "Lower infill densities (10% and 15%) in TPU led to sagging/overhanging print defects and unpredictable sensor output signals or secondary peak artifacts"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "author_stated",
+          "text": "Object identification and actuation mode classification based on sensor array profiles remain a hypothesis requiring further experimental validation and machine learning implementation"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "model_inferred",
+          "text": "Cable-driven actuation introduces friction and mechanical wear along internal guide channels over prolonged cycling"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "model_inferred",
+          "text": "Repeated thermal cycling above the glass transition temperature of c-PLA may cause matrix degradation or alter conductive filler percolation networks over extended operational lifespans"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "model_inferred",
+          "text": "Thermal time constants for natural convective cooling introduce latency between consecutive stiffness changes, limiting cycle speed in rapid manipulation tasks"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "source_type": "model_inferred",
+          "text": "External lead wires and acquisition equipment were manually connected to the embedded pins and sensors, indicating that electrical interface assembly is not fully monolithic"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "a1a03d9a89",
+          "text": "Incorporating a closed-loop temperature feedback control circuit for precise joint temperature regulation and overheating prevention"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "text": "Developing holistic multi-sensor feedback systems to monitor structural health and joint conditions"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "text": "Implementing active cooling mechanisms such as advanced printed fin geometries, external forced-convection cooling fans, or embedded liquid cooling channels"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "text": "Applying machine learning algorithms (such as artificial neural networks) to classify tactile sensor array outputs and identify manipulated objects"
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "text": "Further optimizing the gripper design for broader deployment across industrial automation applications"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "a1a03d9a89",
+          "status": "unverified_implication",
+          "text": "Thermal response latency during cooling highlights a general performance bottleneck in Joule-heated shape memory polymer grippers, pointing toward the need for integrated microfluidic cooling channels in monolithic additive manufacturing."
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "status": "unverified_implication",
+          "text": "The trade-off between softness and sensor predictability at lower infill densities suggests a gap in fabricating soft cellular metamaterials that retain tactile sensing fidelity without structural drooping."
+        },
+        {
+          "paper_id": "a1a03d9a89",
+          "status": "unverified_implication",
+          "text": "The lack of closed-loop thermal regulation underscores an architectural gap in variable-stiffness soft actuators, motivating future research into co-embedded thermomechanical sensory feedback."
+        }
+      ]
+    },
+    {
+      "paper_id": "a1917fa859",
+      "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+      "authors": [
+        "Tianhong Wang",
+        "Tao Jin",
+        "Quan Zhang",
+        "Long Li",
+        "Guopeng Wang",
+        "Yingzhong Tian",
+        "Sicheng Yi",
+        "Yangqiao Lin"
+      ],
+      "year": "2023",
+      "doi": "10.1002/aisy.202200304",
+      "robot_type": "soft-rigid structured gripper",
+      "stiffness_mechanism": [
+        "antagonistic mechanism",
+        "spring pretension",
+        "multimaterial soft joint with spring connecting adjacent backbones"
+      ],
+      "actuation": [
+        "tendon-driven",
+        "rotatory DC motor (DJI RoboMaster M3508 P19) with actuating tendon",
+        "servomotors (TianKongRC TD-8320MG) driving antagonist tendons"
+      ],
+      "modeling_methods": [
+        "Moment equilibrium modeling considering actuating moment, joint hyperelastic resistance moment, and spring rotational moment",
+        "Stress concentration modeling idealizing the deformed junction zone as a sector of bending angle theta with expansion factor mu = 2",
+        "Second-order Yeoh hyperelastic strain energy density formulation for incompressible, homogeneous soft material",
+        "Virtual work principle formulating joint reaction torque and stiffness from total strain and potential energy",
+        "Series equivalent stiffness model for two independent joints in series (Kf = K1*K2 / (K1 + K2))"
+      ],
+      "performance_metrics": [
+        "Finger stiffness (N/mm) and stiffness enhancement ratio (up to 6.4x)",
+        "Maximum joint bending angle (up to 90 degrees per joint)",
+        "Normal clamping force (N)",
+        "Horizontal pulling resistance force / axial load capacity (N)",
+        "Lateral grasping / pulling force (N)",
+        "Contact area and surface conformity (reduction of mismatching interaction zone)",
+        "Preservation of fragile object geometry without deformation/damage",
+        "Dynamic grip retention under reciprocal motion cycles (1.4 s period)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Combining spring stiffness and pretension under the antagonistic mechanism can enhance fingertip stiffness up to 6.4 times compared to a finger without springs.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            7,
+            11
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "The joint bending deformation and resistance moment can be modeled using second-order Yeoh hyperelastic strain energy density combined with a stress-concentration sector geometry.",
+          "evidence_type": "theoretical",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Finger stiffness can be predicted via virtual work and equivalent series joint stiffness, showing positive correlation with spring pretension and bending angle.",
+          "evidence_type": "theoretical",
+          "page_numbers": [
+            4,
+            5
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Selective spring pretensioning allows single-joint bending where the stiffened joint remains unbent while the compliant joint bends up to 70 degrees under load.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "A stiffness gradient decreasing from base to tip produces sequential motion (proximal sweeping followed by distal caging) that enlarges contact area and reduces mismatching zones across various cylinder curvatures.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Increasing spring pretension and wire diameter decreases normal clamping force because the antagonistic effect offsets bending torque, enabling gentle contact.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Stiffening the distal joint is more effective at strengthening lateral load capacity than stiffening the proximal joint.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Variable joint stiffness protects delicate objects, allowing undamaged grasping of paper rings and plasticine cylinders that deform or fail under uniform stiffness.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "paper_id": "a1917fa859",
+          "title": "A Bioinspired Gripper with Sequential Motion and Mutable Posture Enabled by Antagonistic Mechanism",
+          "doi": "10.1002/aisy.202200304",
+          "claim": "Antagonistic pretensioning enables stable dynamic grasping of a 100 g weighted paper cup under reciprocal motion (1.4 s cycle) without slip, whereas fingers without pretension bend passively and fail due to inertial forces.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            10,
+            11
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "author_stated",
+          "text": "Discrepancies and errors exist between theoretical modeling predictions and experimental results due to nonlinear material behavior and approximate mathematical solutions."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "author_stated",
+          "text": "The gripper without spring pretension suffers from insufficient stiffness to resist inertial forces during dynamic acceleration and deceleration, causing passive bending and grasp failure."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "model_inferred",
+          "text": "Multi-material 3D-printed elastomer-to-rigid interfaces (Agilus 30 to Vero PureWhite) may be vulnerable to fatigue and delamination under repetitive antagonistic loading."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "model_inferred",
+          "text": "The variable stiffness mechanism relies on pre-programmed open-loop servo positions without real-time closed-loop contact force or stiffness sensing."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "model_inferred",
+          "text": "Each finger is mechanically constrained to single-plane bending without lateral adduction/abduction or spatial compliance."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "source_type": "model_inferred",
+          "text": "External actuators (DC motor, multiple servos, and controller) add system bulk, limiting self-contained untethered deployment."
+        }
+      ],
+      "future_work": [],
+      "gap_implications": [
+        {
+          "paper_id": "a1917fa859",
+          "status": "unverified_implication",
+          "text": "Although the antagonistic tendon-spring mechanism avoids the bulky fluidic hardware of pneumatic variable-stiffness grippers, achieving autonomous stiffness adaptation in unstructured environments will likely require integrating tactile/proprioceptive feedback."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "status": "unverified_implication",
+          "text": "While sequential planar motion improves curvature enveloping, grasping highly irregular three-dimensional or asymmetric objects with antagonistic variable stiffness remains an open research avenue."
+        },
+        {
+          "paper_id": "a1917fa859",
+          "status": "unverified_implication",
+          "text": "The durability, creep, and fatigue life of multimaterial 3D-printed joints subjected to continuous antagonistic pretension warrant systematic cyclic endurance testing."
+        }
+      ]
+    },
+    {
+      "paper_id": "7eddb5d92e",
+      "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+      "authors": [
+        "Yang Yang",
+        "Honghui Zhu",
+        "Jia Liu",
+        "Zhong Wei",
+        "Yunquan Li",
+        "Jianshu Zhou"
+      ],
+      "year": "2023",
+      "doi": "10.1109/TIM.2023.3276501",
+      "robot_type": "soft robotic finger (configured into a soft robotic gripper)",
+      "stiffness_mechanism": [
+        "shape memory polymer (SMP)",
+        "thermoplastic SMP with glass-to-rubber phase transition",
+        "flexible polyimide (PI) electrothermal film heaters for segmental Joule heating"
+      ],
+      "actuation": [
+        "supercoiled polymer artificial muscles (SCPAMs)",
+        "antagonistic SCPAM strings (three bottom strings for forward bending, two top strings for backward recovery)"
+      ],
+      "modeling_methods": [
+        "Cantilever beam bending formulation relating fingertip vertical force to tip displacement (k = F / delta).",
+        "Segmental deflection modeling summing the vertical displacement contributions across the three variable-stiffness SMP sections and four constant-stiffness connecting sections.",
+        "Beam moment and curvature equations (theta_i = M_i * L_1 / (E_SV * I_S + E_R * I_R)).",
+        "Small-deflection approximations (cos(theta) ≈ 1, sin(theta) ≈ theta) to derive an analytical expression for overall finger stiffness k.",
+        "Tobushi thermomechanical constitutive relation modeling SMP elastic modulus as a function of temperature across the glass transition zone.",
+        "Linear regression fitting on experimental force-displacement data within the 0 to 2 mm range to determine stiffness.",
+        "Kinematic tip trajectory analysis comparing sequential and nonsequential motion configurations."
+      ],
+      "performance_metrics": [
+        "Variable stiffness ratio: 10.54 (actuators on) and 25.91 (no actuators) between 25 °C and 70 °C",
+        "SMP elastic modulus range: 2150 MPa (El at 40 °C) to 2.1 MPa (Eh at 70 °C), with Eg = 57.35 MPa at Tg = 55 °C (three orders of magnitude variation)",
+        "Cooling duration from 70 °C to 40 °C: ~160 s (natural cooling without foil), ~80 s (natural cooling with aluminum foil), ~50 s (cooling from Tg to Tl with foil), and ~35 s (fan cooling)",
+        "Maximum bending angles (at 70 °C, 0.5 A/string): 23.21° (1 section), 41.24° (2 sections, 20.62°/section), and 48.27° (3 sections, 16.09°/segment)",
+        "Maximum load-bearing in grasping demonstration: successfully lifted 150 g solder wire roll",
+        "Actuation bandwidth and efficiency benchmarks for SCPAM: 0.3 Hz in standing air / 1 Hz in forced air, power efficiency 0.71% to 1.32%, and power density 27 W/g"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "The soft robotic finger achieves a maximum experimental stiffness ratio of 10.54 between room temperature (25 °C) and 70 °C with actuators on, and 25.91 with no actuators assembled.",
+          "evidence_type": "experimental data",
+          "page_numbers": [
+            1,
+            8
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "Thermoplastic SMP undergoes a reversible transition between glass and rubber states over 40 °C to 70 °C, altering elastic modulus across three orders of magnitude from 2150 MPa to 2.1 MPa.",
+          "evidence_type": "material property measurement",
+          "page_numbers": [
+            1,
+            6
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "Laminating a 0.12 mm aluminum foil layer onto the SMP surface cuts the passive cooling time approximately in half (from ~160 s to ~80 s) and provides effective thermal radiation shielding between SCPAM actuators and SMP.",
+          "evidence_type": "experimental data",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "Applying 0.5 A per SCPAM string at 70 °C SMP temperature produces maximum bending angles of 23.21° for one segment, 41.24° (20.62°/segment) for two segments, and 48.27° (16.09°/segment) for three segments.",
+          "evidence_type": "experimental data",
+          "page_numbers": [
+            7
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "A theoretical cantilever beam model integrating a thermomechanical SMP constitutive relation predicts the experimental stiffness reduction trend as temperature rises from 25 °C to 70 °C.",
+          "evidence_type": "theoretical modeling and experimental validation",
+          "page_numbers": [
+            4,
+            5,
+            8
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "Sequential activation of SMP segments from root to tip (1-2-3) expands the finger workspace, increases contact surface area, and distributes pressure more uniformly over curved objects than simultaneous nonsequential activation.",
+          "evidence_type": "kinematic modeling and experimental data",
+          "page_numbers": [
+            4,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "title": "A Novel Variable Stiffness and Tunable Bending Shape Soft Robotic Finger Based on Thermoresponsive Polymers",
+          "doi": "10.1109/TIM.2023.3276501",
+          "claim": "A two-finger soft gripper successfully grips and lifts a 150 g load when the SMP sections are cooled to a high-stiffness state, but drops the load if the heaters remain powered on.",
+          "evidence_type": "experimental demonstration",
+          "page_numbers": [
+            9
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Natural air cooling of the SMP sections within the silicone shell is slow, taking roughly 160 s without foil to drop from 70 °C to 40 °C."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "SCPAM actuators exhibit limited actuation bandwidth (0.3 Hz in still air, 1 Hz in forced air) and low energy efficiency (0.71% to 1.32%)."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Thermal coupling between the Joule-heated SMP and SCPAM actuators is inevitable during thermal operation and can alter stiffness or actuation states if unshielded."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Heater current must be constrained to avoid thermal damage to the flexible PI electrothermal films."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Fan cooling introduces rigid motor components that compromise soft robot compliance, whereas active liquid or pneumatic cooling requires redundant and bulky auxiliary hardware outside the paper's scope."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Theoretical beam modeling omits the stiffness of heaters, aluminum foil, wiring, actuators, and probe contact compliance, causing overprediction of stiffness at low temperatures and underprediction at high temperatures."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "Precise closed-loop position control was not implemented; only closed-loop temperature control was achieved."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "author_stated",
+          "text": "The contraction property of current SCPAM actuators limits the achievable bending angle of the finger."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "model_inferred",
+          "text": "The grasping demonstrations were restricted to lightweight objects (up to 150 g) and planar bending; torsional resistance, out-of-plane loading, and heavier payload capabilities were not characterized."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "model_inferred",
+          "text": "Long-term cycling durability, fatigue life, and interfacial bonding integrity between the silicone shell, SMP, PI heaters, and adhesive under cyclic thermal and mechanical stresses were not evaluated."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "model_inferred",
+          "text": "Prestress inherent to the assembled SCPAM strings induces uncommanded initial tip deformation and force when the SMP softens, even before actuators are electrically energized."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "source_type": "model_inferred",
+          "text": "Even with passive cooling enhancements (reducing cooling time to ~80 s), the thermal cycle duration remains relatively long for high-speed or dynamic manipulation tasks."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "7eddb5d92e",
+          "text": "Developing closed-loop position control based on the existing thermocouple-monitored closed-loop temperature control system."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "text": "Optimizing the structural design and fabrication techniques of SCPAM actuators to increase contraction stroke and expand the bending angle of the soft finger."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "text": "Optimizing SMP and silicone rubber shell geometry (e.g., expanding through-hole area and count, or thinning SMP for low-load tasks) to accelerate passive cooling."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "text": "Investigating embedded fluid channels for active air or liquid cooling in speed-critical applications."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "7eddb5d92e",
+          "status": "unverified_implication",
+          "text": "Combining Joule-heated SMPs and SCPAMs provides an all-electric, compressor-free architecture for variable-stiffness soft grippers, indicating a viable design direction for compact, untethered soft manipulators if thermal cooling latency and actuation bandwidth constraints can be alleviated."
+        },
+        {
+          "paper_id": "7eddb5d92e",
+          "status": "unverified_implication",
+          "text": "Segment-by-segment stiffness control enabling sequential conformability highlights how localized compliance tuning can substitute for complex multi-actuator kinematic controls in soft grasping, although achieving high-speed grasping cycles requires rapid active thermal management."
+        }
+      ]
+    },
+    {
+      "paper_id": "39520ca4cd",
+      "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+      "authors": [
+        "Yuchen Zhao",
+        "Yifan Wang"
+      ],
+      "year": "2023",
+      "doi": "10.1109/LRA.2023.3266667",
+      "robot_type": "palm-shape variable-stiffness soft pneumatic gripper",
+      "stiffness_mechanism": [
+        "fabric jamming (jamming of 3D-printed structured fabrics)",
+        "layer jamming (evaluated in comparative gripper L1)",
+        "pneumatic jamming (vacuum-induced jamming)"
+      ],
+      "actuation": [
+        "soft pneumatic actuators (positive pressure up to 120 kPa)",
+        "vacuum pump (negative pressure down to -90 kPa)"
+      ],
+      "modeling_methods": [
+        "Parabolic curve fitting (y = ax^2 + bx + c) applied to traced palm bottom edge profiles to calculate the average slope angle theta as a quantitative conformability metric."
+      ],
+      "performance_metrics": [
+        "maximum gripping force (N)",
+        "pinch force (N)",
+        "maximum gripping-to-pinch force ratio",
+        "jammed-to-unjammed gripping force ratio",
+        "average palm bottom edge slope angle theta (degrees)",
+        "maximum payload mass (g)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "39520ca4cd",
+          "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+          "doi": "10.1109/LRA.2023.3266667",
+          "claim": "Jamming of 3D-printed structured fabrics consisting of interlocking octahedron trusses provides reversible stiffening under vacuum, enabling the soft palm gripper to reach a maximum gripping force of 17 N and a grip-to-pinch force ratio of 42.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+          "doi": "10.1109/LRA.2023.3266667",
+          "claim": "Geometric interlocking dominates the gripping force for curved enclosing shapes (spheres and horizontal cylinders), where jamming increases gripping force up to 4.6 times, whereas frictional contact dominates for vertical flat surfaces (cubes and vertical cylinders) where jamming produces minimal change.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            4,
+            5
+          ]
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+          "doi": "10.1109/LRA.2023.3266667",
+          "claim": "Structured fabric jamming exhibits higher conformability than paper layer jamming because the discrete chain-mail-like elements require minimal elastic energy to adapt to curved surfaces compared to continuous elastic sheets.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+          "doi": "10.1109/LRA.2023.3266667",
+          "claim": "Adding a 0.1 mm PET plastic sheet liner between the fabric and silicone membrane significantly increases jammed gripping force (from 8 N to 17 N on a 7 cm cylinder) by enhancing composite bending stiffness, with a slight reduction in conformability and unjammed pinch force.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "title": "A Palm-Shape Variable-Stiffness Gripper Based on 3D-Printed Fabric Jamming",
+          "doi": "10.1109/LRA.2023.3266667",
+          "claim": "The palm-shaped gripper applies small active pinching forces (0.2 N to 0.6 N) and requires zero pushing force prior to gripping, enabling damage-free handling of delicate and soft items.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "author_stated",
+          "text": "Current palm designs have limited bending deformation and reduced conformability because each palm is driven by only two bending actuators along its sides."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "author_stated",
+          "text": "There is an apparent negative trade-off between conformability and gripping force, as more compliant jamming materials achieve lower stiffness upon jamming (e.g., L1 had highest force but lowest conformability)."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "author_stated",
+          "text": "Vacuum-induced jamming causes slight palm volume decrease and deformation, leading to pinch force variations and fluctuations between individual palms due to residual stresses, fabric packing variation, and fabrication misalignments."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "author_stated",
+          "text": "The trapezoidal palm design (T1) exhibited reduced palm bending and the lowest conformability across all tested shapes due to its actuator layout."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "model_inferred",
+          "text": "Quasi-static testing only: dynamic grasping, high-speed manipulation, and acceleration effects were not evaluated."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "model_inferred",
+          "text": "Lack of embedded sensing or closed-loop feedback control for contact force, pressure, or shape adaptation."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "model_inferred",
+          "text": "Long-term cyclic fatigue, wear, and potential fracture of SLA 3D-printed resin trusses under repeated high-vacuum jamming were not investigated."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "source_type": "model_inferred",
+          "text": "Manual adjustment of palm spacing was required to handle slender or slippery objects rather than adaptive autonomous adjustment."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "39520ca4cd",
+          "text": "Optimizing actuator placements to enhance gripper conformability and overall gripping performance."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "text": "Improving the stiffness variation of fabric jamming by designing alternative fabric structures and fabric-liner-membrane compositions."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "text": "Exploring alternative actuation mechanisms such as stimulus-responsive materials or bidirectional positive/negative pneumatic actuators."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "text": "Developing more compact pneumatic control systems using vacuum-powered or electric-powered actuators."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "39520ca4cd",
+          "status": "unverified_implication",
+          "text": "The trade-off between unjammed conformability and jammed load capacity suggests a need for spatially graded, anisotropic, or hybrid jamming structures rather than uniform planar jamming media."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "status": "unverified_implication",
+          "text": "Actuation limitations of side-mounted bending actuators indicate that distributed multi-DOF actuation or active robotic surface morphing could decouple conformability from palm stiffness."
+        },
+        {
+          "paper_id": "39520ca4cd",
+          "status": "unverified_implication",
+          "text": "The lack of analytical mechanical modeling for 3D-printed interlocking truss jamming under composite membrane constraints points to an open gap in predictive constitutive models for non-convex granular and fabric jamming."
+        }
+      ]
+    },
+    {
+      "paper_id": "db0ccb7d74",
+      "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+      "authors": [
+        "Junfeng Li",
+        "Jiahao Li",
+        "Zuqi Wu",
+        "YongAn Huang"
+      ],
+      "year": "2023",
+      "doi": "10.1109/TIE.2022.3229371",
+      "robot_type": "soft hand (three-fingered soft hand, two and one fingered hands, soft finger)",
+      "stiffness_mechanism": [
+        "polycaprolactone (PCL) phase transition / variable stiffness structure (VSS)",
+        "Joule heating via embedded Ni-Cr resistance wire",
+        "forced convective fluidic cooling using flowing water"
+      ],
+      "actuation": [
+        "hydraulic actuation (water-driven)",
+        "pneumatic actuation (air-driven, evaluated for comparison)",
+        "integrated actuating–cooling system driven by a single pump without valves using differential tube diameters (3 mm inlet, 1 mm outlet)",
+        "Joule heating via embedded Ni-Cr wire for thermal actuation"
+      ],
+      "modeling_methods": [
+        "Second-order Yeoh hyperelastic constitutive model for the nonlinear silicone chamber.",
+        "Virtual work principle relating fluid pressure, water chamber volume change, silicone deformation energy, and PCL bending torque to finger bending angle.",
+        "Constant curvature kinematic formulation for baseline modeling under pneumatic pressure.",
+        "Cosserat rod theory (1-D continuous rod formulation in Frenet-Serret frame) incorporating distributed finger self-weight and variable internal water mass.",
+        "Empirical linear calibration equation correcting model angle prediction error as a function of finger stiffness.",
+        "Cantilever beam deflection equation for evaluating experimental bending stiffness.",
+        "Proportional-integral-derivative (PID) control algorithm for simultaneous position and stiffness tracking.",
+        "Kalman filtering applied to pressure sensor data for signal noise reduction."
+      ],
+      "performance_metrics": [
+        "Stiffness variation range and ratio: 15-fold change from 10.2 x 10^4 N*mm^2 to 0.67 x 10^4 N*mm^2.",
+        "Thermal transition cycle time: 505 s for hydraulic system vs. 3870 s for pneumatic system.",
+        "Heating and cooling durations: hydraulic heating 262.6 s and cooling 242.4 s; pneumatic heating 76.8 s and cooling 3793.2 s (20 °C to 70 °C).",
+        "Bending angle simulation accuracy: average error of 5.62° for the Cosserat model vs. 25.38° for the constant curvature model under hydraulic actuation at 60 °C.",
+        "Maximum bending angle under high stiffness (< 40° at <= 60 kPa) vs. low stiffness (120°–130°).",
+        "Grasping load capacity: 410 g (high stiffness), 1680 g (low stiffness), and 3560 g (self-locking mode).",
+        "Payload-to-self-weight ratio in self-locking mode: > 5.2 times hand self-weight (3560 g payload / 680 g hand weight)."
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "The PCL-based variable stiffness structure produces a 15-fold stiffness reduction from 10.2 x 10^4 N*mm^2 at 20 °C to 0.67 x 10^4 N*mm^2 at 60 °C.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Actuation and cooling via water in an integrated hydraulic system shortens the variable stiffness cycle time to 505 s (heating: 262.6 s, cooling: 242.4 s), compared to 3870 s for pneumatic operation (heating: 76.8 s, cooling: 3793.2 s).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            3
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Varying the hydraulic pressure between 20 kPa and 60 kPa has no significant effect on the heating or cooling durations of the VSS.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            3
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "A Cosserat rod formulation accounting for distributed finger self-weight and dynamic water mass achieves an average bending angle error of 5.62° under hydraulic pressure at 60 °C, outperforming the constant curvature model error of 25.38°.",
+          "evidence_type": "modeling and simulation / experimental",
+          "page_numbers": [
+            1,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Above a bending stiffness of 4.59 x 10^4 N*mm^2, the influence of water mass becomes negligible and the predictions of Cosserat rod theory and the constant curvature model converge.",
+          "evidence_type": "modeling and simulation",
+          "page_numbers": [
+            7
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Pressurizing the finger above 60 kPa causes actuator damage, restricting the maximum achievable bending angle to under 40° in the unheated high-stiffness state.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            8
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Simultaneous closed-loop regulation of bending angle and structural stiffness is achieved using PWM-modulated MOSFET control of pump voltage and heating wire voltage with PID feedback and Kalman filtering.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "Shape retention and self-locking without electrical power consumption are realized by cooling the deformed PCL structure and depressurizing the hydraulic chamber to zero pressure.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            8,
+            9
+          ]
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "title": "A Soft Variable Stiffness Hand With an Integrated Actuating–Cooling System",
+          "doi": "10.1109/TIE.2022.3229371",
+          "claim": "A 680 g three-fingered hand supports payloads of 410 g in the rigid state, 1680 g in the compliant state, and up to 3560 g (>5.2 times hand self-weight) when self-locked.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            9
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "author_stated",
+          "text": "Internal fluid pressures exceeding 60 kPa induce actuator damage, limiting the maximum bending angle in the high-stiffness state to less than 40°."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "author_stated",
+          "text": "The variable stiffness cycle time of 505 s (over 8 minutes) is long and restricts practical real-time application of the soft hand."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "author_stated",
+          "text": "Polycaprolactone is a biodegradable polymer, which constrains the long-term operational durability and reliability of the VSS."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "author_stated",
+          "text": "The Cosserat-based shape control method cannot dynamically regulate finger curvature during the cooling transition once self-locking is engaged; the finger must be fully reheated, unlocked, straightened, and cooled before simultaneous control can resume."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "author_stated",
+          "text": "PID controller gains (kp, ki, kd) required distinct manual tuning across different tests to balance overshoot and response speed."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "model_inferred",
+          "text": "Actuator deformation and trajectory tracking are posture-dependent because the distributed weight of water will cause varying gravitational deflection when oriented horizontally or inverted rather than downward."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "model_inferred",
+          "text": "Continuous fluid pumping is required to maintain inflation pressure due to the open differential tube design (passive 1 mm outlet), which may introduce hydraulic inefficiency compared to sealed or valved systems."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "model_inferred",
+          "text": "The 1D beam bending formulation does not model potential non-uniform spatial temperature gradients or transient thermal hysteresis along the length of the PCL substrate during rapid transitions."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "source_type": "model_inferred",
+          "text": "Grasp testing was restricted to quasi-static holding trials, leaving dynamic grasping stability under external accelerations or vibrations unexamined."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "db0ccb7d74",
+          "text": "Reducing the variable stiffness cycle time to under 1 minute by optimizing the thermal dissipation of the VSS."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "text": "Decreasing the wall thickness of the PCL material within the VSS."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "text": "Routing fluid flow along both the inner and outer surfaces of the hollow PCL structure to accelerate heat transfer."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "text": "Incorporating liquid metal (75.5 wt% gallium and 24.5 wt% indium) into melting PCL to synthesize high-thermal-conductivity PCL composites."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "text": "Developing adaptive control algorithms, such as fuzzy PID or radial basis function (RBF) neural networks, to avoid manual tuning of control parameters across differing experimental conditions."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "db0ccb7d74",
+          "status": "unverified_implication",
+          "text": "Although forced hydraulic cooling substantially reduces the thermal transition period compared to air cooling, an 8.4-minute cycle time remains too slow for high-frequency industrial picking, emphasizing the need for microchannel cooling or highly conductive composite phase-change materials."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "status": "unverified_implication",
+          "text": "The inability to actively correct or modulate trajectory during the cooling and stiffening phase identifies a control and kinematic modeling gap for variable-stiffness actuators undergoing dynamic phase transitions."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "status": "unverified_implication",
+          "text": "The open differential-diameter tube design avoids valve complexity but necessitates continuous pumping and fluid discharge during inflation, presenting an architectural tradeoff between mechanical simplicity and fluidic efficiency."
+        },
+        {
+          "paper_id": "db0ccb7d74",
+          "status": "unverified_implication",
+          "text": "The 60 kPa structural damage ceiling and the biodegradable nature of PCL expose durability and pressure limitations that restrict heavy-duty or harsh-environment soft manipulation tasks."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "source": {
+    "paper_id": "a792efc445",
+    "filename": "2025-Continuum modeling for layer jamming structures.pdf",
+    "sha256": "a792efc4453c0565fb59af285a2c564793728ac68a259dcb0bdb2710a53cb59a",
+    "page_count": 9,
+    "char_count": 45668,
+    "source_type": "verification",
+    "verification_id": "D1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 31735,
+    "completion_tokens": 6962,
+    "total_tokens": 38697,
+    "thinking_tokens": 4866,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "vacuum",
+      "hydrostatic pressure"
+    ],
+    "authors": [
+      "Shuai Zhang",
+      "Jiantao Yao",
+      "Shizeng Li",
+      "Xinbo Chen"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Layer material is isotropic and linearly elastic",
+      "Nearly incompressible behavior of the elastomeric material during deformation",
+      "Small displacement field on the contact surface with first-order displacement approximation across layer thickness",
+      "Constant stress and strain state throughout the discrete representative volume element (RVE) due to the first-order approximation",
+      "Hydrostatic pressure (vacuum-induced) acts as a constant initial stress state onto which external loading increments are superimposed",
+      "Interlayer slip initiation is governed by Coulomb friction when shear stress exceeds maximum static friction determined by the friction coefficient and squeezing force",
+      "Interlayer sliding does not alter the internal stress or strain state within individual layers",
+      "During plastic slipping, the direction of macroscopic shear stress increments aligns with the elastic trial shear stress increments",
+      "Macroscopic stress and displacement gradients are defined by volume and boundary surface averaging of microscopic fields (average-field theory)"
+    ],
+    "control_variables": [
+      "Hydrostatic confining pressure held at 0.1 MPa (atmospheric pressure)",
+      "Layer material Young's modulus (3 GPa) and Poisson's ratio (0.4) based on polypropylene literature parameters",
+      "Interlayer friction coefficient (0.6)",
+      "RVE geometry (height spanning two layer thicknesses h, square cross-section of edge length a)",
+      "Finite element formulation (Abaqus C3D8H hybrid linear hexahedral elements to prevent volumetric locking)",
+      "Boundary constraints (periodic boundary conditions on a 3x3x3 master-slave RVE array with virtual point kinematic coupling)"
+    ],
+    "dependent_variables": [
+      "Macroscopic stress tensor components and increments (including shear stresses sigma_13 and sigma_23, normal stress sigma_33)",
+      "Interlayer sliding displacement components (w1, w2)",
+      "Frictional dissipation energy density",
+      "Elastic strain energy density",
+      "Yield/slip surface evolution and stress trajectories in stress space",
+      "Microscopic displacement and shear stress distributions within the RVE"
+    ],
+    "doi": "10.1016/j.taml.2025.100633",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Jamming mechanisms (granular, fiber, and layer jamming) activated by vacuum provide fast, reversible transitions between liquid-like and solid-like states for variable-stiffness robotic applications.",
+        "evidence_type": "literature review",
+        "page_numbers": [
+          1
+        ]
+      },
+      {
+        "claim": "Layer jamming structures exhibit an elastic solid-like jamming state when shear loads remain below friction limits and a liquid-like slipping state characterized by low shear stiffness and permanent interlayer displacement once friction is overcome.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "The yield/slip criterion of layer jamming structures defines a conical boundary in macroscopic stress space governed by interlayer friction and net normal squeezing force.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "An elastoplastic continuum constitutive formulation derived via the average-field technique provides closed-form equations for macroscopic stress increments, sliding displacements, and frictional dissipation energy density.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Under uniaxial shear loading, finite element simulation and continuum theory both show a transition at a critical shear stress of 0.06 MPa from linear elasticity to a low-stiffness slipping regime, recovering with residual strain after unloading.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Under multi-directional shear loading, the stress trajectory follows the circular yield boundary tangentially at constant stress magnitude during orthogonal shear loading.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "In coupled shear-normal loading, reducing normal compressive stress while holding shear strain fixed induces additional plastic slip due to shrinkage of the yield surface.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Direct experimental probing of constitutive behavior at the material level for layer jamming structures is currently lacking, necessitating future structural-level physical prototype validation.",
+        "evidence_type": "author analysis",
+        "page_numbers": [
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Validate the proposed continuum model at the structural level by measuring macroscopic responses (such as bending stiffness, shear compliance, and energy dissipation) on physical layer jamming prototypes",
+      "Integrate the continuum modeling framework into the design, optimization, and control of soft robotic systems and other jamming-based stiffness-tunable adaptive structures"
+    ],
+    "independent_variables": [
+      "Applied macroscopic deformation modes and loading paths (uniaxial shear loading/unloading, multi-directional shear loading/unloading, and coupled normal-shear loading/unloading)",
+      "Prescribed macroscopic strain components (shear strains epsilon_13 and epsilon_23, normal strain epsilon_33)"
+    ],
+    "limitations_inferred": [
+      "The continuum formulation relies on small-strain assumptions and first-order linear displacement distributions across layer thickness, which may lose accuracy under large deformations or severe bending curvatures.",
+      "The model assumes ideal Coulomb friction with a constant friction coefficient, neglecting surface roughness evolution, rate-dependent friction, and wear.",
+      "The analysis assumes identical, isotropic linear elastic layers, without accounting for viscoelastic behavior or heterogeneous multilayer material stacks.",
+      "The periodic boundary RVE representation omits edge/boundary boundary effects, sheath/membrane encapsulation stiffness, and vacuum sealing mechanics present in physical devices."
+    ],
+    "limitations_stated_by_authors": [
+      "No experimental validation was included in the study due to the lack of effective direct experimental methods for probing the constitutive behavior of layer jamming structures at the material level.",
+      "The theoretical model slightly overestimates the proportion of frictional dissipation energy compared to numerical finite element results.",
+      "Minor discrepancies exist between theoretical predictions and numerical simulations in elastic shear stiffness (1.0714 GPa theoretical vs. 0.888 GPa numerical) and yield boundary radius (0.06 MPa theoretical vs. 0.0612 MPa numerical)."
+    ],
+    "main_results": [
+      "A continuum elastoplastic constitutive model for layer jamming structures was developed using the average-field technique, capturing both jamming and slipping states in analytical form.",
+      "Finite element simulations in Abaqus using a 3x3x3 RVE array with periodic boundary conditions validated the theoretical model under uniaxial shear, multi-directional shear, and coupled normal-shear loading.",
+      "In uniaxial shear, the model accurately captured the transition at 0.06 MPa shear stress from high elastic stiffness (1.0714 GPa theoretical, 0.888 GPa numerical) to low slipping stiffness, with residual strain upon unloading (0.144 per mille theoretical vs. 0.132 per mille numerical).",
+      "In multi-directional shear, the stress trajectory tracked the theoretical circular yield boundary of radius 0.06 MPa (0.0612 MPa numerical) tangentially during orthogonal loading.",
+      "In coupled shear-normal loading, unloading the compressive normal strain while maintaining constant shear strain caused additional interlayer slip as the yield surface contracted.",
+      "The model captured trends in frictional dissipation energy density and elastic strain energy density throughout the deformation process."
+    ],
+    "modeling_methods": [
+      "Representative Volume Element (RVE) formulation spanning two layers",
+      "First-order displacement field approximation through layer thickness",
+      "Average-field theory (volume averaging for macroscopic stress and Bagi's boundary surface integral method for macroscopic displacement gradient)",
+      "Elastoplastic continuum constitutive modeling (Coulomb-based slip condition function, yield surface tracking, and trial elastic stress increment decomposition)",
+      "Finite element analysis (FEA) in Abaqus 6.14 with master-slave periodic boundary conditions, C3D8H hybrid linear hexahedral elements, virtual reference points, and finite sliding surface-to-surface contact"
+    ],
+    "performance_metrics": [
+      "Elastic shear stiffness in the jamming state (GPa)",
+      "Critical shear stress / yield boundary threshold for slip initiation (MPa)",
+      "Residual shear strain upon unloading (per mille)",
+      "Evolution of frictional dissipation energy density (mJ/mm^3 or equivalent energy per unit volume)",
+      "Evolution of elastic strain energy density",
+      "Relative deviation between theoretical continuum predictions and numerical FEA results"
+    ],
+    "possible_gap_implications": [
+      "A continuum formulation offers substantial computational efficiency improvements over discrete multi-layer FEA models, but its practical implementation in soft robotics requires implementation as a user material subroutine (UMAT) or structural shell/beam model.",
+      "Because validation was purely computational on an idealized RVE, the influence of physical manufacturing artifacts (e.g., vacuum bagging compliance, non-uniform pressure distribution, and layer misalignment) on model accuracy remains an open research gap."
+    ],
+    "research_objective": "To establish a continuum elastoplastic constitutive model for layer jamming structures using the average-field technique, providing a unified and computationally efficient framework to capture both jamming and slipping states under multi-axial loading.",
+    "research_problem": "Existing mechanical models for layer jamming structures rely on discrete layer-by-layer formulations or are restricted to specific configurations (e.g., standard beam geometries), resulting in high computational costs and limited applicability to diverse non-standard designs.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "layer jamming",
+      "interlayer friction"
+    ],
+    "title": "Continuum modeling for layer jamming structures",
+    "year": "2026"
+  }
+}

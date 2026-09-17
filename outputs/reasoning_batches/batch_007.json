@@ -1,0 +1,1166 @@
+{
+  "schema_version": 1,
+  "batch_id": "B007",
+  "source_matrix": "outputs/literature_matrix.json",
+  "matrix_sha256": "869346a03b1d8a294c7519e667ea51ff3434ff5bae529120e994d5c8e54c31c3",
+  "paper_count": 6,
+  "paper_ids": [
+    "3a6c7298b6",
+    "dbe0e69179",
+    "79059ca07c",
+    "6f076ab4d4",
+    "64a83322f3",
+    "d6e4cf1d14"
+  ],
+  "papers": [
+    {
+      "paper_id": "3a6c7298b6",
+      "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+      "authors": [
+        "Takahide Kitamura",
+        "Kojiro Matsushita",
+        "Naoki Nakatani"
+      ],
+      "year": "2023",
+      "doi": "10.3390/s23249827",
+      "robot_type": "Fin Ray-type soft gripper (FRSG)",
+      "stiffness_mechanism": [
+        "Fin Ray bio-mimetic flexible structure passive deformation",
+        "Contact between crossbeams (crossbeam-to-crossbeam contact causing stiffness variation and buckling suppression based on crossbeam angle and arrangement)"
+      ],
+      "actuation": [
+        "Parallel open/close drive system driven by two electric motors (Robotis Dynamixel XM540)"
+      ],
+      "modeling_methods": [
+        "No mechanical or finite element modeling was conducted by the authors in this study; an experimental measurement approach was utilized instead, supported by Kalman filter marker tracking and Savitzky-Golay digital filtering for signal smoothing"
+      ],
+      "performance_metrics": [
+        "Peak contact force (N)",
+        "Contact force distribution width across the 16 load cell segments (evaluating enveloping/wrapping extent)",
+        "Marker displacement loci and conformity to object contours",
+        "Forward and backward displacement of the grasped object (mm) relative to initial position",
+        "Occurrence of crossbeam contact, S-shaped back-beam buckling, and base raised buckling"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "Conventional finite element method (FEM) simulations struggle to accurately reflect material and geometric discrepancies in 3D-printed soft fingers, and face difficulties predicting buckling, crossbeam contact, and slippage when grasping angled objects.",
+          "evidence_type": "Background rationale / literature analysis",
+          "page_numbers": [
+            2,
+            3,
+            20
+          ]
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "Embedding multiple single-axis force sensors inside the grasped object rather than inside the soft finger avoids altering the finger's compliant grasping kinematics, eliminates sensor damage, and provides high spatial resolution normal contact force distributions.",
+          "evidence_type": "Methodological design rationale",
+          "page_numbers": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "For cylindrical objects, crossbeam angles near 0 degrees and -15 degrees provide the widest contact force distribution and superior enveloping grasping, whereas a -30 degree angle causes premature crossbeam-to-crossbeam contact and S-shaped buckling, and a +30 degree angle causes raised buckling at the finger base.",
+          "evidence_type": "Experimental findings",
+          "page_numbers": [
+            7,
+            8,
+            9,
+            20
+          ]
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "When grasping square objects in a 0-degree orientation, contact occurs at the lower and upper corners; an FRSG with a +15 degree crossbeam angle prevents crossbeam collision at the lower corner while allowing the finger tip to wrap over the upper corner.",
+          "evidence_type": "Experimental findings",
+          "page_numbers": [
+            12,
+            13,
+            20
+          ]
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "For square objects oriented at 45 degrees, stable wrapping grasping can be achieved by employing non-uniform crossbeam angles: positive angles (+15 or +30 degrees) below the contact point to prevent crossbeam contact, and negative angles (-15 or -30 degrees) above the contact point to promote wraparound deformation.",
+          "evidence_type": "Experimental findings and analytical deduction",
+          "page_numbers": [
+            16,
+            20
+          ]
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "title": "Analysis of Contact Force and Shape Change on Grasping a Square Object Using an Actual Fin Ray Soft Gripper",
+          "doi": "10.3390/s23249827",
+          "claim": "During gripper opening, the finger separates starting from the tip, which reduces contact area, causes slip, and prevents the grasped object from returning to its initial position, producing positional misalignment.",
+          "evidence_type": "Experimental findings",
+          "page_numbers": [
+            8,
+            9,
+            10,
+            11,
+            20
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "author_stated",
+          "text": "When the gripper opens, release begins from the finger tip, reducing contact area and causing slipping that leads to positional misalignment between initial and final object positions"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "author_stated",
+          "text": "Closing the Fin Ray soft gripper completely can lead to structural breakage"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "author_stated",
+          "text": "If the tip of the Fin Ray finger does not extend sufficiently past the upper corner of a square body, it pushes the object forward and fails to establish a stable pincer grasp"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "author_stated",
+          "text": "Excessive positive crossbeam angles can cause excessive warping at the finger tip, preventing successful grasping"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "author_stated",
+          "text": "The proposed optimal design combining non-uniform crossbeam angles (+30 degrees below and -30 degrees above contact) for 45-degree square grasping was derived as an estimation/deduction rather than experimentally built and validated in this study"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "model_inferred",
+          "text": "Measurement of deformation was restricted to 2D planar displacements along the side profile using camera tracking; out-of-plane, twisting, or lateral 3D deformations were not captured"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "model_inferred",
+          "text": "Experiments evaluated only rigid aluminum contact interfaces; performance on soft, compliant, fragile, or irregularly textured surfaces was not investigated"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "model_inferred",
+          "text": "Only one elastomer resin (Elastic50A) and one nominal finger size scale were tested, limiting direct generalizability to other soft materials or scales"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "source_type": "model_inferred",
+          "text": "Tests were conducted under pre-programmed open/close motor strokes without active real-time closed-loop contact force control"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "3a6c7298b6",
+          "text": "Implementing countermeasures against post-grasp object misalignment, including introducing position sensors to track object position, increasing contact surface friction, and controlling release trajectory errors"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "text": "Fabricating and experimentally evaluating Fin Ray soft grippers with heterogeneous, non-uniform crossbeam angle arrangements (e.g., positive angles below the contact point and negative angles above)"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "text": "Developing real-time contact force feedback control (monitoring base sensors ch 6/7 and tip sensors ch 2/3) to stop the closing motion before force levels become excessive or cause finger damage"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "3a6c7298b6",
+          "status": "unverified_implication",
+          "text": "Highlights the necessity of developing design frameworks and fabrication processes for soft grippers with spatially varying (heterogeneous) internal beam geometries tailored to complex non-cylindrical objects"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "status": "unverified_implication",
+          "text": "Points to an unresolved gap in tactile-guided closing strategies that dynamically monitor discrete corner contact events to arrest gripper closure before structural overload occurs"
+        },
+        {
+          "paper_id": "3a6c7298b6",
+          "status": "unverified_implication",
+          "text": "Identifies post-grasp positional drift upon release as a critical operational challenge requiring advanced release trajectory or friction control in precision soft robotic handling"
+        }
+      ]
+    },
+    {
+      "paper_id": "dbe0e69179",
+      "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+      "authors": [
+        "Xiangli Li",
+        "Yufei Hao",
+        "Jianhua Zhang",
+        "Chang Wang",
+        "Dai Li",
+        "Jianjun Zhang"
+      ],
+      "year": "2023",
+      "doi": "10.1109/LRA.2023.3279613",
+      "robot_type": "soft robotic glove",
+      "stiffness_mechanism": [
+        "layer jamming",
+        "multi-stage articulated elastomer (MSAE) consisting of spring steel sheets",
+        "vacuum-induced friction between spring steel sheets and silicone rubber"
+      ],
+      "actuation": [
+        "pneumatic actuation (positive air pressure)",
+        "vacuum pressure"
+      ],
+      "modeling_methods": [
+        "Three-point bending boundary condition model for force calculation at the PIP joint at a given deflection",
+        "Relative sliding friction dissipation work model for layer jamming between spring steel sheets and between spring steel and silicone rubber",
+        "Third-order Ogden strain energy model for homogeneous incompressible hyperelastic material behavior of silicone rubber",
+        "Static moment balance formulation equating internal stress moment to moment from chamber air pressure at the end cap",
+        "Work-energy balance relationship (Wr = Wθ + Wlay) to model bending angle under combined positive pressure and vacuum jamming",
+        "Nonlinear finite element method (FEM) simulation in ABAQUS using solid (C3D8R), shell (S4R), and beam (B32) elements with friction contact modeling"
+      ],
+      "performance_metrics": [
+        "Fingertip output force (up to 1.54 N at 300 kPa)",
+        "Stiffness variation ratio (2.4 times overall increase from 0.0174 N/mm to 0.0415 N/mm; 2.36 times single-joint increase)",
+        "Maximum bending angle (155° at 300 kPa, limiting angle of 235° at 450 kPa)",
+        "Actuator response time (< 1 s)",
+        "Artificial hand extension angle α under 6 N joint resistance (8.2° at -90 kPa with 0.25 mm sheet thickness)",
+        "Deflection under 6 N load (reduced to 2.5 mm)",
+        "Total glove weight (170 g; individual index finger actuator weight ~34 g)",
+        "Stroke patient joint resistance range (2 N to 6 N)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "A variable stiffness actuator integrates a fiber-reinforced pneumatic actuator with a multi-stage articulated elastomer (MSAE) consisting of three layers of spring steel sheets hinged by rope, utilizing vacuum-driven layer jamming to increase elasticity and facilitate finger extension.",
+          "evidence_type": "design and mechanism",
+          "page_numbers": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "Measurement of PIP joint resistance across 30 stroke patients aged 40 to 90 years showed resistance ranging from 2 N to 6 N, providing an empirical benchmark of 6 N for rehabilitation actuator design.",
+          "evidence_type": "clinical measurement",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "Applying a vacuum pressure of -90 kPa increases the actuator stiffness by 2.4 times (from 0.0174 N/mm to 0.0415 N/mm) and single-joint stiffness by 2.36 times under a 6 N load.",
+          "evidence_type": "experimental measurement",
+          "page_numbers": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "The actuator achieves a bending angle of 155° at 300 kPa, a maximum limiting bending angle of 235° at 450 kPa with response time under 1 s, and generates up to 1.54 N fingertip output force at 300 kPa.",
+          "evidence_type": "experimental measurement",
+          "page_numbers": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "On an artificial hand model mimicking clenched fist deformity with 6 N joint resistance, applying -90 kPa vacuum with 0.25 mm spring steel sheets reduces the extension angle to 8.2°, verifying extension facilitation.",
+          "evidence_type": "experimental validation",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "A mechanical analytical framework combining third-order Ogden hyperelastic strain energy and sliding friction work models the bending angle under positive pressure and predicting stiffness under vacuum.",
+          "evidence_type": "mechanical modeling",
+          "page_numbers": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "A lightweight (170 g) five-finger soft robotic glove prototype successfully executed typical rehabilitation gestures and grasped 10 daily objects of diverse shapes and sizes.",
+          "evidence_type": "experimental demonstration",
+          "page_numbers": [
+            7
+          ]
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "title": "Design, Modeling and Experiments of a Variable Stiffness Soft Robotic Glove for Stroke Patients With Clenched Fist Deformity",
+          "doi": "10.1109/LRA.2023.3279613",
+          "claim": "Cracks introduced in the spring steel sheets on both sides of the PIP joint reduce unwanted resistance caused by silicone extrusion during low-stiffness bending, provided upper and lower cracks are misaligned.",
+          "evidence_type": "design principle",
+          "page_numbers": [
+            2
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "author_stated",
+          "text": "The theoretical bending angle model underestimates experimental values due to simplifications of load and complex deformation, as well as actuator manufacturing errors (page 5)."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "author_stated",
+          "text": "The theoretical stiffness model overestimates experimental stiffness due to inaccurate parameter assumptions (e.g., estimation of friction coefficients μl and μe), possible warping of the MSAE cross-section during bending that violates the constant cross-section assumption, and installation errors (page 6)."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "author_stated",
+          "text": "Excessive increase in spring steel sheet thickness consumes more air pressure during bending (page 6)."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "author_stated",
+          "text": "Practical experiments on stroke patients to evaluate clinical effectiveness have not yet been conducted (page 8)."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "author_stated",
+          "text": "The system currently lacks integrated sensing and intelligent control based on user intent understanding (page 8)."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "model_inferred",
+          "text": "The glove was evaluated on healthy subjects and a mechanical artificial hand, leaving therapeutic efficacy, comfort, and spasticity mitigation unverified in actual stroke patients."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "model_inferred",
+          "text": "Long-term mechanical fatigue, cyclic wear of the paper friction layers, and delamination risks between silicone and spring steel sheets under repeated actuation were not assessed."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "model_inferred",
+          "text": "Friction coefficients were treated as static constants and approximated rather than dynamically characterized under cyclic loading."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "source_type": "model_inferred",
+          "text": "Portability is limited due to the need for external pressurized air and vacuum sources and multi-channel valve arrays."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "dbe0e69179",
+          "text": "Conduct practical clinical experiments on stroke patients to evaluate the therapeutic rehabilitation effectiveness of the soft robotic glove"
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "text": "Advance control research to increase device intelligence, including integrating various sensors"
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "text": "Combine surface electromyographic (sEMG) signals to achieve robust glove control for patient intent understanding and precise assistive actuation"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "dbe0e69179",
+          "status": "unverified_implication",
+          "text": "The trade-off between increasing spring steel sheet thickness/stiffness and the higher positive air pressure needed to bend the actuator indicates an optimization challenge between extension assistance and flexion actuation efficiency."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "status": "unverified_implication",
+          "text": "Using paper layers bonded via hot melt film as a friction interface introduces questions regarding cyclic mechanical durability, delamination, and humidity sensitivity in wearable rehabilitation devices."
+        },
+        {
+          "paper_id": "dbe0e69179",
+          "status": "unverified_implication",
+          "text": "The gap between theoretical and measured stiffness due to out-of-plane warping highlights the need for advanced non-planar beam/shell contact models in soft-rigid hybrid jamming mechanisms."
+        }
+      ]
+    },
+    {
+      "paper_id": "79059ca07c",
+      "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+      "authors": [
+        "Chih-Hsing Liu",
+        "Sy-Yeu Yang",
+        "Yi-Chieh Shih"
+      ],
+      "year": "2023",
+      "doi": "10.1109/LRA.2023.3313877",
+      "robot_type": "soft robotic gripper (compliant gripper)",
+      "stiffness_mechanism": [
+        "varying 3D-printed infill densities (metamaterial approach with periodic cells of 40% and 100% infill)",
+        "flexure hinges connecting multi-material compliant phalanges"
+      ],
+      "actuation": [
+        "Motor-driven linear stage powered by a stepper motor (Oriental Motor PKP235D23A) coupled with a timing belt pulley and a threaded rod"
+      ],
+      "modeling_methods": [
+        "Three-material density-based topology optimization maximizing mutual potential energy (MPE) under volume fraction constraints using the Method of Moving Asymptotes (MMA)",
+        "Density filtering and projection schemes incorporating robust eroded, intermediate, and dilated formulations to account for manufacturing tolerances",
+        "Finite Element Analysis (FEA) using LS-DYNA to simulate finger deformation contours, input force curves, and output displacement curves",
+        "Digital image analysis via ImageJ to compute pixel coordinates and measure total contact length between fingers and objects"
+      ],
+      "performance_metrics": [
+        "Fingertip output displacement (mm)",
+        "Input driving force (N)",
+        "Total contact length (pixels) and contact length ratio relative to Festo design",
+        "Maximum payload capacity (kg)",
+        "Maximum graspable object dimension (mm and % of maximum fingertip opening)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "Dividing a compliant finger into multiple phalanges connected by flexure hinges and synthesizing each domain via multi-material topology optimization yields increased fingertip output displacement and reduced actuation force.",
+          "evidence_type": "computational and experimental",
+          "page_numbers": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "The multi-infill density compliant finger produces an average output displacement roughly 9% larger than single-infill density fingers of comparable weight, reaching approximately 1.16 times the output displacement at 30 mm input displacement.",
+          "evidence_type": "experimental and numerical",
+          "page_numbers": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "The multi-infill density finger requires 12.4% and 23.2% lower average input force compared to single-infill density fingers of 90% and 100%, respectively, while avoiding the excessive buckling observed in the low-stiffness 40% infill design.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "Using total contact length as an adaptability metric for circular, rectangular, trapezoidal, and concave objects, the multi-infill density gripper exhibited an average contact length 1.5 times that of the Festo MultiChoiceGripper, successfully conforming to all four geometries.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "In hanging payload tests using a 76.1 mm diameter cylinder, the multi-infill density gripper achieved a maximum payload of 6.76 kg, outperforming a 100% infill finger design (5.35 kg) and a Festo Fin Ray gripper (2.45 kg, achieving 2.8 times its capacity).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "79059ca07c",
+          "title": "Optimal Design of a Highly Self-Adaptive Gripper with Multi-Phalange Compliant Fingers for Grasping Irregularly Shaped Objects",
+          "doi": "10.1109/LRA.2023.3313877",
+          "claim": "The highly self-adaptive gripper successfully gripped diverse challenging objects including 3D-printed asymmetric shapes, a concave shape, food items (apple, raw egg, mango), a balloon, a thin plate, and an object 128 mm wide (88% of maximum fingertip distance).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "author_stated",
+          "text": "Comparisons with the Festo MultiChoiceGripper may not be entirely fair due to disparities in materials, friction coefficients, actuation mechanisms, and motor power."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "author_stated",
+          "text": "A compliant finger printed entirely with a 40% infill density exhibited insufficient stiffness, making it prone to excessive deformation and structural buckling during grasping."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "author_stated",
+          "text": "The third intermediate material phase (E2) occupied an extremely small fraction of the optimized layout and was omitted from the physical prototype for manufacturing feasibility, leaving a bi-material (40% and 100% infill) final structure."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "author_stated",
+          "text": "The maximum graspable object width was constrained to 128 mm, representing approximately 88% of the maximum fingertip separation distance."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "model_inferred",
+          "text": "The design optimization and structural kinematics are purely planar (2D extrusion of 20 mm), which limits compliance and contact adaptation along the out-of-plane dimension for complex 3D spherical or contoured surfaces."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "model_inferred",
+          "text": "Actuation is purely open-loop kinematic displacement with a single actuator; no tactile, proximity, or closed-loop contact force sensors are integrated to regulate contact pressure on fragile objects."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "source_type": "model_inferred",
+          "text": "Viscoelastic effects such as creep, stress relaxation, and fatigue durability under repeated high-load grasping cycles were not evaluated."
+        }
+      ],
+      "future_work": [],
+      "gap_implications": [
+        {
+          "paper_id": "79059ca07c",
+          "status": "unverified_implication",
+          "text": "The combination of multi-material topology optimization, metamaterial infill tuning, and flexure hinges successfully enhances payload and in-plane adaptability, but does not address out-of-plane conformity or 3D spatial grasping demands."
+        },
+        {
+          "paper_id": "79059ca07c",
+          "status": "unverified_implication",
+          "text": "Future research could explore embedding distributed tactile sensing or closed-loop grasping force regulation within topology-optimized multi-density metamaterial fingers to prevent damage to fragile objects under motor-driven actuation."
+        }
+      ]
+    },
+    {
+      "paper_id": "6f076ab4d4",
+      "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+      "authors": [
+        "Toshihiro Nishimura",
+        "Tetsuyou Watanabe"
+      ],
+      "year": "2023",
+      "doi": "10.1109/LRA.2023.3315559",
+      "robot_type": "underactuated robotic gripper",
+      "stiffness_mechanism": [],
+      "actuation": [
+        "single motor"
+      ],
+      "modeling_methods": [
+        "Quasi-static force and moment equilibrium modeling of lead-screw drive and chain-sprocket transmission.",
+        "Classical lead screw mechanics relating thrust force and actuation torque through thread lead angle and friction coefficient.",
+        "Static and kinetic friction threshold conditions governing transition between nut translation (grasping) and nut rotation (bending/pull-in).",
+        "Kinematic transmission modeling relating roller radius, gear train reduction, and motor rotation to object pull-in displacement."
+      ],
+      "performance_metrics": [
+        "Maximum payload in grasping mode: 30.8 N",
+        "Maximum payload in pull-in mode: 29.4 N",
+        "Finger width in initial extended configuration: 40 mm",
+        "Finger-bending angle range: 0 to 90 degrees",
+        "Target grasping force range: 9 N (fragile egg) to 28 N (general objects)",
+        "Pull-in translational distance: 40 mm to 50 mm demonstrated"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "The robotic gripper realizes three sequential functional modes (grasping, finger-bending, and pull-in) driven by a single motor through two self-motion switching mechanisms that respond to motion obstruction.",
+          "evidence_type": "mechanism design and operational demonstration",
+          "page_numbers": [
+            1,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "SMS mechanism A utilizes a screw feed mechanism to switch between finger-bending/pull-in rotation and grasping translation depending on whether chain resistance torque exceeds lead-screw frictional resistance.",
+          "evidence_type": "theoretical modeling and experimental validation",
+          "page_numbers": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "SMS mechanism B employs a preloaded screw and a mechanical hard-stop to switch from finger-bending rotation to belt-conveyor translation once bending reaches 90 degrees.",
+          "evidence_type": "theoretical modeling and experimental validation",
+          "page_numbers": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "A thread lead angle of lambda = 30 degrees provides stable sequential motion switching, whereas lambda = 20 degrees results in erratic mixed motion and lambda = 60 degrees significantly reduces achievable tip force.",
+          "evidence_type": "experimental validation",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "The gripper can perform in-hand reorientation and translation to retrieve objects from tight, boxed shelf compartments where standard parallel grippers cannot operate.",
+          "evidence_type": "experimental demonstration",
+          "page_numbers": [
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "title": "Single-Motor Robotic Gripper With Three Functional Modes for Grasping in Confined Spaces",
+          "doi": "10.1109/LRA.2023.3315559",
+          "claim": "The single-motor gripper achieves a maximum payload of 30.8 N in grasping mode and 29.4 N in pull-in mode with an initial finger width of 40 mm.",
+          "evidence_type": "experimental measurement",
+          "page_numbers": [
+            8
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "author_stated",
+          "text": "Incorporating SMS mechanism B increased finger thickness compared to simple thin-finger grippers, creating a disadvantage for insertion into extremely narrow gaps."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "author_stated",
+          "text": "Downsizing components to thin the fingers introduces a trade-off with finger stiffness and structural durability."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "author_stated",
+          "text": "The robotic arm equipped with the gripper required manual teaching for manipulation tests; autonomous operation requires additional sensors."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "author_stated",
+          "text": "A trade-off exists between fingertip motion speed and achievable tip force governed by the lead angle lambda."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "author_stated",
+          "text": "Tightening torque T_scw must remain within a bounded range so that the motor torque required for mode switching does not exceed motor capacity."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "model_inferred",
+          "text": "Reliance on mechanical friction thresholds and preloading may make motion-switching repeatability susceptible to wear, thermal changes, or surface contamination over time."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "model_inferred",
+          "text": "Indirect force estimation via motor current and lead-screw kinetics assumes known, constant friction coefficients that may fluctuate in real-world environments."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "model_inferred",
+          "text": "Symmetrical dual-finger operation relies on balanced external contact; asymmetric object contact or external disturbances could lead to uneven finger behavior."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "source_type": "model_inferred",
+          "text": "Sequential mode triggering depends on unidirectional motor rotation and mechanical stops, preventing direct, arbitrary mode jumping without reversing or altering mechanical states."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "6f076ab4d4",
+          "text": "Evaluating the effectiveness of the gripper in other manipulation scenarios."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "text": "Developing an optimization method for gripper design parameters."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "text": "Integrating sensory feedback to achieve fully automated object pickup."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "6f076ab4d4",
+          "status": "unverified_implication",
+          "text": "Presents a mechanical strategy to execute multi-modal in-hand manipulation with a single actuator, reducing weight and complexity for end-effectors in space-constrained robotic manipulation."
+        },
+        {
+          "paper_id": "6f076ab4d4",
+          "status": "unverified_implication",
+          "text": "Highlights the viability of passive self-motion switching mechanisms in replacing multi-actuator systems, though sensitivity to friction, component wear, and lack of autonomous perception remain challenges for industrial deployment."
+        }
+      ]
+    },
+    {
+      "paper_id": "64a83322f3",
+      "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+      "authors": [
+        "Paul Kremer",
+        "Hamed Rahimi Nohooji",
+        "Jose Luis Sanchez-Lopez",
+        "Holger Voos"
+      ],
+      "year": "2023",
+      "doi": "10.1109/ACCESS.2023.3276486",
+      "robot_type": "Universal jamming gripper",
+      "stiffness_mechanism": [
+        "Granular jamming",
+        "Particle jamming",
+        "Vacuum-induced jamming"
+      ],
+      "actuation": [
+        "Pneumatic actuation",
+        "Vacuum and positive pressure via dual miniature diaphragm pumps and 2/1 solenoid valves"
+      ],
+      "modeling_methods": [
+        "Non-linear regression analysis identifying power-law force-displacement relationships for the inflated membrane Fair(x, D) and jammed lumped structure Flmp(x)",
+        "Uniaxial contact force model combining two parallel compression springs with ramp functions enforcing compression-only contact Fug = Fair(H(x), D) + Flmp(H(x - xa))",
+        "First-order transfer function in the Laplace s-domain modeling normalized free volume dynamics beta(s) = R(s) / (1 + sT) with time constant T derived from evacuation duration",
+        "Linear kinematic mapping between normalized free volume beta and uniaxial free length / membrane shrinkage xa = xu_a * beta",
+        "Prismatic joint contact and disk simulation model for rigid-body robotics simulators (Gazebo) incorporating state transitions governed by beta",
+        "Discrete state classification kgr(beta) separating gripper states into closed/jammed (beta <= 1%), opened/fluidized (beta >= 99%), and in transition"
+      ],
+      "performance_metrics": [
+        "Maximum holding force Fh (N)",
+        "Holding force to mass ratio Fh/m (N/kg)",
+        "Minimum activation force Fa (gf or N)",
+        "Operating power consumption (W)",
+        "Grasping and release cycle times (s)",
+        "Vacuum pressure differential (kPa)",
+        "Engagement chance (%)",
+        "Holding chance (%)",
+        "Total grasp success chance (%)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "64a83322f3",
+          "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+          "doi": "10.1109/ACCESS.2023.3276486",
+          "claim": "A universal jamming gripper can attain its maximum holding force with a substantially reduced activation force (250 gf / 2.5 N) by utilizing lower granular fill ratios (66% compared to 90%).",
+          "evidence_type": "Experimental mechanics",
+          "page_numbers": [
+            1,
+            9,
+            10
+          ]
+        },
+        {
+          "paper_id": "64a83322f3",
+          "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+          "doi": "10.1109/ACCESS.2023.3276486",
+          "claim": "Mixing a deadener additive (up to 15% by weight) into the silicone membrane enhances maximum holding force by up to 52% (from 10.1 N to 15.4 N) through increased membrane softness, conformability, and surface friction.",
+          "evidence_type": "Experimental mechanics",
+          "page_numbers": [
+            1,
+            10
+          ]
+        },
+        {
+          "paper_id": "64a83322f3",
+          "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+          "doi": "10.1109/ACCESS.2023.3276486",
+          "claim": "The uniaxial contact behavior of a transitioning universal jamming gripper can be modeled as two parallel non-linear compression springs representing the air-filled membrane and the jammed structure using power-law force-displacement relations.",
+          "evidence_type": "Mechanical modeling",
+          "page_numbers": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "paper_id": "64a83322f3",
+          "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+          "doi": "10.1109/ACCESS.2023.3276486",
+          "claim": "A universal jamming gripper attached to a multicopter in a claw configuration can perform dual duty as landing gear, providing passive compliance to absorb landing shocks and eliminating the need for dedicated landing gear.",
+          "evidence_type": "Experimental demonstration",
+          "page_numbers": [
+            1,
+            2,
+            4,
+            12,
+            15
+          ]
+        },
+        {
+          "paper_id": "64a83322f3",
+          "title": "TRIGGER: A Lightweight Universal Jamming Gripper for Aerial Grasping",
+          "doi": "10.1109/ACCESS.2023.3276486",
+          "claim": "Aerial grasping success with a soft jamming gripper is strongly shape-dependent, excelling on geometries with vertical faces (cube, ridge) but suffering from slippage on spherical surfaces and complete failure on wedging geometries (pyramid).",
+          "evidence_type": "Experimental mechanics",
+          "page_numbers": [
+            13,
+            14
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Stickiness imparted by the deadener additive is temporary and degrades over time due to silicone aging and dust/dirt accumulation, requiring a clean environment or periodic membrane replacement."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "The current design is constrained to grasping objects from the floor in a claw configuration; horizontal grasping leads to gravity-induced particle accumulation and requires payloads to resist lateral pushing forces."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Miniature low-power pumps result in longer cycle times (11 s vs 4 s in high-power setups) and a lower vacuum pressure differential (approx. 28 kPa vs >80 kPa in stationary systems)."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "The bag-shaped membrane generates horizontal reaction forces that cause slippage on rounded or slanted shapes (such as spheres and tubes)."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Grasping fails on wedging geometries (pyramids) and shapes with insufficient contact surface area (triangles)."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Engagement chance was the primary limiting factor in aerial trials, heavily affected by positioning accuracy and human operator timing."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Activation force was not actively regulated during free-flight aerial grasping experiments."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "author_stated",
+          "text": "Estimating payload size via contact force curves requires highly precise position measurements that may not be available in practical field settings."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "model_inferred",
+          "text": "The multi-second evacuation cycle time leaves the hovering aerial platform vulnerable to external wind disturbances and ground effect drift while waiting for particle jamming to complete."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "model_inferred",
+          "text": "Relying primarily on friction and surface adhesion without geometric interlocking makes holding performance sensitive to surface contamination, dust accumulation, and moisture."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "model_inferred",
+          "text": "The thin 0.6 mm silicone membrane may present limited puncture and abrasion resistance when interacting with sharp or abrasive real-world payloads."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "source_type": "model_inferred",
+          "text": "Disabling horizontal position control upon contact requires the aircraft to rely entirely on contact friction, which could lead to dislocation on inclined or low-friction surfaces."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "64a83322f3",
+          "text": "Developing an active force controller to track nominal activation force during the evacuation phase in flight to remove the human operator from the loop"
+        },
+        {
+          "paper_id": "64a83322f3",
+          "text": "Implementing trajectory optimization to guide the UAV to the payload while accounting for universal jamming gripper dynamics"
+        },
+        {
+          "paper_id": "64a83322f3",
+          "text": "Assessing membrane durability and the long-term degradation of deadener-induced stickiness over time"
+        },
+        {
+          "paper_id": "64a83322f3",
+          "text": "Investigating alternative membrane morphologies (such as cup-shaped or multi-chambered geometries) to prevent lateral slippage and gravity-induced granular settling"
+        },
+        {
+          "paper_id": "64a83322f3",
+          "text": "Exploring the addition of internal and external geometric features on cast silicone membranes"
+        },
+        {
+          "paper_id": "64a83322f3",
+          "text": "Fabricating structural components from carbon fiber composites to achieve further weight reductions"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "64a83322f3",
+          "status": "unverified_implication",
+          "text": "Demonstrates that a low-power, lightweight pneumatic architecture (sub-10 W, 380 g) can generate sufficient vacuum (28 kPa) and holding force (15 N) for aerial manipulation, bridging the gap between heavy stationary laboratory jamming setups and payload-constrained aerial platforms."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "status": "unverified_implication",
+          "text": "Shows that adjusting granular fill ratios and membrane chemical additives can decouple holding strength from high activation forces, enabling jamming grippers to be deployed on fragile, floating, or underactuated systems."
+        },
+        {
+          "paper_id": "64a83322f3",
+          "status": "unverified_implication",
+          "text": "Identifies that bag-type jamming membranes produce lateral reaction forces that cause floating aerial platforms to dislocate, pointing to the need for cup-shaped or patterned membrane architectures."
+        }
+      ]
+    },
+    {
+      "paper_id": "d6e4cf1d14",
+      "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+      "authors": [
+        "Jaehyun Yi",
+        "Byungchul Kim",
+        "Kyu-Jin Cho",
+        "Yong-Lae Park"
+      ],
+      "year": "2023",
+      "doi": "10.1109/LRA.2023.3315204",
+      "robot_type": "underactuated robotic gripper",
+      "stiffness_mechanism": [
+        "passive elastomer tendons (Dragon Skin 10)"
+      ],
+      "actuation": [
+        "tendon-driven",
+        "underactuated",
+        "DC motor",
+        "active optical fiber tendon (single-mode optical fiber with embedded FBG)",
+        "passive elastomer tendon (Dragon Skin 10 soft elastomer)"
+      ],
+      "modeling_methods": [
+        "Euler's belt formula / capstan equation (T_2 = T_1 * e^(mu * phi)) for modeling friction and exponential tension distribution around grooved discs and pulleys",
+        "Linear calibration model correlating FBG reflection wavelength peak shifts with applied tendon tension",
+        "Proportional-differential (PD) admittance force control model relating tension error and motor velocity (theta_dot_m,des = -K_p * e_T - K_d * theta_dot_m)",
+        "Tension-displacement slope analysis for object stiffness classification",
+        "Dahlquist criterion application relating material shear modulus (< 100 kPa) to surface tackiness and slip behavior"
+      ],
+      "performance_metrics": [
+        "Calibration linearity coefficient of determination (R^2 = 0.997)",
+        "Tendon tensile loading capacity (up to 15 N)",
+        "Gripper grasp force output (approximately 6 N)",
+        "Control loop frequency (25 Hz) and data sampling frequency (50 Hz)",
+        "Dynamic perturbation resistance (up to 1.8 m/s^2 acceleration)",
+        "Tracking accuracy across 0.5 Hz and 1.0 Hz sinusoidal force trajectories (0.04 s time resolution)",
+        "Joint range of motion limit (0 to 45 degrees per joint)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Single-mode optical fibers with embedded FBGs can function as active tendons in an underactuated robotic finger, demonstrating high linear correlation (R^2 = 0.997) between wavelength shift and tension force up to 15 N.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Wrapping the optical fiber around grooved discs according to Euler's belt formula mitigates stress concentrations, prevents outer coating delamination, and prevents tendon slipping.",
+          "evidence_type": "theoretical and experimental",
+          "page_numbers": [
+            2,
+            3,
+            6
+          ]
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Varying the normal distance from joints to passive elastomer tendons enables predictable sequential joint flexion and extension in an underactuated finger without changing tendon material properties.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Object stiffness can be distinguished from the slope of the tendon tension-displacement curve without direct contact force sensors at the fingertip.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            4,
+            5,
+            7
+          ]
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Grasping contact points and slip duration differ systematically according to object dimension and material tackiness/friction governed by the Dahlquist criterion.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "title": "Underactuated Robotic Gripper With Fiber-Optic Force Sensing Tendons",
+          "doi": "10.1109/LRA.2023.3315204",
+          "claim": "Closed-loop admittance force control based on FBG tension feedback maintains stable gripping under dynamic manipulation perturbations with accelerations up to 1.8 m/s^2.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Optical fibers are fragile when subjected to sharp curvatures or localized stress concentrations, risking core breakage or coating delamination"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Maximum endurable tension of the 125-micrometer optical fiber tendon in this setup is restricted to 15 N, limiting the scale and gripping force of the mechanism"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Communication latency between the optical interrogator and the main controller capped the force control frequency at 25 Hz despite a 50 Hz sensor read rate and 1 kHz interrogator acquisition rate"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "FBG sensors are inherently sensitive to ambient temperature variations, and active temperature compensation was not incorporated in the current prototype"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Tension-displacement slope changes tend to saturate for highly rigid materials, diminishing stiffness discrimination sensitivity among stiff objects"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Direct contact forces at the fingertip are not directly measured and can only be estimated through tendon tension"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "author_stated",
+          "text": "Only basic low-level PD admittance control and low-end motors were evaluated"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "model_inferred",
+          "text": "The gripper mechanism employs rigid resin links and discrete revolute joints, meaning passive conformability to complex, irregular geometries is constrained compared to fully continuous or soft elastomeric grippers"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "model_inferred",
+          "text": "Repeated sliding and bending across miniature pulleys and grooved discs poses risk of mechanical fatigue or micro-abrasion of the silica optical fiber over extended operational cycles"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "model_inferred",
+          "text": "Tension-based sensing alone cannot localize the exact point of contact along a finger phalanx without multiplexing additional sensors"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "source_type": "model_inferred",
+          "text": "Maximum gripping force is modest (approximately 6 N), which restricts suitability to lightweight grasping tasks"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "d6e4cf1d14",
+          "text": "Implementing active temperature compensation using dual FBG configurations or wavelength-division multiplexing within the same fiber to decouple mechanical strain from thermal strain"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "text": "Integrating more powerful actuator motors and designing advanced control architectures"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "text": "Overcoming controller-interrogator communication latency to increase control loop bandwidth toward hundreds of hertz"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "text": "Multiplexing multiple FBGs along the tendon from wrist to fingertip to measure distributed tactile and contact data alongside tendon tension"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "text": "Tuning and customizing optical fiber diameter and disc winding geometry to scale up maximum endurable tension and gripper payload capacity"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "d6e4cf1d14",
+          "status": "unverified_implication",
+          "text": "Demonstrating that an optical fiber can simultaneously serve as an actuation tendon and a proprioceptive load sensor offers an avenue to reduce bulk and wiring complexity in underactuated multi-fingered hands"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "status": "unverified_implication",
+          "text": "Future soft or continuum robotic implementations will need to address optical fiber bend limits and temperature decoupling to operate reliably in unconstrained environments"
+        },
+        {
+          "paper_id": "d6e4cf1d14",
+          "status": "unverified_implication",
+          "text": "Because tendon tension conflates drive dynamics, internal friction, and contact interactions, multi-point FBG multiplexing along the tendon path is needed to isolate external contact state"
+        }
+      ]
+    }
+  ]
+}

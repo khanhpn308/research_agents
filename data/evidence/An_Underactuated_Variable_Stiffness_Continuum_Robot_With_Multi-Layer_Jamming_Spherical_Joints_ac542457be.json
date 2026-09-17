@@ -1,0 +1,222 @@
+{
+  "source": {
+    "paper_id": "ac542457be",
+    "filename": "An_Underactuated_Variable_Stiffness_Continuum_Robot_With_Multi-Layer_Jamming_Spherical_Joints.pdf",
+    "sha256": "ac542457be6803ea9c9717bd8b7e03ace65c4bc98ac2d702a39bf80da83ad752",
+    "page_count": 13,
+    "char_count": 65093,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32203,
+    "completion_tokens": 7726,
+    "total_tokens": 39929,
+    "thinking_tokens": 4688,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Positive-pressure pneumatic actuation (segmented spherical Dragon Skin 30 airbag regulated via electro-pneumatic proportional valves)",
+      "Rod-driven actuation (four circumferentially arranged Nitinol rods driven by stepper motors and linear lead screws; one base lead-screw slide)"
+    ],
+    "authors": [
+      "Xinpei Ai",
+      "Can Li",
+      "Yadong Zhang",
+      "Yifei Chen",
+      "Chen Chen",
+      "Huijiang Wang",
+      "Rui Chen"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Airbag acts primarily as a quasi-hydrostatic pressure transmission medium beyond an initial threshold (>12.5 kPa), transmitting normal contact pressure uniformly across jamming surfaces toward the sphere center in accordance with Pascal's Principle",
+      "Coulomb friction model governs interfacial locking torque between interleaved rigid jamming layers with a constant friction coefficient",
+      "Infinitesimal displacements / small deformations occur between jamming layers during the stiffness generation process",
+      "Equivalence between external mechanical work and friction torque dissipation based on the principle of virtual work",
+      "Piecewise constant curvature (PCC) assumption: each bending segment maintains an incompressible circular arc of uniform curvature",
+      "Mass of the actuation alloy rods is negligible relative to the continuum segment mass"
+    ],
+    "control_variables": [
+      "Airbag wall thickness optimized to 1.5 mm (Dragon Skin 30 silicone)",
+      "Jamming layer configuration fixed to 3 layers (dual-layer upper interface, triple-layer lower interface)",
+      "Feed rate of lead-screw testbed set to 5 mm/s for quasi-static stiffness evaluation",
+      "Cyclic motion parameters: 10 mm amplitude at 1 mm/s for hysteresis loops",
+      "Locking air pressure maintained at 250 kPa during obstacle avoidance and manipulation experiments",
+      "Base linear translation speed set to 5 mm/s during manipulation",
+      "Fabrication temperatures: wax injection and melting both conducted at 100 °C"
+    ],
+    "dependent_variables": [
+      "Structural stiffness and secant stiffness (N/m)",
+      "Stiffness switching times (seconds for stiff-to-compliant and compliant-to-stiff transitions)",
+      "Frictional locking torque (N·m)",
+      "Dissipated energy per cycle (Ediss) and equivalent damping ratio (ζeq)",
+      "Kinematic positioning error (average and maximum deviations in mm and percentage of length)",
+      "Mechanical seal leakage pressure (kPa)",
+      "Surface wear and stiffness degradation over cyclic loading",
+      "Payload carrying capacity (kg or g)"
+    ],
+    "doi": "10.1109/TASE.2026.3673298",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The multi-layer jamming spherical joint achieves a maximum stiffness of 1403.03 N/m at 300 kPa and a stiffness modulation ratio of 35.85 relative to 12.5 kPa with isotropic planar response.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8
+        ]
+      },
+      {
+        "claim": "Stiffness switching times between compliant and stiff states range from 0.07 s to 0.43 s, with exhaust rate becoming constrained by valve orifice dimensions above 50 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7
+        ]
+      },
+      {
+        "claim": "Segmented underactuation achieves four-segment motion using only four embedded Nitinol rods by sequentially switching segmental stiffness states, reducing required drive motors by 75%.",
+        "evidence_type": "design and analytical",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Sequential stiffness modulation introduces an estimated cumulative pneumatic latency of approximately 3.44 s across four segments during multi-segment reconfiguration.",
+        "evidence_type": "experimental and analytical",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Piecewise constant curvature kinematic modeling yields an average tip positioning error of 1.38 mm (1.15% length) for a single segment and 15.1 mm (3.2% length) for four segments.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Under cyclic reciprocating bending at 75 kPa, the joint exhibits a 3.6% (89 N/m) loss in secant stiffness after 1000 cycles due to interfacial friction wear.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Pressure endurance tests identify seal failure between the silicone airbag and the rigid base as the primary operational constraint, capping operating pressure at 300 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The equivalent damping ratio decreases from approximately 0.05 to 0.015 as pressure increases from 0 to 300 kPa, with peak energy dissipation occurring near 75 kPa.",
+        "evidence_type": "experimental and analytical",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "The four-segment continuum arm mounted with a commercial pneumatic soft gripper successfully navigated a 3D constrained corridor with vertical obstacles to retrieve a 50 g object.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Stiffness characterization testbed: 138 g continuum segment mounted horizontally, connected via tensile cord to a digital force gauge on a lead-screw stage (5 mm/s feed rate) regulated by electro-pneumatic proportional valves (ITV1030-312BL)",
+      "Pressure endurance apparatus measuring internal pressure and identifying seal leakage thresholds up to and exceeding 300 kPa",
+      "Dynamic transition setup recording force-time profiles during stepper-motor-induced displacement and controlled inflation/deflation",
+      "Cyclic hysteresis setup: segment actuated by four Nitinol rods with bidirectional push-pull motion (10 mm amplitude, 1 mm/s) driven by rigid links with revolute joints",
+      "Cyclic durability testbed: reciprocating bending (+90° to -90°) at 75 kPa over 1000 cycles, evaluating secant stiffness at 200 kPa every 100 cycles and inspecting surface morphology via digital microscope (Z01-4)",
+      "Kinematic validation testbed: Tracker motion capture tracking segment end-effectors in the XOZ plane at 10° increments (single segment) and 30° increments (four segments) up to 90°",
+      "Constrained manipulation setup: narrow corridor marked with simulated boundary walls and rigid vertical obstacle poles, base linear slide (R-5), four driving rods (R-1 to R-4), and distal commercial soft gripper (BMC-22219) picking a 50 g weight at 250 kPa joint locking pressure"
+    ],
+    "future_work": [
+      "Developing advanced hybrid control algorithms to bridge the gap toward continuous decoupling and enhance motion accuracy",
+      "Addressing manufacturing precision for miniaturization in medical intervention applications",
+      "Optimizing the strength-to-weight ratio to support structural upscaling for heavy-duty industrial inspections",
+      "Incorporating identified damping and hysteresis parameters into dynamic modeling and controller tuning"
+    ],
+    "independent_variables": [
+      "Actuation airbag pressure (varying between 0 kPa and 300 kPa)",
+      "Bending angle and deflection angle (angular range 0° to 90°)",
+      "Bending plane orientation (0°, 45°, and 90° azimuth angles)",
+      "Number of continuous bending cycles (up to 1000 cycles)",
+      "Segment configuration (single segment vs. four-segment series)",
+      "Segment operational state (locked vs. unlocked; sequential switching order)",
+      "Nitinol rod displacements and base slide translation"
+    ],
+    "limitations_inferred": [
+      "Stiffness, hysteresis, and durability characterizations were conducted solely in 2D planar bending, leaving out-of-plane torsional stiffness and multi-axial coupled loads unmeasured",
+      "Maximum payload capacity of 2 kg was demonstrated only on an isolated single segment, whereas the four-segment arm was demonstrated with a 50 g payload",
+      "The multi-step lost-wax casting process and SLA 3D printing of thin nested spherical shells require manual hole sealing and assembly, which may challenge manufacturing repeatability and scalability",
+      "Sequential 'unlock-actuate-lock' underactuation requires holding non-active segments in fixed rigid postures, precluding continuous simultaneous whole-arm dynamic maneuvers"
+    ],
+    "limitations_stated_by_authors": [
+      "Sequential underactuation introduces cumulative pneumatic switching latency (approximately 3.44 s across four segments), prolonging total execution time compared to simultaneous actuation",
+      "Above 50 kPa, exhaust rate is restricted by the proportional valve exhaust orifice size, making deflation slower than inflation",
+      "Operating pressures exceeding 300 kPa compromise the mechanical seal between the silicone airbag and rigid base, resulting in pneumatic leakage",
+      "Positioning error increases with bending angle and segment count due to axial compression of silicone airbags, irregular inter-layer squeezing friction at high curvatures, cumulative geometric deviations, and gravity-induced sagging",
+      "Friction-induced surface wear between jamming layers occurs during repeated motion and high-pressure locking, causing a 3.6% reduction in stiffness over 1000 cycles",
+      "The sequential mode differs from fully actuated continuum robots by lacking continuous motion decoupling"
+    ],
+    "main_results": [
+      "Stiffness of a single segment increased from 39.14 N/m at 12.5 kPa to 1403.03 N/m at 300 kPa, achieving a 35.85-fold modulation ratio with isotropic performance across three bending directions",
+      "Stiffness switching times ranged between 0.07 s and 0.43 s for individual transitions across the tested pressure range",
+      "The underactuated design reduced the number of driving motors by 75% (from 16 to 4 motors) while maintaining multi-segment shape control",
+      "A single segment achieved a maximum payload capacity of 2 kg",
+      "Kinematic positioning errors averaged 1.38 mm (1.15% length, max 3.24 mm) for a single segment and 15.1 mm (3.2% length, max 28 mm) for the four-segment robot",
+      "Durability testing showed an 89 N/m (3.6%) stiffness loss after 1000 reciprocating bending cycles at 75 kPa",
+      "The four-segment arm demonstrated 3D obstacle avoidance and payload retrieval of a 50 g mass within a confined corridor under 250 kPa locking pressure"
+    ],
+    "modeling_methods": [
+      "Interfacial friction locking torque formulation based on Coulomb friction integrated over spherical micro-elements",
+      "Structural stiffness prediction derived via the principle of virtual work under small-deformation assumptions",
+      "Piecewise constant curvature (PCC) forward kinematics mapping actuator rod lengths to configuration space (bending and deflection angles) and Cartesian task space",
+      "Energy method formulation to quantify dissipated energy and equivalent damping ratio (ζeq) from cyclic hysteresis loops",
+      "MATLAB numerical workspace simulation establishing an ellipsoidal reachable boundary (870 mm × 870 mm × 716 mm)"
+    ],
+    "performance_metrics": [
+      "Maximum structural stiffness (1403.03 N/m at 300 kPa)",
+      "Minimum structural stiffness (39.14 N/m at 12.5 kPa)",
+      "Stiffness modulation ratio (35.85)",
+      "Individual stiffness switching duration (0.07 s to 0.43 s)",
+      "Cumulative pneumatic switching latency (approx. 3.44 s for four segments)",
+      "Maximum single-segment payload capacity (2 kg)",
+      "Manipulation target payload (50 g grasped using a 48.3 g soft gripper)",
+      "Average and maximum positioning errors (single segment: 1.38 mm / 3.24 mm; four segments: 15.1 mm / 28 mm)",
+      "Maximum safe operational pressure limit (300 kPa)",
+      "Stiffness degradation rate under cyclic wear (3.6% after 1000 cycles)",
+      "Equivalent damping ratio range (0.05 down to 0.015)"
+    ],
+    "possible_gap_implications": [
+      "While underactuation achieves a 75% reduction in motor count, the resulting sequential cumulative switching latency highlights an inherent trade-off between drive system simplicity and dynamic reconfiguration speed in variable-stiffness continuum robots",
+      "Positive-pressure layer jamming overcomes the 1-atmosphere vacuum limitation, but contact wear at elevated operating pressures indicates that long-term tribological stability remains a critical factor for frictional locking mechanisms",
+      "Discrepancies between constant-curvature kinematic predictions and experimental trajectories under large deflections underline the necessity of incorporating gravity sagging, axial compression, and inter-layer friction into high-curvature continuum robot modeling"
+    ],
+    "research_objective": "To design, fabricate, model, and experimentally characterize an underactuated variable-stiffness continuum robot utilizing multi-layer jamming spherical joints (MLJSJs) actuated by positive-pressure internal airbags, enabling wide-range stiffness tuning and sequential multi-segment control using only four actuation rods.",
+    "research_problem": "Continuum robots commonly suffer from insufficient stiffness, which impairs motion controllability and load capacity, while conventional cable-driven multi-segment continuum robots face actuation redundancy and internal routing congestion caused by requiring separate sets of cables for each segment.",
+    "robot_type": "underactuated variable stiffness continuum robot",
+    "stiffness_mechanism": [
+      "multi-layer jamming spherical joint (MLJSJ)",
+      "layer jamming",
+      "positive-pressure variable stiffness",
+      "frictional locking between interleaved resin layers"
+    ],
+    "title": "An Underactuated Variable Stiffness Continuum Robot With Multi-Layer Jamming Spherical Joints",
+    "year": "2026"
+  }
+}

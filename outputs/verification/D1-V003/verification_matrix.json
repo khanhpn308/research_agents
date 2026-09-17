@@ -1,0 +1,1988 @@
+{
+  "schema_version": 1,
+  "verification_id": "D1-V003",
+  "created_at": "2026-09-17T14:57:11.572039+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 9,
+  "papers": [
+    {
+      "paper_id": "6723402e32",
+      "filename": "2026-Chen-Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Forward citation of Zhang et al. 2025 continuum model for D1-V003 verification audit",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2026-Chen-Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method_6723402e32.json",
+      "evidence": {
+        "source": {
+          "paper_id": "6723402e32",
+          "filename": "2026-Chen-Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method.pdf",
+          "sha256": "6723402e32ddc8d146483dadcf3fe1c35e671e0f25aa22abeebe4dd860a3034b",
+          "page_count": 22,
+          "char_count": 70460,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 32819,
+          "completion_tokens": 5392,
+          "total_tokens": 38211,
+          "thinking_tokens": 2882,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Twisted Multi-String Actuator (TSA)",
+            "Cable-driven (tendon-driven)"
+          ],
+          "authors": [
+            "Gang Chen",
+            "Yutong Wu",
+            "Zhixin Zhang",
+            "Jianxiao Zheng",
+            "Shiying Liu",
+            "Jiwei Yuan",
+            "Mingrui Luo",
+            "En Li"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Hooke's law governs the mechanical response and axial tension of the twisted multi-strand cable with an elastic coefficient k.",
+            "All mechanical work input by the motor torque is converted entirely into elastic potential energy of the cable without energy losses.",
+            "Equal-volume cylinder deformation assumption (V0 = Vtwisted) was evaluated and identified as inaccurate for multi-strand cables due to inter-strand gap closure during initial twisting.",
+            "The multi-substrate continuum assembly behaves as an equivalent cantilever beam with a modified structural stiffness coefficient (adjusted from 3 to 2) to account for discrete matrix interactions.",
+            "Circumferential drive cables behave elastically as linear spring elements under tensile load.",
+            "Tribological contact between spherical concave-convex substrates follows Coulomb friction, with maximum static friction torque proportional to normal contact force and contact radius (Mf = mu * N * Rcontact).",
+            "Worst-case minimum base stiffness assumes the continuum bends such that only a single drive cable sustains tensile force."
+          ],
+          "control_variables": [
+            "Cable material (Vectran)",
+            "Substrate dimensions and geometry (total length 295 mm, convex substrate length 15 mm, concave substrate length 20 mm, cross-sectional radius 5 mm)",
+            "Substrate fabrication material (resin)",
+            "Joint substrate allocation (6 substrates in joint 1, 6 in joint 2, 5 in joint 3)",
+            "Repetition count (5 experimental trials averaged per data point)",
+            "Failure criterion definition (end displacement exceeding 250 mm or motor torque limit reached)"
+          ],
+          "dependent_variables": [
+            "Axial cable contraction displacement (Delta L)",
+            "Cable tension (T)",
+            "End-effector radial displacement (D)",
+            "Continuum robot equivalent stiffness (K / Ktension)",
+            "Maximum tolerable load / failure load (Fmax)"
+          ],
+          "doi": "10.3390/act15030154",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Continuum robots suffer from low inherent stiffness, especially under high aspect ratio conditions, which limits their payload capacity and manipulation precision.",
+              "evidence_type": "background literature synthesis",
+              "page_numbers": [
+                1
+              ]
+            },
+            {
+              "claim": "Twisting multi-strand cables generates axial contraction force and tension significantly greater than conventional linear cable pulling, offering higher normal force for inter-segment friction locking.",
+              "evidence_type": "theoretical modeling and experimental validation",
+              "page_numbers": [
+                2,
+                7,
+                17
+              ]
+            },
+            {
+              "claim": "Axial shortening of twisted cables conflicts with the fixed structural length of continuum bodies, necessitating an axial retraction compensation mechanism.",
+              "evidence_type": "mechanism design and kinematic analysis",
+              "page_numbers": [
+                2,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "A concave-convex-concave spherical interface contact between adjacent substrates converts line contact into spherical surface contact, optimizing normal pressure transmission and friction generation.",
+              "evidence_type": "design rationale and mechanical modeling",
+              "page_numbers": [
+                3,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "An energy-balance-based contraction model accounts for initial inter-strand gap filling and predicts cable retraction significantly more accurately than an equal-volume cylinder model at higher rotation turns.",
+              "evidence_type": "theoretical derivation and experimental comparison",
+              "page_numbers": [
+                6,
+                7,
+                15,
+                16
+              ]
+            },
+            {
+              "claim": "Under a 2 N radial load, the average stiffness increased by 127% (from 13.47 N/m to 31.5 N/m) and maximum load capacity increased by 231% (from 4.2 N to 13.9 N) using a 4-strand configuration at 15 motor turns.",
+              "evidence_type": "experimental measurement",
+              "page_numbers": [
+                17
+              ]
+            },
+            {
+              "claim": "A three-strand cable configuration exhibits more uniform torsional transmission and concentrated tension distribution than two-strand or four-strand arrangements due to symmetric equilateral triangle packing.",
+              "evidence_type": "experimental characterization and physical rationale",
+              "page_numbers": [
+                18
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Resin-fabricated 3-joint bionic spine-like continuum robot prototype (17 substrates total: 6 in joint 1, 6 in joint 2, 5 in joint 3; total length 295 mm, individual substrate lengths 15 mm convex and 20 mm concave, radius 5 mm).",
+            "Passive retraction mechanism consisting of a sleeve linked to the drive box and a 4-groove slider with locking bolts to accommodate TSA cable shortening.",
+            "Twisted Multi-String Actuator unit utilizing Vectran cables (2-strand, 3-strand, and 4-strand) driven by a dedicated torsion motor and shaft coupling.",
+            "Cable retraction test platform measuring contraction length Delta L across varying motor torsion turns N.",
+            "Variable stiffness loading test bench configuring the robot as a horizontal cantilever beam, applying radial end loads using calibrated weights (0.5 N increments) while monitoring displacement and cable tension via a dynamometer."
+          ],
+          "future_work": [
+            "Develop fully automated, dynamic retraction mechanisms to enable real-time and continuous variable stiffness modulation.",
+            "Integrate embedded pose and tension sensors for closed-loop stiffness control.",
+            "Explore alternative TSA cable routing and deployment topologies to expand robot workspace and bending curvature range.",
+            "Incorporate higher-torque actuation units to further expand load-bearing capacity.",
+            "Investigate robot dynamic interaction performance and stability during operational tasks."
+          ],
+          "independent_variables": [
+            "Number of TSA cable strands (n = 2, 3, 4)",
+            "Number of motor torsion turns (N: up to 30 turns for n=2 and n=3; up to 17 turns for retraction and 15 turns for stiffness tests for n=4)",
+            "External radial load applied at the end-effector (F: 0 to ~14 N in 0.5 N increments)"
+          ],
+          "limitations_inferred": [
+            "Manual loosening and tightening of slider bolts during retraction prevents continuous, in-motion stiffness adaptation during dynamic robotic tasks.",
+            "Repeated friction locking between 3D-printed resin spherical interfaces may result in progressive surface wear, changing the friction coefficient over extended cyclic loading.",
+            "Static dead-weight loading does not capture dynamic viscoelastic relaxation, vibration damping, or hysteresis of the twisted Vectran cables under high-frequency interaction."
+          ],
+          "limitations_stated_by_authors": [
+            "The passive retraction mechanism is not yet fully automated and requires manual loosening and re-tightening of bolts.",
+            "Vectran cable rupture occurs under loads greater than 20 N, constraining the safe experimental loading regime to 0-10 N.",
+            "Arranging the TSA cable along the central axis restricts the maximum substrate joint bending angle to between 11 and 13 degrees.",
+            "Central TSA cable routing provides lower routing flexibility compared to traditional single-cable force-locking schemes.",
+            "Stiffness modulation is constrained by the torque limits of the drive motors, causing substrate slippage when external load exceeds maximum friction force."
+          ],
+          "main_results": [
+            "The bionic continuum robot achieved omnidirectional bending up to 90 degrees across all directions, validating motion feasibility with joint movement limits of 13 degrees (concave-convex) and 11 degrees (convex-concave).",
+            "The theoretical contraction model derived from virtual work/energy balance accurately matched measured multi-strand cable retraction, outperforming the traditional constant-volume model at higher torsion revolutions.",
+            "TSA actuation significantly enhanced structural stiffness; for n=4 strands at N=15 turns, average stiffness reached 31.5 N/m compared to 13.47 N/m in the unstiffened baseline (a 127% increase), and maximum failure load rose from 4.2 N to 13.9 N (a 231% increase).",
+            "For n=3 strands at N=30 turns, the maximum tolerable load increased by 135% (from 4.0 N to 9.4 N).",
+            "Structural failure consistently occurred at an end displacement of approximately 250 mm across all strand configurations, preceded by a slope change at roughly 150 mm indicating partial inter-substrate slip.",
+            "Symmetric packing in the 3-strand cable provided optimal torsional transmission uniformity compared to 2-strand (side-overloading tendency) and 4-strand (uneven gap and torque concentration) arrangements."
+          ],
+          "modeling_methods": [
+            "Kinematic/geometric modeling of twisted string contraction (cylindrical expansion and helix angle formulation modified for radius expansion).",
+            "Energy balance and virtual work modeling of TSA contraction relating motor input torque to cable elastic strain energy.",
+            "Cantilever beam structural mechanics modeling with a discrete matrix correction factor (Krobot = 2 * Ebase * Ibase / l^3).",
+            "Tribological force-locking formulation deriving inter-substrate spherical contact friction torque from normal forces induced by TSA and drive cables.",
+            "Two-state mechanical equilibrium modeling distinguishing between pure static friction (relative rest) and post-slip partial inter-substrate rotation.",
+            "Geometric aperture constraint analysis for maximum inter-substrate bending and rotational limit angles."
+          ],
+          "performance_metrics": [
+            "Omnidirectional bending angle (degrees)",
+            "Individual substrate joint limit angle (degrees)",
+            "Axial cable contraction length (mm)",
+            "End-effector radial displacement (mm)",
+            "Average stiffness under load (N/m) and percentage stiffness increase (%)",
+            "Maximum tolerable load / failure load (N) and percentage load capacity increase (%)",
+            "Axial cable tension (N)"
+          ],
+          "possible_gap_implications": [
+            "While central single-channel TSA integration enhances overall bending stiffness, exploring distributed or eccentric multi-TSA routing could enable decoupled multi-segment or direction-dependent stiffness tuning without sacrificing individual joint angular range.",
+            "Developing motorized or pneumatic auto-locking retraction slides is essential before TSA-based variable stiffness continuum manipulators can be applied in clinical or confined industrial environments."
+          ],
+          "research_objective": "To design, model, and experimentally evaluate a variable stiffness continuum robot utilizing Twisted Multi-String Actuators (TSA) integrated into a bionic spine-like configuration with a passive retraction mechanism, thereby expanding the stiffness adjustment range and payload capacity beyond traditional single-cable force-locking methods.",
+          "research_problem": "Continuum robots exhibit an inherent trade-off between high flexibility and low structural stiffness under high aspect ratios, while conventional variable-stiffness methods suffer from slow response, complex auxiliary systems, or narrow tuning ranges. Moreover, traditional single-cable force-locking is constrained by single-cable tension limits, and integrating TSA into continuum bodies introduces severe motion conflicts due to axial cable retraction against a fixed body length.",
+          "robot_type": "bionic spine-like continuum robot",
+          "stiffness_mechanism": [
+            "force-locking",
+            "Twisted Multi-String Actuators (TSA)",
+            "inter-substrate friction modulation via spherical contact interfaces"
+          ],
+          "title": "Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "1f05cf83bc",
+      "filename": "2026-Fan-Modeling-Control-Stiffness-Regulation-Layer-Jamming.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Direct full-text adversarial evidence. The paper develops dynamic modeling and stiffness regulation for layer-jamming continuum robots and is required to determine whether the surviving D1-V003 validity/breakdown research gap remains open.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2026-Fan-Modeling-Control-Stiffness-Regulation-Layer-Jamming_1f05cf83bc.json",
+      "evidence": {
+        "source": {
+          "paper_id": "1f05cf83bc",
+          "filename": "2026-Fan-Modeling-Control-Stiffness-Regulation-Layer-Jamming.pdf",
+          "sha256": "1f05cf83bc7825f9f8aa44db1715a7bd73dd671b78424304f7e36717b4276e3a",
+          "page_count": 15,
+          "char_count": 75626,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 37795,
+          "completion_tokens": 9487,
+          "total_tokens": 47282,
+          "thinking_tokens": 6686,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "tendon-driven actuation",
+            "vacuum pressure (negative pressure)"
+          ],
+          "authors": [
+            "Yeman Fan",
+            "Bowen Yi",
+            "Dikai Liu"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Planar (2-D) rigid-link approximation modeling the continuum robot dynamics as an underactuated mechanical system (n > m) under the piecewise constant curvature (PCC) geometric assumption with uniform segment mass and length.",
+            "Antagonistic cable tension produces bending where axial deformation is negligible compared to bending deformation.",
+            "Air mass inside the airtight membrane is negligible, keeping the gravitational potential parameter α1 constant and independent of vacuum pressure uP.",
+            "Elastic potential coefficient α2(uP) depends nonlinearly on vacuum pressure uP, parameterized as a positive quadratic polynomial α2(uP) = c1*uP^2 + c2*uP + c3.",
+            "Internal energy dissipation is attributed solely to lumped friction torque with the structural damping matrix set to zero (D(q) = 0).",
+            "Pressure along the jamming layer is uniformly distributed with value (-uP), and lumped normal contact force Fn is proportional to a positive, monotonically increasing function φ(uP) = c4 + c5*sqrt(uP).",
+            "LuGre friction model parameters satisfy standard physical constraints (static friction coefficient μS >= Coulomb friction coefficient μC > 0) and the passivity condition σ2 > σ1*(μS - μC)/μC.",
+            "Motor actuator dynamics in current/torque control mode are negligible compared to continuum robot dynamics, and tensions are uniformly distributed along the cables.",
+            "Input matrix satisfies a uniformity condition G(q) = [g(q)*1n, -g(q)*1n] with |g(q)| bounded away from zero."
+          ],
+          "control_variables": [
+            "Robot structural dimensions: 6 segments (n=6), overall length 252 mm, diameter ~50 mm.",
+            "Number of jamming layers for specific experimental groups: 5 layers for shape-locking tests, 2 layers for stiffness regulation and closed-loop control tests.",
+            "Distal mounting location of the AprilTag marker.",
+            "Camera sampling and averaging rate: four AprilTag detections averaged per motor control update.",
+            "Operating pressure identification interval ([0, 40] kPa)."
+          ],
+          "dependent_variables": [
+            "Robot configuration state vector q and estimated segment bending angle θ.",
+            "End-effector position displacement / drift during shape locking after releasing tendon tension.",
+            "Transverse stiffness KT and overall stiffness matrix K.",
+            "Steady-state configuration error metrics (RMS error, mean absolute error MAE, and [θmin, θmax] range).",
+            "Motor current commands and torque inputs."
+          ],
+          "doi": "10.1109/TCST.2026.3690756",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Layer jamming provides tunable stiffness and shape locking by modulating interlayer friction via negative vacuum pressure in an airtight sheath.",
+              "evidence_type": "Physical mechanism description and dynamic port-Hamiltonian modeling",
+              "page_numbers": [
+                1,
+                2,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "The open-loop stiffness is characterized analytically by K = α1*1n×n + (α2 + σ0*φ(uP))*In and scales with the square root of vacuum pressure φ(uP) = c4 + c5*sqrt(uP), fitting experimental transverse stiffness data with R2 = 0.9216.",
+              "evidence_type": "Theoretical derivation and experimental curve fitting",
+              "page_numbers": [
+                6,
+                9,
+                11
+              ]
+            },
+            {
+              "claim": "Negative vacuum pressure locks the deformed continuum robot shape upon releasing tendon actuation, where higher vacuum pressures result in smaller residual position displacements (3.8 mm at 80 kPa vs 9.2 mm at 30 kPa).",
+              "evidence_type": "Theoretical stability analysis and experimental verification",
+              "page_numbers": [
+                6,
+                11
+              ]
+            },
+            {
+              "claim": "Decoupled regulation of configuration and closed-loop stiffness is achieved because vacuum pressure dominates the stiffness matrix, whereas the energy-shaping gain γ contributes at most 8.73% and α2 contributes at most 3.55%, with their contributions decreasing at higher pressures.",
+              "evidence_type": "Control derivation and experimental quantification",
+              "page_numbers": [
+                7,
+                8,
+                13
+              ]
+            },
+            {
+              "claim": "A passivity-based energy-shaping controller guarantees global asymptotic stability for assignable constant-curvature setpoints, with experimental convergence in under 15 s and steady-state MAE between 0.05 deg and 0.58 deg across 0 to 40 kPa.",
+              "evidence_type": "Lyapunov stability proof and experimental tracking error evaluation",
+              "page_numbers": [
+                7,
+                8,
+                12
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "OctRobot-I continuum robotic platform: one-section continuum robot with six segments (n=6), overall length 252 mm, and diameter ~50 mm.",
+            "Actuation: two DYNAMIXEL servo motors (XM430-W350) with customized aluminum spools operating in current regulation mode for direct torque control.",
+            "Vacuum system: micro piston vacuum pump (H40-85), vacuum pressure regulator (SMC IRV10-C08), nonreturn valve, and digital pressure gauge (Panasonic DP-100).",
+            "Optical tracking: distal AprilTag marker tracked by a high frame rate camera (MJEG-640*400 at 210 FPS) processed via Python 3.12.3 multiprocessing, averaging four detections per control cycle.",
+            "Stiffness testing rig: linear actuator and JLBS-M2-10 kg force sensors placed perpendicularly at the end-effector to apply small transverse displacements δx and measure external reaction force fext.",
+            "Jamming sheaths: 5-layer sheath tested up to 80 kPa for shape-locking experiments; 2-layer sheath tested up to 40 kPa for stiffness regulation and closed-loop control experiments."
+          ],
+          "future_work": [
+            "Investigating different jamming layer configurations to demonstrate framework generality and scalability.",
+            "Extending the control formulation from setpoint regulation to trajectory tracking with guaranteed stability.",
+            "Integrating direct task-to-actuator kinematic inversion to address underactuation challenges in continuum robots.",
+            "Extending the framework to other actuation mechanisms and distributed-parameter models such as dynamic Cosserat formulations to account for length-scaling and multisection structures beyond PCC limits.",
+            "Exploring advanced dynamic learning methods (such as Koopman operator, kernel methods, or Gaussian process regression) to approximate nonlinear functions α2(uP) and φ(uP)."
+          ],
+          "independent_variables": [
+            "Vacuum negative pressure uP (tested at 0, 10, 20, 30, 40, 60, and 80 kPa).",
+            "Tendon tension / motor torque inputs u (and transformed input vector τ).",
+            "Desired segment bending angle setpoint θ* (tested at 5 deg, 8 deg, 10 deg, and 15 deg; corresponding to total bending angles 6θ*).",
+            "Controller gains γ (potential energy shaping gain) and KD (damping injection gain matrix).",
+            "Transverse displacement δx applied by the linear actuator at the tip."
+          ],
+          "limitations_inferred": [
+            "The 2-D piecewise constant curvature assumption cannot capture out-of-plane torsional deformations, gravity-induced non-constant curvature under varying spatial orientations, or complex distributed contact along the robot body.",
+            "The necessity of switching between 5-layer and 2-layer sheaths indicates an operational trade-off where high locking capacity limits the continuous stiffness-tuning dynamic control range.",
+            "Reliance on line-of-sight optical tracking of a single distal AprilTag restricts applicability in cluttered or enclosed operational domains (e.g., minimally invasive surgery or collapsed search-and-rescue voids)."
+          ],
+          "limitations_stated_by_authors": [
+            "The model and experimental verification are restricted to a single-section prototype in planar (2-D) bending with two tendon inputs (m=2) under rigid-link and piecewise constant curvature (PCC) approximations.",
+            "Actuator dynamics and mechanical transmission friction are neglected, causing transient trajectory plateaus when antagonistic net motor torque is temporarily insufficient to overcome stiction and jamming resistance.",
+            "Vision-based tracking suffers from transient artifacts (motion blur or image degradation) during motion, creating brief spikes in position estimation.",
+            "Using a single distal AprilTag requires assuming uniform curvature (qi = θ) across segments; tracking multiple markers would introduce computational latency and blur.",
+            "Empirical parameter fitting for α2(uP) is strictly valid within the tested operating interval ([0, 40] kPa).",
+            "Excessive vacuum pressure or higher layer counts can cause unintentional shape locking, hindering dynamic configuration control.",
+            "The controller is formulated and validated for setpoint regulation rather than time-varying trajectory tracking."
+          ],
+          "main_results": [
+            "Formulated a port-Hamiltonian dynamic model combining rigid-link continuum dynamics with LuGre friction dynamics, theoretically proving the local asymptotic stability of the shape-locking equilibrium manifold and deriving an analytical formula for pressure-dependent overall stiffness K = α1*1n×n + (α2 + σ0*φ(uP))*In.",
+            "Experimentally validated shape locking, demonstrating that higher vacuum pressure reduces residual deflection upon tendon release (9.2 mm at 30 kPa, 6.7 mm at 60 kPa, and 3.8 mm at 80 kPa).",
+            "Demonstrated that open-loop transverse stiffness follows a square-root dependence on negative pressure φ(uP) = c4 + c5*sqrt(uP) with an empirical coefficient of determination R2 = 0.9216.",
+            "Synthesized a passivity-based energy-shaping controller with provable global asymptotic stability for assignable configurations, achieving rapid convergence in under 15 s.",
+            "Achieved high configuration regulation accuracy across tested vacuum pressures (0-40 kPa) with steady-state MAE between 0.05 deg and 0.58 deg.",
+            "Demonstrated decoupled control of configuration and stiffness: closed-loop stiffness is dominated by vacuum pressure (via σ0*φ(uP)), with the energy-shaping gain γ contributing at most 8.73% and α2 contributing at most 3.55%, and their relative contributions decreasing as pressure increases."
+          ],
+          "modeling_methods": [
+            "port-Hamiltonian formulation",
+            "energy-based modeling",
+            "rigid-link approximation",
+            "LuGre friction model",
+            "piecewise constant curvature (PCC) assumption",
+            "potential energy-shaping passivity-based control (PBC) with damping injection"
+          ],
+          "performance_metrics": [
+            "Steady-state configuration error metrics: root mean square (RMS) error and mean absolute error (MAE) in degrees over steady-state window IB.",
+            "Transient settling time / convergence duration (s).",
+            "Shape-locking displacement drift (mm) after releasing tendon tension.",
+            "Transverse stiffness KT (fext / δx in N/m) and coefficient of determination R2 for stiffness model fitting.",
+            "Stiffness contribution percentages r1 (from gain γ) and r2 (from elastic coefficient α2)."
+          ],
+          "possible_gap_implications": [
+            "While the port-Hamiltonian LuGre framework successfully decouples stiffness and configuration in 2D single-section robots under PCC, formulating control-oriented dynamic models that capture continuous Cosserat rod dynamics with frictional hysteresis in 3D multisection robots remains an open challenge.",
+            "The reliance on empirical polynomial and square-root parameter identification suggests that a fully predictive, first-principles micro-mechanical model linking membrane properties, sheet surface roughness, and dynamic friction to macro stiffness regulation has not yet been unified with real-time control."
+          ],
+          "research_objective": "To develop a control-oriented port-Hamiltonian dynamic model for layer jamming-based continuum robots that formally characterizes shape locking and tunable stiffness, and to synthesize a passivity-based feedback controller enabling decoupled real-time regulation of configuration and stiffness with provable stability guarantees.",
+          "research_problem": "Most existing layer jamming-based continuum robot models rely on static or quasi-static approximations and lack a rigorous control-oriented dynamical formulation, rendering them unsuitable for real-time control requiring simultaneous regulation of configuration and stiffness and failing to capture dynamic behaviors such as shape locking.",
+          "robot_type": "continuum robot",
+          "stiffness_mechanism": [
+            "layer jamming (LJ)"
+          ],
+          "title": "Modeling, Control, and Stiﬀness Regulation of Layer Jamming-Based Continuum Robots",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "b573b2ab6b",
+      "filename": "A Novel Model for Layer Jamming-based Continuum Robots.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A Novel Model for Layer Jamming-based Continuum Robots_b573b2ab6b.json",
+      "evidence": {
+        "source": {
+          "paper_id": "b573b2ab6b",
+          "filename": "A Novel Model for Layer Jamming-based Continuum Robots.pdf",
+          "sha256": "b573b2ab6bad556d79298b9374ca2767d8d9785abc03a08736504747ad2b7f63",
+          "page_count": 7,
+          "char_count": 30007,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 24842,
+          "completion_tokens": 3606,
+          "total_tokens": 28448,
+          "thinking_tokens": 1892,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "tendon-driven",
+            "vacuum pressure"
+          ],
+          "authors": [
+            "Bowen Yi",
+            "Yeman Fan",
+            "Dikai Liu"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Mass change of air inside the airtight membrane during vacuum pressure variation is negligible, keeping the gravitational parameter constant (Assumption 1a).",
+            "The structural elastic coefficient is positive and constant during pressure variation (Assumption 1b).",
+            "Robot energy dissipation arises exclusively from the lumped friction torque, with the damping matrix set to zero (Assumption 2).",
+            "Negative pressure along the layer is uniformly distributed and linearly proportional to the lumped normal force (Assumption 3).",
+            "All functions and mappings are assumed to be C2-continuous.",
+            "Internal friction parameters satisfy the passivity inequality constraint sigma2 > sigma1 * (muS - muC) / muC, ensuring positive semi-definiteness of the friction damping matrix."
+          ],
+          "control_variables": [
+            "Number of jamming sheath layers (5 layers in stiffness testing)",
+            "Bending angle prior to actuation release in shape-locking tests (60 degrees)",
+            "Repetition count under identical testing conditions (3 trials)"
+          ],
+          "dependent_variables": [
+            "Transverse stiffness at the end-effector (KT)",
+            "Positional displacement / shape retention error after actuator release",
+            "Stability and convergence of the equilibria manifold"
+          ],
+          "doi": "10.1109/ICRA57147.2024.10610912",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Layer jamming utilizes overlapping thin plastic or paper sheets enclosed in an airtight membrane where vacuum pressure modulates interlayer friction to produce variable stiffness.",
+              "evidence_type": "analytical_modeling",
+              "page_numbers": [
+                1
+              ]
+            },
+            {
+              "claim": "The dynamical behavior of a layer jamming-based, tendon-driven continuum robot can be formulated in port-Hamiltonian form by coupling an energy-based rigid link mechanical model with the LuGre friction model.",
+              "evidence_type": "analytical_modeling",
+              "page_numbers": [
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "The equilibria manifold corresponding to shape locking under constant negative pressure without external actuation is locally asymptotically stable via LaSalle's invariance principle.",
+              "evidence_type": "theoretical_derivation",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "The linearized open-loop stiffness matrix at the equilibrium is analytically expressed as a constant structural matrix plus a term directly proportional to the vacuum pressure.",
+              "evidence_type": "theoretical_derivation",
+              "page_numbers": [
+                5
+              ]
+            },
+            {
+              "claim": "Transverse stiffness measured at the end-effector exhibits a linear correlation with negative pressure, yielding KT = 0.0046*uP + 0.3068 with a determination coefficient of R^2_s = 0.8083.",
+              "evidence_type": "experimental_measurement",
+              "page_numbers": [
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Shape locking preserves a 60-degree bending configuration upon tendon release, with higher negative pressure reducing steady-state position displacement from 9.2 mm at 30 kPa to 3.8 mm at 80 kPa.",
+              "evidence_type": "experimental_measurement",
+              "page_numbers": [
+                6
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "OctRobot-I continuum robotic platform configured with motor-driven tendon actuation.",
+            "Airtight membrane containing a jamming sheath composed of 5 overlapping layers installed over the robot spine.",
+            "Transverse stiffness testing apparatus at the end-effector around the open-loop equilibrium under varying negative pressure from 0 to 80 kPa, repeated three times.",
+            "Four-phase shape-locking sequence: Phase 1 (initial unactuated state), Phase 2 (tendon driven to 60-degree bending), Phase 3 (vacuum applied at 30 kPa or 80 kPa while holding motor drive), and Phase 4 (vacuum retained while releasing tendon force to zero).",
+            "Visual tracking and photographic overlay to measure positional shifts between Phase 3 and Phase 4."
+          ],
+          "future_work": [
+            "Synthesizing model-based feedback controllers based on the proposed control-oriented port-Hamiltonian framework.",
+            "Revisiting and refining Assumption 3 concerning the relationship between negative pressure and lumped normal force to improve stiffness prediction accuracy."
+          ],
+          "independent_variables": [
+            "Negative vacuum pressure uP (tested across 0 to 80 kPa; specifically compared at 30 kPa and 80 kPa)",
+            "Tendon tension actuation force u",
+            "External perturbation / displacement around the equilibrium configuration"
+          ],
+          "limitations_inferred": [
+            "The experimental validation was conducted solely on planar 2D bending up to 60 degrees, leaving 3D spatial bending, torsion, and multi-segment interaction unverified.",
+            "Dynamic tracking, cyclic loading, and hysteresis effects during repeated jamming-unjamming transitions were not evaluated.",
+            "Assumptions of constant elasticity and negligible membrane mass omit potential non-linear elastomer stretching or material wear under prolonged vacuum cycling."
+          ],
+          "limitations_stated_by_authors": [
+            "The overall stiffness matrix K cannot be directly measured experimentally; only transverse stiffness KT at the end-effector could be detected.",
+            "The assumed direct proportionality between vacuum pressure and lumped normal force (Assumption 3) requires revision to improve model fitting precision.",
+            "The proposed model is oriented toward control design, but closed-loop feedback controller synthesis was not implemented in this study."
+          ],
+          "main_results": [
+            "Formulated the first control-oriented port-Hamiltonian dynamical model for layer jamming-based continuum robots combining rigid-link dynamics and the LuGre friction model.",
+            "Mathematically proved that shape locking corresponds to a locally asymptotically stable equilibria manifold under constant vacuum pressure.",
+            "Analytically established that robot open-loop stiffness scales linearly with applied vacuum pressure: K = alpha1*1_nxn + [alpha2 + sigma0*uP]*In.",
+            "Empirically demonstrated a linear relationship between end-effector transverse stiffness and negative pressure (R^2_s = 0.8083, KT = 0.0046*uP + 0.3068 N/mm).",
+            "Empirically confirmed that higher vacuum pressure significantly suppresses relaxation displacement during shape locking (3.8 mm at 80 kPa compared to 9.2 mm at 30 kPa)."
+          ],
+          "modeling_methods": [
+            "Port-Hamiltonian framework",
+            "Energy-based Hamiltonian mechanics with rigid link approximation",
+            "LuGre dynamic friction model with virtual bristle deflection",
+            "LaSalle's invariance principle for local asymptotic stability analysis",
+            "Euler-Lagrange reformulation and Jacobian linearization for open-loop stiffness derivation"
+          ],
+          "performance_metrics": [
+            "End-effector transverse stiffness KT (in N/mm)",
+            "Coefficient of determination (R^2_s) for stiffness linearity with pressure",
+            "Positional deviation / displacement during shape locking (in mm)"
+          ],
+          "possible_gap_implications": [
+            "Providing a control-oriented port-Hamiltonian model enables model-based feedback control synthesis for layer-jamming continuum robots, but controller performance will depend on addressing non-linearities in normal force distribution and multi-axis deformations."
+          ],
+          "research_objective": "To develop a control-oriented dynamical model for layer jamming-based, tendon-driven continuum robots integrating energy-based modeling with the LuGre friction model, and to theoretically analyze and experimentally validate shape locking and adjustable stiffness.",
+          "research_problem": "Lack of a control-oriented dynamical model capable of approximating and predicting the dynamical behaviors (specifically shape locking and adjustable stiffness) of layer jamming-based continuum robots with variable stiffness.",
+          "robot_type": "continuum robot",
+          "stiffness_mechanism": [
+            "layer jamming"
+          ],
+          "title": "A Novel Model for Layer Jamming-based Continuum Robots",
+          "year": "2024"
+        }
+      }
+    },
+    {
+      "paper_id": "f5f31ef249",
+      "filename": "A Review of Mechanisms to Vary the Stiffness of Laminar Jamming Structures and Their Applications in Robotics.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A Review of Mechanisms to Vary the Stiffness of Laminar Jamming Structures and Their Applications in Robotics_f5f31ef249.json",
+      "evidence": {
+        "source": {
+          "paper_id": "f5f31ef249",
+          "filename": "A Review of Mechanisms to Vary the Stiffness of Laminar Jamming Structures and Their Applications in Robotics.pdf",
+          "sha256": "f5f31ef249916924831919f6cf5a85b356b49069c2e2ebe9a7a5c58cd4eded7b",
+          "page_count": 28,
+          "char_count": 87428,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 36837,
+          "completion_tokens": 7036,
+          "total_tokens": 43873,
+          "thinking_tokens": 3217,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum pump (vacuum / negative pressure)",
+            "electric power / thermal conditions (shape memory alloy wires)",
+            "electric power / high-voltage source (electrostatic force / electro-bonded lamination)",
+            "mechanical / pressure clamps (bolts, rubber bands, piezoelectric actuators)",
+            "mechanical motion / cable actuation (mesh sheath)",
+            "heat source / thermal conditions / temperature controller (electric heating blankets)",
+            "linear actuator / solenoid / linear motorized stage (sliding-layer laminates)",
+            "air pressure / pneumatic cylinder (trapezoidal pin mechanism)",
+            "positive pressure pneumatic actuators (pneu-net actuators, McKibben artificial muscles, air bladders)"
+          ],
+          "authors": [
+            "Freddy Caro",
+            "Marc G. Carmichael"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Inter-layer frictional behavior governed by Coulomb friction where shear resistance depends on normal force and inter-layer coefficient of friction",
+            "Beam bending behavior governed by multi-layer beam theory where uncoupled layers slide freely with low bending stiffness and fully locked layers behave as a unified cross-section",
+            "Theoretical stiffness ratio scales with the number of layers raised to the second power (N^2)",
+            "Stiffness in the pre-slip regime scales with N^3 while stiffness in the full-slip regime scales linearly with N and with the square of the friction coefficient (mu^2) and pressure (P)",
+            "Deformation energy transforms between external work, elastic bending strain energy, and inter-layer frictional dissipation"
+          ],
+          "control_variables": [
+            "Specimen dimensions including layer length, width, thickness, and slenderness ratio",
+            "Layer materials (e.g., Mylar films, polyimide, aluminum, spring steel, paper, sandpaper, silicone)",
+            "Operating ambient pressure and room temperature during testing",
+            "Electrical current limits (e.g., limiting current to 1 mA in electrostatic gloves for human safety)",
+            "Mechanical clamp spacing and number of guide frames preventing layer buckling without applying normal force",
+            "Displacement rate or loading speed during quasi-static bending tests"
+          ],
+          "dependent_variables": [
+            "Bending stiffness (flexural rigidity)",
+            "Stiffness variation (stiffness ratio, defined as maximum stiffness divided by minimum stiffness)",
+            "Stiffness range (minimum to maximum stiffness values in N/mm)",
+            "Speed of stiffening (actuation time)",
+            "Speed of destiffening (release/relaxation time)",
+            "Transition force threshold between pre-slip and full-slip regimes",
+            "Yield force and load-carrying capacity under external load",
+            "Deflection and angular displacement under applied mechanical force",
+            "Impact force attenuation and acceleration decay rate during collisions",
+            "Damping response and energy dissipation"
+          ],
+          "doi": "10.3390/act13020064",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Laminar jamming modulates bending stiffness by locking or unlocking thin sheets, transitioning between an uncoupled flexible state where layers slide and a locked rigid state where layers bend as a unified structure.",
+              "evidence_type": "structural and theoretical review",
+              "page_numbers": [
+                1,
+                3,
+                24
+              ]
+            },
+            {
+              "claim": "The theoretical stiffness ratio of laminar jamming structures is proportional to the number of layers squared, though physical friction and lock/unlock mechanism efficacy constrain real-world values.",
+              "evidence_type": "analytical modeling review",
+              "page_numbers": [
+                3
+              ]
+            },
+            {
+              "claim": "SMA-wrapped laminar jamming structures achieved a stiffness variation of 60x with a stiffness range of 0.03 to 1.8 N/mm, but are limited by slow heating and cooling times of 100 s and 200 s.",
+              "evidence_type": "experimental review and comparative analysis",
+              "page_numbers": [
+                3,
+                17,
+                18,
+                19
+              ]
+            },
+            {
+              "claim": "Electrostatic layer jamming mechanisms utilize alternating polarity high-voltage polyimide layers to achieve up to 18x stiffness variation with fast response times under 5 ms actuation and 15 ms release.",
+              "evidence_type": "experimental review",
+              "page_numbers": [
+                4,
+                17,
+                18,
+                23
+              ]
+            },
+            {
+              "claim": "Vacuum-pressure-activated laminar jamming is the most prevalent friction-based method, offering stiffness variations between 10x and 180x and a stiffness range from 0.008 to 1.522 N/mm.",
+              "evidence_type": "experimental and qualitative review",
+              "page_numbers": [
+                5,
+                17,
+                19,
+                22
+              ]
+            },
+            {
+              "claim": "Discrete laminar jamming (DLJ) utilizes discrete variable pressure clamps (bolts, rubber bands, or piezoelectric actuators) eliminating the elastic membrane and vacuum sealing issues, demonstrating a 17x stiffness variation.",
+              "evidence_type": "experimental and mechanical design review",
+              "page_numbers": [
+                5,
+                17,
+                18,
+                23
+              ]
+            },
+            {
+              "claim": "Mechanical interference mechanisms use actuators (such as SMA or electroactive polymers) to engage teeth into gaps between layers, yielding up to 14.6x stiffness variation.",
+              "evidence_type": "experimental and mechanical design review",
+              "page_numbers": [
+                5,
+                6,
+                17,
+                19
+              ]
+            },
+            {
+              "claim": "Laminar jamming structures using heating blankets achieve low stiffness variation (2.25x to 4x) across a high stiffness range of approximately 5 to 18 N/mm, with slow thermal switching speeds.",
+              "evidence_type": "experimental and FEA modeling review",
+              "page_numbers": [
+                6,
+                17,
+                19,
+                20
+              ]
+            },
+            {
+              "claim": "Sliding-layer laminates (SLL) alternate rigid and soft segments to adjust stiffness by 3x to 7x over a 0.005 to 0.035 N/mm range using linear actuators with ~4 s transition times.",
+              "evidence_type": "experimental review",
+              "page_numbers": [
+                7,
+                17,
+                18,
+                19
+              ]
+            },
+            {
+              "claim": "Laminar jamming combined with positive pressure pneumatic actuators (e.g. pneu-nets or McKibben artificial muscles) enables decoupled control of bending shape and structural stiffness in soft robotic grippers and fingers.",
+              "evidence_type": "robotic application review",
+              "page_numbers": [
+                7,
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Continuum robots employ tubular configurations of overlapping multi-flap Mylar films or mesh sheaths with internal backbone springs to vary bending stiffness for minimally invasive surgery and bioinspired structures.",
+              "evidence_type": "robotic application review",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Wearable robotic applications include soft layer jamming linear brakes (SLJB) and sliding linkage mechanisms providing variable stiffness and braking in axial tension and bending for spinal, elbow, wrist, and finger rehabilitation.",
+              "evidence_type": "wearable robotics review",
+              "page_numbers": [
+                11,
+                12
+              ]
+            },
+            {
+              "claim": "In robot arms, dual parallel-guided beam links containing solid compliant backbones flanked by vacuum laminar jamming jammers improve vertical and torsional stability while providing compliance for impact mitigation.",
+              "evidence_type": "experimental and modeling review",
+              "page_numbers": [
+                13,
+                14,
+                23
+              ]
+            },
+            {
+              "claim": "The trapezoidal pin mechanism combines discrete mechanical clamping with mechanical interference via a pneumatic cylinder to provide variable stiffness while guide frames prevent layer buckling.",
+              "evidence_type": "experimental and mechanical design review",
+              "page_numbers": [
+                14,
+                15,
+                17,
+                19
+              ]
+            },
+            {
+              "claim": "Vacuum-activated laminar jamming exhibits a switching time constant of approximately 0.5 s, which is too slow to mitigate active collisions with humans where impact damage occurs in approximately 0.1 s.",
+              "evidence_type": "comparative performance analysis",
+              "page_numbers": [
+                18,
+                22,
+                24
+              ]
+            },
+            {
+              "claim": "Under excessive external loading, vacuum laminar jamming transitions from pre-slip to full-slip regime, dropping stiffness and risking catastrophic yielding if load is maintained.",
+              "evidence_type": "mechanics analysis and experimental review",
+              "page_numbers": [
+                20,
+                21
+              ]
+            },
+            {
+              "claim": "Finite element analysis (FEA) has demonstrated high fidelity for laminar jamming mechanics with coefficients of determination (R^2) reaching 0.9879 against experimental data.",
+              "evidence_type": "computational modeling review",
+              "page_numbers": [
+                21
+              ]
+            },
+            {
+              "claim": "Recent analytical formulations for arbitrary numbers of layers offer computationally efficient alternatives to FEA where simulation runtime increases substantially with layer count.",
+              "evidence_type": "analytical modeling review",
+              "page_numbers": [
+                21
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Cantilever quasi-static bending tests measuring force versus deflection curves for multi-layer laminar beams",
+            "Three-point and four-point bending test benches evaluating flexural rigidity across various actuation states",
+            "Axial tensile force loading test rigs for soft layer jamming linear brakes (SLJB)",
+            "High-voltage electric excitation circuits with alternating electrode polarity for electrostatic layer jamming tests",
+            "Regulated vacuum pump systems with pressure sensors and manual flexure protocols for envelope depressurization",
+            "Thermal cycling rigs with thermocouple monitoring for SMA-wrapped and heating-blanket jamming structures",
+            "Dynamic impact collision rigs measuring force and acceleration profiles between variable stiffness robotic arm links and impactors",
+            "Underwater swimming testing tanks using stepper motors and linear solenoids to drive flapping motion in SLL robot fish tails",
+            "Multi-DoF robotic wrist testbeds evaluating bidirectional orthogonal stiffness modulation and dynamic damping"
+          ],
+          "future_work": [
+            "Quantitatively measuring and reporting stiffening and destiffening velocities across all lock/unlock mechanisms",
+            "Developing fast lock/unlock mechanisms, such as discrete laminar jamming with piezoelectric actuators, to enable active collision mitigation",
+            "Combining fundamental laminar jamming mechanisms, such as vacuum pressure with mechanical interference, to boost stiffness ratio and maintain compactness",
+            "Implementing electrostatic layer jamming in robotic arm links to exploit millisecond-scale actuation (<5 ms) and release (<15 ms) speeds",
+            "Hybridizing laminar jamming with other variable stiffness methods such as shape-morphing air bladders and pneumatic chambers",
+            "Developing closed-loop control algorithms for variable stiffness links and joints to regulate impedance, directional stiffness, and impact attenuation",
+            "Extending design methodologies and computational design frameworks beyond vacuum-actuated jamming to other laminar jamming mechanisms",
+            "Improving reporting of manufacturing techniques, material wear, failure modes, and long-term repeatability degradation"
+          ],
+          "independent_variables": [
+            "Number of layers in the stack (N)",
+            "Vacuum / negative pressure level applied to the chamber (P)",
+            "Inter-layer coefficient of friction (mu)",
+            "Magnitude of applied voltage / electric field (for electrostatic jamming)",
+            "Applied electric current / thermal energy (for SMA and heating blanket mechanisms)",
+            "Number, shape, and insertion depth/location of teeth or pins (for mechanical interference and trapezoidal pin mechanisms)",
+            "Clamping pressure set by discrete bolts, rubber bands, or actuators (for DLJ)",
+            "Relative sliding displacement and overlap fraction of rigid versus soft segments (for sliding-layer laminates)",
+            "Geometric dimensions of the beam including length, width, layer thickness, and slenderness ratio"
+          ],
+          "limitations_inferred": [
+            "Because data are synthesized from heterogeneous research papers with differing beam geometries, materials, and test setups, direct numerical comparison across mechanisms is subject to confounding factors.",
+            "Replacing vacuum envelopes with discrete mechanical clamps or piezoelectric actuators may introduce parasitic mass, rigidity, and wiring complexity that could compromise soft robotic advantages.",
+            "Long-term cyclic fatigue, permanent layer deformation, and friction surface degradation under millions of cycles remain uncharacterized in dynamic operations."
+          ],
+          "limitations_stated_by_authors": [
+            "Vacuum-pressure laminar jamming switching speeds (~0.5 s time constant) are too slow for active impact mitigation during collisions (~0.1 s duration).",
+            "Vacuum laminar jamming drops in stiffness when transitioning from pre-slip to full-slip regimes, which can cause catastrophic yielding under maintained high loads.",
+            "Vacuum envelopes present sealing challenges, susceptibility to damage or puncture from rough edges, and incomplete release requiring manual flexing.",
+            "SMA-wrapped mechanisms exhibit long thermal switching cycles (100 s heating, 200 s cooling), wire relaxation after thermal cycling, and manual assembly inconsistencies.",
+            "Electrostatic jamming historically required dangerously high voltages (hundreds to thousands of volts) for human interaction.",
+            "Most tested laminar jamming structures are limited in length (<= 400 mm) and cannot immediately scale to industrial-sized robotic arms.",
+            "Materials such as paper and sandpaper experience rapid surface wear, reducing repeatability and durability over repeated bending cycles.",
+            "Existing systematic design methodologies and automated design scripts are restricted exclusively to vacuum-pressure jamming.",
+            "Published literature frequently lacks detailed manufacturing documentation, design iteration rationale, and degradation data over time."
+          ],
+          "main_results": [
+            "Friction-based mechanisms provide the highest stiffness variations among all mechanisms, reaching up to 180x for vacuum pressure and 60x for SMA wrapping.",
+            "Vacuum-pressure laminar jamming is the most versatile and developed mechanism, exhibiting the widest stiffness range (0.008 to 1.522 N/mm) and suitability across grippers, continuum robots, wearable devices, and robot arms.",
+            "Thermal-activated mechanisms (SMA and heating blankets) have the lowest switching speeds (100 s to 200 s), making them unsuitable for active dynamic impact mitigation.",
+            "Current vacuum-activated laminar jamming structures have reaction time constants around 0.5 s, which exceeds the ~0.1 s impact damage threshold, limiting them primarily to passive compliance applications.",
+            "Electrostatic jamming can achieve ultra-fast switching (<5 ms actuation, <15 ms release) while current-limiting circuits (1 mA) mitigate electrical hazards in wearable applications.",
+            "Finite element analysis accurately predicts laminar jamming behavior (R^2 up to 0.9879), and modern analytical models provide efficient modeling for arbitrary layer counts without excessive computation."
+          ],
+          "modeling_methods": [
+            "Coulomb friction analytical modeling",
+            "Energy method (conservation of external work, elastic bending strain energy, and inter-layer frictional work)",
+            "Two-dimensional (2D) finite element analysis (FEA)",
+            "Three-dimensional (3D) finite element analysis (FEA)",
+            "Analytical beam models for arbitrary numbers of layers",
+            "Pseudo-rigid-body modeling (for parallel guided beam compliant links)",
+            "Model-based design frameworks and computational design scripts (e.g. Matlab-based design tools)"
+          ],
+          "performance_metrics": [
+            "Stiffness variation (stiffness ratio, maximum stiffness / minimum stiffness)",
+            "Stiffness range (N/mm)",
+            "Speed of stiffening (actuation time, ms or s)",
+            "Speed of destiffening (release/destiffening time, ms or s)",
+            "Transition time constant (s)",
+            "Yield force threshold / pre-slip to full-slip transition force (N)",
+            "Torsional stiffness and critical vertical buckling load",
+            "Pinch grasp force and grasp stability for various object sizes",
+            "Impact peak force reduction and acceleration attenuation during collision",
+            "Coefficient of determination (R^2) between model and experimental data"
+          ],
+          "possible_gap_implications": [
+            "Identifying that vacuum laminar jamming switching speeds (~0.5 s) exceed collision timescales (~0.1 s) highlights a clear research gap for fast-response locking mechanisms in active safe cobots, though developing faster mechanisms requires solving actuation weight and force density trade-offs.",
+            "The absence of standardized metrics for stiffening/destiffening speeds and endurance/wear testing across the literature represents a methodological gap that, if addressed, could enable objective cross-comparison and industrial adoption."
+          ],
+          "research_objective": "To review the lock/unlock mechanisms of laminar jamming structures, examine their robotic applications (including grippers, continuum robots, wearable robots, and robot arms), analyze their performance and limitations with an emphasis on human-robot impact mitigation, evaluate analytical and finite element modeling methods, and provide future research directions.",
+          "research_problem": "Robotic systems require variable stiffness links and joints to combine the payload capacity and precision of rigid robots with the safety and adaptability of soft robots; however, existing laminar jamming lock/unlock mechanisms face performance trade-offs in stiffening/destiffening speed, stiffness range, envelope durability, and scalability, particularly for mitigating collisions in human-robot interaction.",
+          "robot_type": "soft grippers and fingers, continuum robots, wearable robots (exoskeletons, haptic gloves, and soft linear brakes), robot arms (variable stiffness links and joints), unmanned aerial vehicle (UAV) landing gear, and underwater robots (robot fish)",
+          "stiffness_mechanism": [
+            "laminar jamming (layer jamming / multi-layer beam)",
+            "laminar jamming wrapped by shape memory alloy (SMA)",
+            "electrostatic force / electrostatic layer jamming / electro-bonded lamination",
+            "vacuum pressure laminar jamming",
+            "discrete laminar jamming (DLJ)",
+            "mesh sheath laminar jamming",
+            "mechanical interference (teeth-clutching / form closure / smart form closure actuators)",
+            "laminar jamming with heating blankets",
+            "sliding-layer laminates (SLL)",
+            "trapezoidal pin mechanism (discrete laminar jamming combined with mechanical interference)",
+            "vacuum pressure combined with mechanical interference (multi-material teeth-clutching layer jamming)",
+            "hybrid jamming (laminar jamming combined with particle jamming)",
+            "hybrid variable stiffness link (airtight chamber, shape morphing, and laminar jamming)"
+          ],
+          "title": "A Review of Mechanisms to Vary the Stiffness of Laminar Jamming Structures and Their Applications in Robotics",
+          "year": "2024"
+        }
+      }
+    },
+    {
+      "paper_id": "6583ae5919",
+      "filename": "A_Novel_Continuum_Robot_With_Stiffness_Variation_Capability_Using_Layer_Jamming_Design_Modeling_and_Validation.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A_Novel_Continuum_Robot_With_Stiffness_Variation_Capability_Using_Layer_Jamming_Design_Modeling_and_Validation_6583ae5919.json",
+      "evidence": {
+        "source": {
+          "paper_id": "6583ae5919",
+          "filename": "A_Novel_Continuum_Robot_With_Stiffness_Variation_Capability_Using_Layer_Jamming_Design_Modeling_and_Validation.pdf",
+          "sha256": "6583ae5919cf3f544b652c2e6b8bd59a06e47d1e99cf7cbad3d036f266cbb807",
+          "page_count": 11,
+          "char_count": 50735,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 29727,
+          "completion_tokens": 5869,
+          "total_tokens": 35596,
+          "thinking_tokens": 3098,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "tendon-driven actuation",
+            "cable-driven actuation (servo motors XM430-W350 with tailored aluminium spools and 1.2 mm stainless steel wire ropes)"
+          ],
+          "authors": [
+            "Yeman Fan",
+            "Dikai Liu",
+            "Lin Ye"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "The deflection of the continuum robot is only caused by the position change of all movable parts of the robot, and material strain is not considered.",
+            "The analysis of continuum robot deflection is conducted in the horizontal plane, and gravity is not considered.",
+            "The deflection of the continuum robot under external load has the same feature as a beam (equivalent cylindrical beam model).",
+            "The equivalent beam is homogeneous and obeys Hooke's law.",
+            "Displacements of the equivalent beam are small.",
+            "The equivalent beam is in pure bending when it undergoes deflections (Euler-Bernoulli beam theory).",
+            "For straight axial loading, an initial distance error (e) exists between the external load line of action and the central axis of the robot, and lateral displacement is constrained at the boundaries (fixed-fixed column model).",
+            "Tip deflection under straight axial load is approximated by the maximum beam deflection before buckling: δAS = max[δ(x)]."
+          ],
+          "control_variables": [
+            "Robot total length (480 mm) and outer diameter (50 mm)",
+            "Support spine outer diameter (45 mm) and segment count (12 connected spine segments)",
+            "Inner and outer latex membrane thickness (0.3 mm)",
+            "Jamming layer material and thickness (polyvinyl chloride window film, 0.18 mm)",
+            "Coefficient of friction between PVC film sides (measured µ = 0.5)",
+            "Spine helical compression spring constant (measured 493 N/m)",
+            "Ball joint model and maximum tilt angle per segment (SQZ5-RS, 30°)",
+            "Nylon restriction wire diameter (0.6 mm)",
+            "Testing environment (deflection tests performed in the horizontal plane; 5 repeated trials per condition)"
+          ],
+          "dependent_variables": [
+            "Resisting force under transverse deflection (N)",
+            "Resisting force under axial deflection (N)",
+            "Average transverse stiffness ST (N/m)",
+            "Average axial stiffness SAS (straight configuration, pre- and post-buckling) and SAC (curved configuration) (N/m)",
+            "Jamming sheath elongation and contraction range (Δl) and relative flap displacement (dr)"
+          ],
+          "doi": "10.1109/ACCESS.2022.3228775",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Layer jamming sheaths combined with a ball-jointed support spine enable tunable stiffness in both transverse and axial directions for continuum robots.",
+              "evidence_type": "experimental / design",
+              "page_numbers": [
+                1,
+                2,
+                3,
+                9
+              ]
+            },
+            {
+              "claim": "A restriction-line weaving method using nylon wire between guide holes on alternating flaps eliminates slot length limitations, allowing large axial length changes during bending.",
+              "evidence_type": "analytical / design",
+              "page_numbers": [
+                2,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "The theoretical minimum and maximum sheath length variations are -352.8 mm to +252.0 mm for overlap number n = 3 and -252.0 mm to +756.0 mm for n = 5, exceeding the required ±78.5 mm for 180° bending.",
+              "evidence_type": "analytical",
+              "page_numbers": [
+                5
+              ]
+            },
+            {
+              "claim": "Under transverse loading, the effective stiffness increases monotonically as the bending angle increases from 0° to 180°.",
+              "evidence_type": "analytical / experimental",
+              "page_numbers": [
+                6,
+                7,
+                9
+              ]
+            },
+            {
+              "claim": "Under axial loading, the effective stiffness decreases as the bending angle increases, with the straight posture exhibiting column buckling behavior divided into pre-buckling and post-buckling regimes.",
+              "evidence_type": "analytical / experimental",
+              "page_numbers": [
+                6,
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "For sheath overlap n = 3, transverse stiffness ranges from 36.4 to 241.7 N/m (ratio of 6.6) and axial stiffness ranges from 92.9 to 19.3 × 10^3 N/m (ratio of 207.8).",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "For sheath overlap n = 5, transverse stiffness ranges from 65.7 to 398.3 N/m (ratio of 6.1) and axial stiffness ranges from 106.7 to 20.8 × 10^3 N/m (ratio of 194.9).",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "At straight axial alignment, internal ball joints provide rigid contact, yielding pre-buckling axial stiffness exceeding 19 kN/m under 75 kPa vacuum.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "At large bending deflections (e.g., 180° bending beyond 15 mm transverse deflection), reduced flap overlap area leads to interlayer slippage even under high vacuum pressures.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8
+              ]
+            },
+            {
+              "claim": "The two-section tendon-driven continuum robot successfully demonstrated whole-body grasping of cylindrical objects up to 1.2 kg and manipulation of a 511 g payload past obstacles using an electromagnetic end-effector.",
+              "evidence_type": "demonstrative / experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Custom test rig comprising an Actuonix linear actuator (L12-210-100-12I) to apply precise transverse and axial deflections and an S-beam load cell (JLBS-M2-10Kg) to record resisting forces.",
+            "Pneumatic vacuum system consisting of a vacuum pump (KMDP-C1-12V) and Panasonic digital pressure sensor (DP-101A-E-P) providing regulated vacuum levels (0, 25, 50, 75 kPa).",
+            "Two-section 4-DoF continuum robot actuated by four DYNAMIXEL servo motors (XM430-W350) driving 1.2 mm stainless steel wire ropes wrapped around tailored aluminium spools.",
+            "Actuating and gripping setup utilizing an electromagnet (GE-66-100-38, Magnetic Sensor Systems) mounted at the robot tip to transport metallic objects and demonstrate obstacle avoidance."
+          ],
+          "future_work": [
+            "Improvement of the stiffness model to enable quantitative numerical analysis of variable stiffness capability.",
+            "Analytical or numerical formulation to calculate the effective flexural rigidity (D) of the robot.",
+            "Workspace analysis of the continuum robot.",
+            "Real-time position and stiffness control algorithms."
+          ],
+          "independent_variables": [
+            "Applied vacuum pressure (0 kPa, 25 kPa, 50 kPa, 75 kPa)",
+            "Layer jamming overlap number / winding pitch (n = 3 with dpitch = 35 mm; n = 5 with dpitch = 21 mm)",
+            "Robot bending angle (0°, 90°, 180°)",
+            "Loading direction (transverse load, axial load)",
+            "Applied deflection (0 to 50 mm in 5 mm steps for transverse; 0 to 10 mm in 2 mm steps for axial)"
+          ],
+          "limitations_inferred": [
+            "The Euler-Bernoulli beam approximation does not incorporate viscoelasticity, friction hysteresis, or non-linear sheath shear deformations.",
+            "Dynamic inertial effects and response times during stiffness switching or rapid maneuvering were not evaluated.",
+            "Durability, fatigue life, and wear characteristics of the thin PVC jamming flaps and enclosing latex membranes under repeated vacuum cycling were not examined.",
+            "Tethering to external vacuum pumps and motor drive units presents integration challenges for untethered deployments."
+          ],
+          "limitations_stated_by_authors": [
+            "The derived effective stiffness formulations cannot be numerically computed directly because the flexural rigidity (D) is difficult to determine due to structural complexity and stiffness variability; the models remain qualitative.",
+            "Finite element analysis and numerical simulations could not be reliably implemented because mechanical assembly tolerances, friction, and layer jamming interactions are difficult to model in simulation software.",
+            "Experimental force-deflection responses show deviations from perfect linearity due to test-rig friction and mechanical discrepancies between the physical prototype and the equivalent beam model.",
+            "At high bending angles (180°), reduced overlap area at the outer/convex curvature promotes interlayer slip under moderate deflection, limiting maximum attainable stiffness."
+          ],
+          "main_results": [
+            "Developed and experimentally validated the OctRobot-I continuum robot capable of independent stiffness modulation across transverse and axial loading axes.",
+            "Demonstrated that increasing vacuum pressure and layer overlap number (from n = 3 to n = 5) increases resisting forces and effective stiffness across all configurations.",
+            "With overlap n = 3, measured transverse stiffness ranges from 36.4 to 241.7 N/m (6.6× variation) and axial stiffness ranges from 92.9 to 19.3 × 10^3 N/m (207.8× variation).",
+            "With overlap n = 5, measured transverse stiffness ranges from 65.7 to 398.3 N/m (6.1× variation) and axial stiffness ranges from 106.7 to 20.8 × 10^3 N/m (194.9× variation).",
+            "Identified monotonic trends conforming to analytical models: transverse stiffness increases with bending curvature, whereas axial stiffness decreases with bending curvature.",
+            "Characterized straight axial buckling behavior, where pre-buckling mechanical contact of ball joints provides high stiffness (>19 kN/m at 75 kPa), which drops sharply post-buckling (~8.6-8.7 kN/m).",
+            "Verified practical manipulation capability: grasping a 590 g paper roll (145 mm diameter), a 1.2 kg iron bucket (180 mm diameter), and manipulating a 511 g iron mass around obstacles."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli beam theory",
+            "Maxwell-Mohr method (used for straight beam under transverse load, curved beam under transverse load, and curved beam under axial load)",
+            "Integral method with fixed-fixed boundary conditions (used for straight beam buckling analysis under axial load)"
+          ],
+          "performance_metrics": [
+            "Resisting force (N)",
+            "Average transverse stiffness ST (N/m)",
+            "Average axial stiffness SAS and SAC (N/m)",
+            "Stiffness variation ratio (maximum stiffness / minimum stiffness)",
+            "Sheath stroke / allowable length change range Δl (mm)",
+            "Payload and gripping capacity (grams / kilograms lifted or restrained)"
+          ],
+          "possible_gap_implications": [
+            "Developing semi-empirical or computational homogenization techniques to calculate effective flexural rigidity (D) of multi-layer jammed continuum robots could bridge the gap between qualitative beam models and quantitative stiffness prediction.",
+            "Integrating sensory feedback for vacuum level and cable tension could facilitate closed-loop simultaneous control of shape and multidirectional stiffness.",
+            "Investigating high-friction coatings or textured micro-surfaces could prevent interlayer slip at large bending angles without increasing sheath thickness or actuation burden."
+          ],
+          "research_objective": "To design, model, and experimentally validate a novel two-section continuum robot (OctRobot-I) featuring controllable stiffness variation in both transverse and axial directions using an internal ball-joint support spine and a novel layer-jamming sheath weaving technique.",
+          "research_problem": "Continuum robots require controllable stiffness variation while preserving dexterity, but existing methods have notable drawbacks (antagonistic drives require heavy actuators, thermal phase change mechanisms are slow or bulky, and MR/ER fluids provide limited yield strength); furthermore, existing layer-jamming continuum robots suffer from restricted sheath elongation due to slotted guides, lack axial stiffness evaluation/reinforcement, and lack effective stiffness models.",
+          "robot_type": "continuum robot",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "support spine with ball joints and helical compression springs"
+          ],
+          "title": "A Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation",
+          "year": "2022"
+        }
+      }
+    },
+    {
+      "paper_id": "ac542457be",
+      "filename": "An_Underactuated_Variable_Stiffness_Continuum_Robot_With_Multi-Layer_Jamming_Spherical_Joints.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/An_Underactuated_Variable_Stiffness_Continuum_Robot_With_Multi-Layer_Jamming_Spherical_Joints_ac542457be.json",
+      "evidence": {
+        "source": {
+          "paper_id": "ac542457be",
+          "filename": "An_Underactuated_Variable_Stiffness_Continuum_Robot_With_Multi-Layer_Jamming_Spherical_Joints.pdf",
+          "sha256": "ac542457be6803ea9c9717bd8b7e03ace65c4bc98ac2d702a39bf80da83ad752",
+          "page_count": 13,
+          "char_count": 65093,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 32203,
+          "completion_tokens": 7726,
+          "total_tokens": 39929,
+          "thinking_tokens": 4688,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Positive-pressure pneumatic actuation (segmented spherical Dragon Skin 30 airbag regulated via electro-pneumatic proportional valves)",
+            "Rod-driven actuation (four circumferentially arranged Nitinol rods driven by stepper motors and linear lead screws; one base lead-screw slide)"
+          ],
+          "authors": [
+            "Xinpei Ai",
+            "Can Li",
+            "Yadong Zhang",
+            "Yifei Chen",
+            "Chen Chen",
+            "Huijiang Wang",
+            "Rui Chen"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Airbag acts primarily as a quasi-hydrostatic pressure transmission medium beyond an initial threshold (>12.5 kPa), transmitting normal contact pressure uniformly across jamming surfaces toward the sphere center in accordance with Pascal's Principle",
+            "Coulomb friction model governs interfacial locking torque between interleaved rigid jamming layers with a constant friction coefficient",
+            "Infinitesimal displacements / small deformations occur between jamming layers during the stiffness generation process",
+            "Equivalence between external mechanical work and friction torque dissipation based on the principle of virtual work",
+            "Piecewise constant curvature (PCC) assumption: each bending segment maintains an incompressible circular arc of uniform curvature",
+            "Mass of the actuation alloy rods is negligible relative to the continuum segment mass"
+          ],
+          "control_variables": [
+            "Airbag wall thickness optimized to 1.5 mm (Dragon Skin 30 silicone)",
+            "Jamming layer configuration fixed to 3 layers (dual-layer upper interface, triple-layer lower interface)",
+            "Feed rate of lead-screw testbed set to 5 mm/s for quasi-static stiffness evaluation",
+            "Cyclic motion parameters: 10 mm amplitude at 1 mm/s for hysteresis loops",
+            "Locking air pressure maintained at 250 kPa during obstacle avoidance and manipulation experiments",
+            "Base linear translation speed set to 5 mm/s during manipulation",
+            "Fabrication temperatures: wax injection and melting both conducted at 100 °C"
+          ],
+          "dependent_variables": [
+            "Structural stiffness and secant stiffness (N/m)",
+            "Stiffness switching times (seconds for stiff-to-compliant and compliant-to-stiff transitions)",
+            "Frictional locking torque (N·m)",
+            "Dissipated energy per cycle (Ediss) and equivalent damping ratio (ζeq)",
+            "Kinematic positioning error (average and maximum deviations in mm and percentage of length)",
+            "Mechanical seal leakage pressure (kPa)",
+            "Surface wear and stiffness degradation over cyclic loading",
+            "Payload carrying capacity (kg or g)"
+          ],
+          "doi": "10.1109/TASE.2026.3673298",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "The multi-layer jamming spherical joint achieves a maximum stiffness of 1403.03 N/m at 300 kPa and a stiffness modulation ratio of 35.85 relative to 12.5 kPa with isotropic planar response.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                8
+              ]
+            },
+            {
+              "claim": "Stiffness switching times between compliant and stiff states range from 0.07 s to 0.43 s, with exhaust rate becoming constrained by valve orifice dimensions above 50 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                7
+              ]
+            },
+            {
+              "claim": "Segmented underactuation achieves four-segment motion using only four embedded Nitinol rods by sequentially switching segmental stiffness states, reducing required drive motors by 75%.",
+              "evidence_type": "design and analytical",
+              "page_numbers": [
+                1,
+                2,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Sequential stiffness modulation introduces an estimated cumulative pneumatic latency of approximately 3.44 s across four segments during multi-segment reconfiguration.",
+              "evidence_type": "experimental and analytical",
+              "page_numbers": [
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Piecewise constant curvature kinematic modeling yields an average tip positioning error of 1.38 mm (1.15% length) for a single segment and 15.1 mm (3.2% length) for four segments.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Under cyclic reciprocating bending at 75 kPa, the joint exhibits a 3.6% (89 N/m) loss in secant stiffness after 1000 cycles due to interfacial friction wear.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Pressure endurance tests identify seal failure between the silicone airbag and the rigid base as the primary operational constraint, capping operating pressure at 300 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "The equivalent damping ratio decreases from approximately 0.05 to 0.015 as pressure increases from 0 to 300 kPa, with peak energy dissipation occurring near 75 kPa.",
+              "evidence_type": "experimental and analytical",
+              "page_numbers": [
+                8
+              ]
+            },
+            {
+              "claim": "The four-segment continuum arm mounted with a commercial pneumatic soft gripper successfully navigated a 3D constrained corridor with vertical obstacles to retrieve a 50 g object.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                10,
+                11
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Stiffness characterization testbed: 138 g continuum segment mounted horizontally, connected via tensile cord to a digital force gauge on a lead-screw stage (5 mm/s feed rate) regulated by electro-pneumatic proportional valves (ITV1030-312BL)",
+            "Pressure endurance apparatus measuring internal pressure and identifying seal leakage thresholds up to and exceeding 300 kPa",
+            "Dynamic transition setup recording force-time profiles during stepper-motor-induced displacement and controlled inflation/deflation",
+            "Cyclic hysteresis setup: segment actuated by four Nitinol rods with bidirectional push-pull motion (10 mm amplitude, 1 mm/s) driven by rigid links with revolute joints",
+            "Cyclic durability testbed: reciprocating bending (+90° to -90°) at 75 kPa over 1000 cycles, evaluating secant stiffness at 200 kPa every 100 cycles and inspecting surface morphology via digital microscope (Z01-4)",
+            "Kinematic validation testbed: Tracker motion capture tracking segment end-effectors in the XOZ plane at 10° increments (single segment) and 30° increments (four segments) up to 90°",
+            "Constrained manipulation setup: narrow corridor marked with simulated boundary walls and rigid vertical obstacle poles, base linear slide (R-5), four driving rods (R-1 to R-4), and distal commercial soft gripper (BMC-22219) picking a 50 g weight at 250 kPa joint locking pressure"
+          ],
+          "future_work": [
+            "Developing advanced hybrid control algorithms to bridge the gap toward continuous decoupling and enhance motion accuracy",
+            "Addressing manufacturing precision for miniaturization in medical intervention applications",
+            "Optimizing the strength-to-weight ratio to support structural upscaling for heavy-duty industrial inspections",
+            "Incorporating identified damping and hysteresis parameters into dynamic modeling and controller tuning"
+          ],
+          "independent_variables": [
+            "Actuation airbag pressure (varying between 0 kPa and 300 kPa)",
+            "Bending angle and deflection angle (angular range 0° to 90°)",
+            "Bending plane orientation (0°, 45°, and 90° azimuth angles)",
+            "Number of continuous bending cycles (up to 1000 cycles)",
+            "Segment configuration (single segment vs. four-segment series)",
+            "Segment operational state (locked vs. unlocked; sequential switching order)",
+            "Nitinol rod displacements and base slide translation"
+          ],
+          "limitations_inferred": [
+            "Stiffness, hysteresis, and durability characterizations were conducted solely in 2D planar bending, leaving out-of-plane torsional stiffness and multi-axial coupled loads unmeasured",
+            "Maximum payload capacity of 2 kg was demonstrated only on an isolated single segment, whereas the four-segment arm was demonstrated with a 50 g payload",
+            "The multi-step lost-wax casting process and SLA 3D printing of thin nested spherical shells require manual hole sealing and assembly, which may challenge manufacturing repeatability and scalability",
+            "Sequential 'unlock-actuate-lock' underactuation requires holding non-active segments in fixed rigid postures, precluding continuous simultaneous whole-arm dynamic maneuvers"
+          ],
+          "limitations_stated_by_authors": [
+            "Sequential underactuation introduces cumulative pneumatic switching latency (approximately 3.44 s across four segments), prolonging total execution time compared to simultaneous actuation",
+            "Above 50 kPa, exhaust rate is restricted by the proportional valve exhaust orifice size, making deflation slower than inflation",
+            "Operating pressures exceeding 300 kPa compromise the mechanical seal between the silicone airbag and rigid base, resulting in pneumatic leakage",
+            "Positioning error increases with bending angle and segment count due to axial compression of silicone airbags, irregular inter-layer squeezing friction at high curvatures, cumulative geometric deviations, and gravity-induced sagging",
+            "Friction-induced surface wear between jamming layers occurs during repeated motion and high-pressure locking, causing a 3.6% reduction in stiffness over 1000 cycles",
+            "The sequential mode differs from fully actuated continuum robots by lacking continuous motion decoupling"
+          ],
+          "main_results": [
+            "Stiffness of a single segment increased from 39.14 N/m at 12.5 kPa to 1403.03 N/m at 300 kPa, achieving a 35.85-fold modulation ratio with isotropic performance across three bending directions",
+            "Stiffness switching times ranged between 0.07 s and 0.43 s for individual transitions across the tested pressure range",
+            "The underactuated design reduced the number of driving motors by 75% (from 16 to 4 motors) while maintaining multi-segment shape control",
+            "A single segment achieved a maximum payload capacity of 2 kg",
+            "Kinematic positioning errors averaged 1.38 mm (1.15% length, max 3.24 mm) for a single segment and 15.1 mm (3.2% length, max 28 mm) for the four-segment robot",
+            "Durability testing showed an 89 N/m (3.6%) stiffness loss after 1000 reciprocating bending cycles at 75 kPa",
+            "The four-segment arm demonstrated 3D obstacle avoidance and payload retrieval of a 50 g mass within a confined corridor under 250 kPa locking pressure"
+          ],
+          "modeling_methods": [
+            "Interfacial friction locking torque formulation based on Coulomb friction integrated over spherical micro-elements",
+            "Structural stiffness prediction derived via the principle of virtual work under small-deformation assumptions",
+            "Piecewise constant curvature (PCC) forward kinematics mapping actuator rod lengths to configuration space (bending and deflection angles) and Cartesian task space",
+            "Energy method formulation to quantify dissipated energy and equivalent damping ratio (ζeq) from cyclic hysteresis loops",
+            "MATLAB numerical workspace simulation establishing an ellipsoidal reachable boundary (870 mm × 870 mm × 716 mm)"
+          ],
+          "performance_metrics": [
+            "Maximum structural stiffness (1403.03 N/m at 300 kPa)",
+            "Minimum structural stiffness (39.14 N/m at 12.5 kPa)",
+            "Stiffness modulation ratio (35.85)",
+            "Individual stiffness switching duration (0.07 s to 0.43 s)",
+            "Cumulative pneumatic switching latency (approx. 3.44 s for four segments)",
+            "Maximum single-segment payload capacity (2 kg)",
+            "Manipulation target payload (50 g grasped using a 48.3 g soft gripper)",
+            "Average and maximum positioning errors (single segment: 1.38 mm / 3.24 mm; four segments: 15.1 mm / 28 mm)",
+            "Maximum safe operational pressure limit (300 kPa)",
+            "Stiffness degradation rate under cyclic wear (3.6% after 1000 cycles)",
+            "Equivalent damping ratio range (0.05 down to 0.015)"
+          ],
+          "possible_gap_implications": [
+            "While underactuation achieves a 75% reduction in motor count, the resulting sequential cumulative switching latency highlights an inherent trade-off between drive system simplicity and dynamic reconfiguration speed in variable-stiffness continuum robots",
+            "Positive-pressure layer jamming overcomes the 1-atmosphere vacuum limitation, but contact wear at elevated operating pressures indicates that long-term tribological stability remains a critical factor for frictional locking mechanisms",
+            "Discrepancies between constant-curvature kinematic predictions and experimental trajectories under large deflections underline the necessity of incorporating gravity sagging, axial compression, and inter-layer friction into high-curvature continuum robot modeling"
+          ],
+          "research_objective": "To design, fabricate, model, and experimentally characterize an underactuated variable-stiffness continuum robot utilizing multi-layer jamming spherical joints (MLJSJs) actuated by positive-pressure internal airbags, enabling wide-range stiffness tuning and sequential multi-segment control using only four actuation rods.",
+          "research_problem": "Continuum robots commonly suffer from insufficient stiffness, which impairs motion controllability and load capacity, while conventional cable-driven multi-segment continuum robots face actuation redundancy and internal routing congestion caused by requiring separate sets of cables for each segment.",
+          "robot_type": "underactuated variable stiffness continuum robot",
+          "stiffness_mechanism": [
+            "multi-layer jamming spherical joint (MLJSJ)",
+            "layer jamming",
+            "positive-pressure variable stiffness",
+            "frictional locking between interleaved resin layers"
+          ],
+          "title": "An Underactuated Variable Stiffness Continuum Robot With Multi-Layer Jamming Spherical Joints",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "8d3b7d72a6",
+      "filename": "Decoupling_Control_of_a_Multi-Segment_Hybrid-Actuated_Soft_Origami_Continuum_Robot_Through_Variable_Stiffness.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/Decoupling_Control_of_a_Multi-Segment_Hybrid-Actuated_Soft_Origami_Continuum_Robot_Through_Variable_Stiffness_8d3b7d72a6.json",
+      "evidence": {
+        "source": {
+          "paper_id": "8d3b7d72a6",
+          "filename": "Decoupling_Control_of_a_Multi-Segment_Hybrid-Actuated_Soft_Origami_Continuum_Robot_Through_Variable_Stiffness.pdf",
+          "sha256": "8d3b7d72a678fca2df5ddb5d9603a93518eb398584a51a0fb0219e71a96b62b4",
+          "page_count": 17,
+          "char_count": 80978,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 36483,
+          "completion_tokens": 8248,
+          "total_tokens": 44731,
+          "thinking_tokens": 4719,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "hybrid actuation",
+            "tendon-driven actuation",
+            "pneumatic actuation"
+          ],
+          "authors": [
+            "Jian Tao",
+            "Tianheng Li",
+            "Xiang Yao",
+            "Changlin Chen",
+            "Qiqiang Hu",
+            "Erbao Dong",
+            "Yang Zhao",
+            "Shiwu Zhang"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Dynamic memory and rate-dependent hysteresis: origami structures store and slowly release potential energy during deformation, making the current kinematic state dependent on historical actuation and deformation states",
+            "Quasi-static settling assumption: waiting 1 s after actuation and chamber pressurization allows the continuum structure to reach a quasi-static state for measurement",
+            "A 10-time-step sequential window is assumed sufficient to capture historical dependencies for long-term hysteresis modeling in the LSTM network",
+            "Constant curvature geometric approximation for tendon length compensation: neutral axis compression and segment bending are approximated via geometric trigonometric formulations to compensate for second-segment tendon slacking",
+            "Torsional deformation is assumed negligible during bending motions due to high structural torsional stiffness, supported by near-zero yaw angular deviations",
+            "Model-free data-driven kinematic assumption: hyper-redundant nonlinear structural deformations and manufacturing errors are mapped via neural network regression rather than explicit continuum mechanics constitutive laws"
+          ],
+          "control_variables": [
+            "Operating frequency of the control loop (50 Hz)",
+            "Pneumatic holding pressure for stiffness reinforcement and hysteresis mitigation (10 kPa applied for 2 s)",
+            "Quasi-static settling wait time before position acquisition (1 s)",
+            "Tendon pre-tensioning length reduction (8.45 mm for trajectory experiments; 7.53 mm in pre-tensioning characterization tests)",
+            "Window size of historical end-position time steps for LSTM input (10 time steps)",
+            "Initial training dataset size (4,800 random points)",
+            "Number of waypoints per evaluation trajectory (64 waypoints for standard curves; 32 waypoints for flower curves)",
+            "Neural network training duration (100 epochs, taking 228,436 ms)",
+            "Sensor sampling frequency of the motion capture system (50 Hz)"
+          ],
+          "dependent_variables": [
+            "End-position trajectory tracking error (Euclidean distance error in mm and relative error percentage over robot length)",
+            "Directional position errors along Cartesian axes (axial Z-axis error, lateral X- and Y-axis errors in mm)",
+            "Repeat positioning accuracy / repeatability error (Euclidean distance error in mm)",
+            "Bending orientation error / angular deviation (Euler angles: roll, pitch, and yaw in degrees)",
+            "Hysteresis displacement (origin position offset before and after compression cycles in mm)",
+            "Hysteresis recovery and stabilization time (seconds)",
+            "Disturbance displacement of segment 1 caused by distal segment motion (mm)"
+          ],
+          "doi": "10.1109/TASE.2026.3700107",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Pre-tensioning the actuation tendons by 7.53 mm decreases compression hysteresis by 50% compared to an un-tensioned origami continuum module.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "Pressurizing the internal origami chamber to 10 kPa accelerates hysteresis stabilization from 43 s to within 2 s and noticeably mitigates the accumulation of hysteresis.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "Repeated positioning evaluation over 30 cycles across four spatial target points demonstrates an average repeat positioning accuracy of approximately 0.1 mm.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2,
+                5
+              ]
+            },
+            {
+              "claim": "The dual origami architecture achieves an axial extension ratio of up to 110% through internal pneumatic chamber inflation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2
+              ]
+            },
+            {
+              "claim": "Pressurization of the internal origami chamber causes radial expansion that eliminates the clearance gap between the inner and outer origami structures, providing layer-jamming friction that synergizes with tendon-pneumatic antagonistic forces to increase overall structural stiffness.",
+              "evidence_type": "mechanical_design",
+              "page_numbers": [
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "A stacked 2-layer LSTM network with an input window of 10 historical time steps trained iteratively on 4,800 points augmented with small step-size data achieves open-loop trajectory tracking errors of 1.58 mm (0.71% relative to length) for a single segment and 2.81 mm (0.63%) for multi-segments without sensory feedback.",
+              "evidence_type": "computational",
+              "page_numbers": [
+                1,
+                2,
+                7,
+                8,
+                16
+              ]
+            },
+            {
+              "claim": "The variable stiffness mechanism allows independent decoupled motion of the second segment while the first segment is locked in either a vertical or bent state, limiting disturbance displacements on the first segment to 1.06 mm and 0.86 mm, respectively.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                12,
+                13
+              ]
+            },
+            {
+              "claim": "Incorporating Euler angles into the LSTM training enables orientation control with an average angular deviation of 0.75 degrees (individual segment roll, pitch, and yaw errors under 1.4 degrees).",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                14,
+                16
+              ]
+            },
+            {
+              "claim": "Carrying external payloads up to 240 g (twice the 120 g self-weight) results in tracking errors remaining around 3.69 mm (1.67%), with error growth concentrated predominantly in the axial Z direction.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "The continuum robot executes open-loop multi-task demonstrations including drawing and letter writing ('ROBOT') on a 10-degree tilted board, board erasing, multi-segment simultaneous LED drawing ('USTC' and 'SOFT'), and pick-and-place manipulation of an 0.8 kg object using a suction cup.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                14,
+                15,
+                16
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Dual origami continuum robot structure comprising an internal Miura crease sealed pneumatic chamber and an external Miura crease origami backbone with tendon routing holes",
+            "Seven-camera 3D optical motion capture system (Qualisys) operating at 50 Hz with +/-0.5 mm linear accuracy to track optical marker point clouds on the robot",
+            "Universal material testing machine executing cyclic compression tests (up to 50 cycles at 52.8 mm compression) for hysteresis quantification",
+            "Arduino Mega 2560 microcontroller communicating via CAN bus in daisy-chain configuration to drive tendon motors and via SPI bus to an analog DAC (TLV5610)",
+            "Pneumatic actuation circuit including an air pump, proportional pressure valve, solenoid valve, relay, and digital air pressure sensor regulating pressure at 10 kPa",
+            "Motor initial position monitoring using optocoupler sensors (MK012175)",
+            "Computing hardware: Intel Core i7-7700HQ CPU (2.8 GHz, 8 GB RAM) for control execution and NVIDIA RTX 3090 GPU for PyTorch neural network training",
+            "Modular application tools: mounted writing brush, chalk eraser, optical LEDs for trajectory tracing, and vacuum suction cup for grasping a 0.8 kg load"
+          ],
+          "future_work": [
+            "Further integrate robot hardware components",
+            "Miniaturize and reduce the physical dimensions of the robot to develop collaborative devices for humans",
+            "Extend and apply the LSTM-based iterative training model to other continuum robotic structures"
+          ],
+          "independent_variables": [
+            "Actuation inputs: tendon length variations / motor displacements (0 to 44.38 mm effective range) and internal chamber pneumatic pressure (0 kPa, 10 kPa)",
+            "Tendon pre-tensioning displacement (0 mm vs. 7.53 mm / 8.45 mm)",
+            "Trajectory geometry and dimensions: shapes (astroid, circle, 8-shaped, flower, square, hexagon, sinusoidal), radii (10 mm to 60 mm), and central axial heights (-210 mm to -416 mm)",
+            "Operating motion velocity (low speed vs. high speed, up to 3.6x)",
+            "Applied external payload (0 g, 120 g, 240 g, and 0.8 kg manipulation target)",
+            "First segment structural state during second segment actuation (vertical high-stiffness state vs. bent high-stiffness state)",
+            "Iterative training cycle count (rounds 1 through 3) and dataset point composition (random points vs. random plus small step-size points)",
+            "Compression displacement levels during mechanical hysteresis testing (10.6, 21.1, 31.7, 42.3, and 52.8 mm) over 1 to 50 cycles"
+          ],
+          "limitations_inferred": [
+            "Data collection and trajectory evaluations rely on quasi-static holding phases (1 s wait time at waypoints), which restricts the dynamic bandwidth and real-time high-speed trajectory execution",
+            "Because control is completely open-loop without sensory feedback, unexpected external continuous contacts, variable environmental interactions, or long-term structural wear could induce uncompensated positioning drift",
+            "Manual origami fabrication processes may introduce manufacturing tolerances and structural discrepancies between distinct fabricated modules",
+            "Simultaneous multi-segment tracking exhibits larger tracking errors (5.90 mm, 1.34%) than isolated single-segment tracking, indicating residual inter-segment mechanical coupling and error compounding",
+            "Pneumatic actuation requires auxiliary support equipment (compressor/pump, proportional valves, solenoid valves, pressure sensors), limiting system untethered portability"
+          ],
+          "limitations_stated_by_authors": [
+            "Tracking error under load mainly arises from the axial direction (Z-axis error increases as payload increases), whereas no-load error primarily comes from lateral (X and Y) directions",
+            "Model prediction error plateaus after several iterative training rounds due to the influence of physical system factors",
+            "Movement of the first segment causes structural coupling that induces tendon slacking in the second segment, necessitating kinematic geometric compensation",
+            "Input window sizes below 10 time steps fail to capture sufficient historical information for accurate hysteresis modeling, while larger window sizes introduce computational overhead",
+            "Adding excessive neural network layers or neurons risks overfitting and escalates computational cost and training time",
+            "Robot hardware currently requires further integration and size reduction to develop human-collaborative devices"
+          ],
+          "main_results": [
+            "Achieved an average repeat positioning accuracy of approximately 0.1 mm across workspace target points over 30 cycles",
+            "Demonstrated that pre-tensioning reduced initial hysteresis by 50%, and applying 10 kPa pneumatic pressure reduced hysteresis stabilization time from >43 s to within 2 s",
+            "Single-segment open-loop trajectory tracking achieved an average Euclidean error of 1.58 mm (0.71% relative to robot length), with submillimeter tracking (<1 mm) on multiple trajectories (e.g., 0.93 mm on square, 0.72 mm on circle, 0.67 mm on 8-shaped)",
+            "Multi-segment tracking achieved an average trajectory tracking error of 2.81 mm (0.63% relative to length)",
+            "Demonstrated generalization to unlearned trajectory profiles, achieving 1.76 mm error (0.80%) on a single-segment hexagon and 1.04 mm error (0.23%) on a second-segment hexagon",
+            "Achieved independent motion decoupling of segment 2 under both vertical (1.07 mm error, 0.24%) and bent (3.28 mm error, 0.74%) locked states of segment 1, with segment 1 disturbance errors held to 1.06 mm and 0.86 mm",
+            "Simultaneous multi-segment trajectory tracking yielded an average position error of 5.90 mm (1.34% relative error)",
+            "Orientation control achieved an overall average angle error of 0.75 degrees (segment 1 roll/pitch/yaw: 0.99/1.06/0.22 degrees; segment 2 roll/pitch/yaw: 0.90/0.99/0.24 degrees; dynamic sinusoidal trajectory errors: 0.83/1.39/0.19 degrees)",
+            "Under payload increases up to 240 g (2x self-weight), tracking error increased by a factor of 2.64 to ~3.69 mm (1.67%), and speed increases up to 3.6x maintained errors within 1.23% relative to length",
+            "Successfully demonstrated open-loop sensorless task execution: precision writing and erasing on a 10-degree tilted board, multi-segment LED pattern drawing, and grasping/transferring an 0.8 kg object"
+          ],
+          "modeling_methods": [
+            "Stacked 2-layer Long Short-Term Memory (LSTM) recurrent neural network for inverse kinematic modeling with hysteresis compensation",
+            "Iterative learning strategy augmenting limited random point datasets with actual trajectory execution and small step-size data",
+            "Neural network-based search optimizer and coordinate transformation for multi-segment inverse kinematic solutions",
+            "Analytical tendon compensation model based on constant-curvature neutral axis compression to eliminate second-segment tendon slacking",
+            "Euler angle orientation mapping via LSTM network for 3D spatial orientation control"
+          ],
+          "performance_metrics": [
+            "Trajectory tracking Euclidean distance error (absolute in mm and relative error percentage over robot length)",
+            "Directional Cartesian error components (axial Z error vs. lateral X and Y errors in mm)",
+            "Repeat positioning accuracy (Euclidean distance error in mm over 30 cycles)",
+            "Bending orientation error (absolute deviation in degrees for roll, pitch, and yaw Euler angles)",
+            "Axial extension ratio (percentage)",
+            "Mechanical hysteresis displacement (mm) and settling time (seconds)",
+            "Payload tracking error degradation factor relative to no-load conditions",
+            "Neural network training convergence time (milliseconds for 100 epochs)"
+          ],
+          "possible_gap_implications": [
+            "While open-loop model-free control eliminates vulnerability to sensor failure in harsh environments such as nuclear radiation, its reliance on pre-calibrated quasi-static hysteresis mapping implies potential vulnerability to unmodeled dynamic contact forces or gradual material degradation over extended deployment",
+            "The combination of pneumatic layer jamming and antagonistic tendon forces successfully circumvents the trade-off between compliance and load capacity, yet reliance on active pneumatic supply lines may hinder miniaturization or completely untethered field applications",
+            "Demonstrated transferability of single-segment kinematic learning to multi-segment configurations suggests that modular data-driven modeling can reduce calibration burdens in hyper-redundant continuum robots, provided mechanical coupling and tendon slacking can be geometrically compensated"
+          ],
+          "research_objective": "To develop a novel design and learning-based control scheme for a rear-driven multi-segment hybrid-actuated soft origami continuum robot that achieves decoupled segment motion and submillimeter/millimeter-level trajectory tracking accuracy without sensory feedback, employing a dual-origami hybrid variable stiffness mechanism (antagonistic actuation and layer jamming) and an LSTM-based iterative learning framework that compensates for origami hysteresis.",
+          "research_problem": "Soft origami continuum robots have infinite degrees of freedom, high compliance, and adaptability, but suffer from low control accuracy, limited load-carrying capacity, motion coupling among segments in rear-driven multi-segment architectures with high extension ratios, rate-dependent saturated hysteresis, and vulnerability to sensor failure in harsh environments (e.g., nuclear radiation) where conventional closed-loop electronic feedback cannot function.",
+          "robot_type": "multi-segment hybrid-actuated soft origami continuum robot",
+          "stiffness_mechanism": [
+            "antagonistic actuation",
+            "layer jamming",
+            "hybrid variable stiffness"
+          ],
+          "title": "Decoupling Control of a Multi-Segment Hybrid-Actuated Soft Origami Continuum Robot Through Variable Stiffness",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "dc9ad29f75",
+      "filename": "Stiffness Change for Reconfiguration of.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/Stiffness Change for Reconfiguration of_dc9ad29f75.json",
+      "evidence": {
+        "source": {
+          "paper_id": "dc9ad29f75",
+          "filename": "Stiffness Change for Reconfiguration of.pdf",
+          "sha256": "dc9ad29f753d760eb4da07276315790cc07a85a531e5196bdb6b2d9716a17862",
+          "page_count": 10,
+          "char_count": 41208,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 25576,
+          "completion_tokens": 5875,
+          "total_tokens": 31451,
+          "thinking_tokens": 3669,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "pneumatic pressure-driven tip eversion (growth and internal pressurization)",
+            "motorized spool-driven cables / tendons with stoppers"
+          ],
+          "authors": [
+            "Brian H. Do",
+            "Shuai Wu",
+            "Ruike Renee Zhao",
+            "Allison M. Okamura"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Linear elastic material behavior for both unjammed and jammed regions in FEA simulation",
+            "Effective Young's modulus of 263.2 kPa for the unjammed state and 3038.6 kPa for the jammed state",
+            "Constant Poisson's ratio of 0.45 across jammed and unjammed states",
+            "Inextensible fabric membrane behavior for the ripstop nylon tube"
+          ],
+          "control_variables": [
+            "Inflated beam diameter (55 mm)",
+            "Layer stack configuration (6 stacks circumferentially, each having 15 layers of 0.1 mm thick copy paper)",
+            "Layer strip dimensions (18 mm width with 10.8 mm inter-stack gap to permit creasing during eversion)",
+            "Fabric envelope material (70 denier ripstop nylon with TPU coating)",
+            "Tendon stopper dimensions and spacing (1 cm long, 5 mm diameter PTFE stoppers spaced at 6 cm intervals)",
+            "Loading rates (24 mm/min for 3-point bending; 0.2 mm/s for beam transverse loading)"
+          ],
+          "dependent_variables": [
+            "Transverse reaction force (N)",
+            "Tip deflection / displacement (mm)",
+            "Effective material flexural modulus (kPa)",
+            "Segment angular displacement (distal segment angle θ1 and proximal segment angle θ2 in degrees)",
+            "Robot shape configuration and workspace in free space"
+          ],
+          "doi": "",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Positive pressure layer jamming significantly increases the bending stiffness of inflated beam robots without requiring a negative pressure / vacuum source.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                5
+              ]
+            },
+            {
+              "claim": "Three-point bending characterization of a 15-layer paper stack shows an effective flexural modulus of 263.2 kPa in the unjammed state and 3038.6 kPa in the jammed state.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Transverse loading of an inflated beam with jammed versus unjammed segments induces localized buckling at the stiffness boundary, functioning as a discrete revolute joint.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Finite element simulations in ABAQUS using linear elastic material models accurately capture localized buckling when the distal segment is unjammed and cohesive base bending when both segments are jammed.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "A triangular wave interface between adjacent jamming pouches prevents premature beam buckling by preventing wrinkle propagation along circumferential circular arcs.",
+              "evidence_type": "design",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "Stiffness patterning enables a single tendon actuator to selectively activate and bend multiple discrete joints sequentially, decoupling controllable degrees of freedom from actuator count.",
+              "evidence_type": "demonstration",
+              "page_numbers": [
+                2,
+                6,
+                8
+              ]
+            },
+            {
+              "claim": "Paper layer jamming pouches are compatible with tip-everting growth when pouches are unjammed at internal body pressure during growth.",
+              "evidence_type": "demonstration",
+              "page_numbers": [
+                3,
+                6,
+                7
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Instron universal testing machine (Model 3344) for three-point bending of a 15-layer paper stack sealed in TPU-coated ripstop nylon over a 150 mm span at 24 mm/min up to 6 mm displacement.",
+            "Transverse bending test rig comprising a cantilever clamp, motorized linear rail translating at 0.2 mm/s, and a Mark-10 Series 5 force gauge with a 3D-printed contact attachment applying up to 10 mm tip deflection.",
+            "Joint stiffness test setup equipped with an OptiTrack motion capture camera system (Flex 13 cameras) tracking retroreflective marker patterns on distal and proximal segments of a two-segment inflated beam under transverse loading.",
+            "Suspended multi-segment robot demonstration platform with a 1 m long, four-segment inflated beam robot actuated in 3D free space via three motorized Spectra tendons routed through PTFE stoppers."
+          ],
+          "future_work": [
+            "Leveraging growth, variable stiffness, and combined continuum/discrete joint properties for robotic manipulation tasks.",
+            "Incorporating embedded sensing to achieve closed-loop control.",
+            "Investigating stiffness change across different length and diameter scales for applications such as minimally invasive surgery and reconfigurable structures."
+          ],
+          "independent_variables": [
+            "Pouch jamming state and pressure difference (unjammed at internal pressure, jammed at atmospheric pressure, jammed at vacuum)",
+            "Beam internal gauge pressure (6.9 kPa, 13.8 kPa, and 20.7 kPa)",
+            "Tendon pulling displacement and tension",
+            "Programmed spatial stiffness patterns across beam segments (e.g., jammed-jammed vs. jammed-unjammed, and pressure gradients)",
+            "Applied transverse beam displacement"
+          ],
+          "limitations_inferred": [
+            "The durability, wear, and fatigue life of the copy paper layers under repetitive creasing, jamming, and eversion cycles were not assessed and may degrade over extended use.",
+            "Individual pneumatic feed lines to each pouch could lead to cable/tube routing congestion and scalability constraints as the number of sections increases.",
+            "Friction and hysteresis in the tendon-stopper routing mechanism may reduce trajectory accuracy and repeatability during multi-joint actuation.",
+            "The simplified linear elastic FEA material model does not account for frictional slip dynamics, plastic creasing, or local membrane wrinkling.",
+            "The robot cannot maintain its high-stiffness configuration during growth, as pouches must remain unjammed to permit tip eversion."
+          ],
+          "limitations_stated_by_authors": [
+            "Fabrication and control complexity become limiting factors when scaling soft robots by adding more actuators.",
+            "Embedding passive valves simplifies fabrication for robots with many sections, whereas direct pouch pressure control requires separate lines despite offering faster response times for shorter robots.",
+            "There are diminishing returns on stiffness increase with higher pouch pressure differences, likely because the bulk material stiffness of the jammed layers becomes the limiting factor rather than friction.",
+            "Global constant curvature continuum robots suffer from poor positioning precision for target locations at small angular displacements from the vertical.",
+            "The fabricated prototype operates under open-loop control without integrated shape or contact sensing."
+          ],
+          "main_results": [
+            "The effective material flexural modulus increased by an order of magnitude from 263.2 kPa (unjammed) to 3038.6 kPa (jammed).",
+            "Jamming layers produced a substantial increase in transverse beam stiffness: at 6.9 kPa internal pressure, the required transverse force at 10 mm deflection increased by 624% (from 1.07 N to 6.68 N), and at 20.7 kPa internal pressure, it increased by 663%.",
+            "Positive pressure jamming at atmospheric pressure achieved stiffness comparable to vacuum jamming (differences of only 4.7% at 13.8 kPa and 2.1% at 20.7 kPa), demonstrating effective stiffness change without an external vacuum source.",
+            "Bending tests and FEA confirmed that unjamming a distal segment localizes buckling and rotation to the joint interface while the jammed proximal segment remains straight, whereas jamming both segments causes cohesive bending at the base.",
+            "Demonstrated multi-bend workspace expansion and 3D shape change in free space using only three tendons to independently activate and bend multiple discrete joints sequentially."
+          ],
+          "modeling_methods": [
+            "Finite element analysis (FEA) in ABAQUS 2021 simulating localized buckling, joint deformation, and strain distributions of two-segment tubes under transverse loading.",
+            "Flexural modulus calculation using Euler-Bernoulli beam theory for three-point bending (E = L^3 * m / (4 * b * d^3))."
+          ],
+          "performance_metrics": [
+            "Flexural modulus / effective material stiffness (kPa)",
+            "Transverse force required for a 10 mm beam tip deflection (N)",
+            "Percentage increase in beam stiffness/force due to jamming (%)",
+            "Segment angular displacement (degrees) for distal (θ1) and proximal (θ2) segments",
+            "Targeted joint bending angle (e.g., 30 degrees per joint)"
+          ],
+          "possible_gap_implications": [
+            "Decoupling controllable degrees of freedom from actuator count through positive-pressure layer jamming suggests a viable pathway to simplify the hardware and reduce the bulk of multi-segment continuum robots, though full dexterity under complex dynamic loads remains to be proven.",
+            "Using localized buckling at stiffness discontinuities to form virtual revolute joints provides a simpler control paradigm than continuous curvature modeling, though dynamic contact modeling and control stability under disturbances will require further investigation.",
+            "Eliminating vacuum pumps by utilizing internal positive pressure lowers system weight and complexity, but reliable multi-pouch pneumatic valving and miniaturization represent ongoing integration challenges."
+          ],
+          "research_objective": "To investigate, model, fabricate, and experimentally characterize distributed variable stiffness in growing inflated beam robots using positive pressure layer jamming, demonstrating that selective joint activation can decouple controllable degrees of freedom from the number of actuators to expand workspace and enable active 3D shape reconfiguration.",
+          "research_problem": "Active shape control of soft compliant continuum robots is constrained by the limited number of degrees of actuation due to actuator weight and complexity, as well as susceptibility to unwanted buckling under compressive forces, while underactuated designs traditionally lock the coupling between actuators and degrees of freedom at the design stage.",
+          "robot_type": "inflated beam robot (compliant continuum robot / everting growing vine robot)",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "positive pressure layer jamming"
+          ],
+          "title": "Stiffness Change for Reconfiguration of Inflated Beam Robots",
+          "year": "2023"
+        }
+      }
+    },
+    {
+      "paper_id": "7366c065fa",
+      "filename": "Stiffness-Tuneable Segment for Continuum Soft Robots.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V003",
+      "screening_status": "included",
+      "screening_reason": "Included for D1-V003 adversarial full-text literature audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/Stiffness-Tuneable Segment for Continuum Soft Robots_7366c065fa.json",
+      "evidence": {
+        "source": {
+          "paper_id": "7366c065fa",
+          "filename": "Stiffness-Tuneable Segment for Continuum Soft Robots.pdf",
+          "sha256": "7366c065fa1e83eb2aa1e4b1ec9b69c8933d1d51cff3e1b6e2bb365aedfc8fb2",
+          "page_count": 17,
+          "char_count": 48904,
+          "source_type": "verification",
+          "verification_id": "D1-V003"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 28364,
+          "completion_tokens": 6139,
+          "total_tokens": 34503,
+          "thinking_tokens": 3674,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "pneumatic",
+            "vacuum",
+            "manual"
+          ],
+          "authors": [
+            "Zhipeng Liu",
+            "Linsen Xu",
+            "Xingcan Liang",
+            "Jinfu Liu"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Polyethylene terephthalate (PET) is assumed to be inextensible due to its Young's modulus being significantly higher than that of the silicone membrane",
+            "Initial friction between flaps in the normal unjammed state is assumed to be zero",
+            "Tensile stiffness of the single nylon thread is modeled linearly based on its Young's modulus, length, and circular cross-sectional area",
+            "Tensile stiffness of the silicone membrane is modeled linearly using its Young's modulus, total length, and combined inner/outer cross-sectional area",
+            "Flap-silicone membrane interface is modeled via linear shear modulus of silicone considering Poisson's ratio",
+            "Flap-flap interface geometry is approximated as an isosceles trapezoid to determine first and second area moments of inertia",
+            "Euler-Bernoulli beam theory under cantilevered conditions is assumed for the layer structure deflection",
+            "Flap-nylon interface stiffness is assumed to be negligible relative to flap-flap and flap-membrane shear stiffnesses in the jammed state",
+            "Flap-flap and flap-membrane shear stiffnesses are assumed to be approximately equal within a specific pressure range",
+            "Incomplete contact between flaps and between flap and membrane is accounted for using empirical reduction factors (alpha and beta)"
+          ],
+          "control_variables": [
+            "Flap geometric parameters (flap length L, flap width W, flap thickness H = 0.23 mm, distance between bilateral flaps h, central angle phi)",
+            "Layer assembly parameters (slot length D, hole-slot center distance d, segment diameter phi, overlap count of 6.5 layers per side)",
+            "Material properties (PET film with friction coefficient 0.4, Dragon Skin 10 silicone membrane of 0.3 mm thickness, 0.108 mm diameter nylon thread)",
+            "Vertebra and spine parameters (vertebra diameter Dv, vertebra height Wv, gap between vertebrae Gv, total vertebrae length 76 mm, 10 mm end supports, rigid-to-overall length ratio <= 50%, Ecoflex 00-50 silicone SCR body, ABS vertebrae)",
+            "Deflection and compression testing displacement increments (2 cm increments up to 10 cm)",
+            "Number of loading cycles (50 cycles per testing protocol)"
+          ],
+          "dependent_variables": [
+            "Deflection force and axial compression force (N)",
+            "Bending stiffness and compressive stiffness",
+            "Stiffening coefficient (gamma)",
+            "Central diameter retention ratio under bending",
+            "Bending angle (degrees)"
+          ],
+          "doi": "10.3390/machines10070581",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A tubular stiffening segment utilizing layer jamming can temporarily increase soft robot stiffness under negative pressure, producing an increase in bending stiffness of over 15x at 0 degrees, over 30x at 90 degrees, and up to 60x in compressive stiffness at -60 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                10,
+                14
+              ]
+            },
+            {
+              "claim": "A bio-inspired flexible spine featuring rigid ABS vertebrae integrated with an elastomeric soft continuum robot prevents cross-sectional buckling and maintains segment diameter during bending (achieving a diameter ratio of 0.981 at 180 degrees compared to 0.856 for an unreinforced soft continuum robot).",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                4,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "claim": "An analytical mechanics model dividing layer jamming shear behavior into pre-slip, transition, and full-slip regimes captures the effective stiffness variation with applied vacuum pressure, achieving a minimum determination coefficient (R^2) of 0.9525 relative to experimental data.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                6,
+                7,
+                8,
+                10
+              ]
+            },
+            {
+              "claim": "The tuneable-stiffness soft continuum robot demonstrates an adjustable length range of 185.35 mm to 363.35 mm, a bending angle reaching 196 degrees, and peak load support of 31.45 N under operational pressures of +/-60 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4,
+                14
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Mechanical test bench comprising an axially moving slide, a linear actuator, and a digital force sensor (WD-500, Aidebao Co)",
+            "Aluminum plate mounting fixture securing the TSCR relative to the actuator and force sensor",
+            "Two-stage vacuum pump (VP 280) supplying vacuum pressure between 0 kPa and -60 kPa in -20 kPa steps through a 6 mm PVC pipe",
+            "Lateral bending deflection testing setup at 0-degree and 90-degree configurations tested at 2 cm, 4 cm, 8 cm, and 10 cm displacements for 50 cycles",
+            "Axial compression testing setup on the straight TSCR evaluated from 0 cm to 10 cm displacement in 2 cm steps for 50 cycles",
+            "Manual bending angle evaluation from 0 degrees to 180 degrees in 45-degree increments to measure central diameter changes using photographic comparison",
+            "Grasping and loading test configurations"
+          ],
+          "future_work": [
+            "Miniaturization of the TSCR for interventional medicine applications",
+            "Application of the current TSCR design to exoskeleton rehabilitation robots",
+            "Designing biomimetic flaps inspired by scaled organisms such as pangolins and fish to improve the trade-off between rigidity and flexibility",
+            "Investigation of alternative flap weaving patterns and materials",
+            "Quantifying the hysteresis effect of stiffening segment loading and unloading for TSCR controller development"
+          ],
+          "independent_variables": [
+            "Applied vacuum pressure (0 kPa, -20 kPa, -40 kPa, -60 kPa)",
+            "Bending configuration angle (0 degrees, 45 degrees, 90 degrees, 135 degrees, 180 degrees)",
+            "Imposed displacement during lateral deflection and axial compression (0 to 10 cm in 2 cm increments)",
+            "Structural configuration (tuneable-stiffness soft continuum robot with vertebrae vs. soft continuum robot without vertebrae)",
+            "Jamming activation state (unjammed vs. jammed)"
+          ],
+          "limitations_inferred": [
+            "Empirical calibration parameters (alpha and beta) are required to fit the analytical model to experimental results, limiting purely analytical first-principles prediction for uncalibrated geometries",
+            "Central diameter evaluation relies on discrete manual bending and photographic inspection rather than continuous dynamic non-contact measurement",
+            "Cyclic endurance and fatigue life of the thin silicone membranes and PET flaps under prolonged cycling beyond 50 cycles are not documented",
+            "The interaction between simultaneous internal pneumatic spine actuation and vacuum layer jamming was not fully characterized under closed-loop control"
+          ],
+          "limitations_stated_by_authors": [
+            "The stiffening segment bends under compressive force and exhibits unstable behavior caused by sudden slip between flaps",
+            "The TSCR exhibits a tendency to buckle under compression, though deformation is reversible upon releasing vacuum",
+            "Nylon threads constrain flap displacement at the length limits of the stiffening segment",
+            "Discrepancies between theoretical predictions and experimental results occur due to small manufacturing defects in the silicone membrane, irregular flap stacking, small gas leaks, and non-uniform negative pressure distribution",
+            "The stiffening segment imposes a certain limit on compliance",
+            "Hysteresis during loading and unloading of the stiffening segment must be accounted for and quantified for control systems",
+            "The current TSCR scale requires miniaturization before it can be applied to interventional medicine"
+          ],
+          "main_results": [
+            "Under lateral bending at 0 degrees, TSCR bending stiffness increased by more than 15x, with maximum average deflection force reaching 5 N",
+            "Under lateral bending at 90 degrees, TSCR bending stiffness increased by more than 30x, reaching an average maximum deflection force of 31 N",
+            "In axial compression, TSCR stiffness increased up to 60x in the jammed state relative to the initial unjammed TSCR, reaching an average compression force of 64 N",
+            "The central diameter ratio at 180-degree bending was maintained at 0.981 for the TSCR, outperforming the unreinforced SCR which buckled at a ratio of 0.856",
+            "The stiffening segment achieved an adjustable length range from 185.35 mm to 363.35 mm and a maximum bending angle of 196 degrees",
+            "The analytical layer jamming model matched experimental lateral bending data at 90 degrees with a minimum R^2 of 0.9525",
+            "Finite element predictions showed close alignment with the analytical model and experimental results"
+          ],
+          "modeling_methods": [
+            "Minimal analytical mechanics model for structural layer jamming of two-layer and extended N-layer flap systems",
+            "Euler-Bernoulli beam theory applied under cantilevered conditions to evaluate layer structure deflection and effective shear stiffness",
+            "Piecewise shear interface modeling divided into three distinct operational regimes: pre-slip regime, transition regime, and full-slip regime",
+            "Lumped series and parallel spring stiffness combinations for flap-flap, flap-membrane, flap-nylon, and membrane tensile stiffness components",
+            "Finite element analysis of TSCR mechanical behavior"
+          ],
+          "performance_metrics": [
+            "Deflection force (N) and axial compression force (N)",
+            "Stiffening coefficient gamma (ratio of average jammed force to average unjammed force)",
+            "Central diameter ratio relative to initial 0-degree diameter",
+            "Maximum achievable bending angle (degrees)",
+            "Adjustable length range (mm)",
+            "Coefficient of determination (R^2) between theoretical model predictions and experimental measurements"
+          ],
+          "possible_gap_implications": [
+            "The finding that embedding internal rigid vertebrae mitigates the classic cross-sectional buckling and stiffness degradation of curved layer-jamming segments suggests a design path for continuum robots requiring high payload capacity in bent configurations, but does not prove novelty over all prior variable-stiffness continuum architectures",
+            "The persistence of sudden inter-layer slip and unmodeled loading-unloading hysteresis indicates that predictive, dynamic closed-loop control of hybrid soft-rigid jamming manipulators remains an unresolved research challenge"
+          ],
+          "research_objective": "To design, model, and experimentally evaluate a tuneable-stiffness soft continuum robot (TSCR) that integrates a layer-jamming tubular stiffening segment with a bio-inspired flexible drivable spine to achieve reversible stiffness tuning, shape control, and prevention of buckling during bending.",
+          "research_problem": "Soft continuum robots lack structural stiffness when manipulating objects compared to rigid robots, leading to large undesired deformations from small interaction forces, while existing cylindrical layer-jamming stiffening segments suffer from cross-sectional deformation and buckling during bending that reduces overall stiffness.",
+          "robot_type": "tuneable-stiffness soft continuum robot (TSCR)",
+          "stiffness_mechanism": [
+            "layer jamming"
+          ],
+          "title": "Stiffness-Tuneable Segment for Continuum Soft Robots with Vertebrae",
+          "year": "2022"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "afc3120855cd202cd435498b20e899252f7e9923f91c82256625e51e9d9332fe"
+}

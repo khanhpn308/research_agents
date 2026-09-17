@@ -1,0 +1,119 @@
+================================================================================
+SEARCH 1 | GV-001 | critical
+
+Identify prior analytical or finite-element mechanics models of layer/laminar jamming specifically formulated for soft robots, continuum robots, or soft actuators.
+
+("layer jamming" OR "laminar jamming") ("finite element" OR "analytical model") ("soft robot" OR "soft actuator")
+
+Gap-closing evidence:
+Prior publications presenting validated predictive analytical or FEA mechanics models for layer-jamming soft actuators or continuum robots would directly close or weaken the candidate gap.
+
+================================================================================
+SEARCH 2 | GV-002 | critical
+
+Identify literature accounting for passive structural layers (outer envelope, membrane, encapsulation sheath, or integrated heater) and their interfacial contact/friction or hyperelastic mechanics in layer-jamming systems.
+
+("layer jamming" OR "laminar jamming") (envelope OR membrane OR encapsulation) (friction OR hyperelastic)
+
+Gap-closing evidence:
+Studies demonstrating that passive containment membranes, envelopes, or embedded heater layers significantly alter system stiffness through friction or hyperelasticity and are explicitly integrated into mechanics models.
+
+================================================================================
+SEARCH 3 | GV-003 | critical
+
+Identify unified mechanics models of layer jamming that predict and validate stiffness across both unjammed (passive compliant) and jammed (active stiffened) operational regimes.
+
+("layer jamming" OR "laminar jamming") (jammed AND unjammed) ("stiffness model" OR "predictive model")
+
+Gap-closing evidence:
+A mechanics formulation capable of continuous or piece-wise unified prediction of bending stiffness and deformation validated against both unjammed and jammed state experiments.
+
+================================================================================
+SEARCH 4 | GV-004 | critical
+
+Identify large-deformation / finite-strain mechanics formulations coupling hyperelasticity (e.g. Ogden, Mooney-Rivlin) with frictional contact or jamming in variable-stiffness soft actuators.
+
+"variable stiffness" "soft actuator" ("large deformation" OR hyperelastic) (jamming OR "frictional contact")
+
+Gap-closing evidence:
+Prior research implementing geometrically nonlinear large-strain continuum formulations or finite-element contact models with hyperelasticity for variable-stiffness jamming actuators.
+
+================================================================================
+SEARCH 5 | GV-005 | critical
+
+Identify hybrid variable-stiffness systems coupling shape memory polymers (SMP) with layer jamming that implement thermomechanical, viscoelastic, or multiphysics models.
+
+"shape memory polymer" ("layer jamming" OR "laminar jamming") (thermomechanical OR viscoelastic OR "finite element")
+
+Gap-closing evidence:
+Prior art describing an integrated SMP-layer jamming mechanism accompanied by a coupled thermal-phase-change and mechanical/frictional model.
+
+================================================================================
+SEARCH 6 | GV-006 | critical
+
+Trace forward and backward citations of benchmark DOIs 10.1109/LRA.2024.3357035 and 10.1109/TMECH.2024.3352643, filtering for models incorporating envelope/heater layers, nonlinear elastomers, and frictional slip.
+
+("10.1109/LRA.2024.3357035" OR "10.1109/TMECH.2024.3352643") OR ("layer jamming" envelope heater "frictional slip")
+
+Gap-closing evidence:
+Direct citation network members of the two seed papers that propose mechanics models encompassing envelope/heater layers, elastomer elasticity, and frictional slip.
+
+================================================================================
+SEARCH 7 | GV-007 | critical
+
+Extract and identify studies on layer jamming that provide quantitative validation, held-out prediction error metrics, constitutive contact formulations, and reusable code or parameter sets.
+
+("layer jamming" OR "laminar jamming") ("contact formulation" OR constitutive) ("prediction error" OR validation)
+
+Gap-closing evidence:
+Prior layer-jamming publications providing benchmarked quantitative validation data (e.g. held-out test error percentages, open-source FEA models, or parameter tables) spanning unjammed and jammed states.
+
+================================================================================
+SEARCH 8 | GV-026 | high
+
+Determine whether multi-layer frictional contact enveloped by hyperelastic membranes is already an established, solved problem in broader solid mechanics and laminated composite literature.
+
+("multi-layer" OR "laminated") "frictional contact" (hyperelastic OR "elastomeric membrane") "solid mechanics"
+
+Gap-closing evidence:
+Foundational solid mechanics papers demonstrating that the mechanics of multi-layer frictional contact within hyperelastic membranes are already well-established standard formulations.
+
+================================================================================
+SEARCH 9 | GV-027 | high
+
+Assess whether predicting variable-stiffness jamming actuator behavior using commercial FEA packages (Abaqus, ANSYS, COMSOL) with standard contact pairs and hyperelastic models is routine engineering practice rather than an open scientific gap.
+
+("layer jamming" OR "variable stiffness actuator") (Abaqus OR ANSYS OR COMSOL) ("contact" OR hyperelastic)
+
+Gap-closing evidence:
+Prior publications showing that standard built-in contact formulations and hyperelastic models in commercial FEA software adequately capture layer-jamming actuator physics without custom scientific modeling.
+
+================================================================================
+SEARCH 10 | GV-028 | high
+
+Identify established analytical mechanics models and benchmark baselines for variable-stiffness layer jamming beams to determine if a simple 1D scaling heuristic (K proportional to E(T)I(P)) represents a strawman baseline.
+
+("layer jamming" OR "variable stiffness beam") ("beam theory" OR "Timoshenko") ("bending stiffness" OR "scaling law")
+
+Gap-closing evidence:
+Existing literature deriving multi-layer beam theories (incorporating shear slip, friction thresholds, or pressure scaling) that serve as established baselines, demonstrating that 1D EI heuristics are artificially weak.
+
+================================================================================
+SEARCH 11 | GV-029 | high
+
+Examine whether the thermoviscoelastic phase transition across the glass transition (Tg) is the governing physical mechanism in SMP variable-stiffness actuators, rendering purely geometric/passive layer omissions secondary.
+
+"shape memory polymer" ("glass transition" OR Tg) (thermoviscoelastic OR viscoelastic) ("variable stiffness" OR "soft actuator")
+
+Gap-closing evidence:
+Evidence showing that temperature/rate-dependent thermoviscoelasticity dominates stiffness changes across the glass transition by orders of magnitude, making passive layer or geometric nonlinearities minor second-order effects.
+
+================================================================================
+SEARCH 12 | GV-030 | high
+
+Identify generalized, transferable mechanics frameworks for layer jamming that apply across diverse soft robotic architectures (e.g. grippers, continuum arms, wearables) rather than being confined to a single prototype.
+
+("layer jamming" OR "laminar jamming") ("generalized model" OR "unified framework") ("continuum robot" OR gripper)
+
+Gap-closing evidence:
+Prior work establishing generalizable mechanics principles for layer jamming that are validated across multiple geometric form factors without requiring bespoke platform-specific tuning.

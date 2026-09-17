@@ -1,0 +1,175 @@
+{
+  "source": {
+    "paper_id": "7366c065fa",
+    "filename": "Stiffness-Tuneable Segment for Continuum Soft Robots.pdf",
+    "sha256": "7366c065fa1e83eb2aa1e4b1ec9b69c8933d1d51cff3e1b6e2bb365aedfc8fb2",
+    "page_count": 17,
+    "char_count": 48904,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28364,
+    "completion_tokens": 6139,
+    "total_tokens": 34503,
+    "thinking_tokens": 3674,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic",
+      "vacuum",
+      "manual"
+    ],
+    "authors": [
+      "Zhipeng Liu",
+      "Linsen Xu",
+      "Xingcan Liang",
+      "Jinfu Liu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Polyethylene terephthalate (PET) is assumed to be inextensible due to its Young's modulus being significantly higher than that of the silicone membrane",
+      "Initial friction between flaps in the normal unjammed state is assumed to be zero",
+      "Tensile stiffness of the single nylon thread is modeled linearly based on its Young's modulus, length, and circular cross-sectional area",
+      "Tensile stiffness of the silicone membrane is modeled linearly using its Young's modulus, total length, and combined inner/outer cross-sectional area",
+      "Flap-silicone membrane interface is modeled via linear shear modulus of silicone considering Poisson's ratio",
+      "Flap-flap interface geometry is approximated as an isosceles trapezoid to determine first and second area moments of inertia",
+      "Euler-Bernoulli beam theory under cantilevered conditions is assumed for the layer structure deflection",
+      "Flap-nylon interface stiffness is assumed to be negligible relative to flap-flap and flap-membrane shear stiffnesses in the jammed state",
+      "Flap-flap and flap-membrane shear stiffnesses are assumed to be approximately equal within a specific pressure range",
+      "Incomplete contact between flaps and between flap and membrane is accounted for using empirical reduction factors (alpha and beta)"
+    ],
+    "control_variables": [
+      "Flap geometric parameters (flap length L, flap width W, flap thickness H = 0.23 mm, distance between bilateral flaps h, central angle phi)",
+      "Layer assembly parameters (slot length D, hole-slot center distance d, segment diameter phi, overlap count of 6.5 layers per side)",
+      "Material properties (PET film with friction coefficient 0.4, Dragon Skin 10 silicone membrane of 0.3 mm thickness, 0.108 mm diameter nylon thread)",
+      "Vertebra and spine parameters (vertebra diameter Dv, vertebra height Wv, gap between vertebrae Gv, total vertebrae length 76 mm, 10 mm end supports, rigid-to-overall length ratio <= 50%, Ecoflex 00-50 silicone SCR body, ABS vertebrae)",
+      "Deflection and compression testing displacement increments (2 cm increments up to 10 cm)",
+      "Number of loading cycles (50 cycles per testing protocol)"
+    ],
+    "dependent_variables": [
+      "Deflection force and axial compression force (N)",
+      "Bending stiffness and compressive stiffness",
+      "Stiffening coefficient (gamma)",
+      "Central diameter retention ratio under bending",
+      "Bending angle (degrees)"
+    ],
+    "doi": "10.3390/machines10070581",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A tubular stiffening segment utilizing layer jamming can temporarily increase soft robot stiffness under negative pressure, producing an increase in bending stiffness of over 15x at 0 degrees, over 30x at 90 degrees, and up to 60x in compressive stiffness at -60 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          10,
+          14
+        ]
+      },
+      {
+        "claim": "A bio-inspired flexible spine featuring rigid ABS vertebrae integrated with an elastomeric soft continuum robot prevents cross-sectional buckling and maintains segment diameter during bending (achieving a diameter ratio of 0.981 at 180 degrees compared to 0.856 for an unreinforced soft continuum robot).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "claim": "An analytical mechanics model dividing layer jamming shear behavior into pre-slip, transition, and full-slip regimes captures the effective stiffness variation with applied vacuum pressure, achieving a minimum determination coefficient (R^2) of 0.9525 relative to experimental data.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          6,
+          7,
+          8,
+          10
+        ]
+      },
+      {
+        "claim": "The tuneable-stiffness soft continuum robot demonstrates an adjustable length range of 185.35 mm to 363.35 mm, a bending angle reaching 196 degrees, and peak load support of 31.45 N under operational pressures of +/-60 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          14
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Mechanical test bench comprising an axially moving slide, a linear actuator, and a digital force sensor (WD-500, Aidebao Co)",
+      "Aluminum plate mounting fixture securing the TSCR relative to the actuator and force sensor",
+      "Two-stage vacuum pump (VP 280) supplying vacuum pressure between 0 kPa and -60 kPa in -20 kPa steps through a 6 mm PVC pipe",
+      "Lateral bending deflection testing setup at 0-degree and 90-degree configurations tested at 2 cm, 4 cm, 8 cm, and 10 cm displacements for 50 cycles",
+      "Axial compression testing setup on the straight TSCR evaluated from 0 cm to 10 cm displacement in 2 cm steps for 50 cycles",
+      "Manual bending angle evaluation from 0 degrees to 180 degrees in 45-degree increments to measure central diameter changes using photographic comparison",
+      "Grasping and loading test configurations"
+    ],
+    "future_work": [
+      "Miniaturization of the TSCR for interventional medicine applications",
+      "Application of the current TSCR design to exoskeleton rehabilitation robots",
+      "Designing biomimetic flaps inspired by scaled organisms such as pangolins and fish to improve the trade-off between rigidity and flexibility",
+      "Investigation of alternative flap weaving patterns and materials",
+      "Quantifying the hysteresis effect of stiffening segment loading and unloading for TSCR controller development"
+    ],
+    "independent_variables": [
+      "Applied vacuum pressure (0 kPa, -20 kPa, -40 kPa, -60 kPa)",
+      "Bending configuration angle (0 degrees, 45 degrees, 90 degrees, 135 degrees, 180 degrees)",
+      "Imposed displacement during lateral deflection and axial compression (0 to 10 cm in 2 cm increments)",
+      "Structural configuration (tuneable-stiffness soft continuum robot with vertebrae vs. soft continuum robot without vertebrae)",
+      "Jamming activation state (unjammed vs. jammed)"
+    ],
+    "limitations_inferred": [
+      "Empirical calibration parameters (alpha and beta) are required to fit the analytical model to experimental results, limiting purely analytical first-principles prediction for uncalibrated geometries",
+      "Central diameter evaluation relies on discrete manual bending and photographic inspection rather than continuous dynamic non-contact measurement",
+      "Cyclic endurance and fatigue life of the thin silicone membranes and PET flaps under prolonged cycling beyond 50 cycles are not documented",
+      "The interaction between simultaneous internal pneumatic spine actuation and vacuum layer jamming was not fully characterized under closed-loop control"
+    ],
+    "limitations_stated_by_authors": [
+      "The stiffening segment bends under compressive force and exhibits unstable behavior caused by sudden slip between flaps",
+      "The TSCR exhibits a tendency to buckle under compression, though deformation is reversible upon releasing vacuum",
+      "Nylon threads constrain flap displacement at the length limits of the stiffening segment",
+      "Discrepancies between theoretical predictions and experimental results occur due to small manufacturing defects in the silicone membrane, irregular flap stacking, small gas leaks, and non-uniform negative pressure distribution",
+      "The stiffening segment imposes a certain limit on compliance",
+      "Hysteresis during loading and unloading of the stiffening segment must be accounted for and quantified for control systems",
+      "The current TSCR scale requires miniaturization before it can be applied to interventional medicine"
+    ],
+    "main_results": [
+      "Under lateral bending at 0 degrees, TSCR bending stiffness increased by more than 15x, with maximum average deflection force reaching 5 N",
+      "Under lateral bending at 90 degrees, TSCR bending stiffness increased by more than 30x, reaching an average maximum deflection force of 31 N",
+      "In axial compression, TSCR stiffness increased up to 60x in the jammed state relative to the initial unjammed TSCR, reaching an average compression force of 64 N",
+      "The central diameter ratio at 180-degree bending was maintained at 0.981 for the TSCR, outperforming the unreinforced SCR which buckled at a ratio of 0.856",
+      "The stiffening segment achieved an adjustable length range from 185.35 mm to 363.35 mm and a maximum bending angle of 196 degrees",
+      "The analytical layer jamming model matched experimental lateral bending data at 90 degrees with a minimum R^2 of 0.9525",
+      "Finite element predictions showed close alignment with the analytical model and experimental results"
+    ],
+    "modeling_methods": [
+      "Minimal analytical mechanics model for structural layer jamming of two-layer and extended N-layer flap systems",
+      "Euler-Bernoulli beam theory applied under cantilevered conditions to evaluate layer structure deflection and effective shear stiffness",
+      "Piecewise shear interface modeling divided into three distinct operational regimes: pre-slip regime, transition regime, and full-slip regime",
+      "Lumped series and parallel spring stiffness combinations for flap-flap, flap-membrane, flap-nylon, and membrane tensile stiffness components",
+      "Finite element analysis of TSCR mechanical behavior"
+    ],
+    "performance_metrics": [
+      "Deflection force (N) and axial compression force (N)",
+      "Stiffening coefficient gamma (ratio of average jammed force to average unjammed force)",
+      "Central diameter ratio relative to initial 0-degree diameter",
+      "Maximum achievable bending angle (degrees)",
+      "Adjustable length range (mm)",
+      "Coefficient of determination (R^2) between theoretical model predictions and experimental measurements"
+    ],
+    "possible_gap_implications": [
+      "The finding that embedding internal rigid vertebrae mitigates the classic cross-sectional buckling and stiffness degradation of curved layer-jamming segments suggests a design path for continuum robots requiring high payload capacity in bent configurations, but does not prove novelty over all prior variable-stiffness continuum architectures",
+      "The persistence of sudden inter-layer slip and unmodeled loading-unloading hysteresis indicates that predictive, dynamic closed-loop control of hybrid soft-rigid jamming manipulators remains an unresolved research challenge"
+    ],
+    "research_objective": "To design, model, and experimentally evaluate a tuneable-stiffness soft continuum robot (TSCR) that integrates a layer-jamming tubular stiffening segment with a bio-inspired flexible drivable spine to achieve reversible stiffness tuning, shape control, and prevention of buckling during bending.",
+    "research_problem": "Soft continuum robots lack structural stiffness when manipulating objects compared to rigid robots, leading to large undesired deformations from small interaction forces, while existing cylindrical layer-jamming stiffening segments suffer from cross-sectional deformation and buckling during bending that reduces overall stiffness.",
+    "robot_type": "tuneable-stiffness soft continuum robot (TSCR)",
+    "stiffness_mechanism": [
+      "layer jamming"
+    ],
+    "title": "Stiffness-Tuneable Segment for Continuum Soft Robots with Vertebrae",
+    "year": "2022"
+  }
+}

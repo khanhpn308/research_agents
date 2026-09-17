@@ -1,0 +1,359 @@
+{
+  "model": "gpt-5.6-sol",
+  "usage": {
+    "prompt_tokens": 20546,
+    "completion_tokens": 2082,
+    "total_tokens": 22628,
+    "cached_input_tokens": 0,
+    "reasoning_output_tokens": 392
+  },
+  "decision_package": {
+    "shortlist": [
+      "D1",
+      "D2"
+    ],
+    "shortlisted_directions": [
+      {
+        "direction_id": "D1",
+        "title_en": "Modeling and Experimental Characterization of Friction, Warping, and Cyclic Stiffness Degradation in Vacuum Layer-Jamming Structures",
+        "title_vi": "Mô hình hóa và đặc trưng thực nghiệm ma sát, biến dạng vênh và suy giảm độ cứng theo chu kỳ trong kết cấu kẹt lớp chân không",
+        "research_problem": "Vacuum layer-jamming models can overpredict bending stiffness because they commonly assume constant interlayer friction and omit cross-sectional warping, while the corpus repeatedly identifies stiction, hysteresis, wear, and durability as unresolved limitations.",
+        "candidate_gap": "A reduced-order mechanics model linking vacuum pressure, interlayer slip, cross-sectional warping, and cycle-dependent friction to bending stiffness and hysteresis remains a candidate gap in the supplied corpus.",
+        "research_question": "For a spring-steel–silicone vacuum layer-jamming beam under cyclic transverse bending, how do vacuum pressure, layer count, and loading cycles affect effective friction, warping, flexural stiffness, and hysteresis, and does a slip-and-wear augmented beam model predict these responses more accurately than a constant-friction planar model?",
+        "mechanism_scope": "One vacuum layer-jamming beam architecture with fixed sheet and envelope materials; transverse quasi-static cyclic bending in jammed and unjammed states.",
+        "modeling_approach": [
+          "Composite or Timoshenko beam formulation with pressure-dependent interlayer normal force",
+          "Pre-slip/slip friction law with a small set of experimentally identified parameters",
+          "Empirical cycle-dependent friction or stiffness-evolution law",
+          "Limited 3D FEA used only to estimate warping corrections and interrogate reduced-order assumptions"
+        ],
+        "experimental_validation": [
+          "Three-point or cantilever bending at several vacuum pressures and layer counts",
+          "Repeated loading for a defined cycle range with periodic stiffness measurements",
+          "Force–displacement loop measurement to quantify hysteresis energy",
+          "Optical measurement of lateral or cross-sectional warping",
+          "Independent coupon-level friction testing where practical"
+        ],
+        "independent_variables": [
+          "vacuum pressure",
+          "layer count",
+          "sheet aspect ratio",
+          "loading-cycle count",
+          "bending amplitude"
+        ],
+        "dependent_variables": [
+          "effective bending stiffness",
+          "hysteresis-loop area",
+          "residual deformation",
+          "interlayer slip onset",
+          "warping displacement",
+          "effective friction parameter"
+        ],
+        "control_variables": [
+          "sheet and envelope materials",
+          "sheet thickness",
+          "specimen length and width",
+          "loading rate",
+          "temperature and humidity",
+          "vacuum sealing method"
+        ],
+        "performance_metrics": [
+          "normalized RMSE of stiffness prediction",
+          "improvement over constant-friction planar baseline",
+          "stiffness modulation ratio",
+          "hysteresis energy per cycle",
+          "percentage stiffness retention",
+          "repeatability across specimens"
+        ],
+        "supporting_paper_ids": [
+          "dbe0e69179",
+          "5bdf50c599",
+          "269d15b830",
+          "26fb5818d6"
+        ],
+        "supporting_evidence_summary": [
+          "dbe0e69179 combines Ogden mechanics and friction work but identifies constant-friction assumptions and cross-sectional warping as sources of stiffness error.",
+          "5bdf50c599 reports large modeling error in the compliant state and parasitic displacement associated with laminar jamming.",
+          "269d15b830 demonstrates substantial cross-sliding stiffness modulation but lacks a mechanics model and long-term wear characterization.",
+          "26fb5818d6 reports pressure-dependent stiction behavior and limited cyclic life in a positive-pressure implementation, reinforcing the broader importance of friction regime and durability."
+        ],
+        "novelty_uncertainties": [
+          "External searches may reveal existing wear-dependent or partial-interaction layer-jamming beam models.",
+          "The contribution could collapse into empirical curve fitting if slip and warping parameters are not independently interpretable.",
+          "Positive-pressure results cannot automatically be transferred to vacuum jamming."
+        ],
+        "falsification_conditions": [
+          "Warping and cycle-dependent friction have negligible effects within experimental uncertainty.",
+          "The augmented model does not materially outperform the constant-friction planar baseline on held-out conditions.",
+          "Observed degradation is dominated by vacuum leakage or gross material damage rather than interfacial mechanics."
+        ],
+        "main_risks": [
+          "Reliable warping measurement may be difficult without careful optical setup.",
+          "A long fatigue campaign could exceed the thesis schedule.",
+          "Friction, leakage, and viscoelasticity may be difficult to identify separately."
+        ],
+        "msc_feasibility": "high",
+        "msc_feasibility_reason": "The project can be restricted to one specimen family and uses vacuum regulation, force–displacement measurement, optical tracking, MATLAB fitting, and optional targeted FEA. It does not require specialized smart materials or high-pressure equipment.",
+        "novelty_confidence": "unverified",
+        "why_worth_investigating": "It converts several repeated implementation limitations—friction, hysteresis, wear, and warping—into a falsifiable mechanics problem with direct implications for stiffness prediction and service-life reliability."
+      },
+      {
+        "direction_id": "D2",
+        "title_en": "Predictive Mechanics and Experimental Validation of Positive-Pressure Layer Jamming Under Flexural Loading",
+        "title_vi": "Cơ học dự đoán và kiểm chứng thực nghiệm cơ cấu kẹt lớp áp suất dương dưới tải uốn",
+        "research_problem": "Positive-pressure layer jamming produces large stiffness and pull-out forces, but its pressure–stiffness behavior, pre-slip threshold, and reported high-pressure saturation are described mainly through empirical characterization.",
+        "candidate_gap": "A predictive model coupling membrane pressure, layer-pack friction, layer geometry, and constraining-frame compliance remains a candidate gap within the corpus.",
+        "research_question": "For a positive-pressure layer-jamming link under quasi-static flexure, how do inflation pressure, layer count, and frame flexural rigidity determine pre-slip stiffness and slip-onset load, and can a frictional composite-beam model predict the transition and saturation more accurately than an empirical pressure–stiffness fit?",
+        "mechanism_scope": "A single positive-pressure layer-jamming link, evaluated below and through the onset of interlayer slip; gripper-level optimization is excluded.",
+        "modeling_approach": [
+          "Pressure-to-interface-normal-force relation for the inflated membrane",
+          "Partial-interaction composite beam model with Coulomb friction",
+          "Series compliance representation of the layer pack and constraint frame",
+          "Parametric FEA for local contact pressure or buckling only where the analytical assumptions fail"
+        ],
+        "experimental_validation": [
+          "Four-point or cantilever bending over a controlled pressure range",
+          "Layer-count and frame-stiffness factorial experiment",
+          "Slip-onset detection from displacement, hysteresis, or acoustic/optical indicators",
+          "Independent comparison with an empirical polynomial pressure–stiffness baseline"
+        ],
+        "independent_variables": [
+          "positive jamming pressure",
+          "layer count",
+          "layer thickness",
+          "frame flexural rigidity",
+          "bending load"
+        ],
+        "dependent_variables": [
+          "pre-slip bending stiffness",
+          "slip-onset force",
+          "maximum bending resistance",
+          "residual deformation",
+          "hysteresis energy"
+        ],
+        "control_variables": [
+          "layer material and surface condition",
+          "membrane material and thickness",
+          "specimen geometry",
+          "pressure ramp rate",
+          "loading rate",
+          "frame boundary conditions"
+        ],
+        "performance_metrics": [
+          "prediction RMSE",
+          "slip-threshold prediction error",
+          "stiffness modulation ratio",
+          "saturation-pressure prediction error",
+          "specimen-to-specimen repeatability"
+        ],
+        "supporting_paper_ids": [
+          "26fb5818d6",
+          "cb423f09c9",
+          "2404868fbc"
+        ],
+        "supporting_evidence_summary": [
+          "26fb5818d6 and cb423f09c9 describe the same positive-pressure jamming study, reporting approximately 25-fold stiffening, a high pull-out force, pressure-dependent stiction, and saturation behavior without a predictive mechanics formulation.",
+          "2404868fbc shows that constraint structures and localized membrane bulging can govern pneumatic actuator mechanics and that empirical corrections become necessary at elevated pressure."
+        ],
+        "novelty_uncertainties": [
+          "The two principal catalog IDs represent one study rather than independent replication.",
+          "External literature may already contain partial-interaction or frictional-laminate models applicable without major modification.",
+          "A simple frame-compliance model may explain the saturation, limiting the scope of the contribution."
+        ],
+        "falsification_conditions": [
+          "A simple series-compliance or empirical model predicts all observations as well as the proposed contact model.",
+          "No reproducible pre-slip-to-slip transition or saturation is observed.",
+          "Frame compliance overwhelms layer-pack mechanics across the entire safe operating range."
+        ],
+        "main_risks": [
+          "Pressures approaching those reported in the corpus require appropriate pressure-rated hardware and shielding.",
+          "Fabrication repeatability and membrane leakage may obscure contact mechanics.",
+          "The evidence base for this exact mechanism is concentrated in one unique article."
+        ],
+        "msc_feasibility": "high",
+        "msc_feasibility_reason": "The work is tightly scoped to a beam-like test article and standard bending measurements. It is feasible if suitable pressure-rated facilities are available; testing need not reach the maximum pressure reported in the source study.",
+        "novelty_confidence": "unverified",
+        "why_worth_investigating": "It addresses a sharply defined, mechanically rich question and could replace empirical stiffness maps with a transferable design relationship."
+      }
+    ],
+    "critic_reviews": [
+      {
+        "direction_id": "D1",
+        "falsification_tests": [
+          "Run cyclic flexure on an unencapsulated, frictionally clamped coupon stack under controlled 80 kPa normal load; if force-displacement hysteresis loops remain invariant after 1,000 cycles, the 'cyclic friction degradation' hypothesis is falsified.",
+          "Compare cross-sectional deflection predictions with and without FEA warping corrections on thin high-aspect-ratio sheets; if the predicted stiffness difference is within load-cell noise (<3%), cross-sectional warping is scientifically negligible.",
+          "Measure internal vacuum pressure during cyclic loading; if vacuum decay correlates 1:1 with stiffness loss, degradation is dominated by envelope micro-leakage rather than interfacial tribology."
+        ],
+        "major_concerns": [
+          "Conflation of interfacial tribology with envelope micro-leakage, elastomeric stress relaxation (Mullins effect), and kinematic layer migration. At ~80 kPa contact pressure, spring steel experiences virtually zero mechanical wear over 10^3 to 10^4 cycles.",
+          "Theoretical contradiction in coupling a 1D Timoshenko beam model with 3D warping corrections derived from FEA; if 3D FEA is mandatory to calculate warping factors, the reduced-order mechanics model is merely an empirical parameter fit.",
+          "Experimental impossibility of optically measuring cross-sectional warping of steel sheets sealed inside an opaque or translucent collapsed vacuum envelope without breaching the vacuum seal or introducing rigid optical windows that distort boundary conditions.",
+          "Testing 10,000+ cycles across a 3x3x3 factorial experimental design at quasi-static rates (<0.2 Hz to avoid viscoelastic self-heating) requires over 750 hours of machine time, which is fatal for an MSc thesis timeline."
+        ],
+        "methodology_risk": "high",
+        "missing_evidence": [
+          "Direct experimental proof that spring steel or silicone undergoes measurable tribological wear at normal pressures below 100 kPa under quasi-static micro-slip.",
+          "Methodological validation demonstrating how envelope viscoelastic relaxation and seal leakage can be independently isolated from interfacial friction changes during beam flexure."
+        ],
+        "msc_feasibility": "medium",
+        "novelty_risk": "medium",
+        "possible_prior_closure": [
+          "Classical partial-interaction composite beam theory with interfacial Coulomb slip (Newmark, Goodman) has been established for over 60 years in structural mechanics.",
+          "Frictional layer jamming beam models with Coulomb slip have already been published in soft robotics by Narang et al., Kim et al., and Kawamura et al."
+        ],
+        "publication_potential": "medium",
+        "recommended_revision": "Strip away the long-term cyclic wear, optical warping, and fatigue life claims. Refocus strictly on quasi-static, rate-controlled nonlinear shear-lag and pre-slip to macro-slip transition mechanics. Test open, instrumented laminate stacks under controlled normal pressure (or transparent rigid-walled vacuum enclosures) to isolate pure contact mechanics from envelope leakage and viscoelasticity.",
+        "scientific_gap_risk": "medium",
+        "scientific_strengths": [
+          "Directly investigates the premier variable-stiffness mechanism in soft robotics (vacuum layer jamming).",
+          "Clear mechanical contrast between the unbonded compliant state and the frictionally locked rigid state.",
+          "Quasi-static force-displacement and hysteresis loop measurements are highly accessible on standard universal testing machines."
+        ],
+        "verdict": "revise"
+      },
+      {
+        "direction_id": "D2",
+        "falsification_tests": [
+          "Calculate the theoretical monolithic beam stiffness (E*I_total) and frame compliance; if measured effective stiffness at high pressure matches the elementary series compliance formula (1/K_eff = 1/K_beam + 1/K_frame) within 5%, the need for an intricate contact mechanics formulation is falsified.",
+          "Inspect the compressed face of the layer pack at high flexural curvature; if out-of-plane buckling or delamination wrinkling occurs prior to shear slip, pure friction models are falsified."
+        ],
+        "major_concerns": [
+          "The high-pressure stiffness saturation phenomenon is physically trivial: it is merely the transition to the fully stuck (monolithic) beam regime in series with external frame compliance; treating this as an unresolved mechanics gap is an intellectual overstatement.",
+          "The supporting evidence base in the corpus is an unreplicated single study represented by two duplicate catalog entries (26fb5818d6 and cb423f09c9). Basing an MSc thesis on an unreplicated one-off study carries extreme fragility.",
+          "Severe neglect of compressive face buckling and interlayer delamination wrinkling under large bending moments.",
+          "Pneumatic pressures up to 400-500 kPa in custom 3D-printed or elastomeric cavities pose burst and projectile safety hazards in university student laboratories."
+        ],
+        "methodology_risk": "medium",
+        "missing_evidence": [
+          "Replication of positive-pressure layer jamming by independent research groups beyond the single duplicate study.",
+          "Characterization of compressive face buckling thresholds under flexural loading."
+        ],
+        "msc_feasibility": "high",
+        "novelty_risk": "medium",
+        "possible_prior_closure": [
+          "Classical series compliance formulations and Coulomb limit shear stress criteria.",
+          "Clamped laminated leaf-spring and multi-leaf suspension beam mechanics in classical mechanical engineering."
+        ],
+        "publication_potential": "medium",
+        "recommended_revision": "Pivot from predicting the trivial saturation plateau to modeling the competition between interlayer shear slip-onset and compressive face buckling in flexure. Cap operating pressure at 200 kPa to eliminate burst hazards, and formulate an analytical criterion predicting whether the beam fails via frictional slip or elastic face wrinkling.",
+        "scientific_gap_risk": "high",
+        "scientific_strengths": [
+          "Bypasses the 1-bar atmospheric pressure ceiling of vacuum jamming, enabling substantial load-bearing capacity.",
+          "Benchtop quasi-static flexural testing over controlled pressure increments is straightforward and repeatable.",
+          "Clear pre-slip to macro-slip transition observable in force-displacement curves."
+        ],
+        "verdict": "revise"
+      }
+    ],
+    "researcher_provisional_recommendation": "D1",
+    "critic_recommendation": "D1",
+    "critic_recommendation_rationale": "D1 (Revised) is selected because it directly addresses the premier variable-stiffness mechanism in soft robotics (vacuum layer jamming) while eliminating the fatal flaws of the original proposal (cyclic wear, optical envelope warping, and 750-hour fatigue runs). By stripping away envelope leakage confounds and focusing on quasi-static pre-slip to macro-slip shear-lag mechanics on an instrumented beam, an MSc student can achieve clean, repeatable, mathematically rigorous results within 6 to 9 months using standard UTM equipment. D2 (Revised) is a viable alternative if high-force benchtop testing is preferred, but requires strict pressure limits (<200 kPa) and focuses on the competition between slip and compressive buckling rather than the trivial saturation plateau. D3, D4, and D5 must be firmly rejected.",
+    "critic_novelty_status": "unverified_pending_external_tribology_and_laminate_search",
+    "external_search_priorities": [
+      "Scopus/Web of Science query: ('layer jamming' OR 'laminar jamming') AND ('partial interaction' OR 'shear lag' OR 'interlayer slip' OR 'beam model')",
+      "Prior literature on Newmark's partial-interaction theory and Goodman's layered beam formulations adapted to frictionally clamped elastomeric/metallic laminates",
+      "Tribological studies of unlubricated spring steel and silicone interfaces at low contact pressures (<100 kPa) to confirm absence of short-term wear",
+      "Literature on compressive wrinkling and delamination buckling in frictionally confined sheet packs under flexural bending",
+      "Prior patents and publications on positive-pressure jamming grippers beyond the duplicated study (cb423f09c9 / 26fb5818d6)"
+    ]
+  },
+  "adjudication": {
+    "selected_direction": "D1",
+    "decision": "select_with_revision",
+    "confidence": "medium",
+    "final_title_en": "Modeling and Experimental Characterization of Interlayer Slip and Bending Stiffness in Vacuum Layer-Jamming Beams",
+    "final_title_vi": "Mô hình hóa và đặc trưng thực nghiệm sự trượt giữa các lớp và độ cứng uốn của dầm kẹt lớp chân không",
+    "concise_problem_statement": "The bending response of vacuum layer-jamming beams is difficult to predict through the transition from partial interaction to gross interlayer slip. Constant-friction or fully bonded models may misestimate stiffness and slip onset, while leakage and envelope viscoelasticity can obscure the underlying interfacial mechanics.",
+    "research_objective": "Develop and experimentally validate a reduced-order mechanics model that relates vacuum pressure, layer count, and bending load to partial-interaction stiffness, interlayer slip onset, and quasi-static hysteresis, while separating interfacial behavior from apparatus and envelope effects.",
+    "preliminary_research_question": "For one vacuum layer-jamming beam architecture under rate-controlled quasi-static bending, how do vacuum pressure, layer count, and bending amplitude govern effective stiffness and the transition from pre-slip to gross interlayer slip, and can an interpretable partial-interaction model predict these responses on held-out test conditions more accurately than fully bonded, fully unbonded, and constant-friction baseline models?",
+    "scientific_hypothesis": "Increasing vacuum pressure raises transferable interlayer shear force and delays gross slip, producing a measurable transition from partially interacting layers toward monolithic bending; a reduced-order model with independently identifiable interface parameters will predict stiffness and slip onset across pressures and layer counts better than limiting-case and constant-friction baselines.",
+    "independent_variables": [
+      "Vacuum pressure",
+      "Layer count",
+      "Bending load or displacement amplitude",
+      "A limited set of sheet geometries, only if time permits"
+    ],
+    "dependent_variables": [
+      "Effective tangent and secant bending stiffness",
+      "Interlayer slip-onset load or displacement",
+      "Relative interlayer displacement at accessible edges",
+      "Force–displacement hysteresis energy",
+      "Residual deformation after unloading"
+    ],
+    "control_variables": [
+      "Sheet material, surface preparation, and thickness",
+      "Envelope material and thickness",
+      "Beam length and width",
+      "Boundary and loading configuration",
+      "Loading and pressure-ramp rates",
+      "Temperature and humidity",
+      "Vacuum sealing procedure",
+      "Specimen conditioning history"
+    ],
+    "performance_metrics": [
+      "Normalized RMSE on held-out conditions",
+      "Slip-onset prediction error",
+      "Improvement over fully bonded, fully unbonded, and constant-friction baselines",
+      "Stiffness modulation ratio",
+      "Hysteresis energy per cycle",
+      "Parameter repeatability and confidence intervals across specimens"
+    ],
+    "scope": [
+      "One spring-steel–silicone vacuum layer-jamming beam family",
+      "Rate-controlled quasi-static bending over a safe, well-instrumented vacuum range",
+      "Pre-slip, partial-slip, and gross-slip regimes",
+      "Pressure monitoring throughout every mechanical test",
+      "Edge-based optical tracking or other accessible slip measurement",
+      "A small number of conditioning cycles rather than fatigue-life testing",
+      "Optional open-stack or coupon tests to identify interface parameters independently",
+      "Long-term wear, 10,000-cycle fatigue, internal cross-sectional warping measurement, and positive-pressure jamming are excluded",
+      "3D FEA is optional and diagnostic, not required to supply fitted correction factors to the primary model"
+    ],
+    "expected_contribution": [
+      "A falsifiable pressure–slip–stiffness relationship for a controlled vacuum layer-jamming beam",
+      "An experimentally validated reduced-order model with physically interpretable interface parameters",
+      "Quantified validity limits of fully bonded, fully unbonded, and constant-friction approximations",
+      "An experimental protocol that distinguishes interfacial slip from vacuum loss and envelope relaxation",
+      "Design guidance for selecting pressure and layer count to achieve a target stiffness or slip threshold"
+    ],
+    "why_selected_over_alternative": [
+      "D1 addresses the widely applicable vacuum layer-jamming mechanism and is supported by a broader evidence base than D2.",
+      "It avoids D2's pressure-vessel safety burden and dependence on one duplicated positive-pressure study.",
+      "The partial-interaction and slip-transition problem is a genuine constitutive mechanics question if interface parameters are independently measured and predictions are tested out of sample.",
+      "D2's proposed saturation target may be explained largely by the fully stuck stiffness limit and frame compliance, weakening its scientific contribution.",
+      "The revised D1 can use standard bending, pressure, and edge-displacement measurements without requiring inaccessible internal warping measurements or a prolonged fatigue campaign."
+    ],
+    "msc_feasibility_assessment": "Feasible within an MSc if restricted to one beam family, approximately three pressure levels, three layer counts, a few bending amplitudes, and three specimen replicates. The main experiments require a UTM or instrumented bending rig, regulated vacuum, pressure logging, and accessible optical tracking. Short conditioning sequences are sufficient; long-term wear and fatigue claims must not be included. A staged design should first verify repeatable slip and rule out leakage before expanding the test matrix.",
+    "publication_path": "A WoS/Scopus journal paper is plausible if the study demonstrates reproducible slip transitions, independently identifiable interface parameters, held-out predictive validation, uncertainty analysis, and a meaningful improvement over classical limiting-case and constant-friction models. A purely fitted pressure–stiffness curve or single-specimen characterization would likely be insufficient.",
+    "fatal_flaws_checked": [
+      "Removed the unsupported claim of measurable short-term spring-steel wear and excluded long-term cyclic degradation from the core thesis.",
+      "Removed internal cross-sectional warping measurement, which is impractical inside a collapsed envelope.",
+      "Reduced the experimental matrix to avoid an MSc-infeasible fatigue campaign.",
+      "Required continuous pressure monitoring and envelope controls to distinguish leakage from interfacial effects.",
+      "Controlled loading rate and conditioning to limit viscoelastic relaxation and Mullins-effect confounding.",
+      "Made classical bonded, unbonded, partial-interaction, and constant-friction models explicit baselines.",
+      "Required independent or auxiliary interface measurements to prevent the model from collapsing into unconstrained parameter fitting.",
+      "Kept 3D FEA optional so that the reduced-order model remains independently testable.",
+      "Excluded unsafe positive-pressure hardware and high-pressure burst risks associated with D2."
+    ],
+    "unresolved_novelty_risks": [
+      "Classical partial-interaction, shear-lag, or multi-leaf-spring theory may already explain much of the response after straightforward adaptation.",
+      "Published layer-jamming models may already include Coulomb slip, pressure-dependent friction, or equivalent transition criteria.",
+      "The measurable response may be dominated by envelope mechanics rather than interlayer slip.",
+      "A simple limiting-case interpolation may predict the data as accurately as the proposed reduced-order formulation.",
+      "The contribution may remain specific to one material pair unless its dimensionless or mechanistic transferability is demonstrated."
+    ],
+    "searches_required_after_submission": [
+      "Scopus/Web of Science: ('layer jamming' OR 'laminar jamming') AND ('partial interaction' OR 'shear lag' OR 'interlayer slip' OR 'beam model').",
+      "Forward and backward citation searches from Narang, Kim, Kawamura, and the four D1 supporting papers.",
+      "Classical Newmark, Goodman, multi-leaf-spring, frictionally laminated beam, and partial-composite-action literature.",
+      "Models of pressure-dependent contact, pre-sliding friction, microslip, and hysteresis in layered beams.",
+      "Experimental methods for measuring interlayer slip in vacuum-jammed laminates.",
+      "Studies separating envelope viscoelasticity, Mullins effects, vacuum leakage, and interface friction in soft pneumatic or jamming structures.",
+      "Patents and non-journal prior art on vacuum layer-jamming beam mechanics and stiffness prediction."
+    ],
+    "submission_rationale": "Revised D1 offers the strongest balance of mechanical rigor, falsifiability, laboratory accessibility, and publication potential. Its defensible core is not cyclic wear or hidden warping, but the pressure-controlled transition between partial interaction and gross interlayer slip. The provisional title describes that investigation without claiming novelty or committing prematurely to a specific friction law. Selection remains conditional on an early literature search and pilot tests confirming that slip is measurable and not masked by leakage or envelope relaxation.",
+    "astra_escalation_required": false,
+    "astra_escalation_reason": "The revised D1 is defensibly preferable to D2 on evidence breadth, safety, general relevance, and experimental interpretability. Remaining uncertainty concerns external novelty verification and pilot-test viability, neither of which by itself requires Astra escalation."
+  }
+}

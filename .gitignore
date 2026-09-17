@@ -1,29 +1,38 @@
-.venv/
+# Secrets
 .env
 .env.*
 !.env.example
+
+# Python
+.venv/
+venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
-.ruff_cache/
 
-# Credentials and private-key material must never be committed.
-*.pem
-*.key
-*.p12
-*.pfx
-credentials*.json
-secrets*.json
+# OS / editor
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
 
-# Raw and duplicate paper PDFs are large binary inputs. Their canonical
-# content hashes and byte sizes are recorded in data/paper_registry.json.
-data/**/*.pdf
-
-# Interrupted atomic writes and other transient files.
+# Temporary
 *.tmp
 *.temp
+*.log
 
-# Generated outputs remain ignored by default. Frozen source-of-truth
-# research outputs are force-tracked selectively in the baseline commit.
-outputs/
+# Backups
+*.bak
+*.backup
+paper_registry.json.bak-*
+
+# Codex / generated temporary artifacts
+/tmp/
+
+# Research papers / copyrighted full text
+data/papers/
+data/inbox/
+data/test_papers/
+*.pdf
+
+

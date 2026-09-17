@@ -1,0 +1,214 @@
+{
+  "source": {
+    "paper_id": "6583ae5919",
+    "filename": "A_Novel_Continuum_Robot_With_Stiffness_Variation_Capability_Using_Layer_Jamming_Design_Modeling_and_Validation.pdf",
+    "sha256": "6583ae5919cf3f544b652c2e6b8bd59a06e47d1e99cf7cbad3d036f266cbb807",
+    "page_count": 11,
+    "char_count": 50735,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29727,
+    "completion_tokens": 5869,
+    "total_tokens": 35596,
+    "thinking_tokens": 3098,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven actuation",
+      "cable-driven actuation (servo motors XM430-W350 with tailored aluminium spools and 1.2 mm stainless steel wire ropes)"
+    ],
+    "authors": [
+      "Yeman Fan",
+      "Dikai Liu",
+      "Lin Ye"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The deflection of the continuum robot is only caused by the position change of all movable parts of the robot, and material strain is not considered.",
+      "The analysis of continuum robot deflection is conducted in the horizontal plane, and gravity is not considered.",
+      "The deflection of the continuum robot under external load has the same feature as a beam (equivalent cylindrical beam model).",
+      "The equivalent beam is homogeneous and obeys Hooke's law.",
+      "Displacements of the equivalent beam are small.",
+      "The equivalent beam is in pure bending when it undergoes deflections (Euler-Bernoulli beam theory).",
+      "For straight axial loading, an initial distance error (e) exists between the external load line of action and the central axis of the robot, and lateral displacement is constrained at the boundaries (fixed-fixed column model).",
+      "Tip deflection under straight axial load is approximated by the maximum beam deflection before buckling: δAS = max[δ(x)]."
+    ],
+    "control_variables": [
+      "Robot total length (480 mm) and outer diameter (50 mm)",
+      "Support spine outer diameter (45 mm) and segment count (12 connected spine segments)",
+      "Inner and outer latex membrane thickness (0.3 mm)",
+      "Jamming layer material and thickness (polyvinyl chloride window film, 0.18 mm)",
+      "Coefficient of friction between PVC film sides (measured µ = 0.5)",
+      "Spine helical compression spring constant (measured 493 N/m)",
+      "Ball joint model and maximum tilt angle per segment (SQZ5-RS, 30°)",
+      "Nylon restriction wire diameter (0.6 mm)",
+      "Testing environment (deflection tests performed in the horizontal plane; 5 repeated trials per condition)"
+    ],
+    "dependent_variables": [
+      "Resisting force under transverse deflection (N)",
+      "Resisting force under axial deflection (N)",
+      "Average transverse stiffness ST (N/m)",
+      "Average axial stiffness SAS (straight configuration, pre- and post-buckling) and SAC (curved configuration) (N/m)",
+      "Jamming sheath elongation and contraction range (Δl) and relative flap displacement (dr)"
+    ],
+    "doi": "10.1109/ACCESS.2022.3228775",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Layer jamming sheaths combined with a ball-jointed support spine enable tunable stiffness in both transverse and axial directions for continuum robots.",
+        "evidence_type": "experimental / design",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          9
+        ]
+      },
+      {
+        "claim": "A restriction-line weaving method using nylon wire between guide holes on alternating flaps eliminates slot length limitations, allowing large axial length changes during bending.",
+        "evidence_type": "analytical / design",
+        "page_numbers": [
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "The theoretical minimum and maximum sheath length variations are -352.8 mm to +252.0 mm for overlap number n = 3 and -252.0 mm to +756.0 mm for n = 5, exceeding the required ±78.5 mm for 180° bending.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Under transverse loading, the effective stiffness increases monotonically as the bending angle increases from 0° to 180°.",
+        "evidence_type": "analytical / experimental",
+        "page_numbers": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "claim": "Under axial loading, the effective stiffness decreases as the bending angle increases, with the straight posture exhibiting column buckling behavior divided into pre-buckling and post-buckling regimes.",
+        "evidence_type": "analytical / experimental",
+        "page_numbers": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "For sheath overlap n = 3, transverse stiffness ranges from 36.4 to 241.7 N/m (ratio of 6.6) and axial stiffness ranges from 92.9 to 19.3 × 10^3 N/m (ratio of 207.8).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "For sheath overlap n = 5, transverse stiffness ranges from 65.7 to 398.3 N/m (ratio of 6.1) and axial stiffness ranges from 106.7 to 20.8 × 10^3 N/m (ratio of 194.9).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "At straight axial alignment, internal ball joints provide rigid contact, yielding pre-buckling axial stiffness exceeding 19 kN/m under 75 kPa vacuum.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "At large bending deflections (e.g., 180° bending beyond 15 mm transverse deflection), reduced flap overlap area leads to interlayer slippage even under high vacuum pressures.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "The two-section tendon-driven continuum robot successfully demonstrated whole-body grasping of cylindrical objects up to 1.2 kg and manipulation of a 511 g payload past obstacles using an electromagnetic end-effector.",
+        "evidence_type": "demonstrative / experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Custom test rig comprising an Actuonix linear actuator (L12-210-100-12I) to apply precise transverse and axial deflections and an S-beam load cell (JLBS-M2-10Kg) to record resisting forces.",
+      "Pneumatic vacuum system consisting of a vacuum pump (KMDP-C1-12V) and Panasonic digital pressure sensor (DP-101A-E-P) providing regulated vacuum levels (0, 25, 50, 75 kPa).",
+      "Two-section 4-DoF continuum robot actuated by four DYNAMIXEL servo motors (XM430-W350) driving 1.2 mm stainless steel wire ropes wrapped around tailored aluminium spools.",
+      "Actuating and gripping setup utilizing an electromagnet (GE-66-100-38, Magnetic Sensor Systems) mounted at the robot tip to transport metallic objects and demonstrate obstacle avoidance."
+    ],
+    "future_work": [
+      "Improvement of the stiffness model to enable quantitative numerical analysis of variable stiffness capability.",
+      "Analytical or numerical formulation to calculate the effective flexural rigidity (D) of the robot.",
+      "Workspace analysis of the continuum robot.",
+      "Real-time position and stiffness control algorithms."
+    ],
+    "independent_variables": [
+      "Applied vacuum pressure (0 kPa, 25 kPa, 50 kPa, 75 kPa)",
+      "Layer jamming overlap number / winding pitch (n = 3 with dpitch = 35 mm; n = 5 with dpitch = 21 mm)",
+      "Robot bending angle (0°, 90°, 180°)",
+      "Loading direction (transverse load, axial load)",
+      "Applied deflection (0 to 50 mm in 5 mm steps for transverse; 0 to 10 mm in 2 mm steps for axial)"
+    ],
+    "limitations_inferred": [
+      "The Euler-Bernoulli beam approximation does not incorporate viscoelasticity, friction hysteresis, or non-linear sheath shear deformations.",
+      "Dynamic inertial effects and response times during stiffness switching or rapid maneuvering were not evaluated.",
+      "Durability, fatigue life, and wear characteristics of the thin PVC jamming flaps and enclosing latex membranes under repeated vacuum cycling were not examined.",
+      "Tethering to external vacuum pumps and motor drive units presents integration challenges for untethered deployments."
+    ],
+    "limitations_stated_by_authors": [
+      "The derived effective stiffness formulations cannot be numerically computed directly because the flexural rigidity (D) is difficult to determine due to structural complexity and stiffness variability; the models remain qualitative.",
+      "Finite element analysis and numerical simulations could not be reliably implemented because mechanical assembly tolerances, friction, and layer jamming interactions are difficult to model in simulation software.",
+      "Experimental force-deflection responses show deviations from perfect linearity due to test-rig friction and mechanical discrepancies between the physical prototype and the equivalent beam model.",
+      "At high bending angles (180°), reduced overlap area at the outer/convex curvature promotes interlayer slip under moderate deflection, limiting maximum attainable stiffness."
+    ],
+    "main_results": [
+      "Developed and experimentally validated the OctRobot-I continuum robot capable of independent stiffness modulation across transverse and axial loading axes.",
+      "Demonstrated that increasing vacuum pressure and layer overlap number (from n = 3 to n = 5) increases resisting forces and effective stiffness across all configurations.",
+      "With overlap n = 3, measured transverse stiffness ranges from 36.4 to 241.7 N/m (6.6× variation) and axial stiffness ranges from 92.9 to 19.3 × 10^3 N/m (207.8× variation).",
+      "With overlap n = 5, measured transverse stiffness ranges from 65.7 to 398.3 N/m (6.1× variation) and axial stiffness ranges from 106.7 to 20.8 × 10^3 N/m (194.9× variation).",
+      "Identified monotonic trends conforming to analytical models: transverse stiffness increases with bending curvature, whereas axial stiffness decreases with bending curvature.",
+      "Characterized straight axial buckling behavior, where pre-buckling mechanical contact of ball joints provides high stiffness (>19 kN/m at 75 kPa), which drops sharply post-buckling (~8.6-8.7 kN/m).",
+      "Verified practical manipulation capability: grasping a 590 g paper roll (145 mm diameter), a 1.2 kg iron bucket (180 mm diameter), and manipulating a 511 g iron mass around obstacles."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory",
+      "Maxwell-Mohr method (used for straight beam under transverse load, curved beam under transverse load, and curved beam under axial load)",
+      "Integral method with fixed-fixed boundary conditions (used for straight beam buckling analysis under axial load)"
+    ],
+    "performance_metrics": [
+      "Resisting force (N)",
+      "Average transverse stiffness ST (N/m)",
+      "Average axial stiffness SAS and SAC (N/m)",
+      "Stiffness variation ratio (maximum stiffness / minimum stiffness)",
+      "Sheath stroke / allowable length change range Δl (mm)",
+      "Payload and gripping capacity (grams / kilograms lifted or restrained)"
+    ],
+    "possible_gap_implications": [
+      "Developing semi-empirical or computational homogenization techniques to calculate effective flexural rigidity (D) of multi-layer jammed continuum robots could bridge the gap between qualitative beam models and quantitative stiffness prediction.",
+      "Integrating sensory feedback for vacuum level and cable tension could facilitate closed-loop simultaneous control of shape and multidirectional stiffness.",
+      "Investigating high-friction coatings or textured micro-surfaces could prevent interlayer slip at large bending angles without increasing sheath thickness or actuation burden."
+    ],
+    "research_objective": "To design, model, and experimentally validate a novel two-section continuum robot (OctRobot-I) featuring controllable stiffness variation in both transverse and axial directions using an internal ball-joint support spine and a novel layer-jamming sheath weaving technique.",
+    "research_problem": "Continuum robots require controllable stiffness variation while preserving dexterity, but existing methods have notable drawbacks (antagonistic drives require heavy actuators, thermal phase change mechanisms are slow or bulky, and MR/ER fluids provide limited yield strength); furthermore, existing layer-jamming continuum robots suffer from restricted sheath elongation due to slotted guides, lack axial stiffness evaluation/reinforcement, and lack effective stiffness models.",
+    "robot_type": "continuum robot",
+    "stiffness_mechanism": [
+      "layer jamming",
+      "support spine with ball joints and helical compression springs"
+    ],
+    "title": "A Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation",
+    "year": "2022"
+  }
+}

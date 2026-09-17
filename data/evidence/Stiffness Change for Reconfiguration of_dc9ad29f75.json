@@ -1,0 +1,178 @@
+{
+  "source": {
+    "paper_id": "dc9ad29f75",
+    "filename": "Stiffness Change for Reconfiguration of.pdf",
+    "sha256": "dc9ad29f753d760eb4da07276315790cc07a85a531e5196bdb6b2d9716a17862",
+    "page_count": 10,
+    "char_count": 41208,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 25576,
+    "completion_tokens": 5875,
+    "total_tokens": 31451,
+    "thinking_tokens": 3669,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "pneumatic pressure-driven tip eversion (growth and internal pressurization)",
+      "motorized spool-driven cables / tendons with stoppers"
+    ],
+    "authors": [
+      "Brian H. Do",
+      "Shuai Wu",
+      "Ruike Renee Zhao",
+      "Allison M. Okamura"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic material behavior for both unjammed and jammed regions in FEA simulation",
+      "Effective Young's modulus of 263.2 kPa for the unjammed state and 3038.6 kPa for the jammed state",
+      "Constant Poisson's ratio of 0.45 across jammed and unjammed states",
+      "Inextensible fabric membrane behavior for the ripstop nylon tube"
+    ],
+    "control_variables": [
+      "Inflated beam diameter (55 mm)",
+      "Layer stack configuration (6 stacks circumferentially, each having 15 layers of 0.1 mm thick copy paper)",
+      "Layer strip dimensions (18 mm width with 10.8 mm inter-stack gap to permit creasing during eversion)",
+      "Fabric envelope material (70 denier ripstop nylon with TPU coating)",
+      "Tendon stopper dimensions and spacing (1 cm long, 5 mm diameter PTFE stoppers spaced at 6 cm intervals)",
+      "Loading rates (24 mm/min for 3-point bending; 0.2 mm/s for beam transverse loading)"
+    ],
+    "dependent_variables": [
+      "Transverse reaction force (N)",
+      "Tip deflection / displacement (mm)",
+      "Effective material flexural modulus (kPa)",
+      "Segment angular displacement (distal segment angle θ1 and proximal segment angle θ2 in degrees)",
+      "Robot shape configuration and workspace in free space"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Positive pressure layer jamming significantly increases the bending stiffness of inflated beam robots without requiring a negative pressure / vacuum source.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5
+        ]
+      },
+      {
+        "claim": "Three-point bending characterization of a 15-layer paper stack shows an effective flexural modulus of 263.2 kPa in the unjammed state and 3038.6 kPa in the jammed state.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Transverse loading of an inflated beam with jammed versus unjammed segments induces localized buckling at the stiffness boundary, functioning as a discrete revolute joint.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Finite element simulations in ABAQUS using linear elastic material models accurately capture localized buckling when the distal segment is unjammed and cohesive base bending when both segments are jammed.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "A triangular wave interface between adjacent jamming pouches prevents premature beam buckling by preventing wrinkle propagation along circumferential circular arcs.",
+        "evidence_type": "design",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "Stiffness patterning enables a single tendon actuator to selectively activate and bend multiple discrete joints sequentially, decoupling controllable degrees of freedom from actuator count.",
+        "evidence_type": "demonstration",
+        "page_numbers": [
+          2,
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "Paper layer jamming pouches are compatible with tip-everting growth when pouches are unjammed at internal body pressure during growth.",
+        "evidence_type": "demonstration",
+        "page_numbers": [
+          3,
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Instron universal testing machine (Model 3344) for three-point bending of a 15-layer paper stack sealed in TPU-coated ripstop nylon over a 150 mm span at 24 mm/min up to 6 mm displacement.",
+      "Transverse bending test rig comprising a cantilever clamp, motorized linear rail translating at 0.2 mm/s, and a Mark-10 Series 5 force gauge with a 3D-printed contact attachment applying up to 10 mm tip deflection.",
+      "Joint stiffness test setup equipped with an OptiTrack motion capture camera system (Flex 13 cameras) tracking retroreflective marker patterns on distal and proximal segments of a two-segment inflated beam under transverse loading.",
+      "Suspended multi-segment robot demonstration platform with a 1 m long, four-segment inflated beam robot actuated in 3D free space via three motorized Spectra tendons routed through PTFE stoppers."
+    ],
+    "future_work": [
+      "Leveraging growth, variable stiffness, and combined continuum/discrete joint properties for robotic manipulation tasks.",
+      "Incorporating embedded sensing to achieve closed-loop control.",
+      "Investigating stiffness change across different length and diameter scales for applications such as minimally invasive surgery and reconfigurable structures."
+    ],
+    "independent_variables": [
+      "Pouch jamming state and pressure difference (unjammed at internal pressure, jammed at atmospheric pressure, jammed at vacuum)",
+      "Beam internal gauge pressure (6.9 kPa, 13.8 kPa, and 20.7 kPa)",
+      "Tendon pulling displacement and tension",
+      "Programmed spatial stiffness patterns across beam segments (e.g., jammed-jammed vs. jammed-unjammed, and pressure gradients)",
+      "Applied transverse beam displacement"
+    ],
+    "limitations_inferred": [
+      "The durability, wear, and fatigue life of the copy paper layers under repetitive creasing, jamming, and eversion cycles were not assessed and may degrade over extended use.",
+      "Individual pneumatic feed lines to each pouch could lead to cable/tube routing congestion and scalability constraints as the number of sections increases.",
+      "Friction and hysteresis in the tendon-stopper routing mechanism may reduce trajectory accuracy and repeatability during multi-joint actuation.",
+      "The simplified linear elastic FEA material model does not account for frictional slip dynamics, plastic creasing, or local membrane wrinkling.",
+      "The robot cannot maintain its high-stiffness configuration during growth, as pouches must remain unjammed to permit tip eversion."
+    ],
+    "limitations_stated_by_authors": [
+      "Fabrication and control complexity become limiting factors when scaling soft robots by adding more actuators.",
+      "Embedding passive valves simplifies fabrication for robots with many sections, whereas direct pouch pressure control requires separate lines despite offering faster response times for shorter robots.",
+      "There are diminishing returns on stiffness increase with higher pouch pressure differences, likely because the bulk material stiffness of the jammed layers becomes the limiting factor rather than friction.",
+      "Global constant curvature continuum robots suffer from poor positioning precision for target locations at small angular displacements from the vertical.",
+      "The fabricated prototype operates under open-loop control without integrated shape or contact sensing."
+    ],
+    "main_results": [
+      "The effective material flexural modulus increased by an order of magnitude from 263.2 kPa (unjammed) to 3038.6 kPa (jammed).",
+      "Jamming layers produced a substantial increase in transverse beam stiffness: at 6.9 kPa internal pressure, the required transverse force at 10 mm deflection increased by 624% (from 1.07 N to 6.68 N), and at 20.7 kPa internal pressure, it increased by 663%.",
+      "Positive pressure jamming at atmospheric pressure achieved stiffness comparable to vacuum jamming (differences of only 4.7% at 13.8 kPa and 2.1% at 20.7 kPa), demonstrating effective stiffness change without an external vacuum source.",
+      "Bending tests and FEA confirmed that unjamming a distal segment localizes buckling and rotation to the joint interface while the jammed proximal segment remains straight, whereas jamming both segments causes cohesive bending at the base.",
+      "Demonstrated multi-bend workspace expansion and 3D shape change in free space using only three tendons to independently activate and bend multiple discrete joints sequentially."
+    ],
+    "modeling_methods": [
+      "Finite element analysis (FEA) in ABAQUS 2021 simulating localized buckling, joint deformation, and strain distributions of two-segment tubes under transverse loading.",
+      "Flexural modulus calculation using Euler-Bernoulli beam theory for three-point bending (E = L^3 * m / (4 * b * d^3))."
+    ],
+    "performance_metrics": [
+      "Flexural modulus / effective material stiffness (kPa)",
+      "Transverse force required for a 10 mm beam tip deflection (N)",
+      "Percentage increase in beam stiffness/force due to jamming (%)",
+      "Segment angular displacement (degrees) for distal (θ1) and proximal (θ2) segments",
+      "Targeted joint bending angle (e.g., 30 degrees per joint)"
+    ],
+    "possible_gap_implications": [
+      "Decoupling controllable degrees of freedom from actuator count through positive-pressure layer jamming suggests a viable pathway to simplify the hardware and reduce the bulk of multi-segment continuum robots, though full dexterity under complex dynamic loads remains to be proven.",
+      "Using localized buckling at stiffness discontinuities to form virtual revolute joints provides a simpler control paradigm than continuous curvature modeling, though dynamic contact modeling and control stability under disturbances will require further investigation.",
+      "Eliminating vacuum pumps by utilizing internal positive pressure lowers system weight and complexity, but reliable multi-pouch pneumatic valving and miniaturization represent ongoing integration challenges."
+    ],
+    "research_objective": "To investigate, model, fabricate, and experimentally characterize distributed variable stiffness in growing inflated beam robots using positive pressure layer jamming, demonstrating that selective joint activation can decouple controllable degrees of freedom from the number of actuators to expand workspace and enable active 3D shape reconfiguration.",
+    "research_problem": "Active shape control of soft compliant continuum robots is constrained by the limited number of degrees of actuation due to actuator weight and complexity, as well as susceptibility to unwanted buckling under compressive forces, while underactuated designs traditionally lock the coupling between actuators and degrees of freedom at the design stage.",
+    "robot_type": "inflated beam robot (compliant continuum robot / everting growing vine robot)",
+    "stiffness_mechanism": [
+      "layer jamming",
+      "positive pressure layer jamming"
+    ],
+    "title": "Stiffness Change for Reconfiguration of Inflated Beam Robots",
+    "year": "2023"
+  }
+}

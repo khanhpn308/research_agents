@@ -1,0 +1,793 @@
+{
+  "schema_version": 1,
+  "verification_id": "D1-V002",
+  "created_at": "2026-09-15T13:37:23.867165+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 4,
+  "papers": [
+    {
+      "paper_id": "95646b2cfc",
+      "filename": "2025-A continuum-based model for a layer jamming beam.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V002",
+      "screening_status": "included",
+      "screening_reason": "Direct prior work on a continuum-based layer-jamming beam model; potentially decisive for testing P1's claimed gap concerning scalable continuum/homogenized representation, interlayer slip, and model validity limits.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2025-A continuum-based model for a layer jamming beam_95646b2cfc.json",
+      "evidence": {
+        "source": {
+          "paper_id": "95646b2cfc",
+          "filename": "2025-A continuum-based model for a layer jamming beam.pdf",
+          "sha256": "95646b2cfc4bd65cbf8564775714afedfa0f2864fcbdc96c8287390b2989b8dd",
+          "page_count": 10,
+          "char_count": 39347,
+          "source_type": "verification",
+          "verification_id": "D1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 27312,
+          "completion_tokens": 6404,
+          "total_tokens": 33716,
+          "thinking_tokens": 4325,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum pressure"
+          ],
+          "authors": [
+            "Shuai Zhang",
+            "Jiantao Yao",
+            "Wumian Zhao",
+            "Chunjie Wei"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "The layer jamming structure can be modeled as a continuous medium under the assumption of infinitely many thin layers (layer thickness approaches zero while total beam height remains constant, delta/h << 1).",
+            "A plane stress state is assumed for material points following Euler-Bernoulli beam theory, with interlaminar normal strain neglected.",
+            "Elastic deformation-induced pressure between sheets is neglected, so maximum static friction per unit area is governed by Coulomb friction (mu * p, where p is vacuum pressure and mu is friction coefficient).",
+            "Material deformation behaves elastoplastically: purely elastic and reversible in the jamming state (|tau| < mu * p), and undergoing irreversible plastic sliding when yielding (|tau| >= mu * p).",
+            "Normal stress distribution is assumed continuous across the boundary separating jamming and sliding regions.",
+            "Shear stress in the sliding region is uniform (|tau| = mu * p), leading to the normal stress in the sliding region depending only on the beam longitudinal coordinate s.",
+            "The radius of curvature of the beam is significantly larger than the beam height.",
+            "Small deformations are assumed within each incremental loading step for large-deformation solutions."
+          ],
+          "control_variables": [
+            "Beam dimensions in FEA (length = 40 mm, height = 5 mm, width/thickness = 20 mm)",
+            "Beam dimensions in physical experiment (length = 100 mm, height = 5 mm, width/thickness = 20 mm)",
+            "Finite element element type and mesh size (CPS4R elements with 0.1 mm edge length in Abaqus)",
+            "Confining pressure level during physical validation (60 kPa) and FEA (0.1 MPa)",
+            "Boundary condition: cantilever root fixed to a frame that slides along a rail to eliminate horizontal restraint"
+          ],
+          "dependent_variables": [
+            "Internal shear stress distribution tau(y, s)",
+            "Internal normal stress distribution sigma(y, s)",
+            "Vertical boundary between jamming and sliding regions (ys)",
+            "Critical shear force thresholds (Qslip and Qmax) separating full-jamming, half-slipping, and full-slipping states",
+            "Cantilever deflection and load-deflection response",
+            "Internal axial forces and bending moments (N, Q, M, NJ, MJ)"
+          ],
+          "doi": "10.5194/ms-16-821-2025",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Treating a layer jamming structure as a continuum elastoplastic medium with continuous stress and strain fields across the height is valid for multi-layer beams (typically n >= 10).",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                1,
+                2
+              ]
+            },
+            {
+              "claim": "The mechanical behavior of the layer jamming structure can be categorized into loading, yielding, and unloading stages, where yielding sliding corresponds to irreversible plastic deformation governed by Coulomb friction limits.",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                3
+              ]
+            },
+            {
+              "claim": "Analytical derivations determine specific threshold shear forces (Qslip = 2/3 * mu * p * b * h and Qmax) that define the boundaries between full jamming, half slipping, and full slipping cross-sectional states.",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "FEA simulations on 10-layer and 25-layer cantilevers demonstrate that stress distributions away from beam boundaries match continuum predictions and become smoother as layer count increases.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Neglecting interlaminar normal stress along the vertical axis in the analytical model causes an overestimation of the sliding region width compared to FEA.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                8
+              ]
+            },
+            {
+              "claim": "Experimental load-deflection curves of a 20-layer PVC cantilever under 60 kPa vacuum pressure show that continuum model predictions fall entirely within the one standard deviation interval of measured data.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Straight layer jamming cantilever specimen composed of 20 PVC sheets enclosed within a flexible PVC membrane (specimen dimensions: 100 mm length, 20 mm width/thickness, 5 mm height).",
+            "Specimen fixed to a mounting frame mounted on a free-sliding rail mechanism designed to release horizontal restraint.",
+            "Tensile testing machine used to apply transversal load and measure load-deflection behavior under a regulated vacuum pressure of 60 kPa."
+          ],
+          "future_work": [
+            "Incorporation of boundary correction factors into the continuum model to better capture end effects near constraints and free ends.",
+            "Development of a more detailed analytical treatment of beam curvature in the jamming region under large-slip conditions.",
+            "Utilization of FEA for final verification of designs near free boundaries or under extreme loads causing full slipping."
+          ],
+          "independent_variables": [
+            "Number of beam layers (10 and 25 in FEA; 20 in physical experiment)",
+            "Applied transverse load / concentrated force (e.g., 3 N, 4 N, 5.5 N in FEA; continuous loading in tensile testing)",
+            "Longitudinal position along the beam axis (s)",
+            "Vertical position across the beam cross-section height (y)",
+            "Applied vacuum / confining pressure (p)"
+          ],
+          "limitations_inferred": [
+            "Experimental validation was restricted to a single material (PVC), static/quasi-static loading, and one pressure level (60 kPa), leaving performance under dynamic cyclic loading or varying pressure uncharacterized.",
+            "The continuum assumption cannot capture discrete layer phenomena such as individual sheet buckling or wrinkling when layer counts are small.",
+            "Interlayer friction is treated with an idealized constant Coulomb friction coefficient, omitting effects of surface wear, degradation, or pressure-dependent friction variation."
+          ],
+          "limitations_stated_by_authors": [
+            "The model neglects interlaminar normal stress along the y-axis, which leads to an overestimation of the sliding region extent compared to FEA.",
+            "The continuum formulation does not explicitly account for constraint boundary or end effects, leading to discrepancies in shear stress distributions near cantilever ends (e.g., at s = 1 mm).",
+            "Significant shear stress discrepancies occur in the jamming region under the full-slipping state because the beam segments behave as curved beams, whereas the model assumes straight-beam shear stress patterns.",
+            "The model is less accurate under extreme loading leading to full slipping and near free boundaries."
+          ],
+          "main_results": [
+            "The continuum-based layer jamming model (CLJM) successfully predicts internal shear stress, normal stress distributions, and deformation across full-jamming, half-slipping, and full-slipping states.",
+            "Closed-form critical shear force formulas were established: Qslip = (2/3) * mu * p * b * h for sliding initiation, and Qmax for transition to full slipping.",
+            "FEA simulations confirm that the continuum representation holds well for layer counts n >= 10, with stress distributions matching continuum predictions in central beam segments.",
+            "Experimental load-deflection measurements under 60 kPa confining pressure fall entirely within the analytical model's 1-sigma uncertainty band."
+          ],
+          "modeling_methods": [
+            "Continuum mechanics modeling treating multi-layer systems as a continuous medium under the limit of infinite thin layers (delta -> 0, n -> infinity).",
+            "Euler-Bernoulli curved beam equilibrium formulations relating internal forces (axial force N, shear force Q, moment M) to distributed loads.",
+            "Sectional elastoplastic analysis in tau-sigma stress space implementing Coulomb friction slip criteria.",
+            "Step-by-step incremental algorithm to handle large external loads under small-deformation incremental steps.",
+            "Finite element analysis (FEA) using Abaqus with 2D plane-stress quadrilateral elements (CPS4R)."
+          ],
+          "performance_metrics": [
+            "Load-deflection response and deviation relative to the experimental mean and +/- 1 standard deviation interval",
+            "Agreement of predicted normal and shear stress profiles across the cross-section with FEA benchmarks",
+            "Extent and boundary position of the interlayer sliding zone (ys)"
+          ],
+          "possible_gap_implications": [
+            "Addressing boundary effects and curved-beam shear corrections analytically could enable accurate real-time control models for variable-stiffness soft robotic limbs and grippers without requiring computationally heavy FEA.",
+            "Extending the continuum formulation from 2D bending cantilevers to 3D spatial multi-axial deformations (torsion, tension, and out-of-plane bending) represents an important open research direction for continuum robots."
+          ],
+          "research_objective": "To develop a continuum-based analytical model (CLJM) that treats layer jamming structures with a large number of thin layers as a continuous medium to evaluate internal stress distributions (shear and normal stress) and deformation across full-jamming, half-slipping, and full-slipping states.",
+          "research_problem": "Existing analytical models for layer jamming structures typically model mechanics on a discrete layer-by-layer basis, making them impractical for multi-layer beams with numerous layers and failing to capture detailed continuous stress distributions and deformations with significant interlayer slip.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "layer jamming"
+          ],
+          "title": "A continuum-based model for a layer jamming beam",
+          "year": "2025"
+        }
+      }
+    },
+    {
+      "paper_id": "1337634c62",
+      "filename": "2025-Analysis and modeling of nonlinear.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V002",
+      "screening_status": "included",
+      "screening_reason": "Direct novelty threat to P1: experimentally models a 25-layer vacuum-actuated layer-jamming soft actuator, explicitly discussing progressive interlayer slip, stiffness degradation, nonlinear hysteresis, and prediction error.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2025-Analysis and modeling of nonlinear_1337634c62.json",
+      "evidence": {
+        "source": {
+          "paper_id": "1337634c62",
+          "filename": "2025-Analysis and modeling of nonlinear.pdf",
+          "sha256": "1337634c62b96ae26ef3eb359df3952c7f08fee5a3ea63073c3fba297f59aea0",
+          "page_count": 16,
+          "char_count": 54232,
+          "source_type": "verification",
+          "verification_id": "D1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 29269,
+          "completion_tokens": 6455,
+          "total_tokens": 35724,
+          "thinking_tokens": 4240,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "pneumatic actuation",
+            "vacuum actuation"
+          ],
+          "authors": [
+            "Amirmasood Khaloujini",
+            "Pouya Firuzy Rad",
+            "Hamed Ghafarirad",
+            "Ali Azimi"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Constant curvature deformation along the actuator length in both activated and non-activated jamming states",
+            "Incompressibility of the silicone elastomer (product of principal deformation ratios equals one)",
+            "Fiber reinforcement prevents radial expansion, constraining the radial deformation ratio to one",
+            "Euler-Bernoulli beam theory applies to the layer jamming packet, acting as a single unified beam without slip under small deflections during the activated state",
+            "Strain energy contribution of the layer jamming structure is negligible in the nonactive (unpressurized) phase",
+            "Gravitational effects are negligible due to horizontal actuation supported by a low-friction surface perpendicular to gravity",
+            "Quasi-static conditions assume frequency-dependent dynamic damping effects are minimal at low actuation frequencies"
+          ],
+          "control_variables": [
+            "Actuator length (166 mm)",
+            "Inner diameter of the semicylindrical section (6.35 mm)",
+            "Wall thickness of the semicylindrical section (3 mm)",
+            "Flat base thickness of the actuator (3.4 mm)",
+            "Number of paper layers in the layer jamming packet (25 layers)",
+            "Thickness of each paper layer (0.1 mm)",
+            "Silicone elastomer material (RTV2-325 Shore A)",
+            "Helical intersecting fiber reinforcement pattern",
+            "Horizontal testing plane on a low-friction support plate perpendicular to gravity"
+          ],
+          "dependent_variables": [
+            "Bending angle (angular deflection) of the actuator",
+            "Bending stiffness (effective stiffness)",
+            "Residual bending angle after pressure depletion",
+            "Prediction error between modeled and experimental bending angles"
+          ],
+          "doi": "10.1088/1361-665X/adbf56",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Integrating a layer jamming packet into a soft bending actuator increases structural stiffness by more than nine times when vacuum is activated.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2,
+                10,
+                12,
+                13
+              ]
+            },
+            {
+              "claim": "The activated actuator exhibits linear bending behavior up to approximately 0.8 bar, beyond which interlayer shear overcomes static friction and initiates layer slip and nonlinear behavior.",
+              "evidence_type": "experimental and analytical",
+              "page_numbers": [
+                4,
+                5,
+                10,
+                11
+              ]
+            },
+            {
+              "claim": "An analytical strain energy model based on Neo-Hookean hyperelasticity and Euler-Bernoulli beam theory predicts linear bending behavior with a 6.3% average error but fails to capture post-slip nonlinear response.",
+              "evidence_type": "analytical and experimental",
+              "page_numbers": [
+                2,
+                6,
+                7,
+                8,
+                10,
+                11,
+                14
+              ]
+            },
+            {
+              "claim": "A modified Prandtl-Ishlinskii hysteresis model incorporating an exponential growth term captures asymmetric multi-loop saturated hysteresis across both linear and nonlinear regimes with approximately 8.5% error.",
+              "evidence_type": "analytical and experimental",
+              "page_numbers": [
+                2,
+                8,
+                9,
+                10,
+                11,
+                12,
+                14
+              ]
+            },
+            {
+              "claim": "Pressure depletion following actuation beyond the linear threshold results in an unrecovered residual bending angle that can be quantitatively predicted from layer slip mechanics.",
+              "evidence_type": "experimental and analytical",
+              "page_numbers": [
+                10,
+                12,
+                13
+              ]
+            },
+            {
+              "claim": "The modified Prandtl-Ishlinskii model maintains accuracy (approximately 8% error) when tested at twice the identification frequency within the quasi-static regime.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Molded RTV2-325 (Shore A) liquid silicone soft bending actuator with intersecting helical reinforcement fibers and an inextensible bottom strap",
+            "Layer jamming packet containing 25 sheets of 100-micrometer-thick paper enclosed in a heat-sealed polyethylene sleeve and encased with the soft bending actuator in elastic fabric",
+            "Air compressor providing positive inflation pressure to the soft bending actuator",
+            "Festo MPYE-5-1/8-HF-010B proportional solenoid valve regulating positive input pressure",
+            "Value VE280N vacuum pump providing negative pressure to activate the layer jamming mechanism",
+            "National Instruments PCI-6052E 16-bit DAQ card controlling the valve and logging voltage from the sensor circuit",
+            "Flex Sensor 4.5 variable-resistance bending sensor in a voltage divider circuit calibrated via image processing and polynomial fitting",
+            "Low-friction horizontal support plate orienting actuator bending perpendicular to gravity"
+          ],
+          "future_work": [
+            "Extending the modeling framework to dynamic operating conditions",
+            "Determining the upper frequency limits of the proposed quasi-static hysteresis model",
+            "Comparing accuracy between the proposed model and dynamic models across varying actuation frequencies"
+          ],
+          "independent_variables": [
+            "Positive pneumatic actuation pressure applied to the soft bending actuator",
+            "Layer jamming state (active vacuum vs. inactive atmospheric pressure)",
+            "Number of repeated inflation-deflation actuation cycles",
+            "Input signal frequency (quasi-static ramp, low-frequency cyclic, doubled frequency)"
+          ],
+          "limitations_inferred": [
+            "The constant curvature assumption may break down under point contact loads, external grasping disturbances, or non-uniform localized layer slipping",
+            "The paper does not quantify grasping force generation or payload capacity against external objects",
+            "The nonlinear hysteresis model relies on empirical least-squares parameter optimization rather than a purely predictive first-principles tribological model",
+            "Long-term cyclic endurance, wear of the paper layers, and fatigue of the polyethylene vacuum packaging were not evaluated",
+            "Experimental evaluation was restricted to planar horizontal bending, leaving multi-axis deflection, twisting, and 3D gravitational loading unaddressed"
+          ],
+          "limitations_stated_by_authors": [
+            "The strain energy-based analytical method cannot accurately characterize the actuator's behavior in the nonlinear region or at high input pressures",
+            "Standard Prandtl-Ishlinskii models fail to capture the upward-shifting drift of consecutive hysteresis loops without adding a specialized growth compensation term",
+            "Operating frequencies exceeding the quasi-static range introduce frequency-dependent damping hysteresis that leads to a noticeable decline in model accuracy",
+            "Deflation leaves a permanent residual bending angle because the actuator's elastic recovery force is insufficient to overcome inter-layer friction after slipping",
+            "Exceeding a specific vacuum degassing duration during silicone casting makes the material excessively stiff"
+          ],
+          "main_results": [
+            "Activating the 25-sheet layer jamming mechanism increased the actuator stiffness by more than 9 times compared to the nonactive state",
+            "The system exhibits a linear response threshold up to roughly 0.8 bar, after which shear-induced inter-layer slippage causes a significant reduction in stiffness and produces nonlinear hysteresis",
+            "The linear strain energy model (Neo-Hookean + Euler-Bernoulli) achieved a 6.3% average prediction error in the linear regime but was unable to predict large-deformation nonlinear behavior",
+            "The modified Prandtl-Ishlinskii model with an exponential saturation term captured asymmetric, multi-cycle saturated hysteresis with an average error of approximately 8.5% across both linear and nonlinear regimes",
+            "Model validation at twice the identification frequency confirmed consistency within the quasi-static envelope with approximately 8% error",
+            "A predictable residual bending angle occurs upon deflation from pressures exceeding 0.8 bar due to friction between slipped layers, with theoretical predictions agreeing with experimental measurements within 3.1% to 9% error"
+          ],
+          "modeling_methods": [
+            "Strain energy method combining Neo-Hookean hyperelastic strain energy for the silicone actuator and Euler-Bernoulli beam strain energy for the layer jamming packet",
+            "Taylor series expansion to approximate deformation invariant terms",
+            "Castigliano's first theorem to derive the pressure-bending angle governing equilibrium equation",
+            "Modified Prandtl-Ishlinskii (PI) model combining rate-independent backlash operators, multi-condition saturation functions, and an exponential cycle-dependent growth term for saturated hysteresis",
+            "Least-squares optimization for identifying hysteresis model parameters"
+          ],
+          "performance_metrics": [
+            "Stiffness enhancement ratio (greater than 9-fold increase upon activation)",
+            "Strain energy model prediction error in the linear range (6.3% average error)",
+            "Modified Prandtl-Ishlinskii model prediction error (8.5% average error during identification; approximately 8% at doubled frequency)",
+            "Maximum input pressure tested (up to 1.57 bar) and corresponding bending angles",
+            "Residual deformation angle (ranging from 3.6 degrees at 1.0 bar to 14 degrees at 1.57 bar)",
+            "Sensor measurement accuracy (within 0.1 degrees) and DAQ nominal angular resolution (approximately 0.005 degrees)"
+          ],
+          "possible_gap_implications": [
+            "Developing combined analytical and modified hysteresis models provides a basis for more accurate open-loop and closed-loop position control of variable-stiffness soft actuators in the presence of layer slip",
+            "Predicting residual angle accumulation addresses a key challenge in cyclic path planning, though mechanical or control reset methods may be needed to overcome permanent deformation in practical grasping tasks",
+            "The inability of the model to handle dynamic damping at higher frequencies highlights an unresolved need for comprehensive dynamic modeling frameworks for layer-jammed soft robots"
+          ],
+          "research_objective": "To design, fabricate, and model a variable-stiffness soft pneumatic bending actuator integrated with a layer jamming mechanism, capturing both its linear response via hyperelastic strain energy theory and its nonlinear saturated hysteresis behavior via an extended Prandtl-Ishlinskii model, and validating the models experimentally.",
+          "research_problem": "Soft bending actuators suffer from inherently low stiffness and excessive deformation when subjected to opposing external forces, limiting their utility in grasping tasks; furthermore, existing literature lacks comprehensive motion and nonlinear saturated hysteresis modeling for soft actuators coupled with layer jamming mechanisms.",
+          "robot_type": "layer jamming soft pneumatic bending actuator",
+          "stiffness_mechanism": [
+            "layer jamming"
+          ],
+          "title": "Analysis and modeling of nonlinear saturated behavior of layer jamming soft pneumatic bending actuator",
+          "year": "2025"
+        }
+      }
+    },
+    {
+      "paper_id": "a792efc445",
+      "filename": "2025-Continuum modeling for layer jamming structures.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V002",
+      "screening_status": "included",
+      "screening_reason": "Direct full-text prior work on continuum constitutive modeling of layer-jamming structures; critical for evaluating whether P1's proposed continuum-model validity/breakdown gap remains unresolved.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2025-Continuum modeling for layer jamming structures_a792efc445.json",
+      "evidence": {
+        "source": {
+          "paper_id": "a792efc445",
+          "filename": "2025-Continuum modeling for layer jamming structures.pdf",
+          "sha256": "a792efc4453c0565fb59af285a2c564793728ac68a259dcb0bdb2710a53cb59a",
+          "page_count": 9,
+          "char_count": 45668,
+          "source_type": "verification",
+          "verification_id": "D1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 31735,
+          "completion_tokens": 6962,
+          "total_tokens": 38697,
+          "thinking_tokens": 4866,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum",
+            "hydrostatic pressure"
+          ],
+          "authors": [
+            "Shuai Zhang",
+            "Jiantao Yao",
+            "Shizeng Li",
+            "Xinbo Chen"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Layer material is isotropic and linearly elastic",
+            "Nearly incompressible behavior of the elastomeric material during deformation",
+            "Small displacement field on the contact surface with first-order displacement approximation across layer thickness",
+            "Constant stress and strain state throughout the discrete representative volume element (RVE) due to the first-order approximation",
+            "Hydrostatic pressure (vacuum-induced) acts as a constant initial stress state onto which external loading increments are superimposed",
+            "Interlayer slip initiation is governed by Coulomb friction when shear stress exceeds maximum static friction determined by the friction coefficient and squeezing force",
+            "Interlayer sliding does not alter the internal stress or strain state within individual layers",
+            "During plastic slipping, the direction of macroscopic shear stress increments aligns with the elastic trial shear stress increments",
+            "Macroscopic stress and displacement gradients are defined by volume and boundary surface averaging of microscopic fields (average-field theory)"
+          ],
+          "control_variables": [
+            "Hydrostatic confining pressure held at 0.1 MPa (atmospheric pressure)",
+            "Layer material Young's modulus (3 GPa) and Poisson's ratio (0.4) based on polypropylene literature parameters",
+            "Interlayer friction coefficient (0.6)",
+            "RVE geometry (height spanning two layer thicknesses h, square cross-section of edge length a)",
+            "Finite element formulation (Abaqus C3D8H hybrid linear hexahedral elements to prevent volumetric locking)",
+            "Boundary constraints (periodic boundary conditions on a 3x3x3 master-slave RVE array with virtual point kinematic coupling)"
+          ],
+          "dependent_variables": [
+            "Macroscopic stress tensor components and increments (including shear stresses sigma_13 and sigma_23, normal stress sigma_33)",
+            "Interlayer sliding displacement components (w1, w2)",
+            "Frictional dissipation energy density",
+            "Elastic strain energy density",
+            "Yield/slip surface evolution and stress trajectories in stress space",
+            "Microscopic displacement and shear stress distributions within the RVE"
+          ],
+          "doi": "10.1016/j.taml.2025.100633",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Jamming mechanisms (granular, fiber, and layer jamming) activated by vacuum provide fast, reversible transitions between liquid-like and solid-like states for variable-stiffness robotic applications.",
+              "evidence_type": "literature review",
+              "page_numbers": [
+                1
+              ]
+            },
+            {
+              "claim": "Layer jamming structures exhibit an elastic solid-like jamming state when shear loads remain below friction limits and a liquid-like slipping state characterized by low shear stiffness and permanent interlayer displacement once friction is overcome.",
+              "evidence_type": "theoretical modeling",
+              "page_numbers": [
+                1,
+                2
+              ]
+            },
+            {
+              "claim": "The yield/slip criterion of layer jamming structures defines a conical boundary in macroscopic stress space governed by interlayer friction and net normal squeezing force.",
+              "evidence_type": "theoretical modeling",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "An elastoplastic continuum constitutive formulation derived via the average-field technique provides closed-form equations for macroscopic stress increments, sliding displacements, and frictional dissipation energy density.",
+              "evidence_type": "theoretical modeling",
+              "page_numbers": [
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Under uniaxial shear loading, finite element simulation and continuum theory both show a transition at a critical shear stress of 0.06 MPa from linear elasticity to a low-stiffness slipping regime, recovering with residual strain after unloading.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Under multi-directional shear loading, the stress trajectory follows the circular yield boundary tangentially at constant stress magnitude during orthogonal shear loading.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                7
+              ]
+            },
+            {
+              "claim": "In coupled shear-normal loading, reducing normal compressive stress while holding shear strain fixed induces additional plastic slip due to shrinkage of the yield surface.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Direct experimental probing of constitutive behavior at the material level for layer jamming structures is currently lacking, necessitating future structural-level physical prototype validation.",
+              "evidence_type": "author analysis",
+              "page_numbers": [
+                8
+              ]
+            }
+          ],
+          "experimental_setup": [],
+          "future_work": [
+            "Validate the proposed continuum model at the structural level by measuring macroscopic responses (such as bending stiffness, shear compliance, and energy dissipation) on physical layer jamming prototypes",
+            "Integrate the continuum modeling framework into the design, optimization, and control of soft robotic systems and other jamming-based stiffness-tunable adaptive structures"
+          ],
+          "independent_variables": [
+            "Applied macroscopic deformation modes and loading paths (uniaxial shear loading/unloading, multi-directional shear loading/unloading, and coupled normal-shear loading/unloading)",
+            "Prescribed macroscopic strain components (shear strains epsilon_13 and epsilon_23, normal strain epsilon_33)"
+          ],
+          "limitations_inferred": [
+            "The continuum formulation relies on small-strain assumptions and first-order linear displacement distributions across layer thickness, which may lose accuracy under large deformations or severe bending curvatures.",
+            "The model assumes ideal Coulomb friction with a constant friction coefficient, neglecting surface roughness evolution, rate-dependent friction, and wear.",
+            "The analysis assumes identical, isotropic linear elastic layers, without accounting for viscoelastic behavior or heterogeneous multilayer material stacks.",
+            "The periodic boundary RVE representation omits edge/boundary boundary effects, sheath/membrane encapsulation stiffness, and vacuum sealing mechanics present in physical devices."
+          ],
+          "limitations_stated_by_authors": [
+            "No experimental validation was included in the study due to the lack of effective direct experimental methods for probing the constitutive behavior of layer jamming structures at the material level.",
+            "The theoretical model slightly overestimates the proportion of frictional dissipation energy compared to numerical finite element results.",
+            "Minor discrepancies exist between theoretical predictions and numerical simulations in elastic shear stiffness (1.0714 GPa theoretical vs. 0.888 GPa numerical) and yield boundary radius (0.06 MPa theoretical vs. 0.0612 MPa numerical)."
+          ],
+          "main_results": [
+            "A continuum elastoplastic constitutive model for layer jamming structures was developed using the average-field technique, capturing both jamming and slipping states in analytical form.",
+            "Finite element simulations in Abaqus using a 3x3x3 RVE array with periodic boundary conditions validated the theoretical model under uniaxial shear, multi-directional shear, and coupled normal-shear loading.",
+            "In uniaxial shear, the model accurately captured the transition at 0.06 MPa shear stress from high elastic stiffness (1.0714 GPa theoretical, 0.888 GPa numerical) to low slipping stiffness, with residual strain upon unloading (0.144 per mille theoretical vs. 0.132 per mille numerical).",
+            "In multi-directional shear, the stress trajectory tracked the theoretical circular yield boundary of radius 0.06 MPa (0.0612 MPa numerical) tangentially during orthogonal loading.",
+            "In coupled shear-normal loading, unloading the compressive normal strain while maintaining constant shear strain caused additional interlayer slip as the yield surface contracted.",
+            "The model captured trends in frictional dissipation energy density and elastic strain energy density throughout the deformation process."
+          ],
+          "modeling_methods": [
+            "Representative Volume Element (RVE) formulation spanning two layers",
+            "First-order displacement field approximation through layer thickness",
+            "Average-field theory (volume averaging for macroscopic stress and Bagi's boundary surface integral method for macroscopic displacement gradient)",
+            "Elastoplastic continuum constitutive modeling (Coulomb-based slip condition function, yield surface tracking, and trial elastic stress increment decomposition)",
+            "Finite element analysis (FEA) in Abaqus 6.14 with master-slave periodic boundary conditions, C3D8H hybrid linear hexahedral elements, virtual reference points, and finite sliding surface-to-surface contact"
+          ],
+          "performance_metrics": [
+            "Elastic shear stiffness in the jamming state (GPa)",
+            "Critical shear stress / yield boundary threshold for slip initiation (MPa)",
+            "Residual shear strain upon unloading (per mille)",
+            "Evolution of frictional dissipation energy density (mJ/mm^3 or equivalent energy per unit volume)",
+            "Evolution of elastic strain energy density",
+            "Relative deviation between theoretical continuum predictions and numerical FEA results"
+          ],
+          "possible_gap_implications": [
+            "A continuum formulation offers substantial computational efficiency improvements over discrete multi-layer FEA models, but its practical implementation in soft robotics requires implementation as a user material subroutine (UMAT) or structural shell/beam model.",
+            "Because validation was purely computational on an idealized RVE, the influence of physical manufacturing artifacts (e.g., vacuum bagging compliance, non-uniform pressure distribution, and layer misalignment) on model accuracy remains an open research gap."
+          ],
+          "research_objective": "To establish a continuum elastoplastic constitutive model for layer jamming structures using the average-field technique, providing a unified and computationally efficient framework to capture both jamming and slipping states under multi-axial loading.",
+          "research_problem": "Existing mechanical models for layer jamming structures rely on discrete layer-by-layer formulations or are restricted to specific configurations (e.g., standard beam geometries), resulting in high computational costs and limited applicability to diverse non-standard designs.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "interlayer friction"
+          ],
+          "title": "Continuum modeling for layer jamming structures",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "7cb387b88d",
+      "filename": "2025-Toward a deeper understanding of layer jamming structures.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V002",
+      "screening_status": "included",
+      "screening_reason": "Direct 2025 full-text prior work relevant to large-deformation mechanics, pressure, layer-thickness effects, cyclic loading, and validity limits of layer-jamming models.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2025-Toward a deeper understanding of layer jamming structures_7cb387b88d.json",
+      "evidence": {
+        "source": {
+          "paper_id": "7cb387b88d",
+          "filename": "2025-Toward a deeper understanding of layer jamming structures.pdf",
+          "sha256": "7cb387b88dc14f9c30f98b778259133caf83aaa41346ae1ab674cd695405b59a",
+          "page_count": 16,
+          "char_count": 59041,
+          "source_type": "verification",
+          "verification_id": "D1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 31632,
+          "completion_tokens": 7147,
+          "total_tokens": 38779,
+          "thinking_tokens": 4580,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "vacuum",
+            "hydrostatic pressure",
+            "vacuum pressure"
+          ],
+          "authors": [
+            "Shuai ZHANG",
+            "Jiantao YAO",
+            "Wumian ZHAO",
+            "Kunming ZHU"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Planar stress state assumed for all material points within the LJS beam",
+            "Interlayer normal strain is disregarded",
+            "Layers are assumed to be composed of linear elastic material",
+            "Axial force (N) influence on extensional stress distribution and bending deformation is omitted",
+            "Interlayer sliding surfaces obey Coulomb friction where shear stress equals sign(Q)*μ*p",
+            "Friction coefficient (μ) is treated as constant",
+            "Sliding region boundary ys is treated as a continuous variable rather than discrete steps to ensure smooth expansion and continuous stress changes",
+            "Radius of curvature is assumed sufficiently large and distributed axial load qs is non-zero only at discrete points, making (1/(b*h))*dN/ds negligible in layer stress equilibrium",
+            "Second-order small quantities are neglected and small angle approximations cos(dθ) ≈ 1 and sin(dθ) ≈ dθ are applied for differential beam segment equilibrium"
+          ],
+          "control_variables": [
+            "Beam width (20 mm)",
+            "Beam total height (5 mm for FEA / 5.1 mm for experimental beams)",
+            "Beam length / arc length (100 mm for straight beams, 150 mm arc length for curved beams)",
+            "Layer material (polyvinyl chloride / PVC sheets)",
+            "Sealing bag material (polyethylene bag)",
+            "Thermoplastic forming conditions for curved specimens (heated at 70 °C for 1 h)",
+            "Deflection limit during monotonic cantilever testing (5 mm)",
+            "Number of repetitions per monotonic test condition (5 repetitions to compute mean and standard deviation)",
+            "Deflection range for cyclic loading tests (alternating between 3 mm and -3 mm over 5 cycles)"
+          ],
+          "dependent_variables": [
+            "Extensional stress distribution (σ) and shear stress distribution (τ)",
+            "Stress increment distributions (Δσ, Δτ)",
+            "Sliding boundary position (ys) across the beam cross section",
+            "Critical shear force / critical load for sliding onset (Qcr)",
+            "Beam deflection and angular deformation (w, Δθ)",
+            "Bending stiffness / differential quotient (ΔF/Δw)",
+            "Equivalent moment of inertia (Ieq)",
+            "Frictional energy dissipation / load-deflection hysteresis loop area"
+          ],
+          "doi": "10.1007/s11465-025-0843-5",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "In layer jamming beams under bending, interlayer sliding initiates at the central layers when shear stress reaches the frictional limit, producing three distinct cross-sectional regimes: full jamming, half jamming, and full sliding.",
+              "evidence_type": "Numerical finite element analysis and analytical derivation",
+              "page_numbers": [
+                4,
+                6
+              ]
+            },
+            {
+              "claim": "The critical load and critical shear force required to initiate layer sliding scale proportionally with the applied hydrostatic vacuum pressure.",
+              "evidence_type": "Analytical derivation and experimental testing",
+              "page_numbers": [
+                9,
+                11,
+                12
+              ]
+            },
+            {
+              "claim": "Varying layer thickness does not substantially affect initial pre-sliding bending stiffness, but post-sliding bending stiffness is significantly higher in beams constructed with thicker layers.",
+              "evidence_type": "Experimental cantilever testing and theoretical modeling",
+              "page_numbers": [
+                12,
+                13
+              ]
+            },
+            {
+              "claim": "Curved layer jamming beams display a progressive, smooth decrease in bending stiffness during deformation without the sharp stiffness transitions typical of straight beams, because initial curvature alters the equivalent moment of inertia.",
+              "evidence_type": "Analytical model formulation and experimental validation",
+              "page_numbers": [
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "claim": "Cyclic loading of layer jamming beams creates closed load-deflection hysteresis loops representing energy dissipation through interlayer friction, which can be captured by tracking stress increments in an iterative algorithm.",
+              "evidence_type": "Iterative algorithm simulation and experimental cyclic testing",
+              "page_numbers": [
+                10,
+                14
+              ]
+            },
+            {
+              "claim": "The equivalent moment of inertia of a straight layer jamming beam bounds between a solid-like upper limit (b*h^3/12) in the full-jamming state and a liquid-like lower limit (b*delta^2*h/12) in the full-sliding state.",
+              "evidence_type": "Theoretical derivation",
+              "page_numbers": [
+                2,
+                12
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Freely sliding holding frame on a rail to eliminate horizontal constraints during bending",
+            "Tensile testing machine fitted with a force sensor to record load and deflection",
+            "Vacuum regulation system comprising a vacuum pump and a vacuum proportional valve",
+            "Straight LJS cantilevers and simply supported beams made of stacked PVC sheets inside a polyethylene vacuum bag (lengths: 100 mm; width: 20 mm; height: 5 mm/5.1 mm; layer thicknesses: 0.3 mm, 0.5 mm, 1.0 mm)",
+            "Curved LJS specimens formed by thermoplastic forming of PVC sheets at 70 °C for 1 h (semicircular arc with 47.75 mm radius, quarter-circular arc with 95.50 mm radius, arc length: 150 mm, width: 20 mm, height: 5.1 mm, layer thickness: 0.3 mm)",
+            "Cantilever fixture testing at 40, 70, and 100 kPa hydrostatic pressures",
+            "Simply supported cyclic loading fixture alternating deflections between 3 mm and -3 mm at 100 kPa hydrostatic pressure"
+          ],
+          "future_work": [
+            "Extending the analytical modeling methodology from beam-stack LJS to shell-stack LJS and other jamming configurations involving bending deformations",
+            "Applying the model to structural design and optimization of soft robotic systems, prosthetics, and controllable-stiffness mechanisms"
+          ],
+          "independent_variables": [
+            "Hydrostatic vacuum pressure (40 kPa, 70 kPa, 100 kPa)",
+            "Layer thickness (0.3 mm, 0.5 mm, 1.0 mm)",
+            "Beam geometry / initial curvature (straight beam, semicircular curved beam, quarter-circular curved beam)",
+            "Support and boundary conditions (cantilever, simply supported)",
+            "Loading mode (monotonic deflection to 5 mm, cyclic loading between 3 mm and -3 mm)"
+          ],
+          "limitations_inferred": [
+            "Quasi-static testing does not account for dynamic loading rates, rate-dependent friction, or viscoelastic relaxation of the PVC sheets and polyethylene envelope.",
+            "Constitutive parameters (friction coefficient μ and Young's modulus E) were fitted from a single specimen response rather than measured independently via standard tribological and tensile tests.",
+            "The modeling framework is restricted to planar 2D bending and does not consider out-of-plane, torsional, or coupled multi-axial deformations.",
+            "Durability was only evaluated over 5 cycles, leaving long-term wear of layer interfaces and vacuum envelope integrity unaddressed."
+          ],
+          "limitations_stated_by_authors": [
+            "The theoretical model tends to overestimate critical load values, particularly at low hydrostatic pressures and when layers are thin.",
+            "Imperfections during specimen fabrication prevent vacuum pressure from distributing completely uniformly across layer contact surfaces.",
+            "Theoretical frictional energy dissipation during cyclic loading is smaller than experimental measurements.",
+            "Discrepancies and distortions occur near zero load during cyclic loading due to low support stiffness of the simply supported ends in the experimental setup.",
+            "The mathematical derivation is specifically developed for beam-stack LJS under planar bending.",
+            "Treating the sliding layer boundary (ys) as a continuous variable rather than discrete layer interfaces is an approximation that averages internal force changes across sliding layers.",
+            "Axial force and interlayer normal strain are neglected in the deformation equations."
+          ],
+          "main_results": [
+            "Identified three distinct mechanical states in layer jamming beams (full jamming, half jamming, and full sliding) and established closed-form stress and stress increment distributions.",
+            "Derived a closed-form quadratic approximation connecting the interlayer sliding boundary (ys) to shear force (Q), resolving the implicit transcendental relationship.",
+            "Formulated a governing differential equation for angular deformation and an iterative algorithm based on stress increments that solves large deformations and cyclic loading.",
+            "Demonstrated that critical sliding loads are directly proportional to applied hydrostatic pressure in both model predictions and experimental measurements.",
+            "Showed that layer thickness has negligible influence on initial elastic stiffness but significantly enhances post-sliding bending stiffness.",
+            "Demonstrated that curved LJS beams experience smooth, continuous stiffness reductions rather than sharp transitions upon layer sliding due to the influence of curvature on equivalent moment of inertia.",
+            "Confirmed energy dissipation through interlayer friction during cyclic loading via experimental hysteresis loops, which were qualitatively reproduced by the iterative algorithm."
+          ],
+          "modeling_methods": [
+            "Finite element analysis (FEA) in Abaqus using 2D CPS4R elements under plane stress conditions",
+            "Euler-Bernoulli beam theory extended to multi-layer composite beams with interlayer friction and sliding",
+            "Cross-sectional stress distribution formulation for full-jamming, half-jamming, and full-sliding regimes",
+            "Internal force equilibrium differential equations for curved continuous medium beams",
+            "Quadratic closed-form approximation for the sliding boundary ys as a function of shear force Q",
+            "Governing differential equation for angular deformation increment (Δθ') derived from strain compatibility and constitutive relations",
+            "Iterative multi-step algorithm based on stress increments for large deformations and non-monotonic loading",
+            "Equivalent moment of inertia (Ieq) formulation across sliding states"
+          ],
+          "performance_metrics": [
+            "Bending stiffness (differential quotient ΔF/Δw)",
+            "Critical load and critical shear force (Qcr) for sliding initiation",
+            "Deflection under concentrated bending load",
+            "Equivalent moment of inertia (Ieq, Ieq_max, Ieq_min)",
+            "Load-deflection hysteresis loop area (frictional energy dissipation)",
+            "Theoretical-to-experimental correlation across varying pressures and layer thicknesses"
+          ],
+          "possible_gap_implications": [
+            "The closed-form governing equation and iterative algorithm provide an analytical tool that could replace empirical tuning in the design and shape control of variable-stiffness soft robotic limbs, grippers, and continuum manipulators.",
+            "The validated frictional hysteresis model could guide the development of tunable dampers, vibration isolators, and energy-absorbing wearable robotics/prosthetics.",
+            "The observed discrepancies resulting from contact pressure non-uniformity and fixture compliance highlight a research gap in soft-interface packaging, uniform vacuum distribution, and compliant boundary condition modeling."
+          ],
+          "research_objective": "To develop a closed-form deformation model and governing equation for beam-stack layer jamming structures (LJS) applicable to both straight and curved beams under complex loading, analyze internal stress distributions and increments via finite element analysis, and experimentally validate the model's accuracy under varying layer thicknesses, hydrostatic pressures, and cyclic loading.",
+          "research_problem": "Complex interlayer friction and sliding interactions in layer jamming structures (LJS) make their mechanical behavior highly nonlinear, impeding the development of comprehensive closed-form models and leaving LJS design largely dependent on empirical experience, while existing models are mostly restricted to straight beams under specific conditions and suffer from heavy computational demands.",
+          "robot_type": "Layer jamming structure (LJS) beam (the paper investigates variable-stiffness layer jamming structure beam elements for soft robotics rather than a complete robotic device)",
+          "stiffness_mechanism": [
+            "layer jamming",
+            "beam-stack layer jamming",
+            "vacuum-induced interlayer friction"
+          ],
+          "title": "Toward a deeper understanding of layer jamming structures",
+          "year": "2025"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "260fb0915d65ae273b8a8d471835a336e059a78fc49798b606b90942c7b6e25b"
+}

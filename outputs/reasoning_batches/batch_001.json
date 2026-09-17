@@ -1,0 +1,1255 @@
+{
+  "schema_version": 1,
+  "batch_id": "B001",
+  "source_matrix": "outputs/literature_matrix.json",
+  "matrix_sha256": "869346a03b1d8a294c7519e667ea51ff3434ff5bae529120e994d5c8e54c31c3",
+  "paper_count": 6,
+  "paper_ids": [
+    "ece56d39a8",
+    "de5329b2fb",
+    "877d9ba31a",
+    "96aec3bae3",
+    "4bf6ae90e0",
+    "dfe07593dc"
+  ],
+  "papers": [
+    {
+      "paper_id": "ece56d39a8",
+      "title": "Design of a Granular Jamming Universal Gripper",
+      "authors": [
+        "Anglet Chiramal Jacob",
+        "Emanuele Lindo Secco"
+      ],
+      "year": "",
+      "doi": "",
+      "robot_type": "universal gripper",
+      "stiffness_mechanism": [
+        "granular jamming"
+      ],
+      "actuation": [
+        "electric vacuum pump",
+        "medical syringe",
+        "manual actuation (lung deflation via straw)"
+      ],
+      "modeling_methods": [
+        "Coordinate relationship model between the end-effector and joint coordinates (stated conceptually in text, though mathematical formulations are not presented)",
+        "Kinematic trajectory and 3-D environment simulation using CPRog software for the Mover 6 robotic arm"
+      ],
+      "performance_metrics": [
+        "Grasping success rate (% of trials where an object remains attached for 5 seconds out of 5 trials)",
+        "Membrane conformation time (seconds)",
+        "End-effector fabrication cost (USD / GBP)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "A universal gripper can be fabricated at low cost (less than $20) using a latex balloon filled with granular material attached to a 4 cm radius funnel with a cloth filter.",
+          "evidence_type": "design",
+          "page_numbers": [
+            1,
+            6,
+            7,
+            9,
+            16
+          ]
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "Optimization of filling volume to 50% and funnel radius to 4 cm enables complete membrane deflation and firm granular interlocking around objects, whereas over-filling (75%) or smaller funnels (3.5 cm) constrain granule mobility.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "Actuation via a 220 V electric vacuum pump achieved a 100% grasping success rate (5/5 trials) across 8 daily-life objects of varying shapes, sizes, and stiffness.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "A 60 ml medical syringe can act as a manual vacuum actuator, achieving membrane conformation in under 2 seconds with grasping success rates between 60% and 100% across tested objects.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            10,
+            11,
+            13,
+            15
+          ]
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "Fine gram flour powder provides superior interlocking capability and grasping performance compared to coarse ground coffee powder due to finer particle geometry.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            10,
+            11
+          ]
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "title": "Design of a Granular Jamming Universal Gripper",
+          "doi": "",
+          "claim": "Grasping force fluctuates with the volume of granular filling and the volume of evacuated air inside the flexible membrane.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            11,
+            16
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Testing is preliminary and limited to a controlled laboratory environment rather than industrial pick-and-place scenarios."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Initial vacuum pump tests failed to jam granules until fabric porosity and filling volume constraints were adjusted."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Current system connects directly to the vacuum source without pressure regulation to modulate negative pressure against grasping performance."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Grasping performance drops significantly (down to 40%) for small objects (e.g., bottle cap, glue stick) when using weaker actuation methods."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "The prototype lacks sensory feedback (e.g., internal pressure or tactile sensing)."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Detailed stiffness analysis, force characterization, and finite element modeling (FEM) were not performed in this study."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "author_stated",
+          "text": "Testing was conducted using manual handling rather than full autonomous robotic arm deployment."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "model_inferred",
+          "text": "Grasping evaluation relied on a small sample size (5 trials per condition) with binary pass/fail criteria (held for 5 s) rather than continuous force, payload, or slip measurements."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "model_inferred",
+          "text": "All 120 grasping trials were executed via manual operator handling and positioning of the gripper, meaning automated robotic positioning errors and dynamic arm accelerations were not evaluated."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "model_inferred",
+          "text": "Membrane wear, puncture susceptibility against sharp objects, and fatigue life under cyclic jamming were not investigated."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "model_inferred",
+          "text": "Manual lung deflation via a straw is impractical and unhygienic for real-world assistive applications, and data for it was only reported for 2 of the 8 objects."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "source_type": "model_inferred",
+          "text": "No mathematical or numerical constitutive continuum/discrete models were developed to describe the mechanics of jamming and contact."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Integrating pressure sensors or strain gauges into the flexible container to measure internal pressure during actuation."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Integrating pressure regulators to modulate vacuum pressure relative to grasping performance."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Characterizing gripper performance across additional granule types, shapes, and sizes (such as rice or other fine powders)."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Performing finite element method (FEM) analysis and experimental setups for stiffness analysis and granular/object contact force characterization."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Validating the universal gripper system in real industrial pick-and-place tasks beyond preliminary laboratory settings."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "text": "Executing full automated integration and grasping trials on the Mover 6 6-DoF robotic arm."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "ece56d39a8",
+          "status": "unverified_implication",
+          "text": "Demonstrating successful grasping using a low-cost medical syringe suggests the viability of lightweight, portable jamming grippers without heavy vacuum pumps, although lack of automated pressure regulation presents a key translational gap."
+        },
+        {
+          "paper_id": "ece56d39a8",
+          "status": "unverified_implication",
+          "text": "The observed performance disparity between gram flour and coffee powder highlights the need for systematic constitutive and discrete-element modeling of granule morphology and friction in soft jamming end-effectors."
+        }
+      ]
+    },
+    {
+      "paper_id": "de5329b2fb",
+      "title": "Soft Robotics for Chemists",
+      "authors": [
+        "Filip Ilievski",
+        "Aaron D. Mazzeo",
+        "Robert F. Shepherd",
+        "Xin Chen",
+        "George M. Whitesides"
+      ],
+      "year": "2011",
+      "doi": "10.1002/anie.201006464",
+      "robot_type": "soft robotic gripper",
+      "stiffness_mechanism": [
+        "Elastomeric composite pairing of materials with differing stiffness/Young's moduli (PDMS and Ecoflex)",
+        "Strain-limiting layer integration (PDMS membrane, thick Ecoflex layer, or polyester fabric)",
+        "Geometric compliance modulation via asymmetric wall thickness",
+        "Surface compliance enhancement via textured ridged topography with alternating air gaps"
+      ],
+      "actuation": [
+        "Pneumatic actuation (embedded pneumatic networks / PneuNets powered by compressed air at 7 to 28 kPa [1 to 4 psig])"
+      ],
+      "modeling_methods": [
+        "Finite element analysis (FEA) of elastomeric channel expansion and structural bending under internal pressure",
+        "Qualitative thin-walled balloon expansion analogy (analytical closed-form models noted as inadequate for complex constrained multi-thickness structures)"
+      ],
+      "performance_metrics": [
+        "Radius of curvature (e.g., ~1.5 cm for Ecoflex vs. ~15 cm for PDMS at 14 kPa; minimum radius < 5 mm on gripper leg)",
+        "Maximum payload mass held (up to 300 g)",
+        "Maximum target object diameter successfully grasped (up to 10 cm)",
+        "Operating pressure range (7 to 28 kPa / 1 to 4 psig)",
+        "Estimated energy/power consumption (~4 W per stroke)",
+        "Holding duration without continuous power (10 min shape maintenance; 60 min to full deflation)",
+        "Material ultimate strain limits (~150% for PDMS, >900% for Ecoflex)",
+        "Damage avoidance during manipulation of fragile biological objects"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "de5329b2fb",
+          "title": "Soft Robotics for Chemists",
+          "doi": "10.1002/anie.201006464",
+          "claim": "Elastomeric pneumatic networks (PneuNets) with asymmetric wall compliance or composite layering produce continuous bending upon pressurization, where curvature scales inversely with material stiffness (e.g., Ecoflex achieves a radius of curvature of approximately 1.5 cm at 14 kPa compared to approximately 15 cm for PDMS).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2
+          ]
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "title": "Soft Robotics for Chemists",
+          "doi": "10.1002/anie.201006464",
+          "claim": "Multilayer elastomeric actuators composed of two active Ecoflex PneuNet layers separated by a flat PDMS membrane can continuously alter their overall curvature from convex to concave depending on which network is pressurized.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "title": "Soft Robotics for Chemists",
+          "doi": "10.1002/anie.201006464",
+          "claim": "Fully soft six-legged starfish-like grippers actuated through a single pressure inlet can passively conform to and lift delicate, irregularly shaped biological specimens (such as an uncooked chicken egg and an anesthetized mouse) without inflicting damage.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "title": "Soft Robotics for Chemists",
+          "doi": "10.1002/anie.201006464",
+          "claim": "Patterning ridged topography into the elastomeric gripping surface introduces alternating gaps of air and elastomer, enhancing contact compliance and traction to sustain loads up to 300 g on smooth spheres up to 10 cm in diameter.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "title": "Soft Robotics for Chemists",
+          "doi": "10.1002/anie.201006464",
+          "claim": "PneuNets actuated at 7 to 28 kPa require approximately 4 W per stroke and can sustain their deformed state passively for 10 minutes without substantial deflation when closed with a valve, before fully deflating over 60 minutes due to gas permeability and connection leakage.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            5
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "author_stated",
+          "text": "The soft elastomeric materials and designs presented are not suited for manipulating heavy objects"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "author_stated",
+          "text": "Materials capable of high strain (Ecoflex) have lower load capacities, whereas stronger materials (PDMS) fracture at modest strains (above 150%)"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "author_stated",
+          "text": "Ecoflex is extremely soft and bends under its own weight if unsupported"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "author_stated",
+          "text": "Complex channel geometries with differential wall thicknesses and dimensional constraints lack simple closed-form analytical models"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "author_stated",
+          "text": "Prototypes are un-optimized; holding duration under a closed valve is limited by gas permeability through elastomers and inlet leakage (deflating over 60 minutes)"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "model_inferred",
+          "text": "The grippers operate strictly in open-loop mode without integrated force, tactile, or proprioceptive sensors"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "model_inferred",
+          "text": "Dynamic response times, bandwidth, and exact interfacial contact forces were not measured or modeled quantitatively"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "model_inferred",
+          "text": "Fatigue life, delamination susceptibility of manually bonded layers, and cyclic durability under repeated inflation were not reported"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "model_inferred",
+          "text": "Actuators are vulnerable to puncture from sharp objects, which would breach pneumatic integrity"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "source_type": "model_inferred",
+          "text": "The gripper relied on an external nylon string and manual positioning rather than integration onto a robotic arm"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Development of elastomeric materials combining high mechanical strength with high ultimate failure strain"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Synthesizing materials with actively tunable compliance to achieve locally variable mechanical properties"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Integrating functional components such as conductive elements, optical transparency, sensors, microfluidics, transducers, or biocompatible chemistries"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Exploring anisotropic elastomers and block copolymers exhibiting non-linear strain-dependent stiffness"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Formulating new adhesive systems to simplify multilayer bonding and assembly"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "text": "Implementing hydraulic actuation using fluids instead of air for high-force, incompressible, or underwater density-matched applications"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "de5329b2fb",
+          "status": "unverified_implication",
+          "text": "The inherent trade-off between compliance (for low-pressure bending) and stiffness (for payload bearing) emphasizes the need for active variable-stiffness mechanisms or hybrid materials rather than purely passive elastomers"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "status": "unverified_implication",
+          "text": "The lack of closed-loop sensory feedback highlights a gap in integrating flexible, stretchable sensor arrays into PneuNet architectures for autonomous grasping"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "status": "unverified_implication",
+          "text": "Manual layer-by-layer bonding with uncured prepolymers introduces variability and potential delamination, pointing to a need for automated additive manufacturing of monolithic multi-material soft robots"
+        },
+        {
+          "paper_id": "de5329b2fb",
+          "status": "unverified_implication",
+          "text": "Pressure leakage and gas permeability over time prevent prolonged static holding, requiring development of low-permeability elastomer formulations or mechanical latching designs"
+        }
+      ]
+    },
+    {
+      "paper_id": "877d9ba31a",
+      "title": "Soft Manipulators and Grippers: A Review",
+      "authors": [
+        "Josie Hughes",
+        "Utku Culha",
+        "Fabio Giardina",
+        "Fabian Guenther",
+        "Andre Rosendo",
+        "Fumiya Iida"
+      ],
+      "year": "2016",
+      "doi": "10.3389/frobt.2016.00069",
+      "robot_type": "soft manipulators and grippers",
+      "stiffness_mechanism": [
+        "particle jamming",
+        "adjustable stiffness layers (pneumatic)",
+        "intrinsic material compliance (elastomers, silicones, hot melt adhesives)",
+        "multi-material variable stiffness via 3D printing",
+        "thermally tunable composites and foams"
+      ],
+      "actuation": [
+        "pneumatic actuation (McKibben artificial muscles, fluidic elastomer actuators / FEA, PneuFlex, Pneumatic Networks / Pneu-Nets, chemical pressure generation, combustion)",
+        "hydraulic actuation",
+        "cable-driven actuation (tendons)",
+        "shape memory alloys (SMA)",
+        "electroactive polymers (EAP) / dielectric elastomers",
+        "underactuated / passive grasping (interaction-driven elastic deformation)",
+        "electroadhesion and electrostatic actuation"
+      ],
+      "modeling_methods": [
+        "constant curvature approximation",
+        "steady-state continuous body modeling",
+        "macro-continuous computed torque algorithm",
+        "Jacobian methods for tendon-driven continuum manipulators",
+        "feed-forward neural network learning for inverse kinetics",
+        "Finite Element Modeling (FEM), including real-time FEM for control",
+        "non-linear relaxation kinematic simulation using spring-beam-mass systems",
+        "discrete voxel-based physics engines (Voxelyze / VoxCAD)",
+        "voxel-based mass-spring lattice physics engines",
+        "geometrically exact models accounting for non-linearities and distributed payloads"
+      ],
+      "performance_metrics": [
+        "precision",
+        "structural compliance",
+        "degrees of freedom (DOF)",
+        "force exertion / grasping force",
+        "maximum strain (e.g., 100% to 300% in soft sensors)",
+        "actuation strain and speed",
+        "hysteresis and measurement repeatability",
+        "sensor stability over time and sensitivity"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "Soft manipulator design operates within a 2D qualitative design space characterized by trade-offs between precision and degrees of freedom, and between structural compliance and force exertion.",
+          "evidence_type": "conceptual framework",
+          "page_numbers": [
+            3
+          ]
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "3D printing enables the fabrication of complex, amorphous geometries and embedded microfluidic channels or logic, but printable soft materials are relatively brittle compared to molded elastomers and less suited for high-pressure actuation.",
+          "evidence_type": "comparative synthesis of fabrication methods",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "Modeling continuum soft manipulators requires methods beyond rigid-body kinematics, including constant curvature approximations, Jacobian methods, feed-forward neural networks, real-time finite element modeling (FEM), and discrete voxel mass-spring lattice simulators.",
+          "evidence_type": "literature review of modeling techniques",
+          "page_numbers": [
+            4
+          ]
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "Variable stiffness can be implemented in soft manipulators via particle jamming (locking granular media under vacuum) or through adjustable stiffness layers integrated into pneumatic actuators.",
+          "evidence_type": "literature review of variable stiffness mechanisms",
+          "page_numbers": [
+            7
+          ]
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "Passive underactuated soft grippers made of compliant materials such as hot melt adhesive can achieve force and form closure purely through structural deformation and contact interaction forces without active motors.",
+          "evidence_type": "demonstration case study",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "title": "Soft Manipulators and Grippers: A Review",
+          "doi": "10.3389/frobt.2016.00069",
+          "claim": "Soft sensing faces substantial challenges because infinite degrees of freedom preclude one-to-one sensor-to-DOF mapping, wiring connections risk impeding robot compliance, and ionic resistive sensors struggle to isolate strain from pressure without multi-layered architectures.",
+          "evidence_type": "literature review of sensor technologies",
+          "page_numbers": [
+            7,
+            8
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Soft manipulators inherently suffer from lower grasping force, lower precision, and a lack of repeatability compared to rigid robots."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "High or infinite degrees of freedom make precise kinematic control and modeling challenging and computationally intensive."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Soft materials present challenges regarding non-linear responses, difficulty in simulation and modeling, requirements for self-repair, fatigue failure, and fabrication limits."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Layered casting and soft lithography methods tend to constrain robot morphology to planar shapes rather than fully amorphous 3D geometries."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "3D-printed flexible materials remain relatively brittle compared to molded silicone rubbers, restricting their utility in pressurized actuation."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Cable-driven actuation requires external rotary or linear actuation sources, which can make systems bulky."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Soft sensing lacks one-to-one pairing of sensor to degree of freedom; ionic sensors cannot decouple strain and pressure without specialized multi-layer designs; flexible electronics withstand only minimal strain; and optical tactile sensors require rigid cameras positioned close to the deformation zone."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Physical connections (electrodes, wires) to soft sensors can restrict the compliance and dynamic behavior of soft robotic systems."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "author_stated",
+          "text": "Scientific progress in understanding and fabricating soft manipulators trails behind the demands and aspirations of practical applications."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "model_inferred",
+          "text": "As a qualitative review paper, no primary empirical bench tests or quantitative comparative datasets were generated across the surveyed mechanisms."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "model_inferred",
+          "text": "The proposed four-axis design space trade-offs are presented qualitatively without formal mathematical models or validated bounds."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "source_type": "model_inferred",
+          "text": "Long-term fatigue, cyclic creep, thermal dissipation (specifically for shape memory alloys), and environmental degradation of soft polymers are discussed conceptually rather than comprehensively quantified."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "877d9ba31a",
+          "text": "Overcoming trade-offs in speed, precision, repeatability, and grasping force through advances in materials, morphology, actuation, and sensors."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "text": "Developing soft sensors capable of undergoing large deformations that allow localized tactile and posture sensing while decoupling pressure and strain."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "text": "Improving physical wiring and manufacturing integration of sensors into continuum manipulators without compromising structural compliance."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "text": "Establishing closed-loop tactile feedback control for soft manipulators interacting with uncertain and dynamic surroundings."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "text": "Deploying compliant soft manipulators in industrial automation, agricultural processing, and safe human-robot interaction environments."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "877d9ba31a",
+          "status": "unverified_implication",
+          "text": "The trade-off between compliance and force exertion indicates that purely soft manipulators may require variable stiffness mechanisms (e.g., particle jamming, layer jamming) or rigid-soft hybrid backbones to perform high-load industrial manipulation without sacrificing delicate compliance."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "status": "unverified_implication",
+          "text": "The inability to map individual sensors to individual DOFs in infinite-DOF continuum bodies implies that future control schemes will need to leverage embodied intelligence, dense sensor skin arrays, or learning-based state estimators rather than traditional analytical inverse kinematics."
+        },
+        {
+          "paper_id": "877d9ba31a",
+          "status": "unverified_implication",
+          "text": "The reported brittleness of 3D-printed elastomers compared to molded silicone implies a materials science gap in fatigue-resistant, highly stretchable additive manufacturing resins for pneumatic soft robotics."
+        }
+      ]
+    },
+    {
+      "paper_id": "96aec3bae3",
+      "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+      "authors": [
+        "Yang Yang",
+        "Yonghua Chen",
+        "Yingtian Li",
+        "Zheng Wang",
+        "Yunquan Li"
+      ],
+      "year": "2017",
+      "doi": "10.1089/soro.2016.0060",
+      "robot_type": "robotic fingers",
+      "stiffness_mechanism": [
+        "shape memory polymer (SMP)",
+        "thermally tuned elastic modulus change around glass transition temperature (Tg)",
+        "intrinsically adaptive material-based stiffness modulation"
+      ],
+      "actuation": [
+        "soft pneumatic actuator",
+        "pressurized air"
+      ],
+      "modeling_methods": [
+        "Kinematic modeling of multi-joint finger bending using geometric coordinate transformations for fingertip position tracking.",
+        "Piezoresistive analytical modeling linking joint bending angle to conductive TPU cross-sectional area and carbon black volume fraction changes.",
+        "Structural stiffness modeling treating substrate bending joints as composite elastic cantilever beams under fingertip load.",
+        "Linear elastic beam modeling of the unpressurized silicone rubber actuator cross-section for baseline bending stiffness."
+      ],
+      "performance_metrics": [
+        "Stiffness modulation ratio (8.18 at 0 kPa pressure; kl1 = 0.18 N/mm vs. kh1 = 0.022 N/mm)",
+        "Heating duration (40 s from 20 °C to 45 °C; <10 s from 35 °C to 45 °C at 0.75 W)",
+        "Cooling duration from 50 °C to 45 °C (15 s for ventilation area A1; 30 s for A3)",
+        "Resistance prediction fidelity up to 90° bending angle",
+        "Visual vs. sensor-derived coordinate tracking accuracy for fingertip reference point E"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Soft robotic fingers achieve variable stiffness by modulating shape memory polymer (SMP) temperature around its glass transition temperature using embedded conductive TPU heaters, exhibiting an 8.18-fold stiffness change at zero air pressure.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            2,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Conductive TPU elastomer performs dual roles within a soft finger joint as an embedded Joule heating element and a piezoresistive strain sensor for position estimation.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            2,
+            4,
+            8,
+            10,
+            13
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Concurrent fused deposition modeling (FDM) 3D printing produces an interlocking multi-material substrate of SMP and conductive TPU in a single setup without assembly.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            2,
+            4,
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "A theoretical model relating primary shape volume/cross-section changes of conductive TPU to carbon black volume fraction predicts electrical resistance variation consistent with experimental results up to 90 degrees of joint bending.",
+          "evidence_type": "analytical",
+          "page_numbers": [
+            4,
+            5,
+            10,
+            11
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Preheating conductive TPU/SMP joints to 35 °C reduces thermal activation time from room temperature (40 s) to under 10 s with 0.75 W power input.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            3,
+            8
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Passive convective ventilation features integrated into the finger substrate accelerate cooling, reducing cooling duration from 50 °C to 45 °C from 30 s to 15 s when increasing ventilation area.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            4,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Increasing pneumatic actuator air pressure increases overall baseline finger stiffness and reduces the relative stiffness modulation ratio achieved by thermal SMP modulus changes.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "title": "Novel Variable-Stiffness Robotic Fingers with Built-In Position Feedback",
+          "doi": "10.1089/soro.2016.0060",
+          "claim": "Optical tracking of fingertip reference point coordinates closely matches kinematic predictions derived from conductive TPU joint resistance measurements across pneumatic pressures from 0 to 100 kPa.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            13,
+            14
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Heating time from ambient room temperature (20 °C) to 45 °C is approximately 40 s, which is too long for practical applications without preheating."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Ventilation feature dimensions cannot exceed critical bounds without risking physical separation of conductive TPU from the substrate during bending."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Theoretical resistance modeling diverges substantially from experimental measurements at bending angles greater than 90 degrees due to unmodeled material effects."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Joint bending angles must be restricted to a maximum of 90 degrees in practice to maintain estimation accuracy."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Joint temperature was controlled within a band (45–50 °C) rather than a precise setpoint, introducing thermal drift and measurement variability in resistance."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Embedding thermocouples for closed-loop thermal control without altering finger compliance and stiffness remains an unresolved challenge."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Long-term position feedback repeatability and operational cycle life of SMP and conductive TPU have not yet been evaluated across extended cycles."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "author_stated",
+          "text": "Simplifications in theoretical stiffness modeling (cantilever beam approximation and neglecting fiber reinforcement) caused quantitative discrepancies with experimental force measurements."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "model_inferred",
+          "text": "The analytical stiffness model is restricted to zero pneumatic pressure and does not capture stiffening behavior under combined pneumatic pressurization and thermal state changes."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "model_inferred",
+          "text": "Thermal transition times (10 s heating with preheating, 15 s cooling) limit dynamic response rates and real-time stiffness modulation bandwidth."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "model_inferred",
+          "text": "Position feedback validation was performed quasi-statically at discrete pressure steps without evaluating dynamic grasping, external payload disturbances, or obstacle contacts."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "source_type": "model_inferred",
+          "text": "Inherent piezoresistive elastomer drift and thermal cross-sensitivity may degrade calibration stability over prolonged operation without frequent baseline calibration."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "96aec3bae3",
+          "text": "Testing position feedback repeatability and assessing cyclic fatigue/lifespan of SMP and conductive TPU over hundreds or thousands of cycles."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "text": "Investigating the material and physical mechanisms underlying the divergence between theoretical predictions and experimental resistance at bending angles greater than 90°."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "text": "Implementing closed-loop temperature control (e.g., using embedded thermocouples) without compromising finger compliance or stiffness."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "96aec3bae3",
+          "status": "unverified_implication",
+          "text": "A 10–15 s thermal response time may prevent applications requiring rapid, adaptive stiffness switching during dynamic grasping tasks."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "status": "unverified_implication",
+          "text": "Limiting joint bending to 90° to avoid resistance modeling errors restricts the kinematic grasping envelope of the finger."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "status": "unverified_implication",
+          "text": "Lack of closed-loop temperature control and potential sensor drift may hinder precise position and force regulation in uncalibrated or changing ambient thermal conditions."
+        },
+        {
+          "paper_id": "96aec3bae3",
+          "status": "unverified_implication",
+          "text": "Absence of a combined electromechanical-pneumatic model limits model-based control of variable-stiffness soft actuators under simultaneous inflation and thermal modulation."
+        }
+      ]
+    },
+    {
+      "paper_id": "4bf6ae90e0",
+      "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+      "authors": [
+        "Wei Wang",
+        "Sung-Hoon Ahn"
+      ],
+      "year": "2017",
+      "doi": "10.1089/soro.2016.0081",
+      "robot_type": "soft gripper",
+      "stiffness_mechanism": [
+        "shape memory polymer (SMP)",
+        "phase changeable material"
+      ],
+      "actuation": [
+        "shape memory alloy (SMA) wire",
+        "Joule heating"
+      ],
+      "modeling_methods": [
+        "Composite beam flexural rigidity formulation summing constituent second moments of area: E_H * I_H = E_PDMS * I_PDMS + E_SMP * I_SMP",
+        "Theoretical bending modulus estimation based on modular ratio: E_H = (1 - alpha) * E_PDMS + alpha * E_SMP, where alpha = I_SMP / I_H",
+        "Three-point bending calculation using ASTM D 790-03 load-displacement gradient: E_H = (L^3 * m) / (4 * w_1 * (2*t_1 + t_2)^3)",
+        "SMA constitutive and beam bending deformation modeling referenced via Brinson constitutive model and Euler beam theory",
+        "Quasi-static 2D vertical equilibrium force analysis for frustum grasping comparing point-contact fingernail vs. area-contact finger pad mechanics: G = 2 * F * (mu * sin(theta) - cos(theta))"
+      ],
+      "performance_metrics": [
+        "SMP heating time to reach glass transition temperature (55 °C): approx. 30 s; heating to 60 °C: approx. 35 s",
+        "SMP cooling time to return to glassy state: approx. 240 s",
+        "SMA bending actuation time: approx. 5 s",
+        "Hinge bending modulus: 128.48 MPa (high stiffness) vs. 2.31 MPa (low stiffness), representing an approx. 55.62-fold ratio and ~98% modulus loss upon heating",
+        "Theoretical hinge bending modulus: 136.10 MPa (high stiffness) vs. 2.35 MPa (low stiffness)",
+        "Gripper pulling force: 5.8 N (high stiffness) vs. 0.6 N (low stiffness), representing an approx. 10-fold enhancement",
+        "Static and dynamic coefficients of friction: PDMS on ABS (4.56 static, 2.92 dynamic) vs. Ecoflex on ABS (2.45 static, 2.18 dynamic)",
+        "Calculated grasping weight capacity ratio for frustum object using finger pad vs. fingernail: approx. 1.93 times higher",
+        "Cyclic durability: maintained multi-configuration capability over 100 continuous cycles (approx. 8 hours)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "Embedding 3D-printed shape memory polymer (SMP) structures inside soft composite hinges enables an approximate 55-fold reversible change in bending modulus between glassy and rubbery states (128.48 MPa vs. 2.31 MPa).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            4,
+            5,
+            9
+          ]
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "Actuation of symmetrically placed off-center SMA wires combined with selective heating of two independent SMP hinges enables a single soft robotic finger to achieve nine distinct active configurations and retain them with high stiffness.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "Modulating hinge stiffness from low to high after conforming to an object increases the soft gripper's maximum vertical pulling force by approximately 10 times (from 0.6 N to 5.8 N).",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            6,
+            9
+          ]
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "The bending modulus of the composite variable-stiffness hinge can be theoretically predicted using second moment of area formulations and constituent elastic moduli, showing agreement within 5.6% and 1.7% of experimental values.",
+          "evidence_type": "analytical and experimental",
+          "page_numbers": [
+            5
+          ]
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "Integrating a soft Ecoflex layer at the fingertip pad increases compliant contact area and moment resistance, preventing slippage and allowing stable grasping of difficult frustum-shaped geometries compared to rigid point contacts.",
+          "evidence_type": "analytical and experimental",
+          "page_numbers": [
+            2,
+            7,
+            8
+          ]
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "title": "Shape Memory Alloy-Based Soft Gripper with Variable Stiffness for Compliant and Effective Grasping",
+          "doi": "10.1089/soro.2016.0081",
+          "claim": "Heating the SMP to rubbery state requires approximately 35 seconds, whereas passive cooling back to the glassy state requires approximately 240 seconds, representing the primary operational time bottleneck.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            4,
+            9,
+            10
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "author_stated",
+          "text": "Long operational transition time required for returning from the low-stiffness state to the high-stiffness state due to slow passive heat dissipation of the heated SMP"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "author_stated",
+          "text": "Inherent softness and small actuation force generated by soft SMA actuators (approx. 10^-3 to 10^-1 N) when unreinforced"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "author_stated",
+          "text": "Minor discrepancies between theoretical and experimental bending modulus values (mean errors of 5.6% in high stiffness and 1.7% in low stiffness) caused by SMP fabrication tolerances and positioning errors during embedding"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "model_inferred",
+          "text": "Passive cooling duration of 240 seconds makes the gripper unsuitable for high-speed dynamic or industrial pick-and-place manipulation tasks without active cooling"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "model_inferred",
+          "text": "Actuated SMA wires must be continuously energized during the 240-second cooling period to maintain shape until SMP solidifies, increasing overall energy consumption"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "model_inferred",
+          "text": "Low glass transition temperature of SMP (55 °C) restricts operation in elevated thermal environments where stiffness modulation would fail"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "model_inferred",
+          "text": "Maximum grasping force (5.8 N) remains modest compared to rigid or fluidic high-pressure grippers, limiting applications to light or delicate objects"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "source_type": "model_inferred",
+          "text": "Absence of integrated embedded curvature or contact force feedback sensors requires open-loop timing-based control"
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "4bf6ae90e0",
+          "text": "Optimizing the finger structure design to shorten the time required for stiffness modulation by enhancing heat dissipation"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "text": "Applying different stiffness-changeable principles to the soft gripper"
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "4bf6ae90e0",
+          "status": "unverified_implication",
+          "text": "Demonstrates that thermally induced phase change can resolve the force-density drawback of soft SMA grippers, but highlights slow thermal dissipation as a critical barrier, motivating research into active cooling or non-thermal variable-stiffness mechanisms"
+        },
+        {
+          "paper_id": "4bf6ae90e0",
+          "status": "unverified_implication",
+          "text": "Suggests that multi-joint soft digits capable of multi-posture pre-shaping and area contact provide substantial grasping advantages over monolithic single-curvature soft fingers for complex geometries"
+        }
+      ]
+    },
+    {
+      "paper_id": "dfe07593dc",
+      "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+      "authors": [
+        "Paul Glick",
+        "Srinivasan A. Suresh",
+        "Donald Ruffatto, III",
+        "Mark Cutkosky",
+        "Michael T. Tolley",
+        "Aaron Parness"
+      ],
+      "year": "2018",
+      "doi": "10.1109/LRA.2018.2792688",
+      "robot_type": "soft robotic gripper",
+      "stiffness_mechanism": [
+        "fluid pressure stiffening (pressurization of internal elastomer chambers)",
+        "strain-limiting layer (flexible but inextensible embedded polyester mesh)",
+        "rigid mounting brackets and anchors (nylon/carbon-fiber composite brackets and 3-D printed anchors)"
+      ],
+      "actuation": [
+        "pneumatic actuation",
+        "fluidic elastomer actuator",
+        "fluid pressure"
+      ],
+      "modeling_methods": [
+        "Discrete joint approximation of fluidic elastomer actuators with associated joint torques.",
+        "Hirose torque distribution criterion limiting actuator joint torque along finger length to prevent outer joints from overpowering inner joints and maintain surface contact: tau(s) = tau0 * (1 - s/L)^2.",
+        "Analytical joint torque formulation relating internal pressure, contact face area, and centroid distance: tau_joint = P * Af * d.",
+        "Semicircular chamber geometric model determining internal chamber radius distribution along the finger length: r(s) = r0 * (1 - s/L)^(2/3)."
+      ],
+      "performance_metrics": [
+        "Maximum payload / grasp lift force (over 50 N for two-finger gripper; 111 N / 25 lbf for three-finger gripper)",
+        "Grasp pullout force improvement over non-adhesive actuators (348% increase on 57 mm cylinder; 2095% increase on 203 mm cylinder)",
+        "Operating internal fluid pressure (17 kPa for 270 deg free bending; 27 kPa for cylinder tests; 40 kPa for 111 N payload lift)",
+        "Actuation speed / bending duration (under 0.4 s / 400 ms for 270 deg bend)",
+        "Actuation energy input (15.7 mJ for a single finger; 31.4 mJ for two fingers to bend 270 deg)",
+        "Contact area retention under varying pressure (evaluated qualitatively and quantitatively via FTIR brightness)",
+        "Gripper mass (48.7 g for two-finger unit)",
+        "Raw material fabrication cost ($7.25 per unit)",
+        "Cycle repeatability (over 25 pick-and-place trials without visible plastic deformation or performance loss)"
+      ],
+      "confidence": "high",
+      "evidence_claims": [
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "Integrating directional gecko-inspired adhesives onto fluidic elastomer actuators decouples grasp strength from high normal force and high internal fluid pressure by leveraging adhesion-controlled friction.",
+          "evidence_type": "theoretical_and_experimental",
+          "page_numbers": [
+            1,
+            2,
+            6
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "Fluidic elastomer actuators can be modeled as a series of discrete joints where joint torque depends on internal pressure, membrane area, and neutral axis distance, enabling actuators to follow a modified Hirose torque distribution that maintains surface contact area under pressurization.",
+          "evidence_type": "theoretical_and_experimental",
+          "page_numbers": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "Using Frustrated Total Internal Reflection (FTIR), an actuator designed with a Hirose torque distribution maintained high contact area across increasing pressures, whereas an actuator with a uniform torque profile lost contact as distal joints overpowered proximal joints.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            5,
+            6
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "In cylinder pullout tests at 27 kPa, the gecko elastomer actuator gripper produced 35.7 N higher grasp force on a 57 mm cylinder (348% increase) and 8.58 N higher force on a 203 mm cylinder (2095% increase) compared to an identical non-adhesive elastomer gripper.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            6
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "On dusty, rocky, or irregular objects where adhesive performance is diminished, the gecko elastomer actuator gripper maintains baseline force-closure functionality with no measured loss in performance relative to conventional elastomer grippers.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            3,
+            8
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "A three-finger gecko elastomer gripper mounted on a KUKA LBR iiwa robot arm supported and manipulated an 11.3 kg (111 N / 25 lbf) payload at 40 kPa internal pressure across more than 25 trials without visible damage or performance loss.",
+          "evidence_type": "experimental",
+          "page_numbers": [
+            1,
+            7
+          ]
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "title": "A Soft Robotic Gripper With Gecko-Inspired Adhesive",
+          "doi": "10.1109/LRA.2018.2792688",
+          "claim": "Directional gecko adhesives require shear loading to engage; on curved surfaces shear is induced passively by object geometry, whereas flat surfaces lack passive shear and require high bending stiffness or actuation-independent stiffening mechanisms.",
+          "evidence_type": "theoretical_and_design",
+          "page_numbers": [
+            2,
+            3
+          ]
+        }
+      ],
+      "limitations": [
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "The joint torque model assumes strain is localized to the thin membrane, full membrane contact occurs, and joint angle effects on moment arm are negligible, causing model inaccuracies including overprediction at low pressures/higher joint angles and underprediction at high pressures due to membrane bulging."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "Adhesion is temporarily degraded by dust, dirt, or porous surfaces (though cleanable using a tacky surface)."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "Because elastomer actuators possess low inherent bending stiffness, adhesive performance on flat surfaces is poor without active shear preloads or actuation-independent stiffening mechanisms."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "Directional wedge adhesives require a shear load to engage, precluding normal-only engagement without active or geometric shear generation."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "The torque model serves primarily as a design tool for geometry rather than for real-time state estimation and control."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "author_stated",
+          "text": "Manufacturing chambers with 0.9 mm membrane walls and 2 mm chamber widths approached the practical limits of the casting process."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "model_inferred",
+          "text": "Testing was restricted to smooth polycarbonate cylinders and a small number of rigid household items, leaving performance on compliant, rough, or delicate textured surfaces uncharacterized."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "model_inferred",
+          "text": "Long-term interfacial fatigue and delamination risks between the DragonSkin and MoldStar silicone layers under repeated shear loading were not evaluated beyond 25 manipulation cycles."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "model_inferred",
+          "text": "Disengagement dynamics, release speed, and passive release reliability under transient or perturbing shear loads were not systematically measured."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "source_type": "model_inferred",
+          "text": "Manual manufacturing steps involving polycarbonate shims and spin-coating may result in fabrication variability between individual actuator fingers."
+        }
+      ],
+      "future_work": [
+        {
+          "paper_id": "dfe07593dc",
+          "text": "Applying surface-conformation and torque-profile modeling methods broadly to other fluidic elastomer actuators."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "text": "Integrating actuation-independent stiffening mechanisms (such as jamming components or phase-transition elements) to enable effective adhesive grasping on flat surfaces."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "text": "Extending gecko elastomer actuators into industrial automation and other high-load manipulation applications."
+        }
+      ],
+      "gap_implications": [
+        {
+          "paper_id": "dfe07593dc",
+          "status": "unverified_implication",
+          "text": "Integrating active or actuation-independent stiffening mechanisms (such as granular or layer jamming) could allow gecko elastomer grippers to effectively preload and adhere to flat surfaces without sacrificing compliance."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "status": "unverified_implication",
+          "text": "Formulating elastomeric continuum or nonlinear finite element models that account for membrane bulging and non-zero joint angles could refine joint torque predictions for advanced closed-loop control."
+        },
+        {
+          "paper_id": "dfe07593dc",
+          "status": "unverified_implication",
+          "text": "Developing automated or monolithic manufacturing approaches could reduce fabrication variance and facilitate micro-chamber scaling beyond manual casting limits."
+        }
+      ]
+    }
+  ]
+}

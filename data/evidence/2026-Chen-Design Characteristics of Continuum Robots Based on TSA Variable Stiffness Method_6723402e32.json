@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "6723402e32",
+    "filename": "2026-Chen-Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method.pdf",
+    "sha256": "6723402e32ddc8d146483dadcf3fe1c35e671e0f25aa22abeebe4dd860a3034b",
+    "page_count": 22,
+    "char_count": 70460,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32819,
+    "completion_tokens": 5392,
+    "total_tokens": 38211,
+    "thinking_tokens": 2882,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Twisted Multi-String Actuator (TSA)",
+      "Cable-driven (tendon-driven)"
+    ],
+    "authors": [
+      "Gang Chen",
+      "Yutong Wu",
+      "Zhixin Zhang",
+      "Jianxiao Zheng",
+      "Shiying Liu",
+      "Jiwei Yuan",
+      "Mingrui Luo",
+      "En Li"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Hooke's law governs the mechanical response and axial tension of the twisted multi-strand cable with an elastic coefficient k.",
+      "All mechanical work input by the motor torque is converted entirely into elastic potential energy of the cable without energy losses.",
+      "Equal-volume cylinder deformation assumption (V0 = Vtwisted) was evaluated and identified as inaccurate for multi-strand cables due to inter-strand gap closure during initial twisting.",
+      "The multi-substrate continuum assembly behaves as an equivalent cantilever beam with a modified structural stiffness coefficient (adjusted from 3 to 2) to account for discrete matrix interactions.",
+      "Circumferential drive cables behave elastically as linear spring elements under tensile load.",
+      "Tribological contact between spherical concave-convex substrates follows Coulomb friction, with maximum static friction torque proportional to normal contact force and contact radius (Mf = mu * N * Rcontact).",
+      "Worst-case minimum base stiffness assumes the continuum bends such that only a single drive cable sustains tensile force."
+    ],
+    "control_variables": [
+      "Cable material (Vectran)",
+      "Substrate dimensions and geometry (total length 295 mm, convex substrate length 15 mm, concave substrate length 20 mm, cross-sectional radius 5 mm)",
+      "Substrate fabrication material (resin)",
+      "Joint substrate allocation (6 substrates in joint 1, 6 in joint 2, 5 in joint 3)",
+      "Repetition count (5 experimental trials averaged per data point)",
+      "Failure criterion definition (end displacement exceeding 250 mm or motor torque limit reached)"
+    ],
+    "dependent_variables": [
+      "Axial cable contraction displacement (Delta L)",
+      "Cable tension (T)",
+      "End-effector radial displacement (D)",
+      "Continuum robot equivalent stiffness (K / Ktension)",
+      "Maximum tolerable load / failure load (Fmax)"
+    ],
+    "doi": "10.3390/act15030154",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Continuum robots suffer from low inherent stiffness, especially under high aspect ratio conditions, which limits their payload capacity and manipulation precision.",
+        "evidence_type": "background literature synthesis",
+        "page_numbers": [
+          1
+        ]
+      },
+      {
+        "claim": "Twisting multi-strand cables generates axial contraction force and tension significantly greater than conventional linear cable pulling, offering higher normal force for inter-segment friction locking.",
+        "evidence_type": "theoretical modeling and experimental validation",
+        "page_numbers": [
+          2,
+          7,
+          17
+        ]
+      },
+      {
+        "claim": "Axial shortening of twisted cables conflicts with the fixed structural length of continuum bodies, necessitating an axial retraction compensation mechanism.",
+        "evidence_type": "mechanism design and kinematic analysis",
+        "page_numbers": [
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "A concave-convex-concave spherical interface contact between adjacent substrates converts line contact into spherical surface contact, optimizing normal pressure transmission and friction generation.",
+        "evidence_type": "design rationale and mechanical modeling",
+        "page_numbers": [
+          3,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "An energy-balance-based contraction model accounts for initial inter-strand gap filling and predicts cable retraction significantly more accurately than an equal-volume cylinder model at higher rotation turns.",
+        "evidence_type": "theoretical derivation and experimental comparison",
+        "page_numbers": [
+          6,
+          7,
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "Under a 2 N radial load, the average stiffness increased by 127% (from 13.47 N/m to 31.5 N/m) and maximum load capacity increased by 231% (from 4.2 N to 13.9 N) using a 4-strand configuration at 15 motor turns.",
+        "evidence_type": "experimental measurement",
+        "page_numbers": [
+          17
+        ]
+      },
+      {
+        "claim": "A three-strand cable configuration exhibits more uniform torsional transmission and concentrated tension distribution than two-strand or four-strand arrangements due to symmetric equilateral triangle packing.",
+        "evidence_type": "experimental characterization and physical rationale",
+        "page_numbers": [
+          18
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Resin-fabricated 3-joint bionic spine-like continuum robot prototype (17 substrates total: 6 in joint 1, 6 in joint 2, 5 in joint 3; total length 295 mm, individual substrate lengths 15 mm convex and 20 mm concave, radius 5 mm).",
+      "Passive retraction mechanism consisting of a sleeve linked to the drive box and a 4-groove slider with locking bolts to accommodate TSA cable shortening.",
+      "Twisted Multi-String Actuator unit utilizing Vectran cables (2-strand, 3-strand, and 4-strand) driven by a dedicated torsion motor and shaft coupling.",
+      "Cable retraction test platform measuring contraction length Delta L across varying motor torsion turns N.",
+      "Variable stiffness loading test bench configuring the robot as a horizontal cantilever beam, applying radial end loads using calibrated weights (0.5 N increments) while monitoring displacement and cable tension via a dynamometer."
+    ],
+    "future_work": [
+      "Develop fully automated, dynamic retraction mechanisms to enable real-time and continuous variable stiffness modulation.",
+      "Integrate embedded pose and tension sensors for closed-loop stiffness control.",
+      "Explore alternative TSA cable routing and deployment topologies to expand robot workspace and bending curvature range.",
+      "Incorporate higher-torque actuation units to further expand load-bearing capacity.",
+      "Investigate robot dynamic interaction performance and stability during operational tasks."
+    ],
+    "independent_variables": [
+      "Number of TSA cable strands (n = 2, 3, 4)",
+      "Number of motor torsion turns (N: up to 30 turns for n=2 and n=3; up to 17 turns for retraction and 15 turns for stiffness tests for n=4)",
+      "External radial load applied at the end-effector (F: 0 to ~14 N in 0.5 N increments)"
+    ],
+    "limitations_inferred": [
+      "Manual loosening and tightening of slider bolts during retraction prevents continuous, in-motion stiffness adaptation during dynamic robotic tasks.",
+      "Repeated friction locking between 3D-printed resin spherical interfaces may result in progressive surface wear, changing the friction coefficient over extended cyclic loading.",
+      "Static dead-weight loading does not capture dynamic viscoelastic relaxation, vibration damping, or hysteresis of the twisted Vectran cables under high-frequency interaction."
+    ],
+    "limitations_stated_by_authors": [
+      "The passive retraction mechanism is not yet fully automated and requires manual loosening and re-tightening of bolts.",
+      "Vectran cable rupture occurs under loads greater than 20 N, constraining the safe experimental loading regime to 0-10 N.",
+      "Arranging the TSA cable along the central axis restricts the maximum substrate joint bending angle to between 11 and 13 degrees.",
+      "Central TSA cable routing provides lower routing flexibility compared to traditional single-cable force-locking schemes.",
+      "Stiffness modulation is constrained by the torque limits of the drive motors, causing substrate slippage when external load exceeds maximum friction force."
+    ],
+    "main_results": [
+      "The bionic continuum robot achieved omnidirectional bending up to 90 degrees across all directions, validating motion feasibility with joint movement limits of 13 degrees (concave-convex) and 11 degrees (convex-concave).",
+      "The theoretical contraction model derived from virtual work/energy balance accurately matched measured multi-strand cable retraction, outperforming the traditional constant-volume model at higher torsion revolutions.",
+      "TSA actuation significantly enhanced structural stiffness; for n=4 strands at N=15 turns, average stiffness reached 31.5 N/m compared to 13.47 N/m in the unstiffened baseline (a 127% increase), and maximum failure load rose from 4.2 N to 13.9 N (a 231% increase).",
+      "For n=3 strands at N=30 turns, the maximum tolerable load increased by 135% (from 4.0 N to 9.4 N).",
+      "Structural failure consistently occurred at an end displacement of approximately 250 mm across all strand configurations, preceded by a slope change at roughly 150 mm indicating partial inter-substrate slip.",
+      "Symmetric packing in the 3-strand cable provided optimal torsional transmission uniformity compared to 2-strand (side-overloading tendency) and 4-strand (uneven gap and torque concentration) arrangements."
+    ],
+    "modeling_methods": [
+      "Kinematic/geometric modeling of twisted string contraction (cylindrical expansion and helix angle formulation modified for radius expansion).",
+      "Energy balance and virtual work modeling of TSA contraction relating motor input torque to cable elastic strain energy.",
+      "Cantilever beam structural mechanics modeling with a discrete matrix correction factor (Krobot = 2 * Ebase * Ibase / l^3).",
+      "Tribological force-locking formulation deriving inter-substrate spherical contact friction torque from normal forces induced by TSA and drive cables.",
+      "Two-state mechanical equilibrium modeling distinguishing between pure static friction (relative rest) and post-slip partial inter-substrate rotation.",
+      "Geometric aperture constraint analysis for maximum inter-substrate bending and rotational limit angles."
+    ],
+    "performance_metrics": [
+      "Omnidirectional bending angle (degrees)",
+      "Individual substrate joint limit angle (degrees)",
+      "Axial cable contraction length (mm)",
+      "End-effector radial displacement (mm)",
+      "Average stiffness under load (N/m) and percentage stiffness increase (%)",
+      "Maximum tolerable load / failure load (N) and percentage load capacity increase (%)",
+      "Axial cable tension (N)"
+    ],
+    "possible_gap_implications": [
+      "While central single-channel TSA integration enhances overall bending stiffness, exploring distributed or eccentric multi-TSA routing could enable decoupled multi-segment or direction-dependent stiffness tuning without sacrificing individual joint angular range.",
+      "Developing motorized or pneumatic auto-locking retraction slides is essential before TSA-based variable stiffness continuum manipulators can be applied in clinical or confined industrial environments."
+    ],
+    "research_objective": "To design, model, and experimentally evaluate a variable stiffness continuum robot utilizing Twisted Multi-String Actuators (TSA) integrated into a bionic spine-like configuration with a passive retraction mechanism, thereby expanding the stiffness adjustment range and payload capacity beyond traditional single-cable force-locking methods.",
+    "research_problem": "Continuum robots exhibit an inherent trade-off between high flexibility and low structural stiffness under high aspect ratios, while conventional variable-stiffness methods suffer from slow response, complex auxiliary systems, or narrow tuning ranges. Moreover, traditional single-cable force-locking is constrained by single-cable tension limits, and integrating TSA into continuum bodies introduces severe motion conflicts due to axial cable retraction against a fixed body length.",
+    "robot_type": "bionic spine-like continuum robot",
+    "stiffness_mechanism": [
+      "force-locking",
+      "Twisted Multi-String Actuators (TSA)",
+      "inter-substrate friction modulation via spherical contact interfaces"
+    ],
+    "title": "Design Characteristics of Continuum Robots Based on TSA Variable Stiffness Method",
+    "year": "2026"
+  }
+}

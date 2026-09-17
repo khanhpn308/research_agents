@@ -1,0 +1,234 @@
+{
+  "source": {
+    "paper_id": "8d3b7d72a6",
+    "filename": "Decoupling_Control_of_a_Multi-Segment_Hybrid-Actuated_Soft_Origami_Continuum_Robot_Through_Variable_Stiffness.pdf",
+    "sha256": "8d3b7d72a678fca2df5ddb5d9603a93518eb398584a51a0fb0219e71a96b62b4",
+    "page_count": 17,
+    "char_count": 80978,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 36483,
+    "completion_tokens": 8248,
+    "total_tokens": 44731,
+    "thinking_tokens": 4719,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "hybrid actuation",
+      "tendon-driven actuation",
+      "pneumatic actuation"
+    ],
+    "authors": [
+      "Jian Tao",
+      "Tianheng Li",
+      "Xiang Yao",
+      "Changlin Chen",
+      "Qiqiang Hu",
+      "Erbao Dong",
+      "Yang Zhao",
+      "Shiwu Zhang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Dynamic memory and rate-dependent hysteresis: origami structures store and slowly release potential energy during deformation, making the current kinematic state dependent on historical actuation and deformation states",
+      "Quasi-static settling assumption: waiting 1 s after actuation and chamber pressurization allows the continuum structure to reach a quasi-static state for measurement",
+      "A 10-time-step sequential window is assumed sufficient to capture historical dependencies for long-term hysteresis modeling in the LSTM network",
+      "Constant curvature geometric approximation for tendon length compensation: neutral axis compression and segment bending are approximated via geometric trigonometric formulations to compensate for second-segment tendon slacking",
+      "Torsional deformation is assumed negligible during bending motions due to high structural torsional stiffness, supported by near-zero yaw angular deviations",
+      "Model-free data-driven kinematic assumption: hyper-redundant nonlinear structural deformations and manufacturing errors are mapped via neural network regression rather than explicit continuum mechanics constitutive laws"
+    ],
+    "control_variables": [
+      "Operating frequency of the control loop (50 Hz)",
+      "Pneumatic holding pressure for stiffness reinforcement and hysteresis mitigation (10 kPa applied for 2 s)",
+      "Quasi-static settling wait time before position acquisition (1 s)",
+      "Tendon pre-tensioning length reduction (8.45 mm for trajectory experiments; 7.53 mm in pre-tensioning characterization tests)",
+      "Window size of historical end-position time steps for LSTM input (10 time steps)",
+      "Initial training dataset size (4,800 random points)",
+      "Number of waypoints per evaluation trajectory (64 waypoints for standard curves; 32 waypoints for flower curves)",
+      "Neural network training duration (100 epochs, taking 228,436 ms)",
+      "Sensor sampling frequency of the motion capture system (50 Hz)"
+    ],
+    "dependent_variables": [
+      "End-position trajectory tracking error (Euclidean distance error in mm and relative error percentage over robot length)",
+      "Directional position errors along Cartesian axes (axial Z-axis error, lateral X- and Y-axis errors in mm)",
+      "Repeat positioning accuracy / repeatability error (Euclidean distance error in mm)",
+      "Bending orientation error / angular deviation (Euler angles: roll, pitch, and yaw in degrees)",
+      "Hysteresis displacement (origin position offset before and after compression cycles in mm)",
+      "Hysteresis recovery and stabilization time (seconds)",
+      "Disturbance displacement of segment 1 caused by distal segment motion (mm)"
+    ],
+    "doi": "10.1109/TASE.2026.3700107",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Pre-tensioning the actuation tendons by 7.53 mm decreases compression hysteresis by 50% compared to an un-tensioned origami continuum module.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "Pressurizing the internal origami chamber to 10 kPa accelerates hysteresis stabilization from 43 s to within 2 s and noticeably mitigates the accumulation of hysteresis.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "Repeated positioning evaluation over 30 cycles across four spatial target points demonstrates an average repeat positioning accuracy of approximately 0.1 mm.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          5
+        ]
+      },
+      {
+        "claim": "The dual origami architecture achieves an axial extension ratio of up to 110% through internal pneumatic chamber inflation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2
+        ]
+      },
+      {
+        "claim": "Pressurization of the internal origami chamber causes radial expansion that eliminates the clearance gap between the inner and outer origami structures, providing layer-jamming friction that synergizes with tendon-pneumatic antagonistic forces to increase overall structural stiffness.",
+        "evidence_type": "mechanical_design",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "A stacked 2-layer LSTM network with an input window of 10 historical time steps trained iteratively on 4,800 points augmented with small step-size data achieves open-loop trajectory tracking errors of 1.58 mm (0.71% relative to length) for a single segment and 2.81 mm (0.63%) for multi-segments without sensory feedback.",
+        "evidence_type": "computational",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          8,
+          16
+        ]
+      },
+      {
+        "claim": "The variable stiffness mechanism allows independent decoupled motion of the second segment while the first segment is locked in either a vertical or bent state, limiting disturbance displacements on the first segment to 1.06 mm and 0.86 mm, respectively.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "Incorporating Euler angles into the LSTM training enables orientation control with an average angular deviation of 0.75 degrees (individual segment roll, pitch, and yaw errors under 1.4 degrees).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          14,
+          16
+        ]
+      },
+      {
+        "claim": "Carrying external payloads up to 240 g (twice the 120 g self-weight) results in tracking errors remaining around 3.69 mm (1.67%), with error growth concentrated predominantly in the axial Z direction.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The continuum robot executes open-loop multi-task demonstrations including drawing and letter writing ('ROBOT') on a 10-degree tilted board, board erasing, multi-segment simultaneous LED drawing ('USTC' and 'SOFT'), and pick-and-place manipulation of an 0.8 kg object using a suction cup.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          14,
+          15,
+          16
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Dual origami continuum robot structure comprising an internal Miura crease sealed pneumatic chamber and an external Miura crease origami backbone with tendon routing holes",
+      "Seven-camera 3D optical motion capture system (Qualisys) operating at 50 Hz with +/-0.5 mm linear accuracy to track optical marker point clouds on the robot",
+      "Universal material testing machine executing cyclic compression tests (up to 50 cycles at 52.8 mm compression) for hysteresis quantification",
+      "Arduino Mega 2560 microcontroller communicating via CAN bus in daisy-chain configuration to drive tendon motors and via SPI bus to an analog DAC (TLV5610)",
+      "Pneumatic actuation circuit including an air pump, proportional pressure valve, solenoid valve, relay, and digital air pressure sensor regulating pressure at 10 kPa",
+      "Motor initial position monitoring using optocoupler sensors (MK012175)",
+      "Computing hardware: Intel Core i7-7700HQ CPU (2.8 GHz, 8 GB RAM) for control execution and NVIDIA RTX 3090 GPU for PyTorch neural network training",
+      "Modular application tools: mounted writing brush, chalk eraser, optical LEDs for trajectory tracing, and vacuum suction cup for grasping a 0.8 kg load"
+    ],
+    "future_work": [
+      "Further integrate robot hardware components",
+      "Miniaturize and reduce the physical dimensions of the robot to develop collaborative devices for humans",
+      "Extend and apply the LSTM-based iterative training model to other continuum robotic structures"
+    ],
+    "independent_variables": [
+      "Actuation inputs: tendon length variations / motor displacements (0 to 44.38 mm effective range) and internal chamber pneumatic pressure (0 kPa, 10 kPa)",
+      "Tendon pre-tensioning displacement (0 mm vs. 7.53 mm / 8.45 mm)",
+      "Trajectory geometry and dimensions: shapes (astroid, circle, 8-shaped, flower, square, hexagon, sinusoidal), radii (10 mm to 60 mm), and central axial heights (-210 mm to -416 mm)",
+      "Operating motion velocity (low speed vs. high speed, up to 3.6x)",
+      "Applied external payload (0 g, 120 g, 240 g, and 0.8 kg manipulation target)",
+      "First segment structural state during second segment actuation (vertical high-stiffness state vs. bent high-stiffness state)",
+      "Iterative training cycle count (rounds 1 through 3) and dataset point composition (random points vs. random plus small step-size points)",
+      "Compression displacement levels during mechanical hysteresis testing (10.6, 21.1, 31.7, 42.3, and 52.8 mm) over 1 to 50 cycles"
+    ],
+    "limitations_inferred": [
+      "Data collection and trajectory evaluations rely on quasi-static holding phases (1 s wait time at waypoints), which restricts the dynamic bandwidth and real-time high-speed trajectory execution",
+      "Because control is completely open-loop without sensory feedback, unexpected external continuous contacts, variable environmental interactions, or long-term structural wear could induce uncompensated positioning drift",
+      "Manual origami fabrication processes may introduce manufacturing tolerances and structural discrepancies between distinct fabricated modules",
+      "Simultaneous multi-segment tracking exhibits larger tracking errors (5.90 mm, 1.34%) than isolated single-segment tracking, indicating residual inter-segment mechanical coupling and error compounding",
+      "Pneumatic actuation requires auxiliary support equipment (compressor/pump, proportional valves, solenoid valves, pressure sensors), limiting system untethered portability"
+    ],
+    "limitations_stated_by_authors": [
+      "Tracking error under load mainly arises from the axial direction (Z-axis error increases as payload increases), whereas no-load error primarily comes from lateral (X and Y) directions",
+      "Model prediction error plateaus after several iterative training rounds due to the influence of physical system factors",
+      "Movement of the first segment causes structural coupling that induces tendon slacking in the second segment, necessitating kinematic geometric compensation",
+      "Input window sizes below 10 time steps fail to capture sufficient historical information for accurate hysteresis modeling, while larger window sizes introduce computational overhead",
+      "Adding excessive neural network layers or neurons risks overfitting and escalates computational cost and training time",
+      "Robot hardware currently requires further integration and size reduction to develop human-collaborative devices"
+    ],
+    "main_results": [
+      "Achieved an average repeat positioning accuracy of approximately 0.1 mm across workspace target points over 30 cycles",
+      "Demonstrated that pre-tensioning reduced initial hysteresis by 50%, and applying 10 kPa pneumatic pressure reduced hysteresis stabilization time from >43 s to within 2 s",
+      "Single-segment open-loop trajectory tracking achieved an average Euclidean error of 1.58 mm (0.71% relative to robot length), with submillimeter tracking (<1 mm) on multiple trajectories (e.g., 0.93 mm on square, 0.72 mm on circle, 0.67 mm on 8-shaped)",
+      "Multi-segment tracking achieved an average trajectory tracking error of 2.81 mm (0.63% relative to length)",
+      "Demonstrated generalization to unlearned trajectory profiles, achieving 1.76 mm error (0.80%) on a single-segment hexagon and 1.04 mm error (0.23%) on a second-segment hexagon",
+      "Achieved independent motion decoupling of segment 2 under both vertical (1.07 mm error, 0.24%) and bent (3.28 mm error, 0.74%) locked states of segment 1, with segment 1 disturbance errors held to 1.06 mm and 0.86 mm",
+      "Simultaneous multi-segment trajectory tracking yielded an average position error of 5.90 mm (1.34% relative error)",
+      "Orientation control achieved an overall average angle error of 0.75 degrees (segment 1 roll/pitch/yaw: 0.99/1.06/0.22 degrees; segment 2 roll/pitch/yaw: 0.90/0.99/0.24 degrees; dynamic sinusoidal trajectory errors: 0.83/1.39/0.19 degrees)",
+      "Under payload increases up to 240 g (2x self-weight), tracking error increased by a factor of 2.64 to ~3.69 mm (1.67%), and speed increases up to 3.6x maintained errors within 1.23% relative to length",
+      "Successfully demonstrated open-loop sensorless task execution: precision writing and erasing on a 10-degree tilted board, multi-segment LED pattern drawing, and grasping/transferring an 0.8 kg object"
+    ],
+    "modeling_methods": [
+      "Stacked 2-layer Long Short-Term Memory (LSTM) recurrent neural network for inverse kinematic modeling with hysteresis compensation",
+      "Iterative learning strategy augmenting limited random point datasets with actual trajectory execution and small step-size data",
+      "Neural network-based search optimizer and coordinate transformation for multi-segment inverse kinematic solutions",
+      "Analytical tendon compensation model based on constant-curvature neutral axis compression to eliminate second-segment tendon slacking",
+      "Euler angle orientation mapping via LSTM network for 3D spatial orientation control"
+    ],
+    "performance_metrics": [
+      "Trajectory tracking Euclidean distance error (absolute in mm and relative error percentage over robot length)",
+      "Directional Cartesian error components (axial Z error vs. lateral X and Y errors in mm)",
+      "Repeat positioning accuracy (Euclidean distance error in mm over 30 cycles)",
+      "Bending orientation error (absolute deviation in degrees for roll, pitch, and yaw Euler angles)",
+      "Axial extension ratio (percentage)",
+      "Mechanical hysteresis displacement (mm) and settling time (seconds)",
+      "Payload tracking error degradation factor relative to no-load conditions",
+      "Neural network training convergence time (milliseconds for 100 epochs)"
+    ],
+    "possible_gap_implications": [
+      "While open-loop model-free control eliminates vulnerability to sensor failure in harsh environments such as nuclear radiation, its reliance on pre-calibrated quasi-static hysteresis mapping implies potential vulnerability to unmodeled dynamic contact forces or gradual material degradation over extended deployment",
+      "The combination of pneumatic layer jamming and antagonistic tendon forces successfully circumvents the trade-off between compliance and load capacity, yet reliance on active pneumatic supply lines may hinder miniaturization or completely untethered field applications",
+      "Demonstrated transferability of single-segment kinematic learning to multi-segment configurations suggests that modular data-driven modeling can reduce calibration burdens in hyper-redundant continuum robots, provided mechanical coupling and tendon slacking can be geometrically compensated"
+    ],
+    "research_objective": "To develop a novel design and learning-based control scheme for a rear-driven multi-segment hybrid-actuated soft origami continuum robot that achieves decoupled segment motion and submillimeter/millimeter-level trajectory tracking accuracy without sensory feedback, employing a dual-origami hybrid variable stiffness mechanism (antagonistic actuation and layer jamming) and an LSTM-based iterative learning framework that compensates for origami hysteresis.",
+    "research_problem": "Soft origami continuum robots have infinite degrees of freedom, high compliance, and adaptability, but suffer from low control accuracy, limited load-carrying capacity, motion coupling among segments in rear-driven multi-segment architectures with high extension ratios, rate-dependent saturated hysteresis, and vulnerability to sensor failure in harsh environments (e.g., nuclear radiation) where conventional closed-loop electronic feedback cannot function.",
+    "robot_type": "multi-segment hybrid-actuated soft origami continuum robot",
+    "stiffness_mechanism": [
+      "antagonistic actuation",
+      "layer jamming",
+      "hybrid variable stiffness"
+    ],
+    "title": "Decoupling Control of a Multi-Segment Hybrid-Actuated Soft Origami Continuum Robot Through Variable Stiffness",
+    "year": "2026"
+  }
+}

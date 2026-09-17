@@ -1,0 +1,175 @@
+{
+  "source": {
+    "paper_id": "1f05cf83bc",
+    "filename": "2026-Fan-Modeling-Control-Stiffness-Regulation-Layer-Jamming.pdf",
+    "sha256": "1f05cf83bc7825f9f8aa44db1715a7bd73dd671b78424304f7e36717b4276e3a",
+    "page_count": 15,
+    "char_count": 75626,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 37795,
+    "completion_tokens": 9487,
+    "total_tokens": 47282,
+    "thinking_tokens": 6686,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven actuation",
+      "vacuum pressure (negative pressure)"
+    ],
+    "authors": [
+      "Yeman Fan",
+      "Bowen Yi",
+      "Dikai Liu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Planar (2-D) rigid-link approximation modeling the continuum robot dynamics as an underactuated mechanical system (n > m) under the piecewise constant curvature (PCC) geometric assumption with uniform segment mass and length.",
+      "Antagonistic cable tension produces bending where axial deformation is negligible compared to bending deformation.",
+      "Air mass inside the airtight membrane is negligible, keeping the gravitational potential parameter α1 constant and independent of vacuum pressure uP.",
+      "Elastic potential coefficient α2(uP) depends nonlinearly on vacuum pressure uP, parameterized as a positive quadratic polynomial α2(uP) = c1*uP^2 + c2*uP + c3.",
+      "Internal energy dissipation is attributed solely to lumped friction torque with the structural damping matrix set to zero (D(q) = 0).",
+      "Pressure along the jamming layer is uniformly distributed with value (-uP), and lumped normal contact force Fn is proportional to a positive, monotonically increasing function φ(uP) = c4 + c5*sqrt(uP).",
+      "LuGre friction model parameters satisfy standard physical constraints (static friction coefficient μS >= Coulomb friction coefficient μC > 0) and the passivity condition σ2 > σ1*(μS - μC)/μC.",
+      "Motor actuator dynamics in current/torque control mode are negligible compared to continuum robot dynamics, and tensions are uniformly distributed along the cables.",
+      "Input matrix satisfies a uniformity condition G(q) = [g(q)*1n, -g(q)*1n] with |g(q)| bounded away from zero."
+    ],
+    "control_variables": [
+      "Robot structural dimensions: 6 segments (n=6), overall length 252 mm, diameter ~50 mm.",
+      "Number of jamming layers for specific experimental groups: 5 layers for shape-locking tests, 2 layers for stiffness regulation and closed-loop control tests.",
+      "Distal mounting location of the AprilTag marker.",
+      "Camera sampling and averaging rate: four AprilTag detections averaged per motor control update.",
+      "Operating pressure identification interval ([0, 40] kPa)."
+    ],
+    "dependent_variables": [
+      "Robot configuration state vector q and estimated segment bending angle θ.",
+      "End-effector position displacement / drift during shape locking after releasing tendon tension.",
+      "Transverse stiffness KT and overall stiffness matrix K.",
+      "Steady-state configuration error metrics (RMS error, mean absolute error MAE, and [θmin, θmax] range).",
+      "Motor current commands and torque inputs."
+    ],
+    "doi": "10.1109/TCST.2026.3690756",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Layer jamming provides tunable stiffness and shape locking by modulating interlayer friction via negative vacuum pressure in an airtight sheath.",
+        "evidence_type": "Physical mechanism description and dynamic port-Hamiltonian modeling",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "The open-loop stiffness is characterized analytically by K = α1*1n×n + (α2 + σ0*φ(uP))*In and scales with the square root of vacuum pressure φ(uP) = c4 + c5*sqrt(uP), fitting experimental transverse stiffness data with R2 = 0.9216.",
+        "evidence_type": "Theoretical derivation and experimental curve fitting",
+        "page_numbers": [
+          6,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Negative vacuum pressure locks the deformed continuum robot shape upon releasing tendon actuation, where higher vacuum pressures result in smaller residual position displacements (3.8 mm at 80 kPa vs 9.2 mm at 30 kPa).",
+        "evidence_type": "Theoretical stability analysis and experimental verification",
+        "page_numbers": [
+          6,
+          11
+        ]
+      },
+      {
+        "claim": "Decoupled regulation of configuration and closed-loop stiffness is achieved because vacuum pressure dominates the stiffness matrix, whereas the energy-shaping gain γ contributes at most 8.73% and α2 contributes at most 3.55%, with their contributions decreasing at higher pressures.",
+        "evidence_type": "Control derivation and experimental quantification",
+        "page_numbers": [
+          7,
+          8,
+          13
+        ]
+      },
+      {
+        "claim": "A passivity-based energy-shaping controller guarantees global asymptotic stability for assignable constant-curvature setpoints, with experimental convergence in under 15 s and steady-state MAE between 0.05 deg and 0.58 deg across 0 to 40 kPa.",
+        "evidence_type": "Lyapunov stability proof and experimental tracking error evaluation",
+        "page_numbers": [
+          7,
+          8,
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "OctRobot-I continuum robotic platform: one-section continuum robot with six segments (n=6), overall length 252 mm, and diameter ~50 mm.",
+      "Actuation: two DYNAMIXEL servo motors (XM430-W350) with customized aluminum spools operating in current regulation mode for direct torque control.",
+      "Vacuum system: micro piston vacuum pump (H40-85), vacuum pressure regulator (SMC IRV10-C08), nonreturn valve, and digital pressure gauge (Panasonic DP-100).",
+      "Optical tracking: distal AprilTag marker tracked by a high frame rate camera (MJEG-640*400 at 210 FPS) processed via Python 3.12.3 multiprocessing, averaging four detections per control cycle.",
+      "Stiffness testing rig: linear actuator and JLBS-M2-10 kg force sensors placed perpendicularly at the end-effector to apply small transverse displacements δx and measure external reaction force fext.",
+      "Jamming sheaths: 5-layer sheath tested up to 80 kPa for shape-locking experiments; 2-layer sheath tested up to 40 kPa for stiffness regulation and closed-loop control experiments."
+    ],
+    "future_work": [
+      "Investigating different jamming layer configurations to demonstrate framework generality and scalability.",
+      "Extending the control formulation from setpoint regulation to trajectory tracking with guaranteed stability.",
+      "Integrating direct task-to-actuator kinematic inversion to address underactuation challenges in continuum robots.",
+      "Extending the framework to other actuation mechanisms and distributed-parameter models such as dynamic Cosserat formulations to account for length-scaling and multisection structures beyond PCC limits.",
+      "Exploring advanced dynamic learning methods (such as Koopman operator, kernel methods, or Gaussian process regression) to approximate nonlinear functions α2(uP) and φ(uP)."
+    ],
+    "independent_variables": [
+      "Vacuum negative pressure uP (tested at 0, 10, 20, 30, 40, 60, and 80 kPa).",
+      "Tendon tension / motor torque inputs u (and transformed input vector τ).",
+      "Desired segment bending angle setpoint θ* (tested at 5 deg, 8 deg, 10 deg, and 15 deg; corresponding to total bending angles 6θ*).",
+      "Controller gains γ (potential energy shaping gain) and KD (damping injection gain matrix).",
+      "Transverse displacement δx applied by the linear actuator at the tip."
+    ],
+    "limitations_inferred": [
+      "The 2-D piecewise constant curvature assumption cannot capture out-of-plane torsional deformations, gravity-induced non-constant curvature under varying spatial orientations, or complex distributed contact along the robot body.",
+      "The necessity of switching between 5-layer and 2-layer sheaths indicates an operational trade-off where high locking capacity limits the continuous stiffness-tuning dynamic control range.",
+      "Reliance on line-of-sight optical tracking of a single distal AprilTag restricts applicability in cluttered or enclosed operational domains (e.g., minimally invasive surgery or collapsed search-and-rescue voids)."
+    ],
+    "limitations_stated_by_authors": [
+      "The model and experimental verification are restricted to a single-section prototype in planar (2-D) bending with two tendon inputs (m=2) under rigid-link and piecewise constant curvature (PCC) approximations.",
+      "Actuator dynamics and mechanical transmission friction are neglected, causing transient trajectory plateaus when antagonistic net motor torque is temporarily insufficient to overcome stiction and jamming resistance.",
+      "Vision-based tracking suffers from transient artifacts (motion blur or image degradation) during motion, creating brief spikes in position estimation.",
+      "Using a single distal AprilTag requires assuming uniform curvature (qi = θ) across segments; tracking multiple markers would introduce computational latency and blur.",
+      "Empirical parameter fitting for α2(uP) is strictly valid within the tested operating interval ([0, 40] kPa).",
+      "Excessive vacuum pressure or higher layer counts can cause unintentional shape locking, hindering dynamic configuration control.",
+      "The controller is formulated and validated for setpoint regulation rather than time-varying trajectory tracking."
+    ],
+    "main_results": [
+      "Formulated a port-Hamiltonian dynamic model combining rigid-link continuum dynamics with LuGre friction dynamics, theoretically proving the local asymptotic stability of the shape-locking equilibrium manifold and deriving an analytical formula for pressure-dependent overall stiffness K = α1*1n×n + (α2 + σ0*φ(uP))*In.",
+      "Experimentally validated shape locking, demonstrating that higher vacuum pressure reduces residual deflection upon tendon release (9.2 mm at 30 kPa, 6.7 mm at 60 kPa, and 3.8 mm at 80 kPa).",
+      "Demonstrated that open-loop transverse stiffness follows a square-root dependence on negative pressure φ(uP) = c4 + c5*sqrt(uP) with an empirical coefficient of determination R2 = 0.9216.",
+      "Synthesized a passivity-based energy-shaping controller with provable global asymptotic stability for assignable configurations, achieving rapid convergence in under 15 s.",
+      "Achieved high configuration regulation accuracy across tested vacuum pressures (0-40 kPa) with steady-state MAE between 0.05 deg and 0.58 deg.",
+      "Demonstrated decoupled control of configuration and stiffness: closed-loop stiffness is dominated by vacuum pressure (via σ0*φ(uP)), with the energy-shaping gain γ contributing at most 8.73% and α2 contributing at most 3.55%, and their relative contributions decreasing as pressure increases."
+    ],
+    "modeling_methods": [
+      "port-Hamiltonian formulation",
+      "energy-based modeling",
+      "rigid-link approximation",
+      "LuGre friction model",
+      "piecewise constant curvature (PCC) assumption",
+      "potential energy-shaping passivity-based control (PBC) with damping injection"
+    ],
+    "performance_metrics": [
+      "Steady-state configuration error metrics: root mean square (RMS) error and mean absolute error (MAE) in degrees over steady-state window IB.",
+      "Transient settling time / convergence duration (s).",
+      "Shape-locking displacement drift (mm) after releasing tendon tension.",
+      "Transverse stiffness KT (fext / δx in N/m) and coefficient of determination R2 for stiffness model fitting.",
+      "Stiffness contribution percentages r1 (from gain γ) and r2 (from elastic coefficient α2)."
+    ],
+    "possible_gap_implications": [
+      "While the port-Hamiltonian LuGre framework successfully decouples stiffness and configuration in 2D single-section robots under PCC, formulating control-oriented dynamic models that capture continuous Cosserat rod dynamics with frictional hysteresis in 3D multisection robots remains an open challenge.",
+      "The reliance on empirical polynomial and square-root parameter identification suggests that a fully predictive, first-principles micro-mechanical model linking membrane properties, sheet surface roughness, and dynamic friction to macro stiffness regulation has not yet been unified with real-time control."
+    ],
+    "research_objective": "To develop a control-oriented port-Hamiltonian dynamic model for layer jamming-based continuum robots that formally characterizes shape locking and tunable stiffness, and to synthesize a passivity-based feedback controller enabling decoupled real-time regulation of configuration and stiffness with provable stability guarantees.",
+    "research_problem": "Most existing layer jamming-based continuum robot models rely on static or quasi-static approximations and lack a rigorous control-oriented dynamical formulation, rendering them unsuitable for real-time control requiring simultaneous regulation of configuration and stiffness and failing to capture dynamic behaviors such as shape locking.",
+    "robot_type": "continuum robot",
+    "stiffness_mechanism": [
+      "layer jamming (LJ)"
+    ],
+    "title": "Modeling, Control, and Stiﬀness Regulation of Layer Jamming-Based Continuum Robots",
+    "year": "2026"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "source": {
+    "paper_id": "b573b2ab6b",
+    "filename": "A Novel Model for Layer Jamming-based Continuum Robots.pdf",
+    "sha256": "b573b2ab6bad556d79298b9374ca2767d8d9785abc03a08736504747ad2b7f63",
+    "page_count": 7,
+    "char_count": 30007,
+    "source_type": "verification",
+    "verification_id": "D1-V003"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24842,
+    "completion_tokens": 3606,
+    "total_tokens": 28448,
+    "thinking_tokens": 1892,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven",
+      "vacuum pressure"
+    ],
+    "authors": [
+      "Bowen Yi",
+      "Yeman Fan",
+      "Dikai Liu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Mass change of air inside the airtight membrane during vacuum pressure variation is negligible, keeping the gravitational parameter constant (Assumption 1a).",
+      "The structural elastic coefficient is positive and constant during pressure variation (Assumption 1b).",
+      "Robot energy dissipation arises exclusively from the lumped friction torque, with the damping matrix set to zero (Assumption 2).",
+      "Negative pressure along the layer is uniformly distributed and linearly proportional to the lumped normal force (Assumption 3).",
+      "All functions and mappings are assumed to be C2-continuous.",
+      "Internal friction parameters satisfy the passivity inequality constraint sigma2 > sigma1 * (muS - muC) / muC, ensuring positive semi-definiteness of the friction damping matrix."
+    ],
+    "control_variables": [
+      "Number of jamming sheath layers (5 layers in stiffness testing)",
+      "Bending angle prior to actuation release in shape-locking tests (60 degrees)",
+      "Repetition count under identical testing conditions (3 trials)"
+    ],
+    "dependent_variables": [
+      "Transverse stiffness at the end-effector (KT)",
+      "Positional displacement / shape retention error after actuator release",
+      "Stability and convergence of the equilibria manifold"
+    ],
+    "doi": "10.1109/ICRA57147.2024.10610912",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Layer jamming utilizes overlapping thin plastic or paper sheets enclosed in an airtight membrane where vacuum pressure modulates interlayer friction to produce variable stiffness.",
+        "evidence_type": "analytical_modeling",
+        "page_numbers": [
+          1
+        ]
+      },
+      {
+        "claim": "The dynamical behavior of a layer jamming-based, tendon-driven continuum robot can be formulated in port-Hamiltonian form by coupling an energy-based rigid link mechanical model with the LuGre friction model.",
+        "evidence_type": "analytical_modeling",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "The equilibria manifold corresponding to shape locking under constant negative pressure without external actuation is locally asymptotically stable via LaSalle's invariance principle.",
+        "evidence_type": "theoretical_derivation",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "The linearized open-loop stiffness matrix at the equilibrium is analytically expressed as a constant structural matrix plus a term directly proportional to the vacuum pressure.",
+        "evidence_type": "theoretical_derivation",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Transverse stiffness measured at the end-effector exhibits a linear correlation with negative pressure, yielding KT = 0.0046*uP + 0.3068 with a determination coefficient of R^2_s = 0.8083.",
+        "evidence_type": "experimental_measurement",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Shape locking preserves a 60-degree bending configuration upon tendon release, with higher negative pressure reducing steady-state position displacement from 9.2 mm at 30 kPa to 3.8 mm at 80 kPa.",
+        "evidence_type": "experimental_measurement",
+        "page_numbers": [
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "OctRobot-I continuum robotic platform configured with motor-driven tendon actuation.",
+      "Airtight membrane containing a jamming sheath composed of 5 overlapping layers installed over the robot spine.",
+      "Transverse stiffness testing apparatus at the end-effector around the open-loop equilibrium under varying negative pressure from 0 to 80 kPa, repeated three times.",
+      "Four-phase shape-locking sequence: Phase 1 (initial unactuated state), Phase 2 (tendon driven to 60-degree bending), Phase 3 (vacuum applied at 30 kPa or 80 kPa while holding motor drive), and Phase 4 (vacuum retained while releasing tendon force to zero).",
+      "Visual tracking and photographic overlay to measure positional shifts between Phase 3 and Phase 4."
+    ],
+    "future_work": [
+      "Synthesizing model-based feedback controllers based on the proposed control-oriented port-Hamiltonian framework.",
+      "Revisiting and refining Assumption 3 concerning the relationship between negative pressure and lumped normal force to improve stiffness prediction accuracy."
+    ],
+    "independent_variables": [
+      "Negative vacuum pressure uP (tested across 0 to 80 kPa; specifically compared at 30 kPa and 80 kPa)",
+      "Tendon tension actuation force u",
+      "External perturbation / displacement around the equilibrium configuration"
+    ],
+    "limitations_inferred": [
+      "The experimental validation was conducted solely on planar 2D bending up to 60 degrees, leaving 3D spatial bending, torsion, and multi-segment interaction unverified.",
+      "Dynamic tracking, cyclic loading, and hysteresis effects during repeated jamming-unjamming transitions were not evaluated.",
+      "Assumptions of constant elasticity and negligible membrane mass omit potential non-linear elastomer stretching or material wear under prolonged vacuum cycling."
+    ],
+    "limitations_stated_by_authors": [
+      "The overall stiffness matrix K cannot be directly measured experimentally; only transverse stiffness KT at the end-effector could be detected.",
+      "The assumed direct proportionality between vacuum pressure and lumped normal force (Assumption 3) requires revision to improve model fitting precision.",
+      "The proposed model is oriented toward control design, but closed-loop feedback controller synthesis was not implemented in this study."
+    ],
+    "main_results": [
+      "Formulated the first control-oriented port-Hamiltonian dynamical model for layer jamming-based continuum robots combining rigid-link dynamics and the LuGre friction model.",
+      "Mathematically proved that shape locking corresponds to a locally asymptotically stable equilibria manifold under constant vacuum pressure.",
+      "Analytically established that robot open-loop stiffness scales linearly with applied vacuum pressure: K = alpha1*1_nxn + [alpha2 + sigma0*uP]*In.",
+      "Empirically demonstrated a linear relationship between end-effector transverse stiffness and negative pressure (R^2_s = 0.8083, KT = 0.0046*uP + 0.3068 N/mm).",
+      "Empirically confirmed that higher vacuum pressure significantly suppresses relaxation displacement during shape locking (3.8 mm at 80 kPa compared to 9.2 mm at 30 kPa)."
+    ],
+    "modeling_methods": [
+      "Port-Hamiltonian framework",
+      "Energy-based Hamiltonian mechanics with rigid link approximation",
+      "LuGre dynamic friction model with virtual bristle deflection",
+      "LaSalle's invariance principle for local asymptotic stability analysis",
+      "Euler-Lagrange reformulation and Jacobian linearization for open-loop stiffness derivation"
+    ],
+    "performance_metrics": [
+      "End-effector transverse stiffness KT (in N/mm)",
+      "Coefficient of determination (R^2_s) for stiffness linearity with pressure",
+      "Positional deviation / displacement during shape locking (in mm)"
+    ],
+    "possible_gap_implications": [
+      "Providing a control-oriented port-Hamiltonian model enables model-based feedback control synthesis for layer-jamming continuum robots, but controller performance will depend on addressing non-linearities in normal force distribution and multi-axis deformations."
+    ],
+    "research_objective": "To develop a control-oriented dynamical model for layer jamming-based, tendon-driven continuum robots integrating energy-based modeling with the LuGre friction model, and to theoretically analyze and experimentally validate shape locking and adjustable stiffness.",
+    "research_problem": "Lack of a control-oriented dynamical model capable of approximating and predicting the dynamical behaviors (specifically shape locking and adjustable stiffness) of layer jamming-based continuum robots with variable stiffness.",
+    "robot_type": "continuum robot",
+    "stiffness_mechanism": [
+      "layer jamming"
+    ],
+    "title": "A Novel Model for Layer Jamming-based Continuum Robots",
+    "year": "2024"
+  }
+}

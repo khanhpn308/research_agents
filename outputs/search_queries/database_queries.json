@@ -1,0 +1,535 @@
+{
+  "source_search_plan_sha256": "274da85205027a56b40b282a45aa8e72b0a9d07e8bac8fa83eede644c6cbc29b",
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 16365,
+    "completion_tokens": 19513,
+    "total_tokens": 35878,
+    "thinking_tokens": 14119,
+    "cache_read_tokens": 0
+  },
+  "queries": [
+    {
+      "concept_blocks": [
+        {
+          "concept": "Layer jamming mechanisms",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "sheet jamming"
+          ]
+        },
+        {
+          "concept": "Mechanics and numerical modeling",
+          "terms": [
+            "finite element",
+            "analytical model",
+            "mechanics model",
+            "constitutive model"
+          ]
+        },
+        {
+          "concept": "Soft robotics and actuators",
+          "terms": [
+            "soft robot*",
+            "continuum robot*",
+            "soft actuator*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior publications presenting validated predictive analytical or FEA mechanics models for layer-jamming soft actuators or continuum robots would directly close or weaken the candidate gap.",
+      "notes": "Avoided equating soft grippers with continuum robots while capturing standard soft robotic actuation terminology.",
+      "priority": "critical",
+      "scholar_query": "(\"layer jamming\" OR \"laminar jamming\") (\"finite element\" OR \"analytical model\") (\"soft robot\" OR \"soft actuator\")",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (\"finite element\" OR \"analytical model\" OR \"mechanics model\" OR \"constitutive model\") AND (\"soft robot*\" OR \"continuum robot*\" OR \"soft actuator*\"))",
+      "screening_focus": [
+        "Analytical mechanics formulation",
+        "Finite element modeling of jammed sheets",
+        "Soft robotic actuation and continuum bending",
+        "Predictive capability vs empirical curve fitting"
+      ],
+      "search_objective": "Identify prior analytical or finite-element mechanics models of layer/laminar jamming specifically formulated for soft robots, continuum robots, or soft actuators.",
+      "verification_id": "GV-001",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (\"finite element\" OR \"analytical model\" OR \"mechanics model\" OR \"constitutive model\") AND (\"soft robot*\" OR \"continuum robot*\" OR \"soft actuator*\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Jamming mechanism",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "sheet jamming"
+          ]
+        },
+        {
+          "concept": "Passive boundary layers",
+          "terms": [
+            "envelope*",
+            "membrane*",
+            "encapsulation",
+            "sheath",
+            "heater*"
+          ]
+        },
+        {
+          "concept": "Contact and material mechanics",
+          "terms": [
+            "friction*",
+            "contact mechanics",
+            "hyperelastic*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Studies demonstrating that passive containment membranes, envelopes, or embedded heater layers significantly alter system stiffness through friction or hyperelasticity and are explicitly integrated into mechanics models.",
+      "notes": "Captures both structural encapsulation membranes and embedded functional layers like heaters.",
+      "priority": "critical",
+      "scholar_query": "(\"layer jamming\" OR \"laminar jamming\") (envelope OR membrane OR encapsulation) (friction OR hyperelastic)",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (envelope* OR membrane* OR encapsulation OR sheath OR heater*) AND (friction* OR \"contact mechanics\" OR hyperelastic*))",
+      "screening_focus": [
+        "Explicit mechanics of enclosing membranes or envelopes",
+        "Interfacial friction between sheets and boundary layers",
+        "Hyperelastic constitutive models for passive elastomeric components",
+        "Heater layer structural contribution"
+      ],
+      "search_objective": "Identify literature accounting for passive structural layers (outer envelope, membrane, encapsulation sheath, or integrated heater) and their interfacial contact/friction or hyperelastic mechanics in layer-jamming systems.",
+      "verification_id": "GV-002",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (envelope* OR membrane* OR encapsulation OR sheath OR heater*) AND (friction* OR \"contact mechanics\" OR hyperelastic*))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Jamming mechanism",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "sheet jamming"
+          ]
+        },
+        {
+          "concept": "Dual operational states",
+          "terms": [
+            "jammed AND unjammed",
+            "stiff AND compliant",
+            "jamming transition"
+          ]
+        },
+        {
+          "concept": "Predictive validation",
+          "terms": [
+            "stiffness model*",
+            "predictive model*",
+            "bending stiffness",
+            "validation"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "A mechanics formulation capable of continuous or piece-wise unified prediction of bending stiffness and deformation validated against both unjammed and jammed state experiments.",
+      "notes": "Requires both 'jammed' and 'unjammed' terms simultaneously to filter out papers that only test or model the fully activated state.",
+      "priority": "critical",
+      "scholar_query": "(\"layer jamming\" OR \"laminar jamming\") (jammed AND unjammed) (\"stiffness model\" OR \"predictive model\")",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (jammed AND unjammed) AND (\"stiffness model*\" OR \"predictive model*\" OR \"bending stiffness\" OR validation))",
+      "screening_focus": [
+        "Unified modeling spanning both jammed and unjammed states",
+        "Continuous or state-dependent stiffness formulation",
+        "Experimental validation of both compliant and rigid regimes"
+      ],
+      "search_objective": "Identify unified mechanics models of layer jamming that predict and validate stiffness across both unjammed (passive compliant) and jammed (active stiffened) operational regimes.",
+      "verification_id": "GV-003",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (jammed AND unjammed) AND (\"stiffness model*\" OR \"predictive model*\" OR \"bending stiffness\" OR validation))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Variable stiffness soft actuation",
+          "terms": [
+            "variable stiffness",
+            "tunable stiffness",
+            "soft actuator*",
+            "soft robot*"
+          ]
+        },
+        {
+          "concept": "Large deformation & hyperelasticity",
+          "terms": [
+            "large deformation*",
+            "finite strain",
+            "hyperelastic*",
+            "Mooney-Rivlin",
+            "Ogden"
+          ]
+        },
+        {
+          "concept": "Frictional contact / jamming",
+          "terms": [
+            "jamming",
+            "frictional contact",
+            "interlayer friction"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior research implementing geometrically nonlinear large-strain continuum formulations or finite-element contact models with hyperelasticity for variable-stiffness jamming actuators.",
+      "notes": "Distinguishes between linear small-deflection beam models and nonlinear continuum kinematics.",
+      "priority": "critical",
+      "scholar_query": "\"variable stiffness\" \"soft actuator\" (\"large deformation\" OR hyperelastic) (jamming OR \"frictional contact\")",
+      "scopus_query": "TITLE-ABS-KEY((\"variable stiffness\" OR \"tunable stiffness\") AND (\"soft actuator*\" OR \"soft robot*\") AND (\"large deformation*\" OR \"finite strain\" OR hyperelastic* OR \"Mooney-Rivlin\" OR Ogden) AND (jamming OR \"frictional contact\" OR \"interlayer friction\"))",
+      "screening_focus": [
+        "Geometrically nonlinear / large-deformation formulation",
+        "Hyperelastic strain energy potentials (Mooney-Rivlin, Ogden, Yeoh)",
+        "Frictional slip interface under finite bending"
+      ],
+      "search_objective": "Identify large-deformation / finite-strain mechanics formulations coupling hyperelasticity (e.g. Ogden, Mooney-Rivlin) with frictional contact or jamming in variable-stiffness soft actuators.",
+      "verification_id": "GV-004",
+      "wos_query": "TS=((\"variable stiffness\" OR \"tunable stiffness\") AND (\"soft actuator*\" OR \"soft robot*\") AND (\"large deformation*\" OR \"finite strain\" OR hyperelastic* OR \"Mooney-Rivlin\" OR Ogden) AND (jamming OR \"frictional contact\" OR \"interlayer friction\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Shape memory polymers",
+          "terms": [
+            "shape memory polymer*",
+            "SMP"
+          ]
+        },
+        {
+          "concept": "Layer jamming",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "sheet jamming"
+          ]
+        },
+        {
+          "concept": "Thermomechanical / Multiphysics modeling",
+          "terms": [
+            "thermomechanical*",
+            "viscoelastic*",
+            "multiphysics",
+            "finite element*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior art describing an integrated SMP-layer jamming mechanism accompanied by a coupled thermal-phase-change and mechanical/frictional model.",
+      "notes": "Targets hybrid mechanisms where both SMP and layer jamming contribute to stiffness modulation.",
+      "priority": "critical",
+      "scholar_query": "\"shape memory polymer\" (\"layer jamming\" OR \"laminar jamming\") (thermomechanical OR viscoelastic OR \"finite element\")",
+      "scopus_query": "TITLE-ABS-KEY((\"shape memory polymer*\" OR \"SMP\") AND (\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (thermomechanical* OR viscoelastic* OR multiphysics OR \"finite element*\"))",
+      "screening_focus": [
+        "Co-location of SMP and laminar/layer jamming mechanisms",
+        "Thermomechanical constitutive models capturing glass transition",
+        "Coupling of thermal activation with friction/jamming state"
+      ],
+      "search_objective": "Identify hybrid variable-stiffness systems coupling shape memory polymers (SMP) with layer jamming that implement thermomechanical, viscoelastic, or multiphysics models.",
+      "verification_id": "GV-005",
+      "wos_query": "TS=((\"shape memory polymer*\" OR \"SMP\") AND (\"layer jamming\" OR \"laminar jamming\" OR \"sheet jamming\") AND (thermomechanical* OR viscoelastic* OR multiphysics OR \"finite element*\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Benchmark DOI tracking",
+          "terms": [
+            "10.1109/LRA.2024.3357035",
+            "10.1109/TMECH.2024.3352643"
+          ]
+        },
+        {
+          "concept": "Core mechanism & passive elements",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "envelope*",
+            "heater*",
+            "membrane*"
+          ]
+        },
+        {
+          "concept": "Nonlinear mechanics & contact",
+          "terms": [
+            "frictional slip",
+            "interlayer friction",
+            "nonlinear elastomer*",
+            "contact mechanics"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Direct citation network members of the two seed papers that propose mechanics models encompassing envelope/heater layers, elastomer elasticity, and frictional slip.",
+      "notes": "Queries incorporate the specific seed DOIs while retaining key physical mechanisms for databases where DOI citation searching requires topic-level fallback.",
+      "priority": "critical",
+      "scholar_query": "(\"10.1109/LRA.2024.3357035\" OR \"10.1109/TMECH.2024.3352643\") OR (\"layer jamming\" envelope heater \"frictional slip\")",
+      "scopus_query": "TITLE-ABS-KEY((\"10.1109/LRA.2024.3357035\" OR \"10.1109/TMECH.2024.3352643\") OR ((\"layer jamming\" OR \"laminar jamming\") AND (envelope* OR heater* OR \"passive layer*\") AND (\"frictional slip\" OR \"contact mechanics\" OR elastomer*)))",
+      "screening_focus": [
+        "Direct forward/backward citation relationship to seed papers",
+        "Inclusion of passive containment envelope or integrated heater in governing equations",
+        "Frictional slip modeling between sheets and boundary layers"
+      ],
+      "search_objective": "Trace forward and backward citations of benchmark DOIs 10.1109/LRA.2024.3357035 and 10.1109/TMECH.2024.3352643, filtering for models incorporating envelope/heater layers, nonlinear elastomers, and frictional slip.",
+      "verification_id": "GV-006",
+      "wos_query": "TS=((\"10.1109/LRA.2024.3357035\" OR \"10.1109/TMECH.2024.3352643\") OR ((\"layer jamming\" OR \"laminar jamming\") AND (envelope* OR heater* OR \"passive layer*\") AND (\"frictional slip\" OR \"contact mechanics\" OR elastomer*)))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Layer jamming mechanisms",
+          "terms": [
+            "layer jamming",
+            "laminar jamming"
+          ]
+        },
+        {
+          "concept": "Constitutive & contact modeling",
+          "terms": [
+            "constitutive",
+            "contact formulation*",
+            "friction model*"
+          ]
+        },
+        {
+          "concept": "Validation & reproducibility metrics",
+          "terms": [
+            "prediction error*",
+            "experimental validation",
+            "held-out",
+            "code",
+            "dataset"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior layer-jamming publications providing benchmarked quantitative validation data (e.g. held-out test error percentages, open-source FEA models, or parameter tables) spanning unjammed and jammed states.",
+      "notes": "Focuses on rigorous methodological reporting and reproducibility standards in layer-jamming mechanics.",
+      "priority": "critical",
+      "scholar_query": "(\"layer jamming\" OR \"laminar jamming\") (\"contact formulation\" OR constitutive) (\"prediction error\" OR validation)",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\") AND (\"constitutive\" OR \"contact formulation\" OR \"friction model*\") AND (\"prediction error*\" OR \"experimental validation\" OR \"held-out\" OR \"code\" OR \"dataset\"))",
+      "screening_focus": [
+        "Reported quantitative prediction errors (RMSE, MAPE)",
+        "Explicit contact formulation parameters",
+        "Coverage across both jammed and unjammed states",
+        "Availability of open code, simulation files, or raw validation datasets"
+      ],
+      "search_objective": "Extract and identify studies on layer jamming that provide quantitative validation, held-out prediction error metrics, constitutive contact formulations, and reusable code or parameter sets.",
+      "verification_id": "GV-007",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\") AND (\"constitutive\" OR \"contact formulation\" OR \"friction model*\") AND (\"prediction error*\" OR \"experimental validation\" OR \"held-out\" OR \"code\" OR \"dataset\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Multi-layer & laminated structures",
+          "terms": [
+            "multi-layer*",
+            "laminated",
+            "sheet stack*"
+          ]
+        },
+        {
+          "concept": "Frictional contact mechanics",
+          "terms": [
+            "frictional contact",
+            "interlayer friction",
+            "Coulomb friction"
+          ]
+        },
+        {
+          "concept": "Hyperelastic encapsulation / membranes",
+          "terms": [
+            "hyperelastic*",
+            "elastomeric membrane",
+            "encapsulat*"
+          ]
+        },
+        {
+          "concept": "Solid and continuum mechanics",
+          "terms": [
+            "solid mechanics",
+            "finite element*",
+            "continuum mechanics"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Foundational solid mechanics papers demonstrating that the mechanics of multi-layer frictional contact within hyperelastic membranes are already well-established standard formulations.",
+      "notes": "Expands boundary beyond soft robotics into classical solid mechanics to detect if the candidate gap is an artifact of narrow literature boundaries.",
+      "priority": "high",
+      "scholar_query": "(\"multi-layer\" OR \"laminated\") \"frictional contact\" (hyperelastic OR \"elastomeric membrane\") \"solid mechanics\"",
+      "scopus_query": "TITLE-ABS-KEY((\"multi-layer*\" OR \"laminated\" OR \"sheet stack*\") AND (\"frictional contact\" OR \"interlayer friction\") AND (hyperelastic* OR \"elastomeric membrane\" OR \"encapsulat*\") AND (\"solid mechanics\" OR \"finite element*\" OR \"continuum mechanics\"))",
+      "screening_focus": [
+        "Pre-existing theoretical formulations in general solid mechanics",
+        "Laminated frictional contact modeling with elastomeric envelopes outside robotics",
+        "Identification of boundary condition treatments already solved in computational mechanics"
+      ],
+      "search_objective": "Determine whether multi-layer frictional contact enveloped by hyperelastic membranes is already an established, solved problem in broader solid mechanics and laminated composite literature.",
+      "verification_id": "GV-026",
+      "wos_query": "TS=((\"multi-layer*\" OR \"laminated\" OR \"sheet stack*\") AND (\"frictional contact\" OR \"interlayer friction\") AND (hyperelastic* OR \"elastomeric membrane\" OR \"encapsulat*\") AND (\"solid mechanics\" OR \"finite element*\" OR \"continuum mechanics\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Jamming actuator mechanisms",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "variable stiffness actuator"
+          ]
+        },
+        {
+          "concept": "Commercial FEA solvers",
+          "terms": [
+            "Abaqus",
+            "ANSYS",
+            "COMSOL",
+            "commercial finite element"
+          ]
+        },
+        {
+          "concept": "Standard contact & hyperelasticity",
+          "terms": [
+            "contact",
+            "penalty",
+            "hyperelastic*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior publications showing that standard built-in contact formulations and hyperelastic models in commercial FEA software adequately capture layer-jamming actuator physics without custom scientific modeling.",
+      "notes": "Tests whether the proposed work is standard engineering simulation versus a novel scientific mechanics contribution.",
+      "priority": "high",
+      "scholar_query": "(\"layer jamming\" OR \"variable stiffness actuator\") (Abaqus OR ANSYS OR COMSOL) (\"contact\" OR hyperelastic)",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\" OR \"variable stiffness actuator\") AND (Abaqus OR ANSYS OR COMSOL OR \"commercial finite element\") AND (\"contact\" OR \"penalty\" OR hyperelastic*))",
+      "screening_focus": [
+        "Implementation using standard commercial solver capabilities vs custom user subroutines (UMAT/VUMAT)",
+        "Sufficiency of routine contact definitions (penalty/augmented Lagrangian)",
+        "Demonstrated predictive accuracy from standard commercial FEA workflows"
+      ],
+      "search_objective": "Assess whether predicting variable-stiffness jamming actuator behavior using commercial FEA packages (Abaqus, ANSYS, COMSOL) with standard contact pairs and hyperelastic models is routine engineering practice rather than an open scientific gap.",
+      "verification_id": "GV-027",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\" OR \"variable stiffness actuator\") AND (Abaqus OR ANSYS OR COMSOL OR \"commercial finite element\") AND (\"contact\" OR \"penalty\" OR hyperelastic*))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Jamming beam mechanisms",
+          "terms": [
+            "layer jamming",
+            "laminar jamming",
+            "variable stiffness beam"
+          ]
+        },
+        {
+          "concept": "Rigorous beam & scaling theories",
+          "terms": [
+            "beam theory",
+            "scaling law*",
+            "Timoshenko",
+            "Euler-Bernoulli"
+          ]
+        },
+        {
+          "concept": "Stiffness formulations",
+          "terms": [
+            "bending stiffness",
+            "effective stiffness",
+            "EI"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Existing literature deriving multi-layer beam theories (incorporating shear slip, friction thresholds, or pressure scaling) that serve as established baselines, demonstrating that 1D EI heuristics are artificially weak.",
+      "notes": "Aims to verify if claiming novelty over a naive 1D heuristic ignores established composite beam mechanics.",
+      "priority": "high",
+      "scholar_query": "(\"layer jamming\" OR \"variable stiffness beam\") (\"beam theory\" OR \"Timoshenko\") (\"bending stiffness\" OR \"scaling law\")",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\" OR \"variable stiffness beam\") AND (\"beam theory\" OR \"scaling law*\" OR \"Timoshenko\" OR \"Euler-Bernoulli\") AND (\"bending stiffness\" OR \"effective stiffness\" OR \"EI\"))",
+      "screening_focus": [
+        "Analytical beam formulations accounting for interlayer friction and pressure",
+        "Prior use of Timoshenko or higher-order beam theories for jamming",
+        "Comparison of proposed models against rigorous existing analytical baselines rather than naive scaling laws"
+      ],
+      "search_objective": "Identify established analytical mechanics models and benchmark baselines for variable-stiffness layer jamming beams to determine if a simple 1D scaling heuristic (K proportional to E(T)I(P)) represents a strawman baseline.",
+      "verification_id": "GV-028",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\" OR \"variable stiffness beam\") AND (\"beam theory\" OR \"scaling law*\" OR \"Timoshenko\" OR \"Euler-Bernoulli\") AND (\"bending stiffness\" OR \"effective stiffness\" OR \"EI\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Shape memory polymers",
+          "terms": [
+            "shape memory polymer*",
+            "SMP"
+          ]
+        },
+        {
+          "concept": "Glass transition phenomena",
+          "terms": [
+            "glass transition",
+            "Tg"
+          ]
+        },
+        {
+          "concept": "Thermoviscoelastic mechanics",
+          "terms": [
+            "thermoviscoelastic*",
+            "time-temperature superposition",
+            "viscoelastic*"
+          ]
+        },
+        {
+          "concept": "Variable stiffness & soft actuators",
+          "terms": [
+            "variable stiffness",
+            "soft actuator*",
+            "soft robot*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Evidence showing that temperature/rate-dependent thermoviscoelasticity dominates stiffness changes across the glass transition by orders of magnitude, making passive layer or geometric nonlinearities minor second-order effects.",
+      "notes": "Critically evaluates whether neglecting thermoviscoelasticity while focusing on geometric nonlinearity misses the dominant physics.",
+      "priority": "high",
+      "scholar_query": "\"shape memory polymer\" (\"glass transition\" OR Tg) (thermoviscoelastic OR viscoelastic) (\"variable stiffness\" OR \"soft actuator\")",
+      "scopus_query": "TITLE-ABS-KEY((\"shape memory polymer*\" OR \"SMP\") AND (\"glass transition\" OR \"Tg\") AND (thermoviscoelastic* OR \"time-temperature superposition\" OR viscoelastic*) AND (\"variable stiffness\" OR \"soft actuator*\" OR \"soft robot*\"))",
+      "screening_focus": [
+        "Magnitude of thermoviscoelastic modulus shift across Tg",
+        "Time- and temperature-dependent relaxation kinetics",
+        "Dominance of bulk material phase change over interface contact mechanics"
+      ],
+      "search_objective": "Examine whether the thermoviscoelastic phase transition across the glass transition (Tg) is the governing physical mechanism in SMP variable-stiffness actuators, rendering purely geometric/passive layer omissions secondary.",
+      "verification_id": "GV-029",
+      "wos_query": "TS=((\"shape memory polymer*\" OR \"SMP\") AND (\"glass transition\" OR \"Tg\") AND (thermoviscoelastic* OR \"time-temperature superposition\" OR viscoelastic*) AND (\"variable stiffness\" OR \"soft actuator*\" OR \"soft robot*\"))"
+    },
+    {
+      "concept_blocks": [
+        {
+          "concept": "Layer jamming mechanisms",
+          "terms": [
+            "layer jamming",
+            "laminar jamming"
+          ]
+        },
+        {
+          "concept": "Generalization & framework transferability",
+          "terms": [
+            "generalized model*",
+            "unified framework",
+            "transferable",
+            "scaling law*"
+          ]
+        },
+        {
+          "concept": "Diverse robotic architectures",
+          "terms": [
+            "continuum robot*",
+            "gripper",
+            "wearable",
+            "bending actuator*"
+          ]
+        }
+      ],
+      "gap_closing_evidence": "Prior work establishing generalizable mechanics principles for layer jamming that are validated across multiple geometric form factors without requiring bespoke platform-specific tuning.",
+      "notes": "Examines whether theoretical mechanics for layer jamming are already formulated in geometry-agnostic forms.",
+      "priority": "high",
+      "scholar_query": "(\"layer jamming\" OR \"laminar jamming\") (\"generalized model\" OR \"unified framework\") (\"continuum robot\" OR gripper)",
+      "scopus_query": "TITLE-ABS-KEY((\"layer jamming\" OR \"laminar jamming\") AND (\"generalized model*\" OR \"unified framework\" OR \"transferable\" OR \"scaling law*\") AND (\"continuum robot*\" OR \"gripper\" OR \"wearable\" OR \"bending actuator*\"))",
+      "screening_focus": [
+        "Model validation across distinct geometric configurations",
+        "Non-dimensional scaling laws or architecture-independent formulations",
+        "Generalizability beyond single-prototype curve fitting"
+      ],
+      "search_objective": "Identify generalized, transferable mechanics frameworks for layer jamming that apply across diverse soft robotic architectures (e.g. grippers, continuum arms, wearables) rather than being confined to a single prototype.",
+      "verification_id": "GV-030",
+      "wos_query": "TS=((\"layer jamming\" OR \"laminar jamming\") AND (\"generalized model*\" OR \"unified framework\" OR \"transferable\" OR \"scaling law*\") AND (\"continuum robot*\" OR \"gripper\" OR \"wearable\" OR \"bending actuator*\"))"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "source": {
+    "paper_id": "95646b2cfc",
+    "filename": "2025-A continuum-based model for a layer jamming beam.pdf",
+    "sha256": "95646b2cfc4bd65cbf8564775714afedfa0f2864fcbdc96c8287390b2989b8dd",
+    "page_count": 10,
+    "char_count": 39347,
+    "source_type": "verification",
+    "verification_id": "D1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27312,
+    "completion_tokens": 6404,
+    "total_tokens": 33716,
+    "thinking_tokens": 4325,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "vacuum pressure"
+    ],
+    "authors": [
+      "Shuai Zhang",
+      "Jiantao Yao",
+      "Wumian Zhao",
+      "Chunjie Wei"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The layer jamming structure can be modeled as a continuous medium under the assumption of infinitely many thin layers (layer thickness approaches zero while total beam height remains constant, delta/h << 1).",
+      "A plane stress state is assumed for material points following Euler-Bernoulli beam theory, with interlaminar normal strain neglected.",
+      "Elastic deformation-induced pressure between sheets is neglected, so maximum static friction per unit area is governed by Coulomb friction (mu * p, where p is vacuum pressure and mu is friction coefficient).",
+      "Material deformation behaves elastoplastically: purely elastic and reversible in the jamming state (|tau| < mu * p), and undergoing irreversible plastic sliding when yielding (|tau| >= mu * p).",
+      "Normal stress distribution is assumed continuous across the boundary separating jamming and sliding regions.",
+      "Shear stress in the sliding region is uniform (|tau| = mu * p), leading to the normal stress in the sliding region depending only on the beam longitudinal coordinate s.",
+      "The radius of curvature of the beam is significantly larger than the beam height.",
+      "Small deformations are assumed within each incremental loading step for large-deformation solutions."
+    ],
+    "control_variables": [
+      "Beam dimensions in FEA (length = 40 mm, height = 5 mm, width/thickness = 20 mm)",
+      "Beam dimensions in physical experiment (length = 100 mm, height = 5 mm, width/thickness = 20 mm)",
+      "Finite element element type and mesh size (CPS4R elements with 0.1 mm edge length in Abaqus)",
+      "Confining pressure level during physical validation (60 kPa) and FEA (0.1 MPa)",
+      "Boundary condition: cantilever root fixed to a frame that slides along a rail to eliminate horizontal restraint"
+    ],
+    "dependent_variables": [
+      "Internal shear stress distribution tau(y, s)",
+      "Internal normal stress distribution sigma(y, s)",
+      "Vertical boundary between jamming and sliding regions (ys)",
+      "Critical shear force thresholds (Qslip and Qmax) separating full-jamming, half-slipping, and full-slipping states",
+      "Cantilever deflection and load-deflection response",
+      "Internal axial forces and bending moments (N, Q, M, NJ, MJ)"
+    ],
+    "doi": "10.5194/ms-16-821-2025",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Treating a layer jamming structure as a continuum elastoplastic medium with continuous stress and strain fields across the height is valid for multi-layer beams (typically n >= 10).",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "The mechanical behavior of the layer jamming structure can be categorized into loading, yielding, and unloading stages, where yielding sliding corresponds to irreversible plastic deformation governed by Coulomb friction limits.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          3
+        ]
+      },
+      {
+        "claim": "Analytical derivations determine specific threshold shear forces (Qslip = 2/3 * mu * p * b * h and Qmax) that define the boundaries between full jamming, half slipping, and full slipping cross-sectional states.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "FEA simulations on 10-layer and 25-layer cantilevers demonstrate that stress distributions away from beam boundaries match continuum predictions and become smoother as layer count increases.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Neglecting interlaminar normal stress along the vertical axis in the analytical model causes an overestimation of the sliding region width compared to FEA.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "Experimental load-deflection curves of a 20-layer PVC cantilever under 60 kPa vacuum pressure show that continuum model predictions fall entirely within the one standard deviation interval of measured data.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Straight layer jamming cantilever specimen composed of 20 PVC sheets enclosed within a flexible PVC membrane (specimen dimensions: 100 mm length, 20 mm width/thickness, 5 mm height).",
+      "Specimen fixed to a mounting frame mounted on a free-sliding rail mechanism designed to release horizontal restraint.",
+      "Tensile testing machine used to apply transversal load and measure load-deflection behavior under a regulated vacuum pressure of 60 kPa."
+    ],
+    "future_work": [
+      "Incorporation of boundary correction factors into the continuum model to better capture end effects near constraints and free ends.",
+      "Development of a more detailed analytical treatment of beam curvature in the jamming region under large-slip conditions.",
+      "Utilization of FEA for final verification of designs near free boundaries or under extreme loads causing full slipping."
+    ],
+    "independent_variables": [
+      "Number of beam layers (10 and 25 in FEA; 20 in physical experiment)",
+      "Applied transverse load / concentrated force (e.g., 3 N, 4 N, 5.5 N in FEA; continuous loading in tensile testing)",
+      "Longitudinal position along the beam axis (s)",
+      "Vertical position across the beam cross-section height (y)",
+      "Applied vacuum / confining pressure (p)"
+    ],
+    "limitations_inferred": [
+      "Experimental validation was restricted to a single material (PVC), static/quasi-static loading, and one pressure level (60 kPa), leaving performance under dynamic cyclic loading or varying pressure uncharacterized.",
+      "The continuum assumption cannot capture discrete layer phenomena such as individual sheet buckling or wrinkling when layer counts are small.",
+      "Interlayer friction is treated with an idealized constant Coulomb friction coefficient, omitting effects of surface wear, degradation, or pressure-dependent friction variation."
+    ],
+    "limitations_stated_by_authors": [
+      "The model neglects interlaminar normal stress along the y-axis, which leads to an overestimation of the sliding region extent compared to FEA.",
+      "The continuum formulation does not explicitly account for constraint boundary or end effects, leading to discrepancies in shear stress distributions near cantilever ends (e.g., at s = 1 mm).",
+      "Significant shear stress discrepancies occur in the jamming region under the full-slipping state because the beam segments behave as curved beams, whereas the model assumes straight-beam shear stress patterns.",
+      "The model is less accurate under extreme loading leading to full slipping and near free boundaries."
+    ],
+    "main_results": [
+      "The continuum-based layer jamming model (CLJM) successfully predicts internal shear stress, normal stress distributions, and deformation across full-jamming, half-slipping, and full-slipping states.",
+      "Closed-form critical shear force formulas were established: Qslip = (2/3) * mu * p * b * h for sliding initiation, and Qmax for transition to full slipping.",
+      "FEA simulations confirm that the continuum representation holds well for layer counts n >= 10, with stress distributions matching continuum predictions in central beam segments.",
+      "Experimental load-deflection measurements under 60 kPa confining pressure fall entirely within the analytical model's 1-sigma uncertainty band."
+    ],
+    "modeling_methods": [
+      "Continuum mechanics modeling treating multi-layer systems as a continuous medium under the limit of infinite thin layers (delta -> 0, n -> infinity).",
+      "Euler-Bernoulli curved beam equilibrium formulations relating internal forces (axial force N, shear force Q, moment M) to distributed loads.",
+      "Sectional elastoplastic analysis in tau-sigma stress space implementing Coulomb friction slip criteria.",
+      "Step-by-step incremental algorithm to handle large external loads under small-deformation incremental steps.",
+      "Finite element analysis (FEA) using Abaqus with 2D plane-stress quadrilateral elements (CPS4R)."
+    ],
+    "performance_metrics": [
+      "Load-deflection response and deviation relative to the experimental mean and +/- 1 standard deviation interval",
+      "Agreement of predicted normal and shear stress profiles across the cross-section with FEA benchmarks",
+      "Extent and boundary position of the interlayer sliding zone (ys)"
+    ],
+    "possible_gap_implications": [
+      "Addressing boundary effects and curved-beam shear corrections analytically could enable accurate real-time control models for variable-stiffness soft robotic limbs and grippers without requiring computationally heavy FEA.",
+      "Extending the continuum formulation from 2D bending cantilevers to 3D spatial multi-axial deformations (torsion, tension, and out-of-plane bending) represents an important open research direction for continuum robots."
+    ],
+    "research_objective": "To develop a continuum-based analytical model (CLJM) that treats layer jamming structures with a large number of thin layers as a continuous medium to evaluate internal stress distributions (shear and normal stress) and deformation across full-jamming, half-slipping, and full-slipping states.",
+    "research_problem": "Existing analytical models for layer jamming structures typically model mechanics on a discrete layer-by-layer basis, making them impractical for multi-layer beams with numerous layers and failing to capture detailed continuous stress distributions and deformations with significant interlayer slip.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "layer jamming"
+    ],
+    "title": "A continuum-based model for a layer jamming beam",
+    "year": "2025"
+  }
+}
