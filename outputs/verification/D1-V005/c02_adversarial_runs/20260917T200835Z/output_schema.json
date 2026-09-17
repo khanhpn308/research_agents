@@ -1,0 +1,307 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "current_p1",
+    "executive_summary",
+    "paper_audits",
+    "high_threat_criterion_audit",
+    "kill_test",
+    "strongest_threats",
+    "surviving_gap",
+    "c03_search_needed",
+    "c03_search_rationale",
+    "final_project_novelty_verdict_allowed",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIED",
+        "SUBSTANTIALLY_NARROWED",
+        "NO_KILL_BUT_HIGH_THREAT",
+        "NO_TRANSFERABLE_KILL_FOUND"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "current_p1": {
+      "type": "string"
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "paper_audits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "title",
+          "evidence_status",
+          "threat_to_p1",
+          "physical_analogue",
+          "interface_or_connection_model",
+          "reduced_or_equivalent_model",
+          "governing_parameters",
+          "quantitative_error_evidence",
+          "criterion_or_threshold",
+          "criterion_type",
+          "declared_tolerance",
+          "validity_domain",
+          "breakdown_boundary",
+          "transferability_to_vacuum_layer_jamming",
+          "what_it_proves",
+          "what_it_does_not_prove"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "VERIFIED_FULL_TEXT",
+              "INFERENCE"
+            ]
+          },
+          "threat_to_p1": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          },
+          "physical_analogue": {
+            "type": "string"
+          },
+          "interface_or_connection_model": {
+            "type": "string"
+          },
+          "reduced_or_equivalent_model": {
+            "type": "string"
+          },
+          "governing_parameters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quantitative_error_evidence": {
+            "type": "string"
+          },
+          "criterion_or_threshold": {
+            "type": "string"
+          },
+          "criterion_type": {
+            "type": "string",
+            "enum": [
+              "none",
+              "numerical_convergence",
+              "physical_transition",
+              "design_rule",
+              "model_validity",
+              "unclear"
+            ]
+          },
+          "declared_tolerance": {
+            "type": "string"
+          },
+          "validity_domain": {
+            "type": "string"
+          },
+          "breakdown_boundary": {
+            "type": "string"
+          },
+          "transferability_to_vacuum_layer_jamming": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "partial",
+              "weak",
+              "not_demonstrated"
+            ]
+          },
+          "what_it_proves": {
+            "type": "string"
+          },
+          "what_it_does_not_prove": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "high_threat_criterion_audit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "criterion",
+          "criterion_type",
+          "is_predeclared_tolerance_based",
+          "is_model_form_validity_boundary",
+          "is_only_numerical_or_design_criterion",
+          "transferability",
+          "assessment"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "criterion": {
+            "type": "string"
+          },
+          "criterion_type": {
+            "type": "string",
+            "enum": [
+              "none",
+              "numerical_convergence",
+              "physical_transition",
+              "design_rule",
+              "model_validity",
+              "unclear"
+            ]
+          },
+          "is_predeclared_tolerance_based": {
+            "type": "boolean"
+          },
+          "is_model_form_validity_boundary": {
+            "type": "boolean"
+          },
+          "is_only_numerical_or_design_criterion": {
+            "type": "boolean"
+          },
+          "transferability": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "partial",
+              "weak",
+              "not_demonstrated"
+            ]
+          },
+          "assessment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "kill_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "named_reduced_or_equivalent_model",
+        "interface_resolving_or_exact_reference",
+        "governing_interaction_parameter",
+        "quantitative_model_form_error",
+        "finite_parameter_or_discreteness_sweep",
+        "predeclared_acceptance_tolerance",
+        "tolerance_defined_validity_domain",
+        "validated_breakdown_boundary",
+        "transferable_to_pressure_dependent_friction_without_new_mechanics",
+        "kill_condition_met",
+        "evidence_summary"
+      ],
+      "properties": {
+        "named_reduced_or_equivalent_model": {
+          "type": "boolean"
+        },
+        "interface_resolving_or_exact_reference": {
+          "type": "boolean"
+        },
+        "governing_interaction_parameter": {
+          "type": "boolean"
+        },
+        "quantitative_model_form_error": {
+          "type": "boolean"
+        },
+        "finite_parameter_or_discreteness_sweep": {
+          "type": "boolean"
+        },
+        "predeclared_acceptance_tolerance": {
+          "type": "boolean"
+        },
+        "tolerance_defined_validity_domain": {
+          "type": "boolean"
+        },
+        "validated_breakdown_boundary": {
+          "type": "boolean"
+        },
+        "transferable_to_pressure_dependent_friction_without_new_mechanics": {
+          "type": "boolean"
+        },
+        "kill_condition_met": {
+          "type": "boolean"
+        },
+        "evidence_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "strongest_threats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "threat",
+          "why_it_matters",
+          "remaining_gap"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "threat": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          },
+          "why_it_matters": {
+            "type": "string"
+          },
+          "remaining_gap": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "surviving_gap": {
+      "type": "string"
+    },
+    "c03_search_needed": {
+      "type": "boolean"
+    },
+    "c03_search_rationale": {
+      "type": "string"
+    },
+    "final_project_novelty_verdict_allowed": {
+      "type": "boolean"
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}
