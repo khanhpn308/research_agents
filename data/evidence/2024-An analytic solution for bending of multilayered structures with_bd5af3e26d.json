@@ -1,0 +1,172 @@
+{
+  "source": {
+    "paper_id": "bd5af3e26d",
+    "filename": "2024-An analytic solution for bending of multilayered structures with.pdf",
+    "sha256": "bd5af3e26decf56c75116e0ade5f247dd736f1df312db7e1dec9aac746355b9d",
+    "page_count": 13,
+    "char_count": 55971,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32291,
+    "completion_tokens": 7057,
+    "total_tokens": 39348,
+    "thinking_tokens": 4261,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Shenyou Peng",
+      "Zelin Zhu",
+      "Yujie Wei"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic deformation in both the structural layers and the adhesive interfaces (p. 2)",
+      "Linear relationship between interfacial tangential shear force per unit length and tangential slip (t = K*delta, where K is interfacial stiffness) (p. 2, 3, 6)",
+      "Euler-Bernoulli beam theory applies to slender beams under plane-stress conditions, neglecting displacement in the width direction (p. 2, 3, 8)",
+      "Kirchhoff-Love plate hypotheses govern the bending of circular plates (p. 5, 8)",
+      "Negligible interlayer thickness and zero normal separation at interfaces, resulting in identical transverse deflection across all layers (p. 2, 5, 8)",
+      "Uniform geometry and isotropic linear elastic material properties (identical thickness and Young's modulus) across all layers (p. 2, 5, 8)"
+    ],
+    "control_variables": [
+      "Beam FEA dimensions: length L = 100 mm, total thickness H = 10 mm (layer thickness 2h = H/n), out-of-plane width b = 10 mm (p. 3)",
+      "Beam layer material properties: Young's modulus E = 200 GPa (p. 3)",
+      "Beam interfacial shear stiffness test values: K = 20 MPa, 200 MPa, and 2000 MPa (p. 3)",
+      "Beam FEA mesh: quadrilateral plane stress elements with 0.1 mm mesh size and 10 elements along thickness per layer; interface modeled using COH2D4 cohesive elements (p. 3)",
+      "Plate FEA dimensions and material properties: radius R = 100 mm, total thickness H = 10 mm, Young's modulus E = 200 GPa, Poisson's ratio mu = 0.3 (p. 7)",
+      "Plate interfacial shear stiffness test values: K = 0.2, 2, and 20 (x 10^9 N/m^3) (p. 7)",
+      "Plate FEA mesh: axisymmetric stress elements CAX4R (0.1 mm mesh size) and COHAX4 cohesive interface elements (p. 7)"
+    ],
+    "dependent_variables": [
+      "Beam deflection w(x) and circular plate deflection w(r) (p. 2, 3, 4, 6, 7, 9-11)",
+      "Interfacial shear force per unit length ti and total interlayer shear force T(x) or T(r) (p. 2, 3, 4, 6, 7, 9-11)",
+      "Effective bending stiffness Se and normalized effective bending stiffness Se/S0 (p. 1, 4, 5, 7, 8, 11)",
+      "Interlayer slip delta_i (p. 3, 6)",
+      "Layer axial forces Ni(x), Nri(r), Ntheta_i(r) and bending moments Mi(x), Mri(r), Mtheta_i(r) (p. 3, 6)"
+    ],
+    "doi": "10.1016/j.ijmecsci.2024.109642",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The effective bending stiffness Se of an n-layered beam with elastic interlayer slip varies nonlinearly with interfacial shear stiffness, scaling continuously between a lower bound of S0/n^2 for frictionless sliding and an upper bound of S0 for rigid bonding, described by Se/S0 = 1 / [1 + (n^2 - 1) * tanh(alpha*L) / (alpha*L)].",
+        "evidence_type": "analytical derivation and simulation",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "claim": "The total interfacial shear force and structural deflection in multilayered beams and circular plates depend strongly on interfacial stiffness; increasing interfacial stiffness reduces transverse deflection while increasing peak interfacial shear stress and shear concentration near load points.",
+        "evidence_type": "analytical derivation and simulation",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "The non-uniform distribution of shear forces among multiple sliding interfaces can be captured analytically using a distribution function f(n) = 6(n - 1) / [n(n + 1)], where inner interfaces carry higher shear forces than outer interfaces.",
+        "evidence_type": "analytical derivation and simulation",
+        "page_numbers": [
+          3,
+          4,
+          5,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "For multilayered circular plates with interlayer slip under central point loading or uniform pressure, the normalized effective bending stiffness and deflection can be expressed analytically using modified Bessel functions, demonstrating bounds analogous to layered beams.",
+        "evidence_type": "analytical derivation and simulation",
+        "page_numbers": [
+          6,
+          7,
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Finite element simulations using solid continuum elements and cohesive interface elements (COH2D4 and COHAX4) in ABAQUS confirm the validity and accuracy of the closed-form analytical solutions across pure bending, three-point bending, and distributed pressure conditions.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Exploring multilayered structures with non-uniform interfacial properties across layers (p. 8)",
+      "Incorporating normal interface separation and out-of-plane detachment/delamination (p. 8)",
+      "Integrating inelastic mechanisms such as interfacial plasticity or damage laws, potentially via numerical methods (p. 8)",
+      "Applying the formulation to predict interlayer strength and deformation in multi-scale layered materials such as graphene composites (p. 8)"
+    ],
+    "independent_variables": [
+      "Interfacial shear stiffness K (p. 2, 3, 5, 7)",
+      "Total number of layers n (p. 2, 4, 5, 7, 8)",
+      "Geometric parameters: beam length L, total thickness H, layer half-thickness h, width b, circular plate radius R (p. 3, 5, 7)",
+      "Layer Young's modulus E and Poisson's ratio mu (p. 3, 6, 7)",
+      "Loading and boundary conditions: pure end bending moment M, uniformly distributed pressure q, three-point bending concentrated load F, central point force F, and support position la (p. 3, 5, 7, 8, 9, 10)",
+      "Spatial coordinates: coordinate x along beam length and radial position r on circular plate (p. 2, 6)"
+    ],
+    "limitations_inferred": [
+      "The model considers linear elastic shear slip and does not incorporate Coulomb friction or pressure-dependent shear traction laws characteristic of frictional layer-jamming devices.",
+      "The formulation relies on small-deflection linear kinematics (Euler-Bernoulli and Kirchhoff-Love) and does not capture geometric nonlinearities or large rotations typical in flexible soft robotic structures.",
+      "No physical experiments were conducted in this study; all validations are numerical comparisons against finite element simulations.",
+      "Rate-dependent or viscoelastic behaviors of interfacial bonding layers are not addressed."
+    ],
+    "limitations_stated_by_authors": [
+      "The theoretical framework assumes slender beams and thin circular plates adhering strictly to Euler beam theory and Kirchhoff-Love hypotheses (p. 2, 5, 8)",
+      "Assumes linear elastic interfacial slip without interfacial damage or plasticity (p. 2, 8)",
+      "Assumes negligible interlayer thickness and no normal separation (debonding or peeling) between adjacent layers (p. 2, 8)",
+      "Assumes identical and uniform layer properties and interfacial stiffness throughout the laminate (p. 2, 8)"
+    ],
+    "main_results": [
+      "Derived closed-form analytical solutions for interlayer shear forces and deflections of multilayered beams and circular plates with an arbitrary number of layers n under various boundary and loading conditions (p. 3-8, 9-11)",
+      "Established that normalized effective bending stiffness of an n-layered beam is Se/S0 = 1 / [1 + (n^2 - 1) * tanh(alpha*L) / (alpha*L)], where alpha*L is a dimensionless parameter combining interfacial stiffness, Young's modulus, and beam geometry (p. 1, 4, 5, 8)",
+      "Demonstrated that effective bending stiffness spans from Se = S0/n^2 for frictionless interfaces (K -> 0) to Se = S0 for perfectly bonded interfaces (K -> infinity) (p. 1, 5, 8)",
+      "Formulated the non-uniform interfacial shear force distribution function f(n) = 6(n - 1) / [n(n + 1)], which simplifies to f(n) = 1 for two- and three-layer configurations (p. 4, 5, 7, 11)",
+      "Showed that higher interfacial stiffness increases peak interface shear forces and sharpens shear stress gradients near concentrated loads, providing an analytical criterion relevant to interface damage assessment (p. 4, 5, 7, 8)",
+      "Achieved close agreement between analytical predictions and ABAQUS finite element simulations across all analyzed loading configurations (pure bending, three-point bending, uniform load, and circular plate bending) (p. 3-8)"
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory for slender multilayered beams (p. 2, 3)",
+      "Kirchhoff-Love plate hypotheses for multilayered circular plates (p. 5, 6)",
+      "Linear elastic constitutive shear-slip interface formulation (t = K*delta) (p. 2, 3, 6)",
+      "Analytical differential equation formulation using average shear force and an analytical non-uniform distribution function f(n) (p. 3, 4, 6, 7)",
+      "Analytical solution using hyperbolic functions (sinh, cosh) for beams and modified Bessel functions of the first and second kinds (I0, I1, K0, K1) for circular plates (p. 3, 4, 7, 9-11)",
+      "Finite element analysis (FEA) in ABAQUS using 2D quadrilateral plane stress elements, axisymmetric stress elements (CAX4R), and cohesive elements (COH2D4 and COHAX4) (p. 3, 7)"
+    ],
+    "performance_metrics": [
+      "Normalized effective bending stiffness Se/S0 (ratio of effective stiffness to perfectly bonded stiffness) (p. 1, 4, 5, 7, 8, 11)",
+      "Normalized deflection w/w0 relative to full-interaction counterpart (p. 4, 7)",
+      "Normalized total interface shear force (normalized by M/L^2, q, F/L, or F/R) (p. 4, 7)",
+      "Interfacial shear force distribution ratio (t1 + tn-1)/(2*t_bar) captured by distribution function f(n) (p. 3, 4, 5)"
+    ],
+    "possible_gap_implications": [
+      "While formulated for structural composites and layered sheets rather than robotics, the closed-form relationship linking layer count n and interfacial shear stiffness K to structural bending stiffness provides a rigorous theoretical benchmark for modeling multi-sheet layer-jamming variable-stiffness structures in soft robotics.",
+      "Because the model assumes linear elastic shear slip with constant stiffness and zero normal separation, adapting it to vacuum-driven or tendon-driven layer-jamming grippers will require extending the governing equations to incorporate normal pressure-dependent frictional slip and detachment thresholds."
+    ],
+    "research_objective": "To formulate an analytical solution for the bending behavior of multilayered beams and circular plates with an arbitrary number of layers exhibiting elastic interfacial shearing and slip, and to validate the governing load-deflection and shear stress relationships against finite element simulations.",
+    "research_problem": "The absence of a general, straightforward analytical formula for calculating the deflection and interlayer shear stress of multilayered beams and plates comprising a large number of layers (exceeding two or three layers) with elastic interfacial shear compliance.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer slip",
+      "elastic shearing at interfaces",
+      "interfacial stiffness"
+    ],
+    "title": "An analytic solution for bending of multilayered structures with interlayer-slip",
+    "year": "2024"
+  }
+}

@@ -399,6 +399,24 @@ def main() -> None:
         ):
             continue
 
+        screening_status = paper.get(
+            "screening_status"
+        )
+
+    # Excluded papers remain in the registry for provenance,
+    # but must not enter the scientific verification matrix.
+        if screening_status == "excluded":
+            continue
+
+    # Pending / uncertain papers indicate an unfinished
+    # verification round and should not be silently ignored.
+        if screening_status != "included":
+            raise RuntimeError(
+                f"{paper.get('paper_id')}: "
+                "verification paper screening is unresolved "
+                f"(screening_status={screening_status!r})."
+            )
+
         selected.append(
             paper
         )

@@ -1,0 +1,160 @@
+{
+  "source": {
+    "paper_id": "47fe4949dc",
+    "filename": "2016-INFLUENCE OF SLIP EFFECT ON BENDING CHARACTERISTICS OF FRICTIONAL LAMINATED BEAMS.pdf",
+    "sha256": "47fe4949dc7ad5ba6d7fdfaba2d4bfe4411468518d5a9cbec20c5299e214a31a",
+    "page_count": 9,
+    "char_count": 18881,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26984,
+    "completion_tokens": 6133,
+    "total_tokens": 33117,
+    "thinking_tokens": 4113,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "ZHEN Xiao-xia",
+      "ZHANG Zhuo-jie",
+      "WANG Rong-hui",
+      "LI Zhou"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Coulomb friction governs the layer interface, where relative slip occurs only when interfacial shear force exceeds the maximum static friction limit, with sliding friction assumed equal to maximum static friction.",
+      "Cross-sectional shear stresses are directed parallel to the lateral beam edges.",
+      "Cross-sectional shear stress is uniform across the width at equal distances from the neutral axis.",
+      "Axial tensile force is assumed constant along the beam element during deformation.",
+      "Small deformation kinematics apply: sin(theta_i) ≈ theta_i, cos(theta_i) ≈ 1, with higher-order small terms and horizontal displacement neglected.",
+      "Euler-Bernoulli/plane sections assumption holds for un-slipped sections, whereas slipped sections superimpose bending about sub-part neutral axes with normal stresses from accumulated interfacial friction."
+    ],
+    "control_variables": [
+      "Total beam span length (5 m)",
+      "Total number of laminated layers (N = 10)",
+      "Individual layer cross-sectional dimensions (width 70 mm, thickness 7 mm)",
+      "Material elastic modulus (195 GPa)",
+      "Boundary conditions (fixed-fixed at both ends)",
+      "Discretization resolution (500 equal elements along the 5 m span, 1 cm element length)"
+    ],
+    "dependent_variables": [
+      "Interfacial slippage initiation threshold (critical shear force and curvature gradient)",
+      "Number of slipped interfaces/layers (from 1 to 5 slip interfaces)",
+      "Longitudinal slip propagation length along the beam span",
+      "Cross-sectional shear stress distribution profile",
+      "Midspan transverse deflection",
+      "Flexural curvature along the beam",
+      "Effective bending moment of inertia and flexural stiffness",
+      "Normal flexural stress and peak outer-layer bending stress"
+    ],
+    "doi": "10.6052/j.issn.1000-4750.2015.12.0952",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Interfacial Coulomb friction maintains composite structural integrity until interfacial shear exceeds static friction threshold; exceeding this threshold triggers layer-by-layer slip starting at the neutral axis and progressing symmetrically outward, causing stepwise reduction in bending stiffness.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Interfacial slippage alters the shear stress distribution from a continuous parabola into a sawtooth profile constrained by the interface friction limit, resulting in nonlinearly increasing transverse deflections under load.",
+        "evidence_type": "analytical modeling and numerical simulation",
+        "page_numbers": [
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The transfer matrix method combined with an incremental superposition algorithm accurately predicts slip initiation, propagation length, and deflection of frictional laminated beams while avoiding the computational overhead and manual step interventions of nonlinear contact FEA.",
+        "evidence_type": "algorithm development and simulation validation",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Applied axial tension alters the structural response between cable-like and beam-like behavior; higher tension localizes shear near boundaries and loads, decreasing the slip propagation length.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Frictional slip breaks cross-sectional continuity and causes normal stresses to accumulate in the outermost layers, resulting in up to a 7% increase in peak bending stress compared to non-slipping composite predictions.",
+        "evidence_type": "analytical modeling and numerical simulation",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Transverse concentrated vertical load applied at midspan (from 0 up to 1 kN for slip propagation, and up to 20.4 kN for bending stress evaluation)",
+      "Initial axial tension (1000 kN vs. 500 kN, down to 0 kN)",
+      "Interfacial friction stress (0.03 MPa vs. 0.3 MPa)",
+      "Longitudinal position along the beam span x",
+      "Vertical coordinate across the beam depth y*"
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted; model verification relies entirely on numerical finite element comparisons in ANSYS.",
+      "Interfacial friction stress is assumed constant and uniform, neglecting normal contact pressure variations caused by transverse bending curvature, wear, or local roughness.",
+      "Formulation is restricted to small deformations and planar kinematics, which cannot directly capture large-deflection geometrically nonlinear bending common in soft robotics without extension.",
+      "Dynamic inertial effects, stick-slip vibrations, and rate-dependent friction effects are not included in the quasi-static model."
+    ],
+    "limitations_stated_by_authors": [
+      "Previous laminated beam studies commonly assume linear proportionality between adhesive layer strain and shear stress from the start of loading, which fails to capture the true Coulomb friction stick-slip threshold mechanism.",
+      "Finite element modeling of multi-layer frictional contact requires many elements and manual intervention during iterative state adjustments, resulting in high computational cost and low efficiency.",
+      "The analytical transfer matrix derivation assumes constant axial force along each element and small deformations to facilitate solution."
+    ],
+    "main_results": [
+      "First slip initiates at the neutral axis at the locations of maximum shear (fixed ends and concentrated load point) when the curvature gradient reaches the threshold 8*F_f / (E*b*h^2*N^2).",
+      "With increasing transverse load, slip develops symmetrically outward toward top and bottom surfaces, transitioning the cross-section into 2, 4, and up to 2*j sub-beams, producing a continuous sawtooth shear stress distribution capped by the friction stress.",
+      "Longitudinally, slip propagates outward from the fixed ends and load point with an exponentially decaying propagation velocity.",
+      "Slip dramatically reduces cross-sectional moment of inertia (from 2,000,833 mm^4 for un-slipped 10-layer beam down to 20,008.33 mm^4 when all 5 symmetrical interfaces slip), resulting in nonlinearly growing deflections.",
+      "Higher axial tension confines bending and shear near boundaries and load application points, shortening slip length, whereas reducing axial tension toward zero allows slip to spread across the entire beam once critical shear is reached.",
+      "Normal stresses induced by interfacial friction accumulate across the outer layers during slipping; under a 20.4 kN load with 0.3 MPa friction, peak bending stress in the outer layer increased by 7% (from 107.5 MPa without slip to 115.8 MPa with slip).",
+      "Deflection and slip development predictions from the proposed transfer matrix method in Mathematica closely matched ANSYS BEAM3/rigid-arm models (e.g., 0.12697 mm vs. 0.1272 mm at 196 N)."
+    ],
+    "modeling_methods": [
+      "Analytical derivation of cross-sectional shear stress and equilibrium equations incorporating interfacial Coulomb friction",
+      "Transfer matrix method for discrete multi-node beam elements under axial and lateral loads",
+      "Incremental superposition method for tracking load-dependent slip front propagation",
+      "Finite element modeling in ANSYS using BEAM3 beam elements, rigid arm elements, and iterative degree-of-freedom release/coupling to simulate stick-slip contact"
+    ],
+    "performance_metrics": [
+      "Midspan deflection (mm)",
+      "Interfacial slip length and number of slipped elements along the span",
+      "Critical slip shear force (N)",
+      "Cross-sectional moment of inertia (mm^4)",
+      "Maximum bending stress (MPa) and percentage increase in flexural stress due to slip effect (%)",
+      "Agreement between transfer matrix calculations and ANSYS finite element results"
+    ],
+    "possible_gap_implications": [
+      "The analytical model of multi-layer Coulomb friction stick-slip and progressive stiffness degradation can provide mechanical modeling foundations for layer-jamming variable stiffness mechanisms used in soft robotics and continuum manipulators.",
+      "The current assumption of constant normal friction without coupling normal pressure variations from bending curvature represents a gap when adapting this framework to large-deformation soft robotic layer-jamming structures.",
+      "Physical experimental mechanics testing on multi-layer frictional specimens is required to validate the stick-slip threshold and slip propagation model under real physical contact conditions."
+    ],
+    "research_objective": "To derive cross-sectional shear stress equations considering interfacial Coulomb friction, determine the mechanics criteria and symmetric development path of layer slip, and establish an efficient transfer matrix algorithm with incremental loading to calculate slip propagation length and evaluate the impact of slip on the bending stiffness and flexural stress of frictional laminated beams.",
+    "research_problem": "Existing calculations for laminated beams typically assume linear elasticity between adhesive slip strain and shear stress, failing to represent Coulomb friction interfaces where slip occurs only after shear exceeds maximum static friction. Additionally, nonlinear finite element simulations of frictional slip require high computational costs and manual intervention during iteration.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interfacial friction",
+      "Coulomb friction"
+    ],
+    "title": "INFLUENCE OF SLIP EFFECT ON BENDING CHARACTERISTICS OF FRICTIONAL LAMINATED BEAMS",
+    "year": "2016"
+  }
+}

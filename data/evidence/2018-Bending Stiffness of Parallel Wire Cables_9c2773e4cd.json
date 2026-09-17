@@ -1,0 +1,161 @@
+{
+  "source": {
+    "paper_id": "9c2773e4cd",
+    "filename": "2018-Bending Stiffness of Parallel Wire Cables.pdf",
+    "sha256": "9c2773e4cdfa29ee850d44206f42c1e21a658b8755fbffc164978d2a48d9d2fe",
+    "page_count": 9,
+    "char_count": 41776,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29616,
+    "completion_tokens": 5747,
+    "total_tokens": 35363,
+    "thinking_tokens": 3748,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yongping Zhang",
+      "Jinfeng Wang",
+      "Guiru Ye",
+      "Rongqiao Xu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The cable cross section is idealized as a symmetric rectangular laminated cross section preserving the original total height and total wire area per layer.",
+      "Each rectangular layer is assumed to experience identical curvature and deflection, with no vertical separation or lateral separation between layers during bending.",
+      "Interfacial slip at each layer interface is proportional to the interface shear force via a linear slip rigidity parameter (Vi = k * delta_ui).",
+      "Linear elastic material behavior is assumed for the wires (Ni = EAi * epsilon_i, EIi * w'' = -Mi).",
+      "The ratio of interfacial slip at the ith interface to the first interface is approximated using an exponential relation based on interface static moments and slip rigidity (delta_ui / delta_u1 = eta_i).",
+      "The axial force in each layer is divided into tensile-load and moment-induced components (Ni = N0i + NMi), following symmetric and antisymmetric distributions across the cross section.",
+      "For midspan concentrated loading, the derivative of external distributed load is assumed negligible (q' = 0)."
+    ],
+    "control_variables": [
+      "Simply supported boundary conditions at cable ends",
+      "Elastic modulus of steel wires (E = 2 x 10^5 MPa)",
+      "Cross-sectional symmetry about x- and y-axes"
+    ],
+    "dependent_variables": [
+      "Deflection and midspan maximum deflection (w, w_max)",
+      "Deflection magnification coefficient (delta_1, delta_2)",
+      "Equivalent bending stiffness (EBS) and EBS coefficient (EI_eff, EI_eff / EI_infinity)",
+      "Fundamental natural frequency (omega, omega_eff)",
+      "Interlayer slip displacement (delta_ui)"
+    ],
+    "doi": "10.1061/(ASCE)ST.1943-541X.0002171",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Parallel wire assemblies experience variable bending stiffness governed by interfacial slip and friction between adjacent wires, transitioning between a fully bonded (no-slip) upper bound and an unbonded (full-slip) lower bound.",
+        "evidence_type": "analytical modeling and literature review",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "claim": "Axial tension and average tensile stress significantly increase interfacial slip rigidity and overall equivalent bending stiffness, following an approximately linear empirical relationship.",
+        "evidence_type": "semi-empirical calibration and parametric analysis",
+        "page_numbers": [
+          1,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "In the absence of axial tension, parallel wire cables demonstrate bilinear force-deflection behavior because initial static friction prevents slip until a transverse loading threshold is exceeded.",
+        "evidence_type": "experimental interpretation",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Multilayer laminated beam theory incorporating interlayer compliance provides a closed-form analytical method to determine the equivalent bending stiffness of multi-wire bundles without requiring full 3D contact finite-element analysis.",
+        "evidence_type": "analytical derivation and numerical verification",
+        "page_numbers": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Variations in bending stiffness caused by interfacial slip substantially affect dynamic modal characteristics, producing significant deviations in fundamental frequency predictions particularly for shorter elements.",
+        "evidence_type": "analytical modeling and parametric analysis",
+        "page_numbers": [
+          1,
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Secondary experimental data from Chen et al. (2015) literature: simply supported bending tests of parallel wire cables with span L = 820 mm, subjected to axial tension forces (0, 50, 80, and 100 kN) and midspan concentrated force P (up to 10 kN).",
+      "Tested cable cross-section configurations included 37, 55, and 61 parallel wires of 7 mm diameter (37phi7, 55phi7, 61phi7) with steel elastic modulus E = 2 x 10^5 MPa."
+    ],
+    "future_work": [
+      "Conducting additional experimental tests to investigate the realistic behavior of wires during bending.",
+      "Extending the approximated linear formulation between tensile stress and slip rigidity to a nonlinear formulation for more accurate bending stiffness calculation."
+    ],
+    "independent_variables": [
+      "Cable span length (L)",
+      "Axial tension force and average wire tensile stress (F, sigma)",
+      "Number of wires and cross-sectional layout (37, 55, 61, 91, 127 wires)",
+      "Wire diameter (5 mm, 7 mm)",
+      "Slip rigidity (k)",
+      "Transverse loading type and magnitude (uniformly distributed load q, midspan concentrated load P)"
+    ],
+    "limitations_inferred": [
+      "The paper focuses exclusively on civil engineering structural cables under static transverse loading and linear vibration, without addressing dynamic cyclic bending, bending hysteresis, or active robotic actuation.",
+      "The model is formulated for 2D bending of symmetric profiles and does not address multi-axis 3D spatial bending or torsional coupling.",
+      "Model calibration and empirical parameter fitting rely entirely on secondary data from a single prior experimental study rather than primary experimental testing."
+    ],
+    "limitations_stated_by_authors": [
+      "The actual interaction between cable wires involves friction, nonlinearity, and inelasticity, which were simplified into a linear-elastic slip rigidity to permit analytical solutions.",
+      "The empirical linear relationship between slip rigidity and average tensile stress was approximated using limited available experimental data.",
+      "The derivation relies on simplifying assumptions including rectangular laminated idealization of wire layers, identical layer curvature without layer separation, and an assumed exponential slip ratio distribution across layers."
+    ],
+    "main_results": [
+      "Derived closed-form analytical equations for the deflection and equivalent bending stiffness (EBS) of parallel wire cables under uniformly distributed and midspan concentrated loads based on multilayer laminated beam theory.",
+      "Verified the analytical formulations against a state space method (SSM) benchmark and classical beam theory, demonstrating relative errors below 1% at the extreme slip rigidity limits.",
+      "Established an approximately linear empirical relationship between slip rigidity and average wire tensile stress (k = xi * sigma_bar + k0) with fitted parameters xi = 7 and k0 = 50 MPa for tested parallel wire cables.",
+      "Demonstrated that the EBS coefficient changes markedly between 20 MPa and 2000 MPa tensile stress, converging toward 1 (fully bonded behavior) at very high tensile stresses or for cables longer than 5 m with tension over 300 MPa.",
+      "Showed that neglecting or miscalculating bending stiffness causes significant errors in cable fundamental frequency determination (up to 57% error for a 1 m cable under 100 kN tension).",
+      "Provided a mechanical explanation for the observed bilinear force-deflection response of cables without pre-tension based on static friction thresholds resisting interlayer slip."
+    ],
+    "modeling_methods": [
+      "Multilayer rectangular laminated beam idealization with interlayer slips",
+      "Governing differential equilibrium equations for multilayer composite beams under axial tension and transverse loads",
+      "Analytical closed-form solutions for deflection and equivalent bending stiffness under uniform and concentrated loading",
+      "Euler-Bernoulli classical beam theory relations for individual layers and bounding states",
+      "State space method (SSM) numerical modeling used as a verification benchmark",
+      "Empirical linear least-squares regression relating slip rigidity to average tensile stress"
+    ],
+    "performance_metrics": [
+      "Deflection magnification coefficient (delta = w_max / w_max_bar)",
+      "Equivalent bending stiffness coefficient (EI_eff / EI_infinity = 1 / delta)",
+      "Relative error in deflection magnification compared to classical beam theory in limit states (%)",
+      "Fundamental natural frequency (omega_eff) and relative error compared to zero bending stiffness ((omega_eff - omega_0) / omega_0 * 100%)"
+    ],
+    "possible_gap_implications": [
+      "The analytical multilayer laminated beam model with tension-dependent slip rigidity could offer a computationally efficient formulation for modeling variable stiffness and friction-based layer/wire jamming in continuum robots and tendon-driven catheters, though it remains to be extended to large deformations, non-straight paths, and active robotic actuation."
+    ],
+    "research_objective": "To develop an analytical model idealizing parallel wire cables as laminated beams with interlayer slips to predict equivalent bending stiffness (EBS) under uniform and midspan concentrated loads, calibrate the interfacial slip rigidity using experimental data, and analyze factors influencing EBS and cable modal frequencies.",
+    "research_problem": "Neglecting or inaccurately estimating the bending stiffness of parallel wire cables introduces substantial errors in structural and vibration analyses, while existing composite beam and cable theories focus mainly on two-layer beams, spiral strands, or stranded ropes without providing simple analytical formulas for parallel wire cables with interlayer slip.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interfacial slip among wires",
+      "friction among wires",
+      "axial tension / average tensile stress affecting slip rigidity"
+    ],
+    "title": "Bending Stiffness of Parallel Wire Cables Including Interfacial Slips among Wires",
+    "year": "2018"
+  }
+}

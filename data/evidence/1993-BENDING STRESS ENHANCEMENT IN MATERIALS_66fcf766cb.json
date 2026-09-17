@@ -1,0 +1,158 @@
+{
+  "source": {
+    "paper_id": "66fcf766cb",
+    "filename": "1993-BENDING STRESS ENHANCEMENT IN MATERIALS.pdf",
+    "sha256": "66fcf766cb5039e18d54b0199494f6f32dd64293a07e1286f08c043dbe9c5b83",
+    "page_count": 14,
+    "char_count": 43799,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27837,
+    "completion_tokens": 6321,
+    "total_tokens": 34158,
+    "thinking_tokens": 3951,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "P. S. Steif",
+      "A. Trojnacki"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Individual layers behave elastically and orthotropically with respect to layer boundaries, sharing a constant elastic modulus E.",
+      "Bernoulli hypothesis holds for each individual layer: plane sections remain plane, resulting in linearly varying normal stresses across the layer thickness.",
+      "Shear deformations within individual layers are neglected.",
+      "Shear stress varies parabolically through the thickness of each individual layer/beamlet according to standard engineering beam theory.",
+      "Interfaces are frictionally coupled: displacements are continuous across an interface as long as shear stress is below interfacial shear strength tau_p.",
+      "Once interfacial shear stress reaches tau_p, tangential displacement discontinuity (relative slip) occurs, and interfacial shear stress remains constant at tau_p during sliding.",
+      "Normal displacements remain strictly continuous across interfaces with no interfacial opening or layer separation.",
+      "Identical layer thicknesses h and uniform, constant interfacial shear strength tau_p across all interfaces."
+    ],
+    "control_variables": [
+      "Rectangular beam cross-section with width b, total height H, and n discrete layers of thickness h = H/n.",
+      "Simply-supported three-point bending configuration with a monotonically increasing central transverse point load P.",
+      "Symmetry about the midspan (x = 0) and the neutral axis (y = 0).",
+      "Beam aspect ratio L/H = 5, layer count n = 16, and overhang ratio D/L = 0.267 for primary numerical evaluations.",
+      "Dimensionless material parameter ratio tau_p / E = 30 MPa / 130 GPa = 2.308 x 10^-4 used for deflection calculations."
+    ],
+    "dependent_variables": [
+      "Slip initiation loads P_si and complete-slip loads P_Ci for each interface i.",
+      "Locations and spatial extents of interfacial slip zones (boundaries A_K, B_K, and slip zone half-lengths R_i or r_i = R_i / L).",
+      "Number of beamlets m and beamlet boundaries across defined longitudinal sections.",
+      "Layer and beamlet stress resultants (axial forces N_i, N_j; bending moments M_i, M_j; shear forces V_i, V_j).",
+      "Axial normal (bending) stress distributions sigma(x, y) and peak layer axial stresses S_i,max.",
+      "Interfacial and layer shear stress distributions tau(x, y).",
+      "Beam vertical deflection profile w(x) and normalized mid-point deflection w(0)/H."
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Weak longitudinal shear strength in layered materials leads to severe bending stress enhancement when transverse loading causes interfacial frictional slipping.",
+        "evidence_type": "theoretical_modeling",
+        "page_numbers": [
+          1,
+          2,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Under three-point bending, interfacial slip initiates at the central interface and propagates towards outer interfaces at load levels significantly lower than predicted by solid-beam shear stress profiles due to stress redistribution.",
+        "evidence_type": "numerical_simulation",
+        "page_numbers": [
+          8,
+          9,
+          13
+        ]
+      },
+      {
+        "claim": "Interfacial slip allows individual layers to deform independently, producing local compressive stresses on the tensile side of the beam and magnifying maximum tensile and compressive axial stresses by multiple times compared to a solid beam.",
+        "evidence_type": "numerical_simulation",
+        "page_numbers": [
+          9,
+          10,
+          12
+        ]
+      },
+      {
+        "claim": "An unconstrained beam overhang extending beyond the supports carries internal layer axial forces and moments, which stiffens the beam and significantly mitigates central deflection and peak bending stresses.",
+        "evidence_type": "numerical_simulation",
+        "page_numbers": [
+          10,
+          11,
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Presenting Part II containing a simplified continuum theory for a shear-weak unlayered beam to circumvent the computationally demanding discrete-layer analysis (pages 1, 2, 12).",
+      "Demonstrating the formal equivalence between the discrete slipping-layers model and the shear-weak unlayered continuum beam model as the number of layers n becomes large (pages 1, 2).",
+      "Investigating the detailed dependence of bending stress enhancement on layer count n and span-to-depth aspect ratio L/H in Part II (page 8).",
+      "Using the simplified theory in Part II to infer practical levels of bending stress enhancement expected in physical composite materials (pages 1, 12)."
+    ],
+    "independent_variables": [
+      "Dimensionless applied load p = P / P_s8 (or load P).",
+      "Overhang ratio d = D/L (ratio of extension beyond supports D to span L).",
+      "Number of discrete layers n (evaluated at n = 16).",
+      "Span-to-depth aspect ratio L/H (evaluated at L/H = 5).",
+      "Ratio of interfacial shear strength to Young's modulus tau_p / E.",
+      "Longitudinal coordinate x (or normalized coordinate xi = x/L) and transverse coordinate y."
+    ],
+    "limitations_inferred": [
+      "The model is formulated exclusively for monotonic loading, meaning frictional hysteresis, cyclic loading, slip reversal, and wear at the interfaces are not addressed.",
+      "The frictional slip criterion assumes a constant shear threshold tau_p that is decoupled from local transverse normal compressive stress, which differs from pressure-dependent Coulomb friction.",
+      "Transverse shear deformation across the beam depth and through-thickness normal stresses are neglected, which may introduce inaccuracies in short, deep beams (e.g., L/H = 5).",
+      "No experimental testing is performed within the study to quantitatively validate the numerically predicted stress enhancement factors against physical specimens."
+    ],
+    "limitations_stated_by_authors": [
+      "The discrete slipping-layers beam model is extremely computationally intensive and time-consuming to solve, even for simple loading conditions (pages 1, 2, 12).",
+      "The authors were unable to find a general solution method for general distributed transverse loads q(x) due to the difficulty of tracing the locus of multiple slip zones per interface (page 8).",
+      "Each layer is treated using the simplest beam theory (Bernoulli hypothesis) and shear deformations within layers are neglected (pages 3, 12).",
+      "Normal separation or delamination opening between layers is not permitted (pages 3, 12).",
+      "The detailed numerical calculations are limited to three-point bending with identical layer thicknesses, identical moduli, and uniform interfacial properties (pages 3, 8).",
+      "The very high stress enhancements that arise when slip extends to the specimen edges may correspond to loading regimes where the composite would in practice already be considered to have failed in shear (page 12)."
+    ],
+    "main_results": [
+      "Bending stresses in beams with low longitudinal shear resistance become substantially magnified once interfacial shear slippage occurs, reaching nearly four times the maximum stress of an equivalent solid beam in Stage II and continuing to escalate in Stages III and IV.",
+      "Interlayer slip alters the through-thickness normal stress profile such that individual layers experience distinct local bending, resulting in local compressive stresses appearing even on the tensile side of the beam.",
+      "In three-point bending of a 16-layer beam, slip initiates first on the central interface at load P_s8 = 4*b*H*tau_p/3; subsequent slip on outer interfaces initiates at loads substantially lower than expected from unlayered beam theory (e.g., P_s1/P_s8 = 1.531 vs. 4.267) because inner slip transfers higher shear stresses outward.",
+      "Portions of the beam extending past the supports (overhang D) carry non-zero layer bending moments and axial forces despite zero net cross-sectional resultants, leading to curvature in the overhang rather than rigid-body displacement.",
+      "Increasing the overhang ratio D/L stiffens the structure and decreases both mid-point deflection and maximum axial stress, because frictional slip generates opposing axial forces that resist the applied bending moment."
+    ],
+    "modeling_methods": [
+      "Discrete slipping-layers beam theory treating the cross-section as n elastic layers coupled by frictional interfaces with finite shear strength tau_p.",
+      "Application of the generalized Bernoulli hypothesis ('plane sections remain plane') to each layer individually, yielding linear normal stress and parabolic shear stress profiles.",
+      "Section and beamlet partitioning technique demarcated by slip zone endpoints and external concentrated load locations.",
+      "Formulation of equilibrium equations for individual beamlets and continuity of vertical deflection and curvature derivatives across non-slipping and slipping interfaces.",
+      "Enforcement of continuity of layer axial forces, bending moments, and normal stresses across section boundaries.",
+      "Integral continuity condition requiring zero net tangential relative displacement across each slip zone.",
+      "Exploitation of beam symmetries (about x = 0 and y = 0) and numerical resolution of non-linear slip zone extents using Powell's optimization method under monotonically incremented loading."
+    ],
+    "performance_metrics": [
+      "Normalized maximum axial stress ratio S_i,max / sigma_max (layer peak axial stress divided by the maximum axial stress in a solid beam under identical load).",
+      "Dimensionless slip initiation load ratios P_si / P_s8 and complete slip load ratios P_Ci / P_s8.",
+      "Normalized midspan deflection w(0) / H.",
+      "Normalized half-length of interfacial slip zones r_i = R_i / L."
+    ],
+    "possible_gap_implications": [
+      "Demonstrating that interlayer friction and overhang geometry govern bending stiffness and stress distribution provides a theoretical basis for designing friction-based variable stiffness systems (such as layer jamming), although practical robotic implementations would require extending the model to controllable normal pressures and cyclic loading.",
+      "Because discrete slipping-layer formulations are computationally expensive, there is a clear methodological gap for homogenized continuum models capable of rapidly predicting stiffness and stress changes in real-time continuum robot mechanics."
+    ],
+    "research_objective": "To develop a theoretical model and numerical solution procedure for analyzing the response of a beam composed of discrete, frictionally coupled layers under bending, and to quantify the enhancement of bending stresses and the stiffening influence of beam overhang geometry under three-point bending.",
+    "research_problem": "Enhanced bending stresses and reduced load-bearing capacity occurring in materials with low longitudinal shear strength (such as weakly bonded continuous fiber ceramic-matrix composites) due to shear slippage along weakly coupled internal layers during bending.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "frictionally coupled layers",
+      "interlayer frictional slip",
+      "overhang-induced stiffening"
+    ],
+    "title": "BENDING STRESS ENHANCEMENT IN MATERIALS WITH LIMITED SHEAR RESISTANCE-PART I. SLIPPING-LAYERS MODEL",
+    "year": "1993"
+  }
+}

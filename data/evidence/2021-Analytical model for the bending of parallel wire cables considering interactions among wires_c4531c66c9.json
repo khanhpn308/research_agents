@@ -1,0 +1,126 @@
+{
+  "source": {
+    "paper_id": "c4531c66c9",
+    "filename": "2021-Analytical model for the bending of parallel wire cables considering interactions among wires.pdf",
+    "sha256": "c4531c66c9c312a37f235e5355f617b14d52da5fca9cdd82376adef931b1ba52",
+    "page_count": 10,
+    "char_count": 55676,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 34180,
+    "completion_tokens": 8021,
+    "total_tokens": 42201,
+    "thinking_tokens": 6027,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Mervi Toivari",
+      "Yvonne Nygård",
+      "Esa-Pekka Kumpula",
+      "Maija-Leena Vehkomäki",
+      "Mojca Benčina",
+      "Mari Valkonen",
+      "Hannu Maaheimo",
+      "Martina Andberg",
+      "Anu Koivula",
+      "Laura Ruohonen",
+      "Merja Penttilä",
+      "Marilyn G. Wiebe"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "Culture temperature maintained at 30 °C",
+      "Agitation rate maintained at 500 rpm",
+      "Aeration rate maintained at 1.0 vvm (or 0.5 vvm for industrial strain bioreactor)"
+    ],
+    "dependent_variables": [
+      "Extracellular D-xylonate concentration and production rate",
+      "Extracellular xylitol concentration and yield",
+      "Biomass production (OD600 and dry cell weight)",
+      "Intracellular concentrations of D-xylonate and xylitol",
+      "Intracellular cytosolic pH",
+      "Cell vitality (percentage of metabolically active cells) and viability (colony forming units)",
+      "Enzyme kinetic parameters (kcat, Km, and kcat/Km)"
+    ],
+    "doi": "10.1016/j.ymben.2012.03.002",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The paper mentions that D-xylonic acid or its conjugate base D-xylonate has potential applications as a polyamide or hydrogel modifier (citing prior literature), but no mechanical testing, mechanical modeling, or soft robotics mechanisms are studied.",
+        "evidence_type": "background literature citation",
+        "page_numbers": [
+          1
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Bioreactor batch/fed-batch cultivations (500 ml Multifors and 2 L Biostats CT) at controlled pH (5.5 or 3.0), 30 °C, 500 rpm agitation, and aeration",
+      "Erlenmeyer shake-flask cultures in YP or YSC medium at 250 rpm and 30 °C",
+      "HPLC analysis using a Fast Acid Analysis column coupled to an Aminex HPX-87H column with refractive index and dual-wavelength UV detection",
+      "Freeze-drying of cell pellets followed by dilute acid extraction for intracellular metabolite quantification",
+      "Recombinant protein expression and affinity purification using Strep-Tactin Superflow Plus column on ÄKTA Purifier FPLC",
+      "Spectrophotometric enzyme activity assays measuring NADH formation at 340 nm",
+      "1H NMR spectroscopy (500 MHz) for monitoring D-xylonolactone hydrolysis",
+      "Live-cell laser scanning confocal microscopy (Leica TCS SP5) with ratiometric pHluorin probe for cytosolic pH measurement",
+      "Methylene blue staining for cell vitality and colony forming unit (CFU) counting on YPD for viability"
+    ],
+    "future_work": [
+      "Optimisation of production conditions and provision of higher D-xylose concentrations to achieve higher titres",
+      "Transcriptome and/or metabolome analysis of the industrial D-xylonic acid producing S. cerevisiae strain to identify pathways involved in adaptation and cell death regulation",
+      "Addressing export mechanisms, cellular maintenance energy, and preservation of cell viability for industrial production",
+      "Supplying additional energy sources (such as D-glucose or ethanol) to improve production under low pH conditions"
+    ],
+    "independent_variables": [
+      "Expressed xylose dehydrogenase gene (C. crescentus xylB vs. pig liver SUS2DD vs. T. reesei xyd1 vs. empty vector control)",
+      "Co-expression of C. crescentus lactonase gene xylC",
+      "Deletion of host aldose reductase gene GRE3",
+      "Host strain background (laboratory CEN.PK vs. industrial B67002)",
+      "Culture medium pH (pH 5.5 vs. pH 3.0)",
+      "Substrate type and concentration for enzyme kinetic analysis"
+    ],
+    "limitations_inferred": [
+      "The study is exclusively focused on microbial metabolic engineering and bioprocess kinetics; it provides no data, modeling, or physical experiments on mechanical mechanics, continuum mechanisms, or soft robotics.",
+      "Performance on unsupplemented crude lignocellulosic hydrolysates was not directly evaluated in bioreactor cultivations in this study."
+    ],
+    "limitations_stated_by_authors": [
+      "The D-xylonate production rate in the engineered industrial yeast strain (0.44 g l^-1 h^-1) remains roughly 4-fold lower than rates reported for some bacteria (1.7 g l^-1 h^-1), which is insufficient for industrial processes.",
+      "At low pH (pH 3.0), production of D-xylonic acid, xylitol, and biomass was reduced compared to pH 5.5, and cell vitality/viability decreased substantially.",
+      "Intracellular accumulation of D-xylonate and cytosolic acidification caused severe loss of cell vitality and viability.",
+      "Spontaneous hydrolysis of D-xylonolactone is relatively slow, and in the xylB xylC co-expressing strain at pH 5.5, production ceased after 50 h despite available D-xylose."
+    ],
+    "main_results": [
+      "Expression of NAD+-dependent XylB from C. crescentus in S. cerevisiae CEN.PK produced 17 ± 2 g D-xylonate l^-1 at 0.23 ± 0.02 g l^-1 h^-1 from 23 g D-xylose l^-1, an approximately 10-fold higher production rate than strains expressing NADP+-dependent enzymes.",
+      "The industrial strain B67002 expressing two copies of xylB produced 43 ± 1 g D-xylonate l^-1 from 49 g D-xylose l^-1 with an initial production rate of 0.44 g l^-1 h^-1.",
+      "Deletion of the GRE3 gene reduced byproduct xylitol accumulation to 0.5 g l^-1 (an 80% reduction) without compromising D-xylonate production rate.",
+      "Purified XylB enzyme was strictly NAD+-dependent with high specificity for D-xylose over L-arabinose (kcat/Km 400-600 fold higher) and exhibited an alkaline pH optimum (pH 9) while remaining functional at neutral and acidic pH.",
+      "Co-expression of lactonase XylC enhanced initial extracellular D-xylonate accumulation at pH 5.5 and improved production at pH 3.0 (6.7 ± 1.1 g l^-1 vs 5.5 ± 0.9 g l^-1), though it resulted in earlier production arrest at pH 5.5 and increased loss of cell viability.",
+      "D-xylonate production resulted in marked intracellular accumulation (40-170 mg g^-1 dry biomass), decreased cytosolic pH (from 7.5 to 7.2), and significant decreases in cell vitality and viability."
+    ],
+    "modeling_methods": [],
+    "performance_metrics": [
+      "D-xylonate titre (g l^-1)",
+      "Volumetric production rate (g l^-1 h^-1)",
+      "Specific production rate (mg g^-1 h^-1)",
+      "Yield of D-xylonate on consumed D-xylose (g g^-1)",
+      "Xylitol titre (g l^-1) and yield (g g^-1)",
+      "Enzyme catalytic activity (nkat [mg protein]^-1)",
+      "Enzyme kinetic parameters: Km (mM), kcat (min^-1), and kcat/Km (mM^-1 min^-1)",
+      "Intracellular cytosolic pH",
+      "Percentage of metabolically active cells (%) and viable colony forming units (%)"
+    ],
+    "possible_gap_implications": [
+      "The paper focuses on microbial bioconversion; any application of D-xylonate as a modifier for polyamides or hydrogels in soft robotics materials remains an unaddressed research gap that requires polymer synthesis, mechanical testing, and constitutive modeling."
+    ],
+    "research_objective": "To engineer Saccharomyces cerevisiae for efficient bioconversion of D-xylose to D-xylonate by expressing an NAD+-dependent D-xylose dehydrogenase (XylB from Caulobacter crescentus), reduce xylitol byproduct formation, assess the contribution of D-xylonolactone lactonase (XylC), demonstrate production in an industrial strain, and characterize physiological effects.",
+    "research_problem": "Low titre and production rate of D-xylonate in engineered yeasts due to the low activity or NADP+-dependence of previously tested D-xylose dehydrogenases, cofactor regeneration constraints, byproduct xylitol accumulation, and uncharacterized effects of lactonase activity and low pH on cell physiology.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Metabolic engineering of Saccharomyces cerevisiae for bioconversion of D-xylose to D-xylonate",
+    "year": "2012"
+  }
+}

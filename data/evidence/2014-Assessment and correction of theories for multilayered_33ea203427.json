@@ -1,0 +1,153 @@
+{
+  "source": {
+    "paper_id": "33ea203427",
+    "filename": "2014-Assessment and correction of theories for multilayered.pdf",
+    "sha256": "33ea2034277aeb985f8c378b2972aa9040a91d6d7f90a4d3f62071b21efd7e55",
+    "page_count": 27,
+    "char_count": 83203,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 44216,
+    "completion_tokens": 6782,
+    "total_tokens": 50998,
+    "thinking_tokens": 3986,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Roberta Massabo`",
+      "Francesca Campi"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Each layer is linearly elastic, homogeneous, and anisotropic with monoclinic symmetry about its mid-surface (page 3).",
+      "Linear (infinitesimal) strain-displacement relationships in Cartesian coordinates (page 5).",
+      "Zero-thickness imperfect interfaces governed by affine (linear non-proportional) interfacial traction-separation laws relating interfacial normal and shear tractions to relative displacement jumps (pages 2, 4).",
+      "No coupling between in-plane and out-of-plane interfacial tractions (K_13 = K_23 = 0, K_33 = K_N) (page 4).",
+      "In the cylindrical bending application: sliding-only interfaces (rigid in mode I opening, B_N = 0, w_jump = 0), negligible transverse normal stress sigma_33 (u_3 = 0, transverse displacement constant through thickness), and plane strain in the x2-x3 plane (pages 10-11, 14)."
+    ],
+    "control_variables": [
+      "Quasi-static sinusoidal transverse distributed loading q(x2) = q0 * sin(pi * x2 / L) applied to the upper surface (pages 14, 26).",
+      "Simply supported boundary conditions at x2 = 0 and x2 = L (pages 14, 26).",
+      "Layer elastic properties for transversely isotropic plies: ET = EL/25, GLT = EL/50, GTT = EL/125, nu_LT = nu_TT = 0.25 (pages 14, 16, 17).",
+      "Equal layer thicknesses and symmetric stacking geometry (pages 14, 16).",
+      "Neglected body forces (pages 7, 21).",
+      "Mode II sliding-only interfacial constraint (BN = 0, w_jump = 0) in cylindrical bending benchmark cases (pages 10, 14)."
+    ],
+    "dependent_variables": [
+      "Through-thickness transverse shear stress distribution sigma_23(x3) (pages 14-17).",
+      "Through-thickness longitudinal displacement distribution v2(x3) (pages 16, 17).",
+      "Transverse displacement w0 and normalized transverse deflection w / w_2D (pages 16, 18).",
+      "Transverse shear stress resultant Q2 (pages 15, 16).",
+      "Interfacial shear tractions and relative displacement jumps (pages 14, 15)."
+    ],
+    "doi": "10.1007/s11012-014-9994-x",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Omitting interfacial strain energy terms in variational derivations (Hamilton's principle) of homogenized zig-zag plate models causes large errors (60% to 80% on interface shear tractions) and artificial slip-locking for intermediate interface stiffnesses.",
+        "evidence_type": "analytical modeling and benchmark validation against exact 2D elasticity",
+        "page_numbers": [
+          1,
+          7,
+          15,
+          16,
+          18,
+          19
+        ]
+      },
+      {
+        "claim": "A two-length-scales kinematic displacement field combined with a priori interfacial continuity constraints homogenizes multilayered plates with imperfect interfaces into five or six global kinematic variables independent of layer count.",
+        "evidence_type": "theoretical kinematic formulation",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "For multilayered plates with compliant sliding interfaces, internal shear stresses derived directly from kinematic strain tend to zero as interface compliance increases, requiring generalized shear force and generalized shear strain concepts to account for cross-sectional transverse equilibrium.",
+        "evidence_type": "analytical mechanics derivation",
+        "page_numbers": [
+          12,
+          13,
+          16,
+          18
+        ]
+      },
+      {
+        "claim": "In thin plates (L/h = 10) with sliding interfaces, the corrected first-order homogenized theory yields longitudinal displacement and transverse shear stress distributions that match exact 2D elasticity across all bonding states from fully bonded to fully debonded.",
+        "evidence_type": "closed-form elasticity solution comparison",
+        "page_numbers": [
+          16,
+          17
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Validation of the proposed homogenized formulation for general mixed-mode interfaces involving normal opening separation and contact (BN != 0 and w_jump != 0) (page 18).",
+      "Formulation of an interfacial-stiffness-dependent shear correction factor to accurately predict transverse displacements in thick, highly orthotropic plates with very compliant interfaces (pages 15, 17, 18, 25).",
+      "Resolution of boundary region inconsistencies in clamped plates under intermediate interface stiffnesses (page 13).",
+      "Application of the affine interface formulation to progressive delamination modeling with nonlinear cohesive laws approximated as piecewise linear functions (pages 2, 4, 18).",
+      "Extension of the corrected formulations to buckling, vibration, blast, impact, and thermo-magneto-electro-mechanical loading problems (page 18)."
+    ],
+    "independent_variables": [
+      "Dimensionless interfacial stiffness K2*h / (EL * (L/h)^2) and dimensionless compliance B2*ET / h (pages 14, 16, 17).",
+      "Plate aspect ratio L/h (values examined: L/h = 4, 5, 10) (pages 14, 16, 17).",
+      "Laminate layup and number of layers (two-layer unidirectional 0/0 plate; three-layer symmetric cross-ply 0/90/0 plate) (page 14).",
+      "Through-thickness coordinate x3 / h (pages 14-17).",
+      "Longitudinal coordinate x2 along the plate length (pages 14-16).",
+      "Degree of layer orthotropy and dimensionless shear stiffness GLT / (EL * (L/h)^2) (pages 14, 16, 17)."
+    ],
+    "limitations_inferred": [
+      "The paper is purely theoretical and analytical/computational; no experimental validation or physical mechanical testing was conducted on physical specimens.",
+      "The affine formulation requires piecewise linear discretization for nonlinear cohesive fracture laws, which may require tracking multiple distinct loading/unloading branches.",
+      "The analytical benchmark and validations are restricted to 1D/2D cylindrical bending geometries and shallow shell/plate assumptions, leaving complex 3D boundary geometry effects and localized 3D stress concentrations unverified.",
+      "Although dynamic elastokinetic equations are derived via Hamilton's principle, all validation examples and benchmarks are restricted to static loading cases."
+    ],
+    "limitations_stated_by_authors": [
+      "The validation in cylindrical bending is restricted to sliding-only interfaces (rigid against mode I opening, BN = 0, w_jump = 0), and general mixed-mode interface validation with opening was not carried out in this study (pages 10, 18).",
+      "When interfacial stiffness approaches zero in very thick, highly anisotropic plates, transverse displacements from the first-order model underestimate deflections because displacement-derived shear strains progressively vanish (pages 16-18, 25).",
+      "In plates with clamped boundaries, shear stresses determined a posteriori from local equilibrium exhibit boundary region inconsistencies due to kinematic boundary constraints at intermediate interface stiffnesses (page 13).",
+      "Derivation of transverse normal zigzag functions (X3) relies on the simplifying assumption that the effect of in-plane strain e_alpha_beta on transverse normal stress sigma_33 is negligible compared to e_33 (page 5).",
+      "Higher-order theories provide no tangible accuracy advantage over first-order theories for plates with imperfect interfaces (except in the fully bonded limit), and both require shear correction factors (pages 15, 18)."
+    ],
+    "main_results": [
+      "Identified that the omission of interfacial strain energy in Hamilton's principle in prior homogenized theories (Cheng et al. 1996, Schmidt & Librescu 1996, Di Sciuva 1997) causes severe errors in interfacial shear tractions (60% to 80% error) and an artificial slip-locking phenomenon for intermediate interface stiffnesses (pages 1, 3, 15-16, 18).",
+      "Formulated the corrected variational principle and dynamic equilibrium equations incorporating interfacial energy terms, reducing shear traction errors to under 15% and matching exact 2D elasticity across the full range of bonding stiffnesses (pages 7, 15, 18).",
+      "Demonstrated that for thin laminates (L/h = 10) with sliding interfaces, predictions of the corrected first-order homogenized theory virtually coincide with exact 2D Pagano-type elasticity solutions across all interfacial compliance values (pages 16, 17).",
+      "Established that transverse shear stresses evaluated a posteriori from local bending stress equilibrium or via generalized shear force accurately capture through-thickness distributions, even in thick (L/h = 4, 5) and highly anisotropic plates (pages 13, 14-17).",
+      "Defined generalized internal shear force (Q2g), generalized shear stress (sigma_23g), and generalized shear strain (gamma_23g), demonstrating that external shear force only partially translates into internal constitutive shear stress when interfaces slip (pages 12-13, 16, 18)."
+    ],
+    "modeling_methods": [
+      "Two-length-scales displacement field superposition combining global C1 thickness displacements, C0 zigzag enrichment functions, and discontinuous interfacial displacement jumps (pages 2, 4-5).",
+      "A priori imposition of interfacial transverse shear and normal traction continuity conditions to homogenize the formulation into 5 (sliding) or 6 (mixed-mode) global displacement variables independent of layer number (pages 1, 5-6).",
+      "Hamilton's elastokinetic principle / principle of virtual work including interfacial strain energy terms from imperfect interfaces (pages 7, 19).",
+      "First-order shear deformation theory incorporating a shear correction factor K2 (pages 15, 24-25).",
+      "A posteriori derivation of transverse shear stresses from longitudinal bending stresses via local cross-sectional equilibrium equations (pages 13, 15).",
+      "Exact 2D elasticity benchmark formulation extending Pagano's stress-function solution in cylindrical bending to multilayered plates with elastic interfaces (pages 14, 26)."
+    ],
+    "performance_metrics": [
+      "Relative percentage error of interfacial shear tractions compared to exact 2D elasticity solutions (pages 14, 15).",
+      "Normalized transverse deflection ratio w / w_2D compared to exact elasticity solutions (pages 16, 18).",
+      "Through-thickness distribution and interface continuity of transverse shear stresses sigma_23 and longitudinal displacements v2 (pages 14-17).",
+      "Physical consistency and monotonicity of transverse shear resultant Q2 across varying interfacial stiffnesses (avoidance of slip-locking anomalies) (pages 15-16)."
+    ],
+    "possible_gap_implications": [
+      "The corrected variational formulation for layered media with compliant/sliding interfaces provides an analytical framework for modeling tunable variable-stiffness laminates or friction-based layer jamming mechanisms, although the authors did not apply the model to robotic devices (pages 1, 4, 18).",
+      "The finding that interfacial energy terms are essential to avoid severe errors and artificial stiffness (slip-locking) in homogenized models points to a necessary correction for other variational or reduced-order models of flexible layered structures featuring interlaminar slip (pages 1, 7, 15-18)."
+    ],
+    "research_objective": "To formulate a linear, first-order homogenized model and corrected formulations of pioneering theories for multilayered plates with imperfect interfaces that resolve the omission of interfacial energy terms, extend the framework to affine/piecewise linear interfacial traction laws, and validate the predictions against exact 2D elasticity solutions (pages 1, 3, 14, 18).",
+    "research_problem": "Pioneering zig-zag and homogenized theories for multilayered plates with imperfect interfaces omit interfacial energy terms in their variational derivation of equilibrium equations, leading to severe inaccuracies (up to 80% error, unexpected stress patterns, and slip-locking) for intermediate interface stiffnesses (pages 1, 2-3, 7, 15-16, 18).",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Assessment and correction of theories for multilayered plates with imperfect interfaces",
+    "year": "2014"
+  }
+}

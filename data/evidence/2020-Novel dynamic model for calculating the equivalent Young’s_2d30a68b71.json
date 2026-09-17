@@ -1,0 +1,188 @@
+{
+  "source": {
+    "paper_id": "2d30a68b71",
+    "filename": "2020-Novel dynamic model for calculating the equivalent Young’s.pdf",
+    "sha256": "2d30a68b714e06a8442050923e62515199331836c282c1a04dd1cf8462a3a86c",
+    "page_count": 13,
+    "char_count": 45335,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28343,
+    "completion_tokens": 10316,
+    "total_tokens": 38659,
+    "thinking_tokens": 7291,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Xuhao Du",
+      "Ming Jin",
+      "Andrew Guzzomi",
+      "Lingzhi Li",
+      "Jie Pan"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Uniform adhesive bonding condition between adjacent laminas is assumed to simplify modeling, neglecting capillary penetration variations of coating/paint (Page 2).",
+      "Small deflection of the laminated beam is assumed so that lamina thickness remains constant and Poisson effects can be neglected (Page 2).",
+      "The coefficient of friction and normal load are assumed sufficient to transmit the required shear at each interface without further slip in the small-friction case (Page 2).",
+      "Element corners are assumed to lie on a straight line for all laminas, meaning internal and external strain differences are uniform across adjacent laminas (Page 3).",
+      "The laminated beam is assumed symmetrical about its neutral axis (Page 3).",
+      "Uniform stiffness and friction between laminas are modeled using equivalent spring elements where force is proportional to relative displacement (Pages 4-5).",
+      "Energy dissipation is assumed to equal friction force multiplied by a constant relative displacement between adjacent laminas (Page 5).",
+      "Time-dependent deflection at the free end is assumed approximately equal across all laminas (Page 5).",
+      "Higher-order strain difference terms are assumed negligible due to small strains (approx. 10^-6) under impact or magnetostriction loading (Pages 5-6).",
+      "The second moment of area in the FEM simulation is assumed identical to that of a solid beam of the same dimensions, representing bending stiffness via an equivalent Young's modulus (Page 7).",
+      "Clamping pressure was initially assumed to be uniform across the beam (Page 10)."
+    ],
+    "control_variables": [
+      "Lamina material (silicon steel / SiFe sheets) (Pages 6-7).",
+      "Lamina cross-sectional dimensions for each test configuration (cantilever: 0.12 m length, 20 mm width, 0.5 mm thickness; clamped: 1.5 m length, 70 mm width, 0.23 mm thickness) (Pages 6-7).",
+      "Excitation and sensor locations for each configuration (cantilever: impact and accelerometer at 50 mm from free end; clamped: impact at 330 mm from one end, accelerometers at 100 mm and 600 mm from opposite end) (Pages 6-7).",
+      "Test instrumentation (PCB 086C02 impact hammer, B&K 4517-002 accelerometers, NI USB-6259 / B&K PULSE acquisition systems) (Page 7).",
+      "Point support boundary conditions on knife edges for the simply supported clamped beam (Pages 6-7)."
+    ],
+    "dependent_variables": [
+      "Frequency response functions (FRFs) (Pages 1, 7-12).",
+      "Natural frequencies of the first four vibration modes (Pages 1, 8-11).",
+      "Damping loss factor (eta) (Pages 1, 4-6, 8-11).",
+      "Equivalent bending stiffness and equivalent Young's modulus (Pages 1, 4, 7-11).",
+      "Strain difference ratio (zeta) (Pages 1, 4-6, 8, 10).",
+      "Relative error between simulated and experimental natural frequencies (Pages 1, 8, 10, 11).",
+      "Bolt elongation / strain and corresponding inferred clamping forces (Pages 6, 10-11).",
+      "Surface roughness of SiFe sheets (Pages 7-8)."
+    ],
+    "doi": "10.1016/j.jsv.2020.115634",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The equivalent bending stiffness of a laminated structure can be formulated analytically based on lamina strain differences, scaling with N^3 when fully bonded and with N when frictionless.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Energy dissipation and structural loss factor can be derived from a non-linear spring-damper model by taking the ratio of work done by inter-layer friction to bending potential energy.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "In cantilever laminated beams with minimal clamping, increasing the number of laminas increases modal damping and loss factor significantly while reducing equivalent stiffness due to inter-layer slip.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Increasing clamping force raises the strain difference ratio toward the bonded limit, thereby increasing equivalent stiffness and shifting natural frequencies higher.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          2,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Finite element simulations utilizing analytical equivalent Young's modulus and loss factor predict the first four natural frequencies within 3% relative error for cantilever beams and within 6% on average for clamped beams.",
+        "evidence_type": "simulation and experimental validation",
+        "page_numbers": [
+          1,
+          8,
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "claim": "Scanning electron microscope imaging demonstrates that higher surface roughness restricts inter-layer sliding, yielding a higher strain difference ratio.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          7,
+          8,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Laminated cantilever beam consisting of 1 to 115 silicon steel (SiFe) sheets clamped with rubber bands at three locations along its length (0.12 m length, 20 mm width, 0.5 mm thickness per sheet) (Pages 6-7).",
+      "Laminated simply supported beam consisting of 106 to 186 SiFe sheets clamped between two aluminum U-shaped plates with six bolts and supported on knife edges (1.5 m length, 70 mm width, 0.23 mm thickness per sheet) (Pages 6-7).",
+      "Bolt pre-load measurement system using a micrometer to measure bolt elongation and calculate clamping force across five torque levels (1, 2, 3, 4, and 5 Nm) yielding 6 to 20 kN (Pages 6-7, 10-11).",
+      "Vibration testing system using a PCB 086C02 impact hammer for input excitation and B&K 4517-002 accelerometers for response acquisition via NI USB-6259 and B&K PULSE systems (Page 7).",
+      "Surface characterization using a SUPRA 55 VP scanning electron microscope (SEM) at magnifications exceeding 700x (Pages 7-8)."
+    ],
+    "future_work": [
+      "Obtain the strain difference ratio and model parameters for a real transformer (Page 13).",
+      "Simulate and compare frequency response functions directly on a real transformer core structure (Page 13).",
+      "Understand and explain the mode-splitting phenomenon caused by coupling between the laminated beam and the lower clamping structure (Pages 10, 11)."
+    ],
+    "independent_variables": [
+      "Number of lamination layers (N = 1 to 115 for cantilever beam; N = 106 to 186 for clamped beam) (Pages 6, 8, 10-11).",
+      "Clamping torque and clamping force (cantilever: negligible clamping with rubber bands; clamped beam: torques of 1, 2, 3, 4, and 5 Nm corresponding to clamping forces of 6, 12, 16, 19, and 20 kN) (Pages 6-7, 10-11).",
+      "Boundary and clamping configuration (cantilever with rubber bands vs. simply supported clamped between aluminum U-shaped plates) (Pages 6-7).",
+      "Vibration response measurement locations (point 1 at 100 mm and point 2 at 600 mm for the clamped beam) (Page 7)."
+    ],
+    "limitations_inferred": [
+      "Model parameters (strain difference ratio zeta, along with coefficients A and c) are semi-empirical and require experimental FRF data fitting, restricting purely predictive modeling prior to testing.",
+      "Testing and validation are restricted to one-dimensional beam transverse bending, leaving torsional, lateral, and complex multi-axial deformation unverified.",
+      "The model does not capture dynamic friction rate-dependence, wear, or cyclic fretting effects along the contacting laminar interfaces.",
+      "Clamping was applied at discrete bolt points rather than as a truly uniform normal pressure distribution, causing local stress concentrations not captured by the analytical formulation."
+    ],
+    "limitations_stated_by_authors": [
+      "Assumed uniform adhesive bonding across laminas, whereas actual transformer cores exhibit non-uniform adhesive penetration due to capillary action (Page 2).",
+      "Assumed small deflection so that lamina thickness remains constant and Poisson effects can be neglected (Page 2).",
+      "Assumed uniform clamping pressure across the beam, whereas experimental clamping may be non-uniform and induce fluctuations in the loss factor (Page 10).",
+      "The model does not account for structural coupling that causes mode splitting (such as the split second mode), which produced higher relative errors (average 6.0% optimized, 7.9% test) (Pages 10, 11).",
+      "The analytical and experimental validation was conducted on simplified beam specimens rather than a complete real transformer core (Page 13)."
+    ],
+    "main_results": [
+      "Derived closed-form equations for equivalent bending stiffness (Eq. 15) and loss factor (Eq. 21) based on layer count, strain difference ratio, and clamping friction force (Pages 4-6).",
+      "Demonstrated that increasing clamping force increases equivalent Young's modulus by reducing inter-layer slip, shifting behavior closer to a solid beam (Pages 8-11, 13).",
+      "Demonstrated that increasing the number of laminas in weakly clamped beams decreases equivalent stiffness (from 133 GPa at N=1 to 0.08 GPa at N=115) while increasing loss factor (from 0.025 to 0.78) (Pages 8-9).",
+      "Achieved natural frequency relative errors below 3% for the first four modes of the laminated cantilever beam using FEM with equivalent material properties (Pages 1, 8, 13).",
+      "Achieved average relative errors of 4.8% (parameter optimization group) and 5.7% (test group) for the first four natural frequencies of the clamped beam across varying layer counts and clamping torques (Pages 10-11, 13).",
+      "Correlated SEM surface roughness with the strain difference ratio, showing that rougher sheets have higher zeta values closer to solid behavior (Pages 7, 10, 12)."
+    ],
+    "modeling_methods": [
+      "Uniform elastic beam theory (Euler-Bernoulli bending formulation) (Page 4).",
+      "Analytical strain difference formulation for layered beams (internal and external strain differences) (Pages 3-4).",
+      "Non-linear spring-damper contact model for friction energy dissipation (Pages 4-5, 12).",
+      "Linear regression modeling of strain difference ratio versus clamping force (Page 10).",
+      "Parameter optimization and curve-fitting from experimental frequency response functions (Pages 7, 8, 10).",
+      "Finite element method (FEM) dynamic simulation using equivalent material properties (Young's modulus and loss factor) (Pages 1, 6-12)."
+    ],
+    "performance_metrics": [
+      "Relative error of the first four natural frequencies between FEM simulations and experimental measurements (%) (Pages 1, 8, 10-11, 13).",
+      "Equivalent bending stiffness and equivalent Young's modulus (GPa) (Pages 4, 8, 10).",
+      "Damping loss factor (eta) (Pages 1, 4-6, 8-11).",
+      "Strain difference ratio (zeta) (Pages 4, 8, 10).",
+      "Agreement of simulated and measured frequency response functions (FRFs) (Pages 8-12)."
+    ],
+    "possible_gap_implications": [
+      "The analytical relationship between clamping force, layer count, inter-layer slip, and bending stiffness could potentially inform layer-jamming variable-stiffness mechanics in soft robotics, though the paper only examines metal laminates for transformer cores.",
+      "The requirement to empirically fit contact parameters from baseline vibration tests highlights a research gap in fully predictive, contact-mechanics-based dynamic modeling without prior testing.",
+      "The inability of equivalent 1D beam properties to capture fixture coupling and mode splitting underscores the need for multi-dimensional or multi-body dynamic modeling in constrained layered structures."
+    ],
+    "research_objective": "To develop an accurate and efficient analytical model to determine the equivalent bending stiffness (equivalent Young's modulus) and damping loss factor of laminated beam structures as functions of layer count and strain difference ratio (governed by inter-layer friction and clamping force), and to validate these equivalent properties in finite element simulations of frequency response functions.",
+    "research_problem": "Accurately and efficiently predicting the dynamic response and vibration characteristics (natural frequencies, mode shapes, and loss factor) of laminated transformer core structures without requiring prohibitive computational resources to model hundreds or thousands of individual laminas having incomplete bonding and inter-layer slip.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "inter-layer friction",
+      "clamping force",
+      "number of layers"
+    ],
+    "title": "Novel dynamic model for calculating the equivalent Young’s modulus and loss factor of layered beams",
+    "year": "2020"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "source": {
+    "paper_id": "7f93ab3253",
+    "filename": "2026-Thickness Gradient Design Enhances Bending Performance of.pdf",
+    "sha256": "7f93ab3253623c56962e13961ff66109212a7f5518e56a96e53f2f02eb61553f",
+    "page_count": 23,
+    "char_count": 70617,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 35845,
+    "completion_tokens": 5643,
+    "total_tokens": 41488,
+    "thinking_tokens": 3129,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yifan Liao",
+      "Chuangchuang Duan",
+      "Shenyou Peng"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "All constituent layers and interlayers exhibit linearly elastic deformation behavior (p. 3).",
+      "Interfacial shear force per unit length follows a linear elastic constitutive relation Si = Ki * si, where Ki is interfacial shear stiffness and si is tangential slip displacement (p. 3).",
+      "The composite beam is sufficiently slender to satisfy classical Euler-Bernoulli beam theory assumptions (p. 3).",
+      "Interlayer regions have negligible thickness and prevent normal separation, enforcing identical transverse deflection profiles across all layers (p. 3).",
+      "Plane stress conditions apply and out-of-plane displacements are neglected (p. 3).",
+      "All interfaces possess uniform slip capacity and allowable shear stress when evaluating global load-carrying capacity (p. 15)."
+    ],
+    "control_variables": [
+      "Total beam thickness H (0.32 m in the 5-layer verification model; 50 cm in the parametric/optimization models) (p. 6).",
+      "Beam length L (4 m / 400 cm) (p. 6, 7, 8).",
+      "Cross-sectional width b (0.1 m / 10 cm) (p. 6, 7, 8).",
+      "Elastic modulus of constituent layers E (200 GPa; 50 GPa for the 4-layer literature comparison) (p. 6, 7, 8).",
+      "Poisson's ratio nu (0.3) (p. 6, 7, 8).",
+      "Uniformly distributed transverse load q (10 kN/m) (p. 6)."
+    ],
+    "dependent_variables": [
+      "Interlayer slip distribution and beam-end interlayer slip si (p. 3, 5, 8).",
+      "Global transverse deflection and maximum deflection wmax (p. 3, 5, 8).",
+      "Optimal thickness gradient copt (p. 8, 14, 15).",
+      "Normalized structural strength and allowable load-carrying capacity Qopt and Q0 (p. 15, 16, 17)."
+    ],
+    "doi": "10.1016/j.apm.2026.117249",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Tailoring the layer thickness gradient across a symmetric multilayer beam homogenizes interlayer slip, concurrently maximizing flexural compliance (deflection) and elevating load-bearing capacity by mitigating localized interfacial stress concentrations.",
+        "evidence_type": "analytical derivations and finite element parametric modeling",
+        "page_numbers": [
+          1,
+          8,
+          15
+        ]
+      },
+      {
+        "claim": "Interlayer slip directly reduces effective flexural rigidity and governs structural stiffness, while non-uniform slip causes premature interfacial damage through localized displacement concentrations.",
+        "evidence_type": "theoretical formulation and literature-grounded rationale",
+        "page_numbers": [
+          2,
+          8
+        ]
+      },
+      {
+        "claim": "The condition of interlayer slip homogenization corresponds precisely to the state of maximum structural flexibility/compliance, as total interfacial shear strain energy reaches a minimum when slip is uniform across interfaces.",
+        "evidence_type": "analytical energy minimization and parametric evaluation",
+        "page_numbers": [
+          8,
+          10
+        ]
+      },
+      {
+        "claim": "A dimensionless power-law scaling relationship quantitatively correlates optimal normalized layer thickness gradient c/H with the ratio of interfacial stiffness to elastic modulus K/E and layer count n: c/H = -(65 / (n^2 + 1)) * (K/E)^(2/3).",
+        "evidence_type": "least-squares regression analysis of numerical data",
+        "page_numbers": [
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "In uniform non-gradient beams, maximum interlayer slip accumulates monotonically as layer count increases, whereas optimal thickness grading suppresses maximum slip to a nearly constant value across layer counts, markedly improving structural load capacity.",
+        "evidence_type": "comparative numerical analysis",
+        "page_numbers": [
+          15,
+          16,
+          17
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Quantitative performance comparison between the proposed thickness-graded design and conventional functionally graded materials (p. 18).",
+      "Development of hybrid geometric-material grading strategies to achieve tighter slip consistency (p. 18).",
+      "Physical experimental validation of thickness-gradient multilayer structures (p. 18).",
+      "Extension of the analytical framework to dynamic loading and progressive failure analysis (p. 18).",
+      "Optimization tailored for heterogeneous composite laminates (p. 18).",
+      "Incorporation of time-dependent viscoelastic behavior in polymeric interlayers (p. 18)."
+    ],
+    "independent_variables": [
+      "Layer thickness gradient c and normalized gradient c/H (p. 6, 8, 14).",
+      "Interfacial shear stiffness Ki (20 MPa, 200 MPa, 2000 MPa, and 5 MPa) (p. 6, 8, 14).",
+      "Number of layers n (4, 5, 6, 8, and 10 layers) (p. 6, 8, 14).",
+      "Stiffness-to-modulus ratio E/K (p. 14, 15).",
+      "Beam support boundary conditions (simply supported, cantilever, and overhanging) (p. 5, 15, 18, 19, 20).",
+      "Longitudinal coordinate position x along the beam axis (p. 3, 5, 6)."
+    ],
+    "limitations_inferred": [
+      "The model was evaluated solely against 2D linear-elastic numerical simulations and prior literature data, lacking experimental validation on physical specimens.",
+      "Analysis was restricted to static, uniformly distributed transverse loads; non-uniform, point, dynamic, cyclic, or multi-axial loading conditions relevant to soft robotic actuators or continuum joints were not explored.",
+      "Interlayer friction, plastic slip, delamination growth, and manufacturing tolerances in layer thicknesses were not considered."
+    ],
+    "limitations_stated_by_authors": [
+      "Transverse shear deformation is neglected (Euler-Bernoulli beam theory assumption), limiting accuracy for low span-to-depth ratio beams (p. 18).",
+      "Transverse deflection is assumed identical across all layers, neglecting through-thickness normal separation or core flexibility (p. 18).",
+      "Interfacial behavior is restricted to a linear elastic constitutive law, omitting interfacial damage, nonlinear contact, and time-dependent viscoelasticity of polymeric interlayers (p. 18).",
+      "The slip homogenization strategy depends on geometric and material symmetry (p. 18).",
+      "Pure layer thickness grading cannot achieve perfect, strict slip uniformity across all interfaces when the number of layers exceeds five (p. 8, 18).",
+      "Physical experimental validation has not yet been performed (p. 18)."
+    ],
+    "main_results": [
+      "The derived closed-form analytical solutions matched benchmark literature results with 0% error and showed less than 1% relative error compared to 2D cohesive finite element simulations (p. 6, 7).",
+      "For symmetric multilayer beams, interlayer slip profiles are symmetric across neutral-axis-symmetric interfaces (s1 = s4, s2 = s3 in a 5-layer beam), peaking near supports and dropping toward the midspan under uniform loading (p. 6, 8).",
+      "The thickness gradient parameter c controls slip distribution directionality: positive gradients increase inner layer slip, whereas negative gradients shift higher slip to outer layers (p. 7-8).",
+      "Interlayer slip homogenization mitigates peak interfacial slip concentrations ('peak-shaving' effect) while simultaneously delivering maximum beam compliance (maximum transverse deflection) (p. 8, 10).",
+      "Strict slip uniformity across all interfaces is unattainable for n > 5 via pure thickness grading alone; however, setting c to equate outermost and innermost interface slips (e.g., s1 = s3 for 6-layer, s1 = s5 for 10-layer) provides relative homogenization and peak flexibility (p. 8-9, 14).",
+      "A generalized dimensionless power law c/H = -a * (K/E)^b describes optimal normalized gradient versus modulus-to-stiffness ratio, approximated explicitly as c/H = -(65 / (n^2 + 1)) * (K/E)^(2/3) (p. 14, 15).",
+      "Optimally thickness-graded beams prevent slip accumulation with increasing layer count, yielding substantial improvements in allowable load capacity (normalized structural strength) compared to uniform beams (p. 15, 16, 17)."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory for slender multilayer beams (p. 3).",
+      "Principle of minimum total potential energy formulation incorporating layer axial, bending, and interlayer shear slip energies (p. 3).",
+      "Linear elastic shear constitutive relation at interfaces (Si = Ki * si) (p. 3).",
+      "Coupled system of second-order ordinary differential equations formulated in terms of interlayer slip variables (p. 4-5).",
+      "Modal decoupling using eigenvalue decomposition of the interaction coefficient matrix G (p. 5).",
+      "Two-dimensional plane stress finite element validation using 4-node bilinear plane stress elements (CPS4R) for solid layers and 4-node cohesive elements (COH2D4) for interfaces (p. 6).",
+      "Least-squares regression fitting to establish power-law scaling relations for optimal gradient design (p. 14)."
+    ],
+    "performance_metrics": [
+      "Relative error between theoretical analytical predictions and finite element / literature benchmark values (%) (p. 6, 7, 8).",
+      "Interlayer slip magnitude and maximum slip s0 and sopt (mm or m) (p. 6, 7, 8, 15, 16, 17).",
+      "Transverse beam deflection and maximum deflection wmax (mm or m) (p. 6, 7, 8, 10, 11, 12).",
+      "Normalized structural strength / allowable external load capacity Qopt and Q0 (p. 15, 16, 17).",
+      "Coefficient of determination R^2 for power-law scaling curve fits (p. 14)."
+    ],
+    "possible_gap_implications": [
+      "Geometric thickness grading offers a passive design avenue for tuning bending compliance and interfacial shear load transfer in laminated composite structures, which could inform the design of compliant mechanisms, flexible hinges, or multi-layered flexible substrates without requiring complex material grading."
+    ],
+    "research_objective": "To establish a general analytical framework for symmetric multilayer composite beams with arbitrary layer counts and continuous geometric gradients, quantitatively linking interfacial shear stiffness, thickness gradient, and slip homogenization to simultaneously optimize structural compliance and load-bearing capacity.",
+    "research_problem": "Existing analytical composite beam models predominantly assume uniform layer thicknesses and lack systematic analytical descriptions of how geometric layer thickness gradients quantitatively govern interlayer slip kinetics; furthermore, mechanisms to achieve interlayer slip homogenization across multilayered configurations remain poorly understood.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer slip",
+      "interfacial shear stiffness",
+      "layer thickness gradient"
+    ],
+    "title": "Thickness Gradient Design Enhances Bending Performance of Multilayer Beams through Slip Homogenization",
+    "year": "2026"
+  }
+}

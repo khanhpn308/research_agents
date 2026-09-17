@@ -1,0 +1,172 @@
+{
+  "source": {
+    "paper_id": "8113666e96",
+    "filename": "2018-A homogenized structural model for shear deformable composites.pdf",
+    "sha256": "8113666e962127039ddfec102e4bea849b5290077935e2d5d188a9cd46361305",
+    "page_count": 22,
+    "char_count": 75995,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 40746,
+    "completion_tokens": 6780,
+    "total_tokens": 47526,
+    "thinking_tokens": 4459,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Hossein Darban",
+      "Roberta Massabò"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linearly elastic, homogeneous, and orthotropic layer materials with principal axes oriented along the coordinate axes",
+      "Cylindrical bending in plane strain conditions where transverse normal stress is negligible ((k)σ33 = 0) and layers are incompressible in the thickness direction",
+      "Zero-thickness interfaces governed by a linear-elastic interfacial traction law relating shear traction to sliding displacement jump (ˆσkS = KkS * ˆvk2)",
+      "Interfaces are rigid against relative transverse opening displacements, enforcing identical transverse displacement across adjacent layers ((k)v3 = (k+1)v3)",
+      "Displacement field based on first-order shear deformation kinematics enriched with a piecewise linear zigzag function through the thickness that vanishes at the plate surfaces",
+      "Constant shear correction factor (assumed as k44 = 5/6) applied to effective shear stiffness terms"
+    ],
+    "control_variables": [
+      "Orthotropic material property ratios: ET/EL = 1/25, GLT/EL = 1/50, GTT/EL = 1/125, νLT = νTT = 0.25",
+      "Plate aspect ratios and geometry (L/h = 4 for thick plates, L/h = 10 for cantilever plates, 2L/h = 100 for ENF specimen)",
+      "Equal layer thickness distributions (h/n per layer)",
+      "Assumed shear correction factor value of k44 = 5/6",
+      "Linear-elastic, small-strain, static loading regime"
+    ],
+    "dependent_variables": [
+      "Global kinematic variables: mid-surface in-plane displacement (v02), cross-section rotation (ϕ2), transverse deflection (w0), and zigzag enrichment amplitude (θ2)",
+      "Through-thickness longitudinal displacement field ((k)v2) and transverse displacement ((k)v3)",
+      "In-plane normal bending stress ((k)σ22) and bending strain ((k)ε22)",
+      "Transverse shear stress ((k)σ23) and shear strain (2(k)ε23), including a posteriori shear stresses from equilibrium",
+      "Interfacial sliding displacement jump (ˆvk2) and interfacial tangential shear traction (ˆσkS)",
+      "Decoupled generalized forces and moment resultants (N22, M22, Q2, MzS22, Qz2)"
+    ],
+    "doi": "10.1007/s41939-018-0032-x",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A homogenized structural model incorporating zero-thickness sliding interfaces into a refined zigzag formulation describes the mechanics of shear-deformable multilayered beams and plates with four kinematic variables regardless of the number of layers or interfaces.",
+        "evidence_type": "Analytical modeling and variational formulation",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          9,
+          10,
+          18,
+          19
+        ]
+      },
+      {
+        "claim": "Introducing an independent global kinematic variable for the zigzag enrichment captures transverse shear deformability and compliance in layered composites with compliant or debonded interlayers, correcting the underestimation of shear compliance found in earlier homogenized zigzag models.",
+        "evidence_type": "Comparative numerical analysis against 2D elasticity benchmarks",
+        "page_numbers": [
+          2,
+          3,
+          5,
+          11,
+          12,
+          13,
+          15
+        ]
+      },
+      {
+        "claim": "For thick simply supported anisotropic composite plates (L/h = 4), the homogenized model accurately calculates longitudinal displacement jumps, in-plane bending stresses, and equilibrium-derived transverse shear stresses across bonded, compliant, and debonded interface states.",
+        "evidence_type": "Numerical validation against 2D elasticity solutions",
+        "page_numbers": [
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "In cantilevered plates with symmetric layups, interfacial shear tractions match discrete layer models across all stiffness levels, but asymmetric layups exhibit boundary discrepancy at clamped supports due to neglected interfacial normal tractions.",
+        "evidence_type": "Numerical comparison with discrete layer interface models",
+        "page_numbers": [
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "The model displays an unphysical slope discontinuity at cross-sections with abrupt in-plane variations in interfacial stiffness (e.g., crack tips in ENF specimens) due to shear rigidity mismatch and boundary conditions operating on the enrichment amplitude rather than transverse displacement gradients.",
+        "evidence_type": "Theoretical analysis and numerical demonstration of model limitations",
+        "page_numbers": [
+          3,
+          17,
+          18,
+          19
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Extending the homogenized framework to two-dimensional plate and shell structures",
+      "Incorporating generally nonlinear interfacial traction laws (e.g., piecewise linear cohesive laws) to simulate damage, delamination growth, and connector nonlinearity",
+      "Accounting for interfacial normal tractions and transverse opening displacements to model peel stresses and asymmetric layups accurately"
+    ],
+    "independent_variables": [
+      "Interfacial tangential stiffness (KS, spanning 0 for fully debonded to infinity for fully bonded)",
+      "Lamination stacking sequences (e.g., (0, 0, 0), (0, 90, 0), (0, 0), (90, 0))",
+      "Length-to-thickness aspect ratio (L/h = 4, 10, 100)",
+      "Spatial coordinates along the beam span (x2) and through the thickness (x3)",
+      "Boundary configurations (simply supported, cantilevered clamped-free, and three-point bend ENF configurations) and loading modes (sinusoidal transverse pressure, concentrated end shear load)"
+    ],
+    "limitations_inferred": [
+      "The study does not present any physical experimental validation or testing on physical specimens, relying solely on comparisons with 2D elasticity and discrete numerical models.",
+      "The assumption of infinite normal interfacial stiffness (no transverse opening) may not hold for soft robotic bending actuators, flexible joints, or layered structures undergoing peeling or transverse tensile loads.",
+      "The small-strain linear-elastic kinematic formulation cannot directly capture the finite rotations and large deformations common in soft robots and continuum manipulators."
+    ],
+    "limitations_stated_by_authors": [
+      "Formulation is restricted to cylindrical bending of beams and wide plates with principal material axes aligned along the bending axes.",
+      "Interfaces are assumed to be rigid against relative opening displacements, neglecting interfacial normal tractions and opening separations.",
+      "Transverse normal stress ((k)σ33) and through-thickness compressibility are assumed to be negligible.",
+      "Transverse shear stresses computed directly from constitutive relations are piecewise constant through the thickness, requiring an a posteriori equilibrium calculation for accurate distributions.",
+      "For cantilevered plates with asymmetric layups, neglecting interfacial normal tractions causes inaccuracies at intermediate stiffnesses and non-zero interfacial shear tractions at clamped supports.",
+      "The model exhibits severe inaccuracies and unphysical slope discontinuities across cross-sections with sharp in-plane changes in interfacial shear stiffness (e.g., delamination tips in ENF specimens).",
+      "The linear-elastic interface law does not capture nonlinear behavior such as damage, delamination propagation, or connector plasticity."
+    ],
+    "main_results": [
+      "Formulated an eighth-order homogenized zigzag model for multilayered beams and plates in cylindrical bending that uses only four global kinematic variables regardless of the number of layers or compliant interlayers.",
+      "Demonstrated closed-form solutions over the full range of interfacial shear stiffness (KS from 0 to infinity), correctly matching first-order shear deformation theory behavior in both the fully bonded and fully sliding limits.",
+      "Accurately predicted through-thickness displacement jumps, in-plane bending stresses, and a posteriori transverse shear stresses in thick anisotropic plates (L/h = 4) under sinusoidal loading, reducing deflection prediction error to approximately 3% for fully debonded plates.",
+      "Identified that the model circumvents fictitious boundary layers at clamped supports observed in prior zigzag models, but fails to maintain transverse slope continuity across abrupt in-plane changes in interfacial shear stiffness due to mismatched effective shear rigidity."
+    ],
+    "modeling_methods": [
+      "Homogenized structural zigzag theory extending Tessler et al. (2009) refined zigzag kinematics to zero-thickness imperfect interfaces using Massabò and Campi (2014) multiscale strategy",
+      "Principle of virtual work / variational derivation of homogenized equilibrium equations and boundary conditions",
+      "Closed-form decoupling of the eighth-order system of governing differential equations",
+      "A posteriori transverse shear stress recovery via integration of local equilibrium equations",
+      "Benchmarking against 2D elasticity solutions (transfer matrix method) and discrete layer interface models"
+    ],
+    "performance_metrics": [
+      "Comparison of mid-span transverse displacement with exact 2D elasticity solutions and relative percentage error",
+      "Through-thickness distribution of longitudinal displacement and interfacial slip jumps compared to 2D elasticity",
+      "Through-thickness distribution of bending normal stress and a posteriori transverse shear stress compared to 2D elasticity",
+      "Interfacial shear traction distribution along the span compared to discrete layer interface models",
+      "Continuity and deformed shape profiles across in-plane interface discontinuities in ENF specimens"
+    ],
+    "possible_gap_implications": [
+      "The homogenized sliding-interface formulation could inform variable-stiffness mechanics (such as layer-jamming or friction-based stiffness modulation) in soft robotics, provided normal pressure coupling and friction laws are incorporated.",
+      "The observed limitation at in-plane interface discontinuities highlights that applying such homogenized theories to soft continuum robots with localized stiffness variations requires revised interface transition conditions.",
+      "Extending the methodology to geometric non-linearities and large deflections is necessary before it can be applied to continuum robots and soft grippers."
+    ],
+    "research_objective": "To develop and evaluate an efficient homogenized structural model for the linear static analysis of multilayered shear-deformable beams and wide plates with thin compliant interlayers or mechanical connectors, using a fixed number of kinematic variables independent of layer count, and resolving transverse shear compliance underestimation of earlier zigzag models.",
+    "research_problem": "Accurately predicting global deformations and local stress/displacement fields in layered composites with compliant or debonded sliding interlayers without the high computational cost and variable proliferation of discrete layer models, while overcoming the shear compliance underestimation inherent to previous homogenized zigzag models.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "thin compliant interlayers",
+      "sliding interfaces controlled by linear-elastic interfacial tangential stiffness",
+      "uniformly distributed mechanical fasteners (nails, dowels, screws, pins, stitches)"
+    ],
+    "title": "A homogenized structural model for shear deformable composites with compliant interlayers",
+    "year": "2018"
+  }
+}

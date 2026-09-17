@@ -1,0 +1,196 @@
+{
+  "source": {
+    "paper_id": "0f1b512cee",
+    "filename": "2022-Equivalent dynamic model of multilayered structures with imperfect interfaces.pdf",
+    "sha256": "0f1b512cee959a3daf8635dde3aeed6c4d3c6dd17e5aabef1248032eb09e4771",
+    "page_count": 17,
+    "char_count": 67666,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 35734,
+    "completion_tokens": 10976,
+    "total_tokens": 46710,
+    "thinking_tokens": 8685,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Nicolas Auquier",
+      "Kerem Ege",
+      "Emmanuel Gourdon"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic and isotropic material behavior for all layers of the multilayered plate",
+      "Viscoelastic material damping represented by complex Young's moduli for the layers",
+      "Piecewise linear spring/compliance interface constitutive law relating transverse shear stresses to displacement slip jumps",
+      "Negligible interfacial normal opening displacements (zero out-of-plane jump, preserving continuous normal contact)",
+      "Continuous transverse shear stresses across interfaces despite in-plane displacement discontinuities",
+      "Constant (frequency-independent and space-independent) interface compliance and stiffness parameters",
+      "Zero transverse normal strain through the thickness (no dilatational or breathing modes)",
+      "Linear variation of in-plane displacements through layer thickness, yielding constant transverse shear stress per layer"
+    ],
+    "control_variables": [
+      "Infinite plate assumption with beam-like one-dimensional wave propagation along the x-axis",
+      "Isotropic layer material properties across simulation comparisons",
+      "Fixed geometric and material baseline properties in comparative benchmark cases (e.g., Table 1 and Table 3 parameters)",
+      "Neglected normal opening displacement at interfaces",
+      "Zero transverse normal strain through plate thickness",
+      "Fixed interface compliance defect value (B = 5e-10 m/Pa) in comparative case evaluations"
+    ],
+    "dependent_variables": [
+      "Wavenumbers (bending, extensional, and shear wavenumbers) as a function of frequency",
+      "Equivalent complex flexural rigidity of the sandwich plate",
+      "Equivalent damping ratio and energy damping",
+      "Transition frequency / frequency of maximum shearing (maximum damping)",
+      "Frequency shift of dynamic parameters between perfect and imperfect interface configurations",
+      "In-plane displacement field and interfacial displacement jumps through panel thickness",
+      "Asymptotic flexural rigidity limits at low and high frequencies"
+    ],
+    "doi": "10.1016/j.jsv.2022.117052",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "An equivalent single layer / Zig-Zag model can be extended to dynamic wave propagation in multilayered plates with imperfect sliding interfaces by introducing displacement slip jumps governed by interface compliance matrices into Woodcock parameters.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          5,
+          7
+        ]
+      },
+      {
+        "claim": "Interfacial sliding defects cause a frequency shift of bending wavenumbers, equivalent flexural rigidity transitions, and maximum damping peaks toward lower frequencies by facilitating transverse shear between layers.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          1,
+          11,
+          12,
+          13,
+          16
+        ]
+      },
+      {
+        "claim": "Extensional wave modes are entirely unaffected by interfacial sliding because interface shear stresses couple only to rotational and shear kinematic variables in the plate formulation.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Equivalent damping based on Love-Kirchhoff plate theory overestimates damping when shear deformation occurs, requiring correction using the ratio of group velocity to phase velocity to compute true energy damping.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "An interfacial sliding defect can shift the equivalent flexural rigidity curve in a manner indistinguishable from an eight-fold reduction in core Young's modulus under a perfect interface assumption.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          13,
+          14
+        ]
+      },
+      {
+        "claim": "Asymptotic flexural rigidity limits at low frequency and high frequency (approaching the sum of skin rigidities) remain unaffected by moderate sliding defects, altering only when interfaces approach total debonding.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          9,
+          10,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "The sensitivity of the panel's dynamic frequency shift to interface compliance increases with a higher core-to-skin thickness ratio and decreases with a higher skin-to-core stiffness ratio.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          14,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Incorporating third-order vertical displacement fields to better describe transverse shear stress variations, particularly under severe debonding conditions.",
+      "Incorporating dilatational motion to extend the model's validity to higher frequencies and capture breathing modes.",
+      "Modeling interfacial openings to account for normal separation and out-of-plane defect modes.",
+      "Implementing frequency-dependent and spatially varying interface parameters.",
+      "Developing nonlinear interface constitutive relations, including piecewise linear models.",
+      "Validating the modeling methodology experimentally on physical sandwich panels with physical bonding defects.",
+      "Applying the equivalent dynamic framework to Structural Health Monitoring (SHM) for detecting adhesive defects and tracking structural aging."
+    ],
+    "independent_variables": [
+      "Vibration frequency",
+      "Interface condition / interface compliance parameter (perfectly bonded B = 0 vs. imperfect sliding B = 5e-10 m/Pa)",
+      "Layer thicknesses (skin thickness, core thickness, and core-to-skin thickness ratio)",
+      "Layer material properties (skin and core Young's moduli, skin-to-core modulus ratio, mass densities, Poisson's ratios)"
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted in the study to validate the predicted dynamic effects of sliding interfaces on physical sandwich structures.",
+      "The linear compliance interface formulation does not capture nonlinear friction phenomena such as stick-slip, amplitude dependence, or normal-pressure-dependent contact mechanics.",
+      "The formulation assumes infinite plate dimensions and planar wave propagation, omitting finite boundary conditions, clamping constraints, and edge reflections.",
+      "Interfacial sliding is modeled without frictional energy loss unless an imaginary compliance component is manually assigned, which may underestimate damping in dry sliding contacts."
+    ],
+    "limitations_stated_by_authors": [
+      "Dilatational motion is not included in the model, defining the high-frequency limit of the framework and potentially affecting predictions even in the 200 to 500 Hz range.",
+      "Normal interfacial openings are neglected, preventing the representation of normal debonding or gap formation between layers.",
+      "Interface compliance and stiffness parameters are assumed to be constant across space and frequency.",
+      "Vertical displacement is assumed linear through the thickness, forcing transverse shear stresses to remain constant through each layer rather than higher-order.",
+      "The model derivation is presented under isotropic layer assumptions for simplicity (though extendable to anisotropy).",
+      "The Love-Kirchhoff equivalent damping formulation overestimates damping in shear-dominated regimes, requiring correction by group-to-phase velocity ratios.",
+      "The methodology has not been validated or applied experimentally on physical sandwich panels."
+    ],
+    "main_results": [
+      "Interfacial sliding introduces in-plane displacement discontinuities (jumps) at the interfaces, making layer deformation increasingly independent and facilitating transverse shear.",
+      "The presence of sliding interfaces causes the frequency-dependent dynamic response curves (wavenumbers, flexural rigidity transition, and peak damping) to shift toward lower frequencies.",
+      "Extensional wavenumbers remain unaltered by sliding interfaces because interface shear stresses affect only shear and rotational variables.",
+      "Asymptotic flexural rigidity limits at low frequency and high frequency remain unchanged under moderate sliding defects, altering only when interfaces approach complete debonding.",
+      "Lossless interfacial sliding shifts the frequency of peak damping toward lower frequencies without altering the maximum damping value itself.",
+      "The impact of interface compliance is magnified by a larger core-to-skin thickness ratio and attenuated by a larger skin-to-core stiffness ratio.",
+      "The dynamic equivalent model matches Shorter's Spectral Finite Element Method (SFEM) dispersion results and Ross-Kerwin-Ungar (RKU) asymptotic bonded and debonded limits.",
+      "A significant sliding defect shifts dynamic properties identically to an apparent eight-fold softening of the core, highlighting the risk of misidentifying bonding defects as degraded core properties."
+    ],
+    "modeling_methods": [
+      "Guyader-Marchetti Zig-Zag equivalent single layer (ESL) plate modeling framework",
+      "Discontinuous interface kinematic formulation introducing displacement slip jumps",
+      "Piecewise linear spring/compliance interface constitutive equations relating interface stresses and displacement jumps",
+      "Reissner-Mindlin plate kinematic assumptions (bending, shearing, and membrane displacements)",
+      "Lagrangian mechanics and Hamilton's principle of least action to derive equations of motion",
+      "Woodcock parameter reformulation incorporating imperfection correction terms",
+      "Harmonic wave propagation formulation solved for complex wavenumbers via an 8th-order polynomial determinant",
+      "Love-Kirchhoff equivalent thin-plate formulation for frequency-dependent complex flexural rigidity",
+      "Energy damping formulation corrected by group-to-phase velocity ratio",
+      "Asymptotic flexural rigidity limit analysis at low and high frequencies",
+      "Benchmarking against Shorter's Spectral Finite Element Method (SFEM) and Ross-Kerwin-Ungar (RKU) model"
+    ],
+    "performance_metrics": [
+      "Bending, shear, and extensional wavenumbers as a function of frequency",
+      "Frequency-dependent equivalent complex flexural rigidity",
+      "Frequency-dependent energy damping ratio",
+      "Frequency of maximum shearing / maximum damping",
+      "Dynamic parameter frequency shift between perfect and imperfect interfaces",
+      "Low-frequency and high-frequency asymptotic flexural rigidity limits"
+    ],
+    "possible_gap_implications": [
+      "Extending dynamic equivalent plate models to include interfacial slip bridges the gap between static imperfect interface models and dynamic vibro-acoustic wave propagation models.",
+      "Demonstrating that interface slip mimics core softening prevents erroneous material parameter extraction during experimental vibro-acoustic characterization.",
+      "Providing an analytical equivalent plate formulation enables rapid parameter sweeps and optimization without computationally demanding 3D finite element meshes.",
+      "The absence of experimental validation and lack of nonlinear frictional contact modeling remains an unaddressed gap for practical engineering and soft robotic structural design."
+    ],
+    "research_objective": "To extend the Guyader-Marchetti Zig-Zag equivalent plate model to account for imperfect sliding interfaces via interface compliance/stiffness constitutive equations, and to investigate the resulting frequency-dependent dynamic equivalent parameters (wavenumbers, equivalent flexural rigidity, and damping) in sandwich panels.",
+    "research_problem": "Predicting and characterizing the dynamic and vibro-acoustic behavior of multilayered sandwich panels when layer interfaces have imperfect bonding (such as sliding interfaces). Existing equivalent plate models predominantly assume perfect bonding or focus on static stress analysis of imperfect interfaces, failing to capture frequency-dependent dynamic parameters.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Equivalent dynamic model of multilayered structures with imperfect interfaces: Application to a sandwich structured plate with sliding interfaces",
+    "year": "2022"
+  }
+}

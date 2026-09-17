@@ -1,0 +1,187 @@
+{
+  "source": {
+    "paper_id": "ecdac26196",
+    "filename": "2021-Analytical model for the bending of parallel wire cables considering interactions among wires__ecdac261.pdf",
+    "sha256": "ecdac26196d469aa888159e2e6479170c05fe54f559565b5335752d03233af75",
+    "page_count": 15,
+    "char_count": 70613,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 39443,
+    "completion_tokens": 6946,
+    "total_tokens": 46389,
+    "thinking_tokens": 4329,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yongping Zhang",
+      "Qian Feng",
+      "Guannan Wang",
+      "Rongqiao Xu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The parallel wire cable cross section is idealized into layered rectangular composite cross sections preserving the total height and total wire cross-sectional area.",
+      "Cross sections with differing layer widths are transformed into an equivalent section with uniform unit width (width = 1) by scaling Young's modulus (E_i = b_i * E_i') to maintain identical longitudinal stiffness (EA) and bending stiffness (EI).",
+      "Interfacial slip is permitted at every layer interface, and the interactive shear force is assumed to be linearly proportional to the relative slip via a slip rigidity parameter (V_si = k_i * \\Delta u_i).",
+      "Deflection and curvature of each layer are assumed identical with no lateral separation between adjacent layers (v^(i+1) = v^(i) and \\sigma_y^(i+1) = \\sigma_y^(i)).",
+      "Each layer is assumed to be in an in-plane stress state governed by isotropic linear elasticity under small-strain deformation with a finite initial axial tensile stress.",
+      "The classical Euler-Bernoulli plane section assumption holds only within each individual wire layer, but is invalid across the composite cross section as a whole due to inter-wire slips."
+    ],
+    "control_variables": [
+      "Cable span length (L = 820 mm)",
+      "Simply supported boundary conditions at both ends (v = 0, \\sigma_x = 0 at x = 0 and x = L)",
+      "Wire material properties (Young's modulus E = 2 \\times 10^5 MPa, Poisson's ratio \\mu = 0.3)",
+      "Individual wire diameter (7 mm, \\phi7)",
+      "Number of Fourier series expansion terms (m = 15 terms, ensuring truncation error < 0.2%)"
+    ],
+    "dependent_variables": [
+      "Mid-span transverse deflection (f) and force-deflection response curves",
+      "Equivalent bending stiffness (EI), deflection magnification coefficient (DMC, \\delta), and equivalent bending stiffness coefficient (EBSC, \\gamma)",
+      "Interfacial relative slip (\\Delta u_i) along the longitudinal direction",
+      "Interfacial interactive shear force (V_si) and shear stress distribution (\\tau_xy)",
+      "Longitudinal displacements (u) across the cable height",
+      "Normal bending stress (\\sigma_x) distribution across the cable height",
+      "Critical curvature and deflection at the stick-slip transition point in bilinear response"
+    ],
+    "doi": "10.1016/j.ijmecsci.2020.106192",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Bending stiffness of layered wire cables varies continuously between an upper bound (no-slip bonded state, EI_max) and a lower bound (full-slip state, EI_min) based on the interfacial anti-slip ability and contact effects among wires.",
+        "evidence_type": "analytical modeling and numerical simulation",
+        "page_numbers": [
+          1,
+          6,
+          8,
+          13
+        ]
+      },
+      {
+        "claim": "In the absence of axial tension, transverse bending of wire cables demonstrates bilinear behavior consisting of an initial stiff stick stage followed by a slip stage after exceeding a critical deflection threshold of approximately 1 mm (critical curvature around 6 \\times 10^-6 m^-1).",
+        "evidence_type": "experimental validation and analytical modeling",
+        "page_numbers": [
+          7,
+          8,
+          10,
+          13
+        ]
+      },
+      {
+        "claim": "Axial tension increases the interfacial slip rigidity through Poisson-effect radial tightening, which suppresses relative wire slip and linearizes the bending force-deflection response.",
+        "evidence_type": "analytical formulation and experimental comparison",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Treating multi-wire assemblies as a plane-stress laminated beam with compliant shear interfaces allows simultaneous closed-form prediction of global flexural deflection and local interlayer slip and stress discontinuities using the state space method.",
+        "evidence_type": "analytical modeling and numerical simulation",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          13
+        ]
+      },
+      {
+        "claim": "Interfacial relative slip in bent wire bundles is zero at the mid-span line of symmetry and peaks at the simply supported ends, with the ratio of slips across interfaces transitioning from unity at low slip rigidity to the ratio of static moments at high slip rigidity.",
+        "evidence_type": "numerical simulation and analytical derivation",
+        "page_numbers": [
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "claim": "The Euler-Bernoulli plane section assumption breaks down across the composite cross section of slipping wire bundles, leading to stepped displacement and stress profiles along the cross-sectional depth.",
+        "evidence_type": "analytical modeling and numerical simulation",
+        "page_numbers": [
+          1,
+          11,
+          13
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Validation against three-point quasi-static bending experiments of structural cables from literature (Chen et al. [57])",
+      "Simply supported cable specimens with span length L = 820 mm",
+      "Three parallel wire cable cross-section configurations tested: 37\\phi7, 55\\phi7, and 61\\phi7",
+      "Axial tensile preload Tx0 applied at both cable ends at four levels: 0 kN, 50 kN, 80 kN, and 100 kN",
+      "Quasi-static concentrated transverse load P progressively applied at mid-span to record force-deflection curves"
+    ],
+    "future_work": [
+      "Extending the analytical laminated beam formulation to incorporate realistic nonlinear inter-wire interaction and slip behaviors once the exact nonlinear mechanisms among wires are experimentally clarified.",
+      "Applying the proposed analytical model to more complex cable studies, including dynamic properties and fatigue life predictions."
+    ],
+    "independent_variables": [
+      "Cable cross-section configuration (37\\phi7, 55\\phi7, 61\\phi7)",
+      "Applied axial tensile force Tx0 (0 kN, 50 kN, 80 kN, 100 kN)",
+      "Quasi-static mid-span concentrated vertical load P",
+      "Interfacial slip rigidity k (calibrated linearly with average tensile stress as k = 7\\bar{\\sigma} + 50 MPa)",
+      "Longitudinal position coordinate along the span (x or \\xi = x/L)",
+      "Vertical position coordinate across the cable depth (y or \\zeta = y/H)"
+    ],
+    "limitations_inferred": [
+      "The model is formulated specifically for parallel wire cables and cannot be directly applied to helically wound wire ropes, strands, or twisted tendons where torsional-bending coupling is significant.",
+      "The validation was limited to quasi-static, simply supported three-point bending at a single span length (L = 820 mm), leaving dynamic flexural response and complex end clamping conditions unverified experimentally.",
+      "Wear, plasticity, fretting fatigue, and wire cross-section flattening under severe local contact pressure are not captured by the elastic laminated beam representation.",
+      "Transforming circular wires into continuous rectangular layers neglects discrete transverse line/point contact kinematics and out-of-plane spreading."
+    ],
+    "limitations_stated_by_authors": [
+      "The actual interactions among wires are nonlinear and more intricate than the simplified linear shear-slip relationship assumed in the model, and the exact nonlinear interaction behavior remains unclear.",
+      "The slip rigidity parameter is semi-empirical and must be calibrated through experimental test data.",
+      "The model assumes identical deflection and curvature for all layers and neglects lateral separation between layers."
+    ],
+    "main_results": [
+      "The state-space Fourier series expansion converges rapidly, with truncation error below 0.2% when 15 or more terms are retained.",
+      "Cable bending stiffness is bounded between an upper bound (no-slip state, EI_max) and a lower bound (full-slip state, EI_min) depending on interfacial slip rigidity.",
+      "Under zero axial tension, cables exhibit pronounced bilinear force-deflection behavior; a bilinear modeling strategy capturing a stick-to-slip transition at a critical curvature of approximately 6 \\times 10^-6 m^-1 (around 1 mm mid-span deflection) matches experimental data significantly better than a purely linear model.",
+      "Under axial tension, the force-deflection response linearizes due to Poisson-induced clamping, and a linear slip rigidity strategy (k = 7\\bar{\\sigma} + 50 MPa) agrees closely with experimental curves.",
+      "In the absence of tension, the bending stiffness during the initial stick stage is below 50% of EI_max, and in the slip stage is roughly 50% greater than EI_min, indicating that wires are neither fully bonded nor completely frictionless.",
+      "Interfacial slips are antisymmetric along the cable length, vanishing at the mid-span and reaching maximum values at the ends.",
+      "The ratio of slips at higher interfaces relative to the first interface follows an exponential relation with slip rigidity, approaching 1 for low rigidity and the ratio of sectional static moments for high rigidity.",
+      "Cross-sectional displacements and bending stresses are stepped and asymmetric about the global neutral axis, confirming the invalidity of the classical plane section assumption across the entire cable section."
+    ],
+    "modeling_methods": [
+      "Equivalent plane-stress laminated composite beam model",
+      "State space method for multilayered composite beams",
+      "Fourier series expansion of state variables",
+      "Layer-by-layer transfer matrix method",
+      "Linear slip rigidity modeling strategy (k = \\lambda\\bar{\\sigma} + k0)",
+      "Bilinear modeling strategy for stick-to-slip state transition based on critical curvature/deflection threshold"
+    ],
+    "performance_metrics": [
+      "Fourier series truncation error (< 0.2% for 15 terms)",
+      "Force-deflection curve agreement with experimental measurements",
+      "Deflection magnification coefficient (DMC, \\delta = f_slip / f_no-slip)",
+      "Equivalent bending stiffness coefficient (EBSC, \\gamma = 1/\\delta)",
+      "Critical curvature threshold (\\kappa \\approx 6 \\times 10^-6 m^-1)",
+      "Interfacial slip ratio (\\Delta u_i / \\Delta u_1)"
+    ],
+    "possible_gap_implications": [
+      "The mechanism of tunable bending stiffness via variable interlayer slip and axial tension could inform the design of friction-based variable-stiffness continuum robots and tendon-driven catheters.",
+      "The state space transfer matrix formulation offers a computationally efficient analytical alternative to complex 3D finite element contact models for simulating multi-wire tendon packs or layered flexible backbones.",
+      "The identified bilinear stick-to-slip transition implies that tendon-driven soft manipulators operating at low tension may experience sudden stiffness drops and non-smooth actuation profiles upon exceeding critical curvature thresholds."
+    ],
+    "research_objective": "To establish an efficient and concise analytical model for the bending behavior of parallel wire cables by transforming the layered wire cross section into an equivalent plane-stress laminated beam with interfacial slips, solved via the state space method and Fourier series, capable of predicting both global flexural responses (bending stiffness, deflections) and local deformation/stress states across the full range from full-slip to no-slip conditions.",
+    "research_problem": "Bending of parallel wire cables involves intricate inter-wire slips and interactive forces that invalidate classical Euler-Bernoulli beam theory; existing analytical models often neglect friction and slip or cannot quantify slip directly, while finite element contact models and physical experiments are computationally or experimentally expensive and typically capture only global force-deflection responses rather than local deformations and stresses.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interfacial slips and interactive forces among wires",
+      "contact and friction effects between adjacent wire layers",
+      "clench effect of the protective cable sheath providing initial slip rigidity (k0)",
+      "Poisson-effect radial tightening under axial tensile stress increasing interfacial slip rigidity"
+    ],
+    "title": "Analytical model for the bending of parallel wire cables considering interactions among wires",
+    "year": "2021"
+  }
+}

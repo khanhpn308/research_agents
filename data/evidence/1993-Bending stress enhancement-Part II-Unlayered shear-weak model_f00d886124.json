@@ -1,0 +1,196 @@
+{
+  "source": {
+    "paper_id": "f00d886124",
+    "filename": "1993-Bending stress enhancement-Part II-Unlayered shear-weak model.pdf",
+    "sha256": "f00d886124e51a93d169fa8a43c5f9edac85b1cfbcd3ca0b4a958f702d02b521",
+    "page_count": 10,
+    "char_count": 22527,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 21778,
+    "completion_tokens": 6750,
+    "total_tokens": 28528,
+    "thinking_tokens": 4199,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "P. S. Steif",
+      "A. Trojnacki"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Maximum sustainable shear stress on axes parallel and normal to the beam axis is capped at tau_p (shear strength), corresponding to classical perfect plasticity with infinite anisotropy.",
+      "Normal stresses along axes parallel and normal to the beam axis are assumed to be unlimited.",
+      "Within the plastic zone (-Hp/2 < y < Hp/2), shear stress is uniform and equal to tau_p, and the axial normal stress vanishes identically (sigma = 0).",
+      "Net axial force across the cross-section is zero.",
+      "Axial strain continuity across the elastic-plastic interface |y| = Hp/2 implies that axial normal strain and axial normal stress are zero on the elastic side at |y| = Hp/2.",
+      "In the elastic outer regions (Hp/2 < |y| < H/2), classical elastic beam theory approximations hold: normal stress sigma varies linearly with y, and shear stress tau varies parabolically with y, vanishing at the outer surfaces |y| = H/2.",
+      "Beam cross-section is rectangular with width b and thickness H."
+    ],
+    "control_variables": [
+      "Beam rectangular cross-sectional dimensions: thickness H and width b",
+      "Material shear strength limit tau_p",
+      "Tensile failure stress sigma_max",
+      "Boundary and support conditions (e.g., three-point bending without overhang, simply supported beam)"
+    ],
+    "dependent_variables": [
+      "Plastic zone thickness Hp and normalized plastic zone size X = Hp/H (or X* = Hp*/H for layered beams)",
+      "Surface maximum tensile stress S_max (and normalized surface stress S_max / sigma_max^e)",
+      "Maximum tensile/compressive stress in interior slipping layers S_i^extr / sigma_max^e",
+      "Beam curvature w'' and transverse deflection",
+      "Relative model discrepancy / error measures e1 (for shear force at a given plastic zone size) and e2 (for maximum surface tensile stress)",
+      "Failure load in three-point bending P / P_max",
+      "Sustainable bending moment at failure M / M_max",
+      "Apparent flexural strength sigma_flex"
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "An unlayered shear-weak beam model based on perfect plasticity with infinite anisotropy provides a simplified continuum representation of bending stress enhancement without the high computational burden of discrete layered beam models.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "When transverse shear force exceeds V_p = 2 b H tau_p / 3, a plastic zone of thickness Hp = (3 V/V_max - 2) H develops where shear stress equals tau_p and normal stress is zero.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Once the plastic shear threshold is exceeded, the surface tensile stress exceeds elastic beam theory predictions and grows unbounded as shear force approaches V_max = b H tau_p.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          3
+        ]
+      },
+      {
+        "claim": "Beam curvature in the shear-weak beam is enhanced by the same shear-dependent factor as surface stress, altering bending compliance under simultaneous shear and moment.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "As the number of discrete slipping layers n approaches infinity, the discrete slipping-layer equations asymptotically converge to the unlayered shear-weak beam model.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Discrepancies in predicted shear force and surface tensile stress between discrete-layer and unlayered models diminish as the number of layers increases and are smaller for smaller plastic zone sizes.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Under identical loads, the unlayered shear-weak model yields an upper-bound estimate of surface stress enhancement compared to beams with a finite number of slipping layers.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Simultaneous high bending moment and high shear force establish a reduced failure locus in (V/V_max, M/M_max) space, causing surface tensile failure at moments lower than M_max.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          9
+        ]
+      },
+      {
+        "claim": "In three-point bending, apparent flexural strength is reduced for beams with length-to-height aspect ratios L/H below (L/H)* = sigma_max / (2 tau_p), rendering short beams apparently weaker.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The impact of shear weakness is highly sensitive to loading configuration, being severe under three-point bending where peak moment coincides with peak shear, and minimal under distributed loads where peak moment occurs at zero shear.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "No new experimental testing was conducted in this study; the investigation is purely theoretical and analytical.",
+      "Theoretical results are compared with trends from existing external experimental data by Prewo and Nardone (1986) on three-point bending of carbon-fiber reinforced glass matrix composites across varying aspect ratios."
+    ],
+    "future_work": [
+      "Detailed quantitative comparison between the unlayered shear-weak model predictions and experimental results on carbon-fiber reinforced glass matrix composites is indicated as reported in a companion work (Steif and Trojnacki, 1992).",
+      "Simultaneous determination of stress resultants and deflections in statically indeterminate beam configurations."
+    ],
+    "independent_variables": [
+      "Normalized transverse shear force V/V_max (or V/V_p)",
+      "Dimensionless applied load p = 3P / (4 b H tau_p) in three-point bending",
+      "Number of discrete layers n in layered beam comparisons",
+      "Beam length-to-height aspect ratio L/H",
+      "Material strength ratio sigma_max / tau_p",
+      "Loading type and distribution (three-point concentrated bending vs. uniformly distributed transverse loading)"
+    ],
+    "limitations_inferred": [
+      "The constitutive formulation assumes rigid-perfect or elastic-perfect shear yield behavior without work hardening, rate sensitivity, or viscoelastic/viscoplastic response.",
+      "The beam theory is two-dimensional and does not account for cross-sectional warping, transverse normal stresses through the thickness, or out-of-plane stress components.",
+      "Local stress concentrations, contact indentation beneath concentrated point loads, and specific micro-mechanical failure modes (e.g., matrix cracking, fiber microbuckling) are not modeled.",
+      "The analysis is strictly developed for structural mechanics of composite beams and does not incorporate robotic actuation, flexible kinematic linkages, or large-displacement kinematics."
+    ],
+    "limitations_stated_by_authors": [
+      "Modeling fiber composites as discrete layers is computationally intensive and at best an approximation.",
+      "The shear-weak beam model can sustain loads only up to V_max = b H tau_p, meaning comparisons with discretely layered beams become poor when shear force approaches or exceeds V_max (since layered beams have no theoretical load ceiling).",
+      "Setting sigma = 0 and tau = tau_p in the plastic zone is an idealized constitutive assumption justified primarily by its quantitative agreement with discrete slipping-layer results.",
+      "The normal component of stress transverse to the beam axis is neglected in accordance with elementary beam theory approximations.",
+      "The impact of shear weakness depends strongly on the loading conditions and is minimal when maximum bending moment and maximum shear force do not coincide."
+    ],
+    "main_results": [
+      "Formulated a closed-form continuum model for shear-weak beams where the plastic core thickness is explicitly defined by Hp = (3 V/V_max - 2) H for shear forces exceeding V_p = 2 V_max / 3.",
+      "Demonstrated that surface tensile stress S_max is enhanced by factor [1 - 2/3 (V/V_max)] / [1 - V/V_max] for V > V_p, diverging as V approaches V_max.",
+      "Proved that the discrete slipping-layer model from Part I asymptotically converges to the unlayered shear-weak model as the number of layers n approaches infinity.",
+      "Showed that quantitative discrepancies between the layered and unlayered models decrease monotonically as n increases and are smaller for smaller plastic zone thicknesses.",
+      "Established a combined failure envelope in (V/V_max, M/M_max) space showing that concurrent shear force reduces the sustainable bending moment before reaching tensile strength.",
+      "Demonstrated that apparent flexural strength in three-point bending decreases for aspect ratios below (L/H)* = sigma_max / (2 tau_p), consistent with experimental observations in fiber-reinforced brittle composites.",
+      "Showed that shear weakness effects are minimal in load cases where maximum moment occurs at zero shear (e.g., simply supported beams under uniform transverse loading)."
+    ],
+    "modeling_methods": [
+      "Unlayered shear-weak beam continuum model based on classical perfect plasticity with infinite anisotropy (Hill, 1948).",
+      "Piecewise cross-sectional stress formulation dividing the section into an inner plastic core (tau = tau_p, sigma = 0) and outer elastic regions governed by modified beam theory.",
+      "Equilibrium and cross-sectional strain continuity conditions used to determine the plastic boundary Hp(x) and surface stress enhancement.",
+      "Curvature calculation through integration of axial strain variation across the elastic beam portion.",
+      "Asymptotic limit analysis (n -> infinity) of a third-order algebraic equation governing slipping interfaces in discretely layered beams.",
+      "Bending moment versus shear force failure locus modeling for combined loading states."
+    ],
+    "performance_metrics": [
+      "Percentage error e1 = [V - V*(n*)] / V*(n*) for shear force required to achieve a given plastic zone size.",
+      "Percentage error e2 = [S_max - S_max^n] / S_max^n for maximum surface tensile stress between unlayered and layered models.",
+      "Stress enhancement ratio S_max / sigma_max^e (ratio of maximum tensile stress to elastic beam theory stress).",
+      "Normalized failure load ratio P / P_max in three-point bending.",
+      "Critical length-to-height aspect ratio threshold (L/H)* = sigma_max / (2 tau_p)."
+    ],
+    "possible_gap_implications": [
+      "The unlayered shear-weak continuum approach provides a potential mechanics framework to model shear compliance and bending-shear interaction in layered or fiber-reinforced flexible structural elements, but requires extension to finite deformation kinematics before it can be applied to large-deflection continuum robots or soft grippers.",
+      "The failure surface under coupled shear and bending highlights that flexible continuum structures subjected to concentrated transverse forces must account for shear-induced bending stress enhancement to prevent premature tensile failure."
+    ],
+    "research_objective": "To present a simple continuum model for an unlayered beam weak in shear, quantitatively compare its predictions with the discrete slipping-layer beam model of Part I, and evaluate the effects of limited shear resistance on bending stress enhancement, failure envelopes under combined loading, and beam aspect ratio in bending.",
+    "research_problem": "Fiber composites can experience severe bending stress enhancement due to limited shear resistance, but analyzing such materials using discrete slipping-layer models is computationally intensive and represents an approximation of actual composite behavior.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Bending Stress Enhancement in Materials with Limited Shear Resistance-Part II. Unlayered Shear-Weak Model",
+    "year": "1993"
+  }
+}

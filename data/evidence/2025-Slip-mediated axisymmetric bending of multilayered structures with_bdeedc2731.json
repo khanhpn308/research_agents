@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "bdeedc2731",
+    "filename": "2025-Slip-mediated axisymmetric bending of multilayered structures with.pdf",
+    "sha256": "bdeedc2731e96976b82e73f23908fe40d660ca8d62c59ffcf12d6e7fe80c2769",
+    "page_count": 13,
+    "char_count": 54473,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 34684,
+    "completion_tokens": 13209,
+    "total_tokens": 47893,
+    "thinking_tokens": 10480,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "uniform pressure"
+    ],
+    "authors": [
+      "Xiangtian Shen",
+      "Yueguang Wei"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Monolayers are isotropic linear elastic circular plates with uniform radius a, thickness t, Young's modulus E, and Poisson's ratio ν.",
+      "Interfacial thickness between adjoining monolayers is negligible compared to monolayer thickness.",
+      "All (N - 1) interfaces possess identical shearing constitutive relations.",
+      "Kinematics follow the Uniform Slip Model (USM) where out-of-plane deflection is w = w(r), monolayer cross-sections rotate by w'(r) perpendicular to the deflection curve, and layer midpoints in a cross-section form an angle ϕ(r) with the z-axis, yielding relative slip Δ(r) = t[ϕ(r) - w'(r)] independent of layer position in the stack.",
+      "Elastic Shear Stress (ESS) law assumes a linear relationship between interfacial shear stress and relative slip displacement: τ = ηΔ, where η is interfacial shear stiffness.",
+      "Critical Shear Flow (CSF) law assumes a rigid perfectly plastic / friction-like shear plateau: τ ∈ [0, τ0] when Δ = 0, and τ = τ0 when Δ > 0, where τ0 is critical shear strength.",
+      "Clamped boundary conditions at the circular perimeter r = a (w = 0, w' = 0, ϕ = 0) and radial symmetry conditions at the center r = 0 (w' = 0, ϕ = 0)."
+    ],
+    "control_variables": [
+      "Clamped circular boundary conditions at radius a (w(a) = 0, w'(a) = 0, ϕ(a) = 0)",
+      "Axisymmetric center conditions at r = 0 (w'(0) = 0, ϕ(0) = 0)",
+      "Uniform geometry across all monolayers (radius a, thickness t)",
+      "Uniform isotropic material elastic constants (E, ν) across all monolayers",
+      "Uniform interfacial constitutive behavior across all (N - 1) interfaces",
+      "Thin plate regime with negligible interfacial layer thickness"
+    ],
+    "dependent_variables": [
+      "Transverse deflection w(r) and normalized deflection w_hat(r) (including center deflection w(0) / W0)",
+      "Interlayer slip displacement Δ(r) and normalized slip displacement Δ_hat(r)",
+      "Effective bending stiffness Deff and stiffness correction function f(N, κ) = Deff / Dplane_bend",
+      "Interfacial shear stress distribution τ(r)",
+      "Transition radius between sticking and slipping regions r0 (and normalized r0_hat) for the CSF interface",
+      "Critical pressure thresholds pa (slip initiation) and p0 (complete slip) for the CSF interface",
+      "Fitted interlayer shear modulus G extracted from experimental bubbling stiffness data"
+    ],
+    "doi": "10.1016/j.euromechsol.2024.105488",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Interlayer slipping invalidates the classical plane cross-section assumption, causing effective bending stiffness to decrease from the bonded limit Dplane_bend to the unbonded limit Dplane_bend / N^2 as interlayer shear interaction vanishes.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          1,
+          2,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Under the Elastic Shear Stress (ESS) interface model, the governing axisymmetric equilibrium equations yield closed-form deflection and slip profiles in terms of modified Bessel functions, resulting in a strictly linear elastic load-displacement relation with slope fE(N, κE).",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          6,
+          8,
+          11
+        ]
+      },
+      {
+        "claim": "Under the Critical Shear Flow (CSF) interface model, deformation proceeds through three distinct stages—completely sticking (0 <= p <= pa), partially slipping with an advancing slip front r0 (pa < p <= p0), and completely slipping (p > p0)—producing a quasi-bilinear-hardening load-displacement curve.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          4,
+          5,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "Finite Element Method (FEM) simulations validate analytical predictions of slip displacement evolution, deflection curves, bending stiffness correction functions, and load-displacement responses across various layer counts and shear factors.",
+        "evidence_type": "finite element validation",
+        "page_numbers": [
+          5,
+          6,
+          7,
+          9,
+          10,
+          12
+        ]
+      },
+      {
+        "claim": "Because slip distribution depends strongly on bending configuration, applying 1-D bending models to 2-D axisymmetric bubbling test data underestimates interlayer shear moduli by approximately five-fold (0.0217 vs 0.1105 GPa for graphene, 0.0544 vs 0.2737 GPa for hBN, and 0.1135 vs 0.5708 GPa for MoS2).",
+        "evidence_type": "literature data re-interpretation",
+        "page_numbers": [
+          2,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Multilayered structures can be parametrically designed for tailored stiffness responses: ESS interfaces allow continuous adjustment of linear bending stiffness via shear factor κE, while CSF interfaces allow tuning of bilinear hardening post-yield slope (1/N^2) and threshold load via shear strength τ0.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          1,
+          11,
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "No new physical experimental setup was conducted by the authors in this study.",
+      "The study re-interprets published experimental data from Wang et al. (2019) obtained from bubbling tests under uniform pressure on circular membranes of multilayer 2D van der Waals materials (graphene, hBN, MoS2) to determine bending stiffness across varying layer counts.",
+      "Finite Element Method (FEM) numerical simulation setups were used to validate the theoretical models across discrete values of layer numbers and dimensionless shear factors."
+    ],
+    "future_work": [
+      "Applying the analytical models and design guidelines to experimental characterization and parametric design of functionally integrated composite laminated structures.",
+      "Tailoring interfacial properties to engineer integrated multifunctional capabilities across mechanical, thermal, electrical, and optical domains in microelectronics, bio-mimetic skins, and wearable/implantable devices."
+    ],
+    "independent_variables": [
+      "Number of monolayers N",
+      "Interfacial shearing parameters: shear stiffness η (ESS model) and critical shear strength τ0 (CSF model)",
+      "Applied uniform pressure load p (and dimensionless load P or P_hat)",
+      "Radial coordinate r (and normalized radial coordinate r_hat = r/a)",
+      "Plate radius a and monolayer thickness t",
+      "Monolayer effective modulus E' = E / (1 - ν^2)",
+      "Dimensionless interfacial shear factors κE (for ESS) and κC (for CSF)"
+    ],
+    "limitations_inferred": [
+      "The formulation is based on small-deflection plate bending and does not account for geometric non-linearities, large membrane stretching, wrinkling, or post-buckling behavior at high pressures.",
+      "Dynamic loading, rate-dependent frictional rheology, viscoelastic relaxation, and interfacial sliding hysteresis during cyclic loading/unloading are not addressed.",
+      "Out-of-plane delamination or adhesive separation between adjoining layers is neglected; full normal contact across interfaces is assumed throughout deformation.",
+      "Real-world structural imperfections, such as interfacial contamination, spatial non-uniformity of friction, and layer edge effects, are not incorporated.",
+      "Validation is primarily computational (FEM) and via fitting to existing literature stiffness datasets rather than direct experimental measurement of local interlayer slip fields."
+    ],
+    "limitations_stated_by_authors": [
+      "The displacement field direct formulation adopts the Uniform Slip Model (USM), which assumes relative slip displacement between adjacent layers is independent of layer sequence and represents a simplified first-order theory.",
+      "Interfacial thickness is assumed to be negligible in comparison with monolayer thickness.",
+      "All monolayers are assumed to have identical thickness and isotropic elastic properties, and all interfaces share identical shearing constitutive relationships.",
+      "Analytical solutions are specifically derived for clamped circular plates subjected to uniform transverse pressure.",
+      "Formulated under thin plate bending assumptions."
+    ],
+    "main_results": [
+      "Derived closed-form analytical solutions for transverse deflection w(r), relative interlayer slip Δ(r), and bending stiffness correction functions f(N, κ) for circular multilayer plates with arbitrary layer count N under uniform pressure for both ESS and CSF interfacial shearing laws.",
+      "Validated all analytical solutions against Finite Element Method (FEM) simulations, demonstrating high accuracy across varying layer counts and shear factors.",
+      "Identified that the ESS interface yields a single continuous slip regime with a linear elastic load-displacement relation, where effective stiffness scales between Dplane_bend / N^2 (ultra-lubricated limit, κE -> 0) and Dplane_bend (perfectly bonded limit, κE -> ∞).",
+      "Identified that the CSF interface exhibits three distinct physical regimes: completely sticking (p <= pa), partially slipping with an expanding outer slip zone (pa < p <= p0), and full slipping (p > p0), generating a quasi-bilinear-hardening load-displacement curve with post-yield slope 1/N^2.",
+      "Derived explicit formulas for critical initiation pressure pa = 2 N^2 τ0 t / [(N + 1) a] and full slip pressure p0 = 16 N^2 τ0 t / [3 (N + 1) a].",
+      "Demonstrated that multilayer bending stiffness depends on the loading mode and geometric configuration due to differing interlayer slip distributions; applying 1-D bending models to 2-D axisymmetric bubbling tests underestimates interlayer shear moduli by a factor of approximately five (re-fitted as 0.1105 GPa for graphene, 0.2737 GPa for hBN, and 0.5708 GPa for MoS2).",
+      "Established parameterized design guidelines for tailoring structural load-displacement responses to achieve targeted linear elasticity or bilinear hardening."
+    ],
+    "modeling_methods": [
+      "Uniform Slip Model (USM) displacement field formulation extended to axisymmetric bending",
+      "Principle of minimum potential energy (variational energy formulation)",
+      "Bending strain energy decomposition into stretching gradient and identical bending terms",
+      "Inhomogeneous modified Bessel differential equation formulation and solution for the ESS interface",
+      "Piecewise domain variational formulation with moving sticking/slipping boundary r0 for the CSF interface",
+      "Finite Element Method (FEM) simulation for model verification"
+    ],
+    "performance_metrics": [
+      "Bending stiffness retention ratio / correction factor f(N, κ) = Deff / Dplane_bend",
+      "Maximum interlayer slip displacement Δmax and its radial position",
+      "Critical pressure thresholds for slip initiation (pa) and full slip (p0)",
+      "Agreement between analytical solutions and FEM simulation curves across parameter ranges",
+      "Accuracy of extracted interlayer shear modulus G under different loading configurations"
+    ],
+    "possible_gap_implications": [
+      "Bridging 1-D beam theories and 2-D axisymmetric plate bubbling mechanics resolves a critical ~5x parameter extraction discrepancy, establishing accurate interfacial property characterization for laminated systems.",
+      "The ability to tailor linear stiffness or bilinear hardening via interlayer slip mechanisms offers a theoretical foundation for variable-stiffness laminates and flexible electronics, though extending this to soft robotic actuators or grippers requires integrating active actuation and scalable fabrication."
+    ],
+    "research_objective": "To establish an analytical framework for slip-mediated axisymmetric bending of circular multilayered plates with arbitrary layer numbers under uniform pressure, deriving closed-form solutions for deflection, slip distribution, and effective stiffness under Elastic Shear Stress (ESS) and Critical Shear Flow (CSF) interface laws, and providing design guidelines for functionally integrated laminated structures.",
+    "research_problem": "Interlayer sliding in multilayered structures invalidates the classical plane cross-section assumption of beam and plate bending theories, and existing theories have been primarily limited to 1-D bending; consequently, the lack of an axisymmetric bending theory with slip leads to inaccurate interfacial parameter extraction from bubbling experiments and an inability to predict or design 2-D slip-mediated bending responses.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer slip",
+      "interfacial slip",
+      "interlayer shear",
+      "Elastic Shear Stress (ESS)",
+      "Critical Shear Flow (CSF)"
+    ],
+    "title": "Slip-mediated axisymmetric bending of multilayered structures with different interfaces: Analytical solutions and design guidelines",
+    "year": "2025"
+  }
+}

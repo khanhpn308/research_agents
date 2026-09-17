@@ -1,0 +1,163 @@
+{
+  "source": {
+    "paper_id": "ee464a718b",
+    "filename": "2019-Mechanism research of slip effect between frictional laminated beams.pdf",
+    "sha256": "ee464a718b132e023b502c6bf396bc5b810e88e03980bd71f6dd9c9cc8c70a15",
+    "page_count": 12,
+    "char_count": 37593,
+    "source_type": "verification",
+    "verification_id": "D1-V004"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26137,
+    "completion_tokens": 6219,
+    "total_tokens": 32356,
+    "thinking_tokens": 4370,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Jintu Zhong",
+      "Quansheng Yan",
+      "Jie Wu",
+      "Zhuojie Zhang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic material behavior for the beam layers (steel with elastic modulus EP = 195 GPa, Poisson's ratio = 0.3).",
+      "Euler-Bernoulli beam theory kinematics for the infinitesimal beam elements.",
+      "Interfacial contact governed by Coulomb's law of friction, where maximum static friction stress equals kinetic friction stress and is proportional to normal contact stress and friction coefficient.",
+      "Cross section of each beam layer remains intact with height hP during interlayer slippage.",
+      "Constant axial force acting on the end of the beam during deformation.",
+      "Neglection of longitudinal displacement of microbodies.",
+      "Neglection of the effect of lateral motion on longitudinal motion.",
+      "Uniform shear stress distribution across the segment when no interlayer slippage occurs."
+    ],
+    "control_variables": [
+      "Beam span length (5 m)",
+      "Number of beam layers (11 layers)",
+      "Single layer thickness (7 mm)",
+      "Material properties: steel, Young's modulus (195 GPa), Poisson's ratio (0.3)",
+      "Boundary conditions: fixed constraints at both ends",
+      "Initial axial tension (10^6 N)",
+      "Calculated ultimate interlayer friction resistance (12.3 N)",
+      "Finite element mesh discretization (500 BEAM188 elements per layer)"
+    ],
+    "dependent_variables": [
+      "Interfacial shear stress and contact layer shear force",
+      "Vertical deflection and displacement along the beam and at the midspan node",
+      "Longitudinal length of interlayer slippage and number of slipped elements",
+      "Cross-sectional moment of inertia and effective bending stiffness",
+      "Change ratio of curvature",
+      "Interlayer slip state (non-slip state, critical state, slip state)"
+    ],
+    "doi": "10.1177/1687814019828461",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Interlayer slippage governed by Coulomb friction destroys cross-sectional integrity, reducing the effective moment of inertia and bending stiffness of a multi-layered beam structure.",
+        "evidence_type": "analytical derivation and finite element simulation",
+        "page_numbers": [
+          1,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Under transverse bending loads, shear stress is quadratically distributed across the cross section with its maximum at the neutral axis, causing interlayer slip to initiate at the neutral axis contact layer and propagate symmetrically toward outer layers as the load increases.",
+        "evidence_type": "analytical derivation and finite element simulation",
+        "page_numbers": [
+          4,
+          5,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "The onset and progression of interlayer slippage causes the load-displacement relationship of a beam under constant axial tension to shift from linear to non-linear vertical deflection growth.",
+        "evidence_type": "numerical simulation",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "The transfer matrix method combined with Laplace transformation and an incremental iterative recursive algorithm enables the calculation of longitudinal slip length and structural state variables without matrix dimension inflation.",
+        "evidence_type": "analytical formulation and numerical algorithm",
+        "page_numbers": [
+          1,
+          6,
+          7,
+          8,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Mechanical analysis of local bending behavior of the laminated beam under interlayer slip effect across different axial force conditions.",
+      "Achieving a better understanding of the effect of interlayer slip on the vibration characteristics of the frictional laminated beam.",
+      "Application of the derivatives of eigen parameters method to identify interlayer slip damage of the laminated beam."
+    ],
+    "independent_variables": [
+      "Applied external concentrated transverse force at midspan (initial load 120 N, load increment 5 N per substep)",
+      "Span position along the beam length",
+      "Contact layer index across the beam cross section height",
+      "Substep number / load increment step",
+      "Initial axial tension (10^6 N)",
+      "Cross-sectional layer width distribution (based on equivalent beam width of PWS-91 parallel steel wire cable)"
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted; verification is based exclusively on numerical comparison against an ANSYS finite element model.",
+      "The interface mechanics rely on an idealized Coulomb friction model assuming equal static and kinetic friction without accounting for dynamic stick-slip behavior, surface wear, or roughness evolution.",
+      "The model is formulated specifically for small-strain, small-deflection structural civil engineering beams/cables under constant axial tension and does not consider large three-dimensional bending, torsion, or hyperelastic/compliant soft materials.",
+      "Normal contact stress across the interface is simplified as an average normal stress derived from external load and beam dimensions."
+    ],
+    "limitations_stated_by_authors": [
+      "Longitudinal displacement of microbodies is ignored in the beam element equilibrium derivation.",
+      "Axial force acting on the end of the beam is assumed to be a constant value during deformation.",
+      "The effect of lateral motion on longitudinal motion is neglected.",
+      "In the ANSYS finite element model, rigid girder elements cause a shear locking phenomenon that results in slightly lower simulated shear forces than predicted by the algorithm.",
+      "Finite element modeling requires manual adjustment of the iterative process, whereas the incremental algorithm operates automatically."
+    ],
+    "main_results": [
+      "The proposed MATLAB algorithm based on the transfer matrix method and incremental iterative recursion shows close agreement with ANSYS finite element simulations for both displacement and shear force distributions.",
+      "Interlayer shear force exhibits a quadratic distribution in the transverse cross-section direction and an antisymmetric quadratic distribution in the longitudinal direction relative to the point of load application.",
+      "Interlayer slippage initiates at the neutral axis contact layer and at maximum shear locations (fixed ends and midspan under concentrated load), developing symmetrically outward across the depth and spreading longitudinally with load increments.",
+      "Interlayer slippage compromises cross-sectional integrity, reducing the cross-sectional moment of inertia and bending stiffness, which leads to non-linear vertical displacement growth.",
+      "For the 11-layer numerical example with 10^6 N initial tension, critical slippage occurred at 120 N external load, and the first all-section slip state occurred at the 10th substep with a slip length of 15 elements near the fixed end."
+    ],
+    "modeling_methods": [
+      "Segment micro-element method",
+      "Euler-Bernoulli beam theory",
+      "Section analysis method",
+      "Transfer matrix method (TMM)",
+      "Laplace transform / Laplace transfer method",
+      "Incremental iterative recursive algorithm (implemented in MATLAB)",
+      "Finite element numerical simulation (ANSYS using BEAM188 3D beam elements and rigid arm coupling units)"
+    ],
+    "performance_metrics": [
+      "Displacement comparison and agreement between ANSYS FEM and proposed TMM algorithm across span and substeps",
+      "Shear force comparison and relative numerical error between FEM and proposed algorithm",
+      "Maximum shear force at rigid girder coupling nodes (11.9 N simulated vs. 12.3 N calculated ultimate friction resistance)",
+      "Number of slipped elements and longitudinal length of interlayer slippage per load substep",
+      "Midspan vertical displacement variation with and without considering slip effect"
+    ],
+    "possible_gap_implications": [
+      "Although developed for civil engineering structural cables and beams, the analytical modeling of friction-mediated stiffness reduction and longitudinal slip propagation could potentially inform layer-jamming variable-stiffness mechanics in soft robotics, provided models are adapted for large deformations and compliant materials.",
+      "The absence of physical experimental testing leaves open the empirical validation of interfacial shear stress transfer and slip-zone growth in multi-layered frictional systems under dynamic or cyclic loading."
+    ],
+    "research_objective": "To derive the mechanical laws of horizontal and longitudinal interlayer slippage in frictional laminated beams based on section analysis and Coulomb friction, to develop an incremental iterative algorithm using the transfer matrix method to calculate slip length and deflections, and to verify the algorithm's accuracy against ANSYS finite element numerical simulations.",
+    "research_problem": "Lack of quantitative analytical laws and efficient calculation methods governing interlayer slippage in multi-layered frictional beams, where interfacial shear stress exceeding Coulomb friction resistance compromises sectional integrity and reduces bending stiffness.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Coulomb friction",
+      "interlayer slippage",
+      "interlayer friction"
+    ],
+    "title": "Mechanism research of slip effect between frictional laminated beams",
+    "year": "2019"
+  }
+}
