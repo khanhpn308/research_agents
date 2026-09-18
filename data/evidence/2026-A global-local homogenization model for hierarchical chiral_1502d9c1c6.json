@@ -1,0 +1,225 @@
+{
+  "source": {
+    "paper_id": "1502d9c1c6",
+    "filename": "2026-A global-local homogenization model for hierarchical chiral.pdf",
+    "sha256": "1502d9c1c60841eb6c1bdd7c885d0a39c42871a85a7b54627463df6758d29847",
+    "page_count": 32,
+    "char_count": 106219,
+    "source_type": "verification",
+    "verification_id": "D1-V007"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 45019,
+    "completion_tokens": 7279,
+    "total_tokens": 52298,
+    "thinking_tokens": 4515,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yuchen Han",
+      "Ke Jin",
+      "Huadong Yong",
+      "Youhe Zhou"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Small deformation assumption (axial strain eA <= 0.01, torsional strain tauA <= 0.01, bending curvature kappa <= 0.001)",
+      "Linear elastic constitutive relations for the helical constituent wires",
+      "Frictionless contact between helical wires under axial loading conditions",
+      "Uniform deformation along the wire arc length with negligible force and moment derivatives (dFn/ds = 0, dMn/ds = 0)",
+      "Circular wire cross-section simplification valid for large laying angles (beta in [79 deg, 89 deg])",
+      "Constant winding radius during deformation (R1 = R1_bar), ignoring Poisson effect and contact deformation on wire radius",
+      "Plane strain assumption for normal line contact deformation between adjacent wires"
+    ],
+    "control_variables": [
+      "Wire radius (Rw)",
+      "Young's modulus (E) and Poisson's ratio (nu)",
+      "Linear elastic strain boundaries (eA in [0, 0.01], tauA in [0, 0.01], kappa in [0, 0.001])",
+      "Finite element global mesh size of 0.07 with C3D8R solid elements",
+      "Laying angle operational range for circular section assumption (beta in [79 deg, 89 deg])"
+    ],
+    "dependent_variables": [
+      "Axial tensile stiffness (kee)",
+      "Torsional stiffness (ktt)",
+      "Bending stiffness (kbb)",
+      "Tension-torsion coupling stiffness (ket, kte)",
+      "Line contact stiffness per unit axial strain (kle) and unit torsional strain (klt)",
+      "Line contact force (Xn, P) and contact deformation (delta)",
+      "Coupling-decoupling coefficient (eta)",
+      "Axial resultant force (Fz) and twisting moment (Mz)",
+      "Elastic energy components (tensile, torsional, coupling, contact-induced elastic energy Wcon, and total strain energy W)",
+      "Contact pressure distribution and maximum Von Mises stress (sigma_Mises_max, sigma_Mises_el-max, sigma_Mises_con-max)",
+      "Variations in curvature (Delta kappa_b) and torsion (Delta tau)"
+    ],
+    "doi": "10.1016/j.ijengsci.2026.104615",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Hierarchical chiral helical structures possess tension-torsion coupling characteristics that serve as core foundations for programmable metamaterials, twisted soft actuators, and bio-inspired composites.",
+        "evidence_type": "literature review / conceptual motivation",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "A global-local homogenization theoretical model based on Love's thin rod theory and strain linearization derives explicit closed-form stiffness components while accounting for interwire line contact forces.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Structural chirality dictates the sign of tension-torsion coupling stiffness and the direction of induced torque without altering axial tensile or bending stiffness.",
+        "evidence_type": "theoretical analysis",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "A coupling-decoupling coefficient eta quantitatively defines the coupling state and identifies parametric boundaries where complete tension-torsion decoupling (eta = 0, ket = 0) occurs.",
+        "evidence_type": "theoretical modeling and simulation",
+        "page_numbers": [
+          9,
+          22,
+          26
+        ]
+      },
+      {
+        "claim": "Line contact force per unit axial strain follows an inverse power-law scaling relationship with the number of helices (kle / (sin^2 beta_1 cos^2 beta_1) proportional to N1^(-1)).",
+        "evidence_type": "theoretical and numerical analysis",
+        "page_numbers": [
+          13,
+          17
+        ]
+      },
+      {
+        "claim": "Line contact induces localized stress concentrations, leading to higher maximum Von Mises stresses than predicted by classical homogenization models neglecting contact.",
+        "evidence_type": "numerical simulation and theoretical analysis",
+        "page_numbers": [
+          10,
+          11,
+          15,
+          20
+        ]
+      },
+      {
+        "claim": "The proposed analytical homogenization model executes in seconds, compared to approximately 1 hour for a 3D finite element simulation of 1.46 x 10^5 elements on identical computing hardware.",
+        "evidence_type": "computational benchmarking",
+        "page_numbers": [
+          13
+        ]
+      },
+      {
+        "claim": "Model stiffness predictions show agreement with prior experimental measurements for (1,3), (1,6+1), and (3,3) helical structures and match the Argatov model within 7% error across beta_1 in [60 deg, 89 deg].",
+        "evidence_type": "experimental and model validation",
+        "page_numbers": [
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "Mechanically programmable series-parallel arrays combining opposite chiral units (RL and LR) achieve binary logic states (0/1), continuous 2D curve fitting, and complete isolation of axial load from torsional moment.",
+        "evidence_type": "theoretical design and numerical demonstration",
+        "page_numbers": [
+          11,
+          23,
+          27
+        ]
+      },
+      {
+        "claim": "The analytical framework is bounded by small strain linearization, frictionless contact assumptions, and circular cross-section simplifications at high laying angles.",
+        "evidence_type": "author-stated limitations",
+        "page_numbers": [
+          4,
+          7,
+          11,
+          15,
+          16
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Comparison and validation against previously published experimental stiffness data for first-order (1, 3) and (1, 6+1) strands and second-order (3, 3) cables from cited literature (Han et al., 2024; Han et al., 2025; Utting & Jones, 1987)",
+      "Three-dimensional finite element simulations using C3D8R solid elements with a refined global mesh size of 0.07 to simulate tension, torsion, and contact responses",
+      "Plane strain two-dimensional finite element contact model of two quarter-cylinders under compression to verify the normal contact force-displacement relationships"
+    ],
+    "future_work": [
+      "Incorporating tangential friction behavior into the homogenization framework to examine frictional dissipation under cyclic loading",
+      "Extending the theoretical formulation to hyperelastic constitutive laws suitable for soft fibrous hierarchical structures",
+      "Developing multi-level chiral array assemblies for complex mechanical signal encoding, high-precision curve reconstruction, and multifunctional mechanical logic operations"
+    ],
+    "independent_variables": [
+      "Laying angles of first-order and second-order helices (beta_1, beta_2)",
+      "Chiral winding configuration / laying direction (xi_1, xi_2: R, L, RR, RL, LR, LL)",
+      "Number of helical wires at structural levels (N_1, N_2)",
+      "Structural parameter / ratio of winding angles of adjacent helices (m = R_2 / (R_1 tan beta_1 cos beta_2))",
+      "Pitches of the helical structures (P_1, P_2)",
+      "Applied external loadings: axial tensile strain (eA), axial torsional strain (tauA), and bending curvature (kappa)"
+    ],
+    "limitations_inferred": [
+      "Physical prototypes of the proposed programmable metamaterial series-parallel arrays were not fabricated or experimentally evaluated in this paper; validation of decoupling logic is purely theoretical and numerical",
+      "The model does not incorporate dynamic effects, inertial forces, material viscoelasticity, structural damping, or fatigue wear",
+      "Geometric uniformity and perfect pitch along the length are assumed, without considering manufacturing tolerances, local strand clearances, or geometric imperfections"
+    ],
+    "limitations_stated_by_authors": [
+      "The theoretical framework is restricted to small deformations and strain linearization (eA <= 0.01, tauA <= 0.01, kappa <= 0.001) and cannot capture nonlinear responses arising from material plasticity or boundary nonlinearities",
+      "Large torsional strains may break the reciprocal symmetry of tension-torsion coupling stiffness (ket != kte) due to geometric nonlinearity",
+      "Large axial tensile strains induce plastic yielding and invalidate linear elastic constitutive laws",
+      "The frictionless contact assumption fails under combined tension-bending loadings or cyclic conditions where interwire stick-slip friction occurs",
+      "Circular wire cross-section simplification introduces error at smaller laying angles where sections deform into non-circular shapes",
+      "The framework does not account for hyperelastic material behavior necessary for soft fibrous hierarchical architectures",
+      "Poisson effect and contact deformation on the winding radius (R1 = R1_bar) are ignored"
+    ],
+    "main_results": [
+      "Derived closed-form analytical formulas for tensile, torsional, bending, coupling, and line-contact stiffness parameters of first-order and second-order chiral helical structures",
+      "Demonstrated that structural chirality determines the sign and direction of tension-torsion coupling and resultant torque while leaving axial tensile and bending stiffness unaffected",
+      "Established a coupling-decoupling coefficient eta to predict parameter combinations (such as large beta_2 and structural parameter m in RL cables) where complete tension-torsion decoupling (eta = 0) occurs",
+      "Identified a -1 power-law scaling relationship between line contact force per unit axial strain and helix number (kle / (sin^2 beta_1 cos^2 beta_1) proportional to N1^(-1)), enabling contact force tuning without altering wire radius or pitch",
+      "Revealed that contact-induced elastic energy and coupling energy proportions increase significantly as laying angles decrease",
+      "Showed that ignoring contact effects significantly underestimates peak Von Mises stresses on wire cross-sections, particularly at small laying angles and high external loads",
+      "Designed and demonstrated programmable series-parallel chiral helical metamaterial modules capable of binary mechanical logic (0/1), continuous function/curve fitting, and complete isolation/separation of axial force and torque",
+      "Demonstrated that the proposed analytical model reduces computational time to seconds compared to 1 hour for high-density 3D finite element models, maintaining consistency with FE and literature experimental data"
+    ],
+    "modeling_methods": [
+      "Global-local homogenization model based on strain linearization",
+      "Love's thin rod theory for curved rods in local Frenet coordinate systems",
+      "Johnson's Hertzian contact theory and plane strain elastic cylinder contact formulation",
+      "Kinematic analogy method for comparison of second-order helical kinematics",
+      "Three-dimensional finite element modeling (FEM) with C3D8R elements"
+    ],
+    "performance_metrics": [
+      "Stiffness prediction relative error compared to the Argatov analytical model (<7% error across beta_1 in [60 deg, 89 deg])",
+      "Discrepancy with the kinematic analogy method (~6% difference at m = 3, beta_2 = 79 deg)",
+      "Computational speedup (seconds for analytical homogenization model vs. ~1 hour for 3D FEM with 1.46 x 10^5 elements on an Intel Core i9-14900KF CPU)",
+      "Tension-torsion coupling-decoupling coefficient (eta in [0, 1])",
+      "Elastic strain energy partition ratios (tensile, torsional, coupling, contact)",
+      "Peak Von Mises stress and contact stress concentration magnitude",
+      "Target curve fitting error / decoupling load separation capability"
+    ],
+    "possible_gap_implications": [
+      "Although the homogenization model provides closed-form predictive rules for tension-torsion decoupling and contact stress in hierarchical chiral helices, applying these concepts to soft continuum robots or variable-stiffness twisted soft actuators requires extending the formulation to finite hyperelastic deformations, material viscoelasticity, and frictional contact, accompanied by physical robotic experimental validation."
+    ],
+    "research_objective": "To develop a linearization-based global-local homogenization model for hierarchical chiral helical structures that derives explicit closed-form stiffness expressions, elucidates the governing laws of chirality and geometry on tension-torsion coupling/decoupling, contact stresses, and strain energy partitioning, and enables programmable metamaterial architectures for curve fitting and load separation.",
+    "research_problem": "Existing analytical and numerical homogenization methods fail to simultaneously capture global tension-torsion coupling behaviors and local interwire contact stress/energy evolution across hierarchical chiral configurations, and lack parametric criteria for achieving continuous programmable regulation via precise tension-torsion coupling and decoupling.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Hierarchical chiral helical winding",
+      "Tension-torsion coupling and decoupling",
+      "Interwire line contact mechanics"
+    ],
+    "title": "A global-local homogenization model for hierarchical chiral helical structures: Tension-torsion coupling and decoupling analysis",
+    "year": "2026"
+  }
+}

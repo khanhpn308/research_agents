@@ -1,0 +1,165 @@
+{
+  "source": {
+    "paper_id": "a32f8501d6",
+    "filename": "2026-Critical state model for superconductivity features and.pdf",
+    "sha256": "a32f8501d6835ed4fe58c55c092c206f4b97ab984d499f6ad6eb9c536e9cf609",
+    "page_count": 15,
+    "char_count": 64905,
+    "source_type": "verification",
+    "verification_id": "D1-V007"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 31622,
+    "completion_tokens": 6289,
+    "total_tokens": 37911,
+    "thinking_tokens": 4243,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Sijian Wang",
+      "Huadong Yong",
+      "Youhe Zhou"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Current density magnitude must not exceed the critical threshold: |J| <= Jc(B), represented as a yield function fs(J) = |J| - Jc(B) <= 0",
+      "Electric field remains zero below the critical current density threshold (|J| < Jc implies E = 0)",
+      "The principle of maximum dissipation holds, stating that dissipation in the superconductor reaches a maximum among all permissible current states (E · (J - J*) >= 0)",
+      "Flow rule assumes isotropic collinearity between current density and electric field (E = \\dot{\\gamma} J / |J|)",
+      "Thermally induced flux creep is neglected in the critical state model (approximating the power law relationship as exponent n approaches infinity)",
+      "Constitutive relationship is smoothed via a trial current density J_trial = \\sigma_s E regularized by a conductivity parameter and cutoff J = min(Jc(B)/(|J_trial| + \\eta), 1) J_trial",
+      "Critical current density exhibits magnetic field dependence Jc(B) = Jc0 / [1 + (k^2 B_parallel^2 + B_perp^2)^(1/2) / Bc]^b"
+    ],
+    "control_variables": [
+      "Critical current density parameters (Jc0 = 2.8e10 A/m^2 or 1e10 A/m^2 or 3e8 A/m^2, k = 0.29515, Bc = 0.04265 T, b = 0.7)",
+      "Characteristic critical electric field threshold Ec = 1e-4 V/m",
+      "Numerical division-by-zero prevention parameter \\eta = 1e-15 A/m^2",
+      "Discretization orders (second-order Lagrangian shape functions for magnetic vector potential A, constant/discontinuous order for current density J)",
+      "Penalty factor \\rho_n for applying transport current constraints via an auxiliary ordinary differential equation"
+    ],
+    "dependent_variables": [
+      "Current density distribution J (or Jz)",
+      "Induced electric field distribution E",
+      "Magnetic field and magnetic flux density distribution B",
+      "Magnetization m and magnetic hysteresis curves",
+      "Electromagnetic energy losses",
+      "Global critical current of superconducting cables",
+      "Computational time and numerical convergence rate",
+      "Coefficient of determination (R^2) measuring fit against analytical solutions"
+    ],
+    "doi": "10.1016/j.jcp.2026.115273",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The critical state model for type-II superconductors can be formulated within the framework of continuum mechanics and plasticity by casting the critical current threshold as a yield function and employing the principle of maximum dissipation to deduce flow rules and Kuhn-Tucker conditions.",
+        "evidence_type": "constitutive_modeling",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "Macroscopic vortex pinning in superconductors exhibits physical and mathematical equivalence to Coulomb friction stick-slip behavior, enabling classical contact mechanics regularization algorithms to resolve non-differentiable constitutive relations.",
+        "evidence_type": "constitutive_modeling",
+        "page_numbers": [
+          2,
+          5,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "Spurious numerical oscillations in continuum field calculations across sharp gradient interfaces separating flux-flow and flux-pinning regions are eliminated by employing mixed-order finite element discretizations (second-order for magnetic vector potential and piecewise constant for current density).",
+        "evidence_type": "computational_mechanics",
+        "page_numbers": [
+          5,
+          6,
+          7,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "The paper contains no experimental or theoretical investigation of soft robotics, continuum robots, soft grippers, or variable-stiffness actuation mechanisms.",
+        "evidence_type": "domain_scope",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Further development and improvement of the numerical implementation for transport current constraint conditions in the critical state model to mitigate stiffness matrix complications and improve efficiency."
+    ],
+    "independent_variables": [
+      "Applied external magnetic field (Hext or Bext)",
+      "Applied transport current (Iext(t)) and charging rate (dI/dt)",
+      "Number of finite elements (mesh density)",
+      "Regularization factor \\sigma_s",
+      "Geometric dimensions of superconducting structures (film thickness d, width w, coil turns, cable layer counts, bulk dimensions)"
+    ],
+    "limitations_inferred": [
+      "The study is entirely theoretical and numerical; no physical experimental setup, fabrication, or experimental testing was performed.",
+      "The mechanical analysis is limited to analogies with continuum plasticity and friction; no coupled mechanical deformation, structural stress-strain states, thermal effects, or structural dynamics are modeled.",
+      "The study does not examine or address soft robotics, continuum manipulators, robotic grippers, or variable-stiffness mechanisms."
+    ],
+    "limitations_stated_by_authors": [
+      "The model still has certain convergence issues in loading and unloading calculations for complex structures, partly due to the effect of large penalty factors.",
+      "Transport current constraint conditions complicate the stiffness matrix structure, causing a decrease in computational efficiency compared to purely magnetized cases.",
+      "Thermally induced flux creep is neglected in the critical state model, which may deviate from realistic physical behavior when creep effects are significant.",
+      "The flow rule assumes an isotropic relationship where current density and electric field are parallel, which does not capture anisotropic double-critical-state behavior where they are non-parallel."
+    ],
+    "main_results": [
+      "The proposed FEM A-formulation combined with Coulomb-friction-inspired regularization accurately reproduces Brandt's analytical solutions for superconducting thin films under magnetic fields and transport currents.",
+      "Using second-order Lagrangian elements for magnetic vector potential A and element-constant discretization for current density J successfully suppresses spurious numerical oscillations at steep gradient interfaces.",
+      "For superconducting coils, the critical state model yields current distributions, losses, and magnetization hysteresis loops matching the power-law model at high exponents (n=200) while approximating moderate exponents (n=38).",
+      "Computation time in coil magnetization simulations is reduced by nearly an order of magnitude relative to the T-A formulation, and is approximately halved in transport current simulations.",
+      "The model is successfully demonstrated on complex 3D/multiturn structures including CORC cables (24 tapes), quasi-isotropic cables (80 turns), twisted stacked-tape conductor cables, and bulk superconductors.",
+      "For bulk superconductors (benchmark 4 with n=201), the proposed formulation solves in 45 seconds compared to 1486 seconds for the H-formulation."
+    ],
+    "modeling_methods": [
+      "Finite element A-formulation (magnetic vector potential) for Maxwell's equations",
+      "Continuum mechanics plasticity analogy using yield functions and the principle of maximum dissipation",
+      "Flow rule and Karush-Kuhn-Tucker (KKT) complementary conditions formulation",
+      "Coulomb-friction-inspired numerical regularization algorithm for non-smooth constitutive relations",
+      "Penalty function method converted to an ordinary differential equation with an auxiliary variable for transport current constraints",
+      "Mixed-order spatial discretization (second-order Lagrangian elements for A, constant discontinuous elements for J)",
+      "Newton-Raphson nonlinear iterative solver"
+    ],
+    "performance_metrics": [
+      "Coefficient of determination (R^2) comparing numerical results against analytical solutions",
+      "Computation time (runtime in seconds) compared to T-A and H formulations",
+      "Model convergence and absence of spurious numerical oscillations in large gradient zones",
+      "Agreement of current density distributions, magnetic field profiles, losses, and magnetization loops against benchmark and power-law solutions"
+    ],
+    "possible_gap_implications": [
+      "Although this paper focuses strictly on superconductivity electrodynamics, the continuum mechanics formulation and friction-regularization methods developed for threshold-governed dissipation could potentially inform numerical modeling of dry friction, stick-slip, or non-smooth contact mechanics in mechanical systems, though their relevance to soft robotics remains completely unproven.",
+      "There is currently no demonstrated link between the critical state electromagnetic model presented in this paper and variable-stiffness mechanisms or soft continuum robotic devices."
+    ],
+    "research_objective": "To characterize the critical state model of type-II superconductivity from the perspective of continuum mechanics constitutive laws (using the principle of maximum dissipation, flow rules, and Kuhn-Tucker conditions), implement it numerically via a finite element A-formulation using a Coulomb-friction-inspired regularization scheme, and eliminate spurious numerical oscillations near large gradient regions using mixed-order discretization.",
+    "research_problem": "The critical state model for type-II superconductors is non-smooth, non-differentiable, and multivalued at zero electric field, making finite element modeling challenging; existing non-local integral formulations lead to dense matrices with poor computational efficiency (O(n_e^3.6)), and large current density gradients at flux flow/pinning boundaries cause spurious numerical oscillations and convergence failures.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Critical state model for superconductivity: features and numerical implementation",
+    "year": "2026"
+  }
+}
