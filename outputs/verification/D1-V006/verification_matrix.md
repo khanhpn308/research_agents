@@ -1,7 +1,7 @@
 # Verification Matrix
 
 **Verification ID:** D1-V006
-**Paper count:** 15
+**Paper count:** 16
 **Purpose:** Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.
 
 ## Verification Papers
@@ -353,7 +353,41 @@
 - Applying the physics-based rough surface tangential friction model to predictive dynamic simulations and vibration analysis of assembled jointed structures.
 - Extending the contact modeling approach to incorporate surface waviness alongside roughness.
 
-## V10 — 改进的连续尺度分形−离散Iwan 黏滑接触力学建模 (Modeling of Stick-Slip Contact Mechanics Based on Improved Continuous-Scale Fractal-Discrete Iwan Model)
+## V10 — A novel friction model for steel-polymer interfaces in sliding seismic isolation bearings
+
+- **paper_id:** `13e407003a`
+- **year:** 2024
+- **doi:** 10.1002/eqe.4128
+- **source_type:** verification
+- **verification_id:** D1-V006
+- **screening_status:** included
+- **screening_reason:** Direct C03 high-threat evidence on frictional interface mechanics; previously missing DOI 10.1002/eqe.4128.
+
+### Robot / Structure Type
+
+
+### Modeling Methods
+
+- Three-element parallel base friction model: Coulomb element (constant quasi-static friction), logarithmic velocity-dependent element, and exponential displacement-dependent stick-slip element.
+- State-dependent displacement tracking mechanism updating reference displacement uR only upon reversal of the sliding velocity direction.
+- Thermal degradation modeling using an exponentially decaying temperature factor based on a contact-averaged temperature field.
+- One-dimensional transient heat conduction formulation solved efficiently using discrete Fourier transforms (DFT / inverse DFT via FFT algorithms).
+- Pressure modification factor utilizing a hyperbolic tangent functional form to model friction reduction under increasing normal pressure.
+- Parameter calibration performed through least-squares error minimization against experimental force-displacement hysteretic loops.
+
+### Performance Metrics
+
+- Coefficient of determination (R^2) of the coefficient of friction.
+- Maximum absolute error (MaxAbsErr) of the coefficient of friction.
+- Visual goodness-of-fit to experimental normalized force-displacement and force-velocity hysteretic loops.
+
+### Future Work
+
+- Conducting bidirectional sliding experiments to investigate stick-slip behavior under multi-axial displacement paths.
+- Extending and reformulating the proposed unidirectional friction model into a bidirectional sliding formulation.
+- Evaluating the influence of bearing stick-slip behavior on the dynamic response of structural secondary systems and building contents during earthquakes.
+
+## V11 — 改进的连续尺度分形−离散Iwan 黏滑接触力学建模 (Modeling of Stick-Slip Contact Mechanics Based on Improved Continuous-Scale Fractal-Discrete Iwan Model)
 
 - **paper_id:** `8daa38176d`
 - **year:** 2024
@@ -390,7 +424,7 @@
 - Developing theoretical or physics-based formulations for initial tangential stiffness to eliminate reliance on empirical parameter identification.
 - Applying the stick-slip contact formulation in structural finite element simulations of mechanical assembly interfaces.
 
-## V11 — Fretting wear modeling of bolted joint interface with microscopic roughness using the 1D microslip friction model and equivalent thin layer
+## V12 — Fretting wear modeling of bolted joint interface with microscopic roughness using the 1D microslip friction model and equivalent thin layer
 
 - **paper_id:** `7b85aadc84`
 - **year:** 2025
@@ -426,7 +460,7 @@
 - Extending the equivalent thin-layer contact model to incorporate multiple contact regimes including elastic, elastoplastic, and fully plastic deformation of micro-asperities.
 - Investigating the generation, accumulation, and entrapment of abrasive wear debris and its influence on thin-layer properties and surface topography evolution during cyclic loading.
 
-## V12 — Theoretical, experimental, and numerical simulation studies on interface slip in steel-concrete composite continuous beams with high-strength bolted connectors
+## V13 — Theoretical, experimental, and numerical simulation studies on interface slip in steel-concrete composite continuous beams with high-strength bolted connectors
 
 - **paper_id:** `fb057ab3b2`
 - **year:** 2025
@@ -462,7 +496,7 @@
 - Ultimate failure load (673.4 kN experimental vs. 675.3 kN numerical)
 - Relative percentage error between theoretical analytical solutions and finite element simulations
 
-## V13 — A novel frictional contact correction transfer matrix method for bolted vibration systems: modeling, simulation, and experimental validation
+## V14 — A novel frictional contact correction transfer matrix method for bolted vibration systems: modeling, simulation, and experimental validation
 
 - **paper_id:** `20cee2210a`
 - **year:** 2026
@@ -505,7 +539,7 @@
 - Extending the transfer matrix framework to incorporate tangential micro-slip effects and detailed contact mechanics (friction coefficient and preload dependence) for lap-type connections under longitudinal or lateral vibration
 - Applying the generalized transfer matrix formulation for elements with arbitrary input/output locations to vibration dynamic analysis of more complex engineering structures
 
-## V14 — Stick-slip friction model for soft-hard joints under preload degradation
+## V15 — Stick-slip friction model for soft-hard joints under preload degradation
 
 - **paper_id:** `02d3360815`
 - **year:** 2026
@@ -549,7 +583,7 @@
 - Improving measurement consistency and reducing uncertainty in the macroscopic mechanical properties of polymer foams to minimize lumped parameter tuning
 - Conducting broader systematic experiments to extend the model's applicability across wider soft matter contact conditions
 
-## V15 — The global-local mechanical behaviors of multilayered structure and applications to superconducting coils
+## V16 — The global-local mechanical behaviors of multilayered structure and applications to superconducting coils
 
 - **paper_id:** `ca46dc062d`
 - **year:** 2026
