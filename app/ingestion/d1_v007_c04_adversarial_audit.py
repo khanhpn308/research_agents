@@ -496,6 +496,30 @@ generic framework:
 - a resulting layer-count-dependent permissible-deformation domain;
 - multilayer bending and coil experiments.
 
+IMPORTANT SEMANTIC CORRECTION FOR THIS RUN:
+
+The supplied focal-paper evidence establishes an EXPLICIT / ADOPTED
+5 percent applicability threshold. It does NOT establish that the
+5 percent threshold was PREDECLARED a priori before validation or
+before inspecting model-form errors.
+
+For this audit, PREDECLARED has a strict meaning:
+the acceptance criterion must have been fixed before the relevant
+validation/error results were examined, and that temporal ordering must
+be explicitly supported by the supplied source evidence.
+
+Therefore:
+- do NOT infer "predeclared" merely because a paper uses an explicit
+  threshold;
+- do NOT infer "predeclared" from words such as applicability,
+  criterion, permissible error, target error, or 5 percent threshold;
+- if the source only states that a threshold was used, adopted, or
+  applied, classify predeclared acceptance tolerance as NOT ESTABLISHED;
+- unless the source explicitly supports prior declaration, set
+  kill_test.predeclared_acceptance_tolerance = false and
+  four_link_chain_audit.discrepancy_to_predeclared_tolerance.supported
+  = false.
+
 Therefore the following claims ARE NOT novel by themselves:
 
 - proposing a continuum/homogenized multilayer model;
@@ -657,6 +681,9 @@ mechanics contribution:
 5. quantitative MODEL-FORM error is evaluated over the relevant
    parameter space;
 6. a PREDECLARED acceptance tolerance is used for model validity;
+   STRICT RULE: an explicit/adopted threshold is insufficient. The
+   source must explicitly support that the tolerance was fixed a priori
+   before the relevant validation/error evidence was inspected.
 7. that tolerance defines a breakdown/validity boundary;
 8. experiments deliberately sample BOTH sides of that boundary;
 9. transfer from the demonstrated system to vacuum layer jamming does
@@ -665,6 +692,11 @@ mechanics contribution:
 
 If even ONE required element is not established, kill_condition_met
 must be FALSE.
+
+In particular, for the current focal evidence, the existence of the
+5 percent displacement-error threshold alone MUST NOT satisfy item 6.
+Treat item 6 as false unless another supplied verified-full-text source
+explicitly establishes prior declaration of the acceptance tolerance.
 
 ======================================================================
 FORWARD-CITATION CLOSURE
