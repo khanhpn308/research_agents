@@ -1,0 +1,330 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "current_p1",
+    "target_identity",
+    "executive_summary",
+    "target_audit",
+    "observed_error_interpretation",
+    "lh_boundary_analysis",
+    "kill_test",
+    "new_named_threats",
+    "stop_search_decision",
+    "final_surviving_contribution",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIED",
+        "SURVIVES_FINAL_TARGET",
+        "SURVIVES_REVISED_SCOPE",
+        "INCONCLUSIVE"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "current_p1": {
+      "type": "string"
+    },
+    "target_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "doi",
+        "paper_id",
+        "title",
+        "verified_full_text"
+      ],
+      "properties": {
+        "doi": {
+          "type": "string"
+        },
+        "paper_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "verified_full_text": {
+          "type": "boolean"
+        }
+      }
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "target_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "explicit_nonlinear_interfacial_slip",
+        "pressure_or_preload_controls_contact_state",
+        "named_reduced_or_continuum_model",
+        "interface_resolved_or_discrete_reference",
+        "quantitative_model_form_error",
+        "predeclared_acceptance_tolerance",
+        "predeclared_tolerance_evidence",
+        "tolerance_defined_breakdown_boundary",
+        "experiments_intentionally_cross_boundary",
+        "vacuum_specific_contact_mechanics",
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics",
+        "threat_to_p1",
+        "what_it_proves",
+        "what_it_does_not_prove"
+      ],
+      "properties": {
+        "explicit_nonlinear_interfacial_slip": {
+          "type": "boolean"
+        },
+        "pressure_or_preload_controls_contact_state": {
+          "type": "boolean"
+        },
+        "named_reduced_or_continuum_model": {
+          "type": "boolean"
+        },
+        "interface_resolved_or_discrete_reference": {
+          "type": "boolean"
+        },
+        "quantitative_model_form_error": {
+          "type": "boolean"
+        },
+        "predeclared_acceptance_tolerance": {
+          "type": "boolean"
+        },
+        "predeclared_tolerance_evidence": {
+          "type": "string"
+        },
+        "tolerance_defined_breakdown_boundary": {
+          "type": "boolean"
+        },
+        "experiments_intentionally_cross_boundary": {
+          "type": "boolean"
+        },
+        "vacuum_specific_contact_mechanics": {
+          "type": "boolean"
+        },
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics": {
+          "type": "boolean"
+        },
+        "threat_to_p1": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "fatal"
+          ]
+        },
+        "what_it_proves": {
+          "type": "string"
+        },
+        "what_it_does_not_prove": {
+          "type": "string"
+        }
+      }
+    },
+    "observed_error_interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "analytical_deflection_3_percent",
+        "fe_deflection_5_percent",
+        "bending_strain_8_percent",
+        "slip_difference_0_02_mm",
+        "lh5_deflection_effect_20_percent",
+        "are_any_predeclared_acceptance_tolerances",
+        "assessment"
+      ],
+      "properties": {
+        "analytical_deflection_3_percent": {
+          "type": "string"
+        },
+        "fe_deflection_5_percent": {
+          "type": "string"
+        },
+        "bending_strain_8_percent": {
+          "type": "string"
+        },
+        "slip_difference_0_02_mm": {
+          "type": "string"
+        },
+        "lh5_deflection_effect_20_percent": {
+          "type": "string"
+        },
+        "are_any_predeclared_acceptance_tolerances": {
+          "type": "boolean"
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "lh_boundary_analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lh_ge_10_statement_present",
+        "boundary_type",
+        "source_basis",
+        "derived_from_predeclared_model_form_tolerance",
+        "validated_by_experiments_on_both_sides",
+        "relevance_to_p1"
+      ],
+      "properties": {
+        "lh_ge_10_statement_present": {
+          "type": "boolean"
+        },
+        "boundary_type": {
+          "type": "string",
+          "enum": [
+            "not_present",
+            "physical_assumption_limit",
+            "post_hoc_applicability_limit",
+            "tolerance_defined_model_form_validity_boundary",
+            "other"
+          ]
+        },
+        "source_basis": {
+          "type": "string"
+        },
+        "derived_from_predeclared_model_form_tolerance": {
+          "type": "boolean"
+        },
+        "validated_by_experiments_on_both_sides": {
+          "type": "boolean"
+        },
+        "relevance_to_p1": {
+          "type": "string"
+        }
+      }
+    },
+    "kill_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pressure_or_preload_controls_contact",
+        "friction_or_slip_is_explicit",
+        "named_reduced_or_continuum_model",
+        "interface_resolved_or_discrete_reference",
+        "quantitative_model_form_error",
+        "predeclared_acceptance_tolerance",
+        "tolerance_defined_breakdown_boundary",
+        "experiment_tests_both_sides_of_boundary",
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics",
+        "kill_condition_met",
+        "evidence_summary"
+      ],
+      "properties": {
+        "pressure_or_preload_controls_contact": {
+          "type": "boolean"
+        },
+        "friction_or_slip_is_explicit": {
+          "type": "boolean"
+        },
+        "named_reduced_or_continuum_model": {
+          "type": "boolean"
+        },
+        "interface_resolved_or_discrete_reference": {
+          "type": "boolean"
+        },
+        "quantitative_model_form_error": {
+          "type": "boolean"
+        },
+        "predeclared_acceptance_tolerance": {
+          "type": "boolean"
+        },
+        "tolerance_defined_breakdown_boundary": {
+          "type": "boolean"
+        },
+        "experiment_tests_both_sides_of_boundary": {
+          "type": "boolean"
+        },
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics": {
+          "type": "boolean"
+        },
+        "kill_condition_met": {
+          "type": "boolean"
+        },
+        "evidence_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "new_named_threats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identifier",
+          "why_high_threat",
+          "explicitly_named_in_supplied_evidence",
+          "requires_targeted_full_text_audit"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "why_high_threat": {
+            "type": "string"
+          },
+          "explicitly_named_in_supplied_evidence": {
+            "type": "boolean"
+          },
+          "requires_targeted_full_text_audit": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "stop_search_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prior_forward_citation_branch_closed",
+        "target_doi_audit_complete",
+        "additional_high_threat_named_target_remaining",
+        "broad_search_should_stop",
+        "final_novelty_lock_allowed",
+        "decision_rationale"
+      ],
+      "properties": {
+        "prior_forward_citation_branch_closed": {
+          "type": "boolean"
+        },
+        "target_doi_audit_complete": {
+          "type": "boolean"
+        },
+        "additional_high_threat_named_target_remaining": {
+          "type": "boolean"
+        },
+        "broad_search_should_stop": {
+          "type": "boolean"
+        },
+        "final_novelty_lock_allowed": {
+          "type": "boolean"
+        },
+        "decision_rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "final_surviving_contribution": {
+      "type": "string"
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}

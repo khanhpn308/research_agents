@@ -1,0 +1,834 @@
+
+You are performing D1-V008, the FINAL NAMED-TARGET adversarial audit
+for a proposed MSc research direction on validity limits of a specified
+reduced/continuum vacuum-layer-jamming beam model.
+
+This is a FALSIFICATION task, not a paper-summary task.
+
+Use ONLY the supplied source bundle for scientific claims. The D1-V008
+paper has locally held verified full text represented by its evidence
+JSON. Do not invent equations, thresholds, experiments, transferability,
+citation relationships, or novelty.
+
+======================================================================
+CURRENT P1
+======================================================================
+
+The surviving premise is intentionally narrow:
+
+"For ONE specified reduced/continuum vacuum-layer-jamming beam model
+under quasi-static planar bending, define output-specific PREDECLARED
+model-form acceptance tolerances and determine experimentally validated
+validity/breakdown boundaries against an interface-resolving/full-layer
+reference, while explicitly accounting for vacuum-pressure-controlled
+normal contact, friction/slip evolution, and where necessary pressure
+redistribution or layer separation."
+
+The prior C04 audit closed the currently identified forward-citation
+branch of focal paper ca46dc062d without satisfying the kill condition.
+It left exactly one specifically named high-threat target unaudited:
+
+DOI 10.1061/JSENDH.STENG-13096
+
+D1-V008 contains that target.
+
+======================================================================
+TARGET IDENTITY
+======================================================================
+
+Expected paper_id: 53d328abaa
+Expected DOI: 10.1061/JSENDH.STENG-13096
+
+The target is:
+"Analytical Solution for Bending Deformation of Steel-Concrete
+Composite Beams Considering Nonlinear Interfacial Slip" (2024).
+
+Audit this paper as a high-threat adjacent mechanics paper. Do not
+downgrade it merely because it is a civil-engineering application.
+Equally, do not treat mathematical similarity as direct mechanical
+transferability to vacuum layer jamming.
+
+======================================================================
+STRICT SEMANTIC RULE: PREDECLARED
+======================================================================
+
+PREDECLARED means the model-form acceptance tolerance was fixed a priori
+BEFORE the relevant validation/error results were inspected.
+
+An explicit, adopted, observed, recommended, or post-hoc percentage is
+NOT sufficient.
+
+Specifically:
+- an observed 3% analytical-vs-experimental deflection difference is
+  not automatically a predeclared tolerance;
+- an observed maximum 5% FE-vs-experimental difference is not
+  automatically a predeclared tolerance;
+- an observed <8% bending-strain discrepancy is not automatically a
+  predeclared tolerance;
+- an observed <=0.02 mm slip difference is not automatically a
+  predeclared tolerance;
+- a 20% shear-deformation effect at L/H=5 is not automatically a
+  predeclared tolerance;
+- a statement that the analytical solution is suitable for L/H>=10 is
+  not automatically a tolerance-defined MODEL-FORM validity boundary.
+
+Only set predeclared_acceptance_tolerance=true if the supplied evidence
+explicitly establishes that a criterion was fixed before validation or
+error inspection. If that temporal ordering is absent, set it false and
+state "not established" in the evidence field.
+
+======================================================================
+MODEL-FORM ERROR RULE
+======================================================================
+
+Distinguish carefully among:
+
+A. experiment-vs-model disagreement;
+B. FE-vs-experiment disagreement;
+C. analytical-model-vs-FE disagreement caused by a known omitted
+   mechanism such as shear deformation;
+D. reduced/continuum-vs-interface-resolved or full-layer MODEL-FORM
+   discrepancy.
+
+P1 specifically requires a validity/breakdown map for a chosen reduced
+model against an interface-resolving/full-layer reference.
+
+Do not upgrade A, B, or generic C into D unless the supplied evidence
+supports that interpretation.
+
+======================================================================
+L/H >= 10 RULE
+======================================================================
+
+The target evidence reports that shear-deformation influence increases
+as L/H decreases, reaches about 20% in deflection at L/H=5, and states
+that the analytical solution is suitable for relatively slender beams
+with L/H>=10.
+
+Audit this result carefully.
+
+You must determine whether L/H>=10 is:
+
+- a physical/theory-assumption applicability limit;
+- a post-hoc applicability recommendation;
+- or a tolerance-defined model-form validity boundary.
+
+To count as the P1 boundary, it must be tied to a PREDECLARED model-form
+acceptance tolerance and then experimentally tested on both accepted and
+rejected sides. Similarity alone is insufficient.
+
+======================================================================
+VACUUM-LAYER-JAMMING TRANSFER RULE
+======================================================================
+
+Audit whether the target actually contains mechanics transferable to
+vacuum layer jamming WITHOUT a materially new mechanics contribution.
+
+The target evidence must be checked for:
+
+- vacuum pressure controlling interlayer normal contact;
+- distributed normal-contact-pressure field;
+- Coulomb/frictional stick/partial-slip/gross-slip evolution;
+- pressure redistribution under bending;
+- local separation/lift-off;
+- many-layer contact rather than two-component steel-concrete action;
+- an interface-resolving/full-layer reference appropriate to jamming.
+
+If the paper neglects interface friction, uses headed-stud connector
+load-slip behavior, smears discrete stud action into a fictitious
+interlayer, or otherwise lacks vacuum/contact-pressure mechanics, do not
+claim direct transferability.
+
+======================================================================
+FINAL KILL CONDITION
+======================================================================
+
+kill_condition_met may be TRUE only if the supplied evidence,
+individually or together with the already-audited prior C04 evidence,
+establishes ALL of the following in a framework transferable to vacuum
+layer jamming without a materially new mechanics contribution:
+
+1. pressure/preload controls the relevant contact state;
+2. friction/slip is explicit;
+3. a named reduced/continuum model exists;
+4. an interface-resolved/discrete/full-layer reference exists;
+5. quantitative MODEL-FORM error is evaluated over the relevant space;
+6. a PREDECLARED acceptance tolerance is used;
+7. that tolerance defines a validity/breakdown boundary;
+8. experiments intentionally sample BOTH sides of the boundary;
+9. transfer to vacuum layer jamming requires no materially new
+   vacuum-to-pressure, pressure-redistribution, separation, or
+   friction/contact mechanics.
+
+If even ONE item is not established, kill_condition_met MUST be false.
+
+======================================================================
+STOP-SEARCH / FINAL-LOCK RULE
+======================================================================
+
+This round exists to decide whether the literature-falsification search
+can stop.
+
+The prior C04 output is authoritative for the fact that the current
+focal forward-citation branch was closed at that search date.
+
+Set target_doi_audit_complete=true only if the D1-V008 verified-full-text
+evidence is the expected DOI 10.1061/JSENDH.STENG-13096.
+
+Broad exploratory searching should STOP if:
+- the prior forward-citation branch is closed;
+- this target DOI is now audited from verified full text;
+- kill_condition_met is false; and
+- the supplied target does not explicitly identify another SPECIFIC
+  high-threat paper/source that appears capable of satisfying the
+  missing P1 kill-chain elements.
+
+Do NOT reopen broad searching merely because the target has references.
+
+A new named threat may keep final lock open only if it is specifically
+identified in the supplied evidence and there is a concrete reason it
+could satisfy missing kill-chain links. Generic "more literature may
+exist" is not enough.
+
+final_novelty_lock_allowed may be true only when:
+- target_doi_audit_complete=true;
+- prior_forward_citation_branch_closed=true;
+- additional_high_threat_named_target_remaining=false;
+- kill_condition_met=false.
+
+Final novelty lock does NOT mean "no paper anywhere can ever overlap."
+It means the defined adversarial search protocol has reached its
+documented stop condition and the surviving contribution may now be
+frozen provisionally for thesis execution.
+
+======================================================================
+OUTPUT DISCIPLINE
+======================================================================
+
+Return ONLY one JSON object conforming exactly to the supplied schema.
+
+Do not add Markdown fences.
+Do not add commentary outside the JSON.
+
+======================================================================
+SOURCE BUNDLE
+======================================================================
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V007/C04_ADVERSARIAL_AUDIT.json
+SHA256: 6c5e5cabbde641cc827bb7561248d41f1e01b256290c78105225ff2e07d79ec1
+ROLE: PRIOR_C04_CANONICAL_RESULT
+====================================================================================================
+
+{
+  "status": "INCONCLUSIVE_MISSING_TARGET",
+  "confidence": "high",
+  "current_p1": "For one specified reduced/continuum vacuum-layer-jamming beam model under quasi-static planar bending, define output-specific predeclared model-form acceptance tolerances and determine experimentally validated validity/breakdown boundaries against an interface-resolving/full-layer reference, while explicitly accounting for vacuum-pressure-controlled normal contact, friction/slip evolution, and, where necessary, pressure redistribution or layer separation.",
+  "executive_summary": "All three currently identified forward citations of focal paper ca46dc062d were audited. None closes the remaining vacuum-layer-jamming validity chain. Paper 6bdb4151e2 directly reuses the multilayer continuum mechanics framework in a coupled superconducting-coil model, but omits pressure/preload-dependent contact and practical inter-tape friction, supplies no full-layer mechanical comparator, uses no predeclared model-form tolerance, and does not test a breakdown boundary. Paper 1502d9c1c6 is an adjacent global-local homogenization study for frictionless hierarchical helical structures; its reported errors and small-strain limits do not constitute a predeclared acceptance boundary. Paper a32f8501d6 transfers a Coulomb-friction mathematical analogy to superconducting electrodynamics, not mechanical layer contact. The focal branch is therefore closed for the current search date without a kill. However, DOI 10.1061/JSENDH.STENG-13096 remains unaudited, so the overall C04 conclusion is inconclusive and final novelty lock is not allowed. The focal paper's adopted 5% threshold is explicitly not counted as predeclared.",
+  "citation_closure": {
+    "focal_paper_id": "ca46dc062d",
+    "focal_paper_title": "The global-local mechanical behaviors of multilayered structure and applications to superconducting coils",
+    "expected_current_forward_citations": 3,
+    "audited_forward_citations": 3,
+    "all_current_forward_citations_audited": true,
+    "target_doi_10_1061_present_in_current_round": false,
+    "missing_named_targets": [
+      "10.1061/JSENDH.STENG-13096"
+    ],
+    "closure_statement": "The three supplied D1-V007 verified-full-text papers match the complete current Scopus forward-citation count of three, so the focal forward-citation branch is closed as of the stated current search date. This closure does not cover future citations or the separately named DOI 10.1061/JSENDH.STENG-13096."
+  },
+  "paper_audits": [
+    {
+      "paper_id": "6bdb4151e2",
+      "title": "A coupled electromagnetic-mechanical model for high temperature superconducting coils based on circuit model",
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "citation_role": "direct_mechanical_extension",
+      "threat_to_p1": "medium",
+      "uses_focal_mechanical_model": true,
+      "pressure_or_preload_role": "No pressure or preload is used to control a mechanical contact state. Turn separation is suppressed by an outer overband, while the contact-resistance description explicitly omits local contact pressure and preload.",
+      "friction_or_slip_role": "The multilayer structural continuum includes interfacial-slip kinematics, but practical inter-tape frictional behavior and pressure-dependent friction capacity are omitted. No stick/partial-slip/gross-slip evolution is demonstrated.",
+      "continuum_or_reduced_model": "A Kirchhoff-Love multilayer structural continuum is coupled bidirectionally to an axisymmetric circuit/electromagnetic model.",
+      "discrete_or_interface_resolved_reference": "Absent for the relevant mechanical question. The 2D axisymmetric T-A finite-element benchmark is electromagnetic, not a discrete/full-layer mechanical contact reference.",
+      "quantitative_model_form_error": "Absent for reduced-versus-full-layer mechanical model form. The reported 15.5% strain-difference error is against an experiment, the 70% value concerns an uncoupled model, and the 0.01% ANN error concerns inductance evaluation.",
+      "predeclared_acceptance_tolerance": "Absent. ODE and split-field solver tolerances are numerical controls, not predeclared physical model-form acceptance criteria.",
+      "tolerance_defined_validity_boundary": "Absent. No mechanical parameter boundary is defined by crossing an acceptance tolerance.",
+      "experiment_crosses_boundary": "No. A three-turn insulated-coil strain comparison is reported, but it neither defines nor deliberately samples both sides of a model-validity boundary.",
+      "vacuum_layer_jamming_transferability": "weak",
+      "what_it_proves": "The focal multilayer continuum framework can be embedded in a coupled electromagnetic-mechanical coil analysis and can improve agreement with one literature strain measurement relative to an uncoupled calculation.",
+      "what_it_does_not_prove": "It does not establish pressure-controlled frictional contact, a full-layer mechanical reference, quantitative reduced-model error mapping, a predeclared tolerance, experimental boundary crossing, or vacuum-layer-jamming transfer mechanics."
+    },
+    {
+      "paper_id": "1502d9c1c6",
+      "title": "A global-local homogenization model for hierarchical chiral helical structures: Tension-torsion coupling and decoupling analysis",
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "citation_role": "adjacent_method_extension",
+      "threat_to_p1": "low",
+      "uses_focal_mechanical_model": false,
+      "pressure_or_preload_role": "Normal line-contact force and pressure arise from helical deformation and geometry, but no vacuum pressure or independently controlled preload is swept as a contact-state variable.",
+      "friction_or_slip_role": "Tangential friction and stick-slip are absent. Contact is assumed frictionless, and the authors identify frictional cyclic contact as future work.",
+      "continuum_or_reduced_model": "A named global-local analytical homogenization model based on Love thin-rod theory and strain linearization represents hierarchical helical structures.",
+      "discrete_or_interface_resolved_reference": "Three-dimensional solid finite elements and a two-dimensional plane-strain cylinder-contact model provide detailed numerical comparisons for helical geometry and normal contact.",
+      "quantitative_model_form_error": "The paper reports less than 7% difference from the Argatov analytical model and about 6% difference from a kinematic-analogy method in specified comparisons, but it does not provide the required frictional reduced-versus-interface-resolved model-form error map.",
+      "predeclared_acceptance_tolerance": "Absent. Small-strain ranges and reported percentage differences are assumptions or observed comparisons, not criteria shown to have been fixed before validation results were examined.",
+      "tolerance_defined_validity_boundary": "Absent. The coupling-decoupling condition is a physical/design boundary, while the stated strain and laying-angle restrictions are assumption domains rather than tolerance-crossing model-validity boundaries.",
+      "experiment_crosses_boundary": "No. Prior stiffness measurements are used for selected comparisons, but experiments do not intentionally sample accepted and rejected sides of a predicted error boundary.",
+      "vacuum_layer_jamming_transferability": "weak",
+      "what_it_proves": "A computationally efficient global-local homogenization model can retain normal line-contact effects and predict stiffness and coupling behavior of hierarchical helical structures within stated linearized assumptions.",
+      "what_it_does_not_prove": "It does not model Coulomb friction or slip evolution, vacuum-controlled contact, flat multilayer-beam mechanics, a predeclared model-form tolerance, or experimental validation of a breakdown boundary."
+    },
+    {
+      "paper_id": "a32f8501d6",
+      "title": "Critical state model for superconductivity: features and numerical implementation",
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "citation_role": "other",
+      "threat_to_p1": "low",
+      "uses_focal_mechanical_model": false,
+      "pressure_or_preload_role": "Absent. The governing variables are electromagnetic field, transport current, and critical current density, not mechanical pressure or preload.",
+      "friction_or_slip_role": "Coulomb friction and stick-slip appear only as a mathematical analogy used to regularize a superconducting critical-state constitutive law. No mechanical interface friction or layer slip is modeled.",
+      "continuum_or_reduced_model": "A continuum finite-element A-formulation represents superconducting electrodynamics through a yield-function and maximum-dissipation framework; it is not a reduced mechanical multilayer model.",
+      "discrete_or_interface_resolved_reference": "No mechanical interface-resolving reference exists. Comparators are analytical superconductivity solutions and alternative electromagnetic formulations.",
+      "quantitative_model_form_error": "Absent for mechanical model form. Reported agreement, convergence, and runtimes concern electromagnetic numerical formulations.",
+      "predeclared_acceptance_tolerance": "Absent. The critical electric-field threshold is a physical constitutive parameter, while regularization and penalty settings are numerical parameters, not model-form acceptance tolerances.",
+      "tolerance_defined_validity_boundary": "Absent for multilayer mechanics or vacuum layer jamming.",
+      "experiment_crosses_boundary": "No experiments are reported.",
+      "vacuum_layer_jamming_transferability": "not_demonstrated",
+      "what_it_proves": "Coulomb-friction-inspired continuum algorithms can regularize a nonsmooth electromagnetic critical-state model and reproduce superconductivity benchmarks efficiently.",
+      "what_it_does_not_prove": "A mathematical friction analogy does not establish mechanical pressure-contact-friction transferability, multilayer slip mechanics, reduced-versus-full-layer error, or a vacuum-jamming validity boundary."
+    }
+  ],
+  "four_link_chain_audit": {
+    "pressure_preload_to_friction_slip": {
+      "supported": true,
+      "evidence": "The supplied focal and prior C03 evidence establishes that normal contact stress, internal pressure, or preload controls Coulomb capacity and slip evolution in multilayer or contact analogues. The three descendants add no vacuum-specific demonstration of this link."
+    },
+    "friction_slip_to_continuum_discrete_discrepancy": {
+      "supported": true,
+      "evidence": "The focal paper compares a frictional/slip-aware continuum formulation with a discrete-contact model and quantifies displacement discrepancies; it also shows large errors when slip-related kinematics are omitted. The descendants do not extend this into a vacuum-pressure-dependent discrepancy map."
+    },
+    "discrepancy_to_predeclared_tolerance": {
+      "supported": false,
+      "evidence": "No supplied source explicitly establishes that its physical model-form acceptance tolerance was fixed before the relevant validation or error results were examined. In particular, the focal paper's 5% threshold is explicit and adopted but not established as predeclared a priori."
+    },
+    "tolerance_to_experimentally_validated_breakdown_boundary": {
+      "supported": false,
+      "evidence": "No experiment deliberately samples points on both accepted and rejected sides of a boundary defined by a predeclared model-form tolerance. Selected response agreement and physical transition thresholds do not satisfy this link."
+    },
+    "vacuum_to_contact_pressure_mapping": {
+      "supported": false,
+      "evidence": "No supplied descendant models or measures the mapping from applied vacuum pressure to the spatial interlayer normal-contact-pressure field in a vacuum-jammed beam."
+    },
+    "layer_separation_or_pressure_redistribution": {
+      "supported": false,
+      "evidence": "No supplied descendant establishes how vacuum-driven pressure redistribution or local layer separation changes a reduced-model validity boundary. The direct coil descendant suppresses separation and omits contact pressure and preload from its contact-resistance mechanics."
+    },
+    "chain_complete": false,
+    "chain_assessment": "Links 1 and 2 are supported in non-vacuum multilayer/contact evidence, but the chain fails at the strict predeclaration requirement, experimental testing across the resulting boundary, and both vacuum-specific transfer links. None of the three forward citations repairs those failures."
+  },
+  "kill_test": {
+    "pressure_or_preload_controls_contact": true,
+    "friction_or_slip_is_explicit": true,
+    "named_reduced_or_continuum_model": true,
+    "interface_resolved_or_discrete_reference": true,
+    "quantitative_model_form_error": true,
+    "predeclared_acceptance_tolerance": false,
+    "tolerance_defined_breakdown_boundary": true,
+    "experiment_tests_both_sides_of_boundary": false,
+    "transferable_to_vacuum_layer_jamming_without_new_mechanics": false,
+    "kill_condition_met": false,
+    "evidence_summary": "Across the focal and supplied prior evidence, pressure/preload-controlled contact, explicit friction/slip, named continuum or reduced models, discrete/full-layer references, quantitative model-form errors, and an adopted 5% tolerance-defined numerical boundary exist. The strict kill condition nevertheless fails because no evidence establishes that the physical acceptance tolerance was fixed a priori, no experiment deliberately tests both sides of that boundary, and transfer to vacuum layer jamming still requires new vacuum-to-contact-pressure, redistribution/separation, and friction/contact mechanics. The three descendants do not supply any of these missing elements."
+  },
+  "strongest_threats": [
+    {
+      "source": "Wang et al. (2026), paper_id ca46dc062d",
+      "threat": "high",
+      "why_it_matters": "The focal paper already combines a frictional multilayer continuum, a discrete-contact reference, quantitative displacement error, an adopted 5% boundary, layer-count/deformation sweeps, and multilayer experiments.",
+      "remaining_gap": "The supplied evidence does not establish prior declaration of the 5% tolerance, experimental sampling across its boundary, vacuum-pressure mapping, or validity under pressure redistribution and separation."
+    },
+    {
+      "source": "Chang et al. (2026), paper_id 6bdb4151e2",
+      "threat": "medium",
+      "why_it_matters": "This direct descendant demonstrates continued use of the focal multilayer continuum in a coupled multiphysics coil model and supplies a quantitative experimental strain comparison.",
+      "remaining_gap": "It omits pressure/preload-dependent contact and practical inter-tape friction, has no mechanical full-layer reference or predeclared tolerance, and does not test a breakdown boundary."
+    },
+    {
+      "source": "Han et al. (2026), paper_id 1502d9c1c6",
+      "threat": "low",
+      "why_it_matters": "It demonstrates another efficient global-local homogenization framework with explicit normal contact, detailed finite-element comparators, quantitative discrepancies, and experimental stiffness comparisons.",
+      "remaining_gap": "Its helical geometry and frictionless small-strain mechanics do not provide pressure-controlled slip, a predeclared model-validity criterion, boundary-crossing experiments, or vacuum-jamming transfer."
+    }
+  ],
+  "surviving_gap": "The forward citations do not remove the need for a vacuum-specific model-validity study. The surviving contribution is not generic homogenization, friction modeling, discrete benchmarking, percentage-error reporting, or selected experimental agreement. It is the prior declaration of output-specific acceptance tolerances for one specified vacuum-layer-jamming beam model, followed by independent experiments intentionally spanning the resulting accepted and rejected regions, with an interface-resolving reference that captures vacuum-generated normal-pressure fields, Coulomb slip evolution, pressure redistribution, and possible layer separation.",
+  "stop_search_decision": {
+    "focal_forward_citation_branch_closed": true,
+    "target_doi_audit_complete": false,
+    "additional_high_threat_named_target_remaining": true,
+    "stop_broad_search": true,
+    "decision_rationale": "All three current forward citations have been audited without a kill, so further broad keyword or exploratory forward-citation searching should stop. The only recommended literature action is the already named target DOI 10.1061/JSENDH.STENG-13096, followed by either a verified-full-text audit or a documented full-text-unavailable decision."
+  },
+  "final_novelty_lock_allowed": false,
+  "recommended_next_action": "Obtain and audit DOI 10.1061/JSENDH.STENG-13096 using verified full text. If full text cannot be obtained, document that unavailability and make an explicit evidence-limited decision. Do not begin another broad keyword sweep.",
+  "_provenance": {
+    "run_id": "20260918T081007Z",
+    "created_at_utc": "2026-09-18T08:11:56.377614+00:00",
+    "evidence_bundle_sha256": "cd61f9322d98217eedcc322722a04f96f871ef103d95f63801f7b526d0b67770",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "included_forward_citation_evidence_files": 3,
+    "focal_paper_id": "ca46dc062d",
+    "known_outstanding_named_target_doi": "10.1061/JSENDH.STENG-13096"
+  }
+}
+
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md
+SHA256: 0c3a8ddc186edd1884ce9329f5a2053a55198087d2df269234d83503149bc0ac
+ROLE: PREDECLARED_TOLERANCE_SEMANTIC_GUARDRAIL
+====================================================================================================
+
+# D1-V007 C04 semantic correction
+
+## Scope
+
+This note records a semantic correction discovered during review of the
+current canonical C04 adversarial audit.
+
+## Correction
+
+The verified focal-paper evidence for paper_id `ca46dc062d` establishes
+that the paper uses an explicit/adopted 5% maximum-displacement-error
+threshold to define permissible deformation/rotation limits against a
+discrete-contact reference.
+
+However, the supplied evidence does **not** establish that this 5%
+threshold was **predeclared a priori** before the relevant validation or
+model-form error results were examined.
+
+Therefore, until the audit is rerun with the corrected prompt semantics:
+
+- do not treat `kill_test.predeclared_acceptance_tolerance = true` in
+  the previous canonical C04 output as established;
+- do not treat
+  `four_link_chain_audit.discrepancy_to_predeclared_tolerance.supported = true`
+  as established;
+- interpret the focal paper as supporting an **explicit/adopted
+  applicability threshold**, not a verified predeclared acceptance
+  tolerance.
+
+## Expected rerun interpretation
+
+Unless another supplied verified-full-text source explicitly establishes
+that the acceptance tolerance was fixed before validation/error
+inspection, the corrected C04 run should set:
+
+```text
+kill_test.predeclared_acceptance_tolerance = false
+
+four_link_chain_audit.discrepancy_to_predeclared_tolerance.supported = false
+```
+
+This correction does not reverse the current overall falsification
+result. The prior run already had:
+
+```text
+experiment_tests_both_sides_of_boundary = false
+transferable_to_vacuum_layer_jamming_without_new_mechanics = false
+kill_condition_met = false
+```
+
+The correction therefore strengthens the surviving-gap interpretation
+rather than changing the current no-kill conclusion.
+
+## Required next action
+
+Pull the updated audit script and rerun C04 with `--force` so that the
+canonical JSON/Markdown outputs and provenance reflect the corrected
+definition of **predeclared**.
+
+After the rerun, the only remaining targeted literature action is the
+named DOI:
+
+`10.1061/JSENDH.STENG-13096`
+
+Broad literature searching should remain stopped unless that targeted
+audit reveals a new specifically named high-threat branch.
+
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V008/verification_matrix.json
+SHA256: 2ea246ae302c6cf0b91575f1b4db177d189e608991136d3b05cbf45d26d5b178
+ROLE: CURRENT_D1_V008_MATRIX
+====================================================================================================
+
+{
+  "schema_version": 1,
+  "verification_id": "D1-V008",
+  "created_at": "2026-09-18T08:30:11.394453+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 1,
+  "papers": [
+    {
+      "paper_id": "53d328abaa",
+      "filename": "2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V008",
+      "screening_status": "included",
+      "screening_reason": "Named high-threat target from C04. Full text confirms nonlinear interfacial-slip analytical model, experimental comparison, FE comparison, and explicit applicability limits; must be included in final P1 falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip_53d328abaa.json",
+      "evidence": {
+        "source": {
+          "paper_id": "53d328abaa",
+          "filename": "2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip.pdf",
+          "sha256": "53d328abaad573cca78c06c352a0e3d12ccff148a7597ff3947273297608e210",
+          "page_count": 11,
+          "char_count": 42213,
+          "source_type": "verification",
+          "verification_id": "D1-V008"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 28628,
+          "completion_tokens": 5808,
+          "total_tokens": 34436,
+          "thinking_tokens": 3693,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Huawen Ye",
+            "Zhihao Fen",
+            "Jianxi He",
+            "Jialin Deng"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Steel and concrete display isotropic elastic behavior under serviceability limit state conditions (small deformation validity allowing superposition).",
+            "Steel beam and concrete slab cross sections remain planar before and after deformation (plane-section assumption).",
+            "Both materials possess an identical bending curvature.",
+            "Concrete slab uplift, lateral deformation, and steel-concrete interface friction are neglected.",
+            "Shear deformation is neglected in the theoretical derivation based on Euler-Bernoulli beam theory.",
+            "The relationship between interfacial longitudinal shear stress and slip follows a nonlinear model based on force and energy balance: Q/Qu = u / (a + u).",
+            "In the FE model, steel is modeled as an elastic-perfectly plastic material, and tension and compression behaviors are assumed identical.",
+            "Steel web is assumed to primarily resist the shear load."
+          ],
+          "control_variables": [
+            "Beam span length and sectional geometric dimensions for each specimen series",
+            "Material elastic moduli of concrete (Ec) and steel (Es)",
+            "Total number of shear connectors (maintained constant when studying spacing ratios)",
+            "Boundary conditions (simply supported composite beam)",
+            "Static loading configuration (displacement-controlled midspan concentrated load)"
+          ],
+          "dependent_variables": [
+            "Bending deflection along the beam and at midspan (w)",
+            "Interfacial slip displacement along the beam and maximum slip at beam ends (u)",
+            "Bending strain distribution across the concrete slab and steel beam cross section (εc, εs)",
+            "Effective bending rigidity of the composite beam (Bs)"
+          ],
+          "doi": "10.1061/JSENDH.STENG-13096",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "The effective bending rigidity of a layered composite beam considering nonlinear interfacial slip is analytically formulated between intuitive bounds of zero composite interaction and full composite interaction.",
+              "evidence_type": "analytical modeling",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "A closed-form analytical solution based on a trigonometric series and the principle of minimum potential energy predicts bending deflection within 3% of experimental values in the serviceability limit state.",
+              "evidence_type": "analytical derivation and experimental validation",
+              "page_numbers": [
+                1,
+                4,
+                5,
+                7
+              ]
+            },
+            {
+              "claim": "Interfacial slip is antisymmetric about the load point, reaching zero at the midspan load application point and nonlinearly increasing to maximum values at the beam ends.",
+              "evidence_type": "experimental mechanics and numerical modeling",
+              "page_numbers": [
+                7
+              ]
+            },
+            {
+              "claim": "Conventional linear slip models substantially underestimate interfacial slip under higher load levels near the ultimate limit state, where end slip is 40% higher when considering interfacial nonlinearity.",
+              "evidence_type": "numerical modeling and comparative analysis",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Transverse shear deformation significantly alters deflection for low span-to-depth ratios (increasing deflection by 20% at L/H = 5), whereas Euler-Bernoulli assumptions neglecting shear deformation remain accurate for slender beams with L/H >= 10.",
+              "evidence_type": "numerical sensitivity analysis",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Unequal spacing of shear connectors has minimal impact (less than 5% variation in midspan deflection) compared to equal spacing when the total number of connectors is kept constant.",
+              "evidence_type": "numerical sensitivity analysis",
+              "page_numbers": [
+                8,
+                9
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Four simply supported steel-concrete composite beam test specimens (SCB-5, SCB-8, SCB-2, SCB-3) evaluated from literature (Yu et al. 2003; Huang et al. 2018).",
+            "Orthogonal concrete slab reinforcement with steel bars (HRB335) spaced at approximately 100 mm (10 mm diameter for SCB-5/SCB-8; 16 mm diameter for SCB-2/SCB-3).",
+            "Headed-stud shear connectors with diameters of 13 mm (SCB-5, SCB-8) and 16 mm (SCB-2, SCB-3).",
+            "Static concentrated midspan loading under displacement control.",
+            "Measurements of midspan deflection, longitudinal slip distribution along the interface, and cross-sectional bending strains."
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Applied vertical load level and ratio to ultimate load (P, P/Pu)",
+            "Longitudinal location along the beam span (x/L)",
+            "Vertical position across the beam cross section (z, z')",
+            "Stud connector spacing and arrangement ratio (D1/D2 varied from 0.5 to 2.0)",
+            "Span-to-depth ratio (L/H varied from 5 to 20)",
+            "Interfacial slip formulation (linear slip model vs. nonlinear slip model)"
+          ],
+          "limitations_inferred": [
+            "The derived closed-form solution is restricted to simply supported, single-span beams with symmetrical sections and does not cover multi-span, continuous, or geometrically complex structural systems.",
+            "The study investigates static monotonic loading and does not account for dynamic, cyclic, or fatigue degradation of shear connections.",
+            "The energy-based nonlinear slip equation requires parameter calibration (constant 'a') from physical push-out test data.",
+            "The research is strictly focused on civil structural steel-concrete beams and does not investigate or experimentally test robotic systems, soft actuators, or flexible continuum mechanisms."
+          ],
+          "limitations_stated_by_authors": [
+            "The theoretical model assumes isotropic elastic behavior for both steel and concrete, which applies to serviceability limit states but does not represent material plasticity at ultimate limit states.",
+            "Effects such as concrete slab uplift, lateral deformation, and interface friction are neglected.",
+            "Shear deformation is neglected in the Euler-Bernoulli theoretical derivation, limiting its applicability to relatively slender beams with span-to-depth ratio L/H >= 10.",
+            "Reinforcement bars in concrete and interface friction were neglected in the finite element models.",
+            "The analytical derivation assumes equal stud spacing."
+          ],
+          "main_results": [
+            "Derived an explicit closed-form analytical solution for deflection and interfacial slip of composite beams using a trigonometric series truncated at the first term.",
+            "Established a unified bending rigidity formula (Bs) that incorporates the nonlinear interface slip parameter.",
+            "Theoretical deflection predictions matched experimental measurements within 3% under serviceability loads (<= 0.5 Pu), and 3D nonlinear finite element results agreed within a maximum 5% difference.",
+            "Predicted cross-sectional bending strains matched experimental measurements within an 8% difference.",
+            "Nonlinear slip modeling predicted up to 40% higher maximum interfacial slip at the beam ends under high loading compared to conventional linear slip models.",
+            "Sensitivity analysis showed that unequal stud spacing ratios between 0.5 and 2.0 altered midspan deflections by less than 5%, confirming the validity of using average stud spacing.",
+            "Shear deformation increased deflections by up to 20% when the span-to-depth ratio dropped to L/H = 5, confirming that the Euler-Bernoulli analytical model is valid for slender composite beams with L/H >= 10."
+          ],
+          "modeling_methods": [
+            "Principle of minimum potential energy",
+            "Variational principle (first-order variation of total potential energy)",
+            "Undetermined coefficient method using Fourier trigonometric series",
+            "Euler-Bernoulli beam theory",
+            "Energy-based nonlinear shear load-slip interface model",
+            "Nonlinear 3D finite element modeling in ANSYS (SHELL181 for steel beam, SOLID65 for concrete slab, COMBIN39 for shear studs)"
+          ],
+          "performance_metrics": [
+            "Percentage difference between predicted (analytical and numerical) deflections and experimental deflections (3% for analytical, 5% for FE model)",
+            "Absolute difference between predicted interfacial slip and experimental measurements (maximum difference <= 0.02 mm under lower load)",
+            "Percentage discrepancy between predicted and experimental cross-sectional bending strains (< 8%)",
+            "Relative increase in maximum end slip between nonlinear and linear interface slip models (40% increase)",
+            "Deflection increase caused by shear deformation at low span-to-depth ratios (up to 20% increase at L/H = 5)"
+          ],
+          "possible_gap_implications": [
+            "The exact variational potential-energy framework and closed-form stiffness formulation for two-layer beams with nonlinear interfacial slip could potentially inform analytical modeling of multi-layer variable-stiffness continuum structures or laminar jamming mechanisms in mechanical engineering, but would require reformulation for large displacements, elastomeric material laws, and friction."
+          ],
+          "research_objective": "To propose and experimentally validate a closed-form, explicit, exact analytical model and a unified bending rigidity formula for bending deformation and interfacial slip in regular steel-concrete composite beams with partial shear connectors, accounting for interfacial nonlinearity.",
+          "research_problem": "Partial shear connections in steel-concrete composite beams result in inevitable interfacial slip and nonlinear structural behavior, particularly in the ultimate limit state where interfacial shear stiffness can be significantly reduced; however, existing design codes rely on oversimplified linear slip models that overestimate stiffness, while existing nonlinear analytical models are overly complex or depend on computationally intensive finite-element methods.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "headed-stud shear connectors",
+            "partial shear connection"
+          ],
+          "title": "Analytical Solution for Bending Deformation of Steel–Concrete Composite Beams Considering Nonlinear Interfacial Slip",
+          "year": "2024"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "50a2f46ba27e5d1d43c0592af08481cdd103ac72ff6b7a7d9580d45c3a430e96"
+}
+
+
+====================================================================================================
+SOURCE: data/evidence/2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip_53d328abaa.json
+SHA256: 0d58585a7d09e29196ed8d7a6582a57beef37032432240a513baeaad015b516d
+ROLE: TARGET_VERIFIED_FULL_TEXT_EVIDENCE
+====================================================================================================
+
+{
+  "source": {
+    "paper_id": "53d328abaa",
+    "filename": "2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip.pdf",
+    "sha256": "53d328abaad573cca78c06c352a0e3d12ccff148a7597ff3947273297608e210",
+    "page_count": 11,
+    "char_count": 42213,
+    "source_type": "verification",
+    "verification_id": "D1-V008"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28628,
+    "completion_tokens": 5808,
+    "total_tokens": 34436,
+    "thinking_tokens": 3693,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Huawen Ye",
+      "Zhihao Fen",
+      "Jianxi He",
+      "Jialin Deng"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Steel and concrete display isotropic elastic behavior under serviceability limit state conditions (small deformation validity allowing superposition).",
+      "Steel beam and concrete slab cross sections remain planar before and after deformation (plane-section assumption).",
+      "Both materials possess an identical bending curvature.",
+      "Concrete slab uplift, lateral deformation, and steel-concrete interface friction are neglected.",
+      "Shear deformation is neglected in the theoretical derivation based on Euler-Bernoulli beam theory.",
+      "The relationship between interfacial longitudinal shear stress and slip follows a nonlinear model based on force and energy balance: Q/Qu = u / (a + u).",
+      "In the FE model, steel is modeled as an elastic-perfectly plastic material, and tension and compression behaviors are assumed identical.",
+      "Steel web is assumed to primarily resist the shear load."
+    ],
+    "control_variables": [
+      "Beam span length and sectional geometric dimensions for each specimen series",
+      "Material elastic moduli of concrete (Ec) and steel (Es)",
+      "Total number of shear connectors (maintained constant when studying spacing ratios)",
+      "Boundary conditions (simply supported composite beam)",
+      "Static loading configuration (displacement-controlled midspan concentrated load)"
+    ],
+    "dependent_variables": [
+      "Bending deflection along the beam and at midspan (w)",
+      "Interfacial slip displacement along the beam and maximum slip at beam ends (u)",
+      "Bending strain distribution across the concrete slab and steel beam cross section (εc, εs)",
+      "Effective bending rigidity of the composite beam (Bs)"
+    ],
+    "doi": "10.1061/JSENDH.STENG-13096",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The effective bending rigidity of a layered composite beam considering nonlinear interfacial slip is analytically formulated between intuitive bounds of zero composite interaction and full composite interaction.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "A closed-form analytical solution based on a trigonometric series and the principle of minimum potential energy predicts bending deflection within 3% of experimental values in the serviceability limit state.",
+        "evidence_type": "analytical derivation and experimental validation",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          7
+        ]
+      },
+      {
+        "claim": "Interfacial slip is antisymmetric about the load point, reaching zero at the midspan load application point and nonlinearly increasing to maximum values at the beam ends.",
+        "evidence_type": "experimental mechanics and numerical modeling",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "Conventional linear slip models substantially underestimate interfacial slip under higher load levels near the ultimate limit state, where end slip is 40% higher when considering interfacial nonlinearity.",
+        "evidence_type": "numerical modeling and comparative analysis",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Transverse shear deformation significantly alters deflection for low span-to-depth ratios (increasing deflection by 20% at L/H = 5), whereas Euler-Bernoulli assumptions neglecting shear deformation remain accurate for slender beams with L/H >= 10.",
+        "evidence_type": "numerical sensitivity analysis",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Unequal spacing of shear connectors has minimal impact (less than 5% variation in midspan deflection) compared to equal spacing when the total number of connectors is kept constant.",
+        "evidence_type": "numerical sensitivity analysis",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Four simply supported steel-concrete composite beam test specimens (SCB-5, SCB-8, SCB-2, SCB-3) evaluated from literature (Yu et al. 2003; Huang et al. 2018).",
+      "Orthogonal concrete slab reinforcement with steel bars (HRB335) spaced at approximately 100 mm (10 mm diameter for SCB-5/SCB-8; 16 mm diameter for SCB-2/SCB-3).",
+      "Headed-stud shear connectors with diameters of 13 mm (SCB-5, SCB-8) and 16 mm (SCB-2, SCB-3).",
+      "Static concentrated midspan loading under displacement control.",
+      "Measurements of midspan deflection, longitudinal slip distribution along the interface, and cross-sectional bending strains."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Applied vertical load level and ratio to ultimate load (P, P/Pu)",
+      "Longitudinal location along the beam span (x/L)",
+      "Vertical position across the beam cross section (z, z')",
+      "Stud connector spacing and arrangement ratio (D1/D2 varied from 0.5 to 2.0)",
+      "Span-to-depth ratio (L/H varied from 5 to 20)",
+      "Interfacial slip formulation (linear slip model vs. nonlinear slip model)"
+    ],
+    "limitations_inferred": [
+      "The derived closed-form solution is restricted to simply supported, single-span beams with symmetrical sections and does not cover multi-span, continuous, or geometrically complex structural systems.",
+      "The study investigates static monotonic loading and does not account for dynamic, cyclic, or fatigue degradation of shear connections.",
+      "The energy-based nonlinear slip equation requires parameter calibration (constant 'a') from physical push-out test data.",
+      "The research is strictly focused on civil structural steel-concrete beams and does not investigate or experimentally test robotic systems, soft actuators, or flexible continuum mechanisms."
+    ],
+    "limitations_stated_by_authors": [
+      "The theoretical model assumes isotropic elastic behavior for both steel and concrete, which applies to serviceability limit states but does not represent material plasticity at ultimate limit states.",
+      "Effects such as concrete slab uplift, lateral deformation, and interface friction are neglected.",
+      "Shear deformation is neglected in the Euler-Bernoulli theoretical derivation, limiting its applicability to relatively slender beams with span-to-depth ratio L/H >= 10.",
+      "Reinforcement bars in concrete and interface friction were neglected in the finite element models.",
+      "The analytical derivation assumes equal stud spacing."
+    ],
+    "main_results": [
+      "Derived an explicit closed-form analytical solution for deflection and interfacial slip of composite beams using a trigonometric series truncated at the first term.",
+      "Established a unified bending rigidity formula (Bs) that incorporates the nonlinear interface slip parameter.",
+      "Theoretical deflection predictions matched experimental measurements within 3% under serviceability loads (<= 0.5 Pu), and 3D nonlinear finite element results agreed within a maximum 5% difference.",
+      "Predicted cross-sectional bending strains matched experimental measurements within an 8% difference.",
+      "Nonlinear slip modeling predicted up to 40% higher maximum interfacial slip at the beam ends under high loading compared to conventional linear slip models.",
+      "Sensitivity analysis showed that unequal stud spacing ratios between 0.5 and 2.0 altered midspan deflections by less than 5%, confirming the validity of using average stud spacing.",
+      "Shear deformation increased deflections by up to 20% when the span-to-depth ratio dropped to L/H = 5, confirming that the Euler-Bernoulli analytical model is valid for slender composite beams with L/H >= 10."
+    ],
+    "modeling_methods": [
+      "Principle of minimum potential energy",
+      "Variational principle (first-order variation of total potential energy)",
+      "Undetermined coefficient method using Fourier trigonometric series",
+      "Euler-Bernoulli beam theory",
+      "Energy-based nonlinear shear load-slip interface model",
+      "Nonlinear 3D finite element modeling in ANSYS (SHELL181 for steel beam, SOLID65 for concrete slab, COMBIN39 for shear studs)"
+    ],
+    "performance_metrics": [
+      "Percentage difference between predicted (analytical and numerical) deflections and experimental deflections (3% for analytical, 5% for FE model)",
+      "Absolute difference between predicted interfacial slip and experimental measurements (maximum difference <= 0.02 mm under lower load)",
+      "Percentage discrepancy between predicted and experimental cross-sectional bending strains (< 8%)",
+      "Relative increase in maximum end slip between nonlinear and linear interface slip models (40% increase)",
+      "Deflection increase caused by shear deformation at low span-to-depth ratios (up to 20% increase at L/H = 5)"
+    ],
+    "possible_gap_implications": [
+      "The exact variational potential-energy framework and closed-form stiffness formulation for two-layer beams with nonlinear interfacial slip could potentially inform analytical modeling of multi-layer variable-stiffness continuum structures or laminar jamming mechanisms in mechanical engineering, but would require reformulation for large displacements, elastomeric material laws, and friction."
+    ],
+    "research_objective": "To propose and experimentally validate a closed-form, explicit, exact analytical model and a unified bending rigidity formula for bending deformation and interfacial slip in regular steel-concrete composite beams with partial shear connectors, accounting for interfacial nonlinearity.",
+    "research_problem": "Partial shear connections in steel-concrete composite beams result in inevitable interfacial slip and nonlinear structural behavior, particularly in the ultimate limit state where interfacial shear stiffness can be significantly reduced; however, existing design codes rely on oversimplified linear slip models that overestimate stiffness, while existing nonlinear analytical models are overly complex or depend on computationally intensive finite-element methods.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "headed-stud shear connectors",
+      "partial shear connection"
+    ],
+    "title": "Analytical Solution for Bending Deformation of Steel–Concrete Composite Beams Considering Nonlinear Interfacial Slip",
+    "year": "2024"
+  }
+}
+
