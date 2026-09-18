@@ -1,0 +1,169 @@
+{
+  "source": {
+    "paper_id": "53d328abaa",
+    "filename": "2024-Ye-Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams Considering Nonlinear Interfacial Slip.pdf",
+    "sha256": "53d328abaad573cca78c06c352a0e3d12ccff148a7597ff3947273297608e210",
+    "page_count": 11,
+    "char_count": 42213,
+    "source_type": "verification",
+    "verification_id": "D1-V008"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28628,
+    "completion_tokens": 5808,
+    "total_tokens": 34436,
+    "thinking_tokens": 3693,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Huawen Ye",
+      "Zhihao Fen",
+      "Jianxi He",
+      "Jialin Deng"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Steel and concrete display isotropic elastic behavior under serviceability limit state conditions (small deformation validity allowing superposition).",
+      "Steel beam and concrete slab cross sections remain planar before and after deformation (plane-section assumption).",
+      "Both materials possess an identical bending curvature.",
+      "Concrete slab uplift, lateral deformation, and steel-concrete interface friction are neglected.",
+      "Shear deformation is neglected in the theoretical derivation based on Euler-Bernoulli beam theory.",
+      "The relationship between interfacial longitudinal shear stress and slip follows a nonlinear model based on force and energy balance: Q/Qu = u / (a + u).",
+      "In the FE model, steel is modeled as an elastic-perfectly plastic material, and tension and compression behaviors are assumed identical.",
+      "Steel web is assumed to primarily resist the shear load."
+    ],
+    "control_variables": [
+      "Beam span length and sectional geometric dimensions for each specimen series",
+      "Material elastic moduli of concrete (Ec) and steel (Es)",
+      "Total number of shear connectors (maintained constant when studying spacing ratios)",
+      "Boundary conditions (simply supported composite beam)",
+      "Static loading configuration (displacement-controlled midspan concentrated load)"
+    ],
+    "dependent_variables": [
+      "Bending deflection along the beam and at midspan (w)",
+      "Interfacial slip displacement along the beam and maximum slip at beam ends (u)",
+      "Bending strain distribution across the concrete slab and steel beam cross section (εc, εs)",
+      "Effective bending rigidity of the composite beam (Bs)"
+    ],
+    "doi": "10.1061/JSENDH.STENG-13096",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The effective bending rigidity of a layered composite beam considering nonlinear interfacial slip is analytically formulated between intuitive bounds of zero composite interaction and full composite interaction.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "A closed-form analytical solution based on a trigonometric series and the principle of minimum potential energy predicts bending deflection within 3% of experimental values in the serviceability limit state.",
+        "evidence_type": "analytical derivation and experimental validation",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          7
+        ]
+      },
+      {
+        "claim": "Interfacial slip is antisymmetric about the load point, reaching zero at the midspan load application point and nonlinearly increasing to maximum values at the beam ends.",
+        "evidence_type": "experimental mechanics and numerical modeling",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "Conventional linear slip models substantially underestimate interfacial slip under higher load levels near the ultimate limit state, where end slip is 40% higher when considering interfacial nonlinearity.",
+        "evidence_type": "numerical modeling and comparative analysis",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Transverse shear deformation significantly alters deflection for low span-to-depth ratios (increasing deflection by 20% at L/H = 5), whereas Euler-Bernoulli assumptions neglecting shear deformation remain accurate for slender beams with L/H >= 10.",
+        "evidence_type": "numerical sensitivity analysis",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Unequal spacing of shear connectors has minimal impact (less than 5% variation in midspan deflection) compared to equal spacing when the total number of connectors is kept constant.",
+        "evidence_type": "numerical sensitivity analysis",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Four simply supported steel-concrete composite beam test specimens (SCB-5, SCB-8, SCB-2, SCB-3) evaluated from literature (Yu et al. 2003; Huang et al. 2018).",
+      "Orthogonal concrete slab reinforcement with steel bars (HRB335) spaced at approximately 100 mm (10 mm diameter for SCB-5/SCB-8; 16 mm diameter for SCB-2/SCB-3).",
+      "Headed-stud shear connectors with diameters of 13 mm (SCB-5, SCB-8) and 16 mm (SCB-2, SCB-3).",
+      "Static concentrated midspan loading under displacement control.",
+      "Measurements of midspan deflection, longitudinal slip distribution along the interface, and cross-sectional bending strains."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Applied vertical load level and ratio to ultimate load (P, P/Pu)",
+      "Longitudinal location along the beam span (x/L)",
+      "Vertical position across the beam cross section (z, z')",
+      "Stud connector spacing and arrangement ratio (D1/D2 varied from 0.5 to 2.0)",
+      "Span-to-depth ratio (L/H varied from 5 to 20)",
+      "Interfacial slip formulation (linear slip model vs. nonlinear slip model)"
+    ],
+    "limitations_inferred": [
+      "The derived closed-form solution is restricted to simply supported, single-span beams with symmetrical sections and does not cover multi-span, continuous, or geometrically complex structural systems.",
+      "The study investigates static monotonic loading and does not account for dynamic, cyclic, or fatigue degradation of shear connections.",
+      "The energy-based nonlinear slip equation requires parameter calibration (constant 'a') from physical push-out test data.",
+      "The research is strictly focused on civil structural steel-concrete beams and does not investigate or experimentally test robotic systems, soft actuators, or flexible continuum mechanisms."
+    ],
+    "limitations_stated_by_authors": [
+      "The theoretical model assumes isotropic elastic behavior for both steel and concrete, which applies to serviceability limit states but does not represent material plasticity at ultimate limit states.",
+      "Effects such as concrete slab uplift, lateral deformation, and interface friction are neglected.",
+      "Shear deformation is neglected in the Euler-Bernoulli theoretical derivation, limiting its applicability to relatively slender beams with span-to-depth ratio L/H >= 10.",
+      "Reinforcement bars in concrete and interface friction were neglected in the finite element models.",
+      "The analytical derivation assumes equal stud spacing."
+    ],
+    "main_results": [
+      "Derived an explicit closed-form analytical solution for deflection and interfacial slip of composite beams using a trigonometric series truncated at the first term.",
+      "Established a unified bending rigidity formula (Bs) that incorporates the nonlinear interface slip parameter.",
+      "Theoretical deflection predictions matched experimental measurements within 3% under serviceability loads (<= 0.5 Pu), and 3D nonlinear finite element results agreed within a maximum 5% difference.",
+      "Predicted cross-sectional bending strains matched experimental measurements within an 8% difference.",
+      "Nonlinear slip modeling predicted up to 40% higher maximum interfacial slip at the beam ends under high loading compared to conventional linear slip models.",
+      "Sensitivity analysis showed that unequal stud spacing ratios between 0.5 and 2.0 altered midspan deflections by less than 5%, confirming the validity of using average stud spacing.",
+      "Shear deformation increased deflections by up to 20% when the span-to-depth ratio dropped to L/H = 5, confirming that the Euler-Bernoulli analytical model is valid for slender composite beams with L/H >= 10."
+    ],
+    "modeling_methods": [
+      "Principle of minimum potential energy",
+      "Variational principle (first-order variation of total potential energy)",
+      "Undetermined coefficient method using Fourier trigonometric series",
+      "Euler-Bernoulli beam theory",
+      "Energy-based nonlinear shear load-slip interface model",
+      "Nonlinear 3D finite element modeling in ANSYS (SHELL181 for steel beam, SOLID65 for concrete slab, COMBIN39 for shear studs)"
+    ],
+    "performance_metrics": [
+      "Percentage difference between predicted (analytical and numerical) deflections and experimental deflections (3% for analytical, 5% for FE model)",
+      "Absolute difference between predicted interfacial slip and experimental measurements (maximum difference <= 0.02 mm under lower load)",
+      "Percentage discrepancy between predicted and experimental cross-sectional bending strains (< 8%)",
+      "Relative increase in maximum end slip between nonlinear and linear interface slip models (40% increase)",
+      "Deflection increase caused by shear deformation at low span-to-depth ratios (up to 20% increase at L/H = 5)"
+    ],
+    "possible_gap_implications": [
+      "The exact variational potential-energy framework and closed-form stiffness formulation for two-layer beams with nonlinear interfacial slip could potentially inform analytical modeling of multi-layer variable-stiffness continuum structures or laminar jamming mechanisms in mechanical engineering, but would require reformulation for large displacements, elastomeric material laws, and friction."
+    ],
+    "research_objective": "To propose and experimentally validate a closed-form, explicit, exact analytical model and a unified bending rigidity formula for bending deformation and interfacial slip in regular steel-concrete composite beams with partial shear connectors, accounting for interfacial nonlinearity.",
+    "research_problem": "Partial shear connections in steel-concrete composite beams result in inevitable interfacial slip and nonlinear structural behavior, particularly in the ultimate limit state where interfacial shear stiffness can be significantly reduced; however, existing design codes rely on oversimplified linear slip models that overestimate stiffness, while existing nonlinear analytical models are overly complex or depend on computationally intensive finite-element methods.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "headed-stud shear connectors",
+      "partial shear connection"
+    ],
+    "title": "Analytical Solution for Bending Deformation of Steel–Concrete Composite Beams Considering Nonlinear Interfacial Slip",
+    "year": "2024"
+  }
+}
