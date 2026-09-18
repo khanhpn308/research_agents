@@ -845,8 +845,8 @@ def render_markdown(
 
     for item in manifest:
         lines.append(
-            f"- \`{item['role']}\` — \`{item['path']}\` — "
-            f"SHA256 \`{item['sha256']}\`"
+            f"- `{item['role']}` — `{item['path']}` — "
+            f"SHA256 `{item['sha256']}`"
         )
 
     return "\n".join(lines) + "\n"
