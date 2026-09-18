@@ -1,0 +1,164 @@
+{
+  "source": {
+    "paper_id": "444793969c",
+    "filename": "2021-Experimental validation of the applicability of effective spring boundary conditions for modelling damaged interfaces in laminate structures.pdf",
+    "sha256": "444793969ce84ac1aaeff20392223d937823af720a6c8bece396e54873fd6f00",
+    "page_count": 22,
+    "char_count": 36376,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 25931,
+    "completion_tokens": 6205,
+    "total_tokens": 32136,
+    "thinking_tokens": 4010,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Piezoelectric actuation using thin circular PZT transducers (PZT PIC 151, 10 mm diameter, 0.5 mm thickness) to excite guided waves"
+    ],
+    "authors": [
+      "Mikhail V. Golub",
+      "Olga V. Doroshenko",
+      "Maria V. Wilde",
+      "Artem A. Eremin"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "All waveguide layers are composed of isotropic, linearly elastic materials obeying Hooke's law and Lamé elastodynamic equations",
+      "Time-harmonic wave motion with angular frequency omega",
+      "Stress-free traction boundary conditions at outer surfaces of the laminate waveguide",
+      "Continuity of traction vectors across internal layer interfaces",
+      "Imperfect interface modeled via effective spring boundary conditions (ESBC) with a diagonal spring stiffness matrix where normal and tangential stiffnesses are equal (kappa_11 = kappa_22 = kappa)",
+      "Quasi-static approximation for interface micro-cracks where defect width is much smaller than the wavelength (l << lambda)",
+      "Substrate layer of the retro-reflective tape assumed to be mechanically identical to the epoxy film"
+    ],
+    "control_variables": [
+      "Aluminium layer thickness (2 mm per plate)",
+      "Adhesive layer thickness (40 um two-sided epoxy tape)",
+      "Laminate curing duration and pressure (24 hours at room temperature under 1600 Pa uniform pressure)",
+      "Surface preparation cleaning procedure (degreasing with isopropanol prior to bonding)",
+      "Piezoelectric transducer dimensions and material (PZT PIC 151, 10 mm diameter, 0.5 mm thickness)",
+      "Laser Doppler vibrometer head distance (~1100 mm above the specimen)",
+      "Retro-reflective tape specifications (3M 7610 Scotchlite, 100 um thickness)",
+      "Damping treatment on specimen edges (plasticine application to suppress side-wall reflections)"
+    ],
+    "dependent_variables": [
+      "Out-of-plane surface velocity v(x1, zM, t) measured by laser Doppler vibrometry",
+      "Wavenumber and slowness spectrum W(f, s) of propagating guided waves obtained via 2D Fourier transform",
+      "Dispersion characteristics and slownesses of specific guided wave modes (GW1 to GW6)",
+      "Identified interfacial spring stiffness kappa (GPa/mm) and estimated damage parameter product Cl (mm)"
+    ],
+    "doi": "10.1016/j.compstruct.2021.114141",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Effective spring boundary conditions (ESBC) expressing spring stiffness in terms of material moduli and micro-crack geometry can quantitatively and qualitatively model guided wave dispersion changes in multi-layered laminates with damaged interfaces.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          10,
+          11,
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "Different guided wave modes show different sensitivity to interface degradation: even-numbered modes (GW2, GW4, GW6) exhibit significantly greater shifts in slowness with decreasing spring stiffness than odd-numbered modes (GW1, GW3, GW5).",
+        "evidence_type": "computational",
+        "page_numbers": [
+          10,
+          11,
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "For aluminium-epoxy laminates with mechanical surface scratches, ESBC stiffness was experimentally evaluated in the range 40-60 GPa/mm (Cl = 0.01-0.02 mm), matching manufacturing estimates (Cl = 0.005-0.015 mm).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          12,
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "For laminates with strip-like knife cuts at the interface, ESBC stiffness was experimentally identified between 2 and 4 GPa/mm (Cl = 0.25-0.5 mm), matching measured crack geometry (Cl = 0.1-0.4 mm).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          13,
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "Severe abrasive degradation of the adhesive film using emery led to spring stiffness kappa < 1 GPa/mm (Cl > 0.35 mm), causing guided wave slownesses to approach the behavior of a fully debonded interface.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          14,
+          16,
+          17
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Three-layered laminate specimens consisting of two 2 mm-thick aluminium plates bonded with a 40 um-thick two-sided epoxy tape, cured for 24 h at room temperature under 1600 Pa pressure",
+      "Four interface conditions investigated: pristine/undamaged interface, lower epoxy surface partially abraded with emery, upper aluminium surface scratched with a wire brush, and upper aluminium surface notched with strip-like knife cuts (0.2-0.5 mm wide)",
+      "Circular piezoelectric actuators (PZT PIC 151, 10 mm diameter, 0.5 mm thick) adhesively mounted to excite elastodynamic guided waves",
+      "Polytec PSV-500-V laser Doppler vibrometer (LDV) positioned 1100 mm above the specimen scanning out-of-plane surface velocity along a central line",
+      "3M 7610 Scotchlite high gain retro-reflective sheeting strip (100 um thick) applied along the LDV scanning path to enhance signal-to-noise ratio",
+      "Plasticine applied around the specimen borders to minimize edge boundary reflections"
+    ],
+    "future_work": [
+      "Extending the ESBC methodology to account for other micro-defect geometries such as circular, elliptical, or rectangular cracks using alternative stiffness relations",
+      "Applying the modeling framework to more complex composite materials and anisotropic media"
+    ],
+    "independent_variables": [
+      "Type and severity of interfacial damage (intact/perfect contact, wire brush scratches, strip-like cuts, and emery-damaged adhesive)",
+      "Excitation wave frequency (evaluated in the range 0.1 MHz to 0.8 MHz)",
+      "Spatial position x1 along the specimen surface measurement line"
+    ],
+    "limitations_inferred": [
+      "The investigation is restricted to planar two-dimensional wave propagation and simple flat specimen geometries, not addressing complex 3D structures or curved components",
+      "Manual defect fabrication techniques (knife cutting, wire brush scratching, emery sanding) generate non-uniform crack geometry and spacing across the interface",
+      "The paper evaluates static manufactured damage in structural metals/epoxy laminates and does not investigate soft robotic materials, elastomers, or active variable-stiffness devices"
+    ],
+    "limitations_stated_by_authors": [
+      "Analytical expressions for spring stiffness (Eqs. 5 and 6) strictly apply only to planar arrays of strip-like micro-cracks oriented perpendicular to wave propagation and are not strictly valid for non-aligned random scratch patterns",
+      "The quasi-static approximation parameter zeta(f) is frequency-dependent in reality, decreasing by up to 50% as frequency increases",
+      "Different defect shapes (circular, elliptical) require distinct formulations for effective interfacial spring stiffnesses",
+      "The retro-reflective tape substrate was simplified as mechanically identical to the epoxy layer in the numerical waveguide model"
+    ],
+    "main_results": [
+      "Experimental validation demonstrated that ESBC accurately captures the changes in guided wave dispersion caused by imperfect and degraded laminate interfaces",
+      "Estimated interfacial spring stiffnesses matched theoretical calculations based on physical crack density and width measurements (scratched aluminium: kappa = 40-60 GPa/mm; strip cuts: kappa = 2-4 GPa/mm; abraded adhesive: kappa < 1 GPa/mm)",
+      "Guided wave mode GW2 was particularly sensitive to slight surface scratching, while GW3 shifted markedly toward debonded behavior under severe interface degradation",
+      "The contact degradation severity in multi-layer structures can be classified and quantitatively reconstructed through frequency-wavenumber analysis combined with ESBC"
+    ],
+    "modeling_methods": [
+      "Lamé elastodynamic differential formulation for in-plane wave propagation in multi-layered isotropic waveguides",
+      "Effective spring boundary conditions (ESBC) specifying stress traction continuity and displacement jump proportional to interfacial spring stiffness (tau = kappa * [u])",
+      "Spatial Fourier transform with respect to coordinate x1 to convert the governing partial differential equations into ordinary differential equations and establish linear dispersion algebraic systems",
+      "Quasi-static micromechanical modeling (Baik-Thompson and Lekesiz-Katsube-Rokhlin-Seghi models) relating spring stiffness to crack density, average defect width, and elastic constants",
+      "Two-dimensional Fourier transform frequency-wavenumber analysis (FWA) of measured surface velocity profiles to extract experimental dispersion curves"
+    ],
+    "performance_metrics": [
+      "Guided wave slowness s (us/m) as a function of frequency f (MHz)",
+      "Interfacial spring stiffness kappa (GPa/mm)",
+      "Damage parameter product Cl (crack density C multiplied by average defect width l, mm)",
+      "Agreement/discrepancy between theoretical and experimental dispersion curves"
+    ],
+    "possible_gap_implications": [
+      "The ESBC framework could potentially provide a theoretical and experimental basis for modeling interfacial compliance or bond degradation between flexible composite layers or bonded soft-rigid interfaces",
+      "Guided wave inspection with ESBC could potentially be adapted for non-destructive health evaluation of laminated flexible components, though high material damping in soft elastomers remains an unexamined challenge"
+    ],
+    "research_objective": "To experimentally validate theoretical estimations of interfacial spring stiffnesses in effective spring boundary conditions (ESBC) for modeling guided wave propagation in multi-layered laminates with damaged interfaces, and to demonstrate its utility for identifying and classifying interface degradation.",
+    "research_problem": "Accurate non-destructive evaluation and mechanical modeling of interfacial degradation and weakened adhesion in adhesively bonded multi-layered laminate structures using ultrasonic guided waves and effective spring boundary conditions.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Experimental validation of the applicability of effective spring boundary conditions for modelling damaged interfaces in laminate structures",
+    "year": "2021"
+  }
+}

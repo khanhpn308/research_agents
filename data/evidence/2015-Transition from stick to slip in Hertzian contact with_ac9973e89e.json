@@ -1,0 +1,170 @@
+{
+  "source": {
+    "paper_id": "ac9973e89e",
+    "filename": "2015-Transition from stick to slip in Hertzian contact with.pdf",
+    "sha256": "ac9973e89efbbbb81d82fd21d38e41130b3b469917a720d6b1c98ecab31352fb",
+    "page_count": 12,
+    "char_count": 42736,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28957,
+    "completion_tokens": 5956,
+    "total_tokens": 34913,
+    "thinking_tokens": 3996,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "M. Ciavarella"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear elastic behavior for the contacting bodies.",
+      "Elastic similarity between contacting bodies (Dundurs' parameter beta equals zero), decoupling normal pressure from shear traction distributions.",
+      "Poisson's ratio effects on transverse shear tractions are neglected, treating tangential energy release rate as pure mode II.",
+      "Initial contact gap is spherical/quadratic, consistent with Hertzian contact assumptions.",
+      "Coulomb friction law holds within the slip region with a constant sliding friction coefficient.",
+      "Slip initiation at the stick-slip boundary is governed by a Griffith energy release rate criterion / critical mode II stress intensity factor.",
+      "Direct normal adhesion is neglected, assuming classical normal adhesion is eliminated by surface roughness."
+    ],
+    "control_variables": [
+      "Normalized tangential load ratio (Q / (f * P))",
+      "Dimensionless toughness parameter / critical stick size ratio (c_c / a or c_c0 / a)",
+      "Normal contact load (P)",
+      "Sphere contact radius (R)",
+      "Contact pressure ratio relative to reference pressure (p_0 / p_0,nom) in the pressure-dependent model"
+    ],
+    "dependent_variables": [
+      "Stick zone radius (c) and stick-to-contact radius ratio (c / a)",
+      "Shear traction distribution q_x(r) across the interface",
+      "Critical stick zone radius c_c (and pressure-corrected critical radius c_c')",
+      "Threshold tangential load to initiate microslip (Q_min)",
+      "Peak tangential load prior to global sliding instability (Q_max) / apparent static friction coefficient",
+      "Mode II stress intensity factor (K_II) at the stick-slip boundary"
+    ],
+    "doi": "10.1016/j.jmps.2015.08.002",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The transition from stick to slip in Hertzian contact can be modeled by superposing Hertzian contact pressure and a mode II singular adhesive solution analogous to JKR theory, where slip inception follows a Griffith fracture criterion while sliding follows Coulomb friction.",
+        "evidence_type": "analytical / theoretical modeling",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "The Griffith friction model predicts that the stick zone remains larger than predicted by classical Cattaneo-Mindlin theory and collapses abruptly into global sliding when reaching a critical stick zone size analogous to JKR pull-off.",
+        "evidence_type": "analytical / theoretical modeling",
+        "page_numbers": [
+          1,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The apparent static friction coefficient before sliding can significantly exceed the sliding friction coefficient, exhibiting size and normal load dependencies governed by the friction fracture energy.",
+        "evidence_type": "analytical / theoretical modeling",
+        "page_numbers": [
+          1,
+          4,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Experimental measurements in PMMA interfaces show that local shear-to-normal stress ratios can reach values several times higher than the macroscopic static friction coefficient without precipitating slip, with strain fields consistent with shear crack fracture mechanics.",
+        "evidence_type": "experimental observation (cited literature)",
+        "page_numbers": [
+          1,
+          2,
+          11
+        ]
+      },
+      {
+        "claim": "Incorporating a contact-pressure-dependent friction toughness accounts for variations in real contact area and alters the stick zone scaling across varying pressure regimes.",
+        "evidence_type": "analytical / theoretical modeling",
+        "page_numbers": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Historical experimental data for spherical contacts under oscillating tangential loads reveal stick zones 10-20% larger than classical Cattaneo-Mindlin predictions and non-cubic energy dissipation scaling, consistent with fracture mechanics-based stick-slip models.",
+        "evidence_type": "experimental observation (cited literature)",
+        "page_numbers": [
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Developing criteria to reliably select appropriate physical constants for cohesive/fracture models of friction from experimental data.",
+      "Extending the singular adhesive contact framework to more general non-axisymmetric contact geometries.",
+      "Further investigating whether interfacial roughness effects or fracture mechanics models better explain observed deviations in frictional energy dissipation under oscillating loads."
+    ],
+    "independent_variables": [
+      "Tangential load (Q)",
+      "Normal contact load (P)",
+      "Contact radius (a) and sphere radius (R)",
+      "Mode II friction fracture energy (gamma) or nominal fracture energy (gamma_nom)",
+      "Radial position (r) within the contact area",
+      "Peak contact pressure (p_0)"
+    ],
+    "limitations_inferred": [
+      "The formulation is restricted to isotropic linear elastic materials and ideal spherical geometries, requiring modifications for compliant, viscoelastic, or highly deformable materials common in soft robotics.",
+      "The model assumes an idealized singular crack tip without an extended cohesive process zone, which may become inaccurate when stick zones approach asperity-scale dimensions.",
+      "Dynamic slip propagation velocity, interfacial wear, frictional heating, and slip-rate-dependent friction evolution are not modeled within this quasi-static framework."
+    ],
+    "limitations_stated_by_authors": [
+      "The model is quasi-static and does not account for viscoelastic and dynamic effects observed during interfacial slip propagation.",
+      "The spherical contact geometry analyzed differs significantly from the flat, sharp-edged geometries typically used in laboratory friction experiments.",
+      "Poisson's ratio effects are neglected by assuming shear stresses act purely parallel to the applied tangential load direction.",
+      "Exact analytical formulation is straightforward only for axisymmetric contacts; elliptical and more complex geometries require approximations.",
+      "The choice of reference nominal fracture energy at peak pressure is arbitrary.",
+      "Estimating physical constants for cohesive or fracture models remains uncertain due to large discrepancies in measured local shear-to-normal stress ratios."
+    ],
+    "main_results": [
+      "Complete stick is maintained up to a non-zero threshold tangential load (Q_min), unlike classical Cattaneo-Mindlin theory where microslip initiates immediately upon tangential loading.",
+      "Beyond the threshold load, the stick zone remains larger than the classical Cattaneo-Mindlin prediction for equivalent tangential loads.",
+      "When the stick region decreases to a critical size (c_c), force-controlled equilibrium becomes unstable, triggering a sudden transition to global sliding.",
+      "The peak tangential load prior to sliding can exceed the dynamic sliding limit (f * P) by up to a factor of 2 for partial-slip solutions, offering an explanation for the difference between static and dynamic friction coefficients.",
+      "Assuming constant friction fracture energy introduces contact size and normal load dependence into the apparent static friction coefficient.",
+      "Modifying the model with a pressure-dependent toughness retains the enlarged stick zone and critical drop to sliding, though the effect is attenuated at low pressures."
+    ],
+    "modeling_methods": [
+      "Superposition method extending the Cattaneo-Mindlin tangential contact formulation.",
+      "Classical Hertzian contact pressure theory for spherical normal contact.",
+      "Mode II fracture mechanics formulation using the JKR adhesive contact solution for the corrective shear traction distribution in the stick zone.",
+      "Amontons-Coulomb friction law applied within the slip annulus.",
+      "Linearly pressure-dependent fracture toughness model accounting for real contact area variations.",
+      "Bounded asymptotic stress intensity factor analysis at the stick-slip boundary."
+    ],
+    "performance_metrics": [
+      "Stick zone radius ratio (c / a)",
+      "Normalized tangential load ratio (Q / (f * P))",
+      "Normalized shear traction distribution (q_x / (f * p_0))",
+      "Critical stick zone radius ratio (c_c / a and c_c' / a)",
+      "Tangential load enhancement factor before global sliding (Q_max / (f * P))",
+      "Mode II stress intensity factor (K_II)"
+    ],
+    "possible_gap_implications": [
+      "Insights into the fracture-mechanics-governed transition from stick to slip and critical stick size instabilities could inform traction, grasping stability, and slip-onset models in compliant robotic grippers and contact interfaces, provided large deformations and viscoelasticity are incorporated.",
+      "Fracture mechanics descriptions of static friction enhancement and energy dissipation could improve contact compliance and fretting wear models in continuum joint mechanisms."
+    ],
+    "research_objective": "To formulate an analytical model for the Cattaneo-Mindlin problem of a Hertzian contact by introducing a Griffith fracture mechanics condition for the inception of slip in the stick region while preserving Coulomb friction in the slip region, investigating both constant and pressure-dependent friction fracture energy.",
+    "research_problem": "Classical Cattaneo-Mindlin theory based on Amontons-Coulomb friction predicts instantaneous microslip upon tangential loading and load-independent friction coefficients, which fails to capture fracture-mechanics-type singular shear stresses, elevated local friction ratios, stick-zone enlargement, and abrupt transitions from static to dynamic friction observed experimentally and in fault mechanics.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Transition from stick to slip in Hertzian contact with “Griffith” friction: The Cattaneo–Mindlin problem revisited",
+    "year": "2015"
+  }
+}

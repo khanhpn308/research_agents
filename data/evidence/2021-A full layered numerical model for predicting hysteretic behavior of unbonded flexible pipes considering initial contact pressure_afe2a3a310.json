@@ -1,0 +1,171 @@
+{
+  "source": {
+    "paper_id": "afe2a3a310",
+    "filename": "2021-A full layered numerical model for predicting hysteretic behavior of unbonded flexible pipes considering initial contact pressure.pdf",
+    "sha256": "afe2a3a310b81624fc3c0507fd3e88d5bd33b788d681ef1e7418847fa258d431",
+    "page_count": 15,
+    "char_count": 58812,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 31604,
+    "completion_tokens": 8186,
+    "total_tokens": 39790,
+    "thinking_tokens": 5699,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Lidong Wang",
+      "Qianjin Yue"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Plane sections remain plane assumption applied for curvature calculation from measured outer fiber strains.",
+      "Isotropic linear elastic material behavior for polymeric sheath layers, tapes, and steel tensile armor tendons.",
+      "Equivalent orthotropic linear elastic shell formulation for carcass and pressure zeta armor layers, with negligible longitudinal elastic modulus to reflect negligible longitudinal bending stiffness.",
+      "Coulomb friction model for tangential contact interactions between adjacent layers.",
+      "Hard contact penalty method formulation for normal contact behavior between layers.",
+      "Pipe length is assumed to remain unchanged during bending cycles because axial elongation under internal pressure is small relative to cantilever length.",
+      "Initial contact pressure is assumed to originate from outer sheath shrinkage during thermal cool-down in the manufacturing process."
+    ],
+    "control_variables": [
+      "Flexible pipe structural geometry and layer dimensions (101.6 mm inner diameter, 9 concentric layers).",
+      "Tensile armor tendon cross-section dimensions (5 mm x 2 mm) and wound lay angle (+/-38 degrees).",
+      "Sinusoidal loading frequency of 0.1 Hz for cyclic bending.",
+      "Room temperature testing environment.",
+      "Cantilever beam span of 1.35 m from clamped point to load cell point and moment arm of 1.19 m to measurement gauge.",
+      "Finite element model length of 1350 mm (approximately 2.26 times the pitch length of the outer tensile armor layer).",
+      "Zero external effective tension applied during internal pressurization."
+    ],
+    "dependent_variables": [
+      "Bending moment at the measurement location",
+      "Curvature distribution along the pipe length",
+      "Bending moment-curvature hysteretic response (stick stiffness, slip stiffness, and friction moment)",
+      "Tensile armor tendon local stress components (axial stress, transverse bending stress, and normal bending stress)",
+      "True wall tension and reaction forces and moments at pipe ends",
+      "Numerical simulation time and computational resource requirements"
+    ],
+    "doi": "10.1016/j.apor.2021.102626",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Full-scale displacement-controlled cantilever bending tests on a 4-inch unbonded flexible pipe demonstrate hysteretic bending behavior driven by internal interlayer slip, where curvature at the gauge location decreases as internal pressure increases under a constant displacement amplitude.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "claim": "A predefined stress field method prescribing a 2 MPa hoop stress in the outer sheath accurately simulates manufacturing-induced initial contact pressure and reproduces experimental bending moment-curvature hysteretic curves across 0.7 MPa, 10 MPa, and 20 MPa internal pressures without reducing true wall tension.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          1,
+          6,
+          7,
+          9,
+          10,
+          15
+        ]
+      },
+      {
+        "claim": "Helical tensile armor tendons under cyclic bending undergo stick, transition, and slip phases that initiate at the neutral bending axis and progress toward the intrados and extrados, sliding in an intermediate path between geodesic and loxodromic trajectories.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          1,
+          10,
+          12,
+          15
+        ]
+      },
+      {
+        "claim": "Modeling polymeric layers using solid elements (C3D8I) produces higher friction moments than using shell elements (S4R) because Poisson's effect increases tendon mean axial stress and interlayer contact force during pipe elongation.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          1,
+          4,
+          12,
+          14,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Full-scale 101.6 mm (4 inch) 9-layer rough-bore unbonded flexible pipe specimen of 8 m total length tested at MARINTEK (SINTEF Ocean) in 1991 by Skallerud.",
+      "Cantilever beam setup created by clamping two halves of steel tubes (EndA) onto the pipe 1.35 m from the load cell point (EndB).",
+      "Two extensometers (10 mm gauge length, +/-10% maximum strain range) attached on opposite outer fibers 1.19 m from EndB to measure bending curvature under plane-sections-remain-plane assumption.",
+      "Displacement-controlled cyclic bending via a force actuator connected to the end flange through a thin steel plate to eliminate secondary bending moments.",
+      "Sinusoidal loading signal with 0.1 Hz frequency and 70 mm prescribed displacement amplitude tested at 0.7 MPa, 10 MPa, and 20 MPa internal pressure at room temperature without axial tension."
+    ],
+    "future_work": [
+      "Investigate the applicability and transferability of the 2 MPa predefined stress value to other unbonded flexible pipe configurations and dimensions.",
+      "Incorporate additional sources of initial contact pressure, such as residual stresses generated during the manufacturing and forming of tensile armor tendons."
+    ],
+    "independent_variables": [
+      "Internal pressure level (0.7 MPa, 10 MPa, 20 MPa).",
+      "Outer sheath predefined stress level (2 MPa, 5 MPa, 10 MPa).",
+      "Initial contact pressure modeling approach (predefined stress fields / prestress method, conventional external pressure / ep method, effective tension / teff method).",
+      "Element formulation for polymeric sheath layers (solid elements C3D8I vs. shell elements S4R).",
+      "Interlayer friction coefficients (varied across 0.05 to 0.35, specifically 0.21, 0.23, and 0.26 for tested pressure cases).",
+      "Tendon mesh refinement and element formulation (C3D8R vs. C3D8I with varying thickness, width, and length divisions).",
+      "Boundary condition formulations at clamped tubes point EndA (encastre vs. spring elements) and load cell point EndB (degrees of freedom combinations).",
+      "Material property formulation of wound anti-wear and structural tapes (isotropic shell vs. orthotropic shell).",
+      "Interlayer normal contact stiffness specification (default penalty contact stiffness vs. analytical formula stiffness)."
+    ],
+    "limitations_inferred": [
+      "The model was validated solely against quasi-static cyclic bending data from a single 4-inch pipe geometry and was not evaluated under multi-axial dynamic bending, torsion, or coupled fluid-thermal loads.",
+      "The study investigates marine unbonded flexible pipes and does not examine or demonstrate applicability to soft robotics, continuum robots, or robotic grippers."
+    ],
+    "limitations_stated_by_authors": [
+      "The calibrated predefined stress value of 2 MPa was determined for the specific pipe studied and requires further investigation to assess applicability to other flexible pipe designs.",
+      "Other contributing sources of initial contact pressure, particularly residual stresses induced during the manufacturing of tensile armor tendons, were not modeled.",
+      "Detailed geometric profiles of the carcass and pressure zeta armor layers were not reported in the benchmark test and had to be estimated using iterative correction methods.",
+      "Equivalent orthotropic shell representations of carcass and pressure zeta layers create geometric gaps that necessitate artificial filling layers with negligible stiffness."
+    ],
+    "main_results": [
+      "The predefined stress fields method with a 2 MPa hoop prestress in the outer sheath successfully matched experimental moment-curvature hysteresis loops across low, intermediate, and high internal pressure levels (0.7 MPa, 10 MPa, 20 MPa).",
+      "The conventional external pressure method artificially compressed the pipe and lowered true wall tension, reducing tendon mean axial stress and risking numerical buckling, which was avoided by the predefined stress method.",
+      "Tensile armor tendons slide in an interval between theoretical loxodromic and geodesic curves, as confirmed by non-zero transverse bending stresses.",
+      "Tendon slip initiates at the neutral bending axis where shear stress exceeds capacity and spreads toward the intrados and extrados with increasing curvature.",
+      "Cantilever boundary conditions at clamped location EndA can be modeled as encastre in Abaqus without requiring spring elements to represent the remaining 6.65 m pipe span.",
+      "Modeling polymeric sheath layers with solid elements results in larger friction moments than shell elements due to Poisson's ratio effects on pipe elongation.",
+      "Friction coefficients exceeding 0.2 trigger unsymmetric solver algorithms in Abaqus/Standard, substantially increasing runtime and computational resource demands."
+    ],
+    "modeling_methods": [
+      "Full-layered 3D finite element modeling using the implicit solver of Abaqus/Standard under quasi-static conditions.",
+      "Equivalent orthotropic shell modeling (S4R elements) for the interlocked carcass and pressure zeta armor layers with tuned directional stiffnesses.",
+      "Incompatible mode 8-node hexahedral solid elements (C3D8I) for tensile armor tendons to eliminate shear locking and hourglassing.",
+      "Surface-to-surface (S2S) penalty contact formulation with Coulomb friction and hard normal contact.",
+      "Predefined stress fields method applied as initial hoop stress in the outer sheath to model manufacturing-induced contact pressure.",
+      "Filling surface layers (SFM3D4 elements) with negligible stiffness to close gaps between equivalent shell layers and adjacent polymeric sheaths.",
+      "Rigid body end fittings (R3D4 elements) coupled to reference points to accurately capture internal pressure endcap effects.",
+      "Centrally located dummy beam element (B31) with negligible stiffness to extract curvature distribution along the pipe length."
+    ],
+    "performance_metrics": [
+      "Stick bending stiffness (slope of linear elastic stick zone)",
+      "Slip bending stiffness (slope of full slip zone)",
+      "Friction moment / hysteretic loop width",
+      "Maximum bending moment at prescribed curvature",
+      "Cross-sectional curvature at the gauge location and curvature distribution along pipe length",
+      "Local axial stress (sigma_xx-ax), transverse bending stress (sigma_xx-my), and normal bending stress (sigma_xx-mz) in tendons",
+      "CPU simulation runtime and computational resource utilization"
+    ],
+    "possible_gap_implications": [
+      "The predefined stress field formulation and interlayer stick-slip friction contact modeling could provide foundational mechanics insights for modeling multi-layered flexible continuum structures or friction-based variable stiffness mechanisms, though validation in soft robotics is currently absent.",
+      "Accounting for Poisson's ratio effects in thick compliant polymer sheaths under axial elongation may be critical for accurately predicting friction-induced hysteretic bending stiffness in multi-layered soft robotic segments."
+    ],
+    "research_objective": "Develop a full-layered 3D numerical model of an unbonded flexible pipe using the implicit solver of Abaqus to predict quasi-static bending hysteretic behavior, introduce a predefined stress fields method on the outer sheath to account for manufacturing-induced initial contact pressure without sacrificing true wall tension, validate the model against full-scale 4-inch pipe bending test data across multiple internal pressure levels, allow unconstrained slip paths of tensile armor tendons, and evaluate sensitivity to key modeling parameters.",
+    "research_problem": "Predicting the non-linear bending hysteretic behavior and interlayer stress states of unbonded flexible pipes subjected to internal pressure and cyclic bending, while accurately accounting for initial contact pressure from manufacturing without causing artificial axial pipe compression (true wall tension reduction) and avoiding explicit solver drawbacks like mass scaling and dynamic vibration.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interlayer friction",
+      "internal slip mechanism"
+    ],
+    "title": "A full layered numerical model for predicting hysteretic behavior of unbonded flexible pipes considering initial contact pressure",
+    "year": "2021"
+  }
+}

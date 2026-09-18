@@ -1,0 +1,151 @@
+{
+  "source": {
+    "paper_id": "fb057ab3b2",
+    "filename": "2025-Theoretical, experimental, and numerical simulation studies on interface slip in steel-concrete.pdf",
+    "sha256": "fb057ab3b2337b544768f770e84c726bb3e4f3604802985a158290a020d341f9",
+    "page_count": 12,
+    "char_count": 49642,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 29555,
+    "completion_tokens": 6102,
+    "total_tokens": 35657,
+    "thinking_tokens": 4100,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Wen Zeng",
+      "Liang Fan",
+      "Fengmin Chen",
+      "Shifeng Zhu"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Both steel beams and concrete slabs operate within the linear elastic range under normal service loads.",
+      "Shear bolt stiffness is inversely proportional to relative interface slip, and unit horizontal interface shear force is directly proportional to slip (P * nu = K * s).",
+      "Steel beams and concrete slabs maintain identical curvature.",
+      "Shear connectors at the steel-concrete interface are uniformly distributed, and the bolts exhibit linear elastic behavior.",
+      "Horizontal force equilibrium is satisfied across infinitesimal differential segments (C = -T)."
+    ],
+    "control_variables": [
+      "Cross-sectional beam dimensions and component geometries (Q355 H-shaped steel beam, C50 concrete slab)",
+      "High-strength bolt connector specifications (Grade 8.8 M20 bolts) and bolt preload force (125 kN)",
+      "Material properties of steel beam, reinforcement rebar, and concrete",
+      "Support constraints and boundary conditions",
+      "Loading rate during displacement-controlled failure testing (1 mm/min)"
+    ],
+    "dependent_variables": [
+      "Relative interface slip between concrete slab and steel beam",
+      "Interlayer slip strain along the beam span",
+      "Mid-span deflection and additional deflection caused by interface slip",
+      "Load-displacement behavior and load-bearing capacity",
+      "Concrete cracking development and structural failure modes"
+    ],
+    "doi": "10.1016/j.istruc.2024.108126",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A second-order non-homogeneous linear differential equation with constant coefficients was derived using force equilibrium and calculus principles to analytically predict interface slip and deflection in composite beams incorporating shear connector flexibility.",
+        "evidence_type": "theoretical_modeling",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "An inverted static load test on a simply supported composite beam subjected to a mid-span load effectively simulated the negative bending moment zone, identifying four distinct stages: pre-cracking elastic, crack development, steel yielding, and failure.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "A 3D solid finite element model using concrete plastic damage and bilinear steel constitutive models reproduced the experimental response with a peak load discrepancy of only 0.28%.",
+        "evidence_type": "numerical_simulation",
+        "page_numbers": [
+          1,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Ignoring interface slip and bolt flexibility resulted in deflection calculation underestimations of 63.455% under concentrated loading and 13.573% under uniform loading, whereas the proposed slip-inclusive analytical model reduced errors to 2.714% and 0.773% compared to FEA.",
+        "evidence_type": "analytical_and_numerical_comparison",
+        "page_numbers": [
+          1,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Inverted static loading test on a single simply supported composite beam with total length 3000 mm, effective span 2800 mm, and total height 400 mm",
+      "Q355 hot-rolled H-section steel beam (300 mm x 200 mm x 8 mm x 12 mm) with welded 10 mm thick stiffening ribs at supports and loading points",
+      "Precast C50 concrete slab (600 mm x 100 mm) reinforced with two layers of 12 mm HRB400 longitudinal rebar and 6 mm stirrups spaced at 110 mm",
+      "High-strength M20 bolts (grade 8.8) pre-tensioned to 125 kN acting as detachable shear connectors",
+      "Hydraulic jack applying single-point mid-span static load over sliding hinge supports to induce negative bending moments in the slab",
+      "Force preloading to 20 kN held for 90 s, three elastic loading cycles, three elastoplastic loading cycles, and displacement-controlled loading to failure at 1 mm/min",
+      "Deformation measurement using dial indicators (up to 50 mm) and a Digital Image Correlation (DIC) optical system for large displacements and concrete crack observation"
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Applied loading mode (concentrated mid-span force versus uniformly distributed load)",
+      "Magnitude of applied load (ranging from 0 kN up to failure beyond 675.5 kN in testing; 60 kN concentrated load and 10 N/mm^2 distributed load in continuous beam simulations)",
+      "Longitudinal spatial position along the beam length (x-coordinate)",
+      "Connector spacing and bolt shear stiffness"
+    ],
+    "limitations_inferred": [
+      "The physical experimental program was conducted on a single simply supported beam placed upside down rather than on a physical multi-span continuous beam specimen.",
+      "The analytical solution assumes linear elastic material behavior and constant bolt shear stiffness, limiting direct applicability in post-yield, heavily cracked, or elastoplastic regimes without empirical adjustments.",
+      "The paper focuses strictly on structural civil/bridge engineering elements; transferability of the friction/slip formulation to robotic devices or compliant mechanisms has not been investigated or validated."
+    ],
+    "limitations_stated_by_authors": [
+      "The analytical formulation and deflection equations are derived specifically for the elastic stage under normal service loads.",
+      "Prior research on continuous composite beams traditionally evaluated positive and negative moment zones via separate simply supported tests, which fails to capture region interactions, post-cracking stiffness changes, and force redistribution.",
+      "Connectors in the continuous beam model were intentionally designed for partial shear connection to amplify interface slip, noting that deformation control rather than bearing capacity is the primary challenge."
+    ],
+    "main_results": [
+      "Under negative bending, the simply supported composite beam demonstrated four behavioral stages: pre-cracking elastic (0-150 kN), crack development (150-450 kN), steel beam yielding (450-675.5 kN), and failure (above 675.5 kN, ultimate load 673.4 kN experimentally and 675.3 kN numerically).",
+      "The derived analytical slip equations exhibited peak slip differences of 2.03% under concentrated loading and 2.09% under uniformly distributed loading when compared with finite element results.",
+      "Ignoring interface slip and bolt stiffness caused large deflection calculation errors of 63.455% under concentrated force and 13.573% under uniform force relative to finite element benchmarks.",
+      "Deflections calculated via the proposed analytical formulas accounting for interface slip and bolt stiffness closely matched finite element results, with errors of 2.714% for concentrated force and 0.773% for uniformly distributed force."
+    ],
+    "modeling_methods": [
+      "Derivation of a second-order non-homogeneous linear differential equation with constant coefficients governing interface slip using calculus and static force equilibrium",
+      "Superposition principle from mechanics of materials to determine continuous beam deflections with additional slip-induced curvature",
+      "Finite element analysis (FEA) using ABAQUS with C3D8R 3D solid elements for steel beams, bolts, concrete slabs, and washers, and T3D2 truss elements for reinforcement",
+      "Concrete Damaged Plasticity (CDP) model for concrete behavior",
+      "Bilinear elastic-plastic constitutive model for steel components and high-strength bolts",
+      "MATLAB numerical computation for slip and deflection profiles along the beam length"
+    ],
+    "performance_metrics": [
+      "Relative interface slip (mm)",
+      "Slip strain along the interface",
+      "Mid-span deflection and slip-induced additional deflection (mm)",
+      "Concrete cracking load (Pcr = 150 kN) and steel yielding load (Pu = 450 kN)",
+      "Ultimate failure load (673.4 kN experimental vs. 675.3 kN numerical)",
+      "Relative percentage error between theoretical analytical solutions and finite element simulations"
+    ],
+    "possible_gap_implications": [
+      "The interface slip differential formulation and friction-based bolt connection modeling may provide useful mathematical references for modeling interlayer slip, contact friction, and tunable/variable stiffness in multilayered compliant beams or continuum flexible structures, though experimental validation in this study was restricted to civil engineering structural steel-concrete beams."
+    ],
+    "research_objective": "To develop an analytical theoretical solution for interface slip and deflection in steel-concrete composite continuous beams with high-strength bolted shear connectors, and to validate the formulation using an inverted simply supported beam experiment and ABAQUS finite element numerical simulations.",
+    "research_problem": "The lack of theoretical formulations and calculation methods for predicting interface slip and deflection in steel-concrete composite continuous beams with high-strength bolted connectors, particularly accounting for bolt shear stiffness, interface slip effects, and negative moment zone behavior without ignoring force redistribution.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "high-strength bolt shear connectors",
+      "friction generated by bolt pretension"
+    ],
+    "title": "Theoretical, experimental, and numerical simulation studies on interface slip in steel-concrete composite continuous beams with high-strength bolted connectors",
+    "year": "2025"
+  }
+}

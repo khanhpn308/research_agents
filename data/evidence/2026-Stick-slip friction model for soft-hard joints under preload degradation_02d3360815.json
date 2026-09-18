@@ -1,0 +1,208 @@
+{
+  "source": {
+    "paper_id": "02d3360815",
+    "filename": "2026-Stick-slip friction model for soft-hard joints under preload degradation.pdf",
+    "sha256": "02d3360815cf4a511c3ceedd7229975ef878f7e2c803282dc986f0277d899934",
+    "page_count": 17,
+    "char_count": 93880,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 38961,
+    "completion_tokens": 7217,
+    "total_tokens": 46178,
+    "thinking_tokens": 4447,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yongbu Jin",
+      "Qiang Wan",
+      "Dong Wang",
+      "Yihan Du",
+      "Xuanhua Fan"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Viscoelastic rate-dependent energy dissipation effects in friction are decoupled from the macroscopic stick-slip transition dynamics (operating at distinct physical scales).",
+      "Viscoelastic deformation near motion reversal maintains a finite interfacial shear-strain rate, represented empirically by an effective reference velocity floor rather than macroscopic zero velocity.",
+      "The elastomer material operates within the linear viscoelastic regime (complex modulus represented by an extended Prony series).",
+      "Macroscopic surface roughness remains constant during cyclic loading with negligible cumulative wear or permanent surface degradation.",
+      "The cyclic reloading and unloading hysteresis branches obey extended Masing scaling rules (doubled in scale and mirrored) relative to the monotonic stick-slip backbone.",
+      "Contact interface is represented as a uniform parallel-plate contact configuration under nominal normal pressure and tangential shear.",
+      "The residual stick area measure scales with residual characteristic length according to an effective power law characterized by exponent chi."
+    ],
+    "control_variables": [
+      "Constant normal pre-strain compression / nominal thickness d",
+      "Ambient reference temperature (70 deg C for tire tread rubber tests on granite)",
+      "Steel fixture surface arithmetic average roughness (ha = 0.8 um) in cyclic shear experiments",
+      "Specimen geometry (silicone foam ring specimen with single-sided tape)",
+      "Sinusoidal / harmonic displacement excitation waveform"
+    ],
+    "dependent_variables": [
+      "Dynamic friction factor (mu_f)",
+      "Stick-slip friction coefficient and cyclic hysteretic friction coefficient (mu, mu_hyst)",
+      "Tangential shear force response (F_tau)",
+      "Slip area ratio and directional slip area ratio (psi, psi_hyst)",
+      "Contact state ratio (proportion of stick vs. slip duration per cycle)",
+      "Hysteresis loop area / energy dissipation",
+      "Contact interface stiffness evolution (softening and hardening)",
+      "Computational time ratio (RT = T_Alg / T_Diff)"
+    ],
+    "doi": "10.1016/j.ijmecsci.2026.111929",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Compressible constrained layer damping (CCLD) modulates compressive preload to adapt vibration suppression performance, but unilateral adhesion introduces complex soft-hard interfacial friction under cyclic shear.",
+        "evidence_type": "background and mechanism description",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Dynamic friction of soft matter on rigid surfaces can be modeled by scaling analysis combining viscoelastic complex modulus (loss modulus), interfacial adhesion energy, applied normal pressure, and surface roughness parameters (Hurst exponent and RMS roughness).",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "The stick-slip transition from local micro-slip to global macro-slip is governed by an effective power-law evolution of the slip area ratio up to a critical lateral displacement ucrit.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "At cyclic motion reversals, finite interfacial shear rates from viscoelastic relaxation can be captured without internal variables via a polynomial velocity-smoothing function defining a non-zero reference velocity floor.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "The algebraic hysteretic formulation under harmonic excitation achieves virtually identical accuracy to a 15-element differential Jenkins/Iwan model (amplitude error under 0.5%) while reducing computation time to 0.1%.",
+        "evidence_type": "numerical simulation and comparative validation",
+        "page_numbers": [
+          1,
+          7,
+          8,
+          13
+        ]
+      },
+      {
+        "claim": "The dynamic friction component accurately reproduces experimental friction factors of rubber on rough granite across seven orders of magnitude of sliding velocity (1E-5 to 1E2 m/s) under different normal pressures.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          1,
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "claim": "Cyclic shear tests on pre-compressed silicone foam damping layers demonstrate that the algebraic hysteretic model matches measured force-displacement loops across frequencies (0.01, 0.1, 1 Hz) with energy dissipation area errors within 3.3%.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          1,
+          11,
+          13,
+          14
+        ]
+      },
+      {
+        "claim": "The proposed model successfully predicts the evolution of hysteresis loops under progressive normal stress decay (preload degradation) caused by viscoelastic stress relaxation without recalibrating parameters.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          1,
+          14
+        ]
+      },
+      {
+        "claim": "Under large-amplitude cyclic shear, the contact interface undergoes nonlinear stiffness transitions, displaying stiffness softening at lower velocities and transition phases, followed by dynamic friction-induced stiffening upon macro-slip at higher velocities.",
+        "evidence_type": "numerical simulation and parametric analysis",
+        "page_numbers": [
+          8,
+          9
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Dry linear friction and wear tester measuring dynamic friction factors of racing tire tread rubber blocks sliding on rough coarse-grained granite over velocities from 1E-5 to 1E2 m/s at 70 deg C under normal pressures of 1E5 Pa and 7E5 Pa (published data from Lang et al.)",
+      "Parallel-plate tensile-torsion testing machine with rough steel fixtures (ha = 0.8 um) conducting cyclic shear tests on silicone foam ring specimens with single-sided tape under constant normal strain compression at an amplitude of 4 degrees (1.4 mm displacement) and frequencies of 0.01 Hz, 0.1 Hz, and 1 Hz",
+      "Uniaxial compression and relaxation tests on silicone foam to determine hyperelastic and viscoelastic Prony relaxation parameters"
+    ],
+    "future_work": [
+      "Conducting systematic dynamic parameter calibration experiments specifically on soft matter to capture dynamic viscoelastic complex moduli across frequencies",
+      "Investigating the observed correlation between critical slip displacement ucrit and cyclic loading frequency",
+      "Incorporating acceleration-dependent mechanisms to capture frictional-lag behavior during macro-slip",
+      "Establishing quantitative relationships between reduced lumped model parameters (such as exponent chi) and measurable lower-level physical properties",
+      "Improving measurement consistency and reducing uncertainty in the macroscopic mechanical properties of polymer foams to minimize lumped parameter tuning",
+      "Conducting broader systematic experiments to extend the model's applicability across wider soft matter contact conditions"
+    ],
+    "independent_variables": [
+      "Sliding velocity / slip velocity (1E-5 to 1E2 m/s in steady sliding; continuous variation in cyclic shear)",
+      "Shear displacement amplitude (e.g., 1.4 mm / 4 deg in experiments; 1 mm in parametric simulations)",
+      "Shear excitation frequency (0.01 Hz, 0.1 Hz, and 1 Hz in experiments; 3 Hz to 3E4 Hz in simulations)",
+      "Nominal normal pressure / preload (1E5 Pa, 7E5 Pa, and time-varying normal stress degradation from viscoelastic relaxation)",
+      "Surface roughness parameters (root-mean-square roughness h0, Hurst exponent H)",
+      "Interfacial adhesion energy (Delta Gamma)"
+    ],
+    "limitations_inferred": [
+      "Experimental validation was conducted on a single foam material (silicone foam) and geometry (ring specimen under shear-torsion), so performance across other soft robotic elastomers, multi-material laminates, or complex geometries remains unverified.",
+      "The formulation assumes pure 1D tangential sliding under constant or slowly decaying normal compression, not addressing multi-axial coupled loading or rapid normal load fluctuations.",
+      "The velocity-smoothing formulation relies on empirically chosen tuning parameters (ratio coefficient p and critical angle theta_crit) specialized for harmonic reversal."
+    ],
+    "limitations_stated_by_authors": [
+      "Decoupling dynamic friction and macroscopic stick-slip transition as a multiplicative factor neglects adhesion-induced contact edge stress singularities and localized relaxation differences, which may cause stiffness prediction errors during initial sliding of highly adhesive elastomers.",
+      "Linear viscoelasticity assumption ceases to hold under severe high-speed shear where frictional heating causes thermal softening or pyrolysis.",
+      "Assumption of constant surface roughness restricts applicability to conditions with negligible wear; long-term cumulative wear or plastic deformation altering surface topography is not accounted for.",
+      "Acceleration-dependent frictional-lag behavior during the macro-slip stage is not captured because acceleration dependence was omitted from the formulation.",
+      "Parameters such as the stick-slip transition exponent chi and characteristic length scale parameter z are treated as fitting or empirical parameters rather than directly derived from measurable lower-level quantities.",
+      "The algebraic formulation is limited to symmetric harmonic/sinusoidal loading; general loading histories involving variable amplitudes or minor loops require the differential formulation.",
+      "Uncertainty in macroscopic mechanical properties of polymer foams complicates consistency of independently measured lower-level data."
+    ],
+    "main_results": [
+      "Formulated a closed-form algebraic stick-slip friction model combining soft matter viscoelastic loss, interfacial adhesion, surface roughness, and micro-to-macro slip area evolution.",
+      "Validated dynamic friction predictions against published experimental data of rubber sliding on rough granite across seven orders of magnitude of velocity (1E-5 to 1E2 m/s) and two normal pressures.",
+      "Reproduced spindle-shaped cyclic shear hysteresis loops of silicone foam-metal interfaces at 0.01, 0.1, and 1 Hz with relative error in energy dissipation (loop area) kept within 3.3%.",
+      "Captured the continuous evolution of cyclic hysteresis loops under progressive normal pressure decay (preload degradation) caused by material relaxation without altering calibrated parameters.",
+      "Demonstrated that under sinusoidal shear loading, the algebraic model achieves essentially identical accuracy to a 15-element differential formulation (mean relative amplitude error < 0.5%) while reducing computation time to 0.1% (99.9% computational savings).",
+      "Characterized three velocity-dependent dynamic stiffness regimes: sustained softening at low velocities, initial softening transitioning to friction-induced stiffening at medium-to-high velocities, and rapid decay below the critical friction peak."
+    ],
+    "modeling_methods": [
+      "Scaling analysis of dominant interfacial energy dissipation mechanisms",
+      "Modified Prony series expansion with fractional exponents for viscoelastic complex modulus representation",
+      "Dynamic friction formulation integrating viscoelastic loss modulus, Hurst exponent, RMS roughness, and interfacial adhesion energy",
+      "Power-law slip area ratio model characterizing the transition from localized micro-slip to global macro-slip",
+      "Empirical cubic polynomial velocity-correction smoothing function defining an effective reference velocity near motion reversal",
+      "Algebraic hysteretic mapping based on extended Masing rules for harmonic cyclic loading",
+      "Finite-dimensional Jenkins/Iwan distributed slider formulation solved via linear complementarity problem (LCP) algorithm for comparative evaluation and general loading"
+    ],
+    "performance_metrics": [
+      "Dynamic friction factor prediction accuracy across 7 orders of magnitude of sliding velocity (1E-5 to 1E2 m/s)",
+      "Relative error in hysteresis-loop area (energy dissipation) within 3.3% across 0.01, 0.1, and 1 Hz cyclic shear tests",
+      "Mean relative amplitude error between algebraic and 15-element differential models below 0.5%",
+      "Computation time ratio RT = T_Alg / T_Diff = 0.1% under harmonic excitation (99.9% reduction in computational time)"
+    ],
+    "possible_gap_implications": [
+      "The algebraic stick-slip formulation could potentially provide an efficient, real-time capable contact/friction model for soft robotic joints, grippers, and variable-stiffness damping mechanisms operating under stick-slip and preload decay, though adapting it to non-harmonic and multiaxial robotic trajectories requires further development.",
+      "Incorporating preload degradation dynamics into soft interface modeling could enable more accurate life-cycle prediction and vibration/stiffness control in pre-compressed soft robotic and structural systems."
+    ],
+    "research_objective": "To develop, formulate, and experimentally validate a compact, computationally efficient algebraic stick-slip friction hysteresis model with closed-form structure for soft-hard interfaces under cyclic shear loading, which accounts for viscoelastic dissipation, interfacial adhesion, micro-to-macro slip transition, and normal pressure decay from preload degradation.",
+    "research_problem": "Existing physics-based rubber friction models focus predominantly on steady-state sliding and struggle to capture stick-slip evolution and force-displacement hysteresis loops under cyclic shear loading, while phenomenological hysteresis models lack physical interpretability, and differential formulations entail high computational costs in dynamic and frequency-domain analysis of pre-compressed soft-hard damping joints subject to preload degradation.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "compressible constrained layer damping (CCLD)",
+      "pre-compression modulation"
+    ],
+    "title": "Stick-slip friction model for soft-hard joints under preload degradation",
+    "year": "2026"
+  }
+}

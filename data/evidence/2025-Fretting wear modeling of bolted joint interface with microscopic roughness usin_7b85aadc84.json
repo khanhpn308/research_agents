@@ -1,0 +1,179 @@
+{
+  "source": {
+    "paper_id": "7b85aadc84",
+    "filename": "2025-Fretting wear modeling of bolted joint interface with microscopic roughness usin.pdf",
+    "sha256": "7b85aadc8442d6303a845e49cf9c6d600d5251bcb686c64f1b17800e32447748",
+    "page_count": 27,
+    "char_count": 66502,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 34381,
+    "completion_tokens": 6748,
+    "total_tokens": 41129,
+    "thinking_tokens": 4177,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yonghan Li",
+      "Liting Li",
+      "Yihu Tang",
+      "Jingjiang Zhang",
+      "Huifang Xiao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Spherical micro-asperities with identical radius of curvature undergo purely elastic Hertzian contact deformation following the Greenwood-Williamson (GW) model, ignoring elastoplastic and fully plastic flow.",
+      "Micro-asperity summit heights across the rough contact interface follow a Gaussian statistical height distribution.",
+      "The microscopic rough contact interface is idealized as an equivalent thin layer connecting the contacting bodies, characterized by equivalent elastic and shear moduli.",
+      "Frictional behavior at the contact interface obeys Coulomb friction with a constant coefficient of friction.",
+      "Bolt clamping pressure along the interface follows a non-uniform power-law/exponent-law distribution.",
+      "The bolted joint component is modeled as a one-dimensional linear elastic beam with constant cross-sectional area, with an attached linear spring at the unloaded boundary accounting for post-macroslip strain hardening.",
+      "Material wear removal obeys the Archard wear model, where local wear depth is directly proportional to normal pressure and relative sliding distance (total displacement minus elastic deformation)."
+    ],
+    "control_variables": [
+      "Beam contact length (Lb = 25 mm)",
+      "Beam cross-sectional area (A = 125 mm^2)",
+      "Nominal contact area (An = 2000 mm^2)",
+      "Pressure distribution exponent (a = 2)",
+      "Simulated friction coefficient (μ = 0.2)",
+      "Specimen steel material properties (E1 = 207 GPa, E2 = 210 GPa, G1 = 79.6 GPa, G2 = 82 GPa, Poisson ratios v1 = 0.3, v2 = 0.28)",
+      "SRV5 reciprocating stroke displacement amplitude (100 μm)",
+      "SRV5 oscillation frequency (70 Hz) and duration (nc = 25,000 cycles)",
+      "Experimental ambient temperature (25 ± 2 °C)",
+      "Initial specimen polished roughness in SRV5 experiments (Ra = 0.001 μm)",
+      "Nondimensional attached spring stiffness parameter in simulations (v = 1)"
+    ],
+    "dependent_variables": [
+      "Nondimensional tangential contact stiffness (k) and equivalent thin-layer tangential stiffness (Kt)",
+      "Nondimensional stuck length (b) and slip length (1 - b)",
+      "Relative sliding displacement along the interface (d(x))",
+      "Fretting wear depth distribution (h(x)) and maximum wear depth",
+      "Evolution of normal contact pressure distribution (p(x)) across cycles",
+      "Interface friction force distribution",
+      "Tangential force-displacement hysteresis loops and dissipated frictional energy",
+      "Total wear volume and experimental wear rate (K)"
+    ],
+    "doi": "10.1080/15397734.2025.2456000",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A 1D continuum elastic beam microslip model coupled with an equivalent thin-layer formulation and the Greenwood-Williamson statistical micro-contact model was formulated to capture stick-slip transitions and interfacial displacement under non-uniform normal pressure.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Interfacial tangential contact stiffness is derived analytically from statistical micro-asperity contact parameters, showing that tangential contact stiffness decreases as microscopic surface roughness increases.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          2,
+          9,
+          10,
+          12
+        ]
+      },
+      {
+        "claim": "Relative sliding distance in the slip zone is isolated by subtracting local elastic deformation from total displacement to evaluate cyclic fretting wear depth via Archard's equation.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          10
+        ]
+      },
+      {
+        "claim": "Hysteresis loops and force-displacement responses predicted by the rough-surface microslip model were validated against literature experimental data under varying surface roughness (Ra = 1.6 μm and 3.2 μm) and preloads, showing consistent energy dissipation trends.",
+        "evidence_type": "experimental mechanics / model validation",
+        "page_numbers": [
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      {
+        "claim": "Plane-to-plane reciprocating fretting wear experiments using an Optimal SRV5 tester and a Zygo NewView 9000 3D profilometer demonstrated that maximum wear depth decreased by approximately 270% when normal load was doubled from 60 N to 120 N, matching theoretical predictions with an average relative error of 13.54%.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Plane-to-plane reciprocating fretting wear tests performed using an Optimal SRV5 micromanipulation wear tester with upper and lower specimens made of 45# steel and Q235 steel.",
+      "Specimens polished to initial surface roughness Ra = 0.001 μm, ultrasonically cleaned in alcohol for 15 min, and dried in a constant-temperature oven.",
+      "Reciprocating loading applied at 70 Hz with 100 μm displacement amplitude for 25,000 cycles under normal loads of 60 N, 80 N, 100 N, and 120 N at 25 ± 2 °C.",
+      "Surface wear morphology, 2D cross-sectional profiles, and wear volume quantified using a Zygo NewView 9000 3D optical surface topographer.",
+      "Literature experimental data from Li & Lang (2024) (quasi-static bolted joint hysteresis loops at Ra = 1.6 μm and 3.2 μm, FN = 12.4 kN) and Ames/Segalman et al. (2009) (bolted joint force-displacement curves at FN = 6234 N and 7117 N) utilized for model validation."
+    ],
+    "future_work": [
+      "Extending the equivalent thin-layer contact model to incorporate multiple contact regimes including elastic, elastoplastic, and fully plastic deformation of micro-asperities.",
+      "Investigating the generation, accumulation, and entrapment of abrasive wear debris and its influence on thin-layer properties and surface topography evolution during cyclic loading."
+    ],
+    "independent_variables": [
+      "Surface roughness (Ra values from 0.1 μm to 12.5 μm in parametric analysis; Ra = 0.001 μm in SRV5 experiments; Ra = 1.6 μm and 3.2 μm in literature validation)",
+      "Bolt preload / normal load (FN from 30 kN to 60 kN in simulation; 60 N, 80 N, 100 N, and 120 N in SRV5 tests; 6234 N, 7117 N, and 12.4 kN in literature validation)",
+      "Tangential force amplitude (Ft)",
+      "Number of loading cycles (nc from 0 to 4000 cycles in simulations; 25,000 cycles in SRV5 experiments)",
+      "Spatial coordinate along the joint interface (x or nondimensional x)"
+    ],
+    "limitations_inferred": [
+      "The model is strictly one-dimensional along the beam axis and does not capture multi-axial, out-of-plane, or torsional slip and wear phenomena typical of complex 3D bolted connections.",
+      "The experimental verification utilized simplified plane-to-plane specimen reciprocating wear rather than a fully assembled, vibrating threaded fastener joint.",
+      "The Archard wear coefficient is treated as a constant scalar despite significant topographical changes, debris generation, and work hardening over extended cyclic operation."
+    ],
+    "limitations_stated_by_authors": [
+      "The micro-asperity contact interaction is restricted to purely elastic deformation via the GW model, neglecting elastoplastic-fully plastic deformations that occur during practical fretting wear.",
+      "Abrasive debris formed during the wear process is not accounted for in the theoretical model, whereas experimental debris accumulated at the edges without discharging, causing localized surface protrusions.",
+      "The friction coefficient is assumed to remain constant throughout the microslip and wear process."
+    ],
+    "main_results": [
+      "Nondimensional tangential contact stiffness decreases as surface roughness increases, meaning rougher interfaces exhibit greater compliance and require higher minimum tangential loads to initiate microslip.",
+      "Slip length along the interface increases nonlinearly with tangential force but decreases as surface roughness and bolt preload increase.",
+      "Wear depth is zero in the stuck region and progressively increases from the stuck-slip boundary toward the outer edge of the interface; overall wear depth decreases with increasing surface roughness and preload.",
+      "Accumulated cyclic fretting wear increases interface separation and reduces normal contact pressure in the microslip region, while the stuck region retains its initial contact pressure.",
+      "Doubling the experimental normal load from 60 N to 120 N reduced maximum wear depth by almost 270%, showing close agreement with theoretical predictions (average relative error of 13.54%).",
+      "Predicted hysteresis loops and force-displacement responses during microslip showed consistent agreement with published experimental measurements."
+    ],
+    "modeling_methods": [
+      "1D continuum elastic beam microslip model for lap joint interfaces",
+      "Greenwood and Williamson (GW) statistical micro-contact model for rough surface contact with Gaussian asperity distribution",
+      "Equivalent thin-layer representation of interface micro-asperity compliance with derived tangential contact stiffness",
+      "Exponent-law non-uniform normal clamping pressure distribution",
+      "Archard wear model combined with isolated relative sliding distance (subtracting elastic deformation from total displacement)",
+      "Coulomb friction model for interfacial shear stress"
+    ],
+    "performance_metrics": [
+      "Nondimensional slip length (1 - b) and stuck length (b)",
+      "2D cross-sectional wear profile and maximum wear depth (μm)",
+      "Relative error between predicted and measured maximum wear depth (%)",
+      "Relative error in maximum tangential displacement of hysteresis loops (%)",
+      "Hysteresis loop enclosed area (frictional energy dissipation)",
+      "Minimum tangential force to initiate microslip and maximum tangential force for full slip"
+    ],
+    "possible_gap_implications": [
+      "Although formulated for structural bolted joints, the 1D continuum elastic beam and equivalent thin-layer modeling methodology could potentially provide insights into modeling friction, stick-slip transitions, and interfacial wear in continuum robot contact interfaces or tendon-sheath transmission lines.",
+      "The statistical micro-asperity tangential stiffness formulation linking microscopic roughness to contact compliance might offer a foundation for analyzing friction and contact mechanics in soft robotic gripping surfaces contacting rough substrates, though extending it to hyperelastic materials with large deformations would require substantial modification."
+    ],
+    "research_objective": "To develop an improved 1D microslip friction model for a bolted lap joint interface incorporating microscopic surface roughness topography via the Greenwood-Williamson statistical model and an equivalent thin-layer formulation, and to predict stick-slip transitions, tangential contact stiffness evolution, and fretting wear depth under cyclic loading.",
+    "research_problem": "Existing microslip models of bolted joint interfaces neglect microscopic rough surface topography and assume a constant tangential contact stiffness independent of surface roughness evolution, failing to capture the time-varying contact compliance and wear depth resulting from cyclic microslip.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Fretting wear modeling of bolted joint interface with microscopic roughness using the 1D microslip friction model and equivalent thin layer",
+    "year": "2025"
+  }
+}

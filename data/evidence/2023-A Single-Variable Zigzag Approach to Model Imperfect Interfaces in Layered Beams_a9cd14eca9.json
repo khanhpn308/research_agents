@@ -1,0 +1,165 @@
+{
+  "source": {
+    "paper_id": "a9cd14eca9",
+    "filename": "2023-A Single-Variable Zigzag Approach to Model Imperfect Interfaces in Layered Beams.pdf",
+    "sha256": "a9cd14eca91ccf42144f882606bfb6f5adf04f81fb8f247e03e0abcb3e232728",
+    "page_count": 14,
+    "char_count": 41601,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28531,
+    "completion_tokens": 5835,
+    "total_tokens": 34366,
+    "thinking_tokens": 3843,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Ilaria Monetto",
+      "Roberta Massabò"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Layers are composed of the same homogeneous, linearly elastic, and orthotropic material with principal material axes aligned with geometric axes.",
+      "Small displacements, rotations, and strains are assumed.",
+      "Plane strain conditions prevail parallel to the x2-x3 plane.",
+      "Transverse normal stresses are assumed to be negligible compared to other stress components and set to zero (sigma_33 = 0) in the kinematic equilibrium formulation.",
+      "Interfaces between adjacent layers are treated as continuous zero-thickness mathematical surfaces where relative sliding is permitted but relative transverse normal separation or penetration is forbidden.",
+      "Interfacial sliding displacements and interfacial shear tractions follow a linear constitutive relationship governed by tangential stiffness coefficients.",
+      "Residual stresses from manufacturing and thermal stresses from environmental gradients are neglected."
+    ],
+    "control_variables": [
+      "Beam length L and thickness h with length-to-thickness aspect ratio L/h = 5",
+      "Uniform layer thickness (t = h/n for n = 2 and n = 3)",
+      "Lamina orthotropic elastic properties: EL, ET = EL/25, GLT = EL/50, GTT = EL/125, and Poisson's ratios nuLT = nuTT = 0.25",
+      "Shear correction factor k44 = 5/6",
+      "Mid-thickness reference surface (x3 = 0)",
+      "Simply supported boundary conditions at x2 = 0 and x2 = L",
+      "Zero transverse normal displacement jump at layer interfaces"
+    ],
+    "dependent_variables": [
+      "Primal fictitious bending displacement w0b",
+      "Global kinematic variables: longitudinal displacement v02, transverse displacement w0, and rotation phi2",
+      "Local layer longitudinal displacements (k)v2",
+      "Local layer bending normal stresses (k)sigma22",
+      "Local layer transverse shear stresses (k)sigma23 computed a posteriori from local equilibrium",
+      "Interfacial displacement jumps and shear tractions across adjacent layers",
+      "Stress and moment resultants N22, Q22, M22, and MZS22"
+    ],
+    "doi": "10.3390/coatings13020445",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A homogenized zigzag theory enables modeling multi-layered beams with imperfect sliding interfaces as equivalent single layers, reducing degrees of freedom compared to layerwise discrete theories.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          1,
+          4,
+          11
+        ]
+      },
+      {
+        "claim": "Decoupling the three displacement unknowns of the zigzag model into a single sixth-order ordinary differential equation in a fictitious bending variable circumvents shear-locking issues in numerical discretization schemes.",
+        "evidence_type": "theoretical",
+        "page_numbers": [
+          1,
+          2,
+          5,
+          11
+        ]
+      },
+      {
+        "claim": "Decreasing interfacial tangential stiffness increases layer compliance, creating pronounced jumps in longitudinal displacements and bending stresses and increasing overall displacement magnitudes relative to perfectly bonded configurations.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          1,
+          7,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "As interfacial tangential stiffness increases to sufficiently high thresholds (K_S*h/ET = 10 for two-layer beams and 5 for three-layer beams), mechanical response converges asymptotically to that of perfectly bonded beams.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "In three-layer beams with asymmetric interfacial stiffnesses, stresses and displacement jumps redistribute toward the more compliant interface, while interfacial shear tractions concentrate at the stiffer interface.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Extending the single-variable formulation to layered systems possessing elastic mismatch between adjacent layers.",
+      "Implementing the single-variable model into numerical isogeometric collocation schemes.",
+      "Incorporating modeling of thick interlayers or transition zones between adjacent layers as weak layers.",
+      "Accounting for thermal loads, residual stresses, and misfit strains."
+    ],
+    "independent_variables": [
+      "Longitudinal coordinate x2 and through-thickness coordinate x3",
+      "Nondimensional interfacial tangential stiffness parameters (K_S*h/ET, K1_S*h/ET, K2_S*h/ET)",
+      "Number of layers and stacking sequence (two-layer 0/0 and three-layer 0/0/0)",
+      "Transverse mechanical loading distribution (sinusoidal versus uniform load)"
+    ],
+    "limitations_inferred": [
+      "The formulation was benchmarked only against simply supported boundary conditions; other boundary configurations (e.g., clamped or free ends) were not evaluated.",
+      "The study is entirely analytical and benchmarked against 2D elasticity exact solutions; no physical experiments on actual physical specimens were conducted.",
+      "Analyses were confined to static mechanical loading; dynamic, vibratory, and time-dependent degradation behaviors were not addressed.",
+      "The model is strictly a one-dimensional beam formulation under plane strain and was not demonstrated on two-dimensional plates or three-dimensional continuum geometries."
+    ],
+    "limitations_stated_by_authors": [
+      "The formulation is restricted to beams with layers made of the same homogeneous material, excluding the effect of elastic mismatch between layers.",
+      "Interfaces are treated as sharp zero-thickness surfaces with zero relative transverse displacement, neglecting physical transition zones or finite-thickness interlayers.",
+      "Assumptions are limited to small displacements, rotations, and strains.",
+      "Transverse normal stresses are neglected in formulating beam kinematics and equilibrium (sigma_33 = 0).",
+      "Residual manufacturing stresses and thermal gradient stresses are not incorporated in the presented beam equations.",
+      "The approximate zigzag kinematics assume piecewise linear longitudinal displacement through the thickness, unable to match the nonlinear intra-layer displacement profile of 2D elasticity."
+    ],
+    "main_results": [
+      "The coupled system of three differential equations for layered beams with imperfect interfaces was decoupled into a single sixth-order differential equation in a fictitious bending displacement variable.",
+      "Closed-form analytical solutions for simply supported two- and three-layer beams under uniform and sinusoidal transverse loads demonstrated strong agreement with Pagano's 2D exact elasticity solutions.",
+      "Interfacial compliance significantly amplified local displacements and bending stresses while creating distinct interfacial displacement jumps.",
+      "Increasing interfacial stiffness caused the structural response to transition smoothly toward the perfectly bonded limit, nearly overlapping at K_S*h/ET = 10 for two layers and 5 for three layers.",
+      "Interfacial stiffness asymmetry in three-layer systems led to significant redistribution of stresses and displacements, shifting jumps to the compliant interface and tractions to the stiffer interface.",
+      "The transverse loading pattern (sinusoidal vs. uniform) played a secondary role compared to the interfacial compliance in determining local stress and displacement profiles."
+    ],
+    "modeling_methods": [
+      "Single-variable zigzag beam theory.",
+      "Global first-order shear deformation kinematics enriched with local piecewise functions for interfacial displacement jumps.",
+      "Principle of Virtual Work for deriving homogenized equilibrium equations.",
+      "Decomposition of transverse displacement into bending and shear components to select a fictitious bending primal variable.",
+      "Sixth-order ordinary differential equation governing the fictitious bending displacement.",
+      "A posteriori evaluation of transverse shear and normal stresses through 2D local Cauchy equilibrium equations.",
+      "Comparison and validation against Pagano's 2D elasticity exact solutions via the transfer matrix method."
+    ],
+    "performance_metrics": [
+      "Nondimensional through-thickness local longitudinal displacement (k)v2.",
+      "Nondimensional local bending normal stress (k)sigma22.",
+      "Nondimensional local transverse shear stress (k)sigma23 determined from local equilibrium.",
+      "Degree of correlation/overlap with 2D exact elasticity solutions."
+    ],
+    "possible_gap_implications": [
+      "The single-variable zigzag formulation for sliding interfaces could provide a computationally efficient, shear-locking-free framework for modeling variable-stiffness structures (e.g., layer-jamming mechanisms or friction-controlled laminated continuum structures) without increasing degrees of freedom as layer count increases.",
+      "The present model's restriction to identical layer materials, zero-thickness interfaces without transverse separation, and small-strain linear kinematics requires extension before it can model soft robotic systems involving large deflections, compliant elastomer matrices, or hyperelastic materials."
+    ],
+    "research_objective": "To develop and verify an accurate and efficient single-variable zigzag formulation for beams composed of homogeneous layers of identical material with imperfect, sliding-compliant interfaces subjected to transverse mechanical loading.",
+    "research_problem": "Layered structures with imperfect, compliant bonds or delaminations exhibit complex local stress and displacement distributions that govern stiffness degradation and failure; standard multi-variable and discrete-layer structural theories are computationally demanding or prone to numerical issues such as shear locking in finite element implementations.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interfacial tangential stiffness",
+      "sliding between layers at imperfect interfaces"
+    ],
+    "title": "A Single-Variable Zigzag Approach to Model Imperfect Interfaces in Layered Beams",
+    "year": "2023"
+  }
+}

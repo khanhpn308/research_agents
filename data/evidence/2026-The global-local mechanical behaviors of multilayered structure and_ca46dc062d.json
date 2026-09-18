@@ -1,0 +1,209 @@
+{
+  "source": {
+    "paper_id": "ca46dc062d",
+    "filename": "2026-The global-local mechanical behaviors of multilayered structure and.pdf",
+    "sha256": "ca46dc062d14b70162b118fcaee0ad30231a6a7d09acfa4f177b5a7d12e44eee",
+    "page_count": 16,
+    "char_count": 85264,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 39300,
+    "completion_tokens": 7716,
+    "total_tokens": 47016,
+    "thinking_tokens": 5190,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "electromagnetic force",
+      "mechanical displacement loading via indenter"
+    ],
+    "authors": [
+      "Sijian Wang",
+      "Yuchen Han",
+      "Huadong Yong",
+      "Youhe Zhou"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Kirchhoff-Love hypothesis for individual monolayer shells with zero transverse shear strain",
+      "Relaxation of transverse incompressibility across the multilayer stack (transverse strain epsilon_33 is non-zero)",
+      "Negligible contact gap between adjacent shells during deformation (Delta_gap = [u] . n approx 0)",
+      "Isotropic linear elasticity for individual shell layers",
+      "Coulomb friction law treated as an internal yield condition (fs = Tt - mu |S0_33| <= 0) combined with maximum dissipation principle and associative flow rule",
+      "Homogenization of contact and frictional forces from interfaces into material volume internal forces and shear stresses",
+      "Homogenization of REBCO superconducting tape into a transversely isotropic material at the material level"
+    ],
+    "control_variables": [
+      "Monolayer thickness (h = 187 um for REBCO tape)",
+      "Tape width (4 mm)",
+      "Coil inner radius (R = 5 cm)",
+      "Indenter velocity (1 mm/s in three-point bending)",
+      "Boundary support conditions (roller at bottom, free on other boundaries, or fixed/symmetric boundaries)"
+    ],
+    "dependent_variables": [
+      "Out-of-plane displacement (ws)",
+      "In-plane displacement (us)",
+      "Transverse strain (epsilon_33)",
+      "Hoop strain (epsilon_22)",
+      "Rotation angle (phi)",
+      "Distributed bending moment (m1)",
+      "Force-displacement response / contact reaction force",
+      "Friction energy dissipation rate / power loss (P_mu)",
+      "Computation runtime and memory consumption"
+    ],
+    "doi": "10.1016/j.ijsolstr.2025.113689",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Multilayered structures exhibit bending stiffness scaling from ~n h^3 under zero friction to ~n^3 h^3 under infinite friction due to interfacial contact, slip, and friction coupling.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          1,
+          8
+        ]
+      },
+      {
+        "claim": "Interfacial slip between adjacent layers contributes a quadratic geometric term -(1/2)(d ws / d xi_1)^2 to the global transverse strain, which introduces a corresponding correction term into the governing equilibrium equation via duality.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Interfacial friction can be homogenized into internal shear across the material body and modeled using the principle of virtual power, Coulomb yield function, and maximum dissipation principle analogous to plasticity.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          6,
+          7,
+          15
+        ]
+      },
+      {
+        "claim": "In a 200-layer structure under small rotation (~1.26 degrees), neglecting interfacial slip in transverse strain formulation leads to displacement errors up to 200%, and neglecting geometric nonlinearity causes approximately 20% error.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "The proposed continuum model yields displacement fields consistent with discrete contact models while accelerating computation by approximately two orders of magnitude (e.g., 10 s versus 740 s for 200 layers).",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The continuum model maintains agreement with discrete contact models under moderate rotations up to 27 degrees for 30 layers, with errors of 3% for out-of-plane displacement and 6% for in-plane displacement.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Under a 5% maximum displacement error threshold relative to discrete contact models, permissible rotation angles are approximately 20 degrees for 30 layers and 7.5 degrees for 150 layers.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The continuum model accurately captures three-point bending force-displacement curves and friction-induced stiffness enhancement across 35, 50, and 70 plate stacks (friction coefficient 0.52) validated against experimental data.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Interfacial friction introduces path-dependent hysteretic behavior where dissipation power increases linearly during initial loading, drops to zero upon initial unloading before slip initiation, and decreases linearly during subsequent unloading.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          11
+        ]
+      },
+      {
+        "claim": "In a 1200-turn HTS magnet with 600 contact interfaces, the continuum model accurately predicts hoop strain while reducing memory from 80 GB to 4.4 GB and computational time from 1 day 22 hours to 1 hour 20 minutes.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          13,
+          14
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Three-point bending experimental setup (referenced from Poincloux et al., 2021) using multilayered plate stacks (35, 50, and 70 plates) supported on two steel cylindrical rollers and loaded by an indenter moving at 1 mm/s with friction coefficient mu = 0.52",
+      "Five-turn small HTS coil experimental setup (referenced from Kolb-Bond et al., 2021) charged from 0 to 400 A in a background magnetic field generated by an LTS magnet, measuring hoop strain at the outermost turn 1 mm from the upper boundary"
+    ],
+    "future_work": [
+      "Extending the proposed continuum model to the mechanical analysis of other multilayered structures, including 2D materials (such as graphene) and nacre-like biological or composite materials"
+    ],
+    "independent_variables": [
+      "Number of stacked layers/turns (n = 5, 20, 30, 35, 50, 70, 150, 200, 600, 1200)",
+      "Interfacial friction coefficient (frictionless, mu = 0.2, mu = 0.52)",
+      "Applied mechanical loading (uniform pressure traction t0 = 1.2 x 10^8 N/m^2 or indenter center displacement)",
+      "Applied electromagnetic loading (transport current from 0 to 400 A and background magnetic field)",
+      "Magnitude of structural rotation / deformation level"
+    ],
+    "limitations_inferred": [
+      "The model formulation is derived for axisymmetric and 2D bending configurations and cannot be directly applied to three-dimensional, non-axisymmetric, or out-of-plane twisting deformations without reformulation",
+      "Because zero contact gap is enforced as an internal condition, the model cannot capture layer liftoff, contact separation, localized wrinkling, or delamination buckling",
+      "The formulation is quasi-static and does not account for dynamic rate-dependent frictional effects, wear, or viscoelastic behavior"
+    ],
+    "limitations_stated_by_authors": [
+      "The model assumes negligible contact gap between adjacent shells (Delta_gap approx 0), which limits applicability to regimes where separation does not occur",
+      "Applicability is restricted to cases where frictional forces are not dominant; large friction violates the zero-shear Kirchhoff-Love assumption and may require Mindlin-Reissner / Timoshenko models",
+      "Model accuracy decreases as the number of stacked layers and rotation angle increase",
+      "Continuity assumptions are less satisfied at the innermost shells, leading to larger in-plane displacement errors under moderate deformations",
+      "The continuum model may require large deformation theory if rotations exceed moderate levels (above ~10 to 20 degrees)",
+      "Numerical implementation may experience poor convergence as the friction coefficient mu increases"
+    ],
+    "main_results": [
+      "Formulated a continuum theory for multilayered structures that incorporates interfacial slip in global strain-displacement kinematics and treats interfacial friction as an internal elastoplastic-like constitutive relation",
+      "Demonstrated that the continuum model reproduces discrete contact model results accurately while improving computational efficiency by roughly two orders of magnitude",
+      "Quantified that omitting interfacial slip in a 200-layer structure at ~1.26 degrees rotation causes up to 200% displacement error, while omitting geometric nonlinearity results in ~20% error",
+      "Validated the model against experimental 3-point bending data, accurately predicting the friction-induced bending stiffness enhancement and hysteretic energy dissipation across 35, 50, and 70 layers",
+      "Applied the continuum model to a 1200-turn HTS magnet, reducing required memory from 80 GB to 4.4 GB and runtime from 1 day 22 hours to 1 hour 20 minutes while maintaining hoop strain accuracy"
+    ],
+    "modeling_methods": [
+      "Continuum theory for multilayered structures with homogenized contact and friction",
+      "Lagrange-like continuous displacement field interpolation across shell midplanes",
+      "Modified Green-Lagrange strain incorporating interfacial slip correction in transverse strain",
+      "Principle of minimum potential energy and principle of virtual power",
+      "Coulomb friction law formulated as an associative flow rule via maximum dissipation principle",
+      "Finite element method (FEM) utilizing quadratic serendipity elements and order reduction of fourth-order PDEs into second-order PDEs with Galerkin method for distributed moment",
+      "Penalty method regularization for friction update algorithms",
+      "T-A formulation for nonlinear electromagnetic modeling coupled with mechanical equilibrium",
+      "Discrete contact model (DCM) based on penalty contact for reference comparison"
+    ],
+    "performance_metrics": [
+      "Relative error in displacement compared to discrete contact models (using a 5% error threshold for applicability)",
+      "Computation time / runtime reduction (e.g., 10 s vs. 740 s; 1 h 20 min vs. 1 d 22 h)",
+      "Memory consumption (4.4 GB vs. 80 GB)",
+      "Permissible rotation angle for a target error threshold (20 degrees for n=30, 7.5 degrees for n=150)"
+    ],
+    "possible_gap_implications": [
+      "The continuum homogenization of interlayer slip and friction could offer an efficient modeling approach for layer-jamming variable-stiffness structures in soft robotics without requiring computationally intensive discrete contact algorithms",
+      "The zero-gap assumption inherent to this continuum framework may restrict its direct use in soft robotic systems that undergo significant layer separation or detachment during unjammed states"
+    ],
+    "research_objective": "To develop an accurate and computationally efficient continuum theory and finite element formulation for multilayered structures that accounts for interfacial slip and friction without requiring explicit discrete contact modeling, and to apply and validate the model for multilayer bending and dry-wound high-temperature superconducting (HTS) coils under electromagnetic forces.",
+    "research_problem": "Analyzing multilayered structures (such as dry-wound HTS magnets) involves tens of thousands of contact interfaces and millions of degrees of freedom, causing severe computational inefficiencies, convergence difficulties in discrete contact models, and inaccuracies in existing beam/thin-shell models that neglect out-of-plane variations, hoop strains, or interfacial slip.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "interfacial contact pressure and friction",
+      "interfacial slip",
+      "interlayer friction"
+    ],
+    "title": "The global-local mechanical behaviors of multilayered structure and applications to superconducting coils",
+    "year": "2026"
+  }
+}

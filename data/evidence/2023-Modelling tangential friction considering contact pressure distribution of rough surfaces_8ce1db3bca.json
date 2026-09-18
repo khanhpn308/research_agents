@@ -1,0 +1,174 @@
+{
+  "source": {
+    "paper_id": "8ce1db3bca",
+    "filename": "2023-Modelling tangential friction considering contact pressure distribution of rough surfaces.pdf",
+    "sha256": "8ce1db3bcaf57b9b9d49c5eb1dfac4d3f6ab56ecf464bd873e83963062b70b9a",
+    "page_count": 20,
+    "char_count": 67097,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 35407,
+    "completion_tokens": 9010,
+    "total_tokens": 44417,
+    "thinking_tokens": 6338,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Huiyi Yang",
+      "Chao Xu",
+      "Ning Guo"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Interface stick-slip tangential behavior is represented by the Iwan model framework comprising parallel spring-slider (Jenkins) elements and a parallel linear spring accounting for residual stiffness.",
+      "Local friction obeys Coulomb's friction law with a constant friction coefficient relating slider critical slip force to normal contact force.",
+      "Rough surface contact material is modeled as elastic-perfectly plastic in finite element simulations.",
+      "Normal contact between two nominally flat rough surfaces is modeled equivalently as contact between a rough surface and a smooth rigid flat surface with combined roughness.",
+      "Normal contact interface interaction is modeled as hard contact, with frictionless tangential behavior during the normal loading stage in FEM.",
+      "Surface topography exhibits self-affine fractal properties generated via a modified two-variable Weierstrass-Mandelbrot (WM) function, neglecting surface waviness and form components.",
+      "Contact pressure distribution of contacting asperities is described by a twofold Weibull mixture probability density function.",
+      "Masing's hypothesis applies to reloading and unloading paths during cyclic tangential loading to form closed hysteresis loops.",
+      "The spatial distribution of contact pressure on the bolted joint interface is assumed to be uniform for simplicity.",
+      "Initial tangential contact stiffness is derived from Mindlin's single-asperity contact model and Hertzian contact theory integrated across the asperity area distribution."
+    ],
+    "control_variables": [
+      "Material properties: elastic modulus E = 200 GPa, Poisson ratio nu = 0.3, yield strength sigma_y = 400 MPa for carbon steel; E = 209 GPa, nu = 0.27, sigma_y = 310 MPa for AISI 1045 steel; E = 200 GPa, nu = 0.24, sigma_y = 1360 MPa for Grade 420 stainless steel.",
+      "Geometric dimensions of the simulated rough solid: sample length L = 1 mm, cutoff length Ls = 0.01 mm, number of superposed ridges M = 10, frequency density parameter gamma = 1.5.",
+      "Finite element mesh resolution (100 x 100 surface mesh with 110,000 C3D8 8-node elements) and periodic boundary conditions on opposing sides.",
+      "Sphere radius of 140 mm in sphere-on-sphere contact validation.",
+      "Friction coefficient mu (fixed at 0.5 for sphere-on-sphere analytical comparison; identified experimentally from gross slip for flat-on-flat and bolted joint interfaces)."
+    ],
+    "dependent_variables": [
+      "Contact pressure distribution and probability density function of contact pressure.",
+      "Critical slip force probability density function (Iwan density function).",
+      "Tangential restoring force and tangential force-displacement hysteresis loops.",
+      "Initial tangential contact stiffness and residual stiffness.",
+      "Energy dissipation per cycle (dissipated energy).",
+      "Real contact area and contact area growth with normal load."
+    ],
+    "doi": "10.1016/j.ymssp.2023.110406",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The adjusted Iwan model utilizes a continuous distribution of Jenkins elements combined with a residual stiffness spring to capture nonlinear stick-slip hysteresis and softening stiffness in mechanical joint interfaces.",
+        "evidence_type": "theoretical modeling",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "A twofold Weibull mixture model accurately describes the statistical contact pressure and normal force distributions of rough surfaces obtained from elastoplastic finite element simulations.",
+        "evidence_type": "computational simulation",
+        "page_numbers": [
+          5,
+          6,
+          17
+        ]
+      },
+      {
+        "claim": "An explicit constitutive formulation relating tangential restoring force to relative displacement can be analytically derived by substituting the twofold Weibull Iwan density function into the Iwan framework using series expansion.",
+        "evidence_type": "theoretical derivation",
+        "page_numbers": [
+          6,
+          17,
+          18
+        ]
+      },
+      {
+        "claim": "Surface roughness significantly reduces tangential stiffness during the transition from microslip to macroslip, resulting in increased relative displacement and higher cycle energy dissipation compared to smooth interfaces.",
+        "evidence_type": "computational simulation",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "The proposed physics-based Iwan model reproduces experimental force-displacement hysteresis and dissipated energy for flat-on-flat contact and bolted joints, outperforming classic uniform and four-parameter Iwan models at the microslip-to-macroslip transition.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          12,
+          13,
+          14,
+          16
+        ]
+      },
+      {
+        "claim": "Test rig compliance, including pushrods and force sensors, can cause experimental tangential stiffness measurements to appear significantly lower than theoretical contact stiffness.",
+        "evidence_type": "experimental analysis",
+        "page_numbers": [
+          13
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Flat-on-flat dry friction test rig (from referenced literature): two AISI 1045 steel specimens (fixed block and moving block) brought into contact under normal loads (205 N, 406 N, 608 N) and excited tangentially by an electric cylinder driving a pushrod in series with a force sensor; surface topography measured using a 3D white light interferometric profilometer.",
+      "Bolted lap joint fretting test rig (from referenced literature): Grade 420 stainless steel jointed specimens subjected to normal preloads (234 N, 331 N, 526 N, 721 N) under oscillating tangential displacements to record force-displacement hysteresis and energy dissipation per cycle."
+    ],
+    "future_work": [
+      "Incorporating non-uniform spatial distribution of contact pressure across bolted joint interfaces by dividing the contact zone into sub-regions with distinct contact loads.",
+      "Applying the physics-based rough surface tangential friction model to predictive dynamic simulations and vibration analysis of assembled jointed structures.",
+      "Extending the contact modeling approach to incorporate surface waviness alongside roughness."
+    ],
+    "independent_variables": [
+      "Applied normal load / preload (200 N, 400 N, 600 N in rough surface FEA; 500 N in sphere-on-sphere; 205 N, 406 N, 608 N in flat-on-flat; 234 N, 331 N, 526 N, 721 N in bolted joint).",
+      "Tangential displacement amplitude and cyclic relative displacement.",
+      "Surface roughness and fractal parameters (fractal dimension D, fractal roughness parameter G, arithmetic mean height Ra, and rms roughness sigma).",
+      "Tangential excitation force amplitude."
+    ],
+    "limitations_inferred": [
+      "The modeling procedure requires multi-stage off-line numerical simulations (fractal surface generation, 3D elastoplastic FEM, non-linear genetic algorithm optimization, and series summation), which may restrict direct online implementation in real-time multibody dynamics.",
+      "A uniform local Coulomb friction coefficient is assumed across all contacting asperities, neglecting localized tribological variations, wear progression, or thermal effects.",
+      "The optimization of the twofold Weibull parameters is performed independently for discrete normal load cases, lacking an integrated closed-form expression parameterized continuously across normal loads.",
+      "The framework focuses on quasi-static or steady-state cyclic tangential shearing under constant normal force, without accounting for high-frequency normal-tangential coupling or dynamic normal separation."
+    ],
+    "limitations_stated_by_authors": [
+      "Surface waviness and form components resulting from machining are not considered in the contact model for the time being, focusing only on roughness.",
+      "Conducting multiscale modeling and rough contact simulation solely via finite elements is computationally difficult, meaning actual surfaces with deterministic or periodic machining waviness may not be solved accurately.",
+      "The spatial distribution of contact pressure across the bolted joint interface is simplified as uniform.",
+      "Predicted initial tangential contact stiffness was significantly higher than flat-on-flat experimental observations due to unmodeled test rig flexibility (pushrod, force sensor, and connections).",
+      "Finite element data underestimates the probability density at the theoretical maximum normal force for smooth sphere contact due to a singularity in Mindlin's analytical solution."
+    ],
+    "main_results": [
+      "Derived an explicit, physics-based relationship between tangential force and relative displacement by mapping rough surface contact pressure distributions into the Iwan model framework via a twofold Weibull mixture model.",
+      "Achieved perfect agreement with Mindlin's analytical solution for smooth sphere-on-sphere contact under both microslip (maximum tangential force 200 N) and macroslip (maximum tangential force 250 N) regimes.",
+      "Demonstrated that surface roughness lowers tangential stiffness during the microslip-to-macroslip transition, yielding 29.3% higher energy dissipation at 200 N and 37.9% higher at 250 N compared to perfectly smooth contact.",
+      "Accurately predicted experimental force-displacement hysteresis loops across three normal loads (205 N, 406 N, 608 N) in flat-on-flat contact, outperforming classic uniform and four-parameter Iwan models at the transition stage.",
+      "Successfully reproduced measured nonlinear hysteresis loops, softening stiffness, and energy dissipation per cycle across four preload levels (234 N, 331 N, 526 N, 721 N) in a bolted joint interface with lower relative errors than classic Iwan, four-parameter Iwan, and BKE models."
+    ],
+    "modeling_methods": [
+      "Fractal geometry surface generation using a modified two-variable Weierstrass-Mandelbrot (WM) function.",
+      "Power spectrum density (PSD) method for identifying fractal parameters (dimension D and roughness G) from surface measurements.",
+      "Three-dimensional elastoplastic finite element contact analysis in Abaqus using 8-node brick elements (C3D8) and periodic boundary conditions.",
+      "Twofold Weibull mixture probability density modeling of contact pressure and normal contact force.",
+      "Nonlinear least squares parameter optimization using a genetic algorithm.",
+      "Continuous Iwan-type distributed spring-slider model with residual stiffness spring.",
+      "Coulomb friction law mapping normal contact force to slider critical slip force.",
+      "Mindlin contact theory for tangential stiffness of individual asperities and sphere-on-sphere contact.",
+      "Masing hypothesis for reloading and unloading tangential hysteresis loops.",
+      "Series expansion representation of exponential functions to obtain explicit closed-form integration of the tangential force-displacement curve."
+    ],
+    "performance_metrics": [
+      "Tangential force-displacement hysteresis loop shape matching against analytical and experimental curves.",
+      "Accuracy of modeling the transition regime from microslip to macroslip.",
+      "Dissipated energy per cycle (mJ/cycle) and relative percentage error of dissipated energy.",
+      "Goodness-of-fit and cumulative distribution function error of contact pressure distribution (maximum error < 0.06).",
+      "Prediction accuracy of initial tangential contact stiffness."
+    ],
+    "possible_gap_implications": [
+      "The physics-based Iwan modeling framework mapping rough surface contact pressure to tangential slip can be applied to model frictional interfaces, tendon-sheath interactions, and capstan friction in soft robotics and continuum robots.",
+      "The methodology provides an analytical basis for designing joint interfaces with tunable damping, friction dissipation, and softening stiffness behavior in variable-stiffness mechanical mechanisms.",
+      "Discrepancies between theoretical contact stiffness and experimental data underscore the critical need to incorporate test rig and structural flexibilities when modeling compliance and experimental mechanics in jointed or soft robotic systems."
+    ],
+    "research_objective": "To develop a physics-based tangential friction modeling approach within the Iwan model framework by directly deducing the slider critical slip force density function from the contact pressure distribution of real rough surfaces, eliminating artificial distribution assumptions.",
+    "research_problem": "Phenomenological Iwan-type models widely used to describe joint interface friction rely on artificially assumed critical slip force density functions (such as uniform or truncated power-law distributions) that lack clear physical meaning and ignore the effects of real surface roughness and contact pressure distributions.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Modelling tangential friction considering contact pressure distribution of rough surfaces",
+    "year": "2023"
+  }
+}

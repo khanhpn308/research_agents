@@ -1,0 +1,145 @@
+{
+  "source": {
+    "paper_id": "79d1adc34c",
+    "filename": "2016-Friction Characteristics of CFRP Plates in Contact with.pdf",
+    "sha256": "79d1adc34c4620d5e0a79cf7286915126017895cfff8a02d018c2e34ded5c628",
+    "page_count": 10,
+    "char_count": 44499,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27805,
+    "completion_tokens": 7829,
+    "total_tokens": 35634,
+    "thinking_tokens": 5723,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Faizul M. Mohee",
+      "Adil Al-Mayah",
+      "Alan Plumtree"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Unidirectional CFRP plate is an orthotropic and anisotropic material for which classical Hertzian contact theory is not applicable",
+      "Polymers in the CFRP composite deform viscoelastically under tension and interfacial sliding, conforming to Howell's friction power law (T = a * N^b)",
+      "Contact normal stress is assumed uniformly distributed across the two symmetric 15 mm x 20 mm nominal contact interfaces"
+    ],
+    "control_variables": [
+      "CFRP plate specimen dimensions (1.2 mm thickness, 20 mm width, 580 mm length) and material properties (68% fiber volume, Sika CarboDur)",
+      "Contact interface area (15 mm length x 20 mm width on two opposing faces)",
+      "Copper plate thickness (0.8 mm)",
+      "Horizontal pullout displacement rate (25 mm/s)",
+      "Normal load application rate (2 kN/s) and pre-pull stabilization duration (30 s)",
+      "Pre-test surface cleaning protocol using isopropanol",
+      "Data acquisition rate (1,000 scans/s, averaged to ~200 scans per plot point)"
+    ],
+    "dependent_variables": [
+      "Static coefficient of friction",
+      "Interfacial shear stress",
+      "Horizontal pullout force",
+      "Maximum sliding distance before plate rupture or machine stroke limit",
+      "Interfacial wear and damage mechanisms (ploughing, debris accumulation, stick-slip behavior, tensile fiber fracture)"
+    ],
+    "doi": "10.1061/(ASCE)CC.1943-5614.0000673",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Under transverse contact pressures between 50 and 175 MPa, unidirectional CFRP plates sliding against copper follow viscoelastic friction models where softer annealed copper exhibits higher friction coefficients (0.39 to 0.30) than harder as-received copper (0.31) due to asperity deformation increasing the real contact area.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          1,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "High normal contact pressures (150 to 175 MPa) during sliding cause severe ploughing, carbon debris accumulation, cross-sectional thickness shaving, and premature tensile fiber rupture of CFRP plates at loads well below their ultimate tensile strength.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Interfacial sliding between composite plates and copper counterfaces displays periodic stick-slip behavior at moderate normal pressures (50 to 100 MPa), governed by cyclic debris accumulation and release at the contact interface.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Interfacial shear stress versus normal contact pressure for composite-metal contact with a soft metal counterface can be described by a modified Howell power-law formulation (tau = 1.02 * sigma^0.76) reflecting pressure-dependent contact area growth.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          1,
+          5,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Friction test apparatus in a test machine utilizing two hardened steel clamping plates (45 HRC, 15 mm x 100 mm) to apply normal compressive load across a 15 mm x 20 mm contact zone on both sides of a CFRP plate",
+      "Unidirectional CFRP plate specimens (580 mm long, 20 mm wide, 1.2 mm thick, 68% fiber volume, epoxy matrix) pulled horizontally between two 0.8 mm thick copper plates",
+      "Annealed copper plates prepared by heat treatment in an oven at 500 deg C for 1 hour followed by air cooling to room temperature",
+      "Rockwell superficial microhardness testing (HR15TS scale, 15 kg mass, 1.59 mm diameter ball) to characterize material hardness of CFRP and copper plates",
+      "Built-in LVDT and 44.5 kN load cell measuring displacement and horizontal force at a 25 mm/s displacement rate and 2 kN/s normal loading rate"
+    ],
+    "future_work": [
+      "Utilization of CFRP-copper friction parameters for the design and development of novel friction-based wedge anchors for composite plates in structural rehabilitation and retrofitting",
+      "Application of friction data to the design of lightweight composite components in automotive, aviation, space, and shipbuilding industries",
+      "Development of innovative composite materials combining carbon fibers, resin matrix, and copper",
+      "Use of the experimental data as a benchmark for other composite-to-metal contact configurations of similar geometry"
+    ],
+    "independent_variables": [
+      "Copper plate condition and hardness (as-received at 67 HR15TS vs. annealed at 34 HR15TS)",
+      "Applied normal contact stress (50, 75, 100, 125, 150, and 175 MPa)"
+    ],
+    "limitations_inferred": [
+      "Experiments were conducted solely under dry ambient laboratory conditions, without assessing temperature variations, humidity, or environmental degradation",
+      "Only a single pullout displacement rate (25 mm/s) was tested, so rate-dependent viscoelastic effects and frictional heating across varying velocities were not characterized",
+      "The investigation is limited to flat unidirectional CFRP plates sliding against copper, meaning findings cannot be directly applied to multidirectional laminates or other metal pairings",
+      "The research focuses strictly on structural engineering anchor systems and does not investigate robotic mechanisms, soft actuators, or compliant systems"
+    ],
+    "limitations_stated_by_authors": [
+      "Friction behavior above 175 MPa contact pressure could not be evaluated within scope because CFRP plates ruptured in tension after 30 to 50 mm displacement prior to reaching peak load",
+      "Initial slippage occurred at the non-testing end of the smooth CFRP plate inside machine grips, necessitating epoxying copper plates to the gripping tabs",
+      "Cutting 100-mm-wide stock CFRP plates into 20-mm-wide test specimens severed side fibers, resulting in a reduction of the plate tensile strength",
+      "Maximum allowable sliding distance was restricted to 98 mm by the stroke limit of the friction test machine"
+    ],
+    "main_results": [
+      "For as-received copper plates, the shear stress versus normal contact pressure was linear (tau = 0.31 * sigma, R^2 = 0.97) with a constant coefficient of friction of 0.31 across 50 to 175 MPa normal stress",
+      "For annealed copper plates, the coefficient of friction decreased from 0.39 at 50 MPa to 0.30 at 175 MPa, following a power-law relationship (tau = 1.02 * sigma^0.76, R^2 = 0.92) consistent with Howell's friction model for viscoelastic materials",
+      "Softer annealed copper exhibited higher friction coefficients and peak horizontal forces than harder as-received copper between 50 and 150 MPa due to greater real contact area from asperity deformation",
+      "Maximum sliding distance before failure decreased with increasing contact pressure for both copper conditions",
+      "Stick-slip sliding behavior occurred at 50 to 100 MPa due to debris buildup and clearing cycles, whereas at 150 to 175 MPa, severe ploughing and cross-sectional shaving resulted in tensile rupture at 28 to 34 kN"
+    ],
+    "modeling_methods": [
+      "Empirical linear contact friction modeling using Amonton's law (tau = 0.31 * sigma) for as-received copper plates",
+      "Empirical power-law contact friction modeling based on Howell's formulation for viscoelastic materials (tau = 1.02 * sigma^0.76) for annealed copper plates",
+      "Double-interface friction formulation relating total horizontal pullout force, normal force, shear stress, and contact stress (mu = Tmax / (2 * N) = tau / sigma)"
+    ],
+    "performance_metrics": [
+      "Static coefficient of friction (mu)",
+      "Interfacial shear stress (MPa)",
+      "Maximum sliding distance before failure (mm)",
+      "Horizontal breaking force / tensile rupture load (kN)"
+    ],
+    "possible_gap_implications": [
+      "Tribological modeling and experimental mechanics of high-pressure composite-to-soft-metal contact can inform the mechanical design of high-force tendon anchors, rigid-compliant couplings, and clamping mechanisms in heavy-duty continuum or robotic structures where preventing transverse shear crushing is crucial.",
+      "Because this study investigates civil structural anchors under high pressures (50 to 175 MPa), there is an unaddressed research gap in evaluating composite-metal contact mechanics under the lower-pressure, large-displacement, highly compliant regimes typical of soft robotics and soft grippers."
+    ],
+    "research_objective": "To experimentally determine the coefficient of friction, shear stress versus normal stress relationship, sliding mechanisms, and wear behavior between unidirectional CFRP plates and two types of copper plates (as-received and annealed) under high contact pressures from 50 to 175 MPa.",
+    "research_problem": "Lack of coefficient of friction data and tribological characterization for unidirectional CFRP plates in contact with copper under high contact pressure, which is necessary for designing friction-based anchors that protect CFRP plates from transverse shear failure.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Friction Characteristics of CFRP Plates in Contact with Copper Plates under High Contact Pressure",
+    "year": "2016"
+  }
+}

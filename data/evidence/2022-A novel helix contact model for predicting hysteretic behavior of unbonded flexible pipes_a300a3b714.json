@@ -1,0 +1,181 @@
+{
+  "source": {
+    "paper_id": "a300a3b714",
+    "filename": "2022-A novel helix contact model for predicting hysteretic behavior of unbonded flexible pipes.pdf",
+    "sha256": "a300a3b71448d2044dec2fcf2f92214def360f0fd89761eae5d4a9ae1a8c2e5e",
+    "page_count": 26,
+    "char_count": 94166,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 44336,
+    "completion_tokens": 5111,
+    "total_tokens": 49447,
+    "thinking_tokens": 2675,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Lidong Wang",
+      "Naiquan Ye",
+      "Qianjin Yue"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Plane surfaces remain plane (Euler-Bernoulli) assumption for classical analytical bending models",
+      "Shear interaction assumption where tangential shear compliance of supporting plastic layers governs stick stiffness",
+      "Linear elastic material properties for steel armor tendons and cylindrical layers",
+      "Equivalent orthotropic shell representation for the inner core layer combining carcass and zeta armor layers",
+      "Equivalent isotropic polymeric representation for the outer core layer",
+      "Hertz contact theory for evaluating spatial distance and contact angle between tensile armor tendons and helix contact beams",
+      "Coulomb friction model with penalty formulation and defined elastic slip tolerance",
+      "Loxodromic and geodesic curves as bounding kinematic paths for armor tendon bending stresses",
+      "Constant interlayer contact pressure assumption during bending deformation in analytical formulations"
+    ],
+    "control_variables": [
+      "Flexible pipe structural layout and layer geometry dimensions (4-inch rough-bore pipe)",
+      "Tensile armor tendon lay angles (+38 degrees and -38 degrees)",
+      "Bending cyclic frequency (0.1 Hz) and maximum curvature amplitude (1/9 m^-1)",
+      "Cantilever boundary conditions (bottom fixed, top free for internal pressure endcap and prescribed bending displacement)",
+      "Friction coefficients calibrated for pressure levels (0.26 for 0.7 MPa, 0.23 for 10 MPa, and 0.21 for 20 MPa)"
+    ],
+    "dependent_variables": [
+      "Bending moment-curvature relationship (stick stiffness, slip stiffness, friction moment, dissipated energy)",
+      "Interlayer contact pressure distributions across concentric layers",
+      "Tensile armor tendon stress components (axial friction stress, transverse bending stress, normal bending stress, maximum total axial stress)",
+      "Relative slip displacements in tangential and transverse directions",
+      "Cross-section ovality of pipe layers",
+      "Computational cost metrics (total elements, node count, total degrees of freedom/variables, simulation run time, RAM usage)"
+    ],
+    "doi": "10.1016/j.oceaneng.2022.112407",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Unbonded flexible pipes exhibit nonlinear bending hysteretic behavior governed by interlayer friction and contact pressure between tensile armor tendons and supporting layers, transitioning through stick, transition, and slip states.",
+        "evidence_type": "mechanical modeling and experimental data comparison",
+        "page_numbers": [
+          1,
+          5,
+          8,
+          14,
+          21
+        ]
+      },
+      {
+        "claim": "A double helix contact beam model using node-to-surface contact discretization with Hertz contact angles accurately replicates the hysteretic bending moment-curvature response of full surface-to-surface FE models while reducing computational elements by 59 percent and runtime by up to 95 to 98 percent.",
+        "evidence_type": "numerical simulation and benchmarking",
+        "page_numbers": [
+          1,
+          12,
+          13,
+          21,
+          23,
+          24
+        ]
+      },
+      {
+        "claim": "Accounting for initial interlayer contact pressure (via predefined hoop stress in the outer sheath) is essential for capturing the bending hysteretic loop and dissipated energy observed experimentally at low internal pressure levels (0.7 MPa).",
+        "evidence_type": "analytical and numerical model validation against experiments",
+        "page_numbers": [
+          2,
+          3,
+          15,
+          21,
+          24
+        ]
+      },
+      {
+        "claim": "Tensile armor tendons slide along a path intermediate between loxodromic and geodesic curves, evidenced by non-zero transverse slip displacements and non-zero transverse bending stresses under cyclic bending.",
+        "evidence_type": "numerical mechanics analysis",
+        "page_numbers": [
+          21,
+          22,
+          25
+        ]
+      },
+      {
+        "claim": "The shear stiffness of supporting plastic layers significantly softens the initial stick bending stiffness compared to plane section models, and treating adjacent steel armor layers as boundary conditions yields stick stiffness matching experimental results.",
+        "evidence_type": "analytical formulation and experimental comparison",
+        "page_numbers": [
+          5,
+          7,
+          11,
+          15,
+          21,
+          24
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Cantilever full-scale cyclic bending test setup of a 4-inch rough-bore unbonded flexible pipe reported by Skallerud (1991)",
+      "Prescribed cyclic transverse displacement applied to the pipe end at a loading frequency of 0.1 Hz across 10 complete cycles to an amplitude curvature of 1/9 m^-1",
+      "Tests conducted under multiple internal pressure levels (0.7 MPa for test No. 3, 10 MPa for test No. 4, and 20 MPa for test No. 5)"
+    ],
+    "future_work": [
+      "Extension of the efficient cross-section contact modeling strategy to global dynamic analysis of flexible risers",
+      "Application of the predicted maximum total axial stress distributions to fatigue damage evaluation of tensile armor tendons"
+    ],
+    "independent_variables": [
+      "Internal pressure level (0.7 MPa, 10 MPa, 20 MPa)",
+      "Applied pipe curvature and prescribed bending displacement",
+      "Contact modeling method (full surface-to-surface contact vs. double helix contact beam method)",
+      "Layer representation (full individual layers vs. equivalent core layers)",
+      "Initial predefined residual stress in the outer sheath (0 MPa vs. 2 MPa) and residual strain in helical tendons",
+      "Helix contact beam contact angle parameter (phi, phi/2, phi/4, phi/8, phi/100, phi_Hertz) and beam element type (B31, B31H, B32, B32H, B33, B33H)",
+      "Tensile armor cross-section mesh density (1x1, 2x2, 3x3, 4x4)",
+      "Elastic slip tolerance in penalty friction formulation (0.005 down to 1e-5)",
+      "Combinations of plastic layer shear stiffness parameters in shear interaction models"
+    ],
+    "limitations_inferred": [
+      "The proposed equivalent double helix model was calibrated and validated against only a single 4-inch pipe geometry under pure bending and internal pressure; its generalization to larger pipe diameters or combined multi-axial loads (e.g., tension, torsion, and bending simultaneously) remains to be demonstrated.",
+      "The predefined residual stress value of 2 MPa is an empirical calibration parameter rather than a directly measured physical quantity for the specific pipe specimen."
+    ],
+    "limitations_stated_by_authors": [
+      "Node-to-surface discretization in the helix contact beam model exhibits more severe local normal contact penetration than surface-to-surface contact, leading to localized beam deformations and deviations in normal bending stress and transverse slip displacements.",
+      "Analytical models assume constant interlayer contact pressure during bending, which causes analytical friction moments and hysteresis loops to exceed numerical predictions at higher internal pressures.",
+      "Equivalent core layered models with helix contact beams show higher cross-sectional ovalization than full surface-to-surface models due to the linking mode between helix contact beams and supporting layers.",
+      "Default elastic slip tolerance in Abaqus (0.005) is excessively large and causes underestimation of stick stiffness and friction moment unless reduced below 1e-3."
+    ],
+    "main_results": [
+      "The equivalent layered double helix contact beam model (EQUI_SHCONT2B) decreased total elements by 59 percent, nodes by 43 percent, degrees of freedom by 42 percent, simulation time by 95 to 98 percent, and memory usage by 95 percent relative to the full surface-to-surface model.",
+      "Predicted bending moment-curvature hysteretic curves across 10 complete cycles closely agreed with full-scale experimental measurements and full layered numerical models for both low (0.7 MPa) and high (20 MPa) internal pressures.",
+      "Initial interlayer contact pressure significantly affects the hysteresis loop and energy dissipation at low internal pressure (0.7 MPa), but has a minor relative effect at high internal pressure (20 MPa) where axisymmetric pressure dominates.",
+      "Analytical shear interaction models with boundary conditions defined at adjacent steel armor layers accurately capture stick stiffness, whereas plane section models overestimate stick stiffness.",
+      "Tensile armor tendons exhibit both transverse bending stress and transverse relative slip, confirming they slide along an intermediate path between geodesic and loxodromic trajectories."
+    ],
+    "modeling_methods": [
+      "Equivalent layered finite element modeling in Abaqus/Standard using an implicit solver",
+      "Double helix contact beam model (SHCONT2B) using B31 beam elements with node-to-surface contact discretization and hard normal penalty formulation",
+      "Equivalent stiffness core layer formulation (orthotropic shell for inner core, isotropic shell for outer core)",
+      "Closed-form thick-walled cylindrical shell theory (isotropic and orthotropic) for axisymmetric interlayer contact pressure calculation",
+      "Helical layer mechanical equilibrium and geometric compatibility formulations accounting for fill factors, residual strain, local bending, and torsion",
+      "Bending analytical models based on plane surfaces remain plane assumption and shear interaction assumption with return-mapping stick-slip formulations",
+      "Hertz contact theory for determining contact half-width and contact angles for helix contact beams"
+    ],
+    "performance_metrics": [
+      "Bending stick stiffness (slope in stick zone) and slip bending stiffness",
+      "Bending friction moment and hysteretic dissipated energy (hysteresis loop area)",
+      "Tensile armor tendon stress components: axial friction stress, normal bending stress, transverse bending stress, and maximum total axial stress",
+      "Tangential and transverse relative slip displacements",
+      "Cross-section ovality ratio e = (D_max - D_min) / (D_max + D_min)",
+      "Total element count, node count, and total variables (degrees of freedom)",
+      "Computational simulation runtime (hours) for internal pressure and bending cycles, and memory consumption (GB)"
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that high-fidelity prediction of nonlinear friction hysteresis and local stresses in complex multi-layer flexible structures does not require computationally prohibitive 3D surface contact meshes, offering a practical pathway for global dynamic simulations.",
+      "Highlights the necessity of including manufacturing/initial residual stresses in contact models to avoid non-conservative stiffness and damping estimations at low operational tensions."
+    ],
+    "research_objective": "To develop an efficient equivalent layered contact numerical model using a double helix contact beam approach combined with an equivalent core strategy in Abaqus/Standard, alongside closed-form axisymmetric and bending analytical models that account for initial interlayer contact pressure and shear interactions to accurately and efficiently predict the bending hysteretic behavior, local stresses, and slip of unbonded flexible pipes.",
+    "research_problem": "Predicting the nonlinear bending hysteretic behavior, local stresses, and interlayer slip of unbonded flexible pipes using full-layered 3D finite element models with surface-to-surface contact algorithms is computationally onerous and resource-intensive, while existing analytical and numerical models often neglect or improperly treat the initial interlayer contact pressure effect.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "stick-slip friction mechanism between tensile armor tendons and supporting layers (friction-induced hysteretic bending stiffness)",
+      "shear interaction / shear deformation of supporting plastic layers",
+      "structural stiffness of concentric helical and cylindrical metallic and polymeric layers"
+    ],
+    "title": "A novel helix contact model for predicting hysteretic behavior of unbonded flexible pipes",
+    "year": "2022"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "source": {
+    "paper_id": "7c3aac183e",
+    "filename": "2014-The existence of a critical length scale in regularised friction.pdf",
+    "sha256": "7c3aac183e08eb2f6f4d0e0765784b8287071f8c2938b9d18e3c2f6b28a0c5f4",
+    "page_count": 11,
+    "char_count": 49620,
+    "source_type": "verification",
+    "verification_id": "D1-V006"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27336,
+    "completion_tokens": 5850,
+    "total_tokens": 33186,
+    "thinking_tokens": 3986,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "D.S. Kammer",
+      "V.A. Yastrebov",
+      "G. Anciaux",
+      "J.F. Molinari"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear isotropic elastic half-space under two-dimensional plane strain conditions",
+      "Rigid flat counter-surface (deformable-rigid interface)",
+      "Interface friction governed by Coulomb's law with identical static and kinetic coefficients of friction (μ = 0.75)",
+      "Regularisation governed by a simplified Prakash-Clifton friction formulation relating the rate of change of frictional strength to slip velocity, reference velocity, characteristic length scale, and normal contact stress",
+      "Absence of bulk damping (no numerical Rayleigh damping or bulk viscoelastic dissipation)"
+    ],
+    "control_variables": [
+      "Reference velocity V⋆ = 10^-4 m/s",
+      "Friction coefficient μ = 0.75",
+      "Remote compressive normal traction τ2^0 = 0.0150 Pa",
+      "Remote shear traction τ1^0 = 0.0105 Pa",
+      "Solid density ρ = 1.0 kg/m^3",
+      "Young's modulus E = 2.5 Pa",
+      "Poisson's ratio ν = 0.25",
+      "Wave velocities cp = 1.73 m/s and cs = 1.0 m/s",
+      "Periodic boundary condition replication length w = 40 m and domain height h = 20 m",
+      "Nucleation ellipse parameters aell = 0.6 m, bell = 3.6 m, vell = 0.825 m/s, and maximum contact pressure reduction α = 0.8"
+    ],
+    "dependent_variables": [
+      "Dynamic slip velocity |V|",
+      "Rupture front propagation speed Vr",
+      "Dynamic mesh convergence (relative error across total propagation distance and arrival time)",
+      "Regularised frictional strength τ1^s",
+      "Relative amplitude attenuation ratio A/A0",
+      "Critical regularisation characteristic length scale Lc"
+    ],
+    "doi": "10.1016/j.jmps.2013.10.007",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Dynamic slip propagation along a deformable-rigid interface achieves mesh convergence in explicit finite-element simulations using Prakash-Clifton friction regularisation without introducing bulk or numerical damping.",
+        "evidence_type": "Simulation / Modeling",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          5,
+          9
+        ]
+      },
+      {
+        "claim": "A critical regularisation length scale exists below which decreasing the characteristic length no longer alters rupture front propagation, slip velocity, or rupture speed, causing the interface to behave as if governed by classical Coulomb friction.",
+        "evidence_type": "Simulation / Modeling",
+        "page_numbers": [
+          1,
+          4,
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "The simplified Prakash-Clifton regularisation acts analytically as a temporal low-pass filter on contact stress perturbations, attenuating high-frequency oscillations with an amplitude ratio of A/A0 = 1 / sqrt(1 + (2*pi*f/C)^2).",
+        "evidence_type": "Analytical derivation / Modeling",
+        "page_numbers": [
+          6,
+          7,
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Experimental identification of an interface's physical length scale requires dynamic slip pulses with sufficiently high frequency content exceeding a critical frequency; otherwise, the measured value reflects the event-dependent critical length rather than the physical interface property.",
+        "evidence_type": "Analytical analysis / Proposed experimental protocol",
+        "page_numbers": [
+          1,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [
+      "Investigating the existence and behavior of critical length scales for slip events propagating along more general deformable-deformable (bimaterial) interfaces.",
+      "Applying the proposed verification procedure to experimentally monitor slip pulses with rich high-frequency content to measure physical characteristic interface length scales."
+    ],
+    "independent_variables": [
+      "Characteristic length scale of the friction regularisation (L)",
+      "Interface mesh discretisation / node density (nd)",
+      "Input perturbation frequency (f) in spectral analysis"
+    ],
+    "limitations_inferred": [
+      "The conclusions are derived from a simplified two-dimensional plane-strain model of an isotropic linear elastic solid sliding against a rigid flat plane, which may not directly represent 3D geometries, complex deformable-deformable contacts, or velocity-weakening friction laws.",
+      "Slip was initiated via an artificial spatio-temporal reduction of normal contact stress, which predetermines the initial frequency spectrum and could influence the apparent critical length scale compared to spontaneous natural nucleation.",
+      "Thermal effects, interface opening, material wear, and adhesive interactions at the contact interface were not incorporated into the formulation."
+    ],
+    "limitations_stated_by_authors": [
+      "Experimental data for Prakash-Clifton regularisation parameters are lacking for most material pairings.",
+      "Physical characteristic length scales deduced from experimental friction measurements are on the order of micrometers, requiring extremely fine spatial discretisation and heavy computational effort in numerical simulations.",
+      "The analysis simplified the regularisation by fixing the reference velocity V⋆ while only varying the characteristic length L.",
+      "The problem configuration was intentionally limited to a well-posed regime (friction coefficient below unity and equal static and kinetic coefficients) to avoid confounding regularisation mechanics with ill-posed to well-posed transitions.",
+      "Interface opening was suppressed during nucleation by limiting normal pressure reductions to 80% of initial values.",
+      "The spectral study examined signal amplitude attenuation while neglecting phase offset analysis.",
+      "Physical length scales cannot be determined experimentally if the slip event's frequency content falls below the critical frequency."
+    ],
+    "main_results": [
+      "Mesh convergence in dynamic finite-element sliding simulations was successfully achieved without bulk or numerical damping by using Prakash-Clifton friction regularisation.",
+      "A convergence map in the space of characteristic length (L) versus interface node density (nd) demonstrated that smaller regularisation lengths require increasingly fine mesh discretisation.",
+      "Identified a critical characteristic length (Lc = 10^-5 m for the analyzed system) below which the choice of L does not affect the local slip velocity, rupture front propagation, or steady rupture velocity.",
+      "Demonstrated via spectral analysis that the Prakash-Clifton regularisation behaves as a low-pass filter, attenuating high-frequency contact disturbances and eliminating spurious high-frequency oscillations.",
+      "Established that the domain of influence of friction regularisation is bounded by the regularisation length and the spectral frequency content of the slip event; frequencies below the critical frequency propagate effectively under Coulomb friction.",
+      "Formulated a four-step experimental guideline to verify whether monitored slip events contain sufficient high-frequency energy to extract true physical interface length scales."
+    ],
+    "modeling_methods": [
+      "Finite-element method (FEM) with two-dimensional regular quadrilateral elements and linear interpolation (four integration points)",
+      "Explicit Newmark-beta time integration scheme with lumped mass matrix",
+      "Simplified Prakash-Clifton dynamic friction regularisation law",
+      "Laplace-transform-based steady-state frequency response / spectral analysis"
+    ],
+    "performance_metrics": [
+      "Mesh convergence criteria (relative error over total propagation distance below 0.5% and arrival time error below 0.1%)",
+      "Slip velocity amplitude and temporal profile",
+      "Rupture front velocity Vr",
+      "Critical characteristic length scale Lc",
+      "Output-to-input amplitude attenuation ratio A/A0"
+    ],
+    "possible_gap_implications": [
+      "In mechanical modeling of dynamic contact and friction (relevant to soft grippers, continuum robots, and flexible structures), numerical regularisation length scales must be calibrated against the system's operational frequency spectrum to avoid unphysical damping of slip dynamics.",
+      "Experimental mechanics studies aiming to characterize interfacial frictional properties and contact mechanics must utilize high-frequency dynamic sensing and sharp transient excitation to resolve micro-scale interface length parameters."
+    ],
+    "research_objective": "To investigate the influence of the simplified Prakash-Clifton friction regularisation on dynamic slip propagation at a deformable-rigid interface, establish mesh convergence requirements without bulk damping, demonstrate the existence of a critical regularisation length scale, and explain its behavior through spectral filter analysis.",
+    "research_problem": "Coulomb's friction law causes numerical instability and lack of mesh convergence in dynamic simulations of sliding interfaces, while interface regularisations introduce characteristic length scales whose mechanical influence on slip propagation and numerical convergence are not fully understood.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "The existence of a critical length scale in regularised friction",
+    "year": "2014"
+  }
+}
