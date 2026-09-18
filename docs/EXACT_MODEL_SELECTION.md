@@ -1,6 +1,6 @@
 # Exact Model Selection — Comparison of the Two Candidate Reduced Models
 
-> **Purpose.** This document compares the two remaining candidate reduced/continuum models (M) for the locked research premise P1. It is **not yet the final model-selection decision**. The comparison is restricted to locally verified full-text evidence already present in this repository.
+> **Purpose.** This document compares the two remaining candidate reduced/continuum models \(M\) for the locked research premise P1. It is **not yet the final model-selection decision**. The comparison is restricted to locally verified full-text evidence already present in this repository.
 >
 > **Current P1:** For one specified reduced/continuum vacuum-layer-jamming beam model under quasi-static planar bending, define output-specific predeclared model-form acceptance tolerances and determine experimentally validated validity/breakdown boundaries against an interface-resolving/full-layer reference, while explicitly accounting for vacuum-pressure-controlled normal contact, friction/slip evolution, and, where necessary, pressure redistribution or layer separation.
 
@@ -10,8 +10,8 @@
 
 | Label | Candidate model | DOI | paper_id | Evidence status |
 |---|---|---|---|---|
-| **M1** | Zhang et al., *A continuum-based model for a layer jamming beam* | `10.5194/ms-16-821-2025` | `95646b2cfc` | **VERIFIED FULL TEXT** |
-| **M2** | Zhang et al., *Continuum modeling for layer jamming structures* | `10.1016/j.taml.2025.100633` | `a792efc445` | **VERIFIED FULL TEXT** |
+| **M1** | Zhang et al., *A continuum-based model for a layer jamming beam* | \`10.5194/ms-16-821-2025\` | \`95646b2cfc\` | **VERIFIED FULL TEXT** |
+| **M2** | Zhang et al., *Continuum modeling for layer jamming structures* | \`10.1016/j.taml.2025.100633\` | \`a792efc445\` | **VERIFIED FULL TEXT** |
 
 ### Core conceptual distinction
 
@@ -20,15 +20,19 @@
 
 Therefore the two models operate at different modeling levels:
 
-[
-	ext{M2: micro/RVE} ightarrow 	ext{macroscopic constitutive law}
-]
+$$
+\text{M2: micro/RVE}
+\rightarrow
+\text{macroscopic constitutive law}
+$$
 
 versus
 
-[
-	ext{M1: continuum beam mechanics} ightarrow 	ext{structural response}
-]
+$$
+\text{M1: continuum beam mechanics}
+\rightarrow
+\text{structural response}
+$$
 
 This difference is central to the final selection.
 
@@ -44,25 +48,32 @@ The model uses Euler–Bernoulli-type beam mechanics together with a continuum d
 
 A verified shear-stress field is
 
-[
-	au(y,Q)=rac{3}{2}rac{Q}{A}left(1-rac{4y^2}{h^2}ight)
-]
+$$
+\tau(y,Q)
+=
+\frac{3}{2}\frac{Q}{A}
+\left(
+1-\frac{4y^2}{h^2}
+\right)
+$$
 
-where (Q) is internal shear force, (A=bh) is section area, (h) is total beam height, and (y) is the through-thickness coordinate.
+where \(Q\) is internal shear force, \(A=bh\) is section area, \(h\) is total beam height, and \(y\) is the through-thickness coordinate.
 
 The Coulomb slip limit is governed by
 
-[
-|	au|=mu p
-]
+$$
+|\tau|=\mu p
+$$
 
 and the verified slip-initiation shear-force threshold is
 
-[
-Q_{mathrm{slip}}=rac{2}{3}mu p A.
-]
+$$
+Q_{\mathrm{slip}}
+=
+\frac{2}{3}\mu p A
+$$
 
-A cross-sectional boundary (y_s) separates jammed and sliding regions. The model then derives stress distributions and internal resultants (N,Q,M), and integrates the structural equations to obtain beam deformation.
+A cross-sectional boundary \(y_s\) separates jammed and sliding regions. The model then derives stress distributions and internal resultants \(N,Q,M\), and integrates the structural equations to obtain beam deformation.
 
 The model assumes, among other things:
 
@@ -75,11 +86,11 @@ The model assumes, among other things:
 
 **Interpretation:** M1 already contains the structural mapping
 
-[
-{p,mu,	ext{geometry},	ext{load}}
-ightarrow
-{	ext{slip state},	ext{stress field},	ext{deflection}}.
-]
+$$
+\{p,\mu,\text{geometry},\text{load}\}
+\rightarrow
+\{\text{slip state},\text{stress field},\text{deflection}\}
+$$
 
 ### M2 — RVE / average-field constitutive model
 
@@ -87,56 +98,59 @@ M2 begins at the layer/interface scale and performs explicit homogenization.
 
 Macroscopic stress is defined by volume averaging:
 
-[
-oldsymbol{Sigma}
+$$
+\boldsymbol{\Sigma}
 =
-rac{1}{V}
-int_V
-oldsymbol{sigma},dV.
-]
+\frac{1}{V}
+\int_V
+\boldsymbol{\sigma}\,dV
+$$
 
 The macroscopic displacement gradient is obtained from a boundary-surface average:
 
-[
+$$
 D_{ij}
 =
-rac{1}{V}
-int_{partial V}
-u_i n_j,dS.
-]
+\frac{1}{V}
+\int_{\partial V}
+u_i n_j\,dS
+$$
 
 The microscopic layer is linearly elastic:
 
-[
-oldsymbol{sigma}
+$$
+\boldsymbol{\sigma}
 =
-lambda_L,mathrm{tr}(oldsymbol{arepsilon})mathbf I
+\lambda_L
+\operatorname{tr}(\boldsymbol{\varepsilon})
+\mathbf{I}
 +
-2Goldsymbol{arepsilon}.
-]
+2G\boldsymbol{\varepsilon}
+$$
 
 The verified interlayer slip/yield criterion is
 
-[
-f(oldsymbol{Sigma})
+$$
+f(\boldsymbol{\Sigma})
 =
-sqrt{sigma_{13}^2+sigma_{23}^2}
+\sqrt{\sigma_{13}^2+\sigma_{23}^2}
 -
-mu(p-sigma_{33})
-=0.
-]
+\mu(p-\sigma_{33})
+=
+0
+$$
 
 After yielding, the formulation uses an elastoplastic stress-update framework with a plastic multiplier and a tangent constitutive operator.
 
 **Interpretation:** M2 supplies a macroscopic constitutive relation
 
-[
-doldsymbol{Sigma}
+$$
+d\boldsymbol{\Sigma}
 =
-mathbf C^{ep}
+\mathbf{C}^{ep}
 :
-dmathbf E
-]
+d\mathbf{E}
+$$
 
 derived from a discrete RVE with frictional contact.
 
@@ -146,13 +160,13 @@ derived from a discrete RVE with frictional contact.
 
 | Input category | M1 — continuum beam | M2 — homogenized RVE |
 |---|---|---|
-| Vacuum/confining pressure | (p) | (p) |
-| Friction | (mu) | (mu) |
-| Elastic properties | primarily (E) and beam/layer properties | Lamé constants (lambda_L,G), equivalently elastic constants |
-| Layer geometry | total (h), width (b), layer thickness / count through continuum assumption and validation cases | RVE spanning two layer thicknesses; layer thickness enters the RVE |
+| Vacuum/confining pressure | \(p\) | \(p\) |
+| Friction | \(\mu\) | \(\mu\) |
+| Elastic properties | primarily \(E\) and beam/layer properties | Lamé constants \(\lambda_L,G\), equivalently elastic constants |
+| Layer geometry | total \(h\), width \(b\), layer thickness / count through continuum assumption and validation cases | RVE spanning two layer thicknesses; layer thickness enters the RVE |
 | Layer count | relevant to whether continuum assumption is valid; explicit finite-layer FEA comparisons exist | not an explicit macroscopic state variable; represents an effectively periodic/infinite stack |
 | Structural geometry | beam length, section geometry, support configuration | no complete beam geometry is required at constitutive-material level |
-| Loading | transverse beam loading / internal (N,Q,M) | arbitrary prescribed macroscopic strain/loading path |
+| Loading | transverse beam loading / internal \(N,Q,M\) | arbitrary prescribed macroscopic strain/loading path |
 | Deformation mode | planar beam bending | multiaxial shear/normal loading |
 
 ### Important consequence
@@ -169,11 +183,11 @@ M2 must first be embedded into a structural beam/shell/solid solver before it ca
 
 Verified outputs include:
 
-- internal shear stress (	au(y,s));
-- normal stress (sigma(y,s));
-- jammed/sliding boundary (y_s);
+- internal shear stress \(\tau(y,s)\);
+- normal stress \(\sigma(y,s)\);
+- jammed/sliding boundary \(y_s\);
 - critical shear-force thresholds for slip regimes;
-- internal (N,Q,M);
+- internal \(N,Q,M\);
 - cantilever/load–deflection response;
 - beam deformation under the tested structural configurations.
 
@@ -184,7 +198,7 @@ The paper also compares continuum predictions with finite-layer FEA and physical
 Verified outputs include:
 
 - macroscopic stress tensor and increments;
-- macroscopic elastoplastic tangent stiffness (mathbf C^{ep});
+- macroscopic elastoplastic tangent stiffness \(\mathbf{C}^{ep}\);
 - interlayer/plastic sliding displacement variables;
 - yield/slip surface evolution;
 - elastic strain-energy density;
@@ -214,9 +228,9 @@ Important assumptions/omissions supported by the verified source include:
 
 This creates a direct candidate breakdown problem for P1:
 
-[
-	ext{When does the continuum beam approximation cease to match a finite-layer/contact-resolved beam?}
-]
+$$
+\text{When does the continuum beam approximation cease to match a finite-layer/contact-resolved beam?}
+$$
 
 ### M2 — what is homogenized
 
@@ -229,7 +243,7 @@ The source assumes:
 3. approximately constant stress/strain state within the discrete RVE under that approximation;
 4. small contact displacement before sliding;
 5. hydrostatic vacuum pressure represented as a constant initial stress state;
-6. ideal Coulomb friction with constant (mu);
+6. ideal Coulomb friction with constant \(\mu\);
 7. periodic RVE behavior.
 
 The verified evidence identifies or implies missing physics such as:
@@ -244,9 +258,9 @@ The verified evidence identifies or implies missing physics such as:
 
 This creates a different breakdown problem:
 
-[
-	ext{When does an ideal periodic RVE constitutive law cease to represent a finite vacuum-jammed structure?}
-]
+$$
+\text{When does an ideal periodic RVE constitutive law cease to represent a finite vacuum-jammed structure?}
+$$
 
 ---
 
@@ -256,23 +270,23 @@ This creates a different breakdown problem:
 
 **Yes, likely with moderate complexity.**
 
-The governing variables are beam-scale quantities and the analytical formulation is already expressed in terms of (N,Q,M), stress fields, slip boundary (y_s), and beam deformation.
+The governing variables are beam-scale quantities and the analytical formulation is already expressed in terms of \(N,Q,M\), stress fields, slip boundary \(y_s\), and beam deformation.
 
 A plausible independent implementation architecture is:
 
-[
-	ext{load increment}
-ightarrow
+$$
+\text{load increment}
+\rightarrow
 Q(s),M(s)
-ightarrow
+\rightarrow
 y_s(s)
-ightarrow
-sigma,	au
-ightarrow
-kappa(s)
-ightarrow
-w(s).
-]
+\rightarrow
+\sigma,\tau
+\rightarrow
+\kappa(s)
+\rightarrow
+w(s)
+$$
 
 A MATLAB or Python implementation would require reconstruction and verification of the paper's equations and incremental algorithm, but no evidence in the repository is being interpreted here as proof that the authors supply reusable code.
 
@@ -284,20 +298,20 @@ A MATLAB or Python implementation would require reconstruction and verification 
 
 At material-point level the workflow would resemble:
 
-[
-dmathbf E
-ightarrow
-oldsymbol{Sigma}^{trial}
-ightarrow
-f(oldsymbol{Sigma}^{trial})
-ightarrow
-egin{cases}
-	ext{elastic update}, & f<0\
-	ext{plastic/slip return}, & fge 0
-end{cases}
-ightarrow
-mathbf C^{ep}.
-]
+$$
+d\mathbf{E}
+\rightarrow
+\boldsymbol{\Sigma}^{\mathrm{trial}}
+\rightarrow
+f(\boldsymbol{\Sigma}^{\mathrm{trial}})
+\rightarrow
+\begin{cases}
+\text{elastic update}, & f<0 \\
+\text{plastic/slip return}, & f\ge 0
+\end{cases}
+\rightarrow
+\mathbf{C}^{ep}
+$$
 
 This can be coded in MATLAB/Python as a constitutive-point solver. But to obtain the beam-level outputs required by P1, the constitutive model must then be coupled to a structural discretization such as:
 
@@ -320,8 +334,8 @@ The paper's own future-work/gap discussion supports the need to move from consti
 The verified corpus provides several suitable reference routes:
 
 1. the M1 paper itself compares its continuum prediction with finite-layer FEA for 10- and 25-layer cantilevers;
-2. Caruso et al. (2023), `paper_id 652e62758f`, retains discrete interlayer slip states and provides a natural analytical/discrete benchmark;
-3. an explicit finite-layer frictional-contact FEA can serve as the full-layer reference (R).
+2. Caruso et al. (2023), \`paper_id 652e62758f\`, retains discrete interlayer slip states and provides a natural analytical/discrete benchmark;
+3. an explicit finite-layer frictional-contact FEA can serve as the full-layer reference \(R\).
 
 For P1, the exact reference still needs to be frozen, but M1 already has a very direct structural reduced-vs-discrete comparison path.
 
@@ -339,15 +353,15 @@ Therefore there is an interface-resolved numerical reference for the **constitut
 
 However, the verified source explicitly lacks structural-level physical experimental validation. To use M2 for P1, a second bridge is needed:
 
-[
-	ext{RVE constitutive model}
-ightarrow
-	ext{beam implementation}
-ightarrow
-	ext{full finite-layer beam reference}
-ightarrow
-	ext{experiment}.
-]
+$$
+\text{RVE constitutive model}
+\rightarrow
+\text{beam implementation}
+\rightarrow
+\text{full finite-layer beam reference}
+\rightarrow
+\text{experiment}
+$$
 
 That bridge is substantially larger than for M1.
 
@@ -361,7 +375,7 @@ The verified evidence already identifies several plausible axes:
 
 - finite/small layer count versus continuum limit;
 - layer thickness;
-- vacuum pressure (p);
+- vacuum pressure \(p\);
 - applied shear force / bending load;
 - curvature / large deformation;
 - proximity to full slip;
@@ -373,9 +387,14 @@ The paper itself reports finite-layer FEA differences, end/boundary discrepancie
 
 This is highly compatible with a P1-style map
 
-[
-e=e(n,p,kappa,	ext{load},	ext{boundary condition},ldots).
-]
+$$
+e
+=
+e
+\left(
+n,p,\kappa,\text{load},\text{boundary condition},\ldots
+\right)
+$$
 
 ### M2 — likely breakdown dimensions
 
@@ -389,7 +408,7 @@ Plausible breakdown axes supported by the verified assumptions/limitations inclu
 - membrane/sheath coupling;
 - pressure redistribution;
 - separation/lift-off;
-- departure from ideal constant-(mu) Coulomb friction;
+- departure from ideal constant-\(\mu\) Coulomb friction;
 - structural loading paths not represented by the ideal RVE assumptions.
 
 M2 therefore also has a rich validity problem, but the validity boundary would initially concern the **constitutive homogenization** and only later the full beam.
@@ -425,19 +444,19 @@ The thesis question becomes structurally direct:
 
 Typical outputs could be:
 
-- deflection (w);
-- bending stiffness (K);
+- deflection \(w\);
+- bending stiffness \(K\);
 - transition/slip load;
-- slip-zone extent (y_s);
+- slip-zone extent \(y_s\);
 - possibly dissipated energy if the chosen implementation supports cyclic loading.
 
 The central reduction being tested is:
 
-[
-	ext{finite discrete layered beam}
-ightarrow
-	ext{continuous beam/slip-zone representation}.
-]
+$$
+\text{finite discrete layered beam}
+\rightarrow
+\text{continuous beam/slip-zone representation}
+$$
 
 ## If M2 is selected
 
@@ -456,11 +475,11 @@ Typical outputs could be:
 
 The central reduction being tested is:
 
-[
-	ext{explicit interface RVE}
-ightarrow
-	ext{homogenized elastoplastic constitutive law}.
-]
+$$
+\text{explicit interface RVE}
+\rightarrow
+\text{homogenized elastoplastic constitutive law}
+$$
 
 This is a more fundamental homogenization study, but it creates an additional implementation and structural-validation layer before reaching the current beam-focused P1.
 
@@ -473,7 +492,7 @@ Based only on the verified repository evidence:
 - **M1 is structurally closer to the current P1.** It already operates at beam scale, already exposes slip-zone and load–deflection quantities, already has finite-layer FEA and physical beam comparison, and naturally permits a reduced-vs-full-layer validity map.
 - **M2 is constitutively deeper and more general.** It has the stronger formal homogenization foundation and handles multiaxial stress states, but it is a material-point/RVE model rather than a complete beam solver and currently lacks physical structural validation in the source.
 
-This is **not yet a final model selection**. Before locking (M), the next decision should explicitly choose which scientific object the thesis wants to validate:
+This is **not yet a final model selection**. Before locking \(M\), the next decision should explicitly choose which scientific object the thesis wants to validate:
 
 1. **beam-scale reduction validity** → favors the M1 research architecture;
 2. **RVE-to-continuum homogenization validity** → favors the M2 research architecture.
@@ -486,12 +505,12 @@ The current P1 wording is beam-focused, so changing from M1 to M2 would require 
 
 The model-selection step is complete only when the following four entries are frozen:
 
-```text
+\`\`\`text
 REDUCED MODEL M = ...
 REFERENCE MODEL R = ...
 PRIMARY OUTPUTS = ...
 PRIMARY BREAKDOWN VARIABLES = ...
-```
+\`\`\`
 
 For either candidate, the following must then be defined **before validation errors are inspected**:
 
@@ -507,11 +526,11 @@ For either candidate, the following must then be defined **before validation err
 
 This comparison uses the following locally verified records:
 
-- `data/evidence/2025-A continuum-based model for a layer jamming beam_95646b2cfc.json`
-- `data/evidence/2025-Continuum modeling for layer jamming structures_a792efc445.json`
-- `docs/LAYER_JAMMING_MODEL_COMPARISON.md`
-- `outputs/verification/D1-V002/adversarial_evidence_synthesis.md`
-- `outputs/verification/D1-V003/ZHANG_2025_DEEPER_UNDERSTANDING_AUDIT.md`
-- `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json`
+- \`data/evidence/2025-A continuum-based model for a layer jamming beam_95646b2cfc.json\`
+- \`data/evidence/2025-Continuum modeling for layer jamming structures_a792efc445.json\`
+- \`docs/LAYER_JAMMING_MODEL_COMPARISON.md\`
+- \`outputs/verification/D1-V002/adversarial_evidence_synthesis.md\`
+- \`outputs/verification/D1-V003/ZHANG_2025_DEEPER_UNDERSTANDING_AUDIT.md\`
+- \`outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json\`
 
 **Evidence rule:** claims above that concern paper mechanics, assumptions, validation, or limitations are grounded in the verified full-text evidence already extracted in the repository. Statements about implementation architecture or suitability for P1 are explicit synthesis/inference from those verified records, not claims attributed to the original authors.
