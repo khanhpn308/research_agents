@@ -585,9 +585,15 @@ invalidate the surviving P1.
 
 IMPORTANT:
 
-Two previously identified high-threat papers are still unavailable:
+One previously identified high-threat paper is now available in the
+D1-V006 verified full-text evidence bundle and MUST be audited like the
+other included papers:
 
-- DOI 10.1002/eqe.4128
+- DOI 10.1002/eqe.4128 — A novel friction model for steel-polymer
+  interfaces in sliding seismic isolation bearings.
+
+One previously identified high-threat paper is still unavailable:
+
 - DOI 10.1061/JSENDH.STENG-13096
 
 Therefore final_project_novelty_verdict_allowed MUST remain false in
