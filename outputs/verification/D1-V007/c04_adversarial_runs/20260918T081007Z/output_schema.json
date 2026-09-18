@@ -1,0 +1,428 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "current_p1",
+    "executive_summary",
+    "citation_closure",
+    "paper_audits",
+    "four_link_chain_audit",
+    "kill_test",
+    "strongest_threats",
+    "surviving_gap",
+    "stop_search_decision",
+    "final_novelty_lock_allowed",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIED",
+        "SURVIVES_REVISED_SCOPE",
+        "FORWARD_CITATION_BRANCH_CLOSED_NO_KILL",
+        "INCONCLUSIVE_MISSING_TARGET"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "current_p1": {
+      "type": "string"
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "citation_closure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "focal_paper_id",
+        "focal_paper_title",
+        "expected_current_forward_citations",
+        "audited_forward_citations",
+        "all_current_forward_citations_audited",
+        "target_doi_10_1061_present_in_current_round",
+        "missing_named_targets",
+        "closure_statement"
+      ],
+      "properties": {
+        "focal_paper_id": {
+          "type": "string"
+        },
+        "focal_paper_title": {
+          "type": "string"
+        },
+        "expected_current_forward_citations": {
+          "type": "integer"
+        },
+        "audited_forward_citations": {
+          "type": "integer"
+        },
+        "all_current_forward_citations_audited": {
+          "type": "boolean"
+        },
+        "target_doi_10_1061_present_in_current_round": {
+          "type": "boolean"
+        },
+        "missing_named_targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "closure_statement": {
+          "type": "string"
+        }
+      }
+    },
+    "paper_audits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "title",
+          "evidence_status",
+          "citation_role",
+          "threat_to_p1",
+          "uses_focal_mechanical_model",
+          "pressure_or_preload_role",
+          "friction_or_slip_role",
+          "continuum_or_reduced_model",
+          "discrete_or_interface_resolved_reference",
+          "quantitative_model_form_error",
+          "predeclared_acceptance_tolerance",
+          "tolerance_defined_validity_boundary",
+          "experiment_crosses_boundary",
+          "vacuum_layer_jamming_transferability",
+          "what_it_proves",
+          "what_it_does_not_prove"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "VERIFIED_FULL_TEXT",
+              "INFERENCE"
+            ]
+          },
+          "citation_role": {
+            "type": "string",
+            "enum": [
+              "direct_mechanical_extension",
+              "adjacent_method_extension",
+              "application_or_context_citation",
+              "other"
+            ]
+          },
+          "threat_to_p1": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          },
+          "uses_focal_mechanical_model": {
+            "type": "boolean"
+          },
+          "pressure_or_preload_role": {
+            "type": "string"
+          },
+          "friction_or_slip_role": {
+            "type": "string"
+          },
+          "continuum_or_reduced_model": {
+            "type": "string"
+          },
+          "discrete_or_interface_resolved_reference": {
+            "type": "string"
+          },
+          "quantitative_model_form_error": {
+            "type": "string"
+          },
+          "predeclared_acceptance_tolerance": {
+            "type": "string"
+          },
+          "tolerance_defined_validity_boundary": {
+            "type": "string"
+          },
+          "experiment_crosses_boundary": {
+            "type": "string"
+          },
+          "vacuum_layer_jamming_transferability": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "partial",
+              "weak",
+              "not_demonstrated"
+            ]
+          },
+          "what_it_proves": {
+            "type": "string"
+          },
+          "what_it_does_not_prove": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "four_link_chain_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pressure_preload_to_friction_slip",
+        "friction_slip_to_continuum_discrete_discrepancy",
+        "discrepancy_to_predeclared_tolerance",
+        "tolerance_to_experimentally_validated_breakdown_boundary",
+        "vacuum_to_contact_pressure_mapping",
+        "layer_separation_or_pressure_redistribution",
+        "chain_complete",
+        "chain_assessment"
+      ],
+      "properties": {
+        "pressure_preload_to_friction_slip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "friction_slip_to_continuum_discrete_discrepancy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "discrepancy_to_predeclared_tolerance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "tolerance_to_experimentally_validated_breakdown_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "vacuum_to_contact_pressure_mapping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "layer_separation_or_pressure_redistribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supported",
+            "evidence"
+          ],
+          "properties": {
+            "supported": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          }
+        },
+        "chain_complete": {
+          "type": "boolean"
+        },
+        "chain_assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "kill_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pressure_or_preload_controls_contact",
+        "friction_or_slip_is_explicit",
+        "named_reduced_or_continuum_model",
+        "interface_resolved_or_discrete_reference",
+        "quantitative_model_form_error",
+        "predeclared_acceptance_tolerance",
+        "tolerance_defined_breakdown_boundary",
+        "experiment_tests_both_sides_of_boundary",
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics",
+        "kill_condition_met",
+        "evidence_summary"
+      ],
+      "properties": {
+        "pressure_or_preload_controls_contact": {
+          "type": "boolean"
+        },
+        "friction_or_slip_is_explicit": {
+          "type": "boolean"
+        },
+        "named_reduced_or_continuum_model": {
+          "type": "boolean"
+        },
+        "interface_resolved_or_discrete_reference": {
+          "type": "boolean"
+        },
+        "quantitative_model_form_error": {
+          "type": "boolean"
+        },
+        "predeclared_acceptance_tolerance": {
+          "type": "boolean"
+        },
+        "tolerance_defined_breakdown_boundary": {
+          "type": "boolean"
+        },
+        "experiment_tests_both_sides_of_boundary": {
+          "type": "boolean"
+        },
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics": {
+          "type": "boolean"
+        },
+        "kill_condition_met": {
+          "type": "boolean"
+        },
+        "evidence_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "strongest_threats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "threat",
+          "why_it_matters",
+          "remaining_gap"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "threat": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          },
+          "why_it_matters": {
+            "type": "string"
+          },
+          "remaining_gap": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "surviving_gap": {
+      "type": "string"
+    },
+    "stop_search_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "focal_forward_citation_branch_closed",
+        "target_doi_audit_complete",
+        "additional_high_threat_named_target_remaining",
+        "stop_broad_search",
+        "decision_rationale"
+      ],
+      "properties": {
+        "focal_forward_citation_branch_closed": {
+          "type": "boolean"
+        },
+        "target_doi_audit_complete": {
+          "type": "boolean"
+        },
+        "additional_high_threat_named_target_remaining": {
+          "type": "boolean"
+        },
+        "stop_broad_search": {
+          "type": "boolean"
+        },
+        "decision_rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "final_novelty_lock_allowed": {
+      "type": "boolean"
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}
