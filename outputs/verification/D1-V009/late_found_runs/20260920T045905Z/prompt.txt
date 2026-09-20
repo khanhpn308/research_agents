@@ -1,0 +1,792 @@
+
+You are performing D1-V009, a POST-LOCK LATE-FOUND ADJACENT-MECHANICS
+adversarial audit for an MSc research project on vacuum layer jamming.
+
+This is a FALSIFICATION task. Do not defend the current project.
+
+Use ONLY the supplied source bundle for scientific claims. The target
+paper evidence was extracted from a locally held full-text PDF. Do not
+invent equations, experiments, DOI metadata, thresholds, chronology, or
+transferability.
+
+CURRENT SURVIVING P1
+
+For one specified reduced/continuum vacuum-layer-jamming beam model
+under quasi-static planar bending, define output-specific PREDECLARED
+model-form acceptance tolerances and determine experimentally validated
+validity/breakdown boundaries against an interface-resolving/full-layer
+reference, while explicitly accounting for vacuum-pressure-controlled
+normal contact, friction/slip evolution, and, where necessary, pressure
+redistribution or layer separation.
+
+The prior D1-V008 audit allowed a provisional final novelty lock and
+stopped broad searching. D1-V009 exists because a relevant older paper
+was discovered after that stop condition.
+
+Do NOT assume the lock survives. Test it.
+
+TARGET ROLE
+
+The target is Adhikary, Mühlhaus, and Dyskin (1999),
+"Modelling the large deformations in stratified media—the Cosserat
+continuum approach."
+
+Audit whether it establishes:
+- an equivalent or smeared continuum for layered media;
+- generalized/Cosserat kinematics;
+- bending stiffness via couple stresses;
+- large deformation;
+- elastic/plastic frictional interface slip;
+- interface opening/separation;
+- finite-element implementation;
+- quantitative verification.
+
+These are questions, not assumptions.
+
+STRICT SEMANTIC GUARDRAILS
+
+1. PREDECLARED means fixed before the relevant validation/model-error
+   results were inspected, with that temporal ordering supported by the
+   supplied evidence.
+
+2. An observed percentage error is NOT automatically a predeclared
+   acceptance tolerance.
+
+3. A physical threshold such as buckling onset, yielding, opening,
+   delamination, or a load fraction at which geometric nonlinearity
+   becomes important is NOT automatically a tolerance-defined
+   model-form validity boundary.
+
+4. Agreement between a continuum FE model and an analytical limiting
+   solution is verification of that formulation/case. It is NOT
+   automatically a reduced-continuum-versus-explicit-interface
+   model-form error study.
+
+5. Prior experimental photographs or external experiments cited for
+   physical context are NOT automatically experiments validating the
+   proposed continuum model.
+
+6. Do NOT call a parameter sweep a finite-layer/discreteness validity
+   sweep unless it actually varies the relevant discreteness or a
+   parameter used to test reduced-model validity against a stronger
+   reference.
+
+7. Do NOT infer direct transferability to vacuum layer jamming merely
+   because Coulomb or Mohr-Coulomb friction appears.
+
+PRIMARY QUESTIONS
+
+A. What mechanics precedent does the paper establish?
+B. Which broad novelty claims are no longer safe after considering it?
+C. Does it contain an interface-resolving/discrete reference against
+   which its continuum approximation is quantitatively benchmarked?
+D. Does it compute model-form error over layer count/discreteness,
+   pressure/preload, deformation, or another governing parameter?
+E. Does it use an output-specific PREDECLARED acceptance tolerance to
+   classify a validity domain?
+F. Does it experimentally test points intentionally chosen on both
+   accepted and rejected sides of that tolerance-defined boundary?
+G. Does its interface/contact law transfer to vacuum layer jamming
+   without materially new mechanics for vacuum-generated normal contact,
+   pressure redistribution, friction/slip evolution, and possible
+   separation?
+H. Does it name a concrete high-threat source requiring targeted audit?
+
+KILL CONDITION
+
+A kill requires the supplied evidence to establish:
+- named reduced/continuum layered model;
+- interface-resolving/discrete reference;
+- quantitative model-form discrepancy;
+- finite parameter/discreteness sweep relevant to validity;
+- predeclared output-specific acceptance tolerance;
+- tolerance-defined validity/breakdown boundary;
+- experiment intentionally sampling both sides of that boundary;
+- transferability to vacuum layer jamming without materially new contact
+  mechanics.
+
+If the complete chain is not established, kill_condition_met MUST be
+false.
+
+STATUS RULES
+
+FALSIFIES_FINAL_P1:
+The target closes the substantive surviving contribution.
+
+SUBSTANTIALLY_NARROWS_FINAL_P1:
+The target removes a major piece of the surviving contribution or
+requires a material scope/title/RQ revision, but does not fully kill it.
+
+SURVIVES_LATE_FOUND_TARGET:
+The target is important theoretical precedent but final P1 remains
+materially intact.
+
+INCONCLUSIVE:
+The supplied evidence is insufficient to decide.
+
+SEARCH DECISION
+
+Do NOT reopen broad searching merely because the target has a long
+reference list. Set targeted_followup_required=true only when a concrete
+named source or specific unresolved evidentiary issue is identified.
+
+SOURCE BUNDLE
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json
+SHA256: b888cfe083888aa0b2859ee97046f60e2c4d505cc4882f258fd29e305f28cd3a
+ROLE: PRIOR_D1_V008_FINAL_AUDIT
+====================================================================================================
+
+{
+  "status": "SURVIVES_FINAL_TARGET",
+  "confidence": "high",
+  "current_p1": "For one specified reduced/continuum vacuum-layer-jamming beam model under quasi-static planar bending, define output-specific predeclared model-form acceptance tolerances and determine experimentally validated validity/breakdown boundaries against an interface-resolving/full-layer reference, while explicitly accounting for vacuum-pressure-controlled normal contact, friction/slip evolution, and, where necessary, pressure redistribution or layer separation.",
+  "target_identity": {
+    "doi": "10.1061/JSENDH.STENG-13096",
+    "paper_id": "53d328abaa",
+    "title": "Analytical Solution for Bending Deformation of Steel–Concrete Composite Beams Considering Nonlinear Interfacial Slip",
+    "verified_full_text": true
+  },
+  "executive_summary": "The final named target is a high-threat adjacent mechanics paper because it provides a closed-form Euler–Bernoulli composite-beam model with an explicit nonlinear interfacial load–slip law, comparison with four experimental beams, a three-dimensional finite-element model with discrete stud elements, and an applicability statement at L/H>=10. It does not falsify P1. Its slip is governed by headed-stud connector behavior rather than vacuum-pressure-controlled Coulomb contact; interface friction, uplift, pressure redistribution, and separation are neglected. The reported 3%, 5%, less-than-8%, 0.02 mm, and 20% quantities are observed discrepancies or sensitivity results, not predeclared acceptance tolerances. The L/H>=10 statement is an applicability limit associated with omission of shear deformation, not a tolerance-defined model-form boundary experimentally tested on both sides. Together with C04, the strict kill chain remains incomplete. Because the prior forward-citation branch is closed, the expected DOI has now been audited from verified full text, and the supplied evidence names no additional concrete high-threat target capable of completing the missing chain, broad searching should stop and provisional final novelty lock is allowed.",
+  "target_audit": {
+    "explicit_nonlinear_interfacial_slip": true,
+    "pressure_or_preload_controls_contact_state": false,
+    "named_reduced_or_continuum_model": true,
+    "interface_resolved_or_discrete_reference": true,
+    "quantitative_model_form_error": false,
+    "predeclared_acceptance_tolerance": false,
+    "predeclared_tolerance_evidence": "not established",
+    "tolerance_defined_breakdown_boundary": false,
+    "experiments_intentionally_cross_boundary": false,
+    "vacuum_specific_contact_mechanics": false,
+    "transferable_to_vacuum_layer_jamming_without_new_mechanics": false,
+    "threat_to_p1": "high",
+    "what_it_proves": "A closed-form Euler–Bernoulli analytical model can represent nonlinear longitudinal slip in a two-component steel–concrete composite beam through an energy-based headed-stud load–slip relation, reproduce selected serviceability experiments, and expose sensitivity to omitted transverse shear at low L/H.",
+    "what_it_does_not_prove": "It does not establish vacuum-pressure-controlled normal contact, a distributed interlayer pressure field, Coulomb stick/partial-slip/gross-slip evolution, many-layer contact, pressure redistribution, lift-off or separation, a jamming-appropriate full-layer reference, a predeclared model-form tolerance, or experiments deliberately crossing a tolerance-defined validity boundary."
+  },
+  "observed_error_interpretation": {
+    "analytical_deflection_3_percent": "Observed analytical-model-versus-experiment disagreement under serviceability loading; it is not established as a predeclared model-form acceptance tolerance and is not reduced-versus-interface-resolved model-form error.",
+    "fe_deflection_5_percent": "Observed finite-element-versus-experiment disagreement; it is not a predeclared tolerance and does not quantify reduced-model-versus-FE model-form discrepancy.",
+    "bending_strain_8_percent": "Observed prediction-versus-experiment discrepancy; it is not established as a predeclared acceptance criterion or a reduced-versus-interface-resolved model-form error.",
+    "slip_difference_0_02_mm": "Observed maximum prediction-versus-experiment slip difference under lower loading; it is not a predeclared acceptance tolerance or a model-form breakdown criterion.",
+    "lh5_deflection_effect_20_percent": "A numerical sensitivity result attributed to transverse shear deformation omitted from the Euler–Bernoulli derivation. It is a known-omitted-mechanism comparison, not automatically the required reduced-versus-interface-resolved model-form error and not a predeclared tolerance.",
+    "are_any_predeclared_acceptance_tolerances": false,
+    "assessment": "The supplied evidence reports several quantitative discrepancies and effects, but none has the required temporal evidence showing that an acceptance threshold was fixed before validation or error inspection. None establishes the output-specific, predeclared reduced-model-versus-interface-resolved error criterion required by P1."
+  },
+  "lh_boundary_analysis": {
+    "lh_ge_10_statement_present": true,
+    "boundary_type": "physical_assumption_limit",
+    "source_basis": "The analytical derivation neglects transverse shear under Euler–Bernoulli theory. A numerical sensitivity study over L/H=5–20 reports an approximately 20% deflection effect at L/H=5, and the paper consequently states applicability to relatively slender beams with L/H>=10. This supports an assumption-based applicability limit, with a post-hoc recommendation character, rather than a tolerance-defined model-form boundary.",
+    "derived_from_predeclared_model_form_tolerance": false,
+    "validated_by_experiments_on_both_sides": false,
+    "relevance_to_p1": "It illustrates how an omitted mechanism can delimit an analytical beam model, but it does not supply P1's boundary because no a priori model-form tolerance is established and experiments are not shown to intentionally sample accepted and rejected sides."
+  },
+  "kill_test": {
+    "pressure_or_preload_controls_contact": true,
+    "friction_or_slip_is_explicit": true,
+    "named_reduced_or_continuum_model": true,
+    "interface_resolved_or_discrete_reference": true,
+    "quantitative_model_form_error": true,
+    "predeclared_acceptance_tolerance": false,
+    "tolerance_defined_breakdown_boundary": false,
+    "experiment_tests_both_sides_of_boundary": false,
+    "transferable_to_vacuum_layer_jamming_without_new_mechanics": false,
+    "kill_condition_met": false,
+    "evidence_summary": "Across the target and authoritative C04 evidence, the literature collectively contains pressure/preload-sensitive contact analogues, explicit friction or slip, reduced/continuum models, discrete references, and quantitative model-form comparisons. The target adds a nonlinear headed-stud slip model and an assumption-based L/H applicability limit but does not repair the decisive gaps. No supplied source establishes an a priori physical model-form acceptance tolerance; therefore no boundary is defined by such a predeclared tolerance, and no experiment intentionally tests both sides of it. Transfer also requires materially new vacuum-to-contact-pressure, many-layer Coulomb-contact, pressure-redistribution, and separation mechanics."
+  },
+  "new_named_threats": [],
+  "stop_search_decision": {
+    "prior_forward_citation_branch_closed": true,
+    "target_doi_audit_complete": true,
+    "additional_high_threat_named_target_remaining": false,
+    "broad_search_should_stop": true,
+    "final_novelty_lock_allowed": true,
+    "decision_rationale": "C04 authoritatively closed the current focal forward-citation branch. D1-V008 contains the expected paper_id and DOI and supplies verified-full-text evidence, completing the final named-target audit. The kill condition remains false, and the target supplies no specifically identified new paper with a concrete prospect of satisfying the missing predeclaration, boundary-crossing experiment, and vacuum-transfer links. The documented search protocol has therefore reached its stop condition; this permits provisional thesis-execution lock, not an absolute claim that no overlapping paper can ever exist."
+  },
+  "final_surviving_contribution": "For one specified reduced/continuum vacuum-layer-jamming beam model in quasi-static planar bending, predeclare output-specific model-form acceptance tolerances and experimentally map accepted and rejected regions against an interface-resolving/full-layer reference that represents vacuum-generated normal-pressure fields, Coulomb slip evolution, and, where relevant, pressure redistribution and layer separation.",
+  "recommended_next_action": "Stop broad literature searching, freeze P1 provisionally, and move to thesis execution: select and name the reduced model and full-layer reference, pre-register output-specific tolerances before inspecting validation errors, define the parameter space, and design independent experiments that intentionally sample both predicted-valid and predicted-invalid regions.",
+  "_provenance": {
+    "run_id": "20260918T084134Z",
+    "created_at_utc": "2026-09-18T08:42:29.633390+00:00",
+    "verification_id": "D1-V008",
+    "target_doi": "10.1061/JSENDH.STENG-13096",
+    "target_paper_id": "53d328abaa",
+    "evidence_bundle_sha256": "16ad90f9782ffebd411486f4b97b610da29989f811a2697c36ba902037e4220b",
+    "model": "gpt-5.6-sol",
+    "effort": "high"
+  }
+}
+
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md
+SHA256: 0c3a8ddc186edd1884ce9329f5a2053a55198087d2df269234d83503149bc0ac
+ROLE: PREDECLARED_TOLERANCE_SEMANTIC_GUARDRAIL
+====================================================================================================
+
+# D1-V007 C04 semantic correction
+
+## Scope
+
+This note records a semantic correction discovered during review of the
+current canonical C04 adversarial audit.
+
+## Correction
+
+The verified focal-paper evidence for paper_id `ca46dc062d` establishes
+that the paper uses an explicit/adopted 5% maximum-displacement-error
+threshold to define permissible deformation/rotation limits against a
+discrete-contact reference.
+
+However, the supplied evidence does **not** establish that this 5%
+threshold was **predeclared a priori** before the relevant validation or
+model-form error results were examined.
+
+Therefore, until the audit is rerun with the corrected prompt semantics:
+
+- do not treat `kill_test.predeclared_acceptance_tolerance = true` in
+  the previous canonical C04 output as established;
+- do not treat
+  `four_link_chain_audit.discrepancy_to_predeclared_tolerance.supported = true`
+  as established;
+- interpret the focal paper as supporting an **explicit/adopted
+  applicability threshold**, not a verified predeclared acceptance
+  tolerance.
+
+## Expected rerun interpretation
+
+Unless another supplied verified-full-text source explicitly establishes
+that the acceptance tolerance was fixed before validation/error
+inspection, the corrected C04 run should set:
+
+```text
+kill_test.predeclared_acceptance_tolerance = false
+
+four_link_chain_audit.discrepancy_to_predeclared_tolerance.supported = false
+```
+
+This correction does not reverse the current overall falsification
+result. The prior run already had:
+
+```text
+experiment_tests_both_sides_of_boundary = false
+transferable_to_vacuum_layer_jamming_without_new_mechanics = false
+kill_condition_met = false
+```
+
+The correction therefore strengthens the surviving-gap interpretation
+rather than changing the current no-kill conclusion.
+
+## Required next action
+
+Pull the updated audit script and rerun C04 with `--force` so that the
+canonical JSON/Markdown outputs and provenance reflect the corrected
+definition of **predeclared**.
+
+After the rerun, the only remaining targeted literature action is the
+named DOI:
+
+`10.1061/JSENDH.STENG-13096`
+
+Broad literature searching should remain stopped unless that targeted
+audit reveals a new specifically named high-threat branch.
+
+
+
+====================================================================================================
+SOURCE: docs/D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md
+SHA256: 25dd679749a9a164a3297e0aeb773f5e818835c553d8b276da7c0d9a3149c574
+ROLE: D1_V009_AUDIT_PROTOCOL
+====================================================================================================
+
+# D1-V009 — Late-Found Adjacent-Mechanics Audit Plan
+
+> **Status:** SETUP ONLY — target paper not yet registered/ingested in the repository
+> **Purpose:** audit one high-relevance paper found after the D1-V008 provisional novelty lock without rewriting prior rounds.
+
+## Target
+
+Adhikary, D. P.; Mühlhaus, H.-B.; Dyskin, A. V. (1999).
+
+**Title:** *Modelling the large deformations in stratified media—the Cosserat continuum approach*
+
+**Journal:** *Mechanics of Cohesive-Frictional Materials*, 4, 195–213.
+
+This is a late-found adjacent-mechanics source. It is not a vacuum layer-jamming paper, but it is highly relevant because it develops an equivalent continuum for layered media with layer bending stiffness, large deformation, frictional/sliding interfaces, and possible interface opening.
+
+## Why D1-V009 instead of rewriting earlier rounds?
+
+The paper was discovered after D1-V008 reached its stopping condition. Preserve provenance:
+
+    D1-V008
+    → provisional novelty lock
+    → late-found relevant source
+    → D1-V009 independent post-lock audit
+
+Do not retroactively insert this paper into C01/C02/C03 and then treat it as if it had been part of those original decisions.
+
+## Current surviving P1 to attack
+
+> For one specified reduced/continuum vacuum-layer-jamming beam model under quasi-static planar bending, define output-specific predeclared model-form acceptance tolerances and determine experimentally validated validity/breakdown boundaries against an interface-resolving/full-layer reference, while explicitly accounting for vacuum-pressure-controlled normal contact, friction/slip evolution, and, where necessary, pressure redistribution or layer separation.
+
+## Primary falsification question
+
+Does Adhikary et al. (1999) already establish enough of the reduced/continuum-versus-discrete validity framework to falsify or materially narrow the final P1?
+
+The audit must distinguish mechanics lineage/theoretical precedent from the specific surviving scientific contribution.
+
+## Mandatory mechanics overlap audit
+
+Explicitly determine whether the paper establishes:
+
+- equivalent/smeared continuum treatment of layered media;
+- generalized/Cosserat continuum mechanics;
+- layer bending stiffness represented through couple stresses/internal rotations;
+- large-deformation formulation;
+- elastic or elastoplastic interface behavior;
+- Coulomb / Mohr–Coulomb slip criterion;
+- interface opening or separation;
+- finite-element implementation;
+- quantitative analytical or experimental validation.
+
+## Mandatory kill-chain audit
+
+Test the paper against:
+
+    named reduced / continuum model
+    → interface-resolving or discrete reference
+    → quantitative model-form discrepancy
+    → finite parameter / layer-discreteness sweep
+    → PREDECLARED output-specific acceptance tolerance
+    → tolerance-defined validity / breakdown boundary
+    → experiment intentionally sampling both sides of that boundary
+    → transfer to vacuum layer jamming without materially new mechanics
+
+A kill requires the complete relevant chain, not merely sophisticated continuum mechanics.
+
+## Semantic guardrails
+
+1. Observed error is not a predeclared tolerance unless the source establishes that the criterion was fixed before the validation/error result was inspected.
+2. Buckling, yielding, opening, delamination, or a load fraction at which geometric nonlinearity matters are physical/assumption transitions, not automatically tolerance-defined model-validity boundaries.
+3. Matching an Euler buckling solution is useful verification, but is not automatically a reduced-continuum-versus-explicit-interface error study.
+4. Prior experiments cited for context are not automatically validation experiments of the proposed continuum model.
+
+## Possible outcomes
+
+- FALSIFIES_FINAL_P1
+- SUBSTANTIALLY_NARROWS_FINAL_P1
+- SURVIVES_LATE_FOUND_TARGET
+- INCONCLUSIVE
+
+## Local execution order after pulling
+
+Use the actual local path to the PDF:
+
+    python -m app.ingestion.add_paper "/path/to/Adhikary_1999.pdf" \
+      --type verification \
+      --verification-id D1-V009 \
+      --reason "Late-found adjacent-mechanics target: equivalent/Cosserat continuum for layered media with large deformation, frictional slip, bending stiffness and interface opening. Post-lock audit against final P1."
+
+Then screen it:
+
+    python -m app.ingestion.screen_paper \
+      --id <PAPER_ID> \
+      --decision include \
+      --reason "High-relevance post-lock adjacent-mechanics source for continuum layered media, frictional slip, large deformation and interface separation; include for D1-V009 falsification audit."
+
+Then:
+
+    python -m app.ingestion.ingest_papers --limit 1
+    python -m app.ingestion.validate_evidence
+    python -m app.ingestion.build_verification_matrix --verification-id D1-V009
+    python -m app.ingestion.d1_v009_late_found_adjacent_audit --prepare-only
+    python -m app.ingestion.d1_v009_late_found_adjacent_audit
+
+Use --force only when deliberately replacing an existing canonical D1-V009 audit.
+
+## Expected canonical outputs
+
+    outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.json
+    outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md
+    outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT_raw.json
+    outputs/verification/D1-V009/late_found_runs/<timestamp>/
+
+## Post-audit decision rule
+
+- FALSIFIES_FINAL_P1 → reopen research architecture.
+- SUBSTANTIALLY_NARROWS_FINAL_P1 → revise P1/title/RQ before implementation.
+- SURVIVES_LATE_FOUND_TARGET → retain the provisional lock, but incorporate Adhikary 1999 into the theoretical lineage and literature review.
+- INCONCLUSIVE → perform only the targeted follow-up identified by the audit; do not automatically reopen broad searching.
+
+
+
+====================================================================================================
+SOURCE: outputs/verification/D1-V009/verification_matrix.json
+SHA256: c3fcde1131039130bbaeca8a0884b814023fea6a3c6a7883ac1ec5b8a7aa44d1
+ROLE: CURRENT_D1_V009_MATRIX
+====================================================================================================
+
+{
+  "schema_version": 1,
+  "verification_id": "D1-V009",
+  "created_at": "2026-09-20T04:58:51.533137+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 1,
+  "papers": [
+    {
+      "paper_id": "d75a3e82bc",
+      "filename": "Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "D1-V009",
+      "screening_status": "included",
+      "screening_reason": "High-relevance post-lock adjacent-mechanics source for continuum layered media, frictional slip, large deformation and interface separation; include for D1-V009 falsification audit.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation_d75a3e82bc.json",
+      "evidence": {
+        "source": {
+          "paper_id": "d75a3e82bc",
+          "filename": "Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation.pdf",
+          "sha256": "d75a3e82bc5a373bb44d8e6238341438910aa6ffa1cbcc03c4b7b2cc85c0a5fb",
+          "page_count": 19,
+          "char_count": 35886,
+          "source_type": "verification",
+          "verification_id": "D1-V009"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 24638,
+          "completion_tokens": 8295,
+          "total_tokens": 32933,
+          "thinking_tokens": 6024,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "D. P. Adhikary",
+            "H.-B. Mühlhaus",
+            "A. V. Dyskin"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Intact material within layers is linearly elastic, isotropic, with uniform thickness and identical mechanical properties across all layers.",
+            "Layer interfaces exhibit two distinct response regimes: elastically connected with normal stiffness (kn) and shear stiffness (ks), or disconnected with frictional sliding and opening.",
+            "Interface sliding is governed by a Mohr-Coulomb yield condition with tension cut-off at zero normal stress.",
+            "Plastic flow along interfaces is non-associated with a plastic potential governed solely by shear stress, implying zero plastic dilatancy.",
+            "Geometric non-linearity associated with curvatures and couple stresses is neglected in the virtual work formulation, consistent with engineering beam and plate buckling theories.",
+            "Statistical homogeneity and consistency in joint properties and layer spacing are assumed across the equivalent continuum.",
+            "Plane strain conditions are assumed for the two-dimensional formulation."
+          ],
+          "control_variables": [
+            "Total height of layered package in verification benchmark: 5 m, consisting of ten layers each of 0.1 m thickness.",
+            "Verification layer elastic properties: Young's modulus E = 100 MPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, flexural rigidity EI = 8.88 kNm^2.",
+            "High joint normal stiffness relative to layer stiffness (kn / h >> E) in verification analyses.",
+            "Excavation geometry: rectangular underground excavation, half-domain discretized utilizing symmetry.",
+            "Excavation layer material properties: Young's modulus E = 50 GPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, unit weight gamma = 20 kN/m^3.",
+            "Joint stiffness for rigid-perfectly plastic excavation model: normal and shear stiffness kn = ks = 10^15 kN/m^2.",
+            "Newton-Raphson displacement convergence tolerance set at 10^-4.",
+            "Incremental loading step size of 0.03 kPa vertical stress per increment for the column benchmark.",
+            "Small horizontal perturbation load applied to initiate column buckling."
+          ],
+          "dependent_variables": [
+            "Critical buckling stress / load (Euler critical load).",
+            "Transverse displacement and normalized displacement distribution along beam height.",
+            "Vertical displacements at the center of the excavation roof and floor.",
+            "Displacement vector fields and deformed mesh geometry.",
+            "Normalized horizontal stress distribution at Gauss points along the excavation centerline.",
+            "Joint plasticity state / yield condition (elastic, shear yield, or tensile delamination).",
+            "Numerical convergence of critical load with respect to mesh refinement."
+          ],
+          "doi": "",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Incorporating layer bending stiffness via Cosserat continuum theory (introducing couple stresses and independent rotational degrees of freedom) prevents numerical ill-conditioning and enables equivalent continuum modeling of buckling and slip in layered media without resolving individual layers.",
+              "evidence_type": "theoretical / numerical",
+              "page_numbers": [
+                1,
+                2,
+                14
+              ]
+            },
+            {
+              "claim": "Small deformation formulations significantly underestimate transverse roof and floor deflections when compressive axial loads exceed approximately 50% of the critical buckling load.",
+              "evidence_type": "numerical",
+              "page_numbers": [
+                12,
+                13,
+                15,
+                17
+              ]
+            },
+            {
+              "claim": "Interlayer shear stiffness governs system buckling capacity, transitioning the structural response between the lower bound of completely unbonded, sliding layers and the upper bound of a monolithic structure.",
+              "evidence_type": "numerical",
+              "page_numbers": [
+                9,
+                11
+              ]
+            },
+            {
+              "claim": "Higher interlayer friction angles enhance the effective load-bearing capacity and raise the critical buckling stress of stratified media.",
+              "evidence_type": "numerical",
+              "page_numbers": [
+                16,
+                17
+              ]
+            },
+            {
+              "claim": "A large-deformation Cosserat finite element formulation accurately captures analytical Euler buckling loads and first eigen-deflection shapes across various boundary conditions (built-in, hinged, clamped-free).",
+              "evidence_type": "numerical",
+              "page_numbers": [
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ],
+          "experimental_setup": [],
+          "future_work": [],
+          "independent_variables": [
+            "Boundary constraint types (built-in bottom with top vertical load, hinged ends, and built-in ends).",
+            "Interlayer joint shear stiffness (ks, varied from zero to infinitely large).",
+            "Joint friction angle (phi = 20 degrees and 30 degrees).",
+            "Magnitude of applied compressive load / in situ stress.",
+            "Finite element mesh refinement (discretization using 52, 104, 416, 624, and 832 elements).",
+            "Bending stiffness inclusion vs. suppression (B1 > 0 vs. B1 = 0).",
+            "Kinematic formulation type (small deformation vs. large deformation incremental formulation)."
+          ],
+          "limitations_inferred": [
+            "No physical experiments were conducted by the authors; comparisons are restricted to analytical Euler solutions and qualitative visual observations from published literature.",
+            "The model assumes uniform layer thickness and identical elastic constants, not accounting for heterogeneous layers, alternating stiffness laminates, or cross-joint fracturing.",
+            "Post-peak softening, progressive interface damage, and joint dilatancy effects are not incorporated in the interface plasticity model.",
+            "Homogenization as an equivalent Cosserat continuum requires layer thickness to be substantially smaller than problem dimensions, limiting applicability when layers are thick relative to structure size."
+          ],
+          "limitations_stated_by_authors": [
+            "Geometric non-linearities associated with curvatures and couple stresses are neglected in the incremental virtual work expression.",
+            "The model is restricted to layered media with elastic layers of equal mechanical properties and equal thickness.",
+            "Continuum validity requires consistency and statistical homogeneity in joint properties and spacing.",
+            "The primary formulation in the text is restricted to two-dimensional plane strain conditions.",
+            "Certain higher-order rotation-strain coupling terms in the angular momentum balance equation (Eq. 13) were dropped as they showed no noticeable influence on computed results in the studied applications."
+          ],
+          "main_results": [
+            "The finite element implementation in AFENA accurately reproduced theoretical Euler buckling critical stresses (8.77 kPa, 35.08 kPa, and 140.32 kPa) for non-interacting layered packages under three boundary conditions, with error around 1.5% and deflection profiles matching analytical eigen-modes.",
+            "Varying joint shear stiffness showed a smooth transition in critical Euler stress from the lower limit of non-interacting layers (8.90 kPa computed vs. 8.77 kPa analytical) to the upper limit of fully bonded monolithic beam behavior (889 kPa computed vs. 877 kPa analytical).",
+            "In the underground excavation application, floor buckling preceded roof buckling due to the vertical asymmetry of the opening geometry.",
+            "Small deformation theory significantly underestimated excavation roof and floor displacements at high stress levels, though results were comparable to large deformation theory below 50% of the critical buckling load.",
+            "Setting layer bending stiffness to zero (B1 = 0, standard anisotropic continuum) caused immediate numerical instability and ill-conditioning upon layer separation under small loads, demonstrating that Cosserat couple stresses are essential for modeling layered buckling.",
+            "Higher joint friction angles increased the effective composite strength, leading to higher critical buckling loads.",
+            "Normalized horizontal stresses at the excavation floor reached up to 1.4 times the single-beam clamped Euler stress, accompanied by localized joint delamination in tension and shear yielding near the excavation surface."
+          ],
+          "modeling_methods": [
+            "Cosserat continuum theory (micropolar continuum) incorporating local rigid cross rotations and couple/moment stresses conjugate to curvature.",
+            "Large deformation continuum formulation using multiplicative decomposition of deformation gradient via Cosserat triad rotation tensor.",
+            "Incremental virtual work formulation accounting for geometric non-linear stiffness contributions.",
+            "Smeared / equivalent continuum approach representing layered media with implicit interface compliance and bending stiffness.",
+            "Elasto-plastic / rigid-perfectly plastic Mohr-Coulomb joint model with tension cut-off and non-associated plastic flow.",
+            "Finite element implementation in AFENA using 8-noded isoparametric quadrilateral elements with complete quadratic polynomials plus monomial terms (x^2*y and xy^2) for translational and rotational fields.",
+            "3x3 Gauss spatial integration quadrature for Cosserat element domain.",
+            "Full tangential stiffness matrix formulation solved via Newton-Raphson iteration."
+          ],
+          "performance_metrics": [
+            "Percentage difference between numerical critical buckling stresses and analytical Euler buckling solutions.",
+            "Conformity of normalized displacement profiles with analytical beam eigen-deflection functions.",
+            "Convergence rate of critical buckling load with increasing finite element mesh density.",
+            "Displacement divergence between small-deformation and large-deformation formulations across loading increments."
+          ],
+          "possible_gap_implications": [
+            "While applied in this paper to rock mechanics, the large-deformation Cosserat continuum framework accounting for layer bending stiffness, frictional sliding, and delamination could be transferred to model layered flexible structures, layer-jamming variable-stiffness devices, or continuum robots with multi-layer sheaths undergoing large transverse deflections.",
+            "The failure of standard anisotropic continua (matrix ill-conditioning upon layer separation) underscores the necessity of micropolar / couple stress mechanics when simulating friction-laminated compliant mechanisms where layers detach or buckle."
+          ],
+          "research_objective": "To formulate an incremental large-deformation Cosserat continuum theory for layered media incorporating layer bending stiffness and Mohr-Coulomb interface plasticity with tension cut-off, implement it into the finite element code AFENA, validate it against analytical Euler buckling benchmarks, and apply it to roof and floor buckling in underground excavations in jointed rock masses under high horizontal in situ stresses.",
+          "research_problem": "Conventional implicit continuum models based on anisotropic elasticity fail when applied to layered media undergoing slip and internal instabilities/buckling because they lack layer bending stiffness, leading to numerical ill-conditioning; moreover, existing Cosserat formulations for layered media were limited to infinitesimal deformations, while discrete joint modeling is computationally prohibitive when joint spacing is small relative to the domain dimensions.",
+          "robot_type": "",
+          "stiffness_mechanism": [],
+          "title": "Modelling the large deformations in stratified media—the Cosserat continuum approach",
+          "year": "1999"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "c11dedf8e3b67f58df89731ad01ad7755dd12df5e6956b29d697d80a2cffdfcd"
+}
+
+
+====================================================================================================
+SOURCE: data/evidence/Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation_d75a3e82bc.json
+SHA256: c95d5c7de50a1368564efc847fffa5e634fe011f18583065cf2b385f86241678
+ROLE: TARGET_VERIFIED_FULL_TEXT_EVIDENCE
+====================================================================================================
+
+{
+  "source": {
+    "paper_id": "d75a3e82bc",
+    "filename": "Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation.pdf",
+    "sha256": "d75a3e82bc5a373bb44d8e6238341438910aa6ffa1cbcc03c4b7b2cc85c0a5fb",
+    "page_count": 19,
+    "char_count": 35886,
+    "source_type": "verification",
+    "verification_id": "D1-V009"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24638,
+    "completion_tokens": 8295,
+    "total_tokens": 32933,
+    "thinking_tokens": 6024,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "D. P. Adhikary",
+      "H.-B. Mühlhaus",
+      "A. V. Dyskin"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Intact material within layers is linearly elastic, isotropic, with uniform thickness and identical mechanical properties across all layers.",
+      "Layer interfaces exhibit two distinct response regimes: elastically connected with normal stiffness (kn) and shear stiffness (ks), or disconnected with frictional sliding and opening.",
+      "Interface sliding is governed by a Mohr-Coulomb yield condition with tension cut-off at zero normal stress.",
+      "Plastic flow along interfaces is non-associated with a plastic potential governed solely by shear stress, implying zero plastic dilatancy.",
+      "Geometric non-linearity associated with curvatures and couple stresses is neglected in the virtual work formulation, consistent with engineering beam and plate buckling theories.",
+      "Statistical homogeneity and consistency in joint properties and layer spacing are assumed across the equivalent continuum.",
+      "Plane strain conditions are assumed for the two-dimensional formulation."
+    ],
+    "control_variables": [
+      "Total height of layered package in verification benchmark: 5 m, consisting of ten layers each of 0.1 m thickness.",
+      "Verification layer elastic properties: Young's modulus E = 100 MPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, flexural rigidity EI = 8.88 kNm^2.",
+      "High joint normal stiffness relative to layer stiffness (kn / h >> E) in verification analyses.",
+      "Excavation geometry: rectangular underground excavation, half-domain discretized utilizing symmetry.",
+      "Excavation layer material properties: Young's modulus E = 50 GPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, unit weight gamma = 20 kN/m^3.",
+      "Joint stiffness for rigid-perfectly plastic excavation model: normal and shear stiffness kn = ks = 10^15 kN/m^2.",
+      "Newton-Raphson displacement convergence tolerance set at 10^-4.",
+      "Incremental loading step size of 0.03 kPa vertical stress per increment for the column benchmark.",
+      "Small horizontal perturbation load applied to initiate column buckling."
+    ],
+    "dependent_variables": [
+      "Critical buckling stress / load (Euler critical load).",
+      "Transverse displacement and normalized displacement distribution along beam height.",
+      "Vertical displacements at the center of the excavation roof and floor.",
+      "Displacement vector fields and deformed mesh geometry.",
+      "Normalized horizontal stress distribution at Gauss points along the excavation centerline.",
+      "Joint plasticity state / yield condition (elastic, shear yield, or tensile delamination).",
+      "Numerical convergence of critical load with respect to mesh refinement."
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Incorporating layer bending stiffness via Cosserat continuum theory (introducing couple stresses and independent rotational degrees of freedom) prevents numerical ill-conditioning and enables equivalent continuum modeling of buckling and slip in layered media without resolving individual layers.",
+        "evidence_type": "theoretical / numerical",
+        "page_numbers": [
+          1,
+          2,
+          14
+        ]
+      },
+      {
+        "claim": "Small deformation formulations significantly underestimate transverse roof and floor deflections when compressive axial loads exceed approximately 50% of the critical buckling load.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          12,
+          13,
+          15,
+          17
+        ]
+      },
+      {
+        "claim": "Interlayer shear stiffness governs system buckling capacity, transitioning the structural response between the lower bound of completely unbonded, sliding layers and the upper bound of a monolithic structure.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Higher interlayer friction angles enhance the effective load-bearing capacity and raise the critical buckling stress of stratified media.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "A large-deformation Cosserat finite element formulation accurately captures analytical Euler buckling loads and first eigen-deflection shapes across various boundary conditions (built-in, hinged, clamped-free).",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Boundary constraint types (built-in bottom with top vertical load, hinged ends, and built-in ends).",
+      "Interlayer joint shear stiffness (ks, varied from zero to infinitely large).",
+      "Joint friction angle (phi = 20 degrees and 30 degrees).",
+      "Magnitude of applied compressive load / in situ stress.",
+      "Finite element mesh refinement (discretization using 52, 104, 416, 624, and 832 elements).",
+      "Bending stiffness inclusion vs. suppression (B1 > 0 vs. B1 = 0).",
+      "Kinematic formulation type (small deformation vs. large deformation incremental formulation)."
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted by the authors; comparisons are restricted to analytical Euler solutions and qualitative visual observations from published literature.",
+      "The model assumes uniform layer thickness and identical elastic constants, not accounting for heterogeneous layers, alternating stiffness laminates, or cross-joint fracturing.",
+      "Post-peak softening, progressive interface damage, and joint dilatancy effects are not incorporated in the interface plasticity model.",
+      "Homogenization as an equivalent Cosserat continuum requires layer thickness to be substantially smaller than problem dimensions, limiting applicability when layers are thick relative to structure size."
+    ],
+    "limitations_stated_by_authors": [
+      "Geometric non-linearities associated with curvatures and couple stresses are neglected in the incremental virtual work expression.",
+      "The model is restricted to layered media with elastic layers of equal mechanical properties and equal thickness.",
+      "Continuum validity requires consistency and statistical homogeneity in joint properties and spacing.",
+      "The primary formulation in the text is restricted to two-dimensional plane strain conditions.",
+      "Certain higher-order rotation-strain coupling terms in the angular momentum balance equation (Eq. 13) were dropped as they showed no noticeable influence on computed results in the studied applications."
+    ],
+    "main_results": [
+      "The finite element implementation in AFENA accurately reproduced theoretical Euler buckling critical stresses (8.77 kPa, 35.08 kPa, and 140.32 kPa) for non-interacting layered packages under three boundary conditions, with error around 1.5% and deflection profiles matching analytical eigen-modes.",
+      "Varying joint shear stiffness showed a smooth transition in critical Euler stress from the lower limit of non-interacting layers (8.90 kPa computed vs. 8.77 kPa analytical) to the upper limit of fully bonded monolithic beam behavior (889 kPa computed vs. 877 kPa analytical).",
+      "In the underground excavation application, floor buckling preceded roof buckling due to the vertical asymmetry of the opening geometry.",
+      "Small deformation theory significantly underestimated excavation roof and floor displacements at high stress levels, though results were comparable to large deformation theory below 50% of the critical buckling load.",
+      "Setting layer bending stiffness to zero (B1 = 0, standard anisotropic continuum) caused immediate numerical instability and ill-conditioning upon layer separation under small loads, demonstrating that Cosserat couple stresses are essential for modeling layered buckling.",
+      "Higher joint friction angles increased the effective composite strength, leading to higher critical buckling loads.",
+      "Normalized horizontal stresses at the excavation floor reached up to 1.4 times the single-beam clamped Euler stress, accompanied by localized joint delamination in tension and shear yielding near the excavation surface."
+    ],
+    "modeling_methods": [
+      "Cosserat continuum theory (micropolar continuum) incorporating local rigid cross rotations and couple/moment stresses conjugate to curvature.",
+      "Large deformation continuum formulation using multiplicative decomposition of deformation gradient via Cosserat triad rotation tensor.",
+      "Incremental virtual work formulation accounting for geometric non-linear stiffness contributions.",
+      "Smeared / equivalent continuum approach representing layered media with implicit interface compliance and bending stiffness.",
+      "Elasto-plastic / rigid-perfectly plastic Mohr-Coulomb joint model with tension cut-off and non-associated plastic flow.",
+      "Finite element implementation in AFENA using 8-noded isoparametric quadrilateral elements with complete quadratic polynomials plus monomial terms (x^2*y and xy^2) for translational and rotational fields.",
+      "3x3 Gauss spatial integration quadrature for Cosserat element domain.",
+      "Full tangential stiffness matrix formulation solved via Newton-Raphson iteration."
+    ],
+    "performance_metrics": [
+      "Percentage difference between numerical critical buckling stresses and analytical Euler buckling solutions.",
+      "Conformity of normalized displacement profiles with analytical beam eigen-deflection functions.",
+      "Convergence rate of critical buckling load with increasing finite element mesh density.",
+      "Displacement divergence between small-deformation and large-deformation formulations across loading increments."
+    ],
+    "possible_gap_implications": [
+      "While applied in this paper to rock mechanics, the large-deformation Cosserat continuum framework accounting for layer bending stiffness, frictional sliding, and delamination could be transferred to model layered flexible structures, layer-jamming variable-stiffness devices, or continuum robots with multi-layer sheaths undergoing large transverse deflections.",
+      "The failure of standard anisotropic continua (matrix ill-conditioning upon layer separation) underscores the necessity of micropolar / couple stress mechanics when simulating friction-laminated compliant mechanisms where layers detach or buckle."
+    ],
+    "research_objective": "To formulate an incremental large-deformation Cosserat continuum theory for layered media incorporating layer bending stiffness and Mohr-Coulomb interface plasticity with tension cut-off, implement it into the finite element code AFENA, validate it against analytical Euler buckling benchmarks, and apply it to roof and floor buckling in underground excavations in jointed rock masses under high horizontal in situ stresses.",
+    "research_problem": "Conventional implicit continuum models based on anisotropic elasticity fail when applied to layered media undergoing slip and internal instabilities/buckling because they lack layer bending stiffness, leading to numerical ill-conditioning; moreover, existing Cosserat formulations for layered media were limited to infinitesimal deformations, while discrete joint modeling is computationally prohibitive when joint spacing is small relative to the domain dimensions.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Modelling the large deformations in stratified media—the Cosserat continuum approach",
+    "year": "1999"
+  }
+}
+

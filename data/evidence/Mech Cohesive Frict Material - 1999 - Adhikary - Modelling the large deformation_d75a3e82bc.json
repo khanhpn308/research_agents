@@ -1,0 +1,165 @@
+{
+  "source": {
+    "paper_id": "d75a3e82bc",
+    "filename": "Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation.pdf",
+    "sha256": "d75a3e82bc5a373bb44d8e6238341438910aa6ffa1cbcc03c4b7b2cc85c0a5fb",
+    "page_count": 19,
+    "char_count": 35886,
+    "source_type": "verification",
+    "verification_id": "D1-V009"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24638,
+    "completion_tokens": 8295,
+    "total_tokens": 32933,
+    "thinking_tokens": 6024,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "D. P. Adhikary",
+      "H.-B. Mühlhaus",
+      "A. V. Dyskin"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Intact material within layers is linearly elastic, isotropic, with uniform thickness and identical mechanical properties across all layers.",
+      "Layer interfaces exhibit two distinct response regimes: elastically connected with normal stiffness (kn) and shear stiffness (ks), or disconnected with frictional sliding and opening.",
+      "Interface sliding is governed by a Mohr-Coulomb yield condition with tension cut-off at zero normal stress.",
+      "Plastic flow along interfaces is non-associated with a plastic potential governed solely by shear stress, implying zero plastic dilatancy.",
+      "Geometric non-linearity associated with curvatures and couple stresses is neglected in the virtual work formulation, consistent with engineering beam and plate buckling theories.",
+      "Statistical homogeneity and consistency in joint properties and layer spacing are assumed across the equivalent continuum.",
+      "Plane strain conditions are assumed for the two-dimensional formulation."
+    ],
+    "control_variables": [
+      "Total height of layered package in verification benchmark: 5 m, consisting of ten layers each of 0.1 m thickness.",
+      "Verification layer elastic properties: Young's modulus E = 100 MPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, flexural rigidity EI = 8.88 kNm^2.",
+      "High joint normal stiffness relative to layer stiffness (kn / h >> E) in verification analyses.",
+      "Excavation geometry: rectangular underground excavation, half-domain discretized utilizing symmetry.",
+      "Excavation layer material properties: Young's modulus E = 50 GPa, Poisson's ratio nu = 0.25, layer thickness h = 0.1 m, unit weight gamma = 20 kN/m^3.",
+      "Joint stiffness for rigid-perfectly plastic excavation model: normal and shear stiffness kn = ks = 10^15 kN/m^2.",
+      "Newton-Raphson displacement convergence tolerance set at 10^-4.",
+      "Incremental loading step size of 0.03 kPa vertical stress per increment for the column benchmark.",
+      "Small horizontal perturbation load applied to initiate column buckling."
+    ],
+    "dependent_variables": [
+      "Critical buckling stress / load (Euler critical load).",
+      "Transverse displacement and normalized displacement distribution along beam height.",
+      "Vertical displacements at the center of the excavation roof and floor.",
+      "Displacement vector fields and deformed mesh geometry.",
+      "Normalized horizontal stress distribution at Gauss points along the excavation centerline.",
+      "Joint plasticity state / yield condition (elastic, shear yield, or tensile delamination).",
+      "Numerical convergence of critical load with respect to mesh refinement."
+    ],
+    "doi": "",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Incorporating layer bending stiffness via Cosserat continuum theory (introducing couple stresses and independent rotational degrees of freedom) prevents numerical ill-conditioning and enables equivalent continuum modeling of buckling and slip in layered media without resolving individual layers.",
+        "evidence_type": "theoretical / numerical",
+        "page_numbers": [
+          1,
+          2,
+          14
+        ]
+      },
+      {
+        "claim": "Small deformation formulations significantly underestimate transverse roof and floor deflections when compressive axial loads exceed approximately 50% of the critical buckling load.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          12,
+          13,
+          15,
+          17
+        ]
+      },
+      {
+        "claim": "Interlayer shear stiffness governs system buckling capacity, transitioning the structural response between the lower bound of completely unbonded, sliding layers and the upper bound of a monolithic structure.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Higher interlayer friction angles enhance the effective load-bearing capacity and raise the critical buckling stress of stratified media.",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          16,
+          17
+        ]
+      },
+      {
+        "claim": "A large-deformation Cosserat finite element formulation accurately captures analytical Euler buckling loads and first eigen-deflection shapes across various boundary conditions (built-in, hinged, clamped-free).",
+        "evidence_type": "numerical",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [],
+    "future_work": [],
+    "independent_variables": [
+      "Boundary constraint types (built-in bottom with top vertical load, hinged ends, and built-in ends).",
+      "Interlayer joint shear stiffness (ks, varied from zero to infinitely large).",
+      "Joint friction angle (phi = 20 degrees and 30 degrees).",
+      "Magnitude of applied compressive load / in situ stress.",
+      "Finite element mesh refinement (discretization using 52, 104, 416, 624, and 832 elements).",
+      "Bending stiffness inclusion vs. suppression (B1 > 0 vs. B1 = 0).",
+      "Kinematic formulation type (small deformation vs. large deformation incremental formulation)."
+    ],
+    "limitations_inferred": [
+      "No physical experiments were conducted by the authors; comparisons are restricted to analytical Euler solutions and qualitative visual observations from published literature.",
+      "The model assumes uniform layer thickness and identical elastic constants, not accounting for heterogeneous layers, alternating stiffness laminates, or cross-joint fracturing.",
+      "Post-peak softening, progressive interface damage, and joint dilatancy effects are not incorporated in the interface plasticity model.",
+      "Homogenization as an equivalent Cosserat continuum requires layer thickness to be substantially smaller than problem dimensions, limiting applicability when layers are thick relative to structure size."
+    ],
+    "limitations_stated_by_authors": [
+      "Geometric non-linearities associated with curvatures and couple stresses are neglected in the incremental virtual work expression.",
+      "The model is restricted to layered media with elastic layers of equal mechanical properties and equal thickness.",
+      "Continuum validity requires consistency and statistical homogeneity in joint properties and spacing.",
+      "The primary formulation in the text is restricted to two-dimensional plane strain conditions.",
+      "Certain higher-order rotation-strain coupling terms in the angular momentum balance equation (Eq. 13) were dropped as they showed no noticeable influence on computed results in the studied applications."
+    ],
+    "main_results": [
+      "The finite element implementation in AFENA accurately reproduced theoretical Euler buckling critical stresses (8.77 kPa, 35.08 kPa, and 140.32 kPa) for non-interacting layered packages under three boundary conditions, with error around 1.5% and deflection profiles matching analytical eigen-modes.",
+      "Varying joint shear stiffness showed a smooth transition in critical Euler stress from the lower limit of non-interacting layers (8.90 kPa computed vs. 8.77 kPa analytical) to the upper limit of fully bonded monolithic beam behavior (889 kPa computed vs. 877 kPa analytical).",
+      "In the underground excavation application, floor buckling preceded roof buckling due to the vertical asymmetry of the opening geometry.",
+      "Small deformation theory significantly underestimated excavation roof and floor displacements at high stress levels, though results were comparable to large deformation theory below 50% of the critical buckling load.",
+      "Setting layer bending stiffness to zero (B1 = 0, standard anisotropic continuum) caused immediate numerical instability and ill-conditioning upon layer separation under small loads, demonstrating that Cosserat couple stresses are essential for modeling layered buckling.",
+      "Higher joint friction angles increased the effective composite strength, leading to higher critical buckling loads.",
+      "Normalized horizontal stresses at the excavation floor reached up to 1.4 times the single-beam clamped Euler stress, accompanied by localized joint delamination in tension and shear yielding near the excavation surface."
+    ],
+    "modeling_methods": [
+      "Cosserat continuum theory (micropolar continuum) incorporating local rigid cross rotations and couple/moment stresses conjugate to curvature.",
+      "Large deformation continuum formulation using multiplicative decomposition of deformation gradient via Cosserat triad rotation tensor.",
+      "Incremental virtual work formulation accounting for geometric non-linear stiffness contributions.",
+      "Smeared / equivalent continuum approach representing layered media with implicit interface compliance and bending stiffness.",
+      "Elasto-plastic / rigid-perfectly plastic Mohr-Coulomb joint model with tension cut-off and non-associated plastic flow.",
+      "Finite element implementation in AFENA using 8-noded isoparametric quadrilateral elements with complete quadratic polynomials plus monomial terms (x^2*y and xy^2) for translational and rotational fields.",
+      "3x3 Gauss spatial integration quadrature for Cosserat element domain.",
+      "Full tangential stiffness matrix formulation solved via Newton-Raphson iteration."
+    ],
+    "performance_metrics": [
+      "Percentage difference between numerical critical buckling stresses and analytical Euler buckling solutions.",
+      "Conformity of normalized displacement profiles with analytical beam eigen-deflection functions.",
+      "Convergence rate of critical buckling load with increasing finite element mesh density.",
+      "Displacement divergence between small-deformation and large-deformation formulations across loading increments."
+    ],
+    "possible_gap_implications": [
+      "While applied in this paper to rock mechanics, the large-deformation Cosserat continuum framework accounting for layer bending stiffness, frictional sliding, and delamination could be transferred to model layered flexible structures, layer-jamming variable-stiffness devices, or continuum robots with multi-layer sheaths undergoing large transverse deflections.",
+      "The failure of standard anisotropic continua (matrix ill-conditioning upon layer separation) underscores the necessity of micropolar / couple stress mechanics when simulating friction-laminated compliant mechanisms where layers detach or buckle."
+    ],
+    "research_objective": "To formulate an incremental large-deformation Cosserat continuum theory for layered media incorporating layer bending stiffness and Mohr-Coulomb interface plasticity with tension cut-off, implement it into the finite element code AFENA, validate it against analytical Euler buckling benchmarks, and apply it to roof and floor buckling in underground excavations in jointed rock masses under high horizontal in situ stresses.",
+    "research_problem": "Conventional implicit continuum models based on anisotropic elasticity fail when applied to layered media undergoing slip and internal instabilities/buckling because they lack layer bending stiffness, leading to numerical ill-conditioning; moreover, existing Cosserat formulations for layered media were limited to infinitesimal deformations, while discrete joint modeling is computationally prohibitive when joint spacing is small relative to the domain dimensions.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Modelling the large deformations in stratified media—the Cosserat continuum approach",
+    "year": "1999"
+  }
+}

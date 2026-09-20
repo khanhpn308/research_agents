@@ -1,0 +1,278 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "current_p1",
+    "target_identity",
+    "executive_summary",
+    "mechanics_overlap",
+    "kill_test",
+    "what_it_proves",
+    "what_it_does_not_prove",
+    "effect_on_final_claims",
+    "new_named_threats",
+    "lock_decision",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIES_FINAL_P1",
+        "SUBSTANTIALLY_NARROWS_FINAL_P1",
+        "SURVIVES_LATE_FOUND_TARGET",
+        "INCONCLUSIVE"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "current_p1": {
+      "type": "string"
+    },
+    "target_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "paper_id",
+        "title",
+        "year",
+        "doi",
+        "verified_full_text"
+      ],
+      "properties": {
+        "paper_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "year": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ]
+        },
+        "doi": {
+          "type": "string"
+        },
+        "verified_full_text": {
+          "type": "boolean"
+        }
+      }
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "mechanics_overlap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "equivalent_or_smeared_continuum",
+        "cosserat_or_generalized_continuum",
+        "large_deformation",
+        "layer_bending_stiffness",
+        "frictional_or_plastic_interface_slip",
+        "interface_opening_or_separation",
+        "finite_element_implementation",
+        "quantitative_validation",
+        "assessment"
+      ],
+      "properties": {
+        "equivalent_or_smeared_continuum": {
+          "type": "boolean"
+        },
+        "cosserat_or_generalized_continuum": {
+          "type": "boolean"
+        },
+        "large_deformation": {
+          "type": "boolean"
+        },
+        "layer_bending_stiffness": {
+          "type": "boolean"
+        },
+        "frictional_or_plastic_interface_slip": {
+          "type": "boolean"
+        },
+        "interface_opening_or_separation": {
+          "type": "boolean"
+        },
+        "finite_element_implementation": {
+          "type": "boolean"
+        },
+        "quantitative_validation": {
+          "type": "boolean"
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "kill_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "named_reduced_or_continuum_model",
+        "interface_resolved_or_discrete_reference",
+        "quantitative_model_form_error",
+        "finite_parameter_or_discreteness_sweep",
+        "predeclared_acceptance_tolerance",
+        "tolerance_defined_breakdown_boundary",
+        "experiment_tests_both_sides_of_boundary",
+        "vacuum_specific_contact_mechanics",
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics",
+        "kill_condition_met",
+        "evidence_summary"
+      ],
+      "properties": {
+        "named_reduced_or_continuum_model": {
+          "type": "boolean"
+        },
+        "interface_resolved_or_discrete_reference": {
+          "type": "boolean"
+        },
+        "quantitative_model_form_error": {
+          "type": "boolean"
+        },
+        "finite_parameter_or_discreteness_sweep": {
+          "type": "boolean"
+        },
+        "predeclared_acceptance_tolerance": {
+          "type": "boolean"
+        },
+        "tolerance_defined_breakdown_boundary": {
+          "type": "boolean"
+        },
+        "experiment_tests_both_sides_of_boundary": {
+          "type": "boolean"
+        },
+        "vacuum_specific_contact_mechanics": {
+          "type": "boolean"
+        },
+        "transferable_to_vacuum_layer_jamming_without_new_mechanics": {
+          "type": "boolean"
+        },
+        "kill_condition_met": {
+          "type": "boolean"
+        },
+        "evidence_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "what_it_proves": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_it_does_not_prove": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "effect_on_final_claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claims_no_longer_safe",
+        "claims_still_defensible",
+        "scope_change_required",
+        "assessment"
+      ],
+      "properties": {
+        "claims_no_longer_safe": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims_still_defensible": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope_change_required": {
+          "type": "boolean"
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "new_named_threats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identifier",
+          "why_high_threat",
+          "explicitly_named_in_supplied_evidence",
+          "requires_targeted_full_text_audit"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "why_high_threat": {
+            "type": "string"
+          },
+          "explicitly_named_in_supplied_evidence": {
+            "type": "boolean"
+          },
+          "requires_targeted_full_text_audit": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "lock_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "final_novelty_lock_survives",
+        "reopen_broad_search",
+        "targeted_followup_required",
+        "threat_to_final_p1",
+        "rationale"
+      ],
+      "properties": {
+        "final_novelty_lock_survives": {
+          "type": "boolean"
+        },
+        "reopen_broad_search": {
+          "type": "boolean"
+        },
+        "targeted_followup_required": {
+          "type": "boolean"
+        },
+        "threat_to_final_p1": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "fatal"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}
