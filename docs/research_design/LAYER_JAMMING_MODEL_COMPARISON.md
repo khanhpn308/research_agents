@@ -19,7 +19,7 @@ The primary records are:
 
 Page references to Narang use its nine-page article pagination/PDF pages. Caruso references use PDF pages, which coincide with the article page numbers shown in the local copy. Zhang references give the journal printed page followed by the PDF page. Exact equations from a source are identified by that source's equation number. Equations introduced only to teach a common idea are labeled **educational derivation**.
 
-One repository-state inconsistency is preserved rather than resolved here: `docs/RESEARCH_STATE.md` and `docs/research_state.json` still describe Zhang (2025) as awaiting screening, whereas the registry and validated evidence record now identify it as a `D1-V002` verification paper. This report uses the newer validated full-text evidence because that is the explicit task premise; it does not modify either research-state file.
+One repository-state inconsistency is preserved rather than resolved here: `docs/project/RESEARCH_STATE.md` and `docs/project/research_state.json` still describe Zhang (2025) as awaiting screening, whereas the registry and validated evidence record now identify it as a `D1-V002` verification paper. This report uses the newer validated full-text evidence because that is the explicit task premise; it does not modify either research-state file.
 
 ## 1. Physical intuition shared by all three models
 

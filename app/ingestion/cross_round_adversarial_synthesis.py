@@ -98,22 +98,27 @@ OPTIONAL_INPUTS = [
 
     ROOT
     / "docs"
+    / "protocols"
     / "D1-V003_LITERATURE_AUDIT_PLAN.md",
 
     ROOT
     / "docs"
+    / "protocols"
     / "D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md",
 
     ROOT
     / "docs"
+    / "research_design"
     / "LAYER_JAMMING_MODEL_COMPARISON.md",
 
     ROOT
     / "docs"
+    / "project"
     / "RESEARCH_STATE.md",
 
     ROOT
     / "docs"
+    / "project"
     / "RESEARCH_LOG.md",
 ]
 

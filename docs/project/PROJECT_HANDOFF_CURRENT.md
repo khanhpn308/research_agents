@@ -533,11 +533,11 @@ The thesis contribution is **not** the invention of continuum layered mechanics.
 
 Use these as source of truth:
 
-1. `docs/POST_D1_V009_RESEARCH_ROADMAP_VI.md`
-2. `docs/POST_D1_V009_RESEARCH_ROADMAP.md`
-3. `docs/M1_RESEARCH_ARCHITECTURE_VI.md`
-4. `docs/M1_RESEARCH_ARCHITECTURE.md`
-5. `docs/EXACT_MODEL_SELECTION.md`
+1. `docs/project/POST_D1_V009_RESEARCH_ROADMAP_VI.md`
+2. `docs/project/POST_D1_V009_RESEARCH_ROADMAP.md`
+3. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
+4. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
+5. `docs/research_design/EXACT_MODEL_SELECTION.md`
 6. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
 7. `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.md`
 
@@ -554,12 +554,12 @@ I am continuing an MSc research project titled:
 
 Validity Assessment of a Continuum Model for Vacuum Layer-Jamming Beams through Full-Layer Simulation and Experimental Validation
 
-Use docs/PROJECT_HANDOFF_CURRENT.md as the primary project handoff.
+Use docs/project/PROJECT_HANDOFF_CURRENT.md as the primary project handoff.
 
 Then, when needed, drill into:
-- docs/POST_D1_V009_RESEARCH_ROADMAP_VI.md
-- docs/M1_RESEARCH_ARCHITECTURE_VI.md
-- docs/EXACT_MODEL_SELECTION.md
+- docs/project/POST_D1_V009_RESEARCH_ROADMAP_VI.md
+- docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md
+- docs/research_design/EXACT_MODEL_SELECTION.md
 - outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md
 
 Working rules:

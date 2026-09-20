@@ -528,7 +528,7 @@ This comparison uses the following locally verified records:
 
 - \`data/evidence/2025-A continuum-based model for a layer jamming beam_95646b2cfc.json\`
 - \`data/evidence/2025-Continuum modeling for layer jamming structures_a792efc445.json\`
-- \`docs/LAYER_JAMMING_MODEL_COMPARISON.md\`
+- \`docs/research_design/LAYER_JAMMING_MODEL_COMPARISON.md\`
 - \`outputs/verification/D1-V002/adversarial_evidence_synthesis.md\`
 - \`outputs/verification/D1-V003/ZHANG_2025_DEEPER_UNDERSTANDING_AUDIT.md\`
 - \`outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json\`

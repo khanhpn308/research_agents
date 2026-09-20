@@ -35,11 +35,13 @@ These only matter if they expose a new, testable mechanics question or a clearly
 
 Read these files in this order:
 
-1. `docs/RESEARCH_STATE.md`
-2. `docs/research_state.json`
-3. `docs/RESEARCH_LOG.md`
-4. `docs/LITERATURE_STRATEGY.md`
-5. `docs/KNOWN_ISSUES.md`
+1. `docs/README.md`
+2. `docs/project/PROJECT_HANDOFF_CURRENT.md`
+3. `docs/project/RESEARCH_STATE.md`
+4. `docs/project/research_state.json`
+5. `docs/project/RESEARCH_LOG.md`
+6. `docs/literature/LITERATURE_STRATEGY.md`
+7. `docs/operations/KNOWN_ISSUES.md`
 
 Do not infer the current project state from old output filenames alone.
 

@@ -144,8 +144,8 @@ RECONSTRUCT M1 → LOCK R → LOCK RQ/HYPOTHESIS/TOLERANCES → IMPLEMENT → VA
 
 Đọc trước:
 
-1. `docs/RESEARCH_STATE.md`
-2. `docs/RESEARCH_LOG.md`
+1. `docs/project/RESEARCH_STATE.md`
+2. `docs/project/RESEARCH_LOG.md`
 
 Chỉ dùng hai file này để hiểu lịch sử. Không dùng chúng làm current source of truth.
 
@@ -306,8 +306,8 @@ Câu hỏi còn sống chuyển thành:
 
 Đọc protocol trước:
 
-1. `docs/D1-V003_LITERATURE_AUDIT_PLAN.md`
-2. `docs/D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md`
+1. `docs/protocols/D1-V003_LITERATURE_AUDIT_PLAN.md`
+2. `docs/protocols/D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md`
 
 Sau đó:
 
@@ -450,9 +450,9 @@ Search protocol đã đạt điều kiện dừng.
 
 Sau khi novelty search dừng, đọc:
 
-1. `docs/LAYER_JAMMING_MODEL_COMPARISON.md`
-2. `docs/CURRENT_RESEARCH_DIRECTION_TUTORIAL.md`
-3. `docs/EXACT_MODEL_SELECTION.md`
+1. `docs/research_design/LAYER_JAMMING_MODEL_COMPARISON.md`
+2. `docs/learning/CURRENT_RESEARCH_DIRECTION_TUTORIAL.md`
+3. `docs/research_design/EXACT_MODEL_SELECTION.md`
 
 Hai candidate cuối:
 
@@ -475,7 +475,7 @@ vì thesis hiện tại là beam-scale validity study, không phải RVE-to-cont
 
 Đọc:
 
-1. `docs/D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`
+1. `docs/protocols/D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`
 2. `outputs/verification/D1-V009/verification_matrix.md`
 3. `data/evidence/Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation_d75a3e82bc.json`
 4. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
@@ -574,8 +574,8 @@ Contribution không phải là phát minh continuum mechanics cho layered media.
 
 Đọc canonical architecture:
 
-1. `docs/M1_RESEARCH_ARCHITECTURE.md`
-2. `docs/M1_RESEARCH_ARCHITECTURE_VI.md`
+1. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
+2. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
 
 ## Đã khóa
 
@@ -1022,12 +1022,12 @@ Không reopen broad search chỉ vì ngoài kia còn nhiều paper.
 
 1. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
 2. `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.md`
-3. `docs/EXACT_MODEL_SELECTION.md`
-4. `docs/M1_RESEARCH_ARCHITECTURE.md`
-5. `docs/M1_RESEARCH_ARCHITECTURE_VI.md`
+3. `docs/research_design/EXACT_MODEL_SELECTION.md`
+4. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
+5. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
 6. tài liệu roadmap này.
 
-Các file như `docs/RESEARCH_STATE.md`, `docs/RESEARCH_LOG.md`, `docs/LITERATURE_STRATEGY.md` vẫn hữu ích để đọc lịch sử nhưng không phải authority mới nhất.
+Các file như `docs/project/RESEARCH_STATE.md`, `docs/project/RESEARCH_LOG.md`, `docs/literature/LITERATURE_STRATEGY.md` vẫn hữu ích để đọc lịch sử nhưng không phải authority mới nhất.
 
 ---
 

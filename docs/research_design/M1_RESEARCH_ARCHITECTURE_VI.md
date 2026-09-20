@@ -738,10 +738,10 @@ Chỉ học từng khái niệm khi nó cần thiết để hiểu, triển khai
 
 Kiến trúc này được xây dựng dựa trên trạng thái hiện tại của repository, đặc biệt là:
 
-- docs/EXACT_MODEL_SELECTION.md
+- docs/research_design/EXACT_MODEL_SELECTION.md
 - data/evidence/2025-A continuum-based model for a layer jamming beam_95646b2cfc.json
 - data/evidence/2025-Continuum modeling for layer jamming structures_a792efc445.json
-- docs/LAYER_JAMMING_MODEL_COMPARISON.md
+- docs/research_design/LAYER_JAMMING_MODEL_COMPARISON.md
 - outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json
 
 ### Phân biệt giữa bằng chứng và suy luận

@@ -144,8 +144,8 @@ RECONSTRUCT M1 → LOCK R → LOCK RQ/HYPOTHESIS/TOLERANCES → IMPLEMENT → VA
 
 Read first:
 
-1. `docs/RESEARCH_STATE.md`
-2. `docs/RESEARCH_LOG.md`
+1. `docs/project/RESEARCH_STATE.md`
+2. `docs/project/RESEARCH_LOG.md`
 
 Use these only as historical orientation. They are not the latest source of truth for the current state.
 
@@ -306,8 +306,8 @@ This is the conceptual birth of the current thesis.
 
 Read protocol first:
 
-1. `docs/D1-V003_LITERATURE_AUDIT_PLAN.md`
-2. `docs/D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md`
+1. `docs/protocols/D1-V003_LITERATURE_AUDIT_PLAN.md`
+2. `docs/protocols/D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md`
 
 Then read:
 
@@ -450,9 +450,9 @@ This is not proof of universal novelty. It is permission to stop indefinite broa
 
 After the novelty search stopped, read:
 
-1. `docs/LAYER_JAMMING_MODEL_COMPARISON.md`
-2. `docs/CURRENT_RESEARCH_DIRECTION_TUTORIAL.md`
-3. `docs/EXACT_MODEL_SELECTION.md`
+1. `docs/research_design/LAYER_JAMMING_MODEL_COMPARISON.md`
+2. `docs/learning/CURRENT_RESEARCH_DIRECTION_TUTORIAL.md`
+3. `docs/research_design/EXACT_MODEL_SELECTION.md`
 
 The two final model candidates were:
 
@@ -475,7 +475,7 @@ because the current thesis is a beam-scale validity study rather than an RVE-to-
 
 Read:
 
-1. `docs/D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`
+1. `docs/protocols/D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`
 2. `outputs/verification/D1-V009/verification_matrix.md`
 3. `data/evidence/Mech Cohesive Frict Material - 1999 - Adhikary - Modelling the large deformation_d75a3e82bc.json`
 4. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
@@ -574,8 +574,8 @@ The thesis contribution is not the invention of continuum layered mechanics. It 
 
 Read the current canonical architecture:
 
-1. `docs/M1_RESEARCH_ARCHITECTURE.md`
-2. `docs/M1_RESEARCH_ARCHITECTURE_VI.md`
+1. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
+2. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
 
 ## Locked
 
@@ -1022,12 +1022,12 @@ For current status, prefer:
 
 1. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
 2. `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.md`
-3. `docs/EXACT_MODEL_SELECTION.md`
-4. `docs/M1_RESEARCH_ARCHITECTURE.md`
-5. `docs/M1_RESEARCH_ARCHITECTURE_VI.md`
+3. `docs/research_design/EXACT_MODEL_SELECTION.md`
+4. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
+5. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
 6. this roadmap.
 
-Historical files such as `docs/RESEARCH_STATE.md`, `docs/RESEARCH_LOG.md`, and `docs/LITERATURE_STRATEGY.md` remain useful for chronology but are not the latest current-state authority.
+Historical files such as `docs/project/RESEARCH_STATE.md`, `docs/project/RESEARCH_LOG.md`, and `docs/literature/LITERATURE_STRATEGY.md` remain useful for chronology but are not the latest current-state authority.
 
 ---
 

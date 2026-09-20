@@ -1,25 +1,31 @@
-# Mechanical Research Agents — Context Pack
+# Mechanical Research Agents
 
-Copy these files into the root of your `mechanical-research-agents` repository.
+Repository for an iterative novelty-audit and research-design workflow in mechanical engineering, soft robotics, and vacuum layer jamming.
 
-Recommended layout:
+## Start here
+
+1. Read [`AGENTS.md`](AGENTS.md) for operating rules.
+2. Read [`docs/README.md`](docs/README.md) for the documentation map.
+3. Use [`docs/project/PROJECT_HANDOFF_CURRENT.md`](docs/project/PROJECT_HANDOFF_CURRENT.md) as the current project entry point.
+
+Do not infer the current research state from old output filenames. Generated verification evidence and historical run artifacts remain under `outputs/`.
+
+## Documentation layout
 
 ```text
-mechanical-research-agents/
-├── AGENTS.md
-└── docs/
-    ├── RESEARCH_STATE.md
-    ├── RESEARCH_LOG.md
-    ├── LITERATURE_STRATEGY.md
-    ├── KNOWN_ISSUES.md
-    └── research_state.json
+docs/
+├── README.md
+├── project/            # Current state, handoff, decision history, roadmaps
+├── research_design/    # Model selection, M1 architecture, model comparisons
+├── learning/           # Tutorials and paper-reading guides
+├── literature/         # Search and literature strategy
+├── protocols/          # Verification and audit protocols
+└── operations/         # Technical issues and operational notes
 ```
 
-Recommended agent loading sequence:
+## Main commands
 
-1. Read `AGENTS.md`
-2. Read `docs/RESEARCH_STATE.md`
-3. Read `docs/research_state.json`
-4. Read the remaining docs only when needed
-
-For the first session after loading, ask the agent to reconstruct the current state and identify ambiguities before it makes any research decision.
+```bash
+python -m app.ingestion.corpus_status
+python -m app.ingestion.validate_evidence
+```
