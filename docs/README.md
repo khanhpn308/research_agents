@@ -38,10 +38,17 @@ For the current thesis execution phase, continue with the Vietnamese M1 architec
 - `CURRENT_RESEARCH_DIRECTION_TUTORIAL.md`: tutorial on the current direction.
 - `ZHANG_CONTINUUM_PAPERS_READING_GUIDE_VI.md`: staged guide for reading the three Zhang continuum papers.
 
+### `vocabularies/` — vocabulary notes by date
+
+- `README.md`: entry format, Cambridge IPA requirement, and daily-file convention.
+- `DD-MM-YYYY.md`: all English words asked on the same date, using the `Asia/Bangkok` calendar date.
+
 ### `literature/` — literature strategy
 
 - `LITERATURE_STRATEGY.md`: search terms, screening criteria, forward-citation strategy, and search-stop rules.
+- `THESIS_READING_LIST_CURRENT_VI.md`: current complete thesis reading set, prioritized by required reading depth and separated from the broader audit corpus.
 - `paper_cards/zhang_2025_continuum_beam/paper-card.md`: source-grounded deep-reading card for Zhang et al. (2025), including equations, validation evidence, stated limitations, and project-relevant critique.
+- `paper_assessments/`: concise, source-grounded decisions about how individual papers should or should not be used in the current project.
 
 ### `protocols/` — audit plans and verification protocols
 

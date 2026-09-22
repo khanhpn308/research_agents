@@ -152,6 +152,15 @@ Current Codex research config:
 
 Use `CODEX_RESEARCH_EFFORT`; do not introduce a second env name unless the codebase is intentionally migrated.
 
+## Vocabulary Logging Policy
+
+When the user asks for the meaning of an English word during paper reading:
+
+1. Answer in Vietnamese with the meaning, contextual nuance, an English example with Vietnamese translation, and related word forms.
+2. Include American-English IPA verified against Cambridge Dictionary for both the headword and every listed related word form; link each term's own Cambridge entry. Do not infer or guess an unverified IPA.
+3. Append the entry to `docs/vocabularies/DD-MM-YYYY.md`, using the `Asia/Bangkok` calendar date. Reuse the same file for every word asked on that date and preserve existing entries.
+4. Follow `docs/vocabularies/README.md`. Present each word with headings, compact tables, and prose rather than a bullet-list definition.
+
 ## Operating Rules
 
 1. Never claim novelty from the discovery corpus alone.
