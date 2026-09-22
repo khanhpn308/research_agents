@@ -1,0 +1,174 @@
+{
+  "source": {
+    "paper_id": "99fe24da8b",
+    "filename": "2024-Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+    "sha256": "99fe24da8b41e8f4aa75bd0fba43f3cba0d6ef7621d800d45f7d3eabba4b7592",
+    "page_count": 9,
+    "char_count": 34326,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24178,
+    "completion_tokens": 6930,
+    "total_tokens": 31108,
+    "thinking_tokens": 4463,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Joule heating / thermal actuation of shape-memory alloy wires via direct AC voltage (3 VAC)",
+      "Pneumatic / vacuum actuation (air evacuation to below -90 kPa via vacuum pump) to induce granular jamming",
+      "External mechanical contact / external force applied by pushing against a rigid block and inserting into 3D-printed molds using a robot arm",
+      "Electric motor actuation of a 4-DOF robot arm (Dobot Magician) for link positioning and transfer"
+    ],
+    "authors": [
+      "Kazuto Takashima",
+      "Hidetaka Suzuki",
+      "Toshiki Imazawa",
+      "Hiroki Cho"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "NiTi shape-memory alloy exists in a flexible martensite phase at low/room temperature and transforms to a rigid austenite phase with high recovery stress above the austenite start temperature (As = 60 °C).",
+      "Granular coarse coffee grounds transition from a fluid-like low-viscosity state to a solid-like jammed state when negative pressure is applied.",
+      "Silicone rubber membrane provides an elastic restoring force, which is supplemented by the larger shape-recovery force of the embedded SMA wires upon heating."
+    ],
+    "control_variables": [
+      "Evacuation pressure during jamming (maintained below -90 kPa)",
+      "Heating voltage applied to reset SMA wires between experimental trials (3 VAC)",
+      "Surface lubrication (silicone spray applied to prototype link in both tested conditions)",
+      "Robot arm trajectory and transfer velocity during pick-and-place motions",
+      "Evaluation sample sizes (10 trials for positioning accuracy, 11 trials for weight capacity, 5 measurements for link geometry and contact length)"
+    ],
+    "dependent_variables": [
+      "Placement position accuracy and placement position standard deviation (mm)",
+      "Difference in placement position relative to reference picking position under misalignment (mm)",
+      "Pick-and-place success rate under varying payload weights (%)",
+      "Contact area length between the link and the target object (mm)",
+      "Straight tip length of the link after deformation (mm)"
+    ],
+    "doi": "10.20965/jrm.2024.p0181",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Adapting and fixing both the centerline and cross-sectional geometry of the variable-stiffness link to match the target object increases positioning accuracy and decreases the standard deviation of placement coordinates.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Deforming the link into a matching shape using a mold increases the contact area length between the link and the object, substantially improving payload capacity during transfer.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Granular jamming allows the link to maintain an arbitrary deformed shape without active heating, while embedded SMA wires generate sufficient recovery force upon electrical heating to restore the link to its initial straight shape.",
+        "evidence_type": "experimental / prototype demonstration",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "The combination of temperature-controlled SMA phase transformation and pressure-controlled granular jamming enables four discrete stiffness states.",
+        "evidence_type": "physical characterization / conceptual analysis",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "The embedded SMA wires enable the variable-stiffness link to support its own weight in a horizontal orientation even when unjammed, overcoming a limitation of conventional pure granular jamming links.",
+        "evidence_type": "comparative observation",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Pre-shaping the link with a mold compensates for picking position misalignments along x- and y-axes, preventing grasping interference failures observed when picking without mold deformation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Dobot Magician robot arm carrying the prototype variable-stiffness link",
+      "Prototype variable-stiffness link comprising four 1.0 mm diameter NiTi SMA wires arranged in a 30 mm circle inside an ECOFLEX00-30 silicone membrane (40 mm outer diameter, 2 mm thickness, 100 mm length) containing 26 g of coarse coffee grounds, mounted to a 3D-printed PLA jig with MC nylon heat-resistant rods and KE-106 silicone plug",
+      "Tokyo Rikosha Co. RSA-5 slidac transformer supplying 3 VAC across series-connected SMA wires (0.46 Ohm total resistance)",
+      "Ulvac Kiko DA-20A vacuum pump evacuating air to below -90 kPa",
+      "3D-printed PLA bending block and custom 3D-printed molds corresponding to Object 1 (equilateral triangle) and Object 2 (circle)",
+      "Kure Engineering 1420 silicone spray lubricant applied to molds and link",
+      "Test target objects: Object 1 (regular triangle, 19 g) and Object 2 (circle, 16 g), supplemented with additional weights (320 g, 640 g, 990 g)",
+      "Hozan Tool L-835 USB camera (1280x960, 30 fps) with C-mount lens and National Instruments NI Vision Assistant software (binarization and particle filtering calibrated at 7.4 pixels/mm)"
+    ],
+    "future_work": [
+      "Evaluating the variable-stiffness link using complex real-world benchmark objects, such as items from the YCB Objects and Model Set.",
+      "Fabricating and testing a longer link to prevent objects from slipping off when deflection occurs under weight.",
+      "Verifying whether the fixed cross-sectional shape remains stable and fixed after repeated pick-and-place cycles.",
+      "Developing mold-free deformation techniques that eliminate the need for silicone spray lubrication (e.g., using a secondary robot arm to apply external deforming forces).",
+      "Optimizing initial and fixed link shapes to minimize structural deflection under load and enhance payload capacity."
+    ],
+    "independent_variables": [
+      "Link deformation state: with mold shaping of centerline and cross section (motion ii) versus without mold shaping (bending against block only)",
+      "Target object shape: Object 1 (regular triangle, 19 g) versus Object 2 (circle, 16 g)",
+      "Initial picking alignment: reference position I, misaligned position II (-5 mm along x-axis), misaligned position III (-10 mm along x-axis), and misaligned position IV (+5 mm along y-axis)",
+      "Payload weight: baseline object weights (19 g and 16 g) and additional hooked weights (320 g, 640 g, and 990 g)"
+    ],
+    "limitations_inferred": [
+      "The method relies on dedicated pre-fabricated rigid molds tailored to specific object geometries, limiting applicability to unknown or unstructured environments.",
+      "Thermal resetting via Joule heating requires heating and passive cooling intervals, introducing cycle delays before the link can be deformed again.",
+      "No closed-loop sensing or feedback control is used during the deformation or grasping process, leaving the system vulnerable to unexpected structural deflections.",
+      "Tethering via electrical and pneumatic lines restricts untethered mobility and integration on mobile robotic platforms."
+    ],
+    "limitations_stated_by_authors": [
+      "Silicone spray lubrication reduces friction, causing heavy objects to slide and drop when the link deflects under payload weight.",
+      "Inserting the link into the mold causes coarse coffee grounds to migrate toward the base, decreasing the length of the straight tip section.",
+      "Long-term durability and retention of the fixed cross-sectional shape over repeated pick-and-place cycles have not yet been evaluated.",
+      "Preliminary trials on real-world benchmark objects (YCB skillet lid, 652 g) failed because the link deflected and the object slipped off.",
+      "Thermal phase changes (heating and cooling) in shape-memory materials can be relatively slow processes, although deformation and jamming can occur at room temperature without heating."
+    ],
+    "main_results": [
+      "Deforming both the centerline and cross section using a mold significantly reduced placement position standard deviation for both triangular and circular objects, demonstrating improved positioning accuracy.",
+      "Mold deformation compensated for initial picking misalignments (-5 mm x, -10 mm x, +5 mm y), yielding smaller placement errors and lower standard deviations compared to the unshaped link.",
+      "Without mold shaping, the link failed completely to grasp Object 1 at -10 mm x-axis misalignment due to physical interference with the object.",
+      "Payload capacity improved markedly with mold shaping, maintaining a 100% success rate up to 320 g additional weight, whereas success dropped sharply without mold shaping.",
+      "Contact area length between the link and object increased substantially after mold shaping: from 4.8 +/- 0.8 mm to 27.5 +/- 0.7 mm for Object 1, and from 5.4 +/- 1.1 mm to 38.6 +/- 1.3 mm for Object 2.",
+      "Payload failures were characterized by link deflection under load causing the object to slide off due to low friction from silicone spray lubrication."
+    ],
+    "modeling_methods": [],
+    "performance_metrics": [
+      "Standard deviation of placement position coordinates (mm)",
+      "Difference between placed position and reference position (mm, average +/- SD)",
+      "Pick-and-place success rate across 11 trials (%)",
+      "Contact area length between link and object (mm, average +/- SD)",
+      "Straight tip length of link (mm, average +/- SD)"
+    ],
+    "possible_gap_implications": [
+      "The reliance on external molds to reshape the link's cross section suggests a potential research need for mold-free or self-reconfiguring variable-cross-section mechanisms for unstructured manipulation tasks.",
+      "The conflict between needing lubrication for mold insertion and needing high friction for payload retention highlights a potential gap in dry, switchable, or directional friction surfaces for soft variable-stiffness links.",
+      "The susceptibility of the jammed link to bending deflection under moderate loads indicates that hybrid reinforcement or variable-geometry internal structures may be necessary to improve cantilever load capacity."
+    ],
+    "research_objective": "To evaluate the pick-and-place motion, positioning accuracy, and weight capacity of a variable-stiffness link (combining SMA wires and granular jamming) attached to a robot arm, comparing performance between a link deformed in both centerline and cross section using object-specific molds versus a link deformed by simple bending.",
+    "research_problem": "Soft robots provide safety for human-robot interaction but suffer from low positioning accuracy and limited output force, requiring diverse task-specific components. While variable stiffness can bridge soft and rigid robotics, pure granular jamming links exhibit poor shape recovery and cannot support their own weight horizontally. Furthermore, previous variable-stiffness links have not evaluated full pick-and-place robotic arm motions utilizing both centerline and cross-sectional shape adaptation.",
+    "robot_type": "variable-stiffness link attached to a robot arm (also operated as a jamming gripper)",
+    "stiffness_mechanism": [
+      "shape-memory alloy (SMA) phase transformation",
+      "granular jamming transition phenomenon (coarse coffee grounds in a silicone rubber membrane under vacuum)"
+    ],
+    "title": "Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon",
+    "year": "2024"
+  }
+}

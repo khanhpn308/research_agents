@@ -1,0 +1,2292 @@
+{
+  "schema_version": 1,
+  "verification_id": "MP1-V001",
+  "created_at": "2026-09-22T05:30:12.924710+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 11,
+  "papers": [
+    {
+      "paper_id": "de64029540",
+      "filename": "2013-A Biologically Inspired Wet Shape Memory Alloy Actuated Robotic Pump.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2013-A Biologically Inspired Wet Shape Memory Alloy Actuated Robotic Pump_de64029540.json",
+      "evidence": {
+        "source": {
+          "paper_id": "de64029540",
+          "filename": "2013-A Biologically Inspired Wet Shape Memory Alloy Actuated Robotic Pump.pdf",
+          "sha256": "de64029540c3243da2f2499630ff1af3b20235a208762b78e2df286d88827fac",
+          "page_count": 11,
+          "char_count": 51992,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 27800,
+          "completion_tokens": 6007,
+          "total_tokens": 33807,
+          "thinking_tokens": 3659,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "wet shape memory alloy (SMA) actuation",
+            "thermofluidic forced convection heating and cooling",
+            "electrical Joule heating assistance"
+          ],
+          "authors": [
+            "Matthew D. Pierce",
+            "Stephen A. Mascaro"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Linear approximation of the fluid temperature gradient along the wire length assuming heat lost by the fluid equals heat entering the wire",
+            "Constant fluid flow velocity along the entire length of the SMA wire",
+            "SMA wire convective heat transfer governed by Newton's law of cooling",
+            "Hysteresis between martensite fraction and temperature approximated using a cumulative normal distribution curve",
+            "Piecewise linear elastic moduli for austenite, twinned martensite, and detwinned martensite regimes",
+            "Linear damping in the SMA wire strain rate equation",
+            "Fluidic resistance of check valves approaches infinity against reverse flow",
+            "Negligible heat loss to the environment and no mixing between hot and cold fluids in maximum theoretical efficiency calculations"
+          ],
+          "control_variables": [
+            "SMA wire diameter (0.38 mm)",
+            "Actuator inner tube diameter (2.4 mm)",
+            "Working fluid (water)",
+            "Ambient room temperature (22 deg C)",
+            "Joule heating electrical pulse duration (1.0 s)",
+            "Electrical heating current magnitude (4.5 A)",
+            "Fluid stagnation period between flow cycles (2.0 s)"
+          ],
+          "dependent_variables": [
+            "Volumetric output-to-input ratio (Qout/Qin)",
+            "Net volumetric fluid output flow rate (mL/min)",
+            "Pumping chamber pressure",
+            "Actuator velocity and piston displacement",
+            "Temperature of fluid, tube, and SMA wire along the actuator length"
+          ],
+          "doi": "10.1109/TMECH.2012.2211032",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Wet SMA actuators envelop SMA wire inside compliant tubing to enable forced-convection thermofluidic heating and cooling for increased actuation rates with minimal spring resistance.",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                1
+              ]
+            },
+            {
+              "claim": "Theoretical feasibility constraints establish that achieving a net positive output-to-input ratio requires the ratio of fluidic area to wire area to satisfy specific bounds based on wire strain, actuation stress, accumulator pressure, and contraction-to-propagation time ratios.",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                3
+              ]
+            },
+            {
+              "claim": "The maximum theoretical thermodynamic efficiency of the wet SMA pumping system is calculated as 3.4% based on specific work output and transformation latent heat, assuming zero environmental heat loss and no fluid mixing.",
+              "evidence_type": "theoretical",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Dynamic simulations based on energy bond graphs and discretized thermal convection predicted optimal pump output for actuator lengths between 35 cm and 45 cm and a mechanical advantage of 0.84.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "Experimental output-to-input ratios for fluid-only actuation agreed within 5% to 10% of simulation predictions, reaching a maximum ratio of 0.88 without continuous accumulator heating under baseline operating conditions.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Combining continuous accumulator heating with supplementary electrical Joule heating (4.5 A for 1 s) enabled the prototype to achieve an output-to-input ratio of 2.1 and a net positive flow rate of 66 mL/min.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Continuous heat input inside the hot accumulator prevents cyclic performance decay over time and allows fluid-only actuation to reach an output-to-input ratio of 1.35.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Two opposing wet SMA actuators coupled to two positive-displacement diaphragm pumping chambers through a pivoting lever with adjustable mechanical advantage",
+            "Hot and cold water accumulators providing pressurized flow (tested at 15 kPa) through supply tubing and actuators",
+            "Continuous electric immersion heating element placed inside the hot accumulator to maintain water temperature",
+            "Four solenoid valves arranged into an inlet routing manifold and an outlet separation manifold to cycle and recycle hot and cold fluids",
+            "Two external DC power supplies connected across the SMA wires to provide timed auxiliary Joule heating pulses",
+            "Testing conducted at an elevation of approximately 1400 m with local water boiling temperature around 88 deg C"
+          ],
+          "future_work": [
+            "Making the robotic pump system more compact in volume without impairing SMA contraction",
+            "Removing the need for auxiliary electrical inputs by using fluid-only heating and mechanically timed valve mechanisms",
+            "Characterizing and optimizing practical thermodynamic efficiency by minimizing thermal and mechanical losses",
+            "Powering continuous, silent operation using high-energy-density chemical energy sources instead of electrical heating"
+          ],
+          "independent_variables": [
+            "SMA actuator length (tested from 20 cm to 45 cm, notably 35-45 cm and 40 cm)",
+            "Mechanical advantage of the pumping lever (e.g., 0.84 and lower)",
+            "Fluid flow duration per cycle (varied between 1.0 s and 5.0 s)",
+            "Electrical Joule heating lead time relative to fluid flow shutoff (0 to 1.0 s)",
+            "Heat input status in the hot accumulator (continuous heat addition vs. no heat addition)",
+            "Accumulator operating pressure (tested at 15 kPa and lower pressures)"
+          ],
+          "limitations_inferred": [
+            "The system relies on external electrical power supplies to drive the four solenoid routing valves and provide Joule heating, preventing it from functioning as a fully untethered system in its current state.",
+            "Because water is utilized as the working fluid in an open cycle system, boiling temperature constraints vary with elevation and atmospheric pressure, making performance sensitive to ambient altitude unless pressurized closed loops are used.",
+            "Potential thermal degradation and progressive fluid mixing across the separation manifolds during prolonged operation were not evaluated over long-term cyclic testing.",
+            "Fatigue life, cycle degradation, and functional drift of the Nitinol wire under repeated rapid forced-convection and Joule heating cycles were not investigated."
+          ],
+          "limitations_stated_by_authors": [
+            "The maximum theoretical efficiency of the system is only 3.4%, and the practical efficiency of the prototype is much lower due to environmental heat losses, fluid mixing, and parasitic mechanical losses.",
+            "The pump is relatively inefficient when compared to conventional electric motor-driven pumps.",
+            "Fluid-only actuation at the testing elevation (1400 m, boiling point ~88 deg C) could not exceed an output-to-input ratio of 1.0 without reducing accumulator pressure (which lengthened cycle times unfavorably) or adding electrical Joule heating.",
+            "Prolonged application of electric current through the SMA wire causes permanent deformation, restricting electrical heating duration to short pulses (1 s).",
+            "Decreasing mechanical advantage below 0.84 to increase displacement risks tensile stress exceeding the pulling strength of the SMA wire.",
+            "The current prototype is bulky and depends on auxiliary electrical inputs and solenoid manifolds."
+          ],
+          "main_results": [
+            "Successfully designed, modeled, and implemented the first robotic pump capable of self-actuation via thermofluidic feedback with a net positive fluidic output.",
+            "Achieved a maximum experimental volumetric output-to-input ratio of 0.88 with fluid-only actuation under baseline conditions (15 kPa accumulator pressure) and up to 1.35 with continuous accumulator heat addition.",
+            "Achieved a maximum experimental volumetric output-to-input ratio of 2.1 using 40-cm actuators, 1.5-s flow duration, continuous accumulator heating, and 4.5-A auxiliary Joule heating (1.54 without continuous accumulator heating).",
+            "Generated a net positive fluidic output flow rate of 66 mL/min, which is two orders of magnitude greater than prior SMA micropumps.",
+            "Dynamic simulations matched experimental output-to-input ratios within 5% to 10% across varying actuator lengths and flow timings.",
+            "Demonstrated that continuous heat addition in the accumulator is critical for preventing output decay over successive pumping cycles."
+          ],
+          "modeling_methods": [
+            "Energy bond graph modeling integrated with state-space representation coupling wet SMA actuators, mechanical lever kinematics, and pumping chambers",
+            "One-dimensional dynamic heat transfer equations modeling forced convection and conduction among fluid, SMA wire, compliant tube, and ambient air",
+            "Discretized multi-segment representation of the wet SMA actuators (20 segments per actuator)",
+            "Differential hysteresis model for martensite fraction using a cumulative normal distribution function modulated by wire temperature",
+            "Piecewise linear constitutive model capturing twinned martensite, detwinned martensite, and austenite elastic moduli and phase transformation stresses",
+            "Lumped-parameter fluid dynamic state equations for piston chamber pressures accounting for volumetric capacitance, fluidic resistance, and check valves"
+          ],
+          "performance_metrics": [
+            "Volumetric output-to-input ratio (Qout/Qin, dimensionless)",
+            "Net fluid flow rate output (mL/min)",
+            "Thermodynamic efficiency (theoretical maximum and practical, %)",
+            "Heartbeat period / cycle time (s)",
+            "Actuator stroke and piston displacement (m)"
+          ],
+          "possible_gap_implications": [
+            "Demonstrating an output-to-input ratio above 2.0 confirms that thermofluidic feedback is viable for driving macroscale soft robotic actuators, but eliminating electrical dependence via passive mechanical valving and chemical heating remains necessary to realize untethered operation.",
+            "While low thermodynamic efficiency remains an intrinsic challenge for thermal SMA actuation, coupling such pumps with high-energy-density chemical fuels could potentially offer system-level energy density advantages over battery-electric soft robotic pumps."
+          ],
+          "research_objective": "To design, optimize, model, and experimentally validate a biologically inspired wet SMA-actuated robotic pump that uses thermofluidic self-feedback to sustain its own actuation while delivering a net positive macroscale fluidic output to power external wet SMA robotic subsystems.",
+          "research_problem": "SMA actuators traditionally suffer from low bandwidth due to slow cooling and heating rates, and prior attempts to build self-sustaining SMA pumps failed to produce sufficient fluidic output to sustain their own actuation (output-to-input ratio <= 1.0), while existing microscale SMA pumps are limited to micro-liter flow rates incapable of driving macroscale robotic actuators.",
+          "robot_type": "robotic pump",
+          "stiffness_mechanism": [],
+          "title": "A Biologically Inspired Wet Shape Memory Alloy Actuated Robotic Pump",
+          "year": "2013"
+        }
+      }
+    },
+    {
+      "paper_id": "182d854610",
+      "filename": "2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots_182d854610.json",
+      "evidence": {
+        "source": {
+          "paper_id": "182d854610",
+          "filename": "2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+          "sha256": "182d8546102f3fb4d6bbd1bb3e3b86c55330ceabe2375364990d17f494af5b58",
+          "page_count": 8,
+          "char_count": 40729,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 24517,
+          "completion_tokens": 7677,
+          "total_tokens": 32194,
+          "thinking_tokens": 4331,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Pneumatic actuation",
+            "Positive pressure compressed air via miniature motor pumps"
+          ],
+          "authors": [
+            "Tianxin Liu",
+            "Haisheng Xia",
+            "Dae-Young Lee",
+            "Amir Firouzeh",
+            "Yong-Lae Park",
+            "Kyu-Jin Cho"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Jammed granules inside the annular structure are assumed to behave as a continuous beam with a circular ring cross-section under tiny deformation with no slip between granules",
+            "Granules are assumed to be evenly distributed within the chamber",
+            "Fabric material properties, surface contact friction variations, and granule-to-granule friction coefficients are treated as constant or ignored in the bending stiffness derivation",
+            "Equivalent Young's modulus is assumed to scale with the average normal force per unit cross-sectional area exerted on the granules (proportional to 1/(D^2 - d^2))",
+            "Inner rubber bladder is assumed to consume minimal elastic energy when sufficiently soft compared to the jammed granular medium",
+            "Bending angle at the joint is assumed to be negligible when calculating the torque produced by external loading on the self-locking joint"
+          ],
+          "control_variables": [
+            "Length of single PPJ testing specimens (50 mm)",
+            "Granular material and morphology (Shape Memory Polymer cuboids, approximately 2 mm x 2 mm x 3 mm)",
+            "Granule volume fraction (nearly 100% packing fraction to prevent bladder morphing)",
+            "Outer fabric sleeve material (single-ply non-stretchable fabric)",
+            "Tensile test displacement rate (20 mm/min)",
+            "Displacement interval for stiffness and modulus calculation (initial 1 mm displacement during elastic deformation)",
+            "Self-locking joint hinge length (15 mm)"
+          ],
+          "dependent_variables": [
+            "Cantilever bending stiffness (N/mm)",
+            "Equivalent Young's modulus / bending elastic modulus (MPa)",
+            "Resisting force (N)",
+            "Joint torque limit and critical slip force (N*m, N)",
+            "Sliding friction force of the sandpaper friction pad (N)",
+            "Jamming efficiency / stiffness-to-mass ratio (K/mass)"
+          ],
+          "doi": "10.1109/LRA.2021.3097255",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Internal pressurization of a granular chamber using an embedded pneumatic bladder enables a roughly six-fold increase in cantilever bending stiffness over an input pressure range from 68 kPa to 172 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                4
+              ]
+            },
+            {
+              "claim": "Bending stiffness of the positive pressure jamming structure scales approximately linearly with the applied input gauge pressure.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4
+              ]
+            },
+            {
+              "claim": "Positive pressure jamming exhibits comparable initial elastic stiffness to vacuum-based jamming at equivalent pressure magnitudes (62 kPa), but incurs less plastic deformation and lower unloading hysteresis due to bladder elasticity.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                3
+              ]
+            },
+            {
+              "claim": "Granular jamming provides the predominant stiffening effect, achieving 40% higher bending stiffness at 103 kPa than an air-filled cylindrical bladder of identical outer diameter.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                3,
+                4
+              ]
+            },
+            {
+              "claim": "Increasing the outer sleeve diameter increases bending stiffness via higher moment of inertia, but decreases equivalent Young's modulus due to attenuated force transmission across outer granular layers.",
+              "evidence_type": "experimental / analytical",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Increasing the inner bladder diameter increases the equivalent Young's modulus across all outer sleeve diameters due to firmer granular compaction.",
+              "evidence_type": "experimental / analytical",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Analytical modeling of jamming efficiency indicates that stiffness per unit mass is maximized when the inner bladder diameter approaches the outer fabric diameter.",
+              "evidence_type": "analytical",
+              "page_numbers": [
+                5
+              ]
+            },
+            {
+              "claim": "Embedding sandpaper friction pads into adjacent granular chambers forms a self-locking revolute joint that permits angular adjustment between -50 degrees and +50 degrees with simultaneous shape locking and stiffening.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "A lightweight wearable limb support device composed of three parallel positive pressure jamming units generates up to 15.1 N of posture-assisting force when driven by serial miniature pumps.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                6,
+                7
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Cantilever bending testing system using a UNITECH RB302 Microload tensile frame and DACELL load cells, with specimen clamped at one end and loaded at the tip at 20 mm/min over an 11 mm deflection range",
+            "Baseline comparative test setup measuring an unjammed rubber bladder (0 and 62 kPa), a negative pressure granular jamming unit (-62 kPa), and a positive pressure jamming module (+62 kPa) with matching dimensions (26 mm diameter, 50 mm length)",
+            "Comparison test between a sealed cylindrical pneumatic airbag and a PPJ module at 103 kPa input pressure with matched outer diameter",
+            "Pressure modulation tests evaluating a PPJ specimen under four relative pressure levels (69 kPa, 103 kPa, 138 kPa, 172 kPa) across eight repeated trials",
+            "Dimensional characterization tests across eight specimen configurations combining four outer diameters (26, 29, 32, 35 mm) and two inner diameters (10, 15 mm) under 1 atm relative pressure",
+            "Cantilever bending evaluation of a two-link PPJ system linked by a self-locking revolute joint (15 mm hinge length, friction pads) across multiple input pressures",
+            "Tensile pull-out fixture measuring sliding friction force of a sandpaper friction pad embedded in a PPJ chamber pressurized to 137 kPa",
+            "Wearable limb support test rig consisting of three parallel PPJ links (200 mm length, 20 mm diameter) pre-bent to 90 degrees and pressurized via one, two, or three miniature motor pumps in serial (100.5 kPa, 195.6 kPa, 290.1 kPa), measuring force during 10 mm displacement"
+          ],
+          "future_work": [
+            "Fabricating positive pressure jamming structures in non-cylindrical pre-designed geometries, such as torus shapes",
+            "Combining multiple shapes of jamming structures to form complex 3D deployable frames (e.g., tent frames)",
+            "Conducting dynamic transition tests to quantify the switching times from soft to stiff and from stiff to soft states",
+            "Investigating alternative bladder materials that reduce radial compliance and deformation under high positive pressure",
+            "Developing more durable, wear-resistant friction materials to enhance self-locking joint longevity",
+            "Incorporating internal fabric partitions inside the chamber to ensure a more uniform initial distribution of granules"
+          ],
+          "independent_variables": [
+            "Input relative pneumatic pressure (e.g., 62 kPa, 69 kPa, 100.5 kPa, 103 kPa, 137 kPa, 138 kPa, 172 kPa, 195.6 kPa, 290.1 kPa; -62 kPa for vacuum baseline)",
+            "Specimen configuration type (pure rubber bladder, negative pressure jamming module, pneumatic airbag, PPJ module)",
+            "Outer sleeve diameter D (26 mm, 29 mm, 32 mm, 35 mm)",
+            "Inner bladder diameter d (10 mm, 15 mm)",
+            "Bending displacement / deflection depth (up to 11 mm in cantilever tests; 10 mm in limb support tests)",
+            "Number of miniature motor pumps connected in serial (1, 2, or 3 pumps)",
+            "Pull-out displacement of the friction pad in joint friction testing"
+          ],
+          "limitations_inferred": [
+            "Analytical formulations for stiffness and Young's modulus assume linear beam behavior and uniform packing, which may deviate significantly under large bending deflections or cyclic loading",
+            "Operation under high positive internal pressure creates burst and leakage failure risks, particularly along adhesive seams between the silicone tube, end caps, and bladder",
+            "Dense packing (~100% volume fraction) required for effective jamming may compromise passive flexibility and softness in the unpressurized state",
+            "The friction-pad self-locking joint is constrained to single-axis planar rotation (-50 deg to +50 deg), lacking multi-axis spatial compliance without additional joint stages",
+            "Connecting multiple electric motor pumps in serial to achieve elevated pressures (up to ~290 kPa) increases power draw, weight, and acoustic noise in portable wearable scenarios"
+          ],
+          "limitations_stated_by_authors": [
+            "A single PPJ unit cannot achieve arbitrary shapes because its geometry is confined by the cylindrical outer fabric sleeve",
+            "Jamming performance stability and maximum reachable bending angle depend heavily on the initial distribution of granules and chamber fill percentage",
+            "The soft inner rubber bladder deforms under positive pressure, which reduces the granular jamming effect",
+            "The self-locking joint mechanism is subject to degradation over time as sandpaper friction pads lose friction through abrasive wear",
+            "Assisting force generated by the limb support prototype is slightly lower than comparable textile pneumatic literature devices lacking internal partitioning",
+            "Soft-to-stiff and stiff-to-soft state transition times were not experimentally verified"
+          ],
+          "main_results": [
+            "PPJ achieved approximately a six-fold increase in cantilever bending stiffness (from 0.69 N/mm to 4.02 N/mm) as input pressure rose from 68/69 kPa to 172 kPa, with exerted forces ranging from 4 N to 23 N",
+            "Stiffness exhibited a direct proportional relationship with input relative air pressure, with linear fit R^2 values of 0.992, 0.995, 0.994, and 0.993 for 69, 103, 138, and 172 kPa",
+            "At 103 kPa input pressure, the granular PPJ specimen demonstrated 40% higher bending stiffness than a pure compressed air airbag of identical outer diameter",
+            "Negative pressure jamming (-62 kPa) showed comparable initial stiffness to PPJ (+62 kPa), but saturated earlier at a maximum force and exhibited pronounced plastic deformation and hysteresis upon unloading",
+            "Enlarging outer diameter D increased bending stiffness but reduced equivalent Young's modulus due to diminished radial force transmission through outer granular layers",
+            "Enlarging inner diameter d increased equivalent Young's modulus across all outer diameters (e.g., from 1.63 MPa to 1.83 MPa at D=26 mm, and from 0.77 MPa to 0.96 MPa at D=35 mm)",
+            "Analytical modeling showed that jamming efficiency (stiffness per unit mass) is maximized when D and d converge closely",
+            "The self-locking revolute joint supported angular locking between -50 degrees and +50 degrees, displaying a two-stage load response with a joint torque limit of approximately 0.6 N*m and a friction coefficient of 1.09 under 137 kPa",
+            "The 400 g wearable limb support prototype produced initial support forces of 5.2 N, 9.4 N, and 12.8 N, and force increments at 10 mm displacement of 8.1 N, 12.4 N, and 15.1 N under one, two, and three serial pumps (100.5 kPa, 195.6 kPa, 290.1 kPa)"
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli cantilever beam bending stiffness formulation: K = 3EI / L^3",
+            "Ring-shaped cross-section area moment of inertia calculation: I = pi * (D^4 - d^4) / 64",
+            "Empirical/analytical equivalent Young's modulus scaling model: E = C / (D^2 - d^2) based on average cross-sectional contact force Faverage = 4Ft / [pi * (D^2 - d^2)]",
+            "Composite bending stiffness relation as a function of sleeve and bladder diameters: K = 3 * pi * C * (D^2 + d^2) / (64 * L^3)",
+            "Jamming efficiency / stiffness-to-mass optimization model: K / mass = 3 * C * (D^2 + d^2) / [16 * L^4 * rho_0 * (D^2 - d^2)]",
+            "Static torque balance formulation for the critical slip force of the self-locking joint: Fc * (L + l/2) = P * S * mu * ds and piecewise two-stage stiffness representation"
+          ],
+          "performance_metrics": [
+            "Cantilever bending stiffness (N/mm)",
+            "Equivalent Young's modulus / bending elastic modulus (MPa)",
+            "Resisting force (N)",
+            "Force increment at specified deflection (N at 1 mm and 10 mm displacement)",
+            "Critical slip force Fc (N) and joint torque limit (N*m)",
+            "Jamming efficiency / stiffness-to-mass ratio (times baseline)",
+            "Coefficient of static friction mu",
+            "Linear regression determination coefficient R^2"
+          ],
+          "possible_gap_implications": [
+            "Overcoming the negative 1 atm threshold via positive pressure creates opportunities for high-payload soft wearable devices, but highlights an unaddressed trade-off between pressure-bearing capacity and unpressurized compliant flexibility",
+            "The decay of equivalent modulus with increasing outer diameter reveals an inherent geometric scaling bottleneck for monolithic granular jamming columns, pointing to a need for multi-cellular or radially segmented internal architectures",
+            "The reliance on abrasive dry friction pads identifies an unresolved materials gap for self-locking soft joints requiring cyclic reliability without rapid frictional degradation",
+            "The lack of soft-to-stiff and stiff-to-soft transition dynamics underscores a research gap in characterizing control bandwidth for positive pressure granular systems relative to conventional vacuum systems"
+          ],
+          "research_objective": "To develop and evaluate a Positive Pressure Jamming (PPJ) variable stiffness mechanism that expands the achievable stiffness range beyond the negative one atmosphere limit without altering actuator geometry, incorporate friction-pad self-locking joints for multi-configuration shape preservation, and demonstrate its feasibility in wearable limb support devices.",
+          "research_problem": "Negative pressure jamming approaches are physically bounded by negative one atmospheric pressure, limiting their achievable stiffness range and payload capacity, while relying on bulky vacuum pumps; furthermore, existing positive pressure approaches often couple stiffness changes with actuator bending motions or cannot conform to multiple shapes.",
+          "robot_type": "Wearable robot (wearable limb support device for arm and leg assistance)",
+          "stiffness_mechanism": [
+            "Positive Pressure Jamming (PPJ) / granular jamming (Shape Memory Polymer granules compressed between an internal inflatable bladder and an external non-stretchable sleeve)",
+            "Friction pad self-locking revolute joint (sandpaper friction pads compressed by pressurized granules/actuator to lock joint angles)"
+          ],
+          "title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+          "year": "2021"
+        }
+      }
+    },
+    {
+      "paper_id": "55457a97c6",
+      "filename": "2021-Shape Memory Alloy Capsule Micropump for Drug Delivery Applications.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2021-Shape Memory Alloy Capsule Micropump for Drug Delivery Applications_55457a97c6.json",
+      "evidence": {
+        "source": {
+          "paper_id": "55457a97c6",
+          "filename": "2021-Shape Memory Alloy Capsule Micropump for Drug Delivery Applications.pdf",
+          "sha256": "55457a97c60efae1ddb90544d5382e1786579dfbdff5e445b51085db5dfbb782",
+          "page_count": 15,
+          "char_count": 39364,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 24702,
+          "completion_tokens": 7107,
+          "total_tokens": 31809,
+          "thinking_tokens": 4280,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Shape memory alloy (NiTi wire) Joule heating / resistive heating",
+            "Passive elastic restoration via flexible silicone polymer enclosure (Ecoflex 00-30) acting as an antagonistic spring"
+          ],
+          "authors": [
+            "Youssef Kotb",
+            "Islam Elgamal",
+            "Mohamed Serry"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "SMA material is assumed to be 100% austenite when heated and 100% martensite when cooled.",
+            "Fluid dynamic effects on pumping forces are neglected at minimum and maximum deflections because the actuator is stationary at these extreme positions.",
+            "The SMA material in the austenite phase exhibits constant elastic stiffness up to its maximum strain limit.",
+            "The force-displacement relationship of the silicone enclosure is assumed to be linear with constant stiffness over the operational range.",
+            "The initial pitch angle of the tightly wound SMA spring coil is assumed to be approximately zero.",
+            "Detwinned martensite fraction is modeled as an empirical cosine function of shear stress between critical transformation stresses (105 MPa and 215 MPa) based on Brinson's formulation."
+          ],
+          "control_variables": [
+            "Overall pump package volume (424.7 µL / 424.7 mm³)",
+            "Polymer capsule outer diameter (6 mm spring diameter / 9.4 mm overall outer diameter) and pump length (20 mm)",
+            "SMA phase transformation transition temperature (45 °C)",
+            "Check-valve material (Formlabs Shore 80 A flexible resin) and dimensions",
+            "Preloaded target discharge volume during controlled limit-switch operation (43 mm³)"
+          ],
+          "dependent_variables": [
+            "Maximum linear stroke / deflection / deflection ratio",
+            "Maximum displaced volume / discharge volume per stroke",
+            "Volume flow rate / throughput",
+            "Static head pressure",
+            "Actuation speed",
+            "Heating and cooling response times"
+          ],
+          "doi": "10.3390/mi12050520",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Longitudinal actuation along the direction of highest mechanical compliance enables an SMA-polymeric capsule pump to attain 5.6 mm stroke (27% deflection ratio), speeds up to 11 mm/s, static head pressures up to 14 kPa, and throughputs exceeding 2524 µL/min at 7.1 W.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                12,
+                13
+              ]
+            },
+            {
+              "claim": "SMA direct-drive solid-to-solid phase transformation offers high power density and frictionless operation, but its operating reciprocation rate is constrained by ambient thermal heat exchange during cooling.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                2,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "The micropump equilibrium position and stroke are governed by the intersection of the force-deflection responses of the expanding/contracting SMA spring in austenite and martensite phases against the opposing elastic silicone enclosure.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Stereolithography 3D-printed bicuspid-inspired polymer check valves fabricated from Shore 80A resin provide directional flow control with spatially constrained, preloaded leaflets preventing backflow leakage.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4,
+                7
+              ]
+            },
+            {
+              "claim": "A static two-state thermomechanical model combining Brinson's SMA constitutive relations and spring geometry with silicone spring stiffness successfully predicts maximum deflections and delineates the plastic deformation boundary.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                4,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Lower stiffness enclosure materials shift peak actuator deflection to thinner SMA wire diameters, reducing required electrical current and input power, making Ecoflex 00-30 the optimal tradeoff between compliance and mechanical robustness.",
+              "evidence_type": "modeling",
+              "page_numbers": [
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "Increasing the number of SMA coil turns decreases displaced volume and static head pressure while increasing input power consumption due to changes in relative SMA-to-enclosure stiffness.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8,
+                9,
+                11
+              ]
+            },
+            {
+              "claim": "Operating under forced convection cooling (h ≈ 79 W/(m²·K)) accelerates cooling but simultaneously impairs Joule heating efficiency and stroke, ultimately reducing net flow rate compared to free convection.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Under constant current (1.9 A), 0.5 mm diameter wire achieves the greatest displacement but 0.4 mm diameter wire yields the highest volume flow rate due to lower electrical resistance and faster thermal rise times.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                10,
+                11
+              ]
+            },
+            {
+              "claim": "A controlled limit-switch operating mode at 790 mA delivers constant volumetric discharge (43 mm³) at a stable static head pressure of 6.5 kPa (~48 mmHg) per stroke.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                12
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Fabrication using 3D-printed molds to cast Ecoflex 00-30 inner and outer capsule structures, stereolithography 3D-printed bicuspid valves in Shore 80A flexible resin, and an aluminum mold for the replaceable Ecoflex 00-30 drug reservoir.",
+            "Experimental characterization of force-displacement behavior, linear motion, discharge volume, volume flow rate, and static pressure head using PASCO force sensors (0.03 N resolution) and linear motion sensors (0.0078 mm resolution).",
+            "Electrical actuation via pulsed DC power supply under variable duty cycles (1:1 and 1:2), frequencies (0.25 Hz to >3 Hz), voltages (2.5 V, 3.5 V, 5 V), and constant currents (790 mA and 1.9 A).",
+            "Limit-switch closed-loop discharge volume control maintaining constant stroke volume and tracking static head pressure.",
+            "Evaluation under natural/free convection and forced convection cooling conditions (convection coefficient h ≈ 79 W/(m²·K))."
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "SMA wire diameter (0.25 mm, 0.4 mm, 0.5 mm)",
+            "Number of active coil turns (3, 4, 6, 8 turns)",
+            "Enclosure material type and stiffness (Ecoflex 00-10, Ecoflex 00-30, Ecoflex 00-50, PDMS)",
+            "Input electrical excitation (voltage: 2.5–5 V; current: 790 mA, 1.9 A; power: 2.9–7.1 W)",
+            "Actuation frequency (up to >3 Hz)",
+            "Pulse duty cycle (1:1 and 1:2)",
+            "Cooling regime (free convection vs. forced convection)"
+          ],
+          "limitations_inferred": [
+            "Device cooling and cycle frequency were characterized in ambient air; in vivo biological implantation surrounded by tissue would alter heat transfer rates and could pose local tissue heating concerns.",
+            "Testing was conducted with generic fluid; behavior with non-Newtonian or higher-viscosity pharmaceutical drug solutions was not investigated.",
+            "Long-term fatigue, cyclic creep, and interfacial bonding between the SMA wire and the silicone enclosure over thousands of continuous cycles were not evaluated.",
+            "Peak power consumption (up to 7.1 W) is high for compact battery-powered implantable medical devices, potentially constraining operational longevity."
+          ],
+          "limitations_stated_by_authors": [
+            "Low actuation frequency is an inherent limitation of SMA micropumps because phase transformation relies on thermal heat exchange with surrounding sources or sinks.",
+            "Actuation frequencies exceeding 2 Hz at 1:1 duty cycle do not increase flow rate because the short rise and cooling durations prevent complete phase transformation.",
+            "Ultra-low stiffness elastomers such as Ecoflex 00-10 suffer from high mixed viscosity (14 Pa·s) impairing fine molding, low tensile strength (0.83 MPa), low tear strength (3.85 N/mm), and susceptibility to tearing during repeated elongation >27%.",
+            "Forced convection cooling reduces heating efficiency and stroke amplitude, yielding lower flow rates despite shorter cooling intervals.",
+            "Larger SMA wire diameters and higher turn counts require higher electrical currents and power consumption."
+          ],
+          "main_results": [
+            "Longitudinal compliance actuation produced a maximum stroke of 5.6 mm at a 27% deflection ratio and actuation speeds up to 11 mm/s.",
+            "The pump attained a peak volume flow rate of 2524 µL/min and static head pressure of 14 kPa (105 mmHg) at 7.1 W power under free convection.",
+            "A flow rate per watt of 364.52 µL/(W·min) was achieved at 4.2 W, and the maximum flow rate per pump volume reached 5.94 µL/(min·mm³).",
+            "Analytical and experimental modeling established that lower enclosure stiffness paired with thinner SMA wire maximizes elastic deflection without plastic failure, establishing Ecoflex 00-30 as the optimal elastomer.",
+            "Decreasing active turn count increased static head pressure and stroke range, with 3-turn pumps outperforming 4-, 6-, and 8-turn designs.",
+            "Under constant current (1.9 A), 0.4 mm wire produced the highest volume flow rate, whereas 0.5 mm wire yielded the largest static displacement but slower heating due to lower electrical resistance.",
+            "Controlled limit-switch operation at 790 mA successfully maintained a constant discharge of 43 mm³ per stroke at a stable static head pressure of 6.5 kPa (~48 mmHg)."
+          ],
+          "modeling_methods": [
+            "Analytical Brinson one-dimensional thermomechanical constitutive modeling relating detwinned martensite volume fraction to shear stress.",
+            "Static two-state force-displacement spring formulation (An et al. 2012) incorporating torsional wire stress and outer diameter variations for austenite and martensite states.",
+            "Linear elastic spring modeling of the silicone enclosure based on experimental force-displacement measurements.",
+            "Equilibrium solution via MATLAB numerical curve intersection to identify peak deflections and delineate plastic failure boundaries across design parameters."
+          ],
+          "performance_metrics": [
+            "Maximum linear stroke (5.6 mm) and deflection ratio (27%)",
+            "Actuation speed (up to 11 mm/s)",
+            "Maximum static head pressure (14 kPa / 105 mmHg at 7.1 W; 6.5 kPa / 48 mmHg in limit-switch mode)",
+            "Maximum volume flow rate (2524 µL/min at 7.1 W under free convection)",
+            "Maximum flow rate per watt (364.52 µL/(W·min) at 4.2 W)",
+            "Maximum flow rate per pump volume (5.94 µL/(min·mm³))",
+            "Total pump volume (424.7 µL / 424.7 mm³)"
+          ],
+          "possible_gap_implications": [
+            "The pairing of longitudinal SMA coil contraction with an elastic silicone enclosure provides a design blueprint for high-stroke, compliant linear actuators in soft robotics and microfluidics.",
+            "Static two-state equilibrium modeling offers an accessible alternative to dynamic finite element models for sizing antagonistic variable-stiffness smart material systems.",
+            "Thermal management remains a major bottleneck, as active cooling methods can undermine actuation stroke unless heating input is proportionally scaled."
+          ],
+          "research_objective": "To design, model, fabricate, optimize, and experimentally evaluate a compact, high-power-density, resistively actuated shape memory alloy capsule micropump with an integrated replaceable reservoir and 3D-printed bicuspid valves, utilizing longitudinal compliance actuation to achieve large stroke, high throughput, and sufficient static head pressure for drug delivery applications.",
+          "research_problem": "Miniature active-controlled drug delivery devices face stroke, pressure, and throughput limitations because conventional SMA micropumps (such as diaphragm and peristaltic configurations) actuate transversely with limited displacement, while passive release devices lack on-demand programmability and smart material actuators often require high power budgets.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "Variable phase stiffness of shape memory alloy (NiTi) wire transitioning between lower shear modulus martensite (5.65 GPa) and higher shear modulus austenite (18.3 GPa) phases upon Joule heating",
+            "Antagonistic passive elastic restoration provided by a flexible silicone elastomer enclosure (Ecoflex 00-30) acting as an integrated return spring"
+          ],
+          "title": "Shape Memory Alloy Capsule Micropump for Drug Delivery Applications",
+          "year": "2021"
+        }
+      }
+    },
+    {
+      "paper_id": "240fbf6022",
+      "filename": "2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming_240fbf6022.json",
+      "evidence": {
+        "source": {
+          "paper_id": "240fbf6022",
+          "filename": "2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+          "sha256": "240fbf60229a87953954c85c3d858bebf945c06c2689f5dcb7c8d5c51742b2b5",
+          "page_count": 14,
+          "char_count": 51905,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 27094,
+          "completion_tokens": 7096,
+          "total_tokens": 34190,
+          "thinking_tokens": 4178,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Pneumatic actuation (positive air pressure for fiber-reinforced soft bending actuator)",
+            "Vacuum pressure (negative air pressure for wire jamming structure)"
+          ],
+          "authors": [
+            "Long Bai",
+            "Hao Yan",
+            "Jiafeng Li",
+            "Jiefeng Shan",
+            "Penghao Hou"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "When vacuum pressure is off (unjammed state), inter-wire gaps are non-negligible and each wire is assumed to act as an independent beam.",
+            "When vacuum pressure is on (jammed state), wires become cohesive due to friction and are analyzed together as a single unified beam.",
+            "Cantilever beam deformation follows Euler-Bernoulli beam theory under applied point force Fe.",
+            "Velcro strain-limiting layer is assumed to be inextensible.",
+            "Internal air channel geometry is ignored in the finite element (FE) simulation of the fiber-reinforced soft actuator.",
+            "Silicone rubber exhibits hyper-elastic material behavior (characterized via uniaxial tensile testing)."
+          ],
+          "control_variables": [
+            "Wire diameter (empirically fixed at 1 mm)",
+            "Wire length (pre-cut to 150 mm and trimmed to 140–150 mm)",
+            "Envelope material and film thickness (HDPE film, 0.08 mm thickness)",
+            "Cross-sectional layout and installation scheme (rectangular arrangement, layout 2)",
+            "Loading speed of the force sensor during bending stiffness measurement (kept slow to match elastic reaction force)",
+            "Number of repeated experimental trials per test condition (each test repeated five times)",
+            "Fabrication mold parameters and Velcro fastener types (ONE-WRAP 29 double-sided fastener, velour 3165 loop fastener)"
+          ],
+          "dependent_variables": [
+            "Bending stiffness (ratio of applied force to deflection)",
+            "Applied reaction force under specified deflection",
+            "Torsional stiffness and measured torque under rotation angle",
+            "Free bending angle of soft actuators under inflation pressure",
+            "Tip contact force / resistance under deflection",
+            "Maximum grasping payload mass of the soft robotic gripper",
+            "Maximum lifting weight capacity of the detachable soft glove",
+            "Slip threshold deflection and transition regimes (pre-slip, transition, post-slip)"
+          ],
+          "doi": "10.3390/app12073582",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Wire/fiber jamming structures transition between unjammed and jammed states via vacuum-controlled inter-wire friction, markedly increasing bending stiffness while retaining low unjammed torsional impedance for multi-directional dexterity.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                5,
+                7,
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Rectangular wire arrangements eliminate circumferential wire sliding and misalignment observed in circular arrangements, while reverse-gradient trimming of free wire ends prevents localized twisting or arching during bending.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Euler-Bernoulli cantilever beam modeling predicts that bending stiffness of the wire jamming structure scales significantly with the number of wire layers in the thickness direction.",
+              "evidence_type": "analytical modeling",
+              "page_numbers": [
+                5
+              ]
+            },
+            {
+              "claim": "Bending stiffness of an 8 mm thick kraft rope wire jamming structure increased by nearly seven times (reaching 0.89 N/mm at 15 mm deflection) when vacuum pressure changed from 0 kPa to -85 kPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8
+              ]
+            },
+            {
+              "claim": "Compared with layer jamming, wire jamming exhibits lower torsional stiffness across rotation angles (0° to 60°), enabling better multidirectional compliance and twistability for multi-DOF applications.",
+              "evidence_type": "comparative experimental",
+              "page_numbers": [
+                9
+              ]
+            },
+            {
+              "claim": "Integrating double-sided Velcro as a strain-limiting layer and connector provides a reliable, detachable interface enabling rapid assembly and modular replacement of the wire jamming layer on soft actuators.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                3,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "Assembling the wire jamming layer increases passive stiffness, requiring 145 kPa positive air pressure to achieve a 90° bend compared to 87 kPa for the bare actuator, while vacuum activation substantially increases tip contact stiffness.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "A three-actuator soft gripper doubled its maximum grasping payload under -85 kPa vacuum compared to 0 kPa, and an unassisted detachable soft glove lifted a water payload over 10,000 g at 165 kPa positive pressure and -85 kPa vacuum.",
+              "evidence_type": "application demonstration",
+              "page_numbers": [
+                10,
+                11
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Three-point bending characterization testbed with support platform, peristaltic vacuum pump (KVP8 PLUS-KB-S), precision digital pressure regulator (ITV2090-312BL5), and a slow-moving force sensor.",
+            "Torsional stiffness testbed holding one end fixed with an air hose coupler and the opposite end connected to a servo-driven rotating fixture (0° to 60°) while permitting axial sliding, monitored with a torque sensor.",
+            "Soft actuator free bending angle setup utilizing a nine-axis tip-mounted gyroscope (JY901S) under variable positive inflation pressures.",
+            "Tip contact stiffness testbed measuring force versus deflection perpendicularly at the tip of the assembled actuator under combined positive inflation and vacuum pressures.",
+            "Three-actuator robotic gripper grasping test setup lifting a hollow plastic carrier loaded incrementally with steel balls until grasp failure.",
+            "Detachable soft glove load capacity setup testing an empty glove (without a human hand) pressurized at 165 kPa and -85 kPa vacuum grasping a plastic bucket filled incrementally with water until failure.",
+            "Uniaxial tensile testing setup measuring silicone rubber stress-strain response and comparative peel/tensile tests evaluating Velcro adhesive methods."
+          ],
+          "future_work": [
+            "Further research into 3D printing materials and advanced printing devices suitable for soft robotics.",
+            "Exploring application prospects of stiffness-tunable soft actuators in medical devices, biomimetic robots, and immersive haptic feedback for VR/AR.",
+            "Adding or replacing specialized sensing and driving units onto the modular soft gloves for diverse working tasks."
+          ],
+          "independent_variables": [
+            "Vacuum pressure inside wire jamming envelope (e.g., 0 kPa, -30 kPa, -60 kPa, -85 kPa)",
+            "Jamming medium material (kraft rope, hemp rope, nylon wire, and kraft paper layer jamming for comparison)",
+            "Jamming structure thickness d (4 mm, 6 mm, 8 mm)",
+            "Deflection distance in bending tests (0 to 15 mm)",
+            "Rotation angle in torsion tests (0° to 60°)",
+            "Positive inflation air pressure Pin inside the fiber-reinforced actuator (0 to 165 kPa)",
+            "Wire arrangement geometry (circular vs. rectangular cross-section; trimmed vs. untrimmed free ends)"
+          ],
+          "limitations_inferred": [
+            "Vacuum pressurization and evacuation response times and dynamic switching bandwidth between jammed and unjammed states were not measured or reported.",
+            "Long-term durability, cyclic fatigue life, and wear characteristics of the inter-wire friction contact, Velcro fastener attachment, and thin 0.08 mm HDPE envelope under repeated bending cycles were not investigated.",
+            "The manual reverse-gradient trimming of wire ends is empirical and may pose repeatability or manufacturing challenges for automated production.",
+            "The Euler-Bernoulli beam model treats wires as either completely independent or fully monolithic, without capturing microscopic stick-slip contact mechanics, friction distribution, or 3D cross-sectional deformation.",
+            "Glove payload tests were performed without a human hand inside, leaving ergonomics, human-robot interaction forces, and biomechanical compliance unaddressed."
+          ],
+          "limitations_stated_by_authors": [
+            "Assembly of the wire jamming structure significantly reduces the bending performance of the actuator, requiring higher positive air pressure (145 kPa vs. 87 kPa) to achieve a 90° bending angle.",
+            "Bending induces a gradient elongation effect at the free end of the wires, which can cause localized twisting, arching, and irreversible envelope deformation if untrimmed or unaccommodated.",
+            "Circular wire packing arrangements are prone to wire circumferential sliding during bending, resulting in misalignment and pre-jamming.",
+            "Nylon wire exhibits high initial unjammed stiffness and localized rearrangement, whereas hemp rope displays lower jammed stiffness due to thin surface fiber branches.",
+            "Layer jamming structures outperform wire jamming structures in bending stiffness and stiffness range, but wire jamming is inferior in single-plane bending stiffness.",
+            "Excessive jamming structure thickness increases initial unjammed stiffness, overall structure volume, and gradient elongation severity.",
+            "Velcro is inextensible, restricting its combination with stretchable substrate materials in wearable devices.",
+            "Current 3D printing technologies suffer from limitations in speed, material compatibility, and resolution when fabricating soft robotic components."
+          ],
+          "main_results": [
+            "All three tested wire jamming media (kraft rope, hemp rope, nylon wire) exhibited substantial stiffness increases when transitioning from 0 kPa to -60 kPa vacuum pressure, with kraft rope selected for its balance of low initial unjammed stiffness and high jammed stiffness without rearrangement.",
+            "Adopting a rectangular wire arrangement and reverse-gradient trimmed wire ends successfully mitigated circumferential sliding, pre-jamming, and localized twisting/arching during bending.",
+            "For an 8 mm thick kraft rope jamming structure, switching vacuum from 0 to -85 kPa increased bending stiffness nearly seven-fold (achieving 0.89 N/mm at 15 mm deflection).",
+            "Wire jamming structures exhibited lower torsional impedance and smoother rotational response (0° to 60°) than layer jamming structures, with torsional stiffness increasing from 32.63 to 47.5 N*mm as thickness increased from 6 mm to 8 mm.",
+            "The assembled stiffness-tunable actuator achieved higher resistance to external tip deflections under -85 kPa vacuum across multiple bending states.",
+            "A soft robotic gripper equipped with three assembled actuators doubled its maximum payload grasping capacity when vacuum pressure was shifted from 0 to -85 kPa.",
+            "An unassisted detachable soft glove lifted a water bucket load exceeding 10,000 g under 165 kPa positive pressure and -85 kPa vacuum pressure."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli cantilever beam theoretical modeling for unjammed (individual independent beams) and jammed (unified solid composite beam) wire states.",
+            "Theoretical modeling of the fiber-reinforced soft actuator bending behavior to determine actuator geometric parameters.",
+            "Finite element (FE) simulation of the fiber-reinforced soft actuator bending state under positive air pressure."
+          ],
+          "performance_metrics": [
+            "Bending stiffness (N/mm, defined as the ratio of applied force to deflection)",
+            "Bending stiffness increase ratio under vacuum (up to ~7x increase at -85 kPa vs. 0 kPa)",
+            "Torsional torque (N*mm) and torsional stiffness range (ratio between jammed and unjammed states, 1.88 to 2.02)",
+            "Free bending angle (degrees) as a function of positive air pressure (kPa)",
+            "Maximum payload mass of the soft robotic gripper (g)",
+            "Maximum lifting weight capacity of the detachable soft glove (g / kg)",
+            "Initial (unjammed) stiffness and stiffness variation range"
+          ],
+          "possible_gap_implications": [
+            "The deliberate choice of wire jamming to maintain low torsional impedance facilitates multi-DOF dexterous compliance, but this lower torsional rigidity could be a drawback in applications requiring high resistance to out-of-plane torsional perturbations during heavy grasping.",
+            "The substantial increase in positive inflation pressure required to bend the actuator once the jamming layer is attached (145 kPa vs. 87 kPa for 90°) highlights an inherent trade-off between passive unjammed compliance and overall variable-stiffness payload capacity.",
+            "Relying on manual wire trimming and heat-sealed thin HDPE envelopes reveals an open engineering gap in automated, robust manufacturing methods for multidirectional fiber/wire jamming skins."
+          ],
+          "research_objective": "To design, model, and fabricate a stiffness-tunable soft actuator based on a wire/fiber jamming mechanism with wide-range stiffness variation, universal adaptability, and high dexterity, utilizing a modular Velcro attachment scheme for rapid detachment and integration into soft robotic grippers and wearable exoskeletons.",
+          "research_problem": "Soft actuators suffer from low stiffness and hyper-elastic properties that restrict their use in high-load, high-speed, and precision tasks; conventional stiffening approaches often reduce flexibility, particle jamming can cause passive pre-jamming that limits bending range, and layer jamming is primarily restricted to single-plane deformation. In addition, existing stiffness-tunable soft actuators frequently rely on permanent adhesion or non-modular integration, making component replacement difficult upon leakage or wear.",
+          "robot_type": "Fiber-reinforced soft pneumatic actuator, soft robotic gripper, and wearable exoskeleton (detachable soft glove and detachable elbow sleeve)",
+          "stiffness_mechanism": [
+            "wire jamming",
+            "fiber jamming"
+          ],
+          "title": "Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming",
+          "year": "2022"
+        }
+      }
+    },
+    {
+      "paper_id": "bbe88a0c04",
+      "filename": "2022-Soft actuator with switchable stiffness using a micropump-activated jamming system.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2022-Soft actuator with switchable stiffness using a micropump-activated jamming system_bbe88a0c04.json",
+      "evidence": {
+        "source": {
+          "paper_id": "bbe88a0c04",
+          "filename": "2022-Soft actuator with switchable stiffness using a micropump-activated jamming system.pdf",
+          "sha256": "bbe88a0c04b7a725f44d8f0271086a494a785b84030bde75a35ef892eeeecfcf",
+          "page_count": 11,
+          "char_count": 53414,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 28941,
+          "completion_tokens": 6119,
+          "total_tokens": 35060,
+          "thinking_tokens": 3870,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "electro-conjugate fluid (ECF) micropump",
+            "micro hydraulic actuation"
+          ],
+          "authors": [
+            "Huy Hoang Huynh",
+            "Dong Han",
+            "Kazuhiro Yoshida",
+            "Michael De Volder",
+            "Joon-wan Kim"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [],
+          "control_variables": [
+            "Electrode pair dimensions: 0.2 mm electrode gap, 0.2 mm slit width, and 0.3 mm slit depth",
+            "Electrode pair arrangement: 3 pairs in parallel and 27 pairs in series in each flow direction",
+            "Jamming material: aluminium oxide particles with a diameter of 20 µm",
+            "Linear stage displacement speed: 0.5 mm/s up to 3 mm total movement distance",
+            "Soft actuator base material: SYLGARD 184 silicone elastomer mixed in a 10:1 ratio and cured at 100 °C for 1 hour",
+            "Channel and bonding adhesives: EP001N elastic adhesive cured at room temperature for 24 hours",
+            "Ambient test environment: room temperature"
+          ],
+          "dependent_variables": [
+            "Static / output pressure (0 to ±55 kPa)",
+            "Output flow rate (0 to 140 mm³/s)",
+            "Bending force at 3 mm displacement (0.134 N to 0.743 N)",
+            "Bending angle (0° to 16°)",
+            "Vertical tip displacement (up to 7 mm)",
+            "Load-bearing capability (ability to hold 130 g tip load)"
+          ],
+          "doi": "10.1016/j.sna.2022.113449",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Embedding a flexible bidirectional electro-conjugate fluid (ECF) micropump directly into a Pneu-Nets soft actuator enables dual-mode operation: active bending via positive hydraulic pressure and stiffness tuning via negative pressure granular jamming.",
+              "evidence_type": "design and experimental demonstration",
+              "page_numbers": [
+                1,
+                2,
+                3,
+                10
+              ]
+            },
+            {
+              "claim": "The fabricated bidirectional flexible ECF micropump generates static pressure up to ±55 kPa and a no-load flow rate up to 140 mm³/s at an applied voltage of 2.5 kV.",
+              "evidence_type": "experimental measurement",
+              "page_numbers": [
+                1,
+                6,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Applying negative pressure (-50 kPa at 2.45 kV) to induce granular jamming of 20 µm aluminium oxide particles increases the soft actuator's bending force at 3 mm displacement from 0.134 N to 0.743 N, representing a 5.5-fold stiffness enhancement over the unjammed state.",
+              "evidence_type": "experimental measurement",
+              "page_numbers": [
+                1,
+                7,
+                8,
+                10
+              ]
+            },
+            {
+              "claim": "Under negative pressure activated by 2.5 kV, the stiffened soft actuator can hold an external mass of 130 g at its tip (5.2 times its own weight of 25 g), but drops the load when the voltage is turned off and stiffness returns to the compliant state.",
+              "evidence_type": "experimental demonstration",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Positive pressure generated by the integrated micropump (+50 kPa at 2.45 kV) produces active bending of the Pneu-Nets actuator up to a 16° bending angle and a 7 mm vertical tip displacement.",
+              "evidence_type": "experimental measurement",
+              "page_numbers": [
+                1,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "The flexible micropump is microfabricated on a polyimide flexible printed circuit board using a modified UV-LIGA process with electroformed nickel microelectrodes, maintaining electrode spacing even under large bending deformations.",
+              "evidence_type": "fabrication and characterization",
+              "page_numbers": [
+                4,
+                5,
+                6
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Micropump pressure and flow rate characterization: sealed flexible micropump connected to a pressure sensor to measure static output pressure under no-flow conditions, and an open collection beaker on an analytical scale with timing to determine no-load flow rate across applied voltages from 0 to 2.5 kV in 0.5 kV increments.",
+            "Stiffness measurement setup: soft actuator fixed at one base end while a force gauge mounted on a motorized linear stage displaces the free tip by 3 mm at 0.5 mm/s, recording tip reaction force versus displacement at negative pressures from 0 to -50 kPa (voltages from 0 to 2.45 kV).",
+            "Load-bearing test: soft actuator clamped horizontally, stiffened with 2.5 kV applied to generate negative pressure, loaded with a 130 g tip weight, and monitored before and after switching off the voltage.",
+            "Bending actuation evaluation: actuator mounted horizontally and connected to a high-voltage DC power supply and external ECF fluid reservoir; positive pressure applied from +10 to +50 kPa (1.1 to 2.45 kV); bending angles and vertical tip displacements recorded with a high-resolution camera and vertical scale."
+          ],
+          "future_work": [
+            "Improving the bonding technique for the micropump assembly to eliminate asymmetric channel expansion and achieve identical performance in both flow directions.",
+            "Fabricating the soft actuator from softer elastomeric materials (such as Ecoflex rubbers) to achieve larger bending angles and displacements."
+          ],
+          "independent_variables": [
+            "Applied DC voltage to the ECF micropump (0 to 2.5 kV, specifically evaluated at 1.1 kV, 1.6 kV, 2.0 kV, 2.2 kV, 2.45 kV, and 2.5 kV)",
+            "ECF flow direction (positive pressure / forward flow vs. negative pressure / reverse flow)",
+            "Tip indentation displacement applied by the linear stage (0 to 3 mm)"
+          ],
+          "limitations_inferred": [
+            "The system requires kilovolt-level high-voltage DC power supplies (up to 2.5 kV), which introduces electrical insulation concerns and may complicate onboard power electronics miniaturization.",
+            "The actuator remains tethered to an external high-voltage supply and an external ECF fluid reservoir tank rather than being fully self-contained or untethered.",
+            "Long-term cycling durability, potential particle clogging or wear of the metallic mesh filter, and fluid leakage over extended operation were not investigated.",
+            "No theoretical, analytical, or computational constitutive modeling was provided to predict the jamming-induced stiffness or pressure-deflection response."
+          ],
+          "limitations_stated_by_authors": [
+            "Due to the compact integrated design, the internal pressure and flow rate inside the assembled actuator could not be measured directly during actuation or stiffness switching; operating pressures had to be inferred from separate no-flow calibration experiments.",
+            "A performance discrepancy existed between the two flow directions (11% difference in static pressure and 3% in flow rate), caused by asymmetric expansion of the PDMS channel under positive pressure due to fabrication error.",
+            "The maximum bending deformation was relatively modest (16° bending angle and 7 mm vertical displacement) due to the stiffness of the SYLGARD 184 silicone elastomer."
+          ],
+          "main_results": [
+            "The bidirectional flexible ECF micropump achieved a maximum output pressure of ±55 kPa and a no-load flow rate of 140 mm³/s at 2.5 kV.",
+            "Negative pressure jamming at -50 kPa increased the tip bending force at 3 mm displacement from 0.134 N to 0.743 N, yielding a 5.5-fold increase in actuator stiffness.",
+            "The stiffened actuator successfully carried a 130 g tip load (5.2 times its own weight of 25 g), but dropped the load once voltage was removed.",
+            "Positive pressure hydraulic inflation at +50 kPa caused Pneu-Nets chamber expansion, producing a maximum bending angle of 16° and a tip vertical displacement of 7 mm.",
+            "The flexible micropump on polyimide substrate maintained its structural integrity and electrode gap during significant bending deformation."
+          ],
+          "modeling_methods": [],
+          "performance_metrics": [
+            "Maximum output pressure: ±55 kPa at 2.5 kV",
+            "Maximum flow rate: 140 mm³/s at 2.5 kV",
+            "Stiffness increase factor: 5.5-fold (bending force increased from 0.134 N to 0.743 N at 3 mm deflection)",
+            "Maximum bending angle: 16° at +50 kPa (2.45 kV)",
+            "Maximum vertical tip displacement: 7 mm at +50 kPa",
+            "Load-to-weight ratio: 5.2x (130 g payload supported by a 25 g actuator)",
+            "Bidirectional asymmetry: 11% difference in static pressure and 3% difference in flow rate between flow directions"
+          ],
+          "possible_gap_implications": [
+            "Demonstrating that an embedded micro hydraulic source can replace bulky external vacuum pumps and compressors in granular jamming systems helps address the miniaturization bottleneck in variable-stiffness soft robotics. However, achieving practical untethered soft robots will require developing miniaturized high-voltage drivers, onboard closed-loop fluid management, and robust filter interfaces for cyclic durability."
+          ],
+          "research_objective": "To design, microfabricate, and experimentally evaluate a compact soft actuator that integrates an embedded bidirectional flexible electro-conjugate fluid (ECF) micropump to provide both active bending deformation via positive hydraulic pressure and tunable stiffness via negative-pressure granular jamming.",
+          "research_problem": "Soft robots are compliant and safe for environment interaction, but their inherent flexibility makes it difficult to exert high forces. While granular jamming can provide switchable stiffness, conventional jamming systems rely on bulky external vacuum pumps, compressors, valves, and clunky tubing, hindering miniaturization and practical integration.",
+          "robot_type": "Pneu-Nets soft actuator",
+          "stiffness_mechanism": [
+            "granular jamming",
+            "particle jamming"
+          ],
+          "title": "Soft actuator with switchable stiffness using a micropump-activated jamming system",
+          "year": "2022"
+        }
+      }
+    },
+    {
+      "paper_id": "2cd907e77a",
+      "filename": "2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon_2cd907e77a.json",
+      "evidence": {
+        "source": {
+          "paper_id": "2cd907e77a",
+          "filename": "2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+          "sha256": "2cd907e77a983f289850ca4519da87f99b5fd5b26f6455fff5275ecc5baf8b6b",
+          "page_count": 12,
+          "char_count": 40755,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 26021,
+          "completion_tokens": 8690,
+          "total_tokens": 34711,
+          "thinking_tokens": 5394,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Electrical Joule heating (PWM-controlled AC for SMP, direct AC for SMA)",
+            "Pneumatic vacuum / air evacuation (below -90 kPa) and air injection",
+            "Manual external deformation (applied external load)"
+          ],
+          "authors": [
+            "Kazuto Takashima",
+            "Toshiki Imazawa",
+            "Hiroki Cho"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Euler-Bernoulli linear beam bending under a concentrated point load at the cantilever tip (P/delta = 3*n*E*I / L^3)",
+            "Linear elastic force-displacement relationship below 20 N force and 10 mm displacement",
+            "Isotropic linear elastic modulus for SMP below Tg (1350 MPa) and above Tg (4.5 MPa)",
+            "Isotropic linear elastic modulus for Ni-Ti SMA in martensite (28 GPa) and austenite (75-83 GPa) phases",
+            "Assumption of decoupled outer membrane deflection in the unjammed state below Tg (membrane deforms locally without engaging SMP)",
+            "Assumption of unified composite bending deformation between outer membrane and shape-memory core in the jammed state"
+          ],
+          "control_variables": [
+            "Automatic stage velocity (2 mm/s)",
+            "Applied displacement amplitude in Condition 1 (10 mm) and Condition 2 (2 mm)",
+            "Force threshold for linear stiffness calculation (below 20 N)",
+            "Data acquisition sampling frequency (20 Hz)",
+            "Vacuum pressure level during jamming (below -90 kPa)",
+            "Heating temperature setpoint for SMP (70 deg C) maintained via PWM control",
+            "Applied AC heating voltage (8 V AC for SMP, 3 V AC for SMA)",
+            "Dead weight magnitude for shape fixity test (2 kg)",
+            "Cantilever beam length tested (L = 50 mm)",
+            "Outer silicone membrane dimensions (outer diameter 34 mm, thickness 2 mm, length 100 mm) and material (ECOFLEX 00-30)",
+            "Granular jamming media type (coarse coffee grounds, 24 g for Prototype 1, 26 g for Prototype 2)"
+          ],
+          "dependent_variables": [
+            "Bending stiffness (N/mm, gradient of linear approximation of force-displacement)",
+            "Reaction force (N)",
+            "Tip displacement (mm) under point loading and constant 2 kg load",
+            "Shape recovery time (s / min) and residual distance from initial position (mm)",
+            "Reaction force hysteresis and cyclic degradation over 10 reciprocating cycles",
+            "Self-weight supporting capability in horizontal cantilever configuration",
+            "Object gripping success across five distinct test items"
+          ],
+          "doi": "10.20965/jrm.2022.p0466",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Shape-memory polymers exhibit a reversible elastic modulus change between glassy and rubbery states on the order of 100 to 1000 times across the glass transition temperature, enabling low-load deformation when heated and rigid shape fixity when cooled.",
+              "evidence_type": "literature review / background principle",
+              "page_numbers": [
+                1
+              ]
+            },
+            {
+              "claim": "Granular jamming achieves rapid transitions between compliant fluid-like and rigid load-bearing solid-like states upon air evacuation on millisecond timescales.",
+              "evidence_type": "literature review / background principle",
+              "page_numbers": [
+                1,
+                2,
+                8
+              ]
+            },
+            {
+              "claim": "By integrating a shape-memory material (SMP or SMA) with granular jamming within an elastomeric membrane, the variable-stiffness link achieves four distinct stiffness states.",
+              "evidence_type": "experimental result",
+              "page_numbers": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                10
+              ]
+            },
+            {
+              "claim": "For the SMP-based link (Prototype 1), vertical bending stiffness varied by approximately 33 times between the unjammed state above Tg and the jammed state below Tg, with granular jamming exerting a greater effect on stiffness change than SMP temperature modulation alone.",
+              "evidence_type": "experimental result",
+              "page_numbers": [
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "In contrast to conventional granular jamming manipulators that struggle to support their self-weight horizontally, both hybrid prototypes supported their own weight in an unjammed horizontal cantilever configuration.",
+              "evidence_type": "experimental result",
+              "page_numbers": [
+                5,
+                6,
+                10
+              ]
+            },
+            {
+              "claim": "In the unjammed state below Tg, measured stiffness (0.23 N/mm) was lower than Euler-Bernoulli beam calculations (0.56 N/mm) because the outer membrane deformed locally without deforming the SMP core, whereas under jamming the stiffness difference across Tg (0.68 N/mm) closely matched calculation (0.56 N/mm) due to coupled composite deformation.",
+              "evidence_type": "experimental and analytical comparison",
+              "page_numbers": [
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Prototype 2 using four circular SMA wires recovered its initial shape in 0.24 times the duration required by Prototype 1 with SMP sheets.",
+              "evidence_type": "experimental result",
+              "page_numbers": [
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Both prototype links sustained a constant 2 kg dead load at the cantilever tip for 1 hour without continuous creep after initial deflection, verifying rigid shape fixity.",
+              "evidence_type": "experimental result",
+              "page_numbers": [
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Neither prototype achieved perfect shape recovery to the initial position, which was attributed to the small recovery force of thin SMP sheets and non-uniform distribution of coffee grounds in the membrane.",
+              "evidence_type": "experimental result and limitation",
+              "page_numbers": [
+                5,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "The links successfully conformed to and gripped diverse geometric objects (spanner, spring, pen, spray can cap, ballpoint pen) utilizing shape fixity prior to vacuum evacuation to expand contact area.",
+              "evidence_type": "experimental demonstration",
+              "page_numbers": [
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Prototype 1 fabrication: Two polyurethane SMP sheets (MP4510, Tg = 45 deg C, 74 mm x 31 mm x 1.5 mm) with embedded nichrome heating wires (0.26 mm diameter, 5.2 ohm total resistance) stacked on a 3D-printed jig in cantilever configuration, encased in a silicone rubber membrane (ECOFLEX 00-30, outer diameter 34 mm, thickness 2 mm, length 100 mm) filled with 24 g of coarse coffee grounds, sealed with air filters and connected to a vacuum pump evacuating below -90 kPa. Joule heating maintained at 70 deg C via 8 V AC transformer and LabVIEW PWM control with surface thermocouple feedback.",
+            "Prototype 2 fabrication: Four straight Ni-Ti SMA wires (diameter 1.0 mm, circle diameter 30 mm, As = 60 deg C, 0.46 ohm total resistance) fixed into a 3D-printed jig with silicone plug and air filters, encased in an identical silicone membrane with 26 g coarse coffee grounds, powered directly with 3 V AC.",
+            "Stiffness test bench: Prototype link fixed horizontally in cantilever mode on an automated motorized stage (Sigma Koki SGSP26-50, translation speed 2 mm/s) applying point loads against a Kyowa LVS-2KA load cell under Condition 1 (monotonic 10 mm deflection, 5 trials) and Condition 2 (10 reciprocating cycles of 2 mm deflection at 20 Hz acquisition) along vertical and horizontal axes.",
+            "Shape fixity apparatus: Cantilever prototype loaded with a 2 kg dead weight at 50 mm position horizontally for 1 hour, with tip displacement recorded continuously using a Keyence IL-S100 / IL-1000 laser displacement sensor.",
+            "Gripping evaluation: Manual conformal wrapping around five test objects of varied shapes and masses (18 g spanner, 3 g spring, 20 g pen, 5 g spray can cap, 11 g ballpoint pen) followed by cooling/shape fixity and vacuum evacuation."
+          ],
+          "future_work": [
+            "Optimize internal structures according to shape-memory material properties, including forming SMA wires into complex 3D shapes such as coils.",
+            "Optimize selection and formulation of SMP and SMA materials to tailor transition temperatures, hysteresis, and recovery strains to application requirements.",
+            "Optimize granular filler material and incorporate internal membrane partitions to prevent particle redistribution and ensure uniform distribution.",
+            "Implement closed-loop temperature control for SMA wires similar to the SMP control system.",
+            "Develop autonomous actuation/deformation mechanisms to eliminate reliance on manual shaping.",
+            "Integrate the deformable link onto a robotic arm and evaluate performance in realistic manipulation tasks.",
+            "Quantitatively evaluate gripping capacity through load-cell pull-off force testing."
+          ],
+          "independent_variables": [
+            "Thermal state of shape-memory element (below Tg vs. above Tg at 70 deg C for SMP; low-temperature martensite vs. Joule-heated austenite for SMA)",
+            "Pneumatic pressure state of granular jamming mechanism (atmospheric unjammed vs. evacuated below -90 kPa jammed)",
+            "Loading direction relative to orthotropic SMP sheet orientation (vertical vs. horizontal)",
+            "Shape-memory material type and geometry (two stacked SMP sheets vs. four circular SMA wires)",
+            "Number of cyclic loading iterations (up to 10 cycles in Condition 2)",
+            "Loading duration under constant 2 kg load (up to 1 hour)"
+          ],
+          "limitations_inferred": [
+            "The linear Euler-Bernoulli beam model neglects complex non-linear contact mechanics, friction between particles, hyperelastic membrane deformation, and coupled torsion-bending observed experimentally.",
+            "Elevated operating temperatures (70 deg C for SMP, As = 60 deg C for SMA) could induce thermal fatigue or material degradation of the surrounding elastomer membrane and organic granular filler over repeated cycling.",
+            "Manual deformation restricts practical deployment in fully autonomous robotic systems without external assisting manipulators or actuators.",
+            "Passive cooling to ambient air limits cycle bandwidth and operational speed in tasks requiring rapid repeated softening and stiffening cycles.",
+            "Organic coffee grounds may be prone to moisture absorption, compaction, or degradation over time compared to engineered synthetic particles."
+          ],
+          "limitations_stated_by_authors": [
+            "The prototype links could not return to their initial shape perfectly, retaining residual deformation after recovery.",
+            "The SMP sheet employed was thin, resulting in small shape recovery force.",
+            "The granular powder (coffee grounds) within the membrane was not optimized for the proposed link.",
+            "Coffee grounds were distributed non-uniformly inside the silicone rubber membrane, contributing to incomplete shape recovery in Prototype 2.",
+            "The prototypes were deformed manually during testing rather than via integrated robotic actuation.",
+            "Joule heating of shape memory materials is a relatively slow process that can slow down overall robotic operational speed.",
+            "Prototype 1 possesses orthotropic deformation resistance, potentially introducing unwanted waiting time if link axial rotation is required to reorient stiffness.",
+            "Prototype 2 lacked closed-loop temperature feedback control during SMA heating.",
+            "Gripping performance was assessed qualitatively without quantitative pull-off force measurements."
+          ],
+          "main_results": [
+            "Demonstrated successful realization of four distinct stiffness levels by combining jamming pressure states and shape-memory material thermal states.",
+            "Prototype 1 achieved a maximum vertical bending stiffness change of approximately 33 times between unjammed state above Tg and jammed state below Tg, with jamming exerting a stronger stiffness effect than SMP thermal switching.",
+            "Prototype 1 exhibited significant orthotropic behavior: horizontal stiffness was greater than vertical stiffness, with horizontal loading producing non-linear response due to combined bending and twisting.",
+            "Unjammed stiffness below Tg for Prototype 1 (0.23 N/mm) was lower than beam calculation (0.56 N/mm) due to decoupled membrane deformation, while jammed stiffness difference across Tg (0.68 N/mm) closely matched theoretical prediction (0.56 N/mm).",
+            "Prototype 2 with SMA wires demonstrated substantially higher stiffness than Prototype 1, and its unjammed stiffness matched martensite beam model predictions (0.13 N/mm).",
+            "Both prototypes overcame the self-weight sag limitation of conventional unjammed granular manipulators, supporting their own weight horizontally when unjammed.",
+            "Prototype 2 recovered its shape in 0.24 times the duration required by Prototype 1, though both exhibited incomplete shape recovery.",
+            "Both prototypes held a 2 kg dead load stably for 1 hour with minimal deflection after initial loading, verifying robust shape fixity.",
+            "Cyclic loading (10 cycles) showed hysteresis and progressive reduction in reaction force across iterations for both prototypes.",
+            "Both prototypes successfully conformed to and gripped five distinct everyday objects without dropping."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli linear beam bending / cantilever deflection model: P/delta = 3*n*E*I / L^3",
+            "Linear regression approximation of force versus displacement curves below 20 N force to calculate bending stiffness (gradient)"
+          ],
+          "performance_metrics": [
+            "Bending stiffness (N/mm)",
+            "Stiffness variation ratio (up to ~33-fold change)",
+            "Tip deflection over time under 2 kg load (mm)",
+            "Shape recovery duration (s / min) and relative recovery speed ratio (0.24x)",
+            "Residual tip displacement after recovery (mm)",
+            "Hysteresis and reaction force loss across 10 reciprocating cycles (N)",
+            "Self-weight retention capability in horizontal unjammed cantilever state"
+          ],
+          "possible_gap_implications": [
+            "Embedding shape-memory backbones within granular jamming envelopes directly resolves the self-weight sagging failure mode typical of unjammed granular continuum structures while adding multi-tier stiffness modulation.",
+            "However, the reliance on thermal phase transitions introduces inherent temporal delays and thermal dissipation challenges that must be overcome before hybrid variable-stiffness links can match the bandwidth of purely fluidic or motorized continuum mechanisms in dynamic environments."
+          ],
+          "research_objective": "To design, fabricate, and experimentally evaluate a variable-stiffness deformable link combining shape-memory materials (SMP or SMA) and granular jamming to achieve four stiffness states, shape fixity, self-weight support in the unjammed state, and shape recovery for robot arm and gripping applications.",
+          "research_problem": "Soft robots struggle to achieve high positioning accuracy and large load-bearing capacity, while conventional rigid motor-driven robots lack backdrivability and safety for human interaction; additionally, conventional granular jamming manipulators cannot support their own weight in a horizontal unjammed state, and shape memory materials suffer from slow Joule heating.",
+          "robot_type": "variable-stiffness and deformable link",
+          "stiffness_mechanism": [
+            "shape-memory polymer (SMP) phase transition",
+            "shape-memory alloy (SMA) phase transformation",
+            "granular jamming transition phenomenon"
+          ],
+          "title": "Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon",
+          "year": "2022"
+        }
+      }
+    },
+    {
+      "paper_id": "7ce492505d",
+      "filename": "2024-Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2024-Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon_7ce492505d.json",
+      "evidence": {
+        "source": {
+          "paper_id": "7ce492505d",
+          "filename": "2024-Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon.pdf",
+          "sha256": "7ce492505ddd58fcabcf7c1e2d41706e788e7b57448483c8f3210155b5721f08",
+          "page_count": 10,
+          "char_count": 32575,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 22407,
+          "completion_tokens": 7249,
+          "total_tokens": 29656,
+          "thinking_tokens": 4756,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Electrical heating (Joule heating / energization at a constant voltage of 0.5 V) for shape memory alloy recovery",
+            "Pneumatic evacuation (vacuum / air removal) for jamming transition and air injection for unjamming"
+          ],
+          "authors": [
+            "Naoki MATSUMOTO",
+            "Hiroki CHO",
+            "Kazuto TAKASHIMA",
+            "Hidetaka SUZUKI"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Linear approximation of displacement versus energization time from the start of motion to 50 mm deformation to determine shape recovery velocity",
+            "Evaluation of tangential stiffness during shape recovery (EA2) based on the linear slope of the recovery plateau region on tensile stress-strain curves",
+            "Engineering stress calculated assuming a constant initial cross-sectional area (force divided by cross-sectional area)",
+            "No analytical or numerical continuum constitutive models were developed in the paper"
+          ],
+          "control_variables": [
+            "Wire diameter (0.9 mm)",
+            "Memorized wire shape (linear form)",
+            "Applied heating voltage during shape recovery tests (constant 0.5 V)",
+            "Initial bending angle of wire in free-recovery tests (90 degrees)",
+            "Specimen gauge lengths (30 mm gauge length with 50 mm total length for tensile tests; 70 mm length with 10 mm clamped end for wire velocity tests; 90 mm gauge length for training and device integration)",
+            "Tensile test temperature for shape memory evaluation (363 K, maintained above Af in a thermostatic oil bath)",
+            "Tensile strain amplitude during evaluation (5% strain)",
+            "Training ambient temperature (353 K, corresponding to Af + 20 K)",
+            "Training strain amplitude (3% strain) and number of cycles (50 cycles)",
+            "Environmental isolation (glass enclosure around shape recovery test to eliminate wind effects)",
+            "Variable-stiffness device composition (outer membrane filled with coarse coffee grounds)"
+          ],
+          "dependent_variables": [
+            "Shape recovery temperature / reverse transformation finish temperature (Af)",
+            "Displacement over energization time",
+            "Shape recovery velocity (mm/s)",
+            "Stress at the start of shape recovery (σA)",
+            "Tangential stiffness during shape recovery (EA2)",
+            "Plastic / residual strain after deformation and training cycles (%)",
+            "Shape recovery time of the variable-stiffness device (s)",
+            "Extent of shape recovery / recovery displacement of the variable-stiffness device (mm)"
+          ],
+          "doi": "10.1299/mej.24-00130",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A variable-stiffness and deformable link combining granular jamming of coffee grounds and a shape memory material can deform to fit objects, stiffen when evacuated, and recover its initial shape upon unjamming and heating.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                2
+              ]
+            },
+            {
+              "claim": "Ti-Ni shape memory alloy specimens exhibiting R-phase transformation during reverse transformation tend to exhibit higher recovery stress than specimens without R-phase transformation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "Ti-Ni SMA wire specimens exhibiting R-phase transformation display significantly higher shape recovery velocities under electrical heating compared to specimens that do not exhibit R-phase transformation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                5,
+                6,
+                9
+              ]
+            },
+            {
+              "claim": "High shape recovery velocity in Ti-Ni SMA wires correlates with high stress at the onset of recovery (σA) and low tangential stiffness during recovery (EA2), with EA2 exerting a greater influence on velocity.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                5,
+                6,
+                10
+              ]
+            },
+            {
+              "claim": "A variable-stiffness jamming device utilizing untrained R-phase SMA wire recovers faster than one using non-R-phase wire, but fails to achieve complete recovery (stopping 10 mm short) due to plastic strain accumulation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                7,
+                10
+              ]
+            },
+            {
+              "claim": "Superelastic cyclic training (50 loading-unloading cycles at 3% strain and 353 K) decreases plastic strain from 0.37% to 0.03% without reducing shape recovery velocity, allowing the variable-stiffness device to nearly fully restore its initial shape.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Heat-treatment setup: Atmospheric furnace heating of 0.9 mm diameter Ti-Ni SMA wires at specified temperatures (723 K or 773 K) and times (0.3 ks, 0.6 ks, 1.2 ks) followed by water quenching, with phase transformation characteristics and Af verified by differential scanning calorimetry (DSC).",
+            "Electrical heating recovery test: 70 mm straight memorized SMA wire with a 10 mm fixed clamped end, bent 90 degrees, energized at 0.5 V constant voltage inside a glass cage; top-view camera tracked red tape at the wire tip against graph paper, processed using RGB color tracking in LabVIEW.",
+            "Tensile testing setup: Shimadzu Autograph AGS-J 5 kN machine equipped with a thermostatic oil bath to maintain ambient temperature (363 K for property evaluation; 353 K for training), load cell for force, and laser displacement meter for displacement.",
+            "SMA mechanical training setup: Tensile machine performing 50 repeated loading-unloading cycles at 3% strain amplitude at 353 K on a 90 mm gauge length SMA wire.",
+            "Variable-stiffness device setup: A deformable link consisting of coarse coffee grounds enclosed within an outer membrane along with an SMA wire element, operated via internal air evacuation for jamming and air injection plus 0.5 V electrical heating for shape recovery."
+          ],
+          "future_work": [
+            "Establishing a clear target recovery velocity for the variable-stiffness device in practical pick-and-place applications",
+            "Investigating the influence of different training conditions on the shape-recovery characteristics and performance of Ti-Ni SMA elements to achieve complete shape recovery"
+          ],
+          "independent_variables": [
+            "Heat-treatment temperature and duration of Ti-Ni SMA wire (untreated, 723 K for 0.6 ks, 723 K for 1.2 ks, and 773 K for 0.3 ks)",
+            "Presence versus absence of R-phase transformation during reverse transformation",
+            "SMA wire manufacturer / material source (Furukawa Techno Material vs. Nilaco)",
+            "Mechanical training status of the SMA wire (untrained vs. cyclically trained for 50 cycles at 3% strain and 353 K)"
+          ],
+          "limitations_inferred": [
+            "Experiments only evaluated single 0.9 mm diameter wires in a straight geometry; behavior of wire bundles, springs, or complex geometries was not tested.",
+            "All recovery velocity measurements were performed under unloaded conditions; performance under external resistive payloads or grasping forces was not evaluated.",
+            "Joule heating was conducted at a fixed voltage without active temperature feedback or closed-loop control.",
+            "Cooling duration (reset time back to the soft state) was not characterized, which represents a key factor in overall cycle time.",
+            "Fatigue endurance and functional degradation beyond 50 training cycles were not evaluated."
+          ],
+          "limitations_stated_by_authors": [
+            "The variable-stiffness device incorporating untrained R-phase SMA wire could not achieve full shape recovery, stopping 10 mm short of its initial shape due to plastic strain introduced during deformation.",
+            "Even after cyclic training of the SMA wire, the variable-stiffness device did not completely recover its initial shape.",
+            "A specific target operating recovery velocity for the variable-stiffness device has not been clearly established.",
+            "Untrained Ti-Ni SMA elements exhibited low repeatability due to increasing plastic strain during deformation."
+          ],
+          "main_results": [
+            "SMA specimens exhibiting R-phase transformation showed distinctly higher recovery velocities (~2.4 to 2.5 mm/s) than specimens without R-phase (~0.6 to 1.3 mm/s).",
+            "Tensile testing demonstrated that high recovery velocity is driven by a combination of high initial recovery stress (σA) and low tangential stiffness during recovery (EA2), with EA2 exerting the dominant influence.",
+            "The variable-stiffness device fabricated with R-phase SMA wire (773 K for 0.3 ks) significantly shortened recovery time compared to a device using Nilaco SMA, but suffered from incomplete recovery due to residual plastic strain.",
+            "Mechanical training reduced plastic strain from 0.37% to 0.03% (less than one-tenth) without compromising recovery stress or recovery velocity.",
+            "The variable-stiffness device using the trained R-phase SMA wire achieved near-complete shape recovery while preserving the high recovery speed."
+          ],
+          "modeling_methods": [
+            "Empirical linear regression / approximation of the displacement-time curve up to 50 mm deformation to compute the recovery velocity (slope)",
+            "Direct calculation of stress by dividing measured tensile force by wire cross-sectional area",
+            "Extraction of tangential stiffness (EA2) as the linear slope of the recovery plateau region from tensile stress-strain curves"
+          ],
+          "performance_metrics": [
+            "Shape recovery velocity (mm/s)",
+            "Displacement (mm) as a function of energization time (s)",
+            "Stress at the start of shape recovery σA (MPa)",
+            "Tangential stiffness during shape recovery EA2 (MPa)",
+            "Plastic strain / residual strain (%) after deformation and training cycles",
+            "Device recovery time required to reach 10 mm short of initial shape (s)",
+            "Shape recovery extent / height achieved by the variable-stiffness device (mm)"
+          ],
+          "possible_gap_implications": [
+            "Demonstrating that R-phase transformation and training reduce recovery time in SMA-jamming links suggests that faster actuation cycles are feasible, but the absence of loaded dynamic tests means operational speed under payload remains unproven.",
+            "Passive cooling of SMA elements enclosed within granular media could offset speed gains obtained during electrical heating recovery, highlighting a gap in thermal dissipation management.",
+            "The remaining residual strain even after 50 training cycles indicates that long-term cyclic stabilization under repetitive jamming-unjamming cycles requires further investigation."
+          ],
+          "research_objective": "To investigate the effect of R-phase transformation on the shape recovery velocity of Ti-Ni shape memory alloy wire elements, clarify the underlying mechanical factors (initial recovery stress and tangential stiffness), and improve the operating speed and shape recovery capability of a variable-stiffness device using granular jamming.",
+          "research_problem": "Variable-stiffness and deformable mechanisms combining shape memory materials and granular jamming operate slowly due to the slow shape recovery velocity of the shape memory alloy (Ti-Ni SMA) element.",
+          "robot_type": "variable-stiffness and deformable link (variable-stiffness mechanism for attachment to a robot arm for pick-and-place motion)",
+          "stiffness_mechanism": [
+            "Jamming transition phenomenon (granular jamming using coarse coffee grounds)",
+            "Shape memory effect / phase transformation of Ti-Ni shape memory alloy (SMA) wire"
+          ],
+          "title": "Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon",
+          "year": "2024"
+        }
+      }
+    },
+    {
+      "paper_id": "99fe24da8b",
+      "filename": "2024-Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2024-Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon_99fe24da8b.json",
+      "evidence": {
+        "source": {
+          "paper_id": "99fe24da8b",
+          "filename": "2024-Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+          "sha256": "99fe24da8b41e8f4aa75bd0fba43f3cba0d6ef7621d800d45f7d3eabba4b7592",
+          "page_count": 9,
+          "char_count": 34326,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 24178,
+          "completion_tokens": 6930,
+          "total_tokens": 31108,
+          "thinking_tokens": 4463,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Joule heating / thermal actuation of shape-memory alloy wires via direct AC voltage (3 VAC)",
+            "Pneumatic / vacuum actuation (air evacuation to below -90 kPa via vacuum pump) to induce granular jamming",
+            "External mechanical contact / external force applied by pushing against a rigid block and inserting into 3D-printed molds using a robot arm",
+            "Electric motor actuation of a 4-DOF robot arm (Dobot Magician) for link positioning and transfer"
+          ],
+          "authors": [
+            "Kazuto Takashima",
+            "Hidetaka Suzuki",
+            "Toshiki Imazawa",
+            "Hiroki Cho"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "NiTi shape-memory alloy exists in a flexible martensite phase at low/room temperature and transforms to a rigid austenite phase with high recovery stress above the austenite start temperature (As = 60 °C).",
+            "Granular coarse coffee grounds transition from a fluid-like low-viscosity state to a solid-like jammed state when negative pressure is applied.",
+            "Silicone rubber membrane provides an elastic restoring force, which is supplemented by the larger shape-recovery force of the embedded SMA wires upon heating."
+          ],
+          "control_variables": [
+            "Evacuation pressure during jamming (maintained below -90 kPa)",
+            "Heating voltage applied to reset SMA wires between experimental trials (3 VAC)",
+            "Surface lubrication (silicone spray applied to prototype link in both tested conditions)",
+            "Robot arm trajectory and transfer velocity during pick-and-place motions",
+            "Evaluation sample sizes (10 trials for positioning accuracy, 11 trials for weight capacity, 5 measurements for link geometry and contact length)"
+          ],
+          "dependent_variables": [
+            "Placement position accuracy and placement position standard deviation (mm)",
+            "Difference in placement position relative to reference picking position under misalignment (mm)",
+            "Pick-and-place success rate under varying payload weights (%)",
+            "Contact area length between the link and the target object (mm)",
+            "Straight tip length of the link after deformation (mm)"
+          ],
+          "doi": "10.20965/jrm.2024.p0181",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Adapting and fixing both the centerline and cross-sectional geometry of the variable-stiffness link to match the target object increases positioning accuracy and decreases the standard deviation of placement coordinates.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "Deforming the link into a matching shape using a mold increases the contact area length between the link and the object, substantially improving payload capacity during transfer.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "claim": "Granular jamming allows the link to maintain an arbitrary deformed shape without active heating, while embedded SMA wires generate sufficient recovery force upon electrical heating to restore the link to its initial straight shape.",
+              "evidence_type": "experimental / prototype demonstration",
+              "page_numbers": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "The combination of temperature-controlled SMA phase transformation and pressure-controlled granular jamming enables four discrete stiffness states.",
+              "evidence_type": "physical characterization / conceptual analysis",
+              "page_numbers": [
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "The embedded SMA wires enable the variable-stiffness link to support its own weight in a horizontal orientation even when unjammed, overcoming a limitation of conventional pure granular jamming links.",
+              "evidence_type": "comparative observation",
+              "page_numbers": [
+                1,
+                2
+              ]
+            },
+            {
+              "claim": "Pre-shaping the link with a mold compensates for picking position misalignments along x- and y-axes, preventing grasping interference failures observed when picking without mold deformation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                5,
+                6
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Dobot Magician robot arm carrying the prototype variable-stiffness link",
+            "Prototype variable-stiffness link comprising four 1.0 mm diameter NiTi SMA wires arranged in a 30 mm circle inside an ECOFLEX00-30 silicone membrane (40 mm outer diameter, 2 mm thickness, 100 mm length) containing 26 g of coarse coffee grounds, mounted to a 3D-printed PLA jig with MC nylon heat-resistant rods and KE-106 silicone plug",
+            "Tokyo Rikosha Co. RSA-5 slidac transformer supplying 3 VAC across series-connected SMA wires (0.46 Ohm total resistance)",
+            "Ulvac Kiko DA-20A vacuum pump evacuating air to below -90 kPa",
+            "3D-printed PLA bending block and custom 3D-printed molds corresponding to Object 1 (equilateral triangle) and Object 2 (circle)",
+            "Kure Engineering 1420 silicone spray lubricant applied to molds and link",
+            "Test target objects: Object 1 (regular triangle, 19 g) and Object 2 (circle, 16 g), supplemented with additional weights (320 g, 640 g, 990 g)",
+            "Hozan Tool L-835 USB camera (1280x960, 30 fps) with C-mount lens and National Instruments NI Vision Assistant software (binarization and particle filtering calibrated at 7.4 pixels/mm)"
+          ],
+          "future_work": [
+            "Evaluating the variable-stiffness link using complex real-world benchmark objects, such as items from the YCB Objects and Model Set.",
+            "Fabricating and testing a longer link to prevent objects from slipping off when deflection occurs under weight.",
+            "Verifying whether the fixed cross-sectional shape remains stable and fixed after repeated pick-and-place cycles.",
+            "Developing mold-free deformation techniques that eliminate the need for silicone spray lubrication (e.g., using a secondary robot arm to apply external deforming forces).",
+            "Optimizing initial and fixed link shapes to minimize structural deflection under load and enhance payload capacity."
+          ],
+          "independent_variables": [
+            "Link deformation state: with mold shaping of centerline and cross section (motion ii) versus without mold shaping (bending against block only)",
+            "Target object shape: Object 1 (regular triangle, 19 g) versus Object 2 (circle, 16 g)",
+            "Initial picking alignment: reference position I, misaligned position II (-5 mm along x-axis), misaligned position III (-10 mm along x-axis), and misaligned position IV (+5 mm along y-axis)",
+            "Payload weight: baseline object weights (19 g and 16 g) and additional hooked weights (320 g, 640 g, and 990 g)"
+          ],
+          "limitations_inferred": [
+            "The method relies on dedicated pre-fabricated rigid molds tailored to specific object geometries, limiting applicability to unknown or unstructured environments.",
+            "Thermal resetting via Joule heating requires heating and passive cooling intervals, introducing cycle delays before the link can be deformed again.",
+            "No closed-loop sensing or feedback control is used during the deformation or grasping process, leaving the system vulnerable to unexpected structural deflections.",
+            "Tethering via electrical and pneumatic lines restricts untethered mobility and integration on mobile robotic platforms."
+          ],
+          "limitations_stated_by_authors": [
+            "Silicone spray lubrication reduces friction, causing heavy objects to slide and drop when the link deflects under payload weight.",
+            "Inserting the link into the mold causes coarse coffee grounds to migrate toward the base, decreasing the length of the straight tip section.",
+            "Long-term durability and retention of the fixed cross-sectional shape over repeated pick-and-place cycles have not yet been evaluated.",
+            "Preliminary trials on real-world benchmark objects (YCB skillet lid, 652 g) failed because the link deflected and the object slipped off.",
+            "Thermal phase changes (heating and cooling) in shape-memory materials can be relatively slow processes, although deformation and jamming can occur at room temperature without heating."
+          ],
+          "main_results": [
+            "Deforming both the centerline and cross section using a mold significantly reduced placement position standard deviation for both triangular and circular objects, demonstrating improved positioning accuracy.",
+            "Mold deformation compensated for initial picking misalignments (-5 mm x, -10 mm x, +5 mm y), yielding smaller placement errors and lower standard deviations compared to the unshaped link.",
+            "Without mold shaping, the link failed completely to grasp Object 1 at -10 mm x-axis misalignment due to physical interference with the object.",
+            "Payload capacity improved markedly with mold shaping, maintaining a 100% success rate up to 320 g additional weight, whereas success dropped sharply without mold shaping.",
+            "Contact area length between the link and object increased substantially after mold shaping: from 4.8 +/- 0.8 mm to 27.5 +/- 0.7 mm for Object 1, and from 5.4 +/- 1.1 mm to 38.6 +/- 1.3 mm for Object 2.",
+            "Payload failures were characterized by link deflection under load causing the object to slide off due to low friction from silicone spray lubrication."
+          ],
+          "modeling_methods": [],
+          "performance_metrics": [
+            "Standard deviation of placement position coordinates (mm)",
+            "Difference between placed position and reference position (mm, average +/- SD)",
+            "Pick-and-place success rate across 11 trials (%)",
+            "Contact area length between link and object (mm, average +/- SD)",
+            "Straight tip length of link (mm, average +/- SD)"
+          ],
+          "possible_gap_implications": [
+            "The reliance on external molds to reshape the link's cross section suggests a potential research need for mold-free or self-reconfiguring variable-cross-section mechanisms for unstructured manipulation tasks.",
+            "The conflict between needing lubrication for mold insertion and needing high friction for payload retention highlights a potential gap in dry, switchable, or directional friction surfaces for soft variable-stiffness links.",
+            "The susceptibility of the jammed link to bending deflection under moderate loads indicates that hybrid reinforcement or variable-geometry internal structures may be necessary to improve cantilever load capacity."
+          ],
+          "research_objective": "To evaluate the pick-and-place motion, positioning accuracy, and weight capacity of a variable-stiffness link (combining SMA wires and granular jamming) attached to a robot arm, comparing performance between a link deformed in both centerline and cross section using object-specific molds versus a link deformed by simple bending.",
+          "research_problem": "Soft robots provide safety for human-robot interaction but suffer from low positioning accuracy and limited output force, requiring diverse task-specific components. While variable stiffness can bridge soft and rigid robotics, pure granular jamming links exhibit poor shape recovery and cannot support their own weight horizontally. Furthermore, previous variable-stiffness links have not evaluated full pick-and-place robotic arm motions utilizing both centerline and cross-sectional shape adaptation.",
+          "robot_type": "variable-stiffness link attached to a robot arm (also operated as a jamming gripper)",
+          "stiffness_mechanism": [
+            "shape-memory alloy (SMA) phase transformation",
+            "granular jamming transition phenomenon (coarse coffee grounds in a silicone rubber membrane under vacuum)"
+          ],
+          "title": "Motion Evaluation of Variable-Stiffness Link Based on Shape-Memory Alloy and Jamming Transition Phenomenon",
+          "year": "2024"
+        }
+      }
+    },
+    {
+      "paper_id": "c6a31066f8",
+      "filename": "2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm_c6a31066f8.json",
+      "evidence": {
+        "source": {
+          "paper_id": "c6a31066f8",
+          "filename": "2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+          "sha256": "c6a31066f8e708594fe87ab5f0e8a072cfdab840f81917017db0371d72c48d1c",
+          "page_count": 9,
+          "char_count": 35965,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 23907,
+          "completion_tokens": 5410,
+          "total_tokens": 29317,
+          "thinking_tokens": 3231,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "tendon-driven (differential super-elastic NiTi wires driven by digital servos via gear and rack mechanisms)",
+            "motor and ball screw mechanism (driving a piston-like jamming rod)"
+          ],
+          "authors": [
+            "Tianlei Wang",
+            "Fei Ding",
+            "Zhenxing Sun"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Constant curvature bending of the arm in the bending plane",
+            "Incompressible rigid particles with constant particle volume during packing transitions from RLP to HCP and during radial expansion",
+            "Axially inextensible polyester braided tube chambers",
+            "Locally reversible compression and tension around a given jamming force, yielding equal compression and tension elastic moduli (Ec = Et) and equal area separation (alpha = pi) on the cross section",
+            "Arm central axis length remains constant during bending",
+            "Structural collapse occurs when the maximum bending stress at the proximal end equals/counteracts the axial jamming stress sbmax",
+            "Tendon sliding is smooth and all jamming units compress uniformly in the steady state"
+          ],
+          "control_variables": [
+            "Total arm length (~180 mm) and diameter (40 mm)",
+            "Base plate diameter (140 mm)",
+            "Number of jamming units (4 units)",
+            "Jamming chamber segment dimensions (~26 mm diameter, 37 mm height)",
+            "Helical twist angle of braided tubes (60 degrees, alternating direction between adjacent units)",
+            "Particle material and diameter (rigid plastic particles, 1.4 mm diameter)",
+            "Initial particle filling ratio (~85%)",
+            "Tendon material and diameter (super-elastic nickel-titanium alloy wires, 1.2 mm diameter)"
+          ],
+          "dependent_variables": [
+            "Vertical tip displacement (Delta Y)",
+            "Stiffening ratio (gamma = Delta Y_0 / Delta Y)",
+            "Collapsing load threshold (M_0)"
+          ],
+          "doi": "10.1108/IR-11-2023-0305",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A motor and ball screw mechanism drives a piston rod to exert axial compressive jamming force on a multi-unit particle core, eliminating vacuum-pressure limits and shortening the arm flexible length.",
+              "evidence_type": "mechanism_description",
+              "page_numbers": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "Alternating 60-degree helical pre-twisting of adjacent braided tube chambers prevents irregular buckling and ensures uniform, stable axial compression under piston actuation.",
+              "evidence_type": "fabrication_and_experimental_design",
+              "page_numbers": [
+                3
+              ]
+            },
+            {
+              "claim": "Kinematic and Euler-Bernoulli beam models determine the piston-induced tip displacement and the maximum critical bending torque before structural collapse as a function of jamming force and bending angle.",
+              "evidence_type": "mechanical_modeling",
+              "page_numbers": [
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "Under a 150 N jamming force, vertical tip deflection remains minimal for tip loads up to 0.3 kg, maintaining structural integrity below the collapsing point.",
+              "evidence_type": "experimental_results",
+              "page_numbers": [
+                1,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "The robotic arm achieves an experimental stiffening ratio between 6 and 25 under 150 N jamming force across spatial bending configurations with tip loads ranging from 0.2 kg to 0.5 kg.",
+              "evidence_type": "experimental_results",
+              "page_numbers": [
+                1,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Sideward bending subjects the proximal jamming unit to torsion, which yields lower stiffness than pure bending, yet particle jamming substantially enhances torsional resistance compared to the unjammed state.",
+              "evidence_type": "experimental_results",
+              "page_numbers": [
+                5,
+                8
+              ]
+            },
+            {
+              "claim": "The piston-driven particle jamming system achieves a maximum stiffening ratio exceeding 25, outperforming vacuum-powered particle jamming (3.35) and hybrid jamming (5.5-7) reported in recent literature.",
+              "evidence_type": "comparative_analysis",
+              "page_numbers": [
+                8
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Tendon-driven continuum arm prototype (~180 mm length, 40 mm diameter) connected to a 140 mm diameter base plate",
+            "Two pairs of differential 1.2 mm super-elastic NiTi tendons sliding through spacer cover disks, driven by digital servos via differential gear and rack mechanisms for 2-DOF spatial bending",
+            "Four-unit particle jamming core with 3D-printed resin cover disks, nonelastic polyester braided tubes (26 mm diameter, 37 mm height, 60-degree alternating twists), filled with 1.4 mm rigid plastic particles at ~85% filling ratio",
+            "Linear jamming actuation via motor and ball screw driving a central piston rod through the base plate, equipped with a force sensor at the piston base to measure jamming force up to 150 N",
+            "Tip loading apparatus consisting of calibrated hooked weights (0 to 0.5 kg) hung at the arm tip to evaluate deflection across three bending configurations: (theta, c) = (0, 0), (pi/3, pi/2), and (pi/3, pi)"
+          ],
+          "future_work": [
+            "Combining the variable-stiffness arm with other devices, such as soft end-effectors, to conduct deeper research on grasping or manipulating"
+          ],
+          "independent_variables": [
+            "Jamming force (0 N to 150 N)",
+            "Added tip load mass (0 to 0.5 kg)",
+            "Spatial bending angles (theta, c), specifically (0, 0), (pi/3, pi/2), and (pi/3, pi)"
+          ],
+          "limitations_inferred": [
+            "Testing was limited to static loads up to 0.5 kg and jamming forces up to 150 N on a single prototype scale, leaving dynamic loading and fatigue uncharacterized",
+            "Long-term wear, friction, or degradation of the braided fabric sheath and plastic particles under cyclic piston compaction was not assessed",
+            "The analytical beam model relies on idealized assumptions of uniform curvature and equal tension/compression moduli, which may deviate under complex combined multi-axis loading and non-uniform particle compaction",
+            "Control was open-loop without real-time shape or stiffness sensing feedback during operation"
+          ],
+          "limitations_stated_by_authors": [
+            "When the arm bends sideward/horizontally, proximal units experience torsion, and torsional stiffness is generally lower than bending stiffness, reducing the stiffening effect",
+            "Stiffness drops rapidly once the applied load exceeds the collapsing point due to particle interlock failure",
+            "Axial piston displacement DL introduces an inflexible rigid segment at the proximal end and slightly alters the arm tip position",
+            "Excessive chamber pre-twisting damages the initial structure of the braided chamber, necessitating an experimentally tuned moderate angle (60 degrees)",
+            "Maximum initial filling ratio is constrained by the required asymmetrical elongation of chambers during bending to prevent volume/stiffness alterations"
+          ],
+          "main_results": [
+            "Piston-driven compaction generates jamming forces up to 150 N, eliminating the atmospheric pressure saturation inherent to vacuum-based jamming systems",
+            "The arm exhibits minimal tip deflection under 150 N jamming force for loads up to 0.3 kg, verifying that the core remains below the collapsing threshold",
+            "Stiffening ratio scales positively with jamming force and is inversely related to added load, achieving ratios between 6 and 25 under 150 N jamming force across all tested bending angles with 0.2 to 0.5 kg loads",
+            "In the unbent configuration under 150 N jamming force, the stiffening ratio is at least 15 for loads up to 0.5 kg and exceeds 25 at 0.3 kg load",
+            "Downward bending exhibits higher baseline stiffness than the unbent configuration, and particle jamming significantly enhances torsional stiffness during horizontal bending"
+          ],
+          "modeling_methods": [
+            "Constant curvature kinematic geometry model mapping tendon length differentials to arm bending angles (theta, c) and accounting for piston stroke inflexibility DL",
+            "Particle packing state transition formulation modeling conservation of macroscopic particle volume from random loose packing (RLP) to hexagonal close packing (HCP) with radial chamber expansion",
+            "Geometric chamber elongation constraint formulation determining the maximum permissible initial filling ratio omega",
+            "Euler-Bernoulli beam mechanics model incorporating bilinear elastic modulus formulation with equal tension-compression division (alpha = pi) to derive maximum proximal bending torque and critical collapsing load threshold M_0"
+          ],
+          "performance_metrics": [
+            "Vertical tip displacement DY (mm)",
+            "General bending stiffness K = Mg / DY (N/mm)",
+            "Stiffening ratio gamma = DY_0 / DY",
+            "Collapsing load threshold M_0 (kg)",
+            "Axial jamming force F (N)"
+          ],
+          "possible_gap_implications": [
+            "While piston-driven jamming eliminates bulky vacuum hardware and surpasses atmospheric limits, the linear piston mechanism introduces a rigid proximal length and added mechanical complexity, pointing to an ongoing trade-off between slender continuum dexterity and high-force mechanical jamming systems",
+            "Demonstrating high-force particle jamming via motorized linear screws suggests viability for high-payload surgical or industrial continuum robots, though adapting this mechanism for multi-segment arms with independent segmental stiffness control remains an open research challenge"
+          ],
+          "research_objective": "To develop a compact, modular piston-like particle jamming mechanism for a tendon-driven soft robotic arm that provides enhanced jamming force and superior variable stiffness adjustment exceeding conventional vacuum-driven limitations.",
+          "research_problem": "Soft robotic arms possess low inherent stiffness that restricts their capacity to exert large forces or carry heavy payloads, while integrating powerful stiffness-adjusting systems into space-confined slender arms remains difficult because conventional vacuum jamming is limited by atmospheric pressure and fluidic actuators consume excessive radial space.",
+          "robot_type": "soft robotic arm",
+          "stiffness_mechanism": [
+            "particle jamming",
+            "piston-like particle jamming"
+          ],
+          "title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+          "year": "2024"
+        }
+      }
+    },
+    {
+      "paper_id": "3aa8790db0",
+      "filename": "2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming_3aa8790db0.json",
+      "evidence": {
+        "source": {
+          "paper_id": "3aa8790db0",
+          "filename": "2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+          "sha256": "3aa8790db042279ff0fe1f61876b3cdcc573878fd25a50be6ddc6f9ec7b8577f",
+          "page_count": 13,
+          "char_count": 60058,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 30769,
+          "completion_tokens": 8146,
+          "total_tokens": 38915,
+          "thinking_tokens": 5018,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "positive-pressure pneumatic actuation",
+            "internal inflatable bladder"
+          ],
+          "authors": [
+            "Shuai Zhang",
+            "Jiantao Yao"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Euler-Bernoulli beam theory applies to the fiber jamming rod under bending (plane sections remain plane, shear deformation neglected).",
+            "Inter-fiber frictional contact obeys Coulomb friction with a constant static friction coefficient (tau = mu * p).",
+            "The internal inflatable bladder acts as a compliant pressure-transmission medium whose bending stiffness and membrane non-uniform deformation are neglected.",
+            "Jamming hydrostatic pressure p applied to the fiber bundle is assumed uniform and equal to bladder pressure.",
+            "Axial elongation of individual fibers under bending is negligible compared to inter-fiber sliding displacement.",
+            "Applied bending moment is uniformly distributed among identical constituent fibers (m = M / N).",
+            "The slipped cross-sectional area ratio varies quadratically with shear force Q between QJ and QS as a phenomenological engineering approximation.",
+            "Shear stress distributions are approximated using equivalent rectangular cross-sections for determining the onset of slip in shaft and lateral bending modes.",
+            "Support boundaries in three-point bending are treated as approximately simply supported."
+          ],
+          "control_variables": [
+            "Support span length (L = 100 mm)",
+            "Indenter contact width (10 mm)",
+            "Quasi-static loading deflection rate (20 mm/min)",
+            "Cavity geometry of chain links (semi-cylindrical channel radius R = 6 mm, height a = 3 mm, h = 4 mm, center-to-center link distance = 12 mm, base-to-shaft distance = 5 mm)",
+            "Fiber bundle specifications (700 nylon fibers, individual diameter 0.4 mm)",
+            "Inflatable bladder specifications (polyethylene material, width 10 mm, thickness 0.1 mm)",
+            "Number of repeated tests per condition (5 repetitions)",
+            "Initial specimen straightness alignment prior to testing"
+          ],
+          "dependent_variables": [
+            "Applied bending force / load (F) as a function of deflection (delta)",
+            "Critical transition loads FJ (onset of slip) and FS (full slipping state)",
+            "Critical shear forces QJ and QS",
+            "Bending stiffness in high-stiffness stage (KH) and low-stiffness stage (KL)",
+            "Equivalent area moment of inertia in jammed state (IJ) and slipping state (IS)",
+            "Experimental load standard deviation and data dispersion across repetitions"
+          ],
+          "doi": "10.5194/ms-17-481-2026",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Conventional vacuum-based fiber jamming is intrinsically restricted by the ~1 atm (~100 kPa) atmospheric pressure limit, constraining maximum load capacity and stiffness tuning; using an internal inflatable bladder within a rigid chain housing enables positive jamming pressures well above 1 atm.",
+              "evidence_type": "experimental and analytical background",
+              "page_numbers": [
+                1,
+                2,
+                5
+              ]
+            },
+            {
+              "claim": "Under bending, a fiber jamming rod exhibits three distinct mechanical states: a high-stiffness jamming state behaving as a monolithic solid, an intermediate transition state where slip progressively propagates from peak shear stress regions, and a low-stiffness slipping state where all inter-fiber interfaces slide.",
+              "evidence_type": "analytical modeling",
+              "page_numbers": [
+                1,
+                3,
+                4
+              ]
+            },
+            {
+              "claim": "The critical shear force for slip initiation (QJ) is governed by cross-sectional geometry, friction coefficient, and jamming pressure, while the lower bound for the full-slipping state (QS) equals the product of total fiber cross-sectional area, friction coefficient, and jamming pressure.",
+              "evidence_type": "analytical derivation",
+              "page_numbers": [
+                3,
+                6
+              ]
+            },
+            {
+              "claim": "During full slipping, bending resistance is provided both by individual fibers bending about their own centroids and by frictional energy dissipation between sliding fibers, leading to an equivalent moment of inertia (IS) that scales with jamming pressure.",
+              "evidence_type": "analytical derivation",
+              "page_numbers": [
+                3,
+                4,
+                11
+              ]
+            },
+            {
+              "claim": "The equivalent moment of inertia in the jammed state (IJ) is governed primarily by the compacted cross-sectional geometry and fiber elastic modulus, remaining largely insensitive to jamming pressure once jammed.",
+              "evidence_type": "analytical and experimental evidence",
+              "page_numbers": [
+                1,
+                10,
+                11
+              ]
+            },
+            {
+              "claim": "The VSOC prototype achieves omnidirectional articulation through double-conical joints with connecting shafts, exhibiting two primary orthogonal bending modes (shaft bending and lateral bending) with differing neutral axis orientations and critical transition loads.",
+              "evidence_type": "structural design and kinematic analysis",
+              "page_numbers": [
+                2,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Experimental three-point bending tests over 0 to 300 kPa demonstrate that critical shear forces and slipping-state equivalent inertia increase approximately linearly with jamming pressure, while jamming-state inertia remains stable.",
+              "evidence_type": "experimental validation",
+              "page_numbers": [
+                1,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "claim": "Effective structural parameters extracted from 0 kPa bending and full-slipping regressions were an inter-fiber static friction coefficient of 0.3665 and an effective fiber modulus of 4.85 GPa, yielding theoretical critical load predictions matching experimental fits within 7.6% to 8.5% relative error.",
+              "evidence_type": "experimental parameter identification and model validation",
+              "page_numbers": [
+                1,
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Chain link specimens fabricated from 3D-printed resin shells forming an internal cavity (R = 6 mm, h = 4 mm, a = 3 mm) housing 700 nylon fibers (diameter 0.4 mm).",
+            "Positive-pressure actuation using an internal polyethylene inflatable bladder (width 10 mm, thickness 0.1 mm) placed along the cavity base.",
+            "Adjacent chain links connected via stainless-steel shafts seated in opposing double-conical holes with 12 mm center-to-center link spacing.",
+            "Three-point bending fixture on a 3D-printed ABS support frame with span length L = 100 mm and 5 mm diameter cylindrical support heads featuring 1 mm alignment grooves.",
+            "Universal testing machine equipped with a load cell and 10 mm wide flat indenter loading at a constant displacement rate of 20 mm/min.",
+            "Pneumatic regulation system consisting of an external air pump, pressure-control valve, and dedicated pressure gauge controlling bladder pressure from 0 to 300 kPa in 50 kPa increments.",
+            "Straightening fixture used prior to test mounting to standardize initial specimen straightness.",
+            "Testing performed separately for shaft bending and lateral bending modes with five repetitions per condition (60 test curves analyzed)."
+          ],
+          "future_work": [
+            "Optimizing the dynamic response of the variable stiffness structure.",
+            "Refining the inter-fiber friction model to accommodate varying slip velocities.",
+            "Exploring integrated sensing for closed-loop stiffness control.",
+            "Conducting direct, independent material testing to cross-validate the fiber elastic modulus E.",
+            "Developing more refined theoretical formulations and detailed experiments to characterize stochastic stick-slip behavior, non-uniform pressure transmission, and local fiber compaction."
+          ],
+          "independent_variables": [
+            "Jamming pressure p in the inflatable bladder (0, 50, 100, 150, 200, 250, and 300 kPa)",
+            "Bending mode (shaft bending mode vs. lateral bending mode)",
+            "Applied central deflection / displacement (0 to 10 mm)"
+          ],
+          "limitations_inferred": [
+            "Testing was performed only under quasi-static loading (20 mm/min), leaving rate-dependent viscoelasticity, dynamic loading, and impact behaviors uncharacterized.",
+            "Cyclic fatigue, mechanical wear of the nylon fibers, and bladder durability/leakage risks under repetitive pressurization and bending cycles were not evaluated.",
+            "Experimental characterization was restricted to uncoupled, single-axis planar bending along two principal axes; multi-axis, combined bending, and torsional loading responses were not investigated.",
+            "Miniaturization feasibility and scaling laws for micro-scale or large-scale applications were not demonstrated."
+          ],
+          "limitations_stated_by_authors": [
+            "The quadratic relationship between slipped area ratio and shear force Q in the transition regime is a phenomenological engineering approximation rather than a rigorously derived micromechanical law.",
+            "The inflatable bladder membrane effects and non-uniform deformation are neglected, assuming ideal compliant pressure transmission.",
+            "Shear stress distributions across the compacted cross-section are approximated using equivalent rectangular beam equations rather than exact cross-sectional elasticity solutions.",
+            "Experimental assessment was limited to a single prototype with a single fiber material, diameter (0.4 mm), and fiber count (700), without cross-specimen validation across varying geometric or material parameters.",
+            "The fiber modulus E was identified at the structural level from 0 kPa bending data rather than independently measured via direct material testing.",
+            "The prototype relies on an external positive-pressure source (air pump and pressure-control valve), which may constrain portability and system integration.",
+            "Moderate R^2 values in QJ vs p regressions suggest unmodeled sources of experimental dispersion, such as stochastic stick-slip, non-uniform pressure distribution, and local packing variations."
+          ],
+          "main_results": [
+            "Critical transition shear forces (QJ, QS) and slipping-state stiffness/equivalent moment of inertia (IS) increased approximately linearly with positive jamming pressure up to 300 kPa for both bending modes.",
+            "Jamming-state equivalent moment of inertia (IJ) remained relatively insensitive to pressure changes (mean IJ of 47.02 mm^4 for shaft bending and 43.22 mm^4 for lateral bending), confirming it is primarily governed by compacted cross-sectional geometry.",
+            "An effective structural fiber modulus of E = 4.85 GPa (95% CI: [4.765, 4.925] GPa) was determined from the 0 kPa bending response.",
+            "An effective inter-fiber static friction coefficient of mu = 0.3665 (95% CI: [0.3433, 0.3897], R^2 = 0.817) was identified from the full-slipping shear force vs. pressure relationship.",
+            "Theoretical predictions of critical shear force slopes matched experimental regression slopes within 8.5% relative error for shaft bending (theoretical 9.9763 N/kPa vs experimental 9.0591 N/kPa) and 7.6% relative error for lateral bending (theoretical 11.3065 N/kPa vs experimental 10.4563 N/kPa), with theoretical values falling within experimental 95% confidence intervals.",
+            "Data dispersion grew with increasing jamming pressure, with maximum load standard deviation rising from 0.0354 N (0 kPa) to 5.4215 N (300 kPa) for lateral bending, attributed to stochastic inter-fiber stick-slip."
+          ],
+          "modeling_methods": [
+            "Euler-Bernoulli beam theory applied to fiber jamming rods under bending",
+            "Three-state mechanical framework defining jamming, transition, and slipping states",
+            "Parabolic shear stress distribution analysis and conjugate shear stress theorem to formulate state transition criteria",
+            "Work-energy balance under pure bending equating external moment work to elastic strain energy and Coulomb frictional sliding dissipation",
+            "Derivation of pressure-dependent equivalent area moments of inertia (IJ and IS) adapted to compacted geometry under shaft and lateral bending modes",
+            "Phenomenological quadratic interpolation of slipped cross-sectional area ratio across the transition regime (QJ <= Q <= QS)",
+            "Adaptive piecewise linear regression algorithm using R^2 maximization to autonomously identify critical loads (FJ, FS) and stiffnesses (KH, KL) from experimental load-deflection data"
+          ],
+          "performance_metrics": [
+            "Critical shear force for slip initiation QJ (N) and critical load FJ (N)",
+            "Critical shear force for full slipping QS (N) and critical load FS (N)",
+            "High-stiffness stage equivalent moment of inertia IJ (mm^4) and stiffness KH (N/mm)",
+            "Low-stiffness / slipping state equivalent moment of inertia IS (mm^4) and stiffness KL (N/mm)",
+            "Effective fiber elastic modulus E (GPa) and 95% confidence interval",
+            "Effective inter-fiber static friction coefficient mu and 95% confidence interval",
+            "Coefficient of determination (R^2) for linear fits and parameter regressions",
+            "Relative error between theoretical and experimentally fitted critical force-pressure coefficients (%)",
+            "Load standard deviation band (N) across repeated tests"
+          ],
+          "possible_gap_implications": [
+            "Demonstrates that integrating an internal positive-pressure bladder within a rigid chain structure allows fiber jamming to exceed the intrinsic ~1 atm vacuum limitation, potentially widening the load-bearing and stiffness-tuning envelope for soft robotic joints.",
+            "Provides an analytical mechanics model linking positive conﬁning pressure to bending state transitions and equivalent stiffness, offering a theoretical basis that could assist future design and control of pressurized fiber jamming mechanisms.",
+            "Highlights the necessity of accounting for stick-slip dynamics and non-uniform conﬁnement pressure when modeling multi-fiber contact mechanics at elevated conﬁning pressures."
+          ],
+          "research_objective": "To present the design, analytical modeling, and prototype-level experimental assessment of a variable stiffness omnidirectional chain (VSOC) based on positive-pressure fiber jamming, extending the tunable pressure range beyond the conventional vacuum limit (~1 atm) and formulating an analytical bending mechanics model to capture pressure-dependent state transitions and stiffness evolution.",
+          "research_problem": "Conventional fiber jamming mechanisms rely on vacuum actuation, which is intrinsically limited to a pressure differential of approximately 1 atm (~100 kPa), restricting maximum stiffness and load-bearing capacity; furthermore, analytical mechanics models linking positive jamming pressure to bending state transitions, critical loads, and equivalent bending stiffness in fiber bundles remain underdeveloped.",
+          "robot_type": "variable stiffness omnidirectional chain (VSOC)",
+          "stiffness_mechanism": [
+            "positive-pressure fiber jamming",
+            "fiber jamming"
+          ],
+          "title": "A variable stiffness omnidirectional chain based on positive-pressure fiber jamming",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "d3b3b6963f",
+      "filename": "2026-Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V001",
+      "screening_status": "included",
+      "screening_reason": "High-relevance full-text prior art for MP1-V001 architecture and novelty falsification.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/2026-Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon_d3b3b6963f.json",
+      "evidence": {
+        "source": {
+          "paper_id": "d3b3b6963f",
+          "filename": "2026-Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+          "sha256": "d3b3b6963f6db95a7f1715b4aae26d7fc4309ddee186e7858bd74e86151c5bba",
+          "page_count": 12,
+          "char_count": 46616,
+          "source_type": "verification",
+          "verification_id": "MP1-V001"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 28284,
+          "completion_tokens": 8018,
+          "total_tokens": 36302,
+          "thinking_tokens": 4747,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "Joule heating / electrical heating of shape-memory alloy wires via slidac transformer (3 VAC)",
+            "Pneumatic / vacuum pressure (exhausting air to below -90 kPa using a vacuum pump for jamming; injecting air to unjam)",
+            "Robotic arm / automated stage external actuation (pushing and pressing using Dobot Magician robot arms or linear automatic stages)"
+          ],
+          "authors": [
+            "Kazuto Takashima",
+            "Yuma Hirose",
+            "Hidetaka Suzuki",
+            "Hiroki Cho"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Static Coulomb friction model assumption for slip initiation at a critical inclination angle (theta = tan^-1(mu)), assuming slip occurs when link bending causes the inclination angle to exceed the angle defined by the static friction coefficient between the silicone rubber membrane and the object material."
+          ],
+          "control_variables": [
+            "Vacuum level for granular jamming (exhausted to below -90 kPa)",
+            "Electrical power supply for SMA heating (3 VAC applied directly using a slidac transformer)",
+            "Thermal reset protocol between trials in payload and accuracy tests (heating SMA to recover initial straight shape and subsequent cooling)",
+            "Total link mass and constituent quantities (152 g total link mass, 4 SMA wires, 26 g coarse coffee grounds, KE-106 plug, Ecoflex 00-30 outer membrane)",
+            "Lubricated baseline control in Procedure 0 (silicone spray applied even when no mold was used to maintain constant conditions)",
+            "Object placement coordinates and initial pick-and-place trajectory",
+            "Sample sizes for specific experimental evaluations (5 trials for mold replacement time, deformation force, and contact length; 10 trials for payload success rate and positioning accuracy; 3 trials for repeated motion durability)"
+          ],
+          "dependent_variables": [
+            "Time required to change molds (seconds)",
+            "Pick-and-place success rate across different payloads (percentage)",
+            "Durability in repeated motion without thermal reset (number of successful pick-and-place cycles up to 500)",
+            "Structural and geometric changes after repeated cycles (link width, height, length, and inclination angle in mm and degrees)",
+            "Force required to deform the link / pressing force (N)",
+            "Contact length / contact area length between the link and the target object (mm)",
+            "Positioning accuracy at the placement area (mean center of gravity coordinates and standard deviations along X- and Y-axes)"
+          ],
+          "doi": "https://doi.org/10.20965/jrm.2026.p0646",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A variable-stiffness deformable link integrates four Ni-Ti shape-memory alloy wires and coarse coffee grounds in a silicone membrane, enabling compliant deformation at room temperature, shape fixation via granular jamming under vacuum below -90 kPa, and thermal shape recovery via Joule heating above 60 °C.",
+              "evidence_type": "experimental_specification",
+              "page_numbers": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "claim": "In earlier mold-insertion methods (Procedure 0), applying silicone spray lubricant led to object slippage during handling and constrained allowable shapes to profiles that thickened gradually from the tip.",
+              "evidence_type": "experimental_observation",
+              "page_numbers": [
+                1,
+                2,
+                4
+              ]
+            },
+            {
+              "claim": "An automated two-robot-arm setup utilizing a rotatable multi-mold (Procedure 2) reduced mold-change duration to 4.7 s, achieving a 94% time reduction compared to manual mold screw-fastening in Procedure 0.",
+              "evidence_type": "quantitative_metric",
+              "page_numbers": [
+                1,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Eliminating lubricant and directly pressing the link with molds increased friction and payload capacity, yielding a 100% pick-and-place success rate across loads up to 990 g (651% of link weight).",
+              "evidence_type": "experimental_result",
+              "page_numbers": [
+                1,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Conforming the link cross-section to the target object distributed mechanical contact stresses, maintaining shape stability and sustaining over 500 consecutive cycles, whereas non-molded links bent up to 29 degrees and failed by object dropping.",
+              "evidence_type": "experimental_result",
+              "page_numbers": [
+                1,
+                8
+              ]
+            },
+            {
+              "claim": "A static friction relationship (theta = arctan(mu)) accounts for object dropping when the link bending angle surpasses the material-dependent friction threshold between silicone rubber and the payload.",
+              "evidence_type": "analytical_modeling",
+              "page_numbers": [
+                8,
+                9
+              ]
+            },
+            {
+              "claim": "Positioning accuracy in object placement improved when the link was formed using object-matching molds, and larger pressing travel distances increased contact length and lowered placement coordinate variance.",
+              "evidence_type": "experimental_result",
+              "page_numbers": [
+                1,
+                9,
+                10
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Prototype link constructed with four straight Ni-Ti SMA wires (outer diameter 1.0 mm, austenite start temperature As = 60 °C, series resistance 0.46 Ohm) inserted into a 3D-printed PLA jig and KE-106 silicone rubber plug, encased in an Ecoflex 00-30 silicone outer membrane containing 26 g coarse coffee grounds (total weight 152 g).",
+            "Actuation hardware comprising a slidac transformer supplying 3 VAC for Joule heating of SMA wires and a vacuum pump evacuating internal membrane pressure to below -90 kPa.",
+            "Robotic apparatus consisting of Robot arm I (Dobot Magician) carrying the prototype link and Robot arm II (Dobot Magician) mounting a rotatable 3D-printed multi-mold (Mold 3) in Procedure 2, or two linear automatic stages (Sigma Koki SGSP20-85, SGSP26-50) holding interchangeable molds (Molds 1 and 2) in Procedure 1.",
+            "Deformation tooling including a 3D-printed inclined block for initial bending, interchangeable molds (Molds 0, 1, 2, 3), and a load cell (Kyowa LU-5KA) placed beneath the block to record pressing forces.",
+            "Payload evaluation using two target objects (Objects 1 and 2) hooked with calibrated weights (320 g, 640 g, 990 g) representing 211%, 421%, and 651% of link weight.",
+            "Position tracking and vision measurement using a top-view USB camera (Hozan Tool L-835, 1280x960 resolution, 30 fps) with C-mount lens, using NI Vision Assistant for binarization, particle filtering, and center-of-gravity computation (calibration of 1 mm to 7.8 pixels)."
+          ],
+          "future_work": [
+            "Using the variable-stiffness link to wrap around and grip objects directly during pick-and-place motions rather than hanging or hooking objects.",
+            "Utilizing pre-bent SMA wires to achieve an initial bent configuration without needing an external inclined block for bending deformation.",
+            "Preparing molds with more than two distinct shapes on the rotatable fixture to accommodate a wider variety of objects.",
+            "Attaching a multi-finger robot hand to the secondary robot arm to perform repeated pressing from multiple directions to form arbitrary link geometries."
+          ],
+          "independent_variables": [
+            "Link deformation method / procedure (Procedure 0 with mold insertion and lubricant; Procedure 1 with stage pressing on inclined block without lubricant; Procedure 2 with two-robot-arm pressing and rotating mold without lubricant)",
+            "Presence vs. absence of silicone spray lubricant",
+            "Application of cross-sectional mold-pressing motion (with motion (ii)/(ii') vs. without motion (ii)/(ii'))",
+            "Object payload weight (baseline object weight plus 320 g, 640 g, or 990 g)",
+            "Mold pressing displacement / travel distance (full distance: 15.2 mm for object 1, 12.4 mm for object 2; half distance: 7.6 mm for object 1, 6.2 mm for object 2)",
+            "Target object geometry (Object 1 with triangular mold vs. Object 2 with circular mold)"
+          ],
+          "limitations_inferred": [
+            "Thermal cycle times required for resistive heating and passive cooling of the SMA wires (49 s recovery time reported) inherently restrict the speed of consecutive reconfiguration cycles.",
+            "The link shaping process relies on rigid pre-fabricated external molds, restricting arbitrary real-time geometric adaptation to unmodeled or novel payloads.",
+            "Experimental repeated-motion evaluation was capped at 500 cycles, leaving long-term fatigue of the Ecoflex silicone membrane and particle attrition uncharacterized.",
+            "Spatial reconfiguration is primarily limited to planar bending and cross-sectional indentation compatible with the motion range of the table-top robot arms."
+          ],
+          "limitations_stated_by_authors": [
+            "In Procedure 0, inserting the link into the mold was impossible without lubricant, and the formed geometry was restricted to profiles that thickened gradually from the tip.",
+            "Using silicone spray lubricant caused handled objects to slip off the prototype link.",
+            "Handling tasks in the study were restricted to hanging/hooking objects onto the link rather than fully wrapping around or actively grasping them.",
+            "The initial link geometry was straight, necessitating external bending against an inclined block.",
+            "Procedure 1 required manual mold exchanges via loosening and fastening four screws according to the target object.",
+            "In Procedure 2 with lubricant present, success rates declined when cross-sectional molding was omitted, confirming that lubricant degrades payload holding performance."
+          ],
+          "main_results": [
+            "Deforming the link without silicone lubricant (Procedures 1 and 2) substantially improved weight capacity and motion stability, yielding a 100% pick-and-place success rate across all payloads up to 990 g (651% of link weight), whereas Procedure 0 failed with heavier payloads.",
+            "Automating mold switching using the secondary robot arm with a rotatable multi-mold (Procedure 2) reduced mold change time to 4.7 +- 0.1 s, a 94% reduction relative to Procedure 0 (85 +- 8 s) and Procedure 1 (135 +- 4 s).",
+            "Matching the cross-sectional shape of the link to the payload via mold pressing expanded the contact length, which dispersed shock loads and enabled over 500 successful repeated cycles without shape deterioration, whereas unshaped links experienced progressive bending up to 29 degrees and dropped objects.",
+            "Forming the link to match the object geometry significantly enhanced object placement accuracy by reducing placement position variance across trials.",
+            "For Object 1, pressing the full mold distance produced larger contact length and tighter placement repeatability than half distance; for Object 2 (cylindrical), half distance achieved equivalent accuracy with lower required pressing force (6.8 N vs 17.3 N)."
+          ],
+          "modeling_methods": [
+            "Static friction slipping threshold formulation: theta = tan^-1(mu), calculating the critical inclination angle at which an object begins to slip on the inclined link surface based on the static friction coefficient mu between silicone rubber and payload materials.",
+            "Geometric calculation of link tip inclination angle from measured post-experiment dimensions (width, height, length) to evaluate structural stability against the critical slip angle."
+          ],
+          "performance_metrics": [
+            "Mold exchange duration: 85 +- 8 s (Procedure 0), 135 +- 4 s (Procedure 1), 4.7 +- 0.1 s (Procedure 2).",
+            "Payload capacity success rate: 100% across all payloads (up to 990 g / 651% link weight) for Procedures 1 and 2, compared to 0% at 990 g for Procedure 0 without motion (ii).",
+            "Durability cycle count: > 500 cycles for Procedures 1 and 2 with motion (ii'), 372 cycles for Procedures 1 and 2 without motion (ii'), 2 cycles for Procedure 0 with motion (ii), and 0 cycles for Procedure 0 without motion (ii).",
+            "Deformation pressing force: 20.9 +- 0.5 N (Procedure 1, triangle, full), 20.1 +- 0.6 N (Procedure 1, circle, full), 18.6 +- 0.3 N (Procedure 2, triangle, full), 8.1 +- 0.5 N (Procedure 2, triangle, half), 17.3 +- 0.3 N (Procedure 2, circle, full), 6.8 +- 0.3 N (Procedure 2, circle, half).",
+            "Placement position standard deviation: lower standard deviations along X- and Y-axes when molded (e.g., Object 1 X/Y standard deviation reduced with motion (ii') and full distance).",
+            "Contact area length: measured in mm across procedures, molds, and movement distances (e.g., higher for full distance than half distance or no mold)."
+          ],
+          "possible_gap_implications": [
+            "Eliminating lubricant during variable-stiffness link shaping avoids surface contamination and slippage, demonstrating that high-friction soft interfaces can support payloads several times their own weight.",
+            "Using an active auxiliary manipulator with rotatable multi-molds resolves the operational bottleneck of manual mold retooling, pointing toward semi-autonomous adaptive tooling for reconfigurable robot arms.",
+            "The ongoing reliance on discrete external molds highlights an unaddressed gap between passive mold-based shaping and autonomous, moldless multi-degree-of-freedom morphing in variable-stiffness continuum/soft links."
+          ],
+          "research_objective": "To propose and evaluate a lubricant-free deformation method for a variable-stiffness and deformable link using shape-memory alloy and granular jamming, and to incorporate a secondary robot arm for automated mold pressing and rotation to improve operational efficiency, payload capacity, and placement accuracy in pick-and-place tasks.",
+          "research_problem": "Previous implementations of the variable-stiffness deformable link required silicone spray lubricant to facilitate link insertion into molds, causing manipulated payloads to slip off, restricting reachable link profiles to shapes that thicken gradually from the tip, and requiring slow manual mold replacement.",
+          "robot_type": "two-robot-arm system equipped with variable-stiffness and deformable link",
+          "stiffness_mechanism": [
+            "shape-memory alloy (Ni-Ti SMA wires; phase transformation from compliant at room temperature to rigid upon resistive heating above austenite start temperature As = 60 °C)",
+            "jamming transition phenomenon / granular jamming (evacuation of air to below -90 kPa around coarse coffee grounds within a silicone rubber membrane)"
+          ],
+          "title": "Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon",
+          "year": "2026"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "c0b12bbff766ccc34a56b0eff465c96b9c51cadf2562ddaf1cd41811c6d5fd05"
+}

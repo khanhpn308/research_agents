@@ -1,0 +1,218 @@
+{
+  "source": {
+    "paper_id": "182d854610",
+    "filename": "2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+    "sha256": "182d8546102f3fb4d6bbd1bb3e3b86c55330ceabe2375364990d17f494af5b58",
+    "page_count": 8,
+    "char_count": 40729,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24517,
+    "completion_tokens": 7677,
+    "total_tokens": 32194,
+    "thinking_tokens": 4331,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Pneumatic actuation",
+      "Positive pressure compressed air via miniature motor pumps"
+    ],
+    "authors": [
+      "Tianxin Liu",
+      "Haisheng Xia",
+      "Dae-Young Lee",
+      "Amir Firouzeh",
+      "Yong-Lae Park",
+      "Kyu-Jin Cho"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Jammed granules inside the annular structure are assumed to behave as a continuous beam with a circular ring cross-section under tiny deformation with no slip between granules",
+      "Granules are assumed to be evenly distributed within the chamber",
+      "Fabric material properties, surface contact friction variations, and granule-to-granule friction coefficients are treated as constant or ignored in the bending stiffness derivation",
+      "Equivalent Young's modulus is assumed to scale with the average normal force per unit cross-sectional area exerted on the granules (proportional to 1/(D^2 - d^2))",
+      "Inner rubber bladder is assumed to consume minimal elastic energy when sufficiently soft compared to the jammed granular medium",
+      "Bending angle at the joint is assumed to be negligible when calculating the torque produced by external loading on the self-locking joint"
+    ],
+    "control_variables": [
+      "Length of single PPJ testing specimens (50 mm)",
+      "Granular material and morphology (Shape Memory Polymer cuboids, approximately 2 mm x 2 mm x 3 mm)",
+      "Granule volume fraction (nearly 100% packing fraction to prevent bladder morphing)",
+      "Outer fabric sleeve material (single-ply non-stretchable fabric)",
+      "Tensile test displacement rate (20 mm/min)",
+      "Displacement interval for stiffness and modulus calculation (initial 1 mm displacement during elastic deformation)",
+      "Self-locking joint hinge length (15 mm)"
+    ],
+    "dependent_variables": [
+      "Cantilever bending stiffness (N/mm)",
+      "Equivalent Young's modulus / bending elastic modulus (MPa)",
+      "Resisting force (N)",
+      "Joint torque limit and critical slip force (N*m, N)",
+      "Sliding friction force of the sandpaper friction pad (N)",
+      "Jamming efficiency / stiffness-to-mass ratio (K/mass)"
+    ],
+    "doi": "10.1109/LRA.2021.3097255",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Internal pressurization of a granular chamber using an embedded pneumatic bladder enables a roughly six-fold increase in cantilever bending stiffness over an input pressure range from 68 kPa to 172 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4
+        ]
+      },
+      {
+        "claim": "Bending stiffness of the positive pressure jamming structure scales approximately linearly with the applied input gauge pressure.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4
+        ]
+      },
+      {
+        "claim": "Positive pressure jamming exhibits comparable initial elastic stiffness to vacuum-based jamming at equivalent pressure magnitudes (62 kPa), but incurs less plastic deformation and lower unloading hysteresis due to bladder elasticity.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3
+        ]
+      },
+      {
+        "claim": "Granular jamming provides the predominant stiffening effect, achieving 40% higher bending stiffness at 103 kPa than an air-filled cylindrical bladder of identical outer diameter.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Increasing the outer sleeve diameter increases bending stiffness via higher moment of inertia, but decreases equivalent Young's modulus due to attenuated force transmission across outer granular layers.",
+        "evidence_type": "experimental / analytical",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Increasing the inner bladder diameter increases the equivalent Young's modulus across all outer sleeve diameters due to firmer granular compaction.",
+        "evidence_type": "experimental / analytical",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Analytical modeling of jamming efficiency indicates that stiffness per unit mass is maximized when the inner bladder diameter approaches the outer fabric diameter.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Embedding sandpaper friction pads into adjacent granular chambers forms a self-locking revolute joint that permits angular adjustment between -50 degrees and +50 degrees with simultaneous shape locking and stiffening.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "A lightweight wearable limb support device composed of three parallel positive pressure jamming units generates up to 15.1 N of posture-assisting force when driven by serial miniature pumps.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Cantilever bending testing system using a UNITECH RB302 Microload tensile frame and DACELL load cells, with specimen clamped at one end and loaded at the tip at 20 mm/min over an 11 mm deflection range",
+      "Baseline comparative test setup measuring an unjammed rubber bladder (0 and 62 kPa), a negative pressure granular jamming unit (-62 kPa), and a positive pressure jamming module (+62 kPa) with matching dimensions (26 mm diameter, 50 mm length)",
+      "Comparison test between a sealed cylindrical pneumatic airbag and a PPJ module at 103 kPa input pressure with matched outer diameter",
+      "Pressure modulation tests evaluating a PPJ specimen under four relative pressure levels (69 kPa, 103 kPa, 138 kPa, 172 kPa) across eight repeated trials",
+      "Dimensional characterization tests across eight specimen configurations combining four outer diameters (26, 29, 32, 35 mm) and two inner diameters (10, 15 mm) under 1 atm relative pressure",
+      "Cantilever bending evaluation of a two-link PPJ system linked by a self-locking revolute joint (15 mm hinge length, friction pads) across multiple input pressures",
+      "Tensile pull-out fixture measuring sliding friction force of a sandpaper friction pad embedded in a PPJ chamber pressurized to 137 kPa",
+      "Wearable limb support test rig consisting of three parallel PPJ links (200 mm length, 20 mm diameter) pre-bent to 90 degrees and pressurized via one, two, or three miniature motor pumps in serial (100.5 kPa, 195.6 kPa, 290.1 kPa), measuring force during 10 mm displacement"
+    ],
+    "future_work": [
+      "Fabricating positive pressure jamming structures in non-cylindrical pre-designed geometries, such as torus shapes",
+      "Combining multiple shapes of jamming structures to form complex 3D deployable frames (e.g., tent frames)",
+      "Conducting dynamic transition tests to quantify the switching times from soft to stiff and from stiff to soft states",
+      "Investigating alternative bladder materials that reduce radial compliance and deformation under high positive pressure",
+      "Developing more durable, wear-resistant friction materials to enhance self-locking joint longevity",
+      "Incorporating internal fabric partitions inside the chamber to ensure a more uniform initial distribution of granules"
+    ],
+    "independent_variables": [
+      "Input relative pneumatic pressure (e.g., 62 kPa, 69 kPa, 100.5 kPa, 103 kPa, 137 kPa, 138 kPa, 172 kPa, 195.6 kPa, 290.1 kPa; -62 kPa for vacuum baseline)",
+      "Specimen configuration type (pure rubber bladder, negative pressure jamming module, pneumatic airbag, PPJ module)",
+      "Outer sleeve diameter D (26 mm, 29 mm, 32 mm, 35 mm)",
+      "Inner bladder diameter d (10 mm, 15 mm)",
+      "Bending displacement / deflection depth (up to 11 mm in cantilever tests; 10 mm in limb support tests)",
+      "Number of miniature motor pumps connected in serial (1, 2, or 3 pumps)",
+      "Pull-out displacement of the friction pad in joint friction testing"
+    ],
+    "limitations_inferred": [
+      "Analytical formulations for stiffness and Young's modulus assume linear beam behavior and uniform packing, which may deviate significantly under large bending deflections or cyclic loading",
+      "Operation under high positive internal pressure creates burst and leakage failure risks, particularly along adhesive seams between the silicone tube, end caps, and bladder",
+      "Dense packing (~100% volume fraction) required for effective jamming may compromise passive flexibility and softness in the unpressurized state",
+      "The friction-pad self-locking joint is constrained to single-axis planar rotation (-50 deg to +50 deg), lacking multi-axis spatial compliance without additional joint stages",
+      "Connecting multiple electric motor pumps in serial to achieve elevated pressures (up to ~290 kPa) increases power draw, weight, and acoustic noise in portable wearable scenarios"
+    ],
+    "limitations_stated_by_authors": [
+      "A single PPJ unit cannot achieve arbitrary shapes because its geometry is confined by the cylindrical outer fabric sleeve",
+      "Jamming performance stability and maximum reachable bending angle depend heavily on the initial distribution of granules and chamber fill percentage",
+      "The soft inner rubber bladder deforms under positive pressure, which reduces the granular jamming effect",
+      "The self-locking joint mechanism is subject to degradation over time as sandpaper friction pads lose friction through abrasive wear",
+      "Assisting force generated by the limb support prototype is slightly lower than comparable textile pneumatic literature devices lacking internal partitioning",
+      "Soft-to-stiff and stiff-to-soft state transition times were not experimentally verified"
+    ],
+    "main_results": [
+      "PPJ achieved approximately a six-fold increase in cantilever bending stiffness (from 0.69 N/mm to 4.02 N/mm) as input pressure rose from 68/69 kPa to 172 kPa, with exerted forces ranging from 4 N to 23 N",
+      "Stiffness exhibited a direct proportional relationship with input relative air pressure, with linear fit R^2 values of 0.992, 0.995, 0.994, and 0.993 for 69, 103, 138, and 172 kPa",
+      "At 103 kPa input pressure, the granular PPJ specimen demonstrated 40% higher bending stiffness than a pure compressed air airbag of identical outer diameter",
+      "Negative pressure jamming (-62 kPa) showed comparable initial stiffness to PPJ (+62 kPa), but saturated earlier at a maximum force and exhibited pronounced plastic deformation and hysteresis upon unloading",
+      "Enlarging outer diameter D increased bending stiffness but reduced equivalent Young's modulus due to diminished radial force transmission through outer granular layers",
+      "Enlarging inner diameter d increased equivalent Young's modulus across all outer diameters (e.g., from 1.63 MPa to 1.83 MPa at D=26 mm, and from 0.77 MPa to 0.96 MPa at D=35 mm)",
+      "Analytical modeling showed that jamming efficiency (stiffness per unit mass) is maximized when D and d converge closely",
+      "The self-locking revolute joint supported angular locking between -50 degrees and +50 degrees, displaying a two-stage load response with a joint torque limit of approximately 0.6 N*m and a friction coefficient of 1.09 under 137 kPa",
+      "The 400 g wearable limb support prototype produced initial support forces of 5.2 N, 9.4 N, and 12.8 N, and force increments at 10 mm displacement of 8.1 N, 12.4 N, and 15.1 N under one, two, and three serial pumps (100.5 kPa, 195.6 kPa, 290.1 kPa)"
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli cantilever beam bending stiffness formulation: K = 3EI / L^3",
+      "Ring-shaped cross-section area moment of inertia calculation: I = pi * (D^4 - d^4) / 64",
+      "Empirical/analytical equivalent Young's modulus scaling model: E = C / (D^2 - d^2) based on average cross-sectional contact force Faverage = 4Ft / [pi * (D^2 - d^2)]",
+      "Composite bending stiffness relation as a function of sleeve and bladder diameters: K = 3 * pi * C * (D^2 + d^2) / (64 * L^3)",
+      "Jamming efficiency / stiffness-to-mass optimization model: K / mass = 3 * C * (D^2 + d^2) / [16 * L^4 * rho_0 * (D^2 - d^2)]",
+      "Static torque balance formulation for the critical slip force of the self-locking joint: Fc * (L + l/2) = P * S * mu * ds and piecewise two-stage stiffness representation"
+    ],
+    "performance_metrics": [
+      "Cantilever bending stiffness (N/mm)",
+      "Equivalent Young's modulus / bending elastic modulus (MPa)",
+      "Resisting force (N)",
+      "Force increment at specified deflection (N at 1 mm and 10 mm displacement)",
+      "Critical slip force Fc (N) and joint torque limit (N*m)",
+      "Jamming efficiency / stiffness-to-mass ratio (times baseline)",
+      "Coefficient of static friction mu",
+      "Linear regression determination coefficient R^2"
+    ],
+    "possible_gap_implications": [
+      "Overcoming the negative 1 atm threshold via positive pressure creates opportunities for high-payload soft wearable devices, but highlights an unaddressed trade-off between pressure-bearing capacity and unpressurized compliant flexibility",
+      "The decay of equivalent modulus with increasing outer diameter reveals an inherent geometric scaling bottleneck for monolithic granular jamming columns, pointing to a need for multi-cellular or radially segmented internal architectures",
+      "The reliance on abrasive dry friction pads identifies an unresolved materials gap for self-locking soft joints requiring cyclic reliability without rapid frictional degradation",
+      "The lack of soft-to-stiff and stiff-to-soft transition dynamics underscores a research gap in characterizing control bandwidth for positive pressure granular systems relative to conventional vacuum systems"
+    ],
+    "research_objective": "To develop and evaluate a Positive Pressure Jamming (PPJ) variable stiffness mechanism that expands the achievable stiffness range beyond the negative one atmosphere limit without altering actuator geometry, incorporate friction-pad self-locking joints for multi-configuration shape preservation, and demonstrate its feasibility in wearable limb support devices.",
+    "research_problem": "Negative pressure jamming approaches are physically bounded by negative one atmospheric pressure, limiting their achievable stiffness range and payload capacity, while relying on bulky vacuum pumps; furthermore, existing positive pressure approaches often couple stiffness changes with actuator bending motions or cannot conform to multiple shapes.",
+    "robot_type": "Wearable robot (wearable limb support device for arm and leg assistance)",
+    "stiffness_mechanism": [
+      "Positive Pressure Jamming (PPJ) / granular jamming (Shape Memory Polymer granules compressed between an internal inflatable bladder and an external non-stretchable sleeve)",
+      "Friction pad self-locking revolute joint (sandpaper friction pads compressed by pressurized granules/actuator to lock joint angles)"
+    ],
+    "title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+    "year": "2021"
+  }
+}

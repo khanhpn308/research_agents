@@ -1,0 +1,177 @@
+{
+  "source": {
+    "paper_id": "c6a31066f8",
+    "filename": "2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+    "sha256": "c6a31066f8e708594fe87ab5f0e8a072cfdab840f81917017db0371d72c48d1c",
+    "page_count": 9,
+    "char_count": 35965,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 23907,
+    "completion_tokens": 5410,
+    "total_tokens": 29317,
+    "thinking_tokens": 3231,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "tendon-driven (differential super-elastic NiTi wires driven by digital servos via gear and rack mechanisms)",
+      "motor and ball screw mechanism (driving a piston-like jamming rod)"
+    ],
+    "authors": [
+      "Tianlei Wang",
+      "Fei Ding",
+      "Zhenxing Sun"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Constant curvature bending of the arm in the bending plane",
+      "Incompressible rigid particles with constant particle volume during packing transitions from RLP to HCP and during radial expansion",
+      "Axially inextensible polyester braided tube chambers",
+      "Locally reversible compression and tension around a given jamming force, yielding equal compression and tension elastic moduli (Ec = Et) and equal area separation (alpha = pi) on the cross section",
+      "Arm central axis length remains constant during bending",
+      "Structural collapse occurs when the maximum bending stress at the proximal end equals/counteracts the axial jamming stress sbmax",
+      "Tendon sliding is smooth and all jamming units compress uniformly in the steady state"
+    ],
+    "control_variables": [
+      "Total arm length (~180 mm) and diameter (40 mm)",
+      "Base plate diameter (140 mm)",
+      "Number of jamming units (4 units)",
+      "Jamming chamber segment dimensions (~26 mm diameter, 37 mm height)",
+      "Helical twist angle of braided tubes (60 degrees, alternating direction between adjacent units)",
+      "Particle material and diameter (rigid plastic particles, 1.4 mm diameter)",
+      "Initial particle filling ratio (~85%)",
+      "Tendon material and diameter (super-elastic nickel-titanium alloy wires, 1.2 mm diameter)"
+    ],
+    "dependent_variables": [
+      "Vertical tip displacement (Delta Y)",
+      "Stiffening ratio (gamma = Delta Y_0 / Delta Y)",
+      "Collapsing load threshold (M_0)"
+    ],
+    "doi": "10.1108/IR-11-2023-0305",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A motor and ball screw mechanism drives a piston rod to exert axial compressive jamming force on a multi-unit particle core, eliminating vacuum-pressure limits and shortening the arm flexible length.",
+        "evidence_type": "mechanism_description",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Alternating 60-degree helical pre-twisting of adjacent braided tube chambers prevents irregular buckling and ensures uniform, stable axial compression under piston actuation.",
+        "evidence_type": "fabrication_and_experimental_design",
+        "page_numbers": [
+          3
+        ]
+      },
+      {
+        "claim": "Kinematic and Euler-Bernoulli beam models determine the piston-induced tip displacement and the maximum critical bending torque before structural collapse as a function of jamming force and bending angle.",
+        "evidence_type": "mechanical_modeling",
+        "page_numbers": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Under a 150 N jamming force, vertical tip deflection remains minimal for tip loads up to 0.3 kg, maintaining structural integrity below the collapsing point.",
+        "evidence_type": "experimental_results",
+        "page_numbers": [
+          1,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "The robotic arm achieves an experimental stiffening ratio between 6 and 25 under 150 N jamming force across spatial bending configurations with tip loads ranging from 0.2 kg to 0.5 kg.",
+        "evidence_type": "experimental_results",
+        "page_numbers": [
+          1,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Sideward bending subjects the proximal jamming unit to torsion, which yields lower stiffness than pure bending, yet particle jamming substantially enhances torsional resistance compared to the unjammed state.",
+        "evidence_type": "experimental_results",
+        "page_numbers": [
+          5,
+          8
+        ]
+      },
+      {
+        "claim": "The piston-driven particle jamming system achieves a maximum stiffening ratio exceeding 25, outperforming vacuum-powered particle jamming (3.35) and hybrid jamming (5.5-7) reported in recent literature.",
+        "evidence_type": "comparative_analysis",
+        "page_numbers": [
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Tendon-driven continuum arm prototype (~180 mm length, 40 mm diameter) connected to a 140 mm diameter base plate",
+      "Two pairs of differential 1.2 mm super-elastic NiTi tendons sliding through spacer cover disks, driven by digital servos via differential gear and rack mechanisms for 2-DOF spatial bending",
+      "Four-unit particle jamming core with 3D-printed resin cover disks, nonelastic polyester braided tubes (26 mm diameter, 37 mm height, 60-degree alternating twists), filled with 1.4 mm rigid plastic particles at ~85% filling ratio",
+      "Linear jamming actuation via motor and ball screw driving a central piston rod through the base plate, equipped with a force sensor at the piston base to measure jamming force up to 150 N",
+      "Tip loading apparatus consisting of calibrated hooked weights (0 to 0.5 kg) hung at the arm tip to evaluate deflection across three bending configurations: (theta, c) = (0, 0), (pi/3, pi/2), and (pi/3, pi)"
+    ],
+    "future_work": [
+      "Combining the variable-stiffness arm with other devices, such as soft end-effectors, to conduct deeper research on grasping or manipulating"
+    ],
+    "independent_variables": [
+      "Jamming force (0 N to 150 N)",
+      "Added tip load mass (0 to 0.5 kg)",
+      "Spatial bending angles (theta, c), specifically (0, 0), (pi/3, pi/2), and (pi/3, pi)"
+    ],
+    "limitations_inferred": [
+      "Testing was limited to static loads up to 0.5 kg and jamming forces up to 150 N on a single prototype scale, leaving dynamic loading and fatigue uncharacterized",
+      "Long-term wear, friction, or degradation of the braided fabric sheath and plastic particles under cyclic piston compaction was not assessed",
+      "The analytical beam model relies on idealized assumptions of uniform curvature and equal tension/compression moduli, which may deviate under complex combined multi-axis loading and non-uniform particle compaction",
+      "Control was open-loop without real-time shape or stiffness sensing feedback during operation"
+    ],
+    "limitations_stated_by_authors": [
+      "When the arm bends sideward/horizontally, proximal units experience torsion, and torsional stiffness is generally lower than bending stiffness, reducing the stiffening effect",
+      "Stiffness drops rapidly once the applied load exceeds the collapsing point due to particle interlock failure",
+      "Axial piston displacement DL introduces an inflexible rigid segment at the proximal end and slightly alters the arm tip position",
+      "Excessive chamber pre-twisting damages the initial structure of the braided chamber, necessitating an experimentally tuned moderate angle (60 degrees)",
+      "Maximum initial filling ratio is constrained by the required asymmetrical elongation of chambers during bending to prevent volume/stiffness alterations"
+    ],
+    "main_results": [
+      "Piston-driven compaction generates jamming forces up to 150 N, eliminating the atmospheric pressure saturation inherent to vacuum-based jamming systems",
+      "The arm exhibits minimal tip deflection under 150 N jamming force for loads up to 0.3 kg, verifying that the core remains below the collapsing threshold",
+      "Stiffening ratio scales positively with jamming force and is inversely related to added load, achieving ratios between 6 and 25 under 150 N jamming force across all tested bending angles with 0.2 to 0.5 kg loads",
+      "In the unbent configuration under 150 N jamming force, the stiffening ratio is at least 15 for loads up to 0.5 kg and exceeds 25 at 0.3 kg load",
+      "Downward bending exhibits higher baseline stiffness than the unbent configuration, and particle jamming significantly enhances torsional stiffness during horizontal bending"
+    ],
+    "modeling_methods": [
+      "Constant curvature kinematic geometry model mapping tendon length differentials to arm bending angles (theta, c) and accounting for piston stroke inflexibility DL",
+      "Particle packing state transition formulation modeling conservation of macroscopic particle volume from random loose packing (RLP) to hexagonal close packing (HCP) with radial chamber expansion",
+      "Geometric chamber elongation constraint formulation determining the maximum permissible initial filling ratio omega",
+      "Euler-Bernoulli beam mechanics model incorporating bilinear elastic modulus formulation with equal tension-compression division (alpha = pi) to derive maximum proximal bending torque and critical collapsing load threshold M_0"
+    ],
+    "performance_metrics": [
+      "Vertical tip displacement DY (mm)",
+      "General bending stiffness K = Mg / DY (N/mm)",
+      "Stiffening ratio gamma = DY_0 / DY",
+      "Collapsing load threshold M_0 (kg)",
+      "Axial jamming force F (N)"
+    ],
+    "possible_gap_implications": [
+      "While piston-driven jamming eliminates bulky vacuum hardware and surpasses atmospheric limits, the linear piston mechanism introduces a rigid proximal length and added mechanical complexity, pointing to an ongoing trade-off between slender continuum dexterity and high-force mechanical jamming systems",
+      "Demonstrating high-force particle jamming via motorized linear screws suggests viability for high-payload surgical or industrial continuum robots, though adapting this mechanism for multi-segment arms with independent segmental stiffness control remains an open research challenge"
+    ],
+    "research_objective": "To develop a compact, modular piston-like particle jamming mechanism for a tendon-driven soft robotic arm that provides enhanced jamming force and superior variable stiffness adjustment exceeding conventional vacuum-driven limitations.",
+    "research_problem": "Soft robotic arms possess low inherent stiffness that restricts their capacity to exert large forces or carry heavy payloads, while integrating powerful stiffness-adjusting systems into space-confined slender arms remains difficult because conventional vacuum jamming is limited by atmospheric pressure and fluidic actuators consume excessive radial space.",
+    "robot_type": "soft robotic arm",
+    "stiffness_mechanism": [
+      "particle jamming",
+      "piston-like particle jamming"
+    ],
+    "title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+    "year": "2024"
+  }
+}

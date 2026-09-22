@@ -1,0 +1,210 @@
+{
+  "source": {
+    "paper_id": "55457a97c6",
+    "filename": "2021-Shape Memory Alloy Capsule Micropump for Drug Delivery Applications.pdf",
+    "sha256": "55457a97c60efae1ddb90544d5382e1786579dfbdff5e445b51085db5dfbb782",
+    "page_count": 15,
+    "char_count": 39364,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24702,
+    "completion_tokens": 7107,
+    "total_tokens": 31809,
+    "thinking_tokens": 4280,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Shape memory alloy (NiTi wire) Joule heating / resistive heating",
+      "Passive elastic restoration via flexible silicone polymer enclosure (Ecoflex 00-30) acting as an antagonistic spring"
+    ],
+    "authors": [
+      "Youssef Kotb",
+      "Islam Elgamal",
+      "Mohamed Serry"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "SMA material is assumed to be 100% austenite when heated and 100% martensite when cooled.",
+      "Fluid dynamic effects on pumping forces are neglected at minimum and maximum deflections because the actuator is stationary at these extreme positions.",
+      "The SMA material in the austenite phase exhibits constant elastic stiffness up to its maximum strain limit.",
+      "The force-displacement relationship of the silicone enclosure is assumed to be linear with constant stiffness over the operational range.",
+      "The initial pitch angle of the tightly wound SMA spring coil is assumed to be approximately zero.",
+      "Detwinned martensite fraction is modeled as an empirical cosine function of shear stress between critical transformation stresses (105 MPa and 215 MPa) based on Brinson's formulation."
+    ],
+    "control_variables": [
+      "Overall pump package volume (424.7 µL / 424.7 mm³)",
+      "Polymer capsule outer diameter (6 mm spring diameter / 9.4 mm overall outer diameter) and pump length (20 mm)",
+      "SMA phase transformation transition temperature (45 °C)",
+      "Check-valve material (Formlabs Shore 80 A flexible resin) and dimensions",
+      "Preloaded target discharge volume during controlled limit-switch operation (43 mm³)"
+    ],
+    "dependent_variables": [
+      "Maximum linear stroke / deflection / deflection ratio",
+      "Maximum displaced volume / discharge volume per stroke",
+      "Volume flow rate / throughput",
+      "Static head pressure",
+      "Actuation speed",
+      "Heating and cooling response times"
+    ],
+    "doi": "10.3390/mi12050520",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Longitudinal actuation along the direction of highest mechanical compliance enables an SMA-polymeric capsule pump to attain 5.6 mm stroke (27% deflection ratio), speeds up to 11 mm/s, static head pressures up to 14 kPa, and throughputs exceeding 2524 µL/min at 7.1 W.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "SMA direct-drive solid-to-solid phase transformation offers high power density and frictionless operation, but its operating reciprocation rate is constrained by ambient thermal heat exchange during cooling.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          2,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The micropump equilibrium position and stroke are governed by the intersection of the force-deflection responses of the expanding/contracting SMA spring in austenite and martensite phases against the opposing elastic silicone enclosure.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Stereolithography 3D-printed bicuspid-inspired polymer check valves fabricated from Shore 80A resin provide directional flow control with spatially constrained, preloaded leaflets preventing backflow leakage.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          7
+        ]
+      },
+      {
+        "claim": "A static two-state thermomechanical model combining Brinson's SMA constitutive relations and spring geometry with silicone spring stiffness successfully predicts maximum deflections and delineates the plastic deformation boundary.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Lower stiffness enclosure materials shift peak actuator deflection to thinner SMA wire diameters, reducing required electrical current and input power, making Ecoflex 00-30 the optimal tradeoff between compliance and mechanical robustness.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Increasing the number of SMA coil turns decreases displaced volume and static head pressure while increasing input power consumption due to changes in relative SMA-to-enclosure stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9,
+          11
+        ]
+      },
+      {
+        "claim": "Operating under forced convection cooling (h ≈ 79 W/(m²·K)) accelerates cooling but simultaneously impairs Joule heating efficiency and stroke, ultimately reducing net flow rate compared to free convection.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Under constant current (1.9 A), 0.5 mm diameter wire achieves the greatest displacement but 0.4 mm diameter wire yields the highest volume flow rate due to lower electrical resistance and faster thermal rise times.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "A controlled limit-switch operating mode at 790 mA delivers constant volumetric discharge (43 mm³) at a stable static head pressure of 6.5 kPa (~48 mmHg) per stroke.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Fabrication using 3D-printed molds to cast Ecoflex 00-30 inner and outer capsule structures, stereolithography 3D-printed bicuspid valves in Shore 80A flexible resin, and an aluminum mold for the replaceable Ecoflex 00-30 drug reservoir.",
+      "Experimental characterization of force-displacement behavior, linear motion, discharge volume, volume flow rate, and static pressure head using PASCO force sensors (0.03 N resolution) and linear motion sensors (0.0078 mm resolution).",
+      "Electrical actuation via pulsed DC power supply under variable duty cycles (1:1 and 1:2), frequencies (0.25 Hz to >3 Hz), voltages (2.5 V, 3.5 V, 5 V), and constant currents (790 mA and 1.9 A).",
+      "Limit-switch closed-loop discharge volume control maintaining constant stroke volume and tracking static head pressure.",
+      "Evaluation under natural/free convection and forced convection cooling conditions (convection coefficient h ≈ 79 W/(m²·K))."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "SMA wire diameter (0.25 mm, 0.4 mm, 0.5 mm)",
+      "Number of active coil turns (3, 4, 6, 8 turns)",
+      "Enclosure material type and stiffness (Ecoflex 00-10, Ecoflex 00-30, Ecoflex 00-50, PDMS)",
+      "Input electrical excitation (voltage: 2.5–5 V; current: 790 mA, 1.9 A; power: 2.9–7.1 W)",
+      "Actuation frequency (up to >3 Hz)",
+      "Pulse duty cycle (1:1 and 1:2)",
+      "Cooling regime (free convection vs. forced convection)"
+    ],
+    "limitations_inferred": [
+      "Device cooling and cycle frequency were characterized in ambient air; in vivo biological implantation surrounded by tissue would alter heat transfer rates and could pose local tissue heating concerns.",
+      "Testing was conducted with generic fluid; behavior with non-Newtonian or higher-viscosity pharmaceutical drug solutions was not investigated.",
+      "Long-term fatigue, cyclic creep, and interfacial bonding between the SMA wire and the silicone enclosure over thousands of continuous cycles were not evaluated.",
+      "Peak power consumption (up to 7.1 W) is high for compact battery-powered implantable medical devices, potentially constraining operational longevity."
+    ],
+    "limitations_stated_by_authors": [
+      "Low actuation frequency is an inherent limitation of SMA micropumps because phase transformation relies on thermal heat exchange with surrounding sources or sinks.",
+      "Actuation frequencies exceeding 2 Hz at 1:1 duty cycle do not increase flow rate because the short rise and cooling durations prevent complete phase transformation.",
+      "Ultra-low stiffness elastomers such as Ecoflex 00-10 suffer from high mixed viscosity (14 Pa·s) impairing fine molding, low tensile strength (0.83 MPa), low tear strength (3.85 N/mm), and susceptibility to tearing during repeated elongation >27%.",
+      "Forced convection cooling reduces heating efficiency and stroke amplitude, yielding lower flow rates despite shorter cooling intervals.",
+      "Larger SMA wire diameters and higher turn counts require higher electrical currents and power consumption."
+    ],
+    "main_results": [
+      "Longitudinal compliance actuation produced a maximum stroke of 5.6 mm at a 27% deflection ratio and actuation speeds up to 11 mm/s.",
+      "The pump attained a peak volume flow rate of 2524 µL/min and static head pressure of 14 kPa (105 mmHg) at 7.1 W power under free convection.",
+      "A flow rate per watt of 364.52 µL/(W·min) was achieved at 4.2 W, and the maximum flow rate per pump volume reached 5.94 µL/(min·mm³).",
+      "Analytical and experimental modeling established that lower enclosure stiffness paired with thinner SMA wire maximizes elastic deflection without plastic failure, establishing Ecoflex 00-30 as the optimal elastomer.",
+      "Decreasing active turn count increased static head pressure and stroke range, with 3-turn pumps outperforming 4-, 6-, and 8-turn designs.",
+      "Under constant current (1.9 A), 0.4 mm wire produced the highest volume flow rate, whereas 0.5 mm wire yielded the largest static displacement but slower heating due to lower electrical resistance.",
+      "Controlled limit-switch operation at 790 mA successfully maintained a constant discharge of 43 mm³ per stroke at a stable static head pressure of 6.5 kPa (~48 mmHg)."
+    ],
+    "modeling_methods": [
+      "Analytical Brinson one-dimensional thermomechanical constitutive modeling relating detwinned martensite volume fraction to shear stress.",
+      "Static two-state force-displacement spring formulation (An et al. 2012) incorporating torsional wire stress and outer diameter variations for austenite and martensite states.",
+      "Linear elastic spring modeling of the silicone enclosure based on experimental force-displacement measurements.",
+      "Equilibrium solution via MATLAB numerical curve intersection to identify peak deflections and delineate plastic failure boundaries across design parameters."
+    ],
+    "performance_metrics": [
+      "Maximum linear stroke (5.6 mm) and deflection ratio (27%)",
+      "Actuation speed (up to 11 mm/s)",
+      "Maximum static head pressure (14 kPa / 105 mmHg at 7.1 W; 6.5 kPa / 48 mmHg in limit-switch mode)",
+      "Maximum volume flow rate (2524 µL/min at 7.1 W under free convection)",
+      "Maximum flow rate per watt (364.52 µL/(W·min) at 4.2 W)",
+      "Maximum flow rate per pump volume (5.94 µL/(min·mm³))",
+      "Total pump volume (424.7 µL / 424.7 mm³)"
+    ],
+    "possible_gap_implications": [
+      "The pairing of longitudinal SMA coil contraction with an elastic silicone enclosure provides a design blueprint for high-stroke, compliant linear actuators in soft robotics and microfluidics.",
+      "Static two-state equilibrium modeling offers an accessible alternative to dynamic finite element models for sizing antagonistic variable-stiffness smart material systems.",
+      "Thermal management remains a major bottleneck, as active cooling methods can undermine actuation stroke unless heating input is proportionally scaled."
+    ],
+    "research_objective": "To design, model, fabricate, optimize, and experimentally evaluate a compact, high-power-density, resistively actuated shape memory alloy capsule micropump with an integrated replaceable reservoir and 3D-printed bicuspid valves, utilizing longitudinal compliance actuation to achieve large stroke, high throughput, and sufficient static head pressure for drug delivery applications.",
+    "research_problem": "Miniature active-controlled drug delivery devices face stroke, pressure, and throughput limitations because conventional SMA micropumps (such as diaphragm and peristaltic configurations) actuate transversely with limited displacement, while passive release devices lack on-demand programmability and smart material actuators often require high power budgets.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Variable phase stiffness of shape memory alloy (NiTi) wire transitioning between lower shear modulus martensite (5.65 GPa) and higher shear modulus austenite (18.3 GPa) phases upon Joule heating",
+      "Antagonistic passive elastic restoration provided by a flexible silicone elastomer enclosure (Ecoflex 00-30) acting as an integrated return spring"
+    ],
+    "title": "Shape Memory Alloy Capsule Micropump for Drug Delivery Applications",
+    "year": "2021"
+  }
+}

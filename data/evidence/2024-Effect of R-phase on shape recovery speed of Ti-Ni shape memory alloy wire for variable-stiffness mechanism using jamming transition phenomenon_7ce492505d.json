@@ -1,0 +1,184 @@
+{
+  "source": {
+    "paper_id": "7ce492505d",
+    "filename": "2024-Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon.pdf",
+    "sha256": "7ce492505ddd58fcabcf7c1e2d41706e788e7b57448483c8f3210155b5721f08",
+    "page_count": 10,
+    "char_count": 32575,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 22407,
+    "completion_tokens": 7249,
+    "total_tokens": 29656,
+    "thinking_tokens": 4756,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Electrical heating (Joule heating / energization at a constant voltage of 0.5 V) for shape memory alloy recovery",
+      "Pneumatic evacuation (vacuum / air removal) for jamming transition and air injection for unjamming"
+    ],
+    "authors": [
+      "Naoki MATSUMOTO",
+      "Hiroki CHO",
+      "Kazuto TAKASHIMA",
+      "Hidetaka SUZUKI"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear approximation of displacement versus energization time from the start of motion to 50 mm deformation to determine shape recovery velocity",
+      "Evaluation of tangential stiffness during shape recovery (EA2) based on the linear slope of the recovery plateau region on tensile stress-strain curves",
+      "Engineering stress calculated assuming a constant initial cross-sectional area (force divided by cross-sectional area)",
+      "No analytical or numerical continuum constitutive models were developed in the paper"
+    ],
+    "control_variables": [
+      "Wire diameter (0.9 mm)",
+      "Memorized wire shape (linear form)",
+      "Applied heating voltage during shape recovery tests (constant 0.5 V)",
+      "Initial bending angle of wire in free-recovery tests (90 degrees)",
+      "Specimen gauge lengths (30 mm gauge length with 50 mm total length for tensile tests; 70 mm length with 10 mm clamped end for wire velocity tests; 90 mm gauge length for training and device integration)",
+      "Tensile test temperature for shape memory evaluation (363 K, maintained above Af in a thermostatic oil bath)",
+      "Tensile strain amplitude during evaluation (5% strain)",
+      "Training ambient temperature (353 K, corresponding to Af + 20 K)",
+      "Training strain amplitude (3% strain) and number of cycles (50 cycles)",
+      "Environmental isolation (glass enclosure around shape recovery test to eliminate wind effects)",
+      "Variable-stiffness device composition (outer membrane filled with coarse coffee grounds)"
+    ],
+    "dependent_variables": [
+      "Shape recovery temperature / reverse transformation finish temperature (Af)",
+      "Displacement over energization time",
+      "Shape recovery velocity (mm/s)",
+      "Stress at the start of shape recovery (σA)",
+      "Tangential stiffness during shape recovery (EA2)",
+      "Plastic / residual strain after deformation and training cycles (%)",
+      "Shape recovery time of the variable-stiffness device (s)",
+      "Extent of shape recovery / recovery displacement of the variable-stiffness device (mm)"
+    ],
+    "doi": "10.1299/mej.24-00130",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A variable-stiffness and deformable link combining granular jamming of coffee grounds and a shape memory material can deform to fit objects, stiffen when evacuated, and recover its initial shape upon unjamming and heating.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Ti-Ni shape memory alloy specimens exhibiting R-phase transformation during reverse transformation tend to exhibit higher recovery stress than specimens without R-phase transformation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Ti-Ni SMA wire specimens exhibiting R-phase transformation display significantly higher shape recovery velocities under electrical heating compared to specimens that do not exhibit R-phase transformation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      {
+        "claim": "High shape recovery velocity in Ti-Ni SMA wires correlates with high stress at the onset of recovery (σA) and low tangential stiffness during recovery (EA2), with EA2 exerting a greater influence on velocity.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          6,
+          10
+        ]
+      },
+      {
+        "claim": "A variable-stiffness jamming device utilizing untrained R-phase SMA wire recovers faster than one using non-R-phase wire, but fails to achieve complete recovery (stopping 10 mm short) due to plastic strain accumulation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7,
+          10
+        ]
+      },
+      {
+        "claim": "Superelastic cyclic training (50 loading-unloading cycles at 3% strain and 353 K) decreases plastic strain from 0.37% to 0.03% without reducing shape recovery velocity, allowing the variable-stiffness device to nearly fully restore its initial shape.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Heat-treatment setup: Atmospheric furnace heating of 0.9 mm diameter Ti-Ni SMA wires at specified temperatures (723 K or 773 K) and times (0.3 ks, 0.6 ks, 1.2 ks) followed by water quenching, with phase transformation characteristics and Af verified by differential scanning calorimetry (DSC).",
+      "Electrical heating recovery test: 70 mm straight memorized SMA wire with a 10 mm fixed clamped end, bent 90 degrees, energized at 0.5 V constant voltage inside a glass cage; top-view camera tracked red tape at the wire tip against graph paper, processed using RGB color tracking in LabVIEW.",
+      "Tensile testing setup: Shimadzu Autograph AGS-J 5 kN machine equipped with a thermostatic oil bath to maintain ambient temperature (363 K for property evaluation; 353 K for training), load cell for force, and laser displacement meter for displacement.",
+      "SMA mechanical training setup: Tensile machine performing 50 repeated loading-unloading cycles at 3% strain amplitude at 353 K on a 90 mm gauge length SMA wire.",
+      "Variable-stiffness device setup: A deformable link consisting of coarse coffee grounds enclosed within an outer membrane along with an SMA wire element, operated via internal air evacuation for jamming and air injection plus 0.5 V electrical heating for shape recovery."
+    ],
+    "future_work": [
+      "Establishing a clear target recovery velocity for the variable-stiffness device in practical pick-and-place applications",
+      "Investigating the influence of different training conditions on the shape-recovery characteristics and performance of Ti-Ni SMA elements to achieve complete shape recovery"
+    ],
+    "independent_variables": [
+      "Heat-treatment temperature and duration of Ti-Ni SMA wire (untreated, 723 K for 0.6 ks, 723 K for 1.2 ks, and 773 K for 0.3 ks)",
+      "Presence versus absence of R-phase transformation during reverse transformation",
+      "SMA wire manufacturer / material source (Furukawa Techno Material vs. Nilaco)",
+      "Mechanical training status of the SMA wire (untrained vs. cyclically trained for 50 cycles at 3% strain and 353 K)"
+    ],
+    "limitations_inferred": [
+      "Experiments only evaluated single 0.9 mm diameter wires in a straight geometry; behavior of wire bundles, springs, or complex geometries was not tested.",
+      "All recovery velocity measurements were performed under unloaded conditions; performance under external resistive payloads or grasping forces was not evaluated.",
+      "Joule heating was conducted at a fixed voltage without active temperature feedback or closed-loop control.",
+      "Cooling duration (reset time back to the soft state) was not characterized, which represents a key factor in overall cycle time.",
+      "Fatigue endurance and functional degradation beyond 50 training cycles were not evaluated."
+    ],
+    "limitations_stated_by_authors": [
+      "The variable-stiffness device incorporating untrained R-phase SMA wire could not achieve full shape recovery, stopping 10 mm short of its initial shape due to plastic strain introduced during deformation.",
+      "Even after cyclic training of the SMA wire, the variable-stiffness device did not completely recover its initial shape.",
+      "A specific target operating recovery velocity for the variable-stiffness device has not been clearly established.",
+      "Untrained Ti-Ni SMA elements exhibited low repeatability due to increasing plastic strain during deformation."
+    ],
+    "main_results": [
+      "SMA specimens exhibiting R-phase transformation showed distinctly higher recovery velocities (~2.4 to 2.5 mm/s) than specimens without R-phase (~0.6 to 1.3 mm/s).",
+      "Tensile testing demonstrated that high recovery velocity is driven by a combination of high initial recovery stress (σA) and low tangential stiffness during recovery (EA2), with EA2 exerting the dominant influence.",
+      "The variable-stiffness device fabricated with R-phase SMA wire (773 K for 0.3 ks) significantly shortened recovery time compared to a device using Nilaco SMA, but suffered from incomplete recovery due to residual plastic strain.",
+      "Mechanical training reduced plastic strain from 0.37% to 0.03% (less than one-tenth) without compromising recovery stress or recovery velocity.",
+      "The variable-stiffness device using the trained R-phase SMA wire achieved near-complete shape recovery while preserving the high recovery speed."
+    ],
+    "modeling_methods": [
+      "Empirical linear regression / approximation of the displacement-time curve up to 50 mm deformation to compute the recovery velocity (slope)",
+      "Direct calculation of stress by dividing measured tensile force by wire cross-sectional area",
+      "Extraction of tangential stiffness (EA2) as the linear slope of the recovery plateau region from tensile stress-strain curves"
+    ],
+    "performance_metrics": [
+      "Shape recovery velocity (mm/s)",
+      "Displacement (mm) as a function of energization time (s)",
+      "Stress at the start of shape recovery σA (MPa)",
+      "Tangential stiffness during shape recovery EA2 (MPa)",
+      "Plastic strain / residual strain (%) after deformation and training cycles",
+      "Device recovery time required to reach 10 mm short of initial shape (s)",
+      "Shape recovery extent / height achieved by the variable-stiffness device (mm)"
+    ],
+    "possible_gap_implications": [
+      "Demonstrating that R-phase transformation and training reduce recovery time in SMA-jamming links suggests that faster actuation cycles are feasible, but the absence of loaded dynamic tests means operational speed under payload remains unproven.",
+      "Passive cooling of SMA elements enclosed within granular media could offset speed gains obtained during electrical heating recovery, highlighting a gap in thermal dissipation management.",
+      "The remaining residual strain even after 50 training cycles indicates that long-term cyclic stabilization under repetitive jamming-unjamming cycles requires further investigation."
+    ],
+    "research_objective": "To investigate the effect of R-phase transformation on the shape recovery velocity of Ti-Ni shape memory alloy wire elements, clarify the underlying mechanical factors (initial recovery stress and tangential stiffness), and improve the operating speed and shape recovery capability of a variable-stiffness device using granular jamming.",
+    "research_problem": "Variable-stiffness and deformable mechanisms combining shape memory materials and granular jamming operate slowly due to the slow shape recovery velocity of the shape memory alloy (Ti-Ni SMA) element.",
+    "robot_type": "variable-stiffness and deformable link (variable-stiffness mechanism for attachment to a robot arm for pick-and-place motion)",
+    "stiffness_mechanism": [
+      "Jamming transition phenomenon (granular jamming using coarse coffee grounds)",
+      "Shape memory effect / phase transformation of Ti-Ni shape memory alloy (SMA) wire"
+    ],
+    "title": "Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon",
+    "year": "2024"
+  }
+}
