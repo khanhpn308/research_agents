@@ -609,3 +609,36 @@ reconstruct M1 completely
 → compare
 → experimentally test the predicted validity boundary
 ~~~
+
+
+---
+
+# 21. Active mentor-pivot audit branch
+
+A mentor-proposed alternative direction is currently under adversarial novelty audit. It has **not** replaced the current D1/M1 thesis.
+
+Candidate concept:
+
+~~~text
+superelastic NiTi / metal wire bundle
++ positive-pressure confinement
++ inter-wire frictional jamming
++ variable bending stiffness
++ optional SMA-driven syringe/piston pressure source
+~~~
+
+Current status:
+
+- broad component novelty is already heavily pre-empted;
+- the strongest surviving hypotheses concern NiTi wires themselves as the jamming medium, positive-pressure confinement of that metallic wire bundle, and possible coupling between superelastic response and inter-wire friction/slip;
+- formal repository audit begins with `MP1-V001`;
+- if the core mechanics survives, continue with `MP1-V002` targeted citation chasing;
+- do not change the official thesis title or abandon D1/M1 until the MP1 branch reaches formal adjudication.
+
+Entry points:
+
+1. `docs/project/MENTOR_PIVOT_STATUS.md`
+2. `docs/protocols/MP1_NOVELTY_FALSIFICATION_ROADMAP.md`
+3. `docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md`
+4. `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
+5. `app/ingestion/mp1_v001_core_prior_art_audit.py`
