@@ -1,7 +1,7 @@
 # MP1 — Mentor-Pivot Current Handoff
 
-> **Status:** ACTIVE CANDIDATE AUDIT.  
-> **Important:** the existing D1/M1 thesis is preserved and is NOT replaced unless MP1 survives falsification and a final adjudication explicitly selects it.
+> **Status:** MP1-V001 COMPLETE — next round is MP1-V002 targeted citation chasing.  
+> **Important:** the existing D1/M1 thesis remains preserved and is NOT replaced unless MP1 survives falsification and a final adjudication explicitly selects it.
 
 ## Mentor-proposed architecture
 
@@ -13,108 +13,152 @@ superelastic NiTi / metal wire bundle
 + optional SMA-driven syringe/piston pressure source
 ```
 
-## Broad claims already unsafe
+## MP1-V001 formal result
 
-The current full-text corpus shows that the following cannot be treated as novel by themselves:
+```text
+STATUS      = PIVOT_TO_MECHANICS_CORE
+CONFIDENCE  = high
+```
 
-- wire/fiber jamming;
-- positive-pressure jamming;
-- positive-pressure fiber jamming;
-- SMA + jamming in one device;
-- NiTi wires/tendons inside a jamming robot;
-- compact/onboard pressure source for jamming;
-- SMA-driven pumping / pressure generation;
-- piston-driven mechanical jamming.
+Canonical result:
 
-## Surviving hypotheses to falsify
+- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
+- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.md`
 
-### T1 — NiTi as actual jamming medium
+### Closed / substantially pre-empted claims
 
-Superelastic NiTi wires themselves form the frictional bundle and are intentionally jammed by wire-wire contact/slip.
+- C1 — wire/fiber jamming for variable stiffness: **closed**
+- C2 — positive-pressure jamming for variable stiffness: **closed**
+- C3 — SMA + jamming in one variable-stiffness device: **closed**
+- C4 — onboard/compact pressure source for jamming: **closed**
+- C8 — SMA-driven syringe/piston specifically powering jamming pressure: **substantially pre-empted** and high implementation-only novelty risk
 
-### T2 — Positive-pressure confinement of NiTi bundle
+### Surviving mechanics core in the supplied corpus
 
-Positive/internal/confining pressure radially or transversely compresses a metallic/NiTi bundle, increases inter-wire normal force/friction, and changes bending stiffness.
+- C5 — superelastic NiTi wires themselves as the frictional jamming medium: **open in supplied corpus**
+- C6 — positive-pressure confinement of a superelastic NiTi wire bundle: **open in supplied corpus**
+- C7 — coupling among NiTi superelastic response, inter-wire slip/friction, pressure and bending stiffness: **open in supplied corpus**
 
-### T3 — Coupled mechanics
+The surviving contribution is therefore NOT a component-combination claim.
 
-Superelastic NiTi material response interacts materially with:
+## Current scientific core
 
-- wire-wire contact;
-- inter-wire slip/friction;
-- pressure;
-- hysteresis;
-- bending stiffness.
+The strongest provisional research question is:
 
-### T4 — SMA pressure-source integration
+> How do positive confining pressure, inter-wire slip/friction, and superelastic NiTi response interact to determine the bending stiffness and hysteresis of a NiTi wire bundle?
 
-An SMA-driven syringe/piston specifically powers the jamming pressure source.
+A stricter falsification form is:
 
-T4 is secondary because SMA-driven pumping and compact jamming pumps already exist. It should not carry the thesis novelty by itself.
+> Does a superelastic NiTi wire bundle exhibit pressure- and curvature-dependent stick/slip and bending behavior that cannot be explained by an existing elastic-fiber Coulomb-jamming model using only substituted elastic modulus and friction parameters?
 
-## MP1-V001 — current next round
+If the answer is no, the MP1 mechanics pivot should be killed.
+
+## Immediate next round — MP1-V002
 
 Purpose:
 
-> Formal full-text prior-art architecture audit using the already-collected high-threat corpus.
+> Attempt to kill C5-C7 through targeted backward/forward citation chasing without reopening broad keyword searching.
 
-Core corpus:
+### T1 — NiTi as actual jamming medium
 
-1. Liu et al. 2021 — positive-pressure jamming.
-2. Bai et al. 2022 — wire jamming.
-3. Huynh et al. 2022 — micropump-activated jamming.
-4. Takashima et al. 2022 — SMA + granular jamming original mechanism.
-5. Takashima et al. 2024 — motion evaluation of SMA + jamming.
-6. Zhang & Yao 2026 — positive-pressure fiber jamming.
-7. Takashima et al. 2026 — later SMA + jamming application.
-8. Pierce & Mascaro 2013 — SMA robotic pump.
-9. Kotb et al. 2021 — NiTi SMA capsule micropump.
-10. Wang et al. 2024 — piston-like particle jamming.
-11. Matsumoto et al. 2024 — optional but recommended Ti-Ni/R-phase paper in the Takashima lineage.
+Find prior work where:
 
-Expected V001 outcomes:
+```text
+superelastic / NiTi / Nitinol metallic wires
+→ form the bundle itself
+→ contact/slip against one another
+→ friction is intentionally modulated
+→ bundle stiffness changes
+```
 
-- `KILL_MP1`
-- `PIVOT_TO_MECHANICS_CORE`
-- `SURVIVES_CORE_CORPUS`
+### T2 — positive-pressure confinement of metallic/NiTi wire bundle
+
+Find prior work where:
+
+```text
+positive/internal/confining pressure
+→ radially or transversely compresses a metallic wire bundle
+→ increases inter-wire normal force/friction
+→ changes bending/torsional/axial stiffness
+```
+
+### T3 — coupled NiTi superelasticity + inter-wire friction
+
+Find models or experiments coupling:
+
+- stress-induced martensitic transformation / superelastic plateau;
+- hysteresis / recoverable strain;
+- wire-wire contact;
+- inter-wire slip/friction;
+- confinement pressure;
+- structural/bending stiffness.
+
+## Citation anchors
+
+Start from the exact papers named by MP1-V001:
+
+1. Bai et al. 2022 — `10.3390/app12073582`
+2. Liu et al. 2021 — `10.1109/LRA.2021.3097255`
+3. Zhang & Yao 2026 — `10.5194/ms-17-481-2026`
+4. Takashima et al. 2022 — `10.20965/jrm.2022.p0466`
+5. Matsumoto et al. 2024 — `10.1299/mej.24-00130`
+6. Wang et al. 2024 — `10.1108/IR-11-2023-0305`
+
+Primary emphasis:
+
+- T1: Bai 2022 + Zhang & Yao 2026
+- T2: Liu 2021 + Zhang & Yao 2026
+- T3: Zhang & Yao 2026 + Takashima 2022 + Matsumoto 2024 + Wang 2024
+
+## MP1-V002 inclusion rule
+
+Register a new paper under MP1-V002 only if title/abstract/full text provides a concrete mechanics threat to T1/T2/T3.
+
+Do NOT ingest generic:
+
+- SMA actuator papers;
+- generic cable friction papers;
+- generic jamming reviews;
+- robot papers that merely contain NiTi wires.
+
+## Search-stop rule
+
+Stop MP1-V002 when:
+
+1. backward references of the strongest T1/T2/T3 anchors have been screened;
+2. forward citations of those anchors have been screened through the current search date;
+3. no named high-threat source remains unresolved.
+
+Possible V002 outcomes:
+
+- `FALSIFIED`
+- `SUBSTANTIALLY_NARROWED`
+- `SURVIVES_TARGETED_CITATION_CHASE`
 - `INCONCLUSIVE`
 
-## MP1-V002 — only after V001
+## Current guardrail
 
-If T1/T2/T3 survive, perform targeted backward/forward citation chasing around:
+Do not treat:
 
-- Bai et al. 2022;
-- Zhang & Yao 2026;
-- Wang et al. 2024;
-- Takashima 2022/2024/2026;
-- any metallic-wire / cable / rope / strand sources explicitly named by those papers.
+- a different wire material;
+- a different pump;
+- a syringe;
+- a different robot platform;
+- a compact package
 
-Do not reopen broad keyword searching.
+as scientific novelty by themselves.
 
-## Current scientific guardrail
-
-A different material, pump, syringe, geometry, or robot platform is not enough by itself.
-
-A stronger surviving research question would look like:
-
-> How do positive confining pressure, inter-wire slip/friction, and superelastic NiTi response interact to determine bending stiffness and hysteresis of a NiTi wire bundle?
-
-This is a hypothesis for falsification, not a novelty claim.
+The mechanics pivot survives only if NiTi superelasticity changes the pressure-dependent contact/slip/bending mechanics in a way not reducible to parameter substitution in existing elastic-fiber models.
 
 ## Canonical files
 
 - `docs/protocols/MP1_NOVELTY_FALSIFICATION_ROADMAP.md`
 - `docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md`
 - `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
-- `app/ingestion/mp1_v001_core_prior_art_audit.py`
-- `outputs/verification/MP1-V001/README.md`
+- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.md`
+- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
+- `outputs/verification/MP1-V002/README.md`
 
-## Immediate next action
+## Immediate action
 
-1. Register the collected PDFs under `MP1-V001`.
-2. Screen them as included.
-3. Ingest and validate evidence.
-4. Build the MP1-V001 verification matrix.
-5. Run `mp1_v001_core_prior_art_audit --prepare-only`.
-6. If preparation passes, run the formal audit.
-7. Only then decide whether MP1-V002 is necessary.
+Perform only the targeted backward/forward citation screening for T1-T3. Do not begin MP1-V003 and do not change the official D1/M1 thesis yet.
