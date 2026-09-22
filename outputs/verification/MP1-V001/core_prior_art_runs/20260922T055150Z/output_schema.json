@@ -1,0 +1,216 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "candidate_architecture",
+    "executive_summary",
+    "claim_audit",
+    "closest_prior_art",
+    "fatal_conflicts",
+    "remaining_mechanics_core",
+    "implementation_only_risk",
+    "targeted_followup",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "KILL_MP1",
+        "PIVOT_TO_MECHANICS_CORE",
+        "SURVIVES_CORE_CORPUS",
+        "INCONCLUSIVE"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "candidate_architecture": {
+      "type": "string"
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "claim_audit": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "claim",
+          "status",
+          "assessment",
+          "evidence_paper_ids"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "closed",
+              "substantially_preempted",
+              "open_in_supplied_corpus",
+              "uncertain"
+            ]
+          },
+          "assessment": {
+            "type": "string"
+          },
+          "evidence_paper_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "closest_prior_art": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "title",
+          "doi",
+          "overlap",
+          "critical_difference",
+          "threat_level"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "doi": {
+            "type": "string"
+          },
+          "overlap": {
+            "type": "string"
+          },
+          "critical_difference": {
+            "type": "string"
+          },
+          "threat_level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          }
+        }
+      }
+    },
+    "fatal_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "remaining_mechanics_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "niti_as_jamming_medium",
+        "positive_pressure_niti_bundle",
+        "coupled_superelastic_friction_mechanics",
+        "scientifically_defensible",
+        "assessment"
+      ],
+      "properties": {
+        "niti_as_jamming_medium": {
+          "type": "boolean"
+        },
+        "positive_pressure_niti_bundle": {
+          "type": "boolean"
+        },
+        "coupled_superelastic_friction_mechanics": {
+          "type": "boolean"
+        },
+        "scientifically_defensible": {
+          "type": "boolean"
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "implementation_only_risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sma_syringe_only_difference",
+        "risk_level",
+        "assessment"
+      ],
+      "properties": {
+        "sma_syringe_only_difference": {
+          "type": "boolean"
+        },
+        "risk_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "targeted_followup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "targets",
+        "named_sources",
+        "reopen_broad_search"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "named_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reopen_broad_search": {
+          "type": "boolean"
+        }
+      }
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}
