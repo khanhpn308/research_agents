@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -512,25 +513,35 @@ def main() -> None:
             "Use --force only for an intentional replacement."
         )
 
-    model_result = run_codex(
+    run_codex(
         prompt=prompt,
-        schema=SCHEMA,
+        schema_path=schema_path,
+        raw_output_path=raw_path,
         model=args.model,
-        reasoning_effort=args.effort,
+        effort=args.effort,
     )
 
-    raw_path.write_text(
-        json.dumps(model_result, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    raw_text = read_text(raw_path).strip()
 
-    result = model_result.get("content")
-    if isinstance(result, str):
-        result = json.loads(result)
+    try:
+        result = json.loads(raw_text)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("Model output is not valid JSON.") from exc
+
     if not isinstance(result, dict):
-        raise RuntimeError("Codex result content is not a JSON object.")
+        raise RuntimeError("Model output must be a JSON object.")
 
     validate_result(result)
+
+    result["_provenance"] = {
+        "run_id": run_id,
+        "created_at_utc": utc_now().isoformat(),
+        "verification_id": VERIFICATION_ID,
+        "paper_count": paper_count,
+        "evidence_bundle_sha256": bundle_sha256,
+        "model": args.model,
+        "effort": args.effort,
+    }
 
     result_json_path.write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
@@ -541,18 +552,9 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    CANONICAL_JSON.write_text(
-        result_json_path.read_text(encoding="utf-8"),
-        encoding="utf-8",
-    )
-    CANONICAL_MD.write_text(
-        result_md_path.read_text(encoding="utf-8"),
-        encoding="utf-8",
-    )
-    CANONICAL_RAW.write_text(
-        raw_path.read_text(encoding="utf-8"),
-        encoding="utf-8",
-    )
+    shutil.copy2(result_json_path, CANONICAL_JSON)
+    shutil.copy2(result_md_path, CANONICAL_MD)
+    shutil.copy2(raw_path, CANONICAL_RAW)
 
     print(f"[STATUS] {result['status']}")
     print(f"[CONFIDENCE] {result['confidence']}")
