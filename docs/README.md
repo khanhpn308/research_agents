@@ -20,7 +20,7 @@ For the current thesis execution phase, continue with the Vietnamese M1 architec
 
 ### `project/` — state, handoff, and roadmap
 
-- `PROJECT_HANDOFF_CURRENT.md`: current project entry point.
+- `PROJECT_HANDOFF_CURRENT.md`: current project entry point.\n- `MENTOR_PIVOT_STATUS.md`: active alternative mentor-proposed direction under novelty falsification; does not replace the current thesis yet.
 - `RESEARCH_STATE.md` and `research_state.json`: human- and machine-readable state.
 - `RESEARCH_LOG.md`: research decision timeline.
 - `POST_D1_V009_RESEARCH_ROADMAP.md`: post-verification roadmap in English.
@@ -47,7 +47,7 @@ For the current thesis execution phase, continue with the Vietnamese M1 architec
 
 - `D1-V003_LITERATURE_AUDIT_PLAN.md`
 - `D1-V003_VALIDITY_GAP_SEARCH_PROTOCOL.md`
-- `D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`
+- `D1-V009_LATE_FOUND_ADJACENT_AUDIT_PLAN.md`\n- `MP1_NOVELTY_FALSIFICATION_ROADMAP.md`\n- `MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md`\n- `MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
 
 These files describe how specific verification rounds were designed. Completed results remain under `outputs/verification/` and must not be overwritten.
 
