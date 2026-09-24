@@ -60,6 +60,42 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def split_named_threats_by_matrix(
+    named_sources: list[str],
+    matrix: dict[str, Any],
+) -> tuple[list[str], list[str]]:
+    """Separate already-audited V002 sources from genuinely unresolved named threats."""
+    identities: list[tuple[str, str]] = []
+    for paper in matrix.get("papers", []):
+        evidence = paper.get("evidence", {}).get("paper", {})
+        title = str(evidence.get("title") or paper.get("filename") or "").strip().casefold()
+        doi = str(evidence.get("doi") or "").strip().casefold()
+        identities.append((title, doi))
+
+    resolved: list[str] = []
+    unresolved: list[str] = []
+
+    for source in named_sources:
+        token = str(source).strip()
+        folded = token.casefold()
+        matched = False
+
+        for title, doi in identities:
+            if doi and doi in folded:
+                matched = True
+                break
+            if title and title in folded:
+                matched = True
+                break
+
+        if matched:
+            resolved.append(token)
+        else:
+            unresolved.append(token)
+
+    return resolved, unresolved
+
+
 def direction(required: bool) -> dict[str, Any]:
     return {
         "required": required,
@@ -128,6 +164,11 @@ def init_payload() -> dict[str, Any]:
             "forward": direction(False),
         })
 
+    resolved_named, unresolved_named = split_named_threats_by_matrix(
+        list(plan.get("named_high_threat_sources", [])),
+        matrix,
+    )
+
     return {
         "schema_version": 1,
         "verification_id": VERIFICATION_ID,
@@ -137,9 +178,8 @@ def init_payload() -> dict[str, Any]:
         ),
         "search_cutoff_date": "",
         "anchors": anchors,
-        "unresolved_named_high_threat_sources": list(
-            plan.get("named_high_threat_sources", [])
-        ),
+        "resolved_named_high_threat_sources": resolved_named,
+        "unresolved_named_high_threat_sources": unresolved_named,
         "stop_condition": {
             "all_required_directions_screened": False,
             "no_unresolved_high_threat_source": False,
