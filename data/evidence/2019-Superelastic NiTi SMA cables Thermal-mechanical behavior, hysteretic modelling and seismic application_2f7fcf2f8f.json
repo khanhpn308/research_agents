@@ -1,0 +1,207 @@
+{
+  "source": {
+    "paper_id": "2f7fcf2f8f",
+    "filename": "2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+    "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+    "page_count": 17,
+    "char_count": 66513,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 33065,
+    "completion_tokens": 7916,
+    "total_tokens": 40981,
+    "thinking_tokens": 4912,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Cheng Fang",
+      "Yue Zheng",
+      "Junbai Chen",
+      "Michael C.H. Yam",
+      "Wei Wang"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Austenite-to-martensite solid-to-solid phase transformation behavior modeled using one-dimensional flag-shaped hysteretic formulation.",
+      "Cable cross-section equivalent to an idealized circular section partitioned into multiple concentric fiber layers under uniaxial stress.",
+      "Central core layer modeled with isotropic hardening steel (Steel02) with identical yield strength to SMA to capture residual strain and cyclic degradation.",
+      "Outer three layers modeled with Self-centering material behavior possessing graded Young's modulus reduction factors (k0) to represent non-synchronized wire tension.",
+      "Displacement-based fiber beam-column elements assume plane sections remain plane for the bridge pier.",
+      "Reinforcing steel follows the Menegotto-Pinto constitutive law with linear kinematic and zero isotropic hardening; concrete follows the Kent-Scott-Park model for confined and unconfined sections.",
+      "Frictional sliding bearings modeled as ideal elastic-plastic behavior in zero-length spring elements.",
+      "Cables resist tension only; compressive buckling is neglected and slack displacement is accounted for using zero-length gap elements in series."
+    ],
+    "control_variables": [
+      "Cable construction: 7 x 7 configuration (7 strands consisting of 7 wires each; total 49 monofilament wires)",
+      "Wire diameter: 0.8 mm (measured outer cable diameter approx. 7 mm; specimen total length approx. 350 mm)",
+      "Material composition: commercial Ti-50.8at.%Ni ingot processed by hot-working, cold-working (30-40% area reduction), and straightening (450 °C for 30 s)",
+      "Furnace heat treatment followed immediately by water quenching",
+      "Quasi-static tensile loading rate: displacement control at 5 mm/min on Universal Test Machine (UTM)",
+      "Testing ambient temperature: room temperature of approximately 28 °C",
+      "End constraint: thin epoxy coating on cable ends clamped in matching hydraulic wedge grips",
+      "Digital Image Correlation (DIC) camera sampling rate at 0.5 Hz with speckled surface paint treatment"
+    ],
+    "dependent_variables": [
+      "Phase transformation temperatures (martensitic start/finish Ms, Mf, and austenitic start/finish As, Af, and intermediate R-phase temperatures)",
+      "Forward transformation start stress (yield strength) and forward transformation finish stress",
+      "Peak stress at maximum global strain",
+      "Initial elastic modulus (stiffness)",
+      "Accumulated residual strain and recovery rate (self-centering capability)",
+      "Equivalent viscous damping ratio (EVD) (energy dissipation capability)",
+      "Form setting ability (resistance to unravelling after mid-span cutting)",
+      "Peak and residual girder displacements in seismic time-history bridge analysis"
+    ],
+    "doi": "10.1016/j.engstruct.2019.01.049",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Monofilament NiTi wires annealed at moderate temperatures (400-450 °C for 15 min) exhibit flag-shaped superelastic responses recovering over 90% of strain after undergoing 8% maximum strain, but suffer transformation-induced fatigue (TIF) and residual strain accumulation under cyclic loading.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          10
+        ]
+      },
+      {
+        "claim": "7 x 7 superelastic SMA cables scale up wire properties but demonstrate smoother, more gradual phase transformation transitions due to non-uniform stress states (combining tension, torsion, and bending) and out-of-sync wire engagement across the bundled cross-section.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          11
+        ]
+      },
+      {
+        "claim": "Annealing schemes significantly modify phase transformation temperatures: moderate annealing (350-450 °C) maintains Af close to or below room temperature, whereas high annealing (500-550 °C) lowers Af down to -20 °C, inducing over-aging and degrading superelastic recovery.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          4,
+          7,
+          10
+        ]
+      },
+      {
+        "claim": "Annealing at 400 °C or higher for 15 minutes followed by water quenching provides full form setting (shape setting), preventing stranded 7 x 7 SMA cables from unravelling when cut.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8,
+          16
+        ]
+      },
+      {
+        "claim": "Pre-training SMA cables for approximately five constant-strain cycles stabilizes hysteretic response and limits further residual strain accumulation, capturing over 80% of final residual deformation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          10,
+          16
+        ]
+      },
+      {
+        "claim": "An empirical multi-layer modeling approach combining concentric self-centering SMA fiber layers with stiffness reduction factors and an inner isotropic hardening steel core accurately simulates the out-of-sync wire tension, loop shape, and cyclic degradation of SMA cables.",
+        "evidence_type": "computational",
+        "page_numbers": [
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "claim": "Digital Image Correlation (DIC) enables reliable non-contact full-field strain measurement on stranded SMA cables where physical extensometers slip due to cable bending and slack during unloading.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Differential Scanning Calorimetry (DSC) with cooling-heating cycles at 10 °C/min to measure transformation temperatures.",
+      "Electrical furnace used for annealing wires and cables at 350 °C to 550 °C followed by water quenching.",
+      "Universal Test Machine (UTM) equipped with hydraulic wedge grips and built-in load cell for uniaxial tensile cyclic testing under displacement control (5 mm/min).",
+      "Epoxy end coating on cable specimens to prevent clamping-induced stress concentrations and end failures.",
+      "Non-contact GOM Digital Image Correlation (DIC) double-camera system tracking surface speckle pattern at 0.5 Hz to measure local strain fields.",
+      "Mid-span cutting evaluation of post-cyclic cable specimens to assess form setting and unravelling resistance."
+    ],
+    "future_work": [
+      "Testing larger-diameter SMA cables and calibrating numerical models to reduce the required number of physical restrainers.",
+      "Evaluating seismic response under a wider and more diverse suite of earthquake ground motions.",
+      "Developing a comprehensive performance-based design framework for structures incorporating SMA-cable restrainers."
+    ],
+    "independent_variables": [
+      "Annealing temperature (as-received/no annealing, 350 °C, 400 °C, 450 °C, 500 °C, 550 °C)",
+      "Annealing duration (5 min, 15 min, 30 min)",
+      "Cyclic loading protocol (incremental strain loading from 1% to 10% strain; constant strain cyclic loading at 6% or 10% strain for 20 cycles)",
+      "Cycle count (up to 20 cycles)",
+      "Specimen morphology (monofilament wire vs. 7 x 7 multi-strand cable)"
+    ],
+    "limitations_inferred": [
+      "The proposed multi-layer fiber section modeling approach relies on empirical trial-and-error fitting of area fractions and stiffness reduction factors rather than an analytical mechanics-based formulation derived from cable geometry.",
+      "Experimental testing was restricted to quasi-static loading (5 mm/min) at room temperature (28 °C), omitting dynamic strain-rate effects and thermal self-heating during rapid cycling.",
+      "High-cycle structural fatigue leading to mechanical fracture was not evaluated.",
+      "The study targets civil engineering bridge restrainers and does not examine robotic implementations, multi-axis bending, sheath friction, or miniaturized robotic actuators."
+    ],
+    "limitations_stated_by_authors": [
+      "The numerical simulation model for single SMA wires does not account for cyclic degradation effects.",
+      "Minor discrepancies remain between numerical simulations and experimental results along the cable unloading paths.",
+      "Physical contact extensometers are unsuitable for SMA cable testing because bending deformation during unloading causes leg slippage.",
+      "Minor slippage at clamped ends is inevitable in cable tension testing at large strain levels.",
+      "SMA cables exhibit lower equivalent viscous damping ratios (2-6%) than monofilament wires (7%+) due to non-synchronized wire deformation.",
+      "The numerical case study is limited to an illustrative analysis using a single unscaled ground motion record (El Centro EW) without a comprehensive performance-based design framework.",
+      "Larger diameter cables require future experimental verification and model calibration before practical adoption."
+    ],
+    "main_results": [
+      "7 x 7 superelastic NiTi SMA cables successfully scale up the load-carrying capacity of SMA wires while producing smoother stress-strain curves due to multi-axial stress states and non-synchronized wire engagement.",
+      "Moderate annealing (350-400 °C for 15 min) enhances cable stiffness, energy dissipation, and form setting, whereas overly high annealing (>= 500 °C) causes over-aging and degrades superelasticity.",
+      "Annealing at 400 °C or above for 15 min imparts complete form setting, preventing 7 x 7 cables from unravelling after cutting.",
+      "Initial cable elastic modulus ranges from 30 to 45 GPa, increasing with annealing temperature and decreasing with cycle number.",
+      "Yield strength of cables degrades by over 20% across 20 cycles (dropping below 400 MPa), while peak stress remains stable and immune to cyclic degradation.",
+      "Recovery rates exceed 80-85% (residual strains < 1.5% after 10% strain) for properly annealed cables, but drop to 67% for cables annealed at 500 °C.",
+      "Over 80% of cumulative residual strain occurs within the first 5 cycles, indicating that mechanical pre-training effectively stabilizes cable hysteretic behavior.",
+      "Equivalent viscous damping ratio (EVD) of the cables ranges between 2% and 6%.",
+      "The proposed multi-layer SMA and steel fiber OpenSees model reliably captures the flag-shaped hysteresis, non-synchronous wire engagement, and yield degradation of SMA cables.",
+      "In a two-span RC bridge case study, SMA-cable restrainers reduced peak girder displacement from 185 mm to 85 mm and residual girder displacement from 142 mm to 34 mm under the El Centro ground motion."
+    ],
+    "modeling_methods": [
+      "One-dimensional (1D) flag-shaped hysteretic phenomenological modeling.",
+      "Displacement-based nonlinear fiber beam-column elements in OpenSees.",
+      "Multi-layer concentric fiber approach combining Self-centering SMA material and Steel02 isotropic hardening steel material.",
+      "Zero-length gap elements placed in series to capture cable slack displacement.",
+      "Uniaxial Menegotto-Pinto constitutive modeling for reinforcing steel bars.",
+      "Kent-Scott-Park uniaxial constitutive modeling for confined and unconfined concrete.",
+      "Zero-length spring elements with ideal elastic-plastic behavior for sliding bearings and soil-structure interaction (SSI).",
+      "Nonlinear dynamic time-history analysis under unscaled earthquake ground motion (El Centro EW)."
+    ],
+    "performance_metrics": [
+      "Transformation temperatures: Ms, Mf, As, Af, and R-phase peak temperatures (°C)",
+      "Forward transformation start stress / yield strength (MPa) and finish stress (MPa)",
+      "Reverse transformation start and finish stresses (MPa)",
+      "Peak tensile stress (MPa)",
+      "Initial elastic modulus (GPa)",
+      "Accumulated residual strain (%) and recovery rate (%)",
+      "Equivalent viscous damping ratio (EVD) (%)",
+      "Peak girder displacement (mm) and residual girder displacement (mm)"
+    ],
+    "possible_gap_implications": [
+      "The demonstrated form setting and pre-training stabilization of 7 x 7 NiTi cables provides practical guidance for designing flexible, kink-resistant, self-centering tendons in tendon-driven continuum robots and variable-stiffness compliant joints.",
+      "The multi-layer concentric fiber formulation offers a computationally efficient 1D hysteretic framework that could be adapted to simulate non-synchronous wire engagement and cyclic degradation in robotic cable transmissions without requiring 3D solid FE contact models.",
+      "Because the paper evaluates only quasi-static tension in large civil restrainers, research gaps remain regarding the high-speed cyclic fatigue, localized bending/friction against guide conduits, and dynamic actuation control of SMA cables in robotic mechanisms."
+    ],
+    "research_objective": "To comprehensively investigate the thermal-mechanical behavior, annealing scheme influences, form setting characteristics, and hysteretic properties of 7 x 7 superelastic NiTi SMA cables; to propose an effective numerical hysteretic modeling approach; and to evaluate the seismic damage mitigation performance of SMA-cable restrainers in a model bridge structure.",
+    "research_problem": "Monofilament SMA wires possess insufficient load resistance and difficult end-gripping for large-scale structural applications, while SMA bars suffer from inferior mechanical properties, machining notch sensitivity, and brittle failure modes; furthermore, the effects of heat treatment (annealing) on the phase transformation, hysteretic behavior, form setting, and numerical simulation of multi-strand superelastic SMA cables remain insufficiently explored.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "solid-to-solid phase transformation between austenite and martensite phases (superelasticity)",
+      "heat treatment (annealing) induced microstructure and elastic modulus modification"
+    ],
+    "title": "Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application",
+    "year": "2019"
+  }
+}

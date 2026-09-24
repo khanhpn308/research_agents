@@ -1,463 +1,449 @@
+You are performing MP1-V002, an INTERIM TARGETED-THREAT audit for a proposed
+MSc research direction using a superelastic NiTi wire bundle.
+
+This is a FALSIFICATION task. Use ONLY the supplied source bundle for
+scientific claims. The V002 matrix represents locally held full-text evidence.
+
+This is NOT the final citation-chase verdict unless the supplied full texts
+DIRECTLY falsify the mechanics core. The status SURVIVES_TARGETED_CITATION_CHASE
+is intentionally unavailable because backward/forward citation coverage is not
+closed yet.
+
+AUDIT EXACTLY:
+T1 — NiTi/Nitinol wires themselves form a contacting/slipping frictional bundle
+     whose structural stiffness depends on inter-wire interaction.
+T2 — externally applied positive/confining pressure radially/transversely
+     compresses a metallic/NiTi bundle, changes normal force/friction, and
+     changes structural stiffness.
+T3 — NiTi superelastic/phase-transformation response is coupled with inter-wire
+     contact/slip/friction, confinement pressure, hysteresis and structural
+     stiffness.
+
+STRICT DISTINCTIONS:
+- NiTi wire-rope friction is relevant but is NOT automatically pressure-controlled jamming.
+- Geometric helix contact, axial-load-induced contact pressure, manufacturing preload,
+  or passive internal pressure are NOT an actively varied confinement-pressure control variable.
+- A paper can close NiTi + friction + hysteresis while leaving pressure-controlled
+  NiTi bundle mechanics open.
+- Bending damping/hysteresis is not automatically variable stiffness.
+- Material substitution alone is not novelty.
+- Do not assert that NiTi requires a new coupled model unless the supplied evidence
+  shows mechanics beyond simply substituting modulus/friction parameters.
+- A thesis/dissertation is valid prior-mechanics evidence if its extracted full text supports the claim.
+
+STATUS RULES:
+FALSIFIED — direct prior art closes the surviving mechanics core or shows it reduces
+             to established mechanics without a material new coupling.
+SUBSTANTIALLY_NARROWED — major parts of T1/T3 are closed, but a narrower actively
+                         pressure-controlled NiTi contact/slip/stiffness question remains.
+SURVIVES_CURRENT_FULL_TEXT_SET — no direct kill in this matrix; citation chasing remains mandatory.
+INCONCLUSIVE — evidence quality/coverage is insufficient.
+
+If status is not FALSIFIED, citation_chase_plan.required MUST be true and
+stop_condition_satisfied MUST be false. Select high-priority V002 paper_ids for
+BACKWARD citation chasing and preserve relevant core anchor DOIs for FORWARD chasing.
+Do not recommend broad keyword searching.
+
+Return ONLY one JSON object matching the supplied schema.
+
+SOURCE BUNDLE
+====================================================================================================
+SOURCE: docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md
+SHA256: 5f72a12e1052cda57e6f7e9d57a6f6e2311b118f6b0c49c24bf7a40cd253e30e
+ROLE: V002_PROTOCOL
+====================================================================================================
+# MP1-V002 — Targeted Citation-Chasing Protocol
+
+> **Run condition:** only after MP1-V001 formally shows that C5/C6/C7 remain open or unresolved.
+> **Purpose:** attempt to kill the surviving mechanics claim without reopening broad searching.
+
+## Targets
+
+### T1 — NiTi as the actual jamming medium
+
+Find prior work where:
+
+```text
+superelastic / NiTi / Nitinol metallic wires
+→ form the bundle itself
+→ contact/slip against one another
+→ friction is intentionally modulated
+→ bundle stiffness changes
+```
+
+Do not count a paper merely because NiTi tendons pass through a granular or layer-jamming structure.
+
+### T2 — Positive-pressure confinement of metallic/NiTi wire bundle
+
+Find prior work where:
+
+```text
+positive/internal/confining pressure
+→ radially or transversely compresses a metallic wire bundle
+→ increases inter-wire normal force/friction
+→ changes bending/torsional/axial stiffness
+```
+
+### T3 — Coupled NiTi superelasticity + wire friction/jamming
+
+Find work that treats or experimentally demonstrates material coupling involving:
+
+- stress-induced martensitic transformation / superelastic plateau;
+- hysteresis / recoverable strain;
+- wire-wire contact;
+- inter-wire slip/friction;
+- confining pressure;
+- structural stiffness.
+
+## Citation anchors
+
+Start citation chasing from:
+
+- Bai et al. 2022 — wire jamming;
+- Zhang & Yao 2026 — positive-pressure fiber jamming;
+- Wang et al. 2024 — piston-like particle jamming;
+- Takashima et al. 2022 and later follow-ups — SMA + jamming;
+- any metallic-wire, cable, rope, strand or bundle mechanics sources named by those papers.
+
+## Search vocabulary for citation-screening only
+
+Use synonyms to avoid missing the same mechanics under different labels:
+
+```text
+NiTi / Nitinol / superelastic alloy
+wire bundle / wire rope / strand / cable / metallic fiber
+inter-wire friction / interfilament friction / contact friction
+confining pressure / radial compression / transverse pressure
+slip / stick-slip / locking / jamming / frictional stiffening
+bending stiffness / flexural rigidity / torsional stiffness
+```
+
+## Inclusion rule
+
+Include a paper in MP1-V002 only when title/abstract/full text provides a concrete mechanics threat to T1/T2/T3.
+
+Generic SMA actuators, generic cable friction, or generic jamming reviews are not sufficient.
+
+## Stop condition
+
+Stop when both are true:
+
+1. backward references of the strongest T1/T2/T3 papers have been screened; and
+2. forward citations of the core anchors have been screened through the current search date;
+
+and no new named high-threat source remains unresolved.
+
+Possible final outcomes after V002:
+
+- `FALSIFIED`
+- `SUBSTANTIALLY_NARROWED`
+- `SURVIVES_TARGETED_CITATION_CHASE`
+- `INCONCLUSIVE`
+
+Absence of a matching paper is not proof of universal novelty; it is a protocol-bounded result.
+
+
+## Operational staging
+
+### Phase A — targeted full-text threat audit
+
+Use the currently ingested MP1-V002 full-text matrix to determine whether T1-T3 are already falsified, substantially narrowed, or still unresolved.
+
+Run:
+
+```bash
+python -m app.ingestion.mp1_v002_targeted_threat_audit --prepare-only
+python -m app.ingestion.mp1_v002_targeted_threat_audit
+```
+
+This phase is intentionally INTERIM.
+
+Allowed outputs:
+
+- `FALSIFIED`
+- `SUBSTANTIALLY_NARROWED`
+- `SURVIVES_CURRENT_FULL_TEXT_SET`
+- `INCONCLUSIVE`
+
+Except for a direct `FALSIFIED` result, this phase may not produce the final protocol outcome `SURVIVES_TARGETED_CITATION_CHASE`.
+
+### Phase B — citation-coverage tracking
+
+Initialize only after the interim audit:
+
+```bash
+python -m app.ingestion.mp1_v002_citation_coverage --init
+```
+
+The tracker records backward and forward citation screening separately.
+
+A required direction is complete only when:
+
+- it was actually screened in the stated database;
+- a search date is recorded;
+- the number of screened records is recorded;
+- any high-threat candidates have either been resolved or remain explicitly listed.
+
+Check progress with:
+
+```bash
+python -m app.ingestion.mp1_v002_citation_coverage --check
+```
+
+A true coverage stop condition is a protocol-bounded search stop, not proof of universal novelty.
+
+### Pressure-role classification
+
+For T2/T3, classify every use of pressure as one of:
+
+1. passive contact pressure produced by geometry, helix angle, axial load, or deformation;
+2. fixed preload/confinement;
+3. actively varied positive/internal/transverse pressure used as an independent control variable.
+
+Only category 3 directly supports the proposed pressure-controlled variable-stiffness mechanism.
+
+### Parameter-substitution kill test
+
+The surviving mechanics core should be rejected or narrowed further if the NiTi bundle response can be represented adequately by an existing elastic-fiber/contact framework using only substituted material modulus and friction parameters.
+
+The mechanics core remains potentially distinct only if full-text evidence supports a material coupling in which NiTi transformation/hysteresis materially changes contact, slip, or pressure-dependent structural stiffness beyond simple parameter replacement.
+
+
+====================================================================================================
+SOURCE: outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json
+SHA256: 0f7d8dfc4aae78139a483a9132b54e2eb1ada0a69304f96c3f1b0e2c197a7e81
+ROLE: V001_BASELINE_AUDIT
+====================================================================================================
+{
+  "status": "PIVOT_TO_MECHANICS_CORE",
+  "confidence": "high",
+  "candidate_architecture": "Superelastic NiTi/metal wire bundle with positive-pressure confinement, inter-wire frictional jamming, variable bending stiffness, and an optional compact SMA-driven syringe/piston pressure source.",
+  "executive_summary": "The supplied full-text corpus defeats the broad architecture claims: wire/fiber jamming, positive-pressure jamming, SMA combined with jamming, and compact or embedded jamming pressure sources all have direct prior art. It does not establish a fatal conflict for C5-C7: none of the supplied systems uses superelastic NiTi wires themselves as the frictionally jammed medium under positive-pressure confinement, nor models the resulting coupling among NiTi constitutive response, inter-wire slip, pressure, and bending stiffness. MP1 should therefore abandon component-combination novelty and pivot to that narrow mechanics question. This is an open-in-this-corpus finding, not proof of universal novelty. The SMA-driven syringe/piston variant is strongly exposed as an implementation substitution and should not carry the scientific contribution.",
+  "claim_audit": [
+    {
+      "claim_id": "C1",
+      "claim": "Wire/fiber jamming for variable stiffness is novel.",
+      "status": "closed",
+      "assessment": "Directly closed. Bai et al. demonstrate vacuum-controlled wire/fiber jamming with inter-wire friction and variable bending stiffness. Zhang and Yao subsequently demonstrate positive-pressure fiber jamming with pressure-dependent slip transitions and bending stiffness.",
+      "evidence_paper_ids": [
+        "240fbf6022",
+        "3aa8790db0"
+      ]
+    },
+    {
+      "claim_id": "C2",
+      "claim": "Positive-pressure jamming for variable stiffness is novel.",
+      "status": "closed",
+      "assessment": "Directly closed. Liu et al. demonstrate positive-pressure granular jamming for variable stiffness, while Zhang and Yao demonstrate positive-pressure confinement of a frictional fiber bundle up to 300 kPa.",
+      "evidence_paper_ids": [
+        "182d854610",
+        "3aa8790db0"
+      ]
+    },
+    {
+      "claim_id": "C3",
+      "claim": "SMA and jamming in the same variable-stiffness device is novel.",
+      "status": "closed",
+      "assessment": "Directly closed by the Takashima lineage, which integrates NiTi SMA wires with vacuum granular jamming in variable-stiffness links. Matsumoto et al. further examine Ti-Ni recovery behavior within that architecture. The NiTi wires are backbones/recovery elements, not the jamming medium, so these papers do not close C5-C7.",
+      "evidence_paper_ids": [
+        "2cd907e77a",
+        "7ce492505d",
+        "99fe24da8b",
+        "d3b3b6963f"
+      ]
+    },
+    {
+      "claim_id": "C4",
+      "claim": "An onboard/compact pressure source for jamming is novel.",
+      "status": "closed",
+      "assessment": "Closed at the compact/integrated-source level. Huynh et al. embed a bidirectional flexible micropump directly into a soft actuator and use its negative pressure to activate granular jamming. Wang et al. also present a compact modular motor-and-ball-screw piston mechanism for particle jamming. Huynh's external reservoir and high-voltage supply limit untethered operation but do not preserve the broad compact-source claim.",
+      "evidence_paper_ids": [
+        "bbe88a0c04",
+        "c6a31066f8"
+      ]
+    },
+    {
+      "claim_id": "C5",
+      "claim": "Superelastic NiTi wires themselves as the frictional jamming medium remain open.",
+      "status": "open_in_supplied_corpus",
+      "assessment": "No supplied paper makes superelastic NiTi wires the contacting, mutually slipping jamming medium. Bai et al. use kraft rope, hemp rope, and nylon wire; Zhang and Yao use nylon fibers. Takashima's NiTi wires are embedded backbones inside coffee-ground granular jamming, and Wang's superelastic NiTi wires are tendons around a particle-jamming core. C5 therefore remains open only within the supplied corpus. Material substitution by itself is not a defensible contribution.",
+      "evidence_paper_ids": [
+        "240fbf6022",
+        "2cd907e77a",
+        "c6a31066f8",
+        "3aa8790db0"
+      ]
+    },
+    {
+      "claim_id": "C6",
+      "claim": "Positive-pressure confinement of a superelastic NiTi wire bundle remains open.",
+      "status": "open_in_supplied_corpus",
+      "assessment": "No supplied paper positively confines a superelastic NiTi wire bundle to create inter-wire jamming. Zhang and Yao are the closest direct architectural threat because they positively confine a nylon fiber bundle and model its frictional bending regimes. Replacing nylon with NiTi is not sufficient novelty unless the superelastic constitutive behavior materially changes the mechanics.",
+      "evidence_paper_ids": [
+        "182d854610",
+        "3aa8790db0"
+      ]
+    },
+    {
+      "claim_id": "C7",
+      "claim": "Coupling among NiTi superelastic response, inter-wire slip/friction, pressure and bending stiffness remains open.",
+      "status": "open_in_supplied_corpus",
+      "assessment": "No supplied paper directly couples all four elements. Zhang and Yao couple elastic-fiber friction, positive pressure, progressive slip, and bending stiffness, but not NiTi superelasticity. The Takashima/Matsumoto lineage studies NiTi transformation or recovery behavior in granular-jamming devices, but not inter-NiTi frictional jamming. Wang combines superelastic NiTi tendons with piston-compressed particles, but the tendons are not the jammed bundle. INFERENCE: a defensible question remains only if it tests whether transformation plateaus, hysteresis, or phase-dependent tangent stiffness alter pressure-dependent stick-slip and composite bending beyond an elastic-fiber model with substituted material parameters.",
+      "evidence_paper_ids": [
+        "3aa8790db0",
+        "2cd907e77a",
+        "7ce492505d",
+        "c6a31066f8"
+      ]
+    },
+    {
+      "claim_id": "C8",
+      "claim": "SMA-driven syringe/piston specifically powering jamming pressure remains open.",
+      "status": "substantially_preempted",
+      "assessment": "The exact SMA-to-syringe-to-jamming hookup is absent from the supplied corpus, but its component basis is heavily pre-empted: SMA robotic pumps and capsule micropumps generate fluid pressure, while embedded micropumps and motorized pistons already power jamming. Without evidence of a distinct coupled mechanics problem, using SMA instead of an existing pump or motor is actuator substitution rather than scientific novelty.",
+      "evidence_paper_ids": [
+        "de64029540",
+        "55457a97c6",
+        "bbe88a0c04",
+        "c6a31066f8"
+      ]
+    }
+  ],
+  "closest_prior_art": [
+    {
+      "paper_id": "3aa8790db0",
+      "title": "A variable stiffness omnidirectional chain based on positive-pressure fiber jamming",
+      "doi": "10.5194/ms-17-481-2026",
+      "overlap": "Positive-pressure confinement of a fiber bundle; Coulomb inter-fiber friction; jammed, transitional, and fully slipping regimes; pressure-dependent bending mechanics; experimental validation up to 300 kPa.",
+      "critical_difference": "Uses nominally elastic nylon fibers rather than superelastic NiTi wires and does not couple phase-transforming NiTi constitutive behavior to contact and slip.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "240fbf6022",
+      "title": "Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming",
+      "doi": "10.3390/app12073582",
+      "overlap": "Wire/fiber bundles act as the frictional jamming medium and provide tunable bending stiffness in soft robotic actuators.",
+      "critical_difference": "Uses vacuum confinement and polymeric/rope media rather than positive-pressure confinement of superelastic NiTi wires.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "2cd907e77a",
+      "title": "Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon",
+      "doi": "10.20965/jrm.2022.p0466",
+      "overlap": "Combines NiTi SMA wires, jamming, variable bending stiffness, and beam-level mechanics in one device.",
+      "critical_difference": "The NiTi wires are shape-memory backbones surrounded by vacuum-jammed coffee grounds; they are not the frictionally jammed medium.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "c6a31066f8",
+      "title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+      "doi": "10.1108/IR-11-2023-0305",
+      "overlap": "Combines superelastic NiTi wires, piston-driven jamming, and variable stiffness in a compact continuum arm.",
+      "critical_difference": "NiTi wires are tendons, while a motorized piston axially compresses particles. It does not apply positive fluid pressure to radially confine a NiTi bundle.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "182d854610",
+      "title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+      "doi": "10.1109/LRA.2021.3097255",
+      "overlap": "Direct positive-pressure jamming for pressure-controlled bending stiffness and portable wearable operation using miniature pumps.",
+      "critical_difference": "The jammed medium is granular material between a bladder and sleeve, not a NiTi wire bundle.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "bbe88a0c04",
+      "title": "Soft actuator with switchable stiffness using a micropump-activated jamming system",
+      "doi": "10.1016/j.sna.2022.113449",
+      "overlap": "An embedded compact bidirectional micropump directly activates granular jamming and changes bending stiffness.",
+      "critical_difference": "Uses an electro-conjugate-fluid micropump and negative-pressure particle jamming rather than an SMA syringe and positive-pressure wire confinement.",
+      "threat_level": "high"
+    },
+    {
+      "paper_id": "7ce492505d",
+      "title": "Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon",
+      "doi": "10.1299/mej.24-00130",
+      "overlap": "Examines Ti-Ni transformation behavior, recovery stress, tangential stiffness, training, and performance inside an SMA-jamming variable-stiffness mechanism.",
+      "critical_difference": "Studies recovery of a NiTi backbone in granular jamming, not pressure-dependent inter-wire friction in a jammed NiTi bundle.",
+      "threat_level": "medium"
+    },
+    {
+      "paper_id": "de64029540",
+      "title": "A Biologically Inspired Wet Shape Memory Alloy Actuated Robotic Pump",
+      "doi": "10.1109/TMECH.2012.2211032",
+      "overlap": "Demonstrates SMA actuation of positive-displacement pumping chambers and develops coupled SMA, piston, thermal, and fluid-pressure models.",
+      "critical_difference": "The pump powers fluid output rather than a jamming structure and is not the proposed compact syringe implementation.",
+      "threat_level": "medium"
+    },
+    {
+      "paper_id": "55457a97c6",
+      "title": "Shape Memory Alloy Capsule Micropump for Drug Delivery Applications",
+      "doi": "10.3390/mi12050520",
+      "overlap": "Demonstrates a compact NiTi-actuated pump capable of generating fluid pressure and controlled displacement.",
+      "critical_difference": "It is not connected to jamming and does not address bundle-confinement mechanics.",
+      "threat_level": "medium"
+    }
+  ],
+  "fatal_conflicts": [
+    "C1 is fatally conflicted by Bai et al. 2022 and Zhang and Yao 2026: wire/fiber jamming for variable stiffness is established.",
+    "C2 is fatally conflicted by Liu et al. 2021 and Zhang and Yao 2026: positive-pressure jamming for variable stiffness is established, including positive-pressure fiber jamming.",
+    "C3 is fatally conflicted by the 2022-2026 Takashima lineage: SMA and jamming already coexist in variable-stiffness devices.",
+    "C4 is fatally conflicted by Huynh et al. 2022: an embedded compact micropump already activates jamming.",
+    "No supplied paper is a fatal direct conflict for the combined C5-C7 core."
+  ],
+  "remaining_mechanics_core": {
+    "niti_as_jamming_medium": true,
+    "positive_pressure_niti_bundle": true,
+    "coupled_superelastic_friction_mechanics": true,
+    "scientifically_defensible": true,
+    "assessment": "C5 and C6 remain open in this corpus but are not independently sufficient because they can reduce to material and confinement substitutions. C7 supplies the potentially defensible mechanics core: determine whether positive confinement produces pressure- and curvature-dependent transitions among independent-wire bending, partial stick-slip, transformation-mediated response, and composite bending, and whether an elastic Coulomb-fiber model remains valid for a superelastic NiTi bundle. This remains provisional until targeted citation chasing closes the direct NiTi-bundle lineage."
+  },
+  "implementation_only_risk": {
+    "sma_syringe_only_difference": true,
+    "risk_level": "high",
+    "assessment": "SMA pumps, compact embedded jamming pumps, and motorized piston jamming all exist in the supplied corpus. The exact SMA syringe connection may be unreported here, but that absence does not create a scientific contribution. C8 should be treated as optional packaging unless it introduces and tests a separately justified pressure-generation or coupled-mechanics hypothesis."
+  },
+  "targeted_followup": {
+    "required": true,
+    "targets": [
+      "T1 — Backward and forward citations of Bai et al. 2022 and Zhang and Yao 2026 for metallic-wire, steel-wire, SMA-wire, or NiTi-wire bundles used as the actual frictional jamming medium.",
+      "T2 — Backward and forward citations of Liu et al. 2021 and Zhang and Yao 2026 for positive-pressure radial confinement of metallic or superelastic wire bundles, including bladder-confined and pressure-vessel variants.",
+      "T3 — Backward and forward citations spanning Zhang and Yao 2026, Takashima et al. 2022, Matsumoto et al. 2024, and Wang et al. 2024 for models or experiments coupling NiTi superelasticity/phase transformation with inter-wire contact, Coulomb slip, confinement pressure, hysteresis, and bending stiffness."
+    ],
+    "named_sources": [
+      "Bai et al. 2022 — Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming — 10.3390/app12073582",
+      "Liu et al. 2021 — A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots — 10.1109/LRA.2021.3097255",
+      "Zhang and Yao 2026 — A variable stiffness omnidirectional chain based on positive-pressure fiber jamming — 10.5194/ms-17-481-2026",
+      "Takashima et al. 2022 — Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon — 10.20965/jrm.2022.p0466",
+      "Matsumoto et al. 2024 — Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon — 10.1299/mej.24-00130",
+      "Wang et al. 2024 — Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm — 10.1108/IR-11-2023-0305"
+    ],
+    "reopen_broad_search": false
+  },
+  "recommended_next_action": "Reject C1-C4 as novelty claims and remove C8 from the primary contribution. Reframe MP1 around C7: a falsifiable comparison between an elastic-fiber positive-pressure model and a superelastic NiTi contact/slip model, supported by bending experiments across pressure, curvature, and transformation regime. First perform only the specified T1-T3 backward/forward citation chasing. Kill the pivot if that chase finds direct positive-pressure NiTi wire-jamming mechanics, or if the NiTi system can be explained by the existing elastic-fiber framework using only substituted modulus and friction parameters.",
+  "_provenance": {
+    "run_id": "20260922T055150Z",
+    "created_at_utc": "2026-09-22T05:57:58.101881+00:00",
+    "verification_id": "MP1-V001",
+    "paper_count": 11,
+    "evidence_bundle_sha256": "6002f768a69cfa62032b783ec086884d6330955270f2ac89eaae29dea4446352",
+    "model": "gpt-5.6-sol",
+    "effort": "high"
+  }
+}
+
+
+====================================================================================================
+SOURCE: outputs/verification/MP1-V002/verification_matrix.json
+SHA256: 3d71d5a9fb85487e69d5469b8f5dfdd9b06ae7d16c2df3479f35de6739b8de9b
+ROLE: V002_FULL_TEXT_EVIDENCE_MATRIX
+====================================================================================================
 {
   "schema_version": 1,
   "verification_id": "MP1-V002",
-  "created_at": "2026-09-24T17:07:51.709906+00:00",
+  "created_at": "2026-09-24T11:18:58.344258+00:00",
   "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
-  "paper_count": 10,
+  "paper_count": 8,
   "papers": [
-    {
-      "paper_id": "fac21c950e",
-      "filename": "2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
-      "path": "",
-      "source_type": "verification",
-      "verification_id": "MP1-V002",
-      "screening_status": "included",
-      "screening_reason": "High-threat MP1-V002 citation-chase paper for NiTi cable contact/subcomponent mechanics and parameter-substitution kill test.",
-      "ingestion_status": "complete",
-      "evidence_status": "present",
-      "evidence_file": "data/evidence/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses_fac21c950e.json",
-      "evidence": {
-        "source": {
-          "paper_id": "fac21c950e",
-          "filename": "2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
-          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
-          "page_count": 37,
-          "char_count": 100377,
-          "source_type": "verification",
-          "verification_id": "MP1-V002"
-        },
-        "model": "gemini-3.8-flash-medium",
-        "usage": {
-          "prompt_tokens": 41651,
-          "completion_tokens": 9199,
-          "total_tokens": 50850,
-          "thinking_tokens": 6210,
-          "cache_read_tokens": 0
-        },
-        "paper": {
-          "actuation": [
-            "thermally-responsive actuation",
-            "tendon-driven actuation"
-          ],
-          "authors": [
-            "Benjamin Reedlunn",
-            "Samantha Daly",
-            "John Shaw"
-          ],
-          "confidence": "high",
-          "constitutive_assumptions": [
-            "Cross-sections of multi-wire cable components elongate and rotate as monolithic units without relative sliding between adjacent wire layers.",
-            "Mechanical interactions (such as radial contact and Hertzian contact stresses between wire layers) can be neglected on average with respect to global mechanical behavior.",
-            "Thermal interactions and radial temperature gradients within individual wires and between adjacent layers can be neglected under slow quasi-static loading (Biot number Bi << 1).",
-            "Wire geometry is idealized using integer ratios of normalized mean helix radius to wire diameter (r0/d) without accounting for curvature effects on projected wire sections.",
-            "Individual wires are assumed to be loaded predominantly in direct uniaxial tension for shallow helix angles, neglecting local wire bending and twisting."
-          ],
-          "control_variables": [
-            "Ambient room temperature air (~18 to 22 °C) with thermal drift monitored and corrected.",
-            "Specimen free length (~74.7 mm to 76.0 mm) and laser extensometer gage length (~49.0 mm to 50.2 mm).",
-            "Specimen boundary conditions (rigidly clamped ends enforcing zero-rotation constraints).",
-            "Specimen preparation and surface condition (new, dry specimens lightly painted with a specular pattern for DIC and IR emissivity).",
-            "Prescribed constant elongation ramp rates during loading and unloading segments."
-          ],
-          "dependent_variables": [
-            "Normalized axial load (P/A0) and raw axial tensile force (P).",
-            "Normalized axial reaction torque (Mz*R/J0) and raw axial reaction torque (Mz).",
-            "Two-dimensional axial (E_zz^L) and tangential (E_tt^L) surface strain fields from stereo digital image correlation (DIC).",
-            "Specimen temperature deviation (Delta Ts) and surface temperature fields from infrared (IR) thermography.",
-            "Phase transformation front propagation velocity, front morphology, and spatial distribution.",
-            "Deduced individual layer-by-layer axial load and torque contributions.",
-            "Ultimate failure strain / elongation at rupture."
-          ],
-          "doi": "10.1016/j.ijsolstr.2013.03.015",
-          "evidence_relevant_to_topic": [
-            {
-              "claim": "Shallow wire helix angles in 7x7 NiTi cable components cause the core wire, 1x7 core strand, and full 7x7 cable to behave similarly to parallel wire bundles, exhibiting only minor reductions in transformation stress plateaus (517 MPa for core wire vs. 506 MPa for 1x7 strand).",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                6,
-                8,
-                9,
-                10
-              ]
-            },
-            {
-              "claim": "Propagating transformation fronts occur in 7x7 components during loading and unloading; stereo DIC reveals that the macroscopic front in the 1x7 core strand consists of clustered, staggered fronts in individual helical wires revolving synchronously around the tensile axis.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                7,
-                8,
-                9,
-                10,
-                11
-              ]
-            },
-            {
-              "claim": "Progressive addition of outer wire layers with increasing helix angles and radii in 1x27 cables substantially increases axial compliance (secant modulus drops from 23.7 GPa to 7.3 GPa) and extends failure strain from 11.2% in the core wire to nearly 40% in the full cable.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                2,
-                11,
-                12,
-                13,
-                32
-              ]
-            },
-            {
-              "claim": "Propagating transformation fronts are absent in 1x27 multi-layer strands and the full cable; instead, distributed, non-propagating strain and temperature localizations appear, originating from contact indentations (dimples, divots, and line indents) created during manufacturing.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                2,
-                15,
-                16,
-                17,
-                21,
-                22,
-                32
-              ]
-            },
-            {
-              "claim": "Alternating lay handedness between concentric layers in 1x27 components produces non-monotonic, complex axial reaction torque under zero-rotation conditions, switching sign between the 1x6 (negative), 1x15 (positive), and full 1x27 cable (negative).",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                2,
-                12,
-                13,
-                14,
-                17,
-                18,
-                19,
-                21,
-                22
-              ]
-            },
-            {
-              "claim": "Subtracting measured subcomponent responses deduces individual layer force and torque contributions, establishing that inner layers transform prior to outer layers (R+ -> M+ initiates at 2.2% in layer B, 6.0% in layer C, and 8.8% in layer D) and explaining the full cable's stair-step torque and multi-knee force curves.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                2,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30,
-                31,
-                32
-              ]
-            },
-            {
-              "claim": "Simple analytical predictions assuming uniaxial tension accurately predict transformation plateau stress for shallow helix angles (1x7 strand) but significantly overpredict it for steeper helix angles (1x6 strand) because local wire bending and twisting are omitted.",
-              "evidence_type": "analytical",
-              "page_numbers": [
-                8,
-                9,
-                10,
-                16,
-                17
-              ]
-            }
-          ],
-          "experimental_setup": [
-            "Mechanical testing machine operating under displacement control at constant slow elongation rates (1e-5 s^-1 for 7x7 components; 1e-4 s^-1 for 1x27 components) to ensure isothermal conditions in room-temperature air.",
-            "Rigid flat knurled plate clamping grips enforcing zero-rotation boundary conditions at specimen ends.",
-            "Reaction torque load cell with a capacity of 2824 N-mm measuring axial reaction moment.",
-            "Laser extensometer monitoring reflective tags over a ~50 mm gage length to measure axial engineering strain.",
-            "Stereo digital image correlation (DIC) system capturing high-resolution surface axial and tangential strain fields in a localized field of view.",
-            "Infrared (IR) thermography camera (256 x 256 pixel sensor) capturing full gage length surface temperature field transients.",
-            "Specimen thermocouple measuring local specimen surface temperature transients alongside ambient laboratory temperature sensors.",
-            "Scanning electron microscope (SEM) for post-test examination of wire surface contact damage, line indentations, dimples, and divots."
-          ],
-          "future_work": [
-            "Developing reliable 3D structural and computational constitutive modeling tools to simulate the thermomechanical behavior of SMA cables.",
-            "Gathering multiaxial constitutive data on tension, torsion, and bending of SMA wires to improve model fidelity.",
-            "Exploring alternative cable cross-sections, lay architectures, and NiTi alloy compositions.",
-            "Investigating shape memory behavior at elevated or sub-ambient transformation temperatures for thermally-responsive, high-tension cable actuators in flexible robotic and prosthetic systems."
-          ],
-          "independent_variables": [
-            "Cable construction architecture (7x7 right regular lay vs. 1x27 alternating lay).",
-            "Hierarchical subcomponent level tested (core wire, 1x7 strand, and full 7x7 cable; core wire, 1x6 strand, 1x15 strand, and full 1x27 cable).",
-            "Prescribed axial elongation / gage strain (delta_e / L_e) and cyclic strain amplitudes (up to 40% strain).",
-            "Wire geometric parameters (helix angle, mean helix radius, pitch, and lay handedness).",
-            "Prescribed nominal elongation rate (1e-5 s^-1 for 7x7; 1e-4 s^-1 for 1x27)."
-          ],
-          "limitations_inferred": [
-            "Tests were conducted strictly under quasi-static, isothermal conditions; rate-dependent thermomechanical coupling and rapid self-heating effects were not evaluated.",
-            "Loading was restricted to uniaxial tension with zero-rotation end constraints; bending over sheaves, pure torsion, and multiaxial loading were not tested.",
-            "Wire cross-section geometries were idealized with integer radius-to-diameter ratios, omitting cross-sectional deformation and flattening induced during manufacturing."
-          ],
-          "limitations_stated_by_authors": [
-            "All specimen fractures occurred at the knurled clamping grips due to severe radial pressure stress concentrations; observed failure strains likely underestimate intrinsic cable ductility.",
-            "Digital image correlation was restricted to a limited field of view along the specimen length due to CCD camera resolution limits.",
-            "Infrared sensor spatial resolution was limited (specimen width spanned only 1 pixel for the core strand), causing radiation splitting and edge inaccuracies.",
-            "Response subtraction magnifies experimental error and relies on idealizing assumptions that may neglect localized radial contact pressures on internal core wires.",
-            "Uniaxial analytical models overpredict transformation stresses for strands with large helix angles because local bending and twisting are omitted.",
-            "Ambient laboratory temperature drifted up to ~1 °C over several hours during slow testing, requiring baseline subtraction.",
-            "Minor grip slippage occurred at high loads during large-strain cyclic tests.",
-            "DIC results for the 1x6 strand test (Exp. S2a) were lost due to a computer hardware failure prior to publication."
-          ],
-          "main_results": [
-            "7x7 cable components exhibited normalized tensile responses closely resembling bundles of parallel straight wires with flat transformation stress plateaus; loading plateau stress decreased only slightly from 517 MPa in the core wire to 506 MPa in the 1x7 strand.",
-            "Propagating phase transformation fronts occurred in all 7x7 components, with stereo DIC demonstrating that the macroscopic front in the 1x7 core strand comprises clustered, staggered fronts in individual helical wires moving synchronously around the cable axis.",
-            "1x27 cable components demonstrated increasing compliance and increased elongation at failure as successive layers were added, with ultimate strains reaching 11.2% in the core wire, 16.4% in the 1x6 strand, 29.3% in the 1x15 strand, and 39.2% to 40% in the full cable.",
-            "Propagating transformation fronts were absent in 1x27 multi-layer strands and the full cable; non-propagating, distributed strain/temperature localizations were traced to pre-existing contact dimples and indentations from cable manufacturing.",
-            "1x27 components developed complex, non-monotonic axial torque responses due to alternating lay handedness between layers, with torque sign reversing from the 1x6 strand (negative) to the 1x15 strand (positive) and back to the 1x27 cable (negative).",
-            "Subcomponent response subtraction successfully identified layer-by-layer contributions and revealed that phase transformation progresses from inner to outer layers (R+ -> M+ begins at 2.2% in layer B, 6.0% in layer C, and 8.8% in layer D)."
-          ],
-          "modeling_methods": [
-            "Analytic estimation of axial transformation force plateau for helical wire strands based on wire lay angle and tensile transformation stress.",
-            "Analytic estimation of transformation-induced reaction torque for helical wire strands.",
-            "Steady-state transformation front velocity relationship and local strain rate amplification formula.",
-            "Subcomponent response subtraction methodology to infer individual wire layer force and torque contributions.",
-            "Biot number heat transfer calculation assessing the validity of isothermal conditions in stagnant air."
-          ],
-          "performance_metrics": [
-            "Loading and unloading transformation plateau stress levels (MPa).",
-            "Transformation plateau strain lengths and extents (%).",
-            "Initial elastic modulus and tensile secant modulus at specified strain levels (GPa).",
-            "Axial reaction torque magnitude (N-mm) and normalized torque (GPa).",
-            "Residual unrecovered strain upon complete unloading (%).",
-            "Ultimate strain at failure / breaking strain (%).",
-            "Specimen surface temperature excursion amplitude (Delta Ts in °C)."
-          ],
-          "possible_gap_implications": [
-            "Demonstrates that helical architecture and lay angle selection allow tuning of axial compliance and force-displacement stroke in superelastic SMA cables, offering a mechanism to design tailored tendons for continuum robots and soft grippers.",
-            "Reveals that distributed manufacturing indentations suppress propagating transformation fronts and disperse heat generation, providing an approach to minimize localized thermal instability in high-rate SMA robotic actuation.",
-            "Shows how alternating lay directions can balance or manipulate reaction torques under axial loading, enabling torque-neutral or deliberately twisting tendon drives for robotic joints."
-          ],
-          "research_objective": "To experimentally measure the room-temperature quasi-static tensile and reaction torque responses of excised subcomponents (core wires, core strands, and multi-layer strands) of 7x7 and 1x27 superelastic NiTi cables, and determine the hierarchical subcomponent and layer-by-layer contributions to overall compliance, transformation front propagation, and reaction torque.",
-          "research_problem": "The thermomechanical behavior and isothermal tensile responses of superelastic shape memory alloy cables exhibit architecture-dependent phenomena (including high compliance, lack of localized self-heating, multi-knee force curves, and non-monotonic reaction torque), but the role of individual subcomponents and wire layers in governing these behaviors was not understood.",
-          "robot_type": "",
-          "stiffness_mechanism": [
-            "superelasticity",
-            "stress-induced martensitic transformation",
-            "stress-induced rhombohedral phase (R-phase) transformation",
-            "helical wire cable architecture / lay angle adjustment"
-          ],
-          "title": "Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses",
-          "year": "2013"
-        }
-      }
-    },
-    {
-      "paper_id": "2f7fcf2f8f",
-      "filename": "2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
-      "path": "",
-      "source_type": "verification",
-      "verification_id": "MP1-V002",
-      "screening_status": "included",
-      "screening_reason": "High-threat MP1-V002 citation-chase paper for superelastic NiTi cable hysteretic modelling and parameter-substitution kill test.",
-      "ingestion_status": "complete",
-      "evidence_status": "present",
-      "evidence_file": "data/evidence/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application_2f7fcf2f8f.json",
-      "evidence": {
-        "source": {
-          "paper_id": "2f7fcf2f8f",
-          "filename": "2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
-          "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
-          "page_count": 17,
-          "char_count": 66513,
-          "source_type": "verification",
-          "verification_id": "MP1-V002"
-        },
-        "model": "gemini-3.8-flash-medium",
-        "usage": {
-          "prompt_tokens": 33065,
-          "completion_tokens": 7916,
-          "total_tokens": 40981,
-          "thinking_tokens": 4912,
-          "cache_read_tokens": 0
-        },
-        "paper": {
-          "actuation": [],
-          "authors": [
-            "Cheng Fang",
-            "Yue Zheng",
-            "Junbai Chen",
-            "Michael C.H. Yam",
-            "Wei Wang"
-          ],
-          "confidence": "high",
-          "constitutive_assumptions": [
-            "Austenite-to-martensite solid-to-solid phase transformation behavior modeled using one-dimensional flag-shaped hysteretic formulation.",
-            "Cable cross-section equivalent to an idealized circular section partitioned into multiple concentric fiber layers under uniaxial stress.",
-            "Central core layer modeled with isotropic hardening steel (Steel02) with identical yield strength to SMA to capture residual strain and cyclic degradation.",
-            "Outer three layers modeled with Self-centering material behavior possessing graded Young's modulus reduction factors (k0) to represent non-synchronized wire tension.",
-            "Displacement-based fiber beam-column elements assume plane sections remain plane for the bridge pier.",
-            "Reinforcing steel follows the Menegotto-Pinto constitutive law with linear kinematic and zero isotropic hardening; concrete follows the Kent-Scott-Park model for confined and unconfined sections.",
-            "Frictional sliding bearings modeled as ideal elastic-plastic behavior in zero-length spring elements.",
-            "Cables resist tension only; compressive buckling is neglected and slack displacement is accounted for using zero-length gap elements in series."
-          ],
-          "control_variables": [
-            "Cable construction: 7 x 7 configuration (7 strands consisting of 7 wires each; total 49 monofilament wires)",
-            "Wire diameter: 0.8 mm (measured outer cable diameter approx. 7 mm; specimen total length approx. 350 mm)",
-            "Material composition: commercial Ti-50.8at.%Ni ingot processed by hot-working, cold-working (30-40% area reduction), and straightening (450 °C for 30 s)",
-            "Furnace heat treatment followed immediately by water quenching",
-            "Quasi-static tensile loading rate: displacement control at 5 mm/min on Universal Test Machine (UTM)",
-            "Testing ambient temperature: room temperature of approximately 28 °C",
-            "End constraint: thin epoxy coating on cable ends clamped in matching hydraulic wedge grips",
-            "Digital Image Correlation (DIC) camera sampling rate at 0.5 Hz with speckled surface paint treatment"
-          ],
-          "dependent_variables": [
-            "Phase transformation temperatures (martensitic start/finish Ms, Mf, and austenitic start/finish As, Af, and intermediate R-phase temperatures)",
-            "Forward transformation start stress (yield strength) and forward transformation finish stress",
-            "Peak stress at maximum global strain",
-            "Initial elastic modulus (stiffness)",
-            "Accumulated residual strain and recovery rate (self-centering capability)",
-            "Equivalent viscous damping ratio (EVD) (energy dissipation capability)",
-            "Form setting ability (resistance to unravelling after mid-span cutting)",
-            "Peak and residual girder displacements in seismic time-history bridge analysis"
-          ],
-          "doi": "10.1016/j.engstruct.2019.01.049",
-          "evidence_relevant_to_topic": [
-            {
-              "claim": "Monofilament NiTi wires annealed at moderate temperatures (400-450 °C for 15 min) exhibit flag-shaped superelastic responses recovering over 90% of strain after undergoing 8% maximum strain, but suffer transformation-induced fatigue (TIF) and residual strain accumulation under cyclic loading.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                4,
-                10
-              ]
-            },
-            {
-              "claim": "7 x 7 superelastic SMA cables scale up wire properties but demonstrate smoother, more gradual phase transformation transitions due to non-uniform stress states (combining tension, torsion, and bending) and out-of-sync wire engagement across the bundled cross-section.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                1,
-                2,
-                7,
-                11
-              ]
-            },
-            {
-              "claim": "Annealing schemes significantly modify phase transformation temperatures: moderate annealing (350-450 °C) maintains Af close to or below room temperature, whereas high annealing (500-550 °C) lowers Af down to -20 °C, inducing over-aging and degrading superelastic recovery.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                3,
-                4,
-                7,
-                10
-              ]
-            },
-            {
-              "claim": "Annealing at 400 °C or higher for 15 minutes followed by water quenching provides full form setting (shape setting), preventing stranded 7 x 7 SMA cables from unravelling when cut.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                7,
-                8,
-                16
-              ]
-            },
-            {
-              "claim": "Pre-training SMA cables for approximately five constant-strain cycles stabilizes hysteretic response and limits further residual strain accumulation, capturing over 80% of final residual deformation.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                10,
-                16
-              ]
-            },
-            {
-              "claim": "An empirical multi-layer modeling approach combining concentric self-centering SMA fiber layers with stiffness reduction factors and an inner isotropic hardening steel core accurately simulates the out-of-sync wire tension, loop shape, and cyclic degradation of SMA cables.",
-              "evidence_type": "computational",
-              "page_numbers": [
-                11,
-                12,
-                13
-              ]
-            },
-            {
-              "claim": "Digital Image Correlation (DIC) enables reliable non-contact full-field strain measurement on stranded SMA cables where physical extensometers slip due to cable bending and slack during unloading.",
-              "evidence_type": "experimental",
-              "page_numbers": [
-                5,
-                7,
-                8
-              ]
-            }
-          ],
-          "experimental_setup": [
-            "Differential Scanning Calorimetry (DSC) with cooling-heating cycles at 10 °C/min to measure transformation temperatures.",
-            "Electrical furnace used for annealing wires and cables at 350 °C to 550 °C followed by water quenching.",
-            "Universal Test Machine (UTM) equipped with hydraulic wedge grips and built-in load cell for uniaxial tensile cyclic testing under displacement control (5 mm/min).",
-            "Epoxy end coating on cable specimens to prevent clamping-induced stress concentrations and end failures.",
-            "Non-contact GOM Digital Image Correlation (DIC) double-camera system tracking surface speckle pattern at 0.5 Hz to measure local strain fields.",
-            "Mid-span cutting evaluation of post-cyclic cable specimens to assess form setting and unravelling resistance."
-          ],
-          "future_work": [
-            "Testing larger-diameter SMA cables and calibrating numerical models to reduce the required number of physical restrainers.",
-            "Evaluating seismic response under a wider and more diverse suite of earthquake ground motions.",
-            "Developing a comprehensive performance-based design framework for structures incorporating SMA-cable restrainers."
-          ],
-          "independent_variables": [
-            "Annealing temperature (as-received/no annealing, 350 °C, 400 °C, 450 °C, 500 °C, 550 °C)",
-            "Annealing duration (5 min, 15 min, 30 min)",
-            "Cyclic loading protocol (incremental strain loading from 1% to 10% strain; constant strain cyclic loading at 6% or 10% strain for 20 cycles)",
-            "Cycle count (up to 20 cycles)",
-            "Specimen morphology (monofilament wire vs. 7 x 7 multi-strand cable)"
-          ],
-          "limitations_inferred": [
-            "The proposed multi-layer fiber section modeling approach relies on empirical trial-and-error fitting of area fractions and stiffness reduction factors rather than an analytical mechanics-based formulation derived from cable geometry.",
-            "Experimental testing was restricted to quasi-static loading (5 mm/min) at room temperature (28 °C), omitting dynamic strain-rate effects and thermal self-heating during rapid cycling.",
-            "High-cycle structural fatigue leading to mechanical fracture was not evaluated.",
-            "The study targets civil engineering bridge restrainers and does not examine robotic implementations, multi-axis bending, sheath friction, or miniaturized robotic actuators."
-          ],
-          "limitations_stated_by_authors": [
-            "The numerical simulation model for single SMA wires does not account for cyclic degradation effects.",
-            "Minor discrepancies remain between numerical simulations and experimental results along the cable unloading paths.",
-            "Physical contact extensometers are unsuitable for SMA cable testing because bending deformation during unloading causes leg slippage.",
-            "Minor slippage at clamped ends is inevitable in cable tension testing at large strain levels.",
-            "SMA cables exhibit lower equivalent viscous damping ratios (2-6%) than monofilament wires (7%+) due to non-synchronized wire deformation.",
-            "The numerical case study is limited to an illustrative analysis using a single unscaled ground motion record (El Centro EW) without a comprehensive performance-based design framework.",
-            "Larger diameter cables require future experimental verification and model calibration before practical adoption."
-          ],
-          "main_results": [
-            "7 x 7 superelastic NiTi SMA cables successfully scale up the load-carrying capacity of SMA wires while producing smoother stress-strain curves due to multi-axial stress states and non-synchronized wire engagement.",
-            "Moderate annealing (350-400 °C for 15 min) enhances cable stiffness, energy dissipation, and form setting, whereas overly high annealing (>= 500 °C) causes over-aging and degrades superelasticity.",
-            "Annealing at 400 °C or above for 15 min imparts complete form setting, preventing 7 x 7 cables from unravelling after cutting.",
-            "Initial cable elastic modulus ranges from 30 to 45 GPa, increasing with annealing temperature and decreasing with cycle number.",
-            "Yield strength of cables degrades by over 20% across 20 cycles (dropping below 400 MPa), while peak stress remains stable and immune to cyclic degradation.",
-            "Recovery rates exceed 80-85% (residual strains < 1.5% after 10% strain) for properly annealed cables, but drop to 67% for cables annealed at 500 °C.",
-            "Over 80% of cumulative residual strain occurs within the first 5 cycles, indicating that mechanical pre-training effectively stabilizes cable hysteretic behavior.",
-            "Equivalent viscous damping ratio (EVD) of the cables ranges between 2% and 6%.",
-            "The proposed multi-layer SMA and steel fiber OpenSees model reliably captures the flag-shaped hysteresis, non-synchronous wire engagement, and yield degradation of SMA cables.",
-            "In a two-span RC bridge case study, SMA-cable restrainers reduced peak girder displacement from 185 mm to 85 mm and residual girder displacement from 142 mm to 34 mm under the El Centro ground motion."
-          ],
-          "modeling_methods": [
-            "One-dimensional (1D) flag-shaped hysteretic phenomenological modeling.",
-            "Displacement-based nonlinear fiber beam-column elements in OpenSees.",
-            "Multi-layer concentric fiber approach combining Self-centering SMA material and Steel02 isotropic hardening steel material.",
-            "Zero-length gap elements placed in series to capture cable slack displacement.",
-            "Uniaxial Menegotto-Pinto constitutive modeling for reinforcing steel bars.",
-            "Kent-Scott-Park uniaxial constitutive modeling for confined and unconfined concrete.",
-            "Zero-length spring elements with ideal elastic-plastic behavior for sliding bearings and soil-structure interaction (SSI).",
-            "Nonlinear dynamic time-history analysis under unscaled earthquake ground motion (El Centro EW)."
-          ],
-          "performance_metrics": [
-            "Transformation temperatures: Ms, Mf, As, Af, and R-phase peak temperatures (°C)",
-            "Forward transformation start stress / yield strength (MPa) and finish stress (MPa)",
-            "Reverse transformation start and finish stresses (MPa)",
-            "Peak tensile stress (MPa)",
-            "Initial elastic modulus (GPa)",
-            "Accumulated residual strain (%) and recovery rate (%)",
-            "Equivalent viscous damping ratio (EVD) (%)",
-            "Peak girder displacement (mm) and residual girder displacement (mm)"
-          ],
-          "possible_gap_implications": [
-            "The demonstrated form setting and pre-training stabilization of 7 x 7 NiTi cables provides practical guidance for designing flexible, kink-resistant, self-centering tendons in tendon-driven continuum robots and variable-stiffness compliant joints.",
-            "The multi-layer concentric fiber formulation offers a computationally efficient 1D hysteretic framework that could be adapted to simulate non-synchronous wire engagement and cyclic degradation in robotic cable transmissions without requiring 3D solid FE contact models.",
-            "Because the paper evaluates only quasi-static tension in large civil restrainers, research gaps remain regarding the high-speed cyclic fatigue, localized bending/friction against guide conduits, and dynamic actuation control of SMA cables in robotic mechanisms."
-          ],
-          "research_objective": "To comprehensively investigate the thermal-mechanical behavior, annealing scheme influences, form setting characteristics, and hysteretic properties of 7 x 7 superelastic NiTi SMA cables; to propose an effective numerical hysteretic modeling approach; and to evaluate the seismic damage mitigation performance of SMA-cable restrainers in a model bridge structure.",
-          "research_problem": "Monofilament SMA wires possess insufficient load resistance and difficult end-gripping for large-scale structural applications, while SMA bars suffer from inferior mechanical properties, machining notch sensitivity, and brittle failure modes; furthermore, the effects of heat treatment (annealing) on the phase transformation, hysteretic behavior, form setting, and numerical simulation of multi-strand superelastic SMA cables remain insufficiently explored.",
-          "robot_type": "",
-          "stiffness_mechanism": [
-            "solid-to-solid phase transformation between austenite and martensite phases (superelasticity)",
-            "heat treatment (annealing) induced microstructure and elastic modulus modification"
-          ],
-          "title": "Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application",
-          "year": "2019"
-        }
-      }
-    },
     {
       "paper_id": "d9966f2f5e",
       "filename": "A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
@@ -1996,5 +1982,5 @@
       }
     }
   ],
-  "matrix_sha256": "3840e7994e4482db2c83dbbe811d8d5ba99e781914ff725ae951b0c04fca537f"
+  "matrix_sha256": "c95c9030eee21359ef39404e41f46b0bd32ec8b3675fb6fb62cc973864d71c5f"
 }
