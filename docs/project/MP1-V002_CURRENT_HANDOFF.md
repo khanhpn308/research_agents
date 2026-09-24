@@ -423,3 +423,104 @@ actively varied confinement pressure
 - `outputs/verification/MP1-V002/verification_matrix.md`
 
 When continuing in a new chat, read this file first, then the V002 protocol, then the latest citation-coverage output.
+
+
+## 15. Continuation checkpoint — 2026-09-24 citation provenance
+
+A follow-on citation-provenance pass completed the four manual artifacts that were still open in Section 7.
+
+Preserved on branch `mp1-v002-citation-provenance-20260924`:
+
+```text
+data/search_exports/MP1-V002/raw/backward/
+    B06_silva_publisher_references.txt
+
+data/search_exports/MP1-V002/raw/forward/
+    F03_zhang_yao_zero.txt
+    F05_matsumoto_researchgate.txt
+    F06_wang_zero.txt
+```
+
+### B06 interim metadata screen
+
+Silva et al. (2022) exposes 22 publisher references.
+
+Current pressure classification for the branch remains:
+
+```text
+P1/passive cable contact pressure and geometry = present
+P3 actively varied confinement pressure         = not identified
+```
+
+Two references are promoted for later full-text review because they matter to the parameter-substitution kill test:
+
+1. Reedlunn, Daly & Shaw (2013), Part II — DOI `10.1016/j.ijsolstr.2013.03.015`
+   - reason: hierarchical NiTi cable subcomponent/contact mechanics and phase-transformation response;
+   - current disposition: `GET_FULL_TEXT`;
+   - no P3 pressure-control signal in metadata.
+
+2. Fang et al. (2019) — DOI `10.1016/j.engstruct.2019.01.049`
+   - reason: superelastic NiTi cable hysteretic modelling and an effective numerical modelling approach;
+   - current disposition: `GET_FULL_TEXT`;
+   - no P3 pressure-control signal in metadata.
+
+Other cable-specific B06 references remain `KEEP_METADATA` unless full text exposes active radial/transverse confinement. Bulk NiTi material/fatigue/R-phase references are not direct threats to the surviving T2/T3 mechanics and can be `EXCLUDE` from this branch.
+
+### F05 resolved
+
+The single citing work for Matsumoto et al. (2024) is:
+
+```text
+Kazuto Takashima; Yuma Hirose; Hidetaka Suzuki; Hiroki Cho
+Pick-and-Place Motion by Two-Robot-Arm System Equipped with
+Variable-Stiffness and Deformable Link Using Shape-Memory Alloy
+and Jamming Transition Phenomenon
+Journal of Robotics and Mechatronics 38(2):646-657 (2026)
+DOI: 10.20965/jrm.2026.p0646
+```
+
+Screening disposition:
+
+```text
+KEEP_METADATA
+```
+
+Reason: this extends the SMA + jamming robot-link lineage but does not establish actively varied radial/transverse confinement of a metallic/NiTi wire bundle controlling inter-wire normal force, stick-slip, and flexural stiffness.
+
+### F03 / F06
+
+The previously obtained Scopus zero-result checks are now preserved as provenance records:
+
+```text
+F03  DOI 10.5194/ms-17-481-2026  forward citations = 0
+F06  DOI 10.1108/IR-11-2023-0305 forward citations = 0
+search cutoff = 2026-09-24
+```
+
+These are protocol-bounded zero results, not universal novelty evidence.
+
+### Remaining execution dependency
+
+The 187 CSV records (B01-B05, F01, F02, F04) exist in the local working set described above but are not present on GitHub or in the connected Project/Library file surface. Therefore the deterministic metadata-screening script cannot be executed from the connected environment without inventing records.
+
+The next exact local command remains:
+
+```bash
+python -m app.ingestion.mp1_v002_screen_citation_metadata
+```
+
+Expected inputs:
+
+```text
+data/search_exports/MP1-V002/raw/backward/B01.csv ... B05.csv
+data/search_exports/MP1-V002/raw/forward/F01.csv F02.csv F04.csv
+```
+
+After that command, inspect:
+
+```text
+outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.csv
+outputs/verification/MP1-V002/citation_screening/FULL_TEXT_SHORTLIST.csv
+```
+
+Do not download full text for the full 187-record set. Only resolve `POTENTIAL_KILL_PAPER` and `GET_FULL_TEXT` candidates, including the two B06 modelling/mechanics candidates above.
