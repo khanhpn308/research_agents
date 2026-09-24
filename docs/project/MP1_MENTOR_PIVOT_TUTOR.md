@@ -352,3 +352,28 @@ Tên báo cáo gợi ý:
 
 Nếu cần bản trình bày cho mentor, có thể tạo một bản ngắn hơn sau khi báo cáo kỹ thuật đã hoàn thành.
 
+
+
+## 10. Tutor chi tiết cho claim-level evidence report
+
+Khi cần báo cáo theo kiểu kiểm chứng từng claim C1-C8/T1-T3, bắt buộc đọc thêm:
+
+`docs/project/MP1_CLAIM_EVIDENCE_REPORT_TUTOR.md`
+
+Tutor đó quy định traceability chain:
+
+```text
+claim
+→ audit verdict
+→ paper_id
+→ paper title / DOI
+→ evidence JSON
+→ original PDF
+→ page / section
+→ evidence type
+→ what it proves
+→ what it does NOT prove
+→ audit consequence
+```
+
+Không được dùng tutor tổng quan này thay thế cho claim-level source verification.
