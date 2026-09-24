@@ -2,7 +2,7 @@
 
 - **Search cutoff date:** NOT SET
 - **All required directions screened:** False
-- **No unresolved high-threat source:** False
+- **No unresolved high-threat source:** True
 - **Stop condition satisfied:** False
 
 ## Coverage
@@ -17,10 +17,12 @@
 | Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm | core_protocol_anchor | not required | not_screened |
 | Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification | v002_high_threat_backward_anchor | not_screened | not required |
 | Mechanical response of single and double-helix SMA wire ropes | v002_high_threat_backward_anchor | not_screened | not required |
+| Nonlinear Vibration Isolation via a NiTiNOL Wire Rope | v002_high_threat_backward_anchor | not_screened | not required |
 | Cable Vibration Considering Internal Friction | v002_high_threat_backward_anchor | not_screened | not required |
 | BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE | v002_high_threat_backward_anchor | not_screened | not required |
 | High damping capacity with a wide temperature window in braided NiTi microfilaments | v002_high_threat_backward_anchor | not_screened | not required |
 | NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings | v002_high_threat_backward_anchor | not_screened | not required |
+| Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses | v002_high_threat_backward_anchor | not_screened | not required |
 
 ## Open issues
 
@@ -32,11 +34,12 @@
 - NOT SCREENED: Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm [forward]
 - NOT SCREENED: Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification [backward]
 - NOT SCREENED: Mechanical response of single and double-helix SMA wire ropes [backward]
+- NOT SCREENED: Nonlinear Vibration Isolation via a NiTiNOL Wire Rope [backward]
 - NOT SCREENED: Cable Vibration Considering Internal Friction [backward]
 - NOT SCREENED: BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE [backward]
 - NOT SCREENED: High damping capacity with a wide temperature window in braided NiTi microfilaments [backward]
 - NOT SCREENED: NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings [backward]
-- UNRESOLVED HIGH-THREAT SOURCES remain.
+- NOT SCREENED: Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses [backward]
 
 ## Rule
 
