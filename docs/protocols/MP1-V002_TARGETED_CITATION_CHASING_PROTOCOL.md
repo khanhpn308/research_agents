@@ -87,3 +87,69 @@ Possible final outcomes after V002:
 - `INCONCLUSIVE`
 
 Absence of a matching paper is not proof of universal novelty; it is a protocol-bounded result.
+
+
+## Operational staging
+
+### Phase A — targeted full-text threat audit
+
+Use the currently ingested MP1-V002 full-text matrix to determine whether T1-T3 are already falsified, substantially narrowed, or still unresolved.
+
+Run:
+
+```bash
+python -m app.ingestion.mp1_v002_targeted_threat_audit --prepare-only
+python -m app.ingestion.mp1_v002_targeted_threat_audit
+```
+
+This phase is intentionally INTERIM.
+
+Allowed outputs:
+
+- `FALSIFIED`
+- `SUBSTANTIALLY_NARROWED`
+- `SURVIVES_CURRENT_FULL_TEXT_SET`
+- `INCONCLUSIVE`
+
+Except for a direct `FALSIFIED` result, this phase may not produce the final protocol outcome `SURVIVES_TARGETED_CITATION_CHASE`.
+
+### Phase B — citation-coverage tracking
+
+Initialize only after the interim audit:
+
+```bash
+python -m app.ingestion.mp1_v002_citation_coverage --init
+```
+
+The tracker records backward and forward citation screening separately.
+
+A required direction is complete only when:
+
+- it was actually screened in the stated database;
+- a search date is recorded;
+- the number of screened records is recorded;
+- any high-threat candidates have either been resolved or remain explicitly listed.
+
+Check progress with:
+
+```bash
+python -m app.ingestion.mp1_v002_citation_coverage --check
+```
+
+A true coverage stop condition is a protocol-bounded search stop, not proof of universal novelty.
+
+### Pressure-role classification
+
+For T2/T3, classify every use of pressure as one of:
+
+1. passive contact pressure produced by geometry, helix angle, axial load, or deformation;
+2. fixed preload/confinement;
+3. actively varied positive/internal/transverse pressure used as an independent control variable.
+
+Only category 3 directly supports the proposed pressure-controlled variable-stiffness mechanism.
+
+### Parameter-substitution kill test
+
+The surviving mechanics core should be rejected or narrowed further if the NiTi bundle response can be represented adequately by an existing elastic-fiber/contact framework using only substituted material modulus and friction parameters.
+
+The mechanics core remains potentially distinct only if full-text evidence supports a material coupling in which NiTi transformation/hysteresis materially changes contact, slip, or pressure-dependent structural stiffness beyond simple parameter replacement.
