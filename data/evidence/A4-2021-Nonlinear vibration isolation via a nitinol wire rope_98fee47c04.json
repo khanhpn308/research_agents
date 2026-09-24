@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "98fee47c04",
+    "filename": "A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf",
+    "sha256": "98fee47c04dc25f6d590e9a5481b901a96588395fe1678e3273ddf2fe9f64827",
+    "page_count": 18,
+    "char_count": 48887,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28224,
+    "completion_tokens": 6747,
+    "total_tokens": 34971,
+    "thinking_tokens": 4298,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Mu-Qing Niu",
+      "Li-Qun Chen"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Wire rope is cut in the middle into two segments, each initially modeled as a cantilever beam with constant cross-section clamped at the base and guided at the payload without rotation (rotation angle theta_w = 0).",
+      "Restoring force due to linear elastic deformation and geometric constraints follows a two-dimensional beam constraint model under initial axial tension.",
+      "Inner friction and NiTiNOL material phase transition effects are modeled phenomenologically via a modified Bouc-Wen model augmented with an exponential pinching effect function.",
+      "Payload motion is restricted strictly to vertical translation via a linear bearing on a vertical guiding rod.",
+      "Base excitation is assumed to be purely harmonic vertical displacement Yb = Ab * cos(wb * T).",
+      "Total restoring force of the wire rope is assumed to be an odd symmetric function of displacement, producing only odd harmonic responses.",
+      "Harmonics higher than the third order are assumed negligible for relative displacement amplitudes a < 3.",
+      "Hysteretic damping induced by internal friction and phase transitions is assumed to be rate-independent (independent of frequency)."
+    ],
+    "control_variables": [
+      "Payload mass M (6.46 kg in validation comparison)",
+      "Wire rope beam geometric and physical parameters: length L, cross-sectional area A, moment of inertia I, Young's modulus E, initial axial tension Fwx0",
+      "Linear spring stiffness Ks (baseline 2.26 N/mm)",
+      "Nominal Bouc-Wen and pinching parameters: Kw1 = 2.17 N/mm, Kw3 = 0.53 N/mm^3, Kd = 217 N/mm, xi = 0.9, Yb = 215.57 mm^2, G = 0.591 mm^-1, B = 0.501 mm^-1, nb = 1",
+      "Initial equilibrium state where moving part gravity is fully balanced by the vertical linear spring with horizontal wire rope alignment"
+    ],
+    "dependent_variables": [
+      "Total restoring force Fr and dimensionless restoring force fr",
+      "Anhysteretic restoring force fan and anhysteretic force variable zan",
+      "Generalized equivalent stiffness Ke and dimensionless equivalent stiffness ke",
+      "Generalized equivalent damping ratio zeta_e",
+      "Displacement transmissibility TD (ap)",
+      "Resonant frequency and dimensionless resonant frequency eta_r",
+      "Peak displacement transmissibility Tp and minimum peak transmissibility Tpmin",
+      "Lowest resonant frequency eta_rmin",
+      "Most suitable excitation amplitudes Ab-pmin and Ab-rmin",
+      "Nonlinear jump phenomena branches (stable and unstable solutions)"
+    ],
+    "doi": "10.3390/app112110032",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "The restoring force of a NiTiNOL wire rope can be formulated by combining a physical beam constraint model for elastic geometric stiffness and a modified Bouc-Wen model with an exponential function for pinched hysteretic damping.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "The generalized equivalent stiffness displays a stiffness-softening-hardening profile, where initial stiffness is primarily governed by the pinching parameter xi, small-displacement softening by Bouc-Wen sum (beta + gamma), and large-displacement hardening by cubic stiffness k3.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          8,
+          9,
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "The rate-independent generalized equivalent damping ratio varies non-monotonically, first increasing and then decreasing with displacement amplitude due to the combined Bouc-Wen hysteresis and pinching effect.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          7,
+          9,
+          10,
+          15
+        ]
+      },
+      {
+        "claim": "Compared to an isolator with a steel wire rope, the NiTiNOL wire rope isolator possesses lower initial stiffness and higher equivalent damping, preventing unbounded resonant responses and providing superior broadband vibration isolation.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7,
+          8,
+          10,
+          11,
+          16
+        ]
+      },
+      {
+        "claim": "Both peak displacement transmissibility and resonant frequency vary non-monotonically with excitation amplitude, defining optimal excitation amplitudes for resonance suppression (Ab-pmin) and for low-frequency isolation (Ab-rmin).",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          16
+        ]
+      },
+      {
+        "claim": "Harmonic balance method using alternating frequency/time domain formulation closely matches Runge-Kutta numerical integration for the modified Bouc-Wen model, although third-order truncation excludes superharmonic resonances.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          5,
+          11,
+          14,
+          15
+        ]
+      },
+      {
+        "claim": "Analytical predictions show general agreement with experimental swept-frequency acceleration response data from a NiTiNOL wire rope damper, though both the analytical model and Runge-Kutta numerical integration fail to reproduce the experimentally observed softening at 7.68 m/s^2.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          14,
+          15
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "No primary experimental apparatus was built or tested by the authors in this study.",
+      "For model verification, secondary experimental data from previously published literature (Carboni and Lacarbonara, 2016) was used, involving swept-frequency base acceleration tests (at 6.35 m/s^2 and 7.68 m/s^2) on a damper comprising horizontal symmetric NiTiNOL wire ropes without a vertical spring."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Base excitation displacement amplitude Ab",
+      "Base excitation frequency wb (dimensionless frequency ratio eta)",
+      "Bouc-Wen model parameters: Kd, G, B, nb (dimensionless beta, gamma, beta/gamma, beta + gamma)",
+      "Pinching effect parameters: xi and Yb (dimensionless yb)",
+      "Cubic stiffness Kw3 (dimensionless k3)",
+      "Linear spring stiffness Ks (dimensionless k1)"
+    ],
+    "limitations_inferred": [
+      "No physical experimental testing was conducted on the complete proposed isolator prototype (wire rope combined with the vertical linear spring and linear bearing); validation relied solely on third-party damper data.",
+      "One-dimensional vertical motion is assumed with an idealized frictionless bearing, ignoring real-world friction, guiding rod misalignment, off-axis rotation, and multi-axis vibrations.",
+      "Thermomechanical coupling, ambient temperature dependence, and strain-rate sensitivity of NiTiNOL pseudoelastic phase transitions are omitted from the rate-independent phenomenological model.",
+      "Fatigue life, degradation of shape memory effect, and long-term shakedown behavior under large cyclic deformation were not evaluated."
+    ],
+    "limitations_stated_by_authors": [
+      "The harmonic balance analysis failed to capture superharmonic resonances (at approximately fb = 2.4 Hz) observed in numerical integration due to truncation of harmonics beyond the third order.",
+      "Both the proposed harmonic balance method and direct Runge-Kutta numerical integration failed to characterize the stiffness-softening phenomenon observed in experimental results at Ub = 7.68 m/s^2.",
+      "The third-order harmonic approximation assumes higher-order harmonics are negligible, which is valid only when relative response amplitude is not too high (a < 3)."
+    ],
+    "main_results": [
+      "The proposed NiTiNOL wire rope isolator displays a stiffness-softening-hardening response and a rate-independent equivalent damping ratio that non-monotonically increases then decreases with displacement amplitude.",
+      "Pinching parameter xi primarily governs the initial equivalent stiffness, Bouc-Wen parameter sum (beta + gamma) controls small-displacement softening, and cubic stiffness k3 dictates large-displacement hardening.",
+      "The NiTiNOL wire rope achieves higher energy dissipation and lower initial stiffness than a steel wire rope, successfully mitigating resonance without the unbounded response observed in the steel wire rope system at Ab = 1 mm.",
+      "Peak displacement transmissibility and resonant frequency both exhibit non-monotonic relationships with excitation amplitude; for baseline parameters, the optimal excitation amplitude for minimum peak transmissibility is Ab-pmin = 1.08 mm (Tpmin = 2.65) and for lowest resonant frequency is Ab-rmin = 1.00 mm (eta_rmin = 0.25).",
+      "Depending on the parameter combinations, the isolator can exhibit either stiffness-softening jump phenomena (resonance peak bent to the left) or stiffness-hardening jump phenomena (resonance peak bent to the right).",
+      "Harmonic balance analysis with an alternating frequency/time domain technique demonstrates strong agreement with direct Runge-Kutta numerical integration and secondary experimental data."
+    ],
+    "modeling_methods": [
+      "Beam constraint model (two-dimensional beam flexure under initial axial tension)",
+      "Modified Bouc-Wen phenomenological model with an exponential pinching effect function",
+      "Harmonic balance method (HBM) with first- and third-order harmonics",
+      "Alternating frequency/time domain (AFT) technique",
+      "Arc-length continuation method",
+      "Runge-Kutta numerical integration (direct time-domain integration)"
+    ],
+    "performance_metrics": [
+      "Displacement transmissibility TD (dimensionless payload response amplitude ap = Ap / Ab)",
+      "Peak displacement transmissibility Tp and minimum peak transmissibility Tpmin",
+      "Resonant frequency and minimum resonant frequency eta_rmin",
+      "Generalized equivalent stiffness ke (dimensional Ke)",
+      "Generalized equivalent damping ratio zeta_e",
+      "Most suitable excitation amplitude for resonance suppression (Ab-pmin) and for low-frequency vibration isolation (Ab-rmin)"
+    ],
+    "possible_gap_implications": [
+      "While NiTiNOL wire ropes offer passive variable stiffness and hysteretic damping for vibration isolation, translating these elements into soft robotics, continuum robots, or soft grippers would require addressing multi-axis loading, active thermal/electrical phase transition control, and bidirectional compliance rather than purely passive harmonic isolation."
+    ],
+    "research_objective": "To propose and analyze a nonlinear vibration isolator incorporating a horizontal NiTiNOL wire rope and a vertical linear spring; develop a restoring force model combining a beam constraint model and a modified Bouc-Wen model with pinching effects; solve the nonlinear dynamics using a harmonic balance method with an alternating frequency/time domain technique; and investigate the non-monotonic stiffness, damping, transmissibility, and optimal excitation amplitudes.",
+    "research_problem": "Conventional vibration isolators often struggle with trade-offs between low-frequency isolation and payload capacity; existing nonlinear damping mechanisms rely on complex geometric arrangements and are predominantly viscous; wire rope isolators with ring geometry present unfavorable asymmetric restoring forces; and non-monotonic variations in stiffness and damping introduce non-monotonic frequency responses requiring identification of optimal excitation amplitudes.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "NiTiNOL wire rope under geometric constraints (beam flexure under tension)",
+      "vertical linear spring",
+      "pseudoelastic phase transitions and pinching effect of NiTiNOL"
+    ],
+    "title": "Nonlinear Vibration Isolation via a NiTiNOL Wire Rope",
+    "year": "2021"
+  }
+}

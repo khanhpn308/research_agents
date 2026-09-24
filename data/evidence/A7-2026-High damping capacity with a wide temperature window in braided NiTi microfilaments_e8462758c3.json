@@ -1,0 +1,163 @@
+{
+  "source": {
+    "paper_id": "e8462758c3",
+    "filename": "A7-2026-High damping capacity with a wide temperature window in braided NiTi microfilaments.pdf",
+    "sha256": "e8462758c39bdc7291365effe5e6cb74fb16c2a1201698e999f4ee2f4ca2840f",
+    "page_count": 5,
+    "char_count": 15995,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 18469,
+    "completion_tokens": 7260,
+    "total_tokens": 25729,
+    "thinking_tokens": 4770,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Yiwen Liu",
+      "Yi Zeng",
+      "Yang Liu",
+      "Yizhou Xiao",
+      "Tingjun Zhou",
+      "Junhua Du",
+      "Xuejun Jin",
+      "Fei Xiao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [],
+    "control_variables": [
+      "Dynamic strain amplitude (fixed at 20 μm in the DMA)",
+      "Thermal ramp rate (cooling and heating rate fixed at 5 °C/min)",
+      "Braiding density for the wire-count series (fixed at 50 picks per inch for 4B, 8B, 12B, and 88B)",
+      "Number of wires for the braiding density series (fixed at 8 wires for ppi25, ppi50, and ppi80)",
+      "Braiding fabrication process and equipment (high-speed braiding machine)"
+    ],
+    "dependent_variables": [
+      "Damping capacity / loss tangent (tanδ / internal friction)",
+      "Storage modulus (GPa)",
+      "Damping peak vs. damping plateau profile across temperature",
+      "Structural morphology (axial/radial cross-sections, braid angle, crossover density)",
+      "Thermal cycling stability of tanδ (over 10 cycles)",
+      "Frequency dependence of tanδ and storage modulus (1 Hz vs. 5 Hz)"
+    ],
+    "doi": "10.1016/j.matlet.2026.141544",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Unbraided single NiTi shape memory alloy wire exhibits a narrow internal friction damping peak near its martensitic transformation temperature (maximum tanδ ~0.13), with storage modulus dropping from ~61 GPa to ~20 GPa and low damping in single-phase martensite (~0.05) or austenite (~0.001).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Braided NiTi microfilament architectures convert the narrow phase transformation damping peak into a broad, temperature-insensitive damping plateau over a temperature window exceeding 145 °C (-70 °C to 75 °C) while significantly lowering storage modulus.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4
+        ]
+      },
+      {
+        "claim": "Double-braided 88B microfilaments achieve a high tanδ (0.06 to 0.11) and low storage modulus (~3.6 GPa cooling, ~4.3 GPa heating) over a >145 °C window, with overlapping modulus and tanδ curves at 1 Hz and 5 Hz.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4
+        ]
+      },
+      {
+        "claim": "Single-braided 8B microfilaments display a stable tanδ of 0.02 to 0.05 and storage modulus of ~11 to 12 GPa across 145 °C, maintaining nearly identical damping response over 10 cooling-heating cycles.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          4
+        ]
+      },
+      {
+        "claim": "Individual NiTi wires in the braided architecture follow helical paths forming a micro-spring network that converts structural deformation into localized bending, torsion, and inhomogeneous stresses, inducing sequential localized martensitic transformations alongside inter-wire contact micro-sliding friction dissipation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          4
+        ]
+      },
+      {
+        "claim": "Increasing wire count from 4 to 8 and 12 wires at 50 ppi increases inter-wire contact sites and interwoven micro-springs, raising tanδ from 0.008-0.02 (4B) to 0.03-0.06 (12B), with storage modulus remaining between 17 and 22 GPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "Varying braiding density in 8-wire microfilaments shows that low density (ppi25) retains an intrinsic transformation damping peak (~0.10 near -20 °C) due to weak structural constraints, whereas high density (ppi80) flattens tanδ to 0.02-0.04 because tight geometric constraints restrict axial extension and bending, thereby shortening micro-slip displacement.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          4
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "High-speed braiding machine used to manufacture single-braided microfilaments (4B, 8B, 12B at 50 ppi; 8B at 25 and 80 ppi) and double-braided microfilaments (88B by re-braiding eight 8B microfilaments)",
+      "TA Q850 dynamic mechanical analyzer (DMA) operating at 20 μm fixed strain amplitude, frequencies of 1 Hz and 5 Hz, and 5 °C/min cooling/heating rate between -70 °C and 75 °C",
+      "Surface and axial/radial cross-sectional morphological imaging of braided architectures",
+      "Thermal cycling tests across 10 cooling-heating cycles in DMA",
+      "Cyclic tensile testing of braided microfilaments"
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Braided architecture hierarchy (single wire vs. single-braided 4B, 8B, 12B vs. double-braided 88B)",
+      "Braiding density parameter / picks per inch (25, 50, and 80 ppi for 8-wire microfilaments)",
+      "Temperature (-70 °C to 75 °C, covering a 145 °C window)",
+      "Loading frequency (1 Hz and 5 Hz)",
+      "Thermal cycle count (up to 10 cycles for 8B)"
+    ],
+    "limitations_inferred": [
+      "The study evaluated dynamic mechanical behavior under small strain vibration amplitude (20 μm) in DMA tension, leaving behavior under large deformations, bending, and macroscopic structural actuation uncharacterized.",
+      "No active robotic integration (e.g., in soft grippers or continuum manipulators) or active actuation mechanism was demonstrated, as the microfilaments were tested as passive damping specimens.",
+      "Potential fretting wear, fatigue damage, or degradation of the inter-wire contact interfaces over extensive high-cycle micro-sliding was not evaluated.",
+      "No quantitative mechanical or constitutive mathematical model was formulated to predict modulus or loss factor from braiding parameters."
+    ],
+    "limitations_stated_by_authors": [
+      "Conventional unbraided NiTi wire damping is restricted to a narrow transformation temperature range and is highly temperature-dependent, with low damping in pure martensite and austenite phases (Pages 1, 2).",
+      "At low braiding density (ppi25), structural constraint is relatively weak, retaining intrinsic phase transformation peaks and temperature dependence (Page 4).",
+      "At high braiding density (ppi80), tight geometric constraints restrict axial extension and bending, shortening micro-slip displacement and attenuating frictional dissipation and overall damping capacity despite a higher number of contact sites (Page 4)."
+    ],
+    "main_results": [
+      "Braiding NiTi microfilaments transformed the narrow martensitic transformation internal friction peak into a broad, temperature-insensitive damping plateau over a temperature range exceeding 145 °C (-70 °C to 75 °C).",
+      "Double-braided 88B microfilaments achieved a tanδ of ~0.06 to 0.11 and an ultra-low storage modulus of ~3.6 GPa (cooling) to ~4.3 GPa (heating) across the 145 °C window.",
+      "Single-braided 8B microfilaments demonstrated stable tanδ (0.02 to 0.05), storage modulus of ~11 to 12 GPa, near-perfect cyclic stability over 10 thermal cycles, and frequency insensitivity between 1 Hz and 5 Hz.",
+      "Increasing wire count (4B to 8B to 12B) enhanced damping capacity due to increased contact site density and interwoven micro-springs (tanδ increased from 0.008-0.02 in 4B to 0.03-0.06 in 12B) without sharp modulus changes across temperature.",
+      "Increasing braiding density from 25 to 80 ppi eliminated phase transformation damping peaks and modulus steps, but high density (ppi80) reduced overall tanδ to 0.02-0.04 because restricted micro-slip displacement lowered frictional dissipation."
+    ],
+    "modeling_methods": [],
+    "performance_metrics": [
+      "Loss tangent (tanδ) / internal friction damping plateau values (e.g., ~0.11 for 88B; 0.02-0.05 for 8B; 0.008-0.02 for 4B; 0.03-0.06 for 12B; 0.02-0.04 for ppi80)",
+      "Storage modulus in GPa (e.g., ~3.6-4.3 GPa for 88B; ~11-12 GPa for 8B; ~17-19 GPa for 4B; ~18-22 GPa for 12B vs. ~20-61 GPa for single wire)",
+      "Operating temperature window width (>145 °C, from -70 °C to 75 °C)",
+      "Cyclic repeatability of damping performance (10 cooling-heating cycles)",
+      "Frequency insensitivity (overlap of tanδ and modulus curves between 1 Hz and 5 Hz)"
+    ],
+    "possible_gap_implications": [
+      "While braided NiTi microfilaments provide a wide-temperature damping plateau and ultra-low stiffness, their practical applicability to soft robotics or continuum robots requires investigating their behavior under large-strain bending, active thermal/electrical actuation, and structural integration.",
+      "The trade-off between geometric constraint and micro-slip displacement identified at high braiding densities highlights a design boundary when tailoring braided SMA architectures for variable-stiffness damping components."
+    ],
+    "research_objective": "To develop braided NiTi microfilaments with a spatial helical architecture that couples intrinsic martensitic transformation with inter-wire contact micro-sliding friction dissipation to achieve high damping capacity, reduced storage modulus, and temperature insensitivity across a wide temperature window exceeding 145 °C.",
+    "research_problem": "Conventional NiTi shape memory alloys exhibit a high internal friction peak that is restricted to a narrow martensitic transformation temperature range, resulting in strong temperature dependence and low damping in single-phase austenite or martensite, alongside high storage modulus, which limits their application in wide-temperature damping devices.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Braided architecture (spatial helical interlacing and double-braiding creating a micro-spring network converting deformation into localized bending and torsion)",
+      "Sequential localized martensitic transformation induced by inhomogeneous stress distribution within the braided structure",
+      "Geometric constraint variation via braiding density (picks per inch, ppi)"
+    ],
+    "title": "High damping capacity with a wide temperature window in braided NiTi microfilaments",
+    "year": "2026"
+  }
+}

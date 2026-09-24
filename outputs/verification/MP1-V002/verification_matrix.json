@@ -1,0 +1,1547 @@
+{
+  "schema_version": 1,
+  "verification_id": "MP1-V002",
+  "created_at": "2026-09-24T11:18:58.344258+00:00",
+  "purpose": "Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.",
+  "paper_count": 8,
+  "papers": [
+    {
+      "paper_id": "d9966f2f5e",
+      "filename": "A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A1-2015-Hysteresis of Multiconfiguration Assemblies of_d9966f2f5e.json",
+      "evidence": {
+        "source": {
+          "paper_id": "d9966f2f5e",
+          "filename": "A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+          "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+          "page_count": 16,
+          "char_count": 66967,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 35222,
+          "completion_tokens": 7687,
+          "total_tokens": 42909,
+          "thinking_tokens": 5143,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "External displacement-controlled cyclic actuation applied by a Material Testing System (MTS) hydraulic actuator (piston P)"
+          ],
+          "authors": [
+            "Biagio Carboni",
+            "Walter Lacarbonara",
+            "Ferdinando Auricchio"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Additive decomposition of the total restoring force into an elastic component (linear or combined linear-cubic) and a hysteretic displacement component",
+            "Modulation of the hysteretic tangent stiffness near the origin using a two-parameter bell-shaped pinching function h(x) = 1 - zeta * exp(-x^2 / x_c)",
+            "Positivity condition on total tangent stiffness requiring the linear stiffness parameter to be greater than or equal to the absolute minimum hysteretic tangent stiffness",
+            "Focus on softening restoring force behavior by restricting Bouc-Wen parameters to gamma + beta > 0 with exponent n = 1 (or close to 1)",
+            "One-dimensional uniaxial thermomechanical formulation for shape memory alloys based on Ivshin-Pence free-energy formulation with an internal martensitic fraction variable between 0 and 1",
+            "Strictly isothermal testing conditions for shape memory alloy components (rate of temperature change is zero)",
+            "Parallel force additivity for multiple Nitinol wires forming the secondary stiffness group"
+          ],
+          "control_variables": [
+            "Ambient room temperature maintained to ensure isothermal conditions during cyclic deformation",
+            "Prescribed loading rate for uniaxial tensile tests (constant 10 mm/min)",
+            "Prescribed cyclic actuation frequency for multiconfiguration assemblies (omega = 0.418 rad/s, equivalent to 0.066 Hz)",
+            "Number of stabilization cycles recorded before parameter extraction (15 cycles for tensile tests, 10 cycles for assemblies)",
+            "Differential Evolution algorithm hyperparameters (population size of 40 vectors, 150 iterations, mutation scale factor F = 0.9, crossover probability threshold = 0.5)"
+          ],
+          "dependent_variables": [
+            "Total vertical restoring force of the multiconfiguration strand assemblies",
+            "Relative horizontal displacement and distance variation between the sliding blocks b2",
+            "Restoring force and axial elongation/strain in uniaxial tensile testing of Nitinol wires and strands",
+            "Pinched hysteresis loop topology (pinching width, pinching severity, geometric hardening slope, and residual strain upon complete unloading)",
+            "Identified phenomenological constitutive parameters of the extended Bouc-Wen and Ivshin-Pence models",
+            "Mean square error (MSE, %) between measured restoring force and model predictions"
+          ],
+          "doi": "10.1061/(ASCE)EM.1943-7889.0000852",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Multiconfiguration assemblies of Nitinol strands, wires, and steel wire ropes can produce three distinct constitutive behaviors: strong hardening pinched hysteresis, quasi-linear softening, and an intermediate pinched-hardening response depending on boundary constraints and strand stiffness ratios.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                7,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "claim": "The combination of geometric rope stretching, interwire friction, and thermoelastic martensitic phase transformations produces pinching at the origin of force-displacement loops and residual strain upon complete unloading.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                7,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "An extended Bouc-Wen phenomenological model incorporating a two-parameter bell-shaped pinching function accurately characterizes the origin-pinched hysteretic restoring force across diverse strand assemblies.",
+              "evidence_type": "analytical",
+              "page_numbers": [
+                1,
+                3,
+                4,
+                5,
+                11
+              ]
+            },
+            {
+              "claim": "The uniaxial tensile hysteretic response of superelastic Nitinol wires and seven-wire strands is accurately identified using the one-dimensional Ivshin-Pence constitutive model.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                8,
+                9,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "claim": "Seven-wire Nitinol strands exhibit lower axial stress per unit area at equivalent strain than single straight wires because of pitch length extension under tension and interwire frictional sliding.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Differential evolution metaheuristic optimization successfully identifies constitutive parameters for pinched hysteretic systems without needing objective function gradients or initial linearization points.",
+              "evidence_type": "computational",
+              "page_numbers": [
+                1,
+                2,
+                7,
+                8,
+                10,
+                11,
+                12
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "In-house built rheological testing apparatus comprising an outer squared frame F1 attached to the MTS actuator piston and an inner assembly F2 attached to the stationary MTS load cell",
+            "Principal stiffness group (PSG) composed of pairs of Nitinol strands or steel wire ropes clamped between the vertical bars of F1 and two movable steel bars b2",
+            "Inner assembly F2 containing central bar b1, two horizontal sliding bars b2, two smooth rods s1 and s2 with self-lubricating PTFE bushings for frictionless sliding, and a threaded rod s3",
+            "Three boundary constraint configurations: S1 (threaded rod s3 clamped with bolts to prevent horizontal translation, producing bending-tension), S2 (threaded rod s3 unclamped, allowing free sliding and pure bending), and S3 (threaded rod s3 unclamped, with bars b2 constrained by a secondary stiffness group)",
+            "Secondary stiffness group (SSG) consisting of Nitinol wires or strands connecting the sliding bars b2 horizontally",
+            "MTS material testing system equipped with a load cell measuring vertical restoring force and an internal displacement transducer measuring horizontal translation between sliding blocks b2",
+            "Specialized tensile cyclic testing layout with mechanical grips mounted in the MTS frame for testing single Nitinol wires (NiTi1) and seven-wire strands (NiTi7)"
+          ],
+          "future_work": [
+            "Developing systematic procedures for selecting a unified, amplitude-independent parameter set for dynamic simulations (such as identifying parameters from an average displacement amplitude or minimizing MSE across multiple amplitudes simultaneously)",
+            "Applying multiconfiguration strand assemblies and the extended Bouc-Wen pinching model to passive or semiactive nonlinear vibration control devices and nonlinear vibration absorbers"
+          ],
+          "independent_variables": [
+            "Vertical displacement amplitude applied to the assembly (cyclic amplitudes ranging from +/- 5 mm to +/- 25 mm)",
+            "Structural assembly configuration (Configuration S1 with locked sliding, Configuration S2 with free sliding, and Configuration S3 with SSG constraint)",
+            "Material and strand composition of the Principal Stiffness Group (NiTi7, NiTi19, or ST49 steel rope) and Secondary Stiffness Group (NiTi1 single wire or NiTi7 strand)",
+            "Number and length of ropes/strands used in the PSG and SSG",
+            "Prescribed displacement amplitude and engineering strain in uniaxial tension tests (displacement from 4.00 mm to 14.43 mm; strain from 2.35% to 5.66%)"
+          ],
+          "limitations_inferred": [
+            "Experiments were conducted only under slow, quasi-static cyclic conditions (0.066 Hz and 10 mm/min), leaving high-frequency dynamic responses and potential self-heating effects uncharacterized",
+            "The device was evaluated as a benchtop rheological mechanism rather than being integrated into an operational robotic limb, gripper, or continuum structure",
+            "Model calibration evaluated only stabilized cycles, without modeling cycle-to-cycle evolution, shakedown, or long-term fatigue degradation of the wire strands"
+          ],
+          "limitations_stated_by_authors": [
+            "The restoring force developed specifically within the secondary stiffness group (SSG) could not be measured directly due to the practical difficulty of placing load cells at strand ends without altering SSG stiffness",
+            "Identified constitutive parameters exhibited non-negligible variation across different displacement amplitudes for the same physical assembly configuration",
+            "Functional parameter redundancy in the Bouc-Wen formulation allows multiple parameter combinations to yield identical hysteresis loop shapes",
+            "Selecting a single optimal parameter set for dynamic simulations across varying excitation amplitudes presents significant difficulty",
+            "The differential evolution optimization method lacks rigorous mathematical proofs of convergence",
+            "Slight asymmetric loop behavior was observed experimentally due to minor mounting misalignments and slight initial non-straightness of strands and wires"
+          ],
+          "main_results": [
+            "Configuration S1 (PSG subjected to bending-tension) produced strong geometric hardening and pronounced pinched hysteresis loops due to the coupling of Nitinol phase transformations and geometric cable stretching",
+            "Configuration S2 (PSG subjected to pure bending) demonstrated quasi-linear softening hysteresis where energy dissipation was governed entirely by interwire friction",
+            "Configuration S3 displayed intermediate pinched-hardening behavior with geometric hardening and pinching severity directly tunable via the stiffness ratio of the SSG to the PSG",
+            "The proposed extended Bouc-Wen model incorporating a two-parameter pinching function achieved excellent identification accuracy across all configurations and amplitudes, with mean square errors below 1%",
+            "Uniaxial tensile behavior of superelastic Nitinol wires and strands was accurately calibrated using the Ivshin-Pence model (MSE < 0.9%), with stranded cables exhibiting reduced effective axial stress and residual strain due to helix geometry and interwire friction",
+            "The differential evolutionary algorithm reliably optimized multi-parameter phenomenological models without requiring gradient calculations or initial linearization"
+          ],
+          "modeling_methods": [
+            "Extended Bouc-Wen (BW) phenomenological hysteresis model augmented with a two-parameter bell-shaped pinching function h(x) modulating origin tangent stiffness",
+            "Linear-cubic elastic restoring force formulation combined with the hysteretic displacement variable",
+            "Ivshin-Pence one-dimensional thermomechanical constitutive model for shape memory alloy wires and strands under uniaxial tension",
+            "Differential Evolution (DE) metaheuristic optimization algorithm for parameter calibration via mean square error minimization"
+          ],
+          "performance_metrics": [
+            "Mean Square Error (MSE, %) between experimental force-displacement measurements and model predictions",
+            "Hysteretic energy dissipation per cycle represented by the enclosed loop area",
+            "Hysteretic tangent stiffness and upper/lower bounds of the hysteretic force variable",
+            "Residual strain / displacement upon full unloading at zero restoring force"
+          ],
+          "possible_gap_implications": [
+            "While intended for vibration control, the demonstrated concept of combining cable assemblies, boundary constraint modulation, and SMA phase transformation could provide mechanisms for tunable stiffness and passive damping in continuum robots, soft robotic joints, and adaptive grippers",
+            "The extended Bouc-Wen pinching model could serve as an effective framework for capturing pinched hysteresis and interwire/tendon friction in tendon-driven continuum manipulators and soft actuators"
+          ],
+          "research_objective": "To experimentally characterize the cyclic hysteretic behavior of multiconfiguration assemblies of Nitinol strands, wires, and steel wire ropes under shear-bending-tension; to develop an extended Bouc-Wen phenomenological model with a two-parameter pinching function; to model uniaxial Nitinol strands using the Ivshin-Pence formulation; and to calibrate model parameters using a differential evolutionary algorithm.",
+          "research_problem": "Accurately modeling and identifying the complex, multimechanism hysteretic behavior (geometric hardening, interwire friction, and shape-memory phase transformation-induced pinching) of wire rope and Nitinol strand assemblies under varied kinematic configurations and cyclic amplitudes.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "Geometric hardening (tensile stretching induced by constrained kinematics during flexural deformation)",
+            "Thermoelastic martensitic phase transformation / superelasticity of Nitinol wires and strands",
+            "Interwire friction / contact sliding between individual wires within strands and wire ropes",
+            "Kinematic reconfiguration / boundary constraint adjustment (locking horizontal sliding, permitting free sliding, or elastically coupling sliding blocks with a secondary stiffness group to alter the stiffness ratio)"
+          ],
+          "title": "Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification",
+          "year": "2014"
+        }
+      }
+    },
+    {
+      "paper_id": "9e15094d68",
+      "filename": "A2-2023-Superelasticity SMA cables and its simplified FE model.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A2-2023-Superelasticity SMA cables and its simplified FE model_9e15094d68.json",
+      "evidence": {
+        "source": {
+          "paper_id": "9e15094d68",
+          "filename": "A2-2023-Superelasticity SMA cables and its simplified FE model.pdf",
+          "sha256": "9e15094d685bf8ee21ad0b5fa9e67b3fccb0a33dc2ef5d7c9cbd47d6eca26d89",
+          "page_count": 9,
+          "char_count": 26834,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 21450,
+          "completion_tokens": 7506,
+          "total_tokens": 28956,
+          "thinking_tokens": 5264,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Jiaxing Liu",
+            "Zhongwei Zhao",
+            "Xiaomeng Zhang",
+            "Bingzhen Zhao",
+            "Ye Yuan",
+            "Yuyang Bao"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Isotropic material behavior for the shape memory alloy (SMA).",
+            "Isothermal conditions during superelastic loading and unloading cycles.",
+            "Auricchio superelastic constitutive model defining forward and reverse stress-induced phase transformations using four threshold stress values (starting/final forward transformation stresses, starting/final reverse transformation stresses) and maximum residual strain.",
+            "Coupled sections in the simplified FE model act like rigid cross-sections where relative translational displacements of nodes within the section are constrained to zero, while nodes outside remain unaffected and uncoupled.",
+            "Squeezing effects and contact behavior between adjacent outer wires are omitted in the simplified FE model.",
+            "SMA wires remain in the elastic/superelastic regime, mitigating some computational errors introduced by omitting wire-to-wire squeezing."
+          ],
+          "control_variables": [
+            "SMA chemical composition: 55.5 wt% Ni, ~44.477 wt% Ti, with trace elements (C 0.011 wt%, Cu 0.003 wt%, Co < 0.003 wt%, Cr < 0.003 wt%, Nb < 0.003 wt%).",
+            "SMA material parameters: elastic modulus E = 1.33 × 10^4 MPa, phase transition temperature = -10 °C, tensile strength = 1530 MPa, elongation = 22.18%, transformation stresses (starting forward = 400 MPa, final forward = 600 MPa, starting reverse = 300 MPa, final reverse = 100 MPa), maximum residual strain = 0.22.",
+            "Cable construction: 7-wire strand (1 straight core wire and 6 outer helical wires); 7×7 wire rope (7 strands, 49 wires).",
+            "Outer strand pitch length Lp2 for the 7×7 wire rope held constant at 80 mm.",
+            "Normal stiffness factor of 0.8 for contact elements in the refined FE model."
+          ],
+          "dependent_variables": [
+            "Hysteresis loop shape and outer hysteresis loop area (energy dissipation capacity).",
+            "Tensile force corresponding to the upper horizontal transformation plateau segment.",
+            "Von Mises stress distributions across central and outer wires or strands.",
+            "Initial stiffness of the strand or rope.",
+            "Ductility of the strand compared to individual wires.",
+            "Computational solution time and numerical convergence rate."
+          ],
+          "doi": "10.1007/s40430-022-03957-2",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A simplified FE modeling method using coupled nodal cross-sections at periodic intervals eliminates contact elements, reducing computational run time from 23 hours to approximately 30 minutes while closely reproducing the hysteretic response of refined contact models.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                1,
+                4,
+                8
+              ]
+            },
+            {
+              "claim": "Varying the pitch length (Lp1) of superelastic SMA strands has negligible influence on the hysteresis loop area (energy dissipation changes remain within 5.8%), whereas increasing pitch length raises the tensile force of the upper horizontal transformation segment.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                1,
+                6,
+                8
+              ]
+            },
+            {
+              "claim": "Superelastic SMA strands achieve greater ductility than single SMA wires because outer helical wires remain elastic while the central core wire transitions into the strain hardening phase.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                1,
+                6,
+                8
+              ]
+            },
+            {
+              "claim": "For the simplified FE modeling approach, numerical accuracy is maintained when the interval between coupled sections (Δl) is less than one-fifth of the pitch length, and a model length of one-eighth the pitch length is sufficient for analysis.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                4,
+                5
+              ]
+            },
+            {
+              "claim": "In 7×7 SMA wire ropes under axial tension, individual strand pitch length (Lp1) has negligible effect on the overall hysteresis loops, with the central core strand sustaining 13.3% higher stress than outer strands.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                7
+              ]
+            },
+            {
+              "claim": "SMA strands and ropes exhibit weak bending stiffness and pseudoelastic energy dissipation, presenting potential utility in flexible damping, isolation, and self-centering applications.",
+              "evidence_type": "literature review",
+              "page_numbers": [
+                1
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Uniaxial tensile stress-strain characterization of superelastic NiTi SMA wire (diameter approximately 0.5 mm, provided by Gaohan metal materials Co. Ltd., Guangdong, China) used to calibrate constitutive material parameters for numerical simulations; the paper is predominantly numerical and does not detail a physical experimental test apparatus for multi-wire strands or ropes."
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Pitch length of the wire strand (Lp1: 10 mm, 20 mm, 40 mm, and infinity/parallel wires).",
+            "Pitch length of wires in 7×7 wire rope (Lp1: 80 mm, 160 mm, 320 mm).",
+            "Distance between adjacent coupled sections (Δl: 2 mm, 4 mm, 8 mm).",
+            "Finite element model length (l: 5 mm, 10 mm, 20 mm, 40 mm).",
+            "Finite element modeling methodology (simplified coupled-section model vs. refined contact-element model using CONTA174 and TARGE170).",
+            "Rope lay configuration (regular lay vs. lang lay)."
+          ],
+          "limitations_inferred": [
+            "The study relies almost exclusively on numerical finite element models without full-scale experimental cyclic tension testing of multi-wire strands or 7×7 ropes to experimentally validate simulated hysteresis loops.",
+            "The analysis is restricted to monotonic and cyclic pure axial tension, omitting bending, torsional, or multi-axial loading states relevant to flexible robotic joints or continuum mechanisms.",
+            "Inter-wire friction and relative sliding dissipation are omitted in the simplified coupled-section model.",
+            "Thermal effects, strain-rate dependencies, and latent heat generation during cyclic transformation are not evaluated due to the isothermal assumption."
+          ],
+          "limitations_stated_by_authors": [
+            "The simplified numerical model neglects the squeezing effect between outer and inner wires, reducing the stress on inner wires and potentially introducing computational error.",
+            "Coupling translational degrees of freedom at coupled sections creates localized errors in stress distribution restricted to the coupled sections.",
+            "Contact behavior between adjacent outer wires is not considered in the refined FE model.",
+            "Setting the distance between adjacent coupled sections (Δl) excessively large prevents effective wire constraint and degrades the initial stiffness of the cable model.",
+            "Numerical scale was limited to a 7×7 wire rope (49 wires) due to computational power requirements."
+          ],
+          "main_results": [
+            "The simplified FE model matches the hysteresis loop of the refined contact model while lowering computation time from 23 hours to about 30 minutes and preventing numerical non-convergence.",
+            "Pitch length (Lp1) has negligible impact on the hysteresis loop area of SMA strands, with total area variation staying within 5.8%.",
+            "Tensile force corresponding to the forward transformation upper horizontal segment increases as pitch length Lp1 increases.",
+            "SMA strands demonstrate higher ductility than individual SMA wires because the outer helical wires remain elastic when the central wire enters the hardening stage.",
+            "In 7×7 SMA wire ropes, pitch length Lp1 has almost no influence on hysteresis behavior or tensile force, and stress in the central strand is 13.3% higher than in outer strands.",
+            "Numerical accuracy for the simplified model is preserved if the coupled section interval Δl is less than 0.2 times the pitch length, and an FE model length of one-eighth the pitch length yields satisfactory results."
+          ],
+          "modeling_methods": [
+            "Finite element (FE) modeling and numerical analysis in ANSYS.",
+            "Refined 3D solid FE model using surface-to-surface contact elements (CONTA174 on central wire surface and TARGE170 on outer wire surfaces).",
+            "Simplified FE model using coupled sections that couple translational degrees of freedom of cross-sectional nodes at spacing Δl without contact elements.",
+            "Auricchio 3D superelasticity material formulation (accessed via TB, SMA in ANSYS)."
+          ],
+          "performance_metrics": [
+            "Hysteresis loop area and percentage variation in energy dissipation capacity (within 5.8%).",
+            "Computation time (reduction from 23 h to 30 min).",
+            "Tensile force at the upper transformation plateau.",
+            "Von Mises stress magnitude and stress ratio between core and outer strands (central strand 13.3% higher).",
+            "Ductility comparison between strands and individual wires.",
+            "Initial stiffness of the strand or rope."
+          ],
+          "possible_gap_implications": [
+            "The coupled-section modeling methodology could provide a computationally efficient framework for simulating multi-wire superelastic SMA tendons or cable bundles in soft and continuum robotics without contact non-convergence.",
+            "The decoupling of energy dissipation area from pitch length suggests that strand geometry can be tailored for higher ductility or tailored plateau tension in flexible damping mechanisms without sacrificing cyclic energy absorption, though validation under robotic bending conditions is required."
+          ],
+          "research_objective": "To reveal the hysteresis behavior of shape memory alloy (SMA) strands and ropes, investigate the influence of pitch length on their mechanical performance, and develop a simplified finite element model that avoids contact elements to facilitate the numerical analysis of large-scale SMA wire ropes.",
+          "research_problem": "Numerical modeling of large-scale SMA wire ropes and strands is computationally prohibitive, highly nonlinear, and prone to non-convergence due to the necessity of defining inter-wire contact elements between dozens of adjacent slender helical wires.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "Shape memory alloy superelasticity (pseudoelasticity)",
+            "Stress-induced solid phase transformation"
+          ],
+          "title": "Superelasticity SMA cables and its simplified FE model",
+          "year": "2023"
+        }
+      }
+    },
+    {
+      "paper_id": "53200aa0c6",
+      "filename": "A3-2022-Mechanical response of single and double-helix.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A3-2022-Mechanical response of single and double-helix_53200aa0c6.json",
+      "evidence": {
+        "source": {
+          "paper_id": "53200aa0c6",
+          "filename": "A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "page_count": 15,
+          "char_count": 44305,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 27307,
+          "completion_tokens": 8057,
+          "total_tokens": 35364,
+          "thinking_tokens": 5287,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [
+            "thermal actuator",
+            "thermal lock"
+          ],
+          "authors": [
+            "Saeed Vahidi",
+            "Jamal Arghavani",
+            "Eunsoo Choi",
+            "Alireza Ostadrahimi"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Three-dimensional phenomenological Souza constitutive model based on plasticity theory and irreversible thermodynamics.",
+            "Decomposition of strain into deviatoric and volumetric components, and stress into deviatoric and volumetric components (p = K*theta, s = 2*G*(e - e_tr)).",
+            "Transformation strain tensor (e_tr) is bounded by a maximum transformation strain norm (||e_tr|| <= e_L).",
+            "Transformation stress tensor defined as X = s - alpha, where backstress tensor alpha incorporates temperature-dependent critical stress, linear hardening H, and transformation constraint multiplier.",
+            "Elastic domain bounded by limit function F = ||X|| - R <= 0.",
+            "Symmetric material behavior in tension and compression assumed (asymmetric behavior is neglected).",
+            "End boundary pressing and clamping friction preventing individual wire rotation about their longitudinal axes are ignored in the simulation."
+          ],
+          "control_variables": [
+            "Interwire friction coefficient (0.2 for steel wire rope, 0.115 for SMA wire ropes)",
+            "Ambient temperature (isothermal room temperature T0 = 25 °C for superelastic cables; deformation at T < As followed by heating above Af for SME cables)",
+            "Kinematic coupling and displacement boundary conditions (cantilever setup with reference point 1 translating axially and reference point 2 fully restrained)",
+            "Mesh element type and sizing (C3D8R 0.6 x 0.16 mm for steel rope; quadratic elements 0.05 x 0.03 mm for 1x27 SMA cable and 0.2 x 0.06 mm for 7x7 SMA cable)",
+            "SMA material constitutive parameters (E = 40 GPa for 1x27, E = 74 GPa for 7x7; Poisson ratio = 0.3; transformation parameters b, H, R, e_L, and transformation temperatures As, Af, Ms)"
+          ],
+          "dependent_variables": [
+            "Normal stress (for full cable and individual wire components A, B, C, D)",
+            "Shear stress and torsional torque (for full cable and individual wire components)",
+            "Normal and shear strain (including inelastic strain recovery upon heating)",
+            "Axial force distribution across cable components as a function of displacement",
+            "Specific energy (g = F * delta / M)",
+            "Cable elongation under tensile load"
+          ],
+          "doi": "10.1080/15376494.2021.1955313",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A three-dimensional phenomenological constitutive formulation (Souza model) implemented via UMAT in Abaqus captures the mechanical response of single-helix and double-helix SMA wire ropes under both superelasticity and shape memory effect conditions.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                2,
+                3,
+                5
+              ]
+            },
+            {
+              "claim": "Finite element analysis of a 1x37 steel wire rope under axial forces from 10 kN to 35 kN accurately reproduces benchmark numerical elongation results with relative errors below 2%, confirming the validity of the interwire contact and kinematic coupling approach.",
+              "evidence_type": "validation",
+              "page_numbers": [
+                4,
+                5,
+                6
+              ]
+            },
+            {
+              "claim": "Simulations of 7x7 and 1x27 superelastic SMA wire ropes match published experimental normal and shear stress-strain behaviors with average discrepancies of 20% to 25%.",
+              "evidence_type": "validation",
+              "page_numbers": [
+                5,
+                6,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "claim": "Axial loading of helical SMA cables induces significant internal shear stresses and torsional torques due to strand helicity, with the sign of shear stress directly dictated by the wire lay direction (left-handed versus right-handed lay).",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                14
+              ]
+            },
+            {
+              "claim": "In shape memory effect cables deformed below As, interwire contact and friction lead to residual normal and shear stresses upon unloading, which are subsequently recovered through reverse phase transformation upon heating above Af within a narrow temperature and time range.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                7,
+                8,
+                11,
+                14
+              ]
+            },
+            {
+              "claim": "Core wires experience the highest normal stress due to their smaller cross-sectional area but withstand the lowest axial force, whereas outer double-helix wires (such as D-type wires in 7x7 cables) bear the largest portion of the total axial load.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                14
+              ]
+            },
+            {
+              "claim": "Factorial design of experiments and response surface methodology show that maximizing the specific energy of an SME wire rope requires increasing the wire diameter and reducing the helix angle.",
+              "evidence_type": "optimization",
+              "page_numbers": [
+                11,
+                14
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "No original physical experiments were conducted in this study; the authors performed finite element simulations using Abaqus/Standard (implicit solver) with a user-defined material subroutine (UMAT).",
+            "Validation used published experimental test data from Reedlunn et al., where cable ends were clamped between steel plates using pneumatic clamps, axial displacement was imposed at one end, and temperatures were recorded via thermocouples.",
+            "Validation for the contact mechanics modeling used published numerical benchmark results for a 1x37 steel wire rope by Stanova et al.",
+            "Optimization employed a 3^2 factorial design of experiment consisting of 32 finite element simulation runs analyzed via Design-Expert software."
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Wire rope geometric configuration (single-helix 1x27 vs. double-helix 7x7)",
+            "Thermomechanical operating regime (superelastic behavior at T > Af vs. shape memory effect behavior at T < As with subsequent heating above Af)",
+            "Radial position / component layer within the strand (core wire A, inner layer B, intermediate layer C, outer layer D)",
+            "Wire diameter D (evaluated at 0.10, 0.20, and 0.38 mm during optimization)",
+            "Helix angle phi (evaluated at 54.9°, 63.0°, and 72.0° during optimization)",
+            "Applied tensile load / axial displacement"
+          ],
+          "limitations_inferred": [
+            "The investigation is entirely numerical and relies strictly on third-party published data for empirical comparison without primary experimental testing.",
+            "Thermomechanical coupling (such as self-heating or latent heat release during rapid phase transformation) is not dynamically resolved, assuming essentially isothermal or prescribed temperature fields.",
+            "Cyclic degradation, fatigue life, fretting wear between wires under repeated loading, and functional fatigue of the SMA were not evaluated.",
+            "Simulated cable lengths were limited to minimal pitch lengths (4 mm for 1x27 and 10 mm for 7x7) to ensure full strand rotation while managing computational cost, which may not capture full-scale boundary friction effects.",
+            "Integration or physical realization of these cables as soft robotic actuators or continuum mechanisms was not demonstrated."
+          ],
+          "limitations_stated_by_authors": [
+            "The implicit finite element solution method employed is computationally complex and time-consuming compared to explicit solvers.",
+            "End clamping and pressing conditions that restrict wire rotation about the longitudinal axis in physical experiments were neglected in the numerical boundary condition setup.",
+            "Tension-compression asymmetry of the shape memory alloy material was not incorporated into the constitutive model.",
+            "Numerical predictions exhibited an average difference of 20% for normal stress and 25% for shear stress compared to experimental data for the 7x7 cable, and up to 25% difference for the 1x27 cable.",
+            "To reduce simulation run times in the factorial optimization, identical wire diameters were assumed for core and twisted wires, restricting the number of explored design factors."
+          ],
+          "main_results": [
+            "The finite element modeling framework successfully captured multi-wire contact and kinematic behavior, matching 1x37 steel cable benchmark data with under 2% error across tensile loads from 10 to 35 kN.",
+            "Superelastic SMA cable models reproduced experimental stress-strain trends with average deviations of 20% to 25%, showing that phase transformation yields substantial normal strains across cable components.",
+            "Axial loading induces coupled torsional torques and shear stresses in both 1x27 and 7x7 cables, with shear stress magnitude significantly higher in 1x27 due to its larger helix angle, and shear stress sign directly governed by strand lay direction.",
+            "In both SE and SME cables, core wires sustain the highest normal stresses (up to ~330 MPa in 7x7 and ~680 MPa in 1x27 SME cables) because of their low cross-sectional area, but they carry the smallest share of total axial force.",
+            "Outer wires with double-helix twisting (D-type wires in 7x7 cables) sustain lower normal and shear stresses but carry the largest portion of total axial force (~260 N) owing to their dominant collective cross-sectional area.",
+            "Upon unloading SME wire ropes at temperatures below As, interwire friction and contact generate residual stresses (~100 MPa in the 7x7 core wire), which together with inelastic strains recover rapidly upon heating above Af.",
+            "Statistical response surface optimization demonstrated that cable specific energy increases with larger wire diameter and smaller helix angle, identifying an optimal configuration at D = 0.38 mm and phi = 54.9°."
+          ],
+          "modeling_methods": [
+            "Three-dimensional phenomenological SMA constitutive model (Souza model) based on plasticity theory and irreversible thermodynamics",
+            "Finite element analysis using implicit solution method in Abaqus software",
+            "User-defined material subroutine (UMAT) implementation",
+            "Kinematic coupling of cross-sectional nodes at centerline reference points to enforce tensile displacement without artificial clamping constraints",
+            "Surface-to-surface interwire contact formulation with tangential and normal interaction including Coulomb friction",
+            "Parametric helical geometric modeling for single-helix and double-helix cables based on Stanova et al. formulation",
+            "Design of experiments (3^2 factorial design and response surface methodology using Design-Expert software)"
+          ],
+          "performance_metrics": [
+            "Specific energy (g = F * delta / M in J/kg or equivalent force*displacement/mass)",
+            "Normal stress-strain response (MPa vs. strain)",
+            "Shear stress-strain response (MPa vs. strain)",
+            "Axial force distribution across components (N) as a function of displacement (mm)",
+            "Inelastic strain recovery as a function of temperature and time during heating",
+            "Discrepancy / percentage error relative to reference experimental and numerical data"
+          ],
+          "possible_gap_implications": [
+            "Because axial tension in helical SMA wire ropes induces significant internal shear stresses and torsional coupling, deploying SMA cables as soft robotic tendons or continuum actuators will require accounting for twisting and transverse contact stresses.",
+            "The presence of significant residual stresses and interwire friction during unloading highlights that hysteresis and internal friction must be integrated into control models for SMA cable-driven mechanisms.",
+            "Neglecting tension-compression asymmetry and realistic boundary clamping resulted in up to 25% discrepancy with experimental tests, indicating that higher-fidelity constitutive formulations are needed for precision soft robotic applications.",
+            "Fretting wear, interwire friction degradation, and cyclic thermomechanical fatigue remain unaddressed, posing an open research question for durable soft robotic actuation."
+          ],
+          "research_objective": "To investigate the mechanical behavior (normal stress, shear stress, strain, temperature, and axial force-displacement relationships) of single-helix (1x27) and double-helix (7x7) SMA wire ropes and their individual components for both superelastic and shape memory effect modes using a 3D phenomenological constitutive model in Abaqus, and to optimize the wire rope geometry for maximum specific energy.",
+          "research_problem": "Lack of detailed investigations into the mechanical behavior, interwire contact mechanics, and component-level stress/strain/force distributions in shape memory alloy (SMA) wire ropes—particularly under the shape memory effect (SME) and double-helix configurations—subjected to tensile loading.",
+          "robot_type": "",
+          "stiffness_mechanism": [],
+          "title": "Mechanical response of single and double-helix SMA wire ropes",
+          "year": "2021"
+        }
+      }
+    },
+    {
+      "paper_id": "98fee47c04",
+      "filename": "A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A4-2021-Nonlinear vibration isolation via a nitinol wire rope_98fee47c04.json",
+      "evidence": {
+        "source": {
+          "paper_id": "98fee47c04",
+          "filename": "A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf",
+          "sha256": "98fee47c04dc25f6d590e9a5481b901a96588395fe1678e3273ddf2fe9f64827",
+          "page_count": 18,
+          "char_count": 48887,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 28224,
+          "completion_tokens": 6747,
+          "total_tokens": 34971,
+          "thinking_tokens": 4298,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Mu-Qing Niu",
+            "Li-Qun Chen"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Wire rope is cut in the middle into two segments, each initially modeled as a cantilever beam with constant cross-section clamped at the base and guided at the payload without rotation (rotation angle theta_w = 0).",
+            "Restoring force due to linear elastic deformation and geometric constraints follows a two-dimensional beam constraint model under initial axial tension.",
+            "Inner friction and NiTiNOL material phase transition effects are modeled phenomenologically via a modified Bouc-Wen model augmented with an exponential pinching effect function.",
+            "Payload motion is restricted strictly to vertical translation via a linear bearing on a vertical guiding rod.",
+            "Base excitation is assumed to be purely harmonic vertical displacement Yb = Ab * cos(wb * T).",
+            "Total restoring force of the wire rope is assumed to be an odd symmetric function of displacement, producing only odd harmonic responses.",
+            "Harmonics higher than the third order are assumed negligible for relative displacement amplitudes a < 3.",
+            "Hysteretic damping induced by internal friction and phase transitions is assumed to be rate-independent (independent of frequency)."
+          ],
+          "control_variables": [
+            "Payload mass M (6.46 kg in validation comparison)",
+            "Wire rope beam geometric and physical parameters: length L, cross-sectional area A, moment of inertia I, Young's modulus E, initial axial tension Fwx0",
+            "Linear spring stiffness Ks (baseline 2.26 N/mm)",
+            "Nominal Bouc-Wen and pinching parameters: Kw1 = 2.17 N/mm, Kw3 = 0.53 N/mm^3, Kd = 217 N/mm, xi = 0.9, Yb = 215.57 mm^2, G = 0.591 mm^-1, B = 0.501 mm^-1, nb = 1",
+            "Initial equilibrium state where moving part gravity is fully balanced by the vertical linear spring with horizontal wire rope alignment"
+          ],
+          "dependent_variables": [
+            "Total restoring force Fr and dimensionless restoring force fr",
+            "Anhysteretic restoring force fan and anhysteretic force variable zan",
+            "Generalized equivalent stiffness Ke and dimensionless equivalent stiffness ke",
+            "Generalized equivalent damping ratio zeta_e",
+            "Displacement transmissibility TD (ap)",
+            "Resonant frequency and dimensionless resonant frequency eta_r",
+            "Peak displacement transmissibility Tp and minimum peak transmissibility Tpmin",
+            "Lowest resonant frequency eta_rmin",
+            "Most suitable excitation amplitudes Ab-pmin and Ab-rmin",
+            "Nonlinear jump phenomena branches (stable and unstable solutions)"
+          ],
+          "doi": "10.3390/app112110032",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "The restoring force of a NiTiNOL wire rope can be formulated by combining a physical beam constraint model for elastic geometric stiffness and a modified Bouc-Wen model with an exponential function for pinched hysteretic damping.",
+              "evidence_type": "analytical",
+              "page_numbers": [
+                3,
+                4
+              ]
+            },
+            {
+              "claim": "The generalized equivalent stiffness displays a stiffness-softening-hardening profile, where initial stiffness is primarily governed by the pinching parameter xi, small-displacement softening by Bouc-Wen sum (beta + gamma), and large-displacement hardening by cubic stiffness k3.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                8,
+                9,
+                15,
+                16
+              ]
+            },
+            {
+              "claim": "The rate-independent generalized equivalent damping ratio varies non-monotonically, first increasing and then decreasing with displacement amplitude due to the combined Bouc-Wen hysteresis and pinching effect.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                6,
+                7,
+                9,
+                10,
+                15
+              ]
+            },
+            {
+              "claim": "Compared to an isolator with a steel wire rope, the NiTiNOL wire rope isolator possesses lower initial stiffness and higher equivalent damping, preventing unbounded resonant responses and providing superior broadband vibration isolation.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                7,
+                8,
+                10,
+                11,
+                16
+              ]
+            },
+            {
+              "claim": "Both peak displacement transmissibility and resonant frequency vary non-monotonically with excitation amplitude, defining optimal excitation amplitudes for resonance suppression (Ab-pmin) and for low-frequency isolation (Ab-rmin).",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                10,
+                11,
+                12,
+                13,
+                14,
+                16
+              ]
+            },
+            {
+              "claim": "Harmonic balance method using alternating frequency/time domain formulation closely matches Runge-Kutta numerical integration for the modified Bouc-Wen model, although third-order truncation excludes superharmonic resonances.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                5,
+                11,
+                14,
+                15
+              ]
+            },
+            {
+              "claim": "Analytical predictions show general agreement with experimental swept-frequency acceleration response data from a NiTiNOL wire rope damper, though both the analytical model and Runge-Kutta numerical integration fail to reproduce the experimentally observed softening at 7.68 m/s^2.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                14,
+                15
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "No primary experimental apparatus was built or tested by the authors in this study.",
+            "For model verification, secondary experimental data from previously published literature (Carboni and Lacarbonara, 2016) was used, involving swept-frequency base acceleration tests (at 6.35 m/s^2 and 7.68 m/s^2) on a damper comprising horizontal symmetric NiTiNOL wire ropes without a vertical spring."
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Base excitation displacement amplitude Ab",
+            "Base excitation frequency wb (dimensionless frequency ratio eta)",
+            "Bouc-Wen model parameters: Kd, G, B, nb (dimensionless beta, gamma, beta/gamma, beta + gamma)",
+            "Pinching effect parameters: xi and Yb (dimensionless yb)",
+            "Cubic stiffness Kw3 (dimensionless k3)",
+            "Linear spring stiffness Ks (dimensionless k1)"
+          ],
+          "limitations_inferred": [
+            "No physical experimental testing was conducted on the complete proposed isolator prototype (wire rope combined with the vertical linear spring and linear bearing); validation relied solely on third-party damper data.",
+            "One-dimensional vertical motion is assumed with an idealized frictionless bearing, ignoring real-world friction, guiding rod misalignment, off-axis rotation, and multi-axis vibrations.",
+            "Thermomechanical coupling, ambient temperature dependence, and strain-rate sensitivity of NiTiNOL pseudoelastic phase transitions are omitted from the rate-independent phenomenological model.",
+            "Fatigue life, degradation of shape memory effect, and long-term shakedown behavior under large cyclic deformation were not evaluated."
+          ],
+          "limitations_stated_by_authors": [
+            "The harmonic balance analysis failed to capture superharmonic resonances (at approximately fb = 2.4 Hz) observed in numerical integration due to truncation of harmonics beyond the third order.",
+            "Both the proposed harmonic balance method and direct Runge-Kutta numerical integration failed to characterize the stiffness-softening phenomenon observed in experimental results at Ub = 7.68 m/s^2.",
+            "The third-order harmonic approximation assumes higher-order harmonics are negligible, which is valid only when relative response amplitude is not too high (a < 3)."
+          ],
+          "main_results": [
+            "The proposed NiTiNOL wire rope isolator displays a stiffness-softening-hardening response and a rate-independent equivalent damping ratio that non-monotonically increases then decreases with displacement amplitude.",
+            "Pinching parameter xi primarily governs the initial equivalent stiffness, Bouc-Wen parameter sum (beta + gamma) controls small-displacement softening, and cubic stiffness k3 dictates large-displacement hardening.",
+            "The NiTiNOL wire rope achieves higher energy dissipation and lower initial stiffness than a steel wire rope, successfully mitigating resonance without the unbounded response observed in the steel wire rope system at Ab = 1 mm.",
+            "Peak displacement transmissibility and resonant frequency both exhibit non-monotonic relationships with excitation amplitude; for baseline parameters, the optimal excitation amplitude for minimum peak transmissibility is Ab-pmin = 1.08 mm (Tpmin = 2.65) and for lowest resonant frequency is Ab-rmin = 1.00 mm (eta_rmin = 0.25).",
+            "Depending on the parameter combinations, the isolator can exhibit either stiffness-softening jump phenomena (resonance peak bent to the left) or stiffness-hardening jump phenomena (resonance peak bent to the right).",
+            "Harmonic balance analysis with an alternating frequency/time domain technique demonstrates strong agreement with direct Runge-Kutta numerical integration and secondary experimental data."
+          ],
+          "modeling_methods": [
+            "Beam constraint model (two-dimensional beam flexure under initial axial tension)",
+            "Modified Bouc-Wen phenomenological model with an exponential pinching effect function",
+            "Harmonic balance method (HBM) with first- and third-order harmonics",
+            "Alternating frequency/time domain (AFT) technique",
+            "Arc-length continuation method",
+            "Runge-Kutta numerical integration (direct time-domain integration)"
+          ],
+          "performance_metrics": [
+            "Displacement transmissibility TD (dimensionless payload response amplitude ap = Ap / Ab)",
+            "Peak displacement transmissibility Tp and minimum peak transmissibility Tpmin",
+            "Resonant frequency and minimum resonant frequency eta_rmin",
+            "Generalized equivalent stiffness ke (dimensional Ke)",
+            "Generalized equivalent damping ratio zeta_e",
+            "Most suitable excitation amplitude for resonance suppression (Ab-pmin) and for low-frequency vibration isolation (Ab-rmin)"
+          ],
+          "possible_gap_implications": [
+            "While NiTiNOL wire ropes offer passive variable stiffness and hysteretic damping for vibration isolation, translating these elements into soft robotics, continuum robots, or soft grippers would require addressing multi-axis loading, active thermal/electrical phase transition control, and bidirectional compliance rather than purely passive harmonic isolation."
+          ],
+          "research_objective": "To propose and analyze a nonlinear vibration isolator incorporating a horizontal NiTiNOL wire rope and a vertical linear spring; develop a restoring force model combining a beam constraint model and a modified Bouc-Wen model with pinching effects; solve the nonlinear dynamics using a harmonic balance method with an alternating frequency/time domain technique; and investigate the non-monotonic stiffness, damping, transmissibility, and optimal excitation amplitudes.",
+          "research_problem": "Conventional vibration isolators often struggle with trade-offs between low-frequency isolation and payload capacity; existing nonlinear damping mechanisms rely on complex geometric arrangements and are predominantly viscous; wire rope isolators with ring geometry present unfavorable asymmetric restoring forces; and non-monotonic variations in stiffness and damping introduce non-monotonic frequency responses requiring identification of optimal excitation amplitudes.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "NiTiNOL wire rope under geometric constraints (beam flexure under tension)",
+            "vertical linear spring",
+            "pseudoelastic phase transitions and pinching effect of NiTiNOL"
+          ],
+          "title": "Nonlinear Vibration Isolation via a NiTiNOL Wire Rope",
+          "year": "2021"
+        }
+      }
+    },
+    {
+      "paper_id": "aaad9c248c",
+      "filename": "A5-Cable vibration considering internal friction.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A5-Cable vibration considering internal friction_aaad9c248c.json",
+      "evidence": {
+        "source": {
+          "paper_id": "aaad9c248c",
+          "filename": "A5-Cable vibration considering internal friction.pdf",
+          "sha256": "aaad9c248c7dea248b14e986a530760646cb7dbac8a44d41b94642a583514800",
+          "page_count": 80,
+          "char_count": 64774,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 36019,
+          "completion_tokens": 7943,
+          "total_tokens": 43962,
+          "thinking_tokens": 4780,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Xin Liu"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Plane sections of the cable are allowed to warp due to wire slip (PAGE 14).",
+            "Cable material is assumed to be homogeneous, isotropic, and linearly elastic (PAGE 14).",
+            "Strains are assumed to be small; shear deformation and Poisson's effects are neglected (PAGE 14).",
+            "Kinetic friction is neglected in the frictional bending model (PAGE 14).",
+            "Elongation of the cable caused by axial tension is neglected (PAGE 14).",
+            "Gravitational forces on the cable segment are neglected (PAGE 15).",
+            "Cross-sectional area and mass density are assumed constant along the uniform cable (PAGE 16).",
+            "Axial tension is approximated as constant during small vibrations (PAGE 16).",
+            "Flexural rigidity (EI) is assumed to be constant along the length of each individual cable element (PAGE 22).",
+            "The entire cable is idealized and modeled as a one-dimensional continuum with variable flexural rigidity (PAGE 13, 56)."
+          ],
+          "control_variables": [
+            "Cable geometric parameters: core wire diameter (2.12 mm), layer 2 wire diameter (2.0 mm, 6 wires, lay length 41 mm, lay angle -17.52 deg), layer 3 wire diameter (2.0 mm, 12 wires, lay length 90 mm, lay angle 15.82 deg), total 19 wires (PAGE 21).",
+            "Cable material parameters: elastic modulus (200,000 MPa), Poisson's ratio (0.29), static friction coefficient (0.74), kinetic friction coefficient (0.57) (PAGE 21).",
+            "Cable specimen length: 1.0 m for simply-supported case, 0.3 m for cantilever case (PAGE 35, 42, 49).",
+            "Finite element element length: 0.05 m (half of longest lay length) for simply-supported, 0.015 m for cantilever (PAGE 37, 43).",
+            "Time integration step size: 1/320 s for simply-supported cable, 1/100 s for cantilever cable (PAGE 37, 43).",
+            "Newmark numerical integration parameters: beta = 0.25, gamma = 0.5 (PAGE 27, 32, 37, 43).",
+            "Instron test parameters: test speed of 1 in/min, 500 N load cell (PAGE 61)."
+          ],
+          "dependent_variables": [
+            "Transverse vertical displacement w(x, t) along the cable length over time (PAGE 15, 22, 37, 44, 53).",
+            "Bending curvature kappa along the cable (PAGE 16, 18).",
+            "Variable flexural rigidity EI as a function of bending curvature (PAGE 16, 17, 18).",
+            "Static friction force between adjacent wire layers (PAGE 58, 63, 65).",
+            "Interlayer normal force and interlayer radial pressure (PAGE 63, 65).",
+            "Force-displacement hysteresis loops under cyclic loading (PAGE 52, 54).",
+            "Nodal velocities and accelerations during time-stepping simulation (PAGE 28)."
+          ],
+          "doi": "",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Energy dissipation and vibration amplitude reduction in multi-layered helical cables occur as a result of internal dry friction when bending deformations cause relative wire slippage between adjacent layers.",
+              "evidence_type": "mechanical modeling / simulation",
+              "page_numbers": [
+                10,
+                11,
+                15,
+                16,
+                37,
+                46,
+                48
+              ]
+            },
+            {
+              "claim": "Flexural rigidity of a multi-layer helical cable exhibits nonlinear variation with bending curvature, remaining at a maximum constant value until critical curvatures are reached where interlayer shear forces overcome frictional resistance and wire slippage begins.",
+              "evidence_type": "mechanical modeling",
+              "page_numbers": [
+                16,
+                17,
+                18,
+                26
+              ]
+            },
+            {
+              "claim": "Under free vibration, the transverse displacement history exhibits an initial damped vibration regime where large curvatures induce wire slipping and frictional dissipation, followed by an undamped small-amplitude vibration regime once curvature drops below the slip threshold.",
+              "evidence_type": "simulation",
+              "page_numbers": [
+                37,
+                38,
+                41,
+                44,
+                46
+              ]
+            },
+            {
+              "claim": "Interlayer static friction forces and normal pressures in helical cable layers can be experimentally measured using axial compression slip tests on dissected cable specimens in a materials testing machine.",
+              "evidence_type": "experimental mechanics",
+              "page_numbers": [
+                58,
+                62,
+                63,
+                65,
+                66
+              ]
+            },
+            {
+              "claim": "A one-dimensional continuum dynamic model discretized with fifth-order Hermite interpolation elements and integrated via Newmark's method qualitatively predicts displacement histories and forced vibration hysteresis within 10% error of experimental data.",
+              "evidence_type": "mechanical modeling / model verification",
+              "page_numbers": [
+                20,
+                22,
+                26,
+                53,
+                54,
+                55
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "Instron Model 4206 materials testing machine with a 500 N load cell running at a test speed of 1 in/min coupled to a data recorder to measure static friction forces between cable layers (PAGE 58, 60, 61, 62).",
+            "Two-hole test table holding dissected cable specimens: Specimen 1 (layers 2 and 3 cut off) to test layer 1-2 interface, and Specimen 2 (layer 3 cut off) to test layer 2-3 interface during axial compression (PAGE 58, 59, 60, 62).",
+            "Forced vibration experimental setup (from Sauter and Hagedorn 2002 cited for model validation) consisting of a 0.3 m cantilever cable clamped at one end and driven at the free end by a low-frequency cyclic transverse force of 15 N with a 6-second period to neglect inertia effects (PAGE 49, 50)."
+          ],
+          "future_work": [
+            "Extend the analytical bending model to include the effects of torsion, axial elongation, interlayer pressures, and geometric and material nonlinearities into an updated stiffness matrix (PAGE 57).",
+            "Perform more accurate experimental determinations of interlayer radial pressure, such as using pressure-indicating sensor films (PAGE 57).",
+            "Incorporate internal material damping as well as external damping effects to formulate damped cable vibration (PAGE 57).",
+            "Apply large motion and deformation theory to replace the current small deformation assumption for more realistic dynamic results (PAGE 57)."
+          ],
+          "independent_variables": [
+            "Time t and discrete time step Delta t (PAGE 26, 37, 43).",
+            "Axial coordinate x along the cable span (PAGE 15, 20, 35, 42).",
+            "Applied constant axial tension T (PAGE 15, 16, 35, 42).",
+            "Initial cable displacement configuration wo(x) (PAGE 35, 37, 42, 43).",
+            "Applied cyclic transverse forcing function amplitude (15 N) and period (6 s) for forced vibration (PAGE 50).",
+            "Interlayer radial preforming pressure (PAGE 14, 15, 58)."
+          ],
+          "limitations_inferred": [
+            "The approach relies on external precomputed curvature-rigidity curves generated by proprietary software (CableCAD) rather than deriving flexural rigidity from a fully coupled, closed-form contact mechanics formulation within the solver.",
+            "Determining the required model parameters requires destructive physical dissection and mechanical push-out testing of cable specimens.",
+            "The model requires an artificial least-squares smoothing step after each time increment, indicating potential non-smooth spatial artifacts or numerical instabilities at element boundaries.",
+            "External environmental damping (such as aerodynamic drag or fluid interaction) is completely excluded, limiting applicability to isolated cables in non-resistive environments."
+          ],
+          "limitations_stated_by_authors": [
+            "The formulated stiffness matrix focuses strictly on bending behavior and does not account for torsion or tension-bending coupling properties (PAGE 47, 57).",
+            "Kinetic friction is neglected in the frictional bending formulation (PAGE 14).",
+            "The model is restricted by small deformation and small strain assumptions; shear deformation, Poisson's effects, and tension-induced axial elongation are neglected (PAGE 14, 57).",
+            "Discontinuous step changes in the EI-curvature curve corresponding to layer slipping events cause abrupt changes in dynamic properties (PAGE 47).",
+            "Finite element element length cannot be smaller than the largest half-lay length, imposing a relatively large element size that contributes to numerical error accumulation during time stepping (PAGE 47).",
+            "Manufacturing surface imperfections, scratches, and dents on wire surfaces introduced measurement errors and wave-like friction histories during pressure testing (PAGE 47, 66).",
+            "Approximating the contact area as the product of outside diameter and specimen length introduces error into the interlayer pressure calculation (PAGE 66).",
+            "Differences between experimental and modeled hysteresis loops were influenced by specimen differences and the short 0.3 m cable span being only slightly longer than three lay lengths (PAGE 55)."
+          ],
+          "main_results": [
+            "The mathematical model demonstrated that cables without external dampers dissipate vibrational energy and experience amplitude decay purely through internal dry friction when bending curvatures are sufficient to induce interlayer wire slip (PAGE 37, 38, 44, 46, 48).",
+            "Cable free vibration response clearly separates into a damped phase with decaying amplitude and an undamped phase with sustained small constant amplitude once curvatures fall below the critical slip threshold (PAGE 37, 41, 44, 46).",
+            "Predicted end-point displacement histories for a forced cantilever cable agreed with published experimental data from Sauter and Hagedorn within an expected 10% error margin (PAGE 53, 54).",
+            "Average interlayer radial pressures determined experimentally from push-out friction tests were 0.475 N/mm^2 between layers 1 and 2, and 0.053 N/mm^2 between layers 2 and 3 (PAGE 63, 65).",
+            "The simulated force-displacement hysteresis cycle captured the same slope as experimental observations, although the modeled cycle enclosed a smaller area (PAGE 54, 55)."
+          ],
+          "modeling_methods": [
+            "One-dimensional continuum formulation for the governing fourth-order nonlinear partial differential equation of motion of transverse cable vibration (PAGE 13, 16, 20).",
+            "Variational weak formulation in Sobolev space H1_0(Omega) (PAGE 20, 21).",
+            "Finite Element Method (FEM) using fifth-order Hermite interpolation polynomials to ensure continuity of third derivatives of transverse deflection (PAGE 12, 22, 24).",
+            "Derivation of elemental consistent mass, stiffness, and stability matrices (PAGE 24, 25).",
+            "Newmark direct numerical time integration scheme with linear acceleration (beta = 0.25, gamma = 0.5) for solving dynamic equations (PAGE 12, 26, 27, 28).",
+            "Incremental Newton-Raphson iterative formulation for resolving nonlinear equilibrium states (PAGE 29).",
+            "Nonlinear flexural rigidity-curvature relationship evaluated via CableCAD software incorporating measured interlayer pressures (PAGE 12, 16, 18).",
+            "Post-step least-squares polynomial curve fitting applied to smooth cable displacement configurations across time increments (PAGE 33, 47)."
+          ],
+          "performance_metrics": [
+            "Vibration displacement amplitude decay over time (PAGE 37, 41, 44, 46, 53).",
+            "Sum of squared error between least-squares fitted curve and nodal data points after time iteration (0.0024 reported after first iteration) (PAGE 47, 48).",
+            "Percentage error between numerical predictions and experimental displacement measurements (within 10%) (PAGE 53).",
+            "Force-displacement hysteresis cycle slope and enclosed hysteresis loop area (PAGE 54, 55).",
+            "Maximum theoretical flexural rigidity at zero curvature (EI_max = 64.971 N*m^2 / 6.5 x 10^7 N*mm^2) (PAGE 16, 69)."
+          ],
+          "possible_gap_implications": [
+            "The phenomenon of curvature-dependent flexural rigidity and energy dissipation driven by interlayer dry friction could potentially inform the mechanical design of friction-based variable-stiffness flexible segments or passive damping elements in compliant mechanical systems, although this thesis focuses exclusively on structural/transmission cables.",
+            "The experimental push-out method for quantifying interlayer friction and contact normal pressure could provide a framework for testing multi-layer coiled or braided flexible sheaths and continuum structural elements.",
+            "Extending the dynamic formulation to include coupled tension, torsion, and large deformations (as recommended by the author) would be necessary before this modeling approach could be adapted to multi-degree-of-freedom continuum mechanisms or tendons."
+          ],
+          "research_objective": "To develop a mathematical cable model to predict cable vibration and the attendant reduction in vibration amplitude due to internal dry friction caused by relative wire slippage, to create a computer program to analyze cable free vibration using this model, and to verify the validity of the model against published experimental forced vibration data.",
+          "research_problem": "Long-span cables (such as overhead power transmission lines and cable-stayed structures) suffer from low inherent damping, making them susceptible to vibration damage, while determining their dynamic characteristics is difficult because relative wire slippage between adjacent helical layers causes large, nonlinear variations in flexural rigidity that make analytical solutions impractical.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "variable flexural rigidity",
+            "interlayer dry friction",
+            "relative wire slippage",
+            "interlayer radial pressure"
+          ],
+          "title": "Cable Vibration Considering Internal Friction",
+          "year": "2004"
+        }
+      }
+    },
+    {
+      "paper_id": "ccdc1bb980",
+      "filename": "A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable_ccdc1bb980.json",
+      "evidence": {
+        "source": {
+          "paper_id": "ccdc1bb980",
+          "filename": "A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+          "sha256": "ccdc1bb980abdaab2d8a3d7b2cc088ac7b5855f9137bef5c93a6a8d96fb70667",
+          "page_count": 8,
+          "char_count": 30558,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 22439,
+          "completion_tokens": 5716,
+          "total_tokens": 28155,
+          "thinking_tokens": 3429,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Denny D. Tjahjanto",
+            "Andreas Tyrberg",
+            "Jonathan Mullins"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Material constitutive behaviour of all cable components is modeled as linear elastic.",
+            "Conductor core (Copper): Young's modulus E = 115 GPa, Poisson's ratio nu = 0.33.",
+            "Insulation layer (XLPE): Young's modulus E = 114 MPa, Poisson's ratio nu = 0.45.",
+            "Core sheaths (HDPE): Young's modulus E = 932 MPa, Poisson's ratio nu = 0.4.",
+            "Profile filler (Polymer): Young's modulus E = 1 GPa, Poisson's ratio nu = 0.4.",
+            "Armour wires (Steel): Young's modulus E = 211 GPa, Poisson's ratio nu = 0.3.",
+            "Armouring tapes (Polymer): Young's modulus E = 512 MPa, Poisson's ratio nu = 0.4.",
+            "Outer sheath (MDPE): Young's modulus E = 346 MPa, Poisson's ratio nu = 0.44.",
+            "Inter-component normal contact is described by a non-linear contact penalty.",
+            "Tangential contact follows Coulomb friction with a constant friction coefficient of 0.25 and an elastic slip limit of 0.001.",
+            "Analytical formulation assumes fully loxodromic slip (slip occurring in the axial direction along the helical curve) and constant lineload per unit length."
+          ],
+          "control_variables": [
+            "Geometric cable parameters: power core lay-angle alpha = 0.12 rad, helical radius R = 27 mm, solid copper conductor cross-sectional area A = 300 mm^2, conductor radius r = 9.8 mm.",
+            "FE model length: 1/3 of the cable power core lay-length.",
+            "Periodic boundary conditions applied to both ends of the cable segment.",
+            "Tangential contact properties: friction coefficient of 0.25 and elastic slip limit of 0.001 across all contact pairs.",
+            "Loading sequence: Step 0 (resolve contact), Step 1 (axial tension and radial pressure), Step 2 (reversal/cyclical bending for 2 cycles).",
+            "Numerical damping factor: maximum 10^-4 for simulation stabilization during cyclical bending (stabilization energy below 5% of total energy)."
+          ],
+          "dependent_variables": [
+            "Lineload per unit length acting onto the power cores (kN/m).",
+            "Lineload per unit length acting onto the inner sheath (kN/m).",
+            "Axial stress history and stress range in the conductor (MPa).",
+            "Relative slip between the inner sheath and power cores (axial and radial components, mm).",
+            "Relative slip between the inner sheath and armour layer 1 (loxodromic and transverse components, mm).",
+            "Shear deformation/strain (gamma_theta_z) in the profile fillers (%).",
+            "Critical curvature for slip initiation."
+          ],
+          "doi": "",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "A 3D geometrically non-linear finite element model with penalty contact and Coulomb friction was formulated to capture the combined tension, radial pressure, and bending behavior of helically-interwound cores, profile fillers, and sheath layers.",
+              "evidence_type": "numerical modeling",
+              "page_numbers": [
+                1,
+                4
+              ]
+            },
+            {
+              "claim": "Relative slip between helically wound power cores and the adjacent sheath occurs almost exclusively in the loxodromic (axial) direction due to the small lay-angle, closely matching analytical loxodromic kinematic predictions.",
+              "evidence_type": "kinematic modeling and simulation",
+              "page_numbers": [
+                3,
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Polymeric profile fillers undergo significant longitudinal shear deformation (up to ~1% shear strain) during cyclic bending, which delays and slows the build-up of friction stresses at low to moderate curvatures.",
+              "evidence_type": "mechanical simulation",
+              "page_numbers": [
+                7,
+                8
+              ]
+            },
+            {
+              "claim": "Internal load-sharing between helically interwound components results in slightly less than one-third of the total inner sheath contact lineload being transmitted to each individual power core.",
+              "evidence_type": "mechanical modeling / contact mechanics",
+              "page_numbers": [
+                5,
+                8
+              ]
+            },
+            {
+              "claim": "Analytical models based on loxodromic curves without filler compliance predict a higher axial stress range and faster stress transitions during bending reversals than 3D FE simulations, demonstrating conservatism in analytical stress predictions.",
+              "evidence_type": "comparative mechanical modeling",
+              "page_numbers": [
+                6,
+                7,
+                8
+              ]
+            }
+          ],
+          "experimental_setup": [],
+          "future_work": [
+            "Development of an analytical formulation for the relative slip and kinematic interactions of helically-interwound power cores.",
+            "Use of the 3D FE modeling results to verify and refine analytical formulations for fatigue life assessments of dynamic cables."
+          ],
+          "independent_variables": [
+            "Applied radial pressure on the outer sheath (0.2 MPa).",
+            "Applied axial strain (0.015%, corresponding to ~90 kN axial tension).",
+            "Cyclic bending curvature (amplitudes up to +/- 0.05 m^-1).",
+            "Angular position around the cable cross-section (neutral axis at 3 o'clock / theta = 0, top dead center at 12 o'clock / theta = pi/2, bottom dead center at 6 o'clock / theta = -pi/2).",
+            "Radial and circumferential evaluation locations within the conductor (outer fibre, center, inner fibre)."
+          ],
+          "limitations_inferred": [
+            "No physical experimental testing was conducted in this study to independently validate the FE contact, lineload, or slip predictions.",
+            "Polymeric components (XLPE, HDPE, MDPE, and profile fillers) are assumed to be linear elastic, omitting rate dependency, viscoelasticity, plasticity, and temperature effects.",
+            "The FE model is limited to a 1/3 lay-length segment with periodic boundary conditions, which does not account for boundary disturbances or termination/hang-off constraints.",
+            "Simulations are restricted to 2 bending cycles at a single curvature amplitude (+/- 0.05 m^-1) and fixed preloads."
+          ],
+          "limitations_stated_by_authors": [
+            "Existing analytical models do not determine contact force distribution between cores and fillers within a three-core cable, requiring either simplified conservative assumptions or FE simulations.",
+            "Analytical model formulations do not account for shear deformations in polymeric profile fillers, causing them to overestimate the rate of friction stress build-up at low to moderate curvatures.",
+            "Analytical formulations do not accommodate the longitudinal displacement mismatch and opposite-direction sliding of adjacent helically-interwound cores, which leads to earlier slipping than analytically predicted."
+          ],
+          "main_results": [
+            "Following the application of tensile strain and radial pressure, the lineload per unit length on each core is uniform around 60 to 63 kN/m, which is slightly less than one-third of the inner sheath lineload (~200 kN/m).",
+            "Bending curvature induces minor lineload variations at the top (12 o'clock) and bottom (6 o'clock) positions, while lineload at the neutral axis (3 o'clock) remains essentially unaffected by bending reversals.",
+            "Slip of the power cores and first armour layer against the inner sheath is almost purely loxodromic (axial), exhibiting excellent agreement with analytical loxodromic kinematic equations.",
+            "Polymeric profile fillers experience shear strain of up to ~1% during bending, softening the friction stress response at initial bending and reversal stages.",
+            "Analytical model stress predictions show good overall agreement with 3D FE simulations, but predict a slightly higher stress range and faster initial stress change, confirming analytical conservatism.",
+            "At the neutral axis (3 o'clock position), the conductor axial stress variation during bending is negligible, confirming the analytical prediction of zero friction stress at this location."
+          ],
+          "modeling_methods": [
+            "3D finite element (FE) modeling representing 1/3 of the lay-length of the cable power cores incorporating all components (cores, fillers, armour wires, tapes, sheaths).",
+            "Geometrically non-linear FE formulation accounting for large rigid body rotations, sliding, and component twisting.",
+            "Non-linear penalty contact formulation in the normal direction and Coulomb friction formulation with elastic slip limit in the tangential direction.",
+            "Periodic boundary condition formulation applied at both ends of the cable segment.",
+            "Analytical modeling of axial stress combining axisymmetric tensile/pressure stress, curvature-change bending stress, and loxodromic stick-slip friction stress."
+          ],
+          "performance_metrics": [
+            "Contact lineload per unit length (kN/m).",
+            "Axial stress range and cyclic stress history in the conductor (MPa).",
+            "Relative slip distance in axial/loxodromic and transverse/radial directions (mm).",
+            "Shear strain percentage in profile fillers (gamma_theta_z, %).",
+            "Agreement/discrepancy between analytical stress equations and 3D FE simulation outputs."
+          ],
+          "possible_gap_implications": [
+            "Mechanisms of inter-layer loxodromic sliding, contact lineload sharing, and compliant polymeric filler shear could inform mechanics-based modeling of bending stiffness, friction hysteresis, and cable-core slip in multi-lumen continuum robots, flexible steerable catheters, and tendon-driven umbilical conduits."
+          ],
+          "research_objective": "To evaluate the mechanical behavior and stick-slip mechanics of helically-interwound power cores and fillers in a dynamic submarine power cable subjected to combined tension, radial pressure, and cyclic bending using a 3D finite element model, and to assess the accuracy and conservatism of existing analytical formulations based on the loxodromic slip assumption.",
+          "research_problem": "Dynamic submarine cables undergo cyclic bending, axial tension, and radial pressure during operation, causing fatigue loading where stick-slip friction behavior of helically-interwound power cores plays a critical role, yet existing analytical models assume simplified cylindrical contacts that do not capture intra-layer interactions, filler shear compliance, or interwound core kinematics.",
+          "robot_type": "",
+          "stiffness_mechanism": [],
+          "title": "BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE",
+          "year": "2017"
+        }
+      }
+    },
+    {
+      "paper_id": "e8462758c3",
+      "filename": "A7-2026-High damping capacity with a wide temperature window in braided NiTi microfilaments.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A7-2026-High damping capacity with a wide temperature window in braided NiTi microfilaments_e8462758c3.json",
+      "evidence": {
+        "source": {
+          "paper_id": "e8462758c3",
+          "filename": "A7-2026-High damping capacity with a wide temperature window in braided NiTi microfilaments.pdf",
+          "sha256": "e8462758c39bdc7291365effe5e6cb74fb16c2a1201698e999f4ee2f4ca2840f",
+          "page_count": 5,
+          "char_count": 15995,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 18469,
+          "completion_tokens": 7260,
+          "total_tokens": 25729,
+          "thinking_tokens": 4770,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Yiwen Liu",
+            "Yi Zeng",
+            "Yang Liu",
+            "Yizhou Xiao",
+            "Tingjun Zhou",
+            "Junhua Du",
+            "Xuejun Jin",
+            "Fei Xiao"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [],
+          "control_variables": [
+            "Dynamic strain amplitude (fixed at 20 μm in the DMA)",
+            "Thermal ramp rate (cooling and heating rate fixed at 5 °C/min)",
+            "Braiding density for the wire-count series (fixed at 50 picks per inch for 4B, 8B, 12B, and 88B)",
+            "Number of wires for the braiding density series (fixed at 8 wires for ppi25, ppi50, and ppi80)",
+            "Braiding fabrication process and equipment (high-speed braiding machine)"
+          ],
+          "dependent_variables": [
+            "Damping capacity / loss tangent (tanδ / internal friction)",
+            "Storage modulus (GPa)",
+            "Damping peak vs. damping plateau profile across temperature",
+            "Structural morphology (axial/radial cross-sections, braid angle, crossover density)",
+            "Thermal cycling stability of tanδ (over 10 cycles)",
+            "Frequency dependence of tanδ and storage modulus (1 Hz vs. 5 Hz)"
+          ],
+          "doi": "10.1016/j.matlet.2026.141544",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Unbraided single NiTi shape memory alloy wire exhibits a narrow internal friction damping peak near its martensitic transformation temperature (maximum tanδ ~0.13), with storage modulus dropping from ~61 GPa to ~20 GPa and low damping in single-phase martensite (~0.05) or austenite (~0.001).",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                2
+              ]
+            },
+            {
+              "claim": "Braided NiTi microfilament architectures convert the narrow phase transformation damping peak into a broad, temperature-insensitive damping plateau over a temperature window exceeding 145 °C (-70 °C to 75 °C) while significantly lowering storage modulus.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                4
+              ]
+            },
+            {
+              "claim": "Double-braided 88B microfilaments achieve a high tanδ (0.06 to 0.11) and low storage modulus (~3.6 GPa cooling, ~4.3 GPa heating) over a >145 °C window, with overlapping modulus and tanδ curves at 1 Hz and 5 Hz.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                4
+              ]
+            },
+            {
+              "claim": "Single-braided 8B microfilaments display a stable tanδ of 0.02 to 0.05 and storage modulus of ~11 to 12 GPa across 145 °C, maintaining nearly identical damping response over 10 cooling-heating cycles.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                2,
+                4
+              ]
+            },
+            {
+              "claim": "Individual NiTi wires in the braided architecture follow helical paths forming a micro-spring network that converts structural deformation into localized bending, torsion, and inhomogeneous stresses, inducing sequential localized martensitic transformations alongside inter-wire contact micro-sliding friction dissipation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                4
+              ]
+            },
+            {
+              "claim": "Increasing wire count from 4 to 8 and 12 wires at 50 ppi increases inter-wire contact sites and interwoven micro-springs, raising tanδ from 0.008-0.02 (4B) to 0.03-0.06 (12B), with storage modulus remaining between 17 and 22 GPa.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                3,
+                4
+              ]
+            },
+            {
+              "claim": "Varying braiding density in 8-wire microfilaments shows that low density (ppi25) retains an intrinsic transformation damping peak (~0.10 near -20 °C) due to weak structural constraints, whereas high density (ppi80) flattens tanδ to 0.02-0.04 because tight geometric constraints restrict axial extension and bending, thereby shortening micro-slip displacement.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                3,
+                4
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "High-speed braiding machine used to manufacture single-braided microfilaments (4B, 8B, 12B at 50 ppi; 8B at 25 and 80 ppi) and double-braided microfilaments (88B by re-braiding eight 8B microfilaments)",
+            "TA Q850 dynamic mechanical analyzer (DMA) operating at 20 μm fixed strain amplitude, frequencies of 1 Hz and 5 Hz, and 5 °C/min cooling/heating rate between -70 °C and 75 °C",
+            "Surface and axial/radial cross-sectional morphological imaging of braided architectures",
+            "Thermal cycling tests across 10 cooling-heating cycles in DMA",
+            "Cyclic tensile testing of braided microfilaments"
+          ],
+          "future_work": [],
+          "independent_variables": [
+            "Braided architecture hierarchy (single wire vs. single-braided 4B, 8B, 12B vs. double-braided 88B)",
+            "Braiding density parameter / picks per inch (25, 50, and 80 ppi for 8-wire microfilaments)",
+            "Temperature (-70 °C to 75 °C, covering a 145 °C window)",
+            "Loading frequency (1 Hz and 5 Hz)",
+            "Thermal cycle count (up to 10 cycles for 8B)"
+          ],
+          "limitations_inferred": [
+            "The study evaluated dynamic mechanical behavior under small strain vibration amplitude (20 μm) in DMA tension, leaving behavior under large deformations, bending, and macroscopic structural actuation uncharacterized.",
+            "No active robotic integration (e.g., in soft grippers or continuum manipulators) or active actuation mechanism was demonstrated, as the microfilaments were tested as passive damping specimens.",
+            "Potential fretting wear, fatigue damage, or degradation of the inter-wire contact interfaces over extensive high-cycle micro-sliding was not evaluated.",
+            "No quantitative mechanical or constitutive mathematical model was formulated to predict modulus or loss factor from braiding parameters."
+          ],
+          "limitations_stated_by_authors": [
+            "Conventional unbraided NiTi wire damping is restricted to a narrow transformation temperature range and is highly temperature-dependent, with low damping in pure martensite and austenite phases (Pages 1, 2).",
+            "At low braiding density (ppi25), structural constraint is relatively weak, retaining intrinsic phase transformation peaks and temperature dependence (Page 4).",
+            "At high braiding density (ppi80), tight geometric constraints restrict axial extension and bending, shortening micro-slip displacement and attenuating frictional dissipation and overall damping capacity despite a higher number of contact sites (Page 4)."
+          ],
+          "main_results": [
+            "Braiding NiTi microfilaments transformed the narrow martensitic transformation internal friction peak into a broad, temperature-insensitive damping plateau over a temperature range exceeding 145 °C (-70 °C to 75 °C).",
+            "Double-braided 88B microfilaments achieved a tanδ of ~0.06 to 0.11 and an ultra-low storage modulus of ~3.6 GPa (cooling) to ~4.3 GPa (heating) across the 145 °C window.",
+            "Single-braided 8B microfilaments demonstrated stable tanδ (0.02 to 0.05), storage modulus of ~11 to 12 GPa, near-perfect cyclic stability over 10 thermal cycles, and frequency insensitivity between 1 Hz and 5 Hz.",
+            "Increasing wire count (4B to 8B to 12B) enhanced damping capacity due to increased contact site density and interwoven micro-springs (tanδ increased from 0.008-0.02 in 4B to 0.03-0.06 in 12B) without sharp modulus changes across temperature.",
+            "Increasing braiding density from 25 to 80 ppi eliminated phase transformation damping peaks and modulus steps, but high density (ppi80) reduced overall tanδ to 0.02-0.04 because restricted micro-slip displacement lowered frictional dissipation."
+          ],
+          "modeling_methods": [],
+          "performance_metrics": [
+            "Loss tangent (tanδ) / internal friction damping plateau values (e.g., ~0.11 for 88B; 0.02-0.05 for 8B; 0.008-0.02 for 4B; 0.03-0.06 for 12B; 0.02-0.04 for ppi80)",
+            "Storage modulus in GPa (e.g., ~3.6-4.3 GPa for 88B; ~11-12 GPa for 8B; ~17-19 GPa for 4B; ~18-22 GPa for 12B vs. ~20-61 GPa for single wire)",
+            "Operating temperature window width (>145 °C, from -70 °C to 75 °C)",
+            "Cyclic repeatability of damping performance (10 cooling-heating cycles)",
+            "Frequency insensitivity (overlap of tanδ and modulus curves between 1 Hz and 5 Hz)"
+          ],
+          "possible_gap_implications": [
+            "While braided NiTi microfilaments provide a wide-temperature damping plateau and ultra-low stiffness, their practical applicability to soft robotics or continuum robots requires investigating their behavior under large-strain bending, active thermal/electrical actuation, and structural integration.",
+            "The trade-off between geometric constraint and micro-slip displacement identified at high braiding densities highlights a design boundary when tailoring braided SMA architectures for variable-stiffness damping components."
+          ],
+          "research_objective": "To develop braided NiTi microfilaments with a spatial helical architecture that couples intrinsic martensitic transformation with inter-wire contact micro-sliding friction dissipation to achieve high damping capacity, reduced storage modulus, and temperature insensitivity across a wide temperature window exceeding 145 °C.",
+          "research_problem": "Conventional NiTi shape memory alloys exhibit a high internal friction peak that is restricted to a narrow martensitic transformation temperature range, resulting in strong temperature dependence and low damping in single-phase austenite or martensite, alongside high storage modulus, which limits their application in wide-temperature damping devices.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "Braided architecture (spatial helical interlacing and double-braiding creating a micro-spring network converting deformation into localized bending and torsion)",
+            "Sequential localized martensitic transformation induced by inhomogeneous stress distribution within the braided structure",
+            "Geometric constraint variation via braiding density (picks per inch, ppi)"
+          ],
+          "title": "High damping capacity with a wide temperature window in braided NiTi microfilaments",
+          "year": "2026"
+        }
+      }
+    },
+    {
+      "paper_id": "6dd1ca94d1",
+      "filename": "A8-2022-NiTi SMA Superelastic Micro Cables Thermomechanical Behavior and Fatigue Life under Dynamic Loadings.pdf",
+      "path": "",
+      "source_type": "verification",
+      "verification_id": "MP1-V002",
+      "screening_status": "included",
+      "screening_reason": "Concrete full-text mechanics threat to MP1-V002 T1/T2/T3.",
+      "ingestion_status": "complete",
+      "evidence_status": "present",
+      "evidence_file": "data/evidence/A8-2022-NiTi SMA Superelastic Micro Cables Thermomechanical Behavior and Fatigue Life under Dynamic Loadings_6dd1ca94d1.json",
+      "evidence": {
+        "source": {
+          "paper_id": "6dd1ca94d1",
+          "filename": "A8-2022-NiTi SMA Superelastic Micro Cables Thermomechanical Behavior and Fatigue Life under Dynamic Loadings.pdf",
+          "sha256": "6dd1ca94d1a4bef674d5382f74bc6ef6e1444e86cbfa870836db459ff056dcc2",
+          "page_count": 21,
+          "char_count": 57149,
+          "source_type": "verification",
+          "verification_id": "MP1-V002"
+        },
+        "model": "gemini-3.8-flash-medium",
+        "usage": {
+          "prompt_tokens": 32785,
+          "completion_tokens": 6394,
+          "total_tokens": 39179,
+          "thinking_tokens": 3751,
+          "cache_read_tokens": 0
+        },
+        "paper": {
+          "actuation": [],
+          "authors": [
+            "Paulo C. S. Silva",
+            "Estephanie N. D. Grassi",
+            "Carlos J. Araújo",
+            "João M. P. Q. Delgado",
+            "Antonio G. B. Lima"
+          ],
+          "confidence": "high",
+          "constitutive_assumptions": [
+            "Linear relationship between forward/reverse phase transformation start stresses and temperature governed by the Clausius-Clapeyron relation (CM and CA coefficients).",
+            "Equivalent linear viscoelastic element assumption for evaluating the equivalent viscous damping factor (ξ) from dissipated energy and stored elastic energy.",
+            "Nominal engineering stress calculated using the initial undeformed cross-sectional area across progressive individual filament failures.",
+            "Uniform axial tension along the 30 mm gauge length between grips."
+          ],
+          "control_variables": [
+            "Gauge length (30 mm for micro cable and reference wire dynamic tests; 12.6 mm for core wire DMA tests)",
+            "Ambient room temperature (22 ± 2 °C)",
+            "Tensile strain amplitude range (5% peak-to-peak, oscillating between 2.5% and 7.5% strain)",
+            "Pre-strain level (5.0% strain)",
+            "Pre-cycling conditioning protocol (128 cycles at 0.25 Hz to stabilize superelastic behavior)",
+            "Sinusoidal loading waveform",
+            "Equivalent nominal cross-sectional area between the 1 × 7 micro cable and the solid reference wire"
+          ],
+          "dependent_variables": [
+            "Specimen surface temperature (mean temperature Tmean, temperature amplitude Tamp, and peak cycle temperature)",
+            "Peak tensile stress (σpeak) and percentage peak stress difference between 1st and 128th cycles (Δσ)",
+            "Critical self-heating frequency (fc)",
+            "Dissipated energy per cycle (ED)",
+            "Equivalent viscous damping factor (ξ)",
+            "Structural fatigue life (number of cycles to first failure Nf, and sequential failures Nif for i = 1 to 7)",
+            "Upper Plateau Strength (UPS) and Lower Plateau Strength (LPS)"
+          ],
+          "doi": "10.3390/s22208045",
+          "evidence_relevant_to_topic": [
+            {
+              "claim": "Repeated cyclic loading above a critical self-heating frequency causes latent heat accumulation, elevating internal temperature and shifting transformation stresses upward according to the Clausius-Clapeyron law, which stiffens the SMA element during dynamic cycling.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                8,
+                9,
+                10,
+                20
+              ]
+            },
+            {
+              "claim": "The 1 × 7 NiTi micro cable displays a lower self-heating critical frequency (0.99 Hz) and higher temperature increase (80% increase after 128 cycles at 10 Hz) compared to a solid reference wire (1.76 Hz and 52% increase), attributed to inter-filament friction heat generation.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                9,
+                10,
+                11,
+                20
+              ]
+            },
+            {
+              "claim": "Multi-filament micro cable geometry achieves higher dissipated energy and damping capacity (15% to 30% higher ED and 20% to 47% higher ξ) than a monolithic wire of equivalent area due to additional friction between twisted filaments.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                8,
+                13,
+                14,
+                20
+              ]
+            },
+            {
+              "claim": "Dissipated energy per cycle and damping ratio degrade with increasing cycle count and increasing dynamic frequency across both micro cables and solid wires.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                12,
+                13,
+                20
+              ]
+            },
+            {
+              "claim": "The multi-filament micro cable exhibits a shorter fatigue life to first filament failure than a solid wire due to inter-strand fretting friction and manufacturing dimples, but provides progressive redundancy and delayed complete failure through sequential breakage of individual wires.",
+              "evidence_type": "experimental",
+              "page_numbers": [
+                1,
+                2,
+                14,
+                15,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
+          ],
+          "experimental_setup": [
+            "1 × 7 NiTi superelastic micro cable (outer diameter 0.4064 mm, composed of six 0.1354 mm outer wires twisted at a -15° helix angle around a straight core wire; nominal 55 wt.% Ni, EDS measured 53.8 wt.% Ni).",
+            "Monolithic superelastic NiTi reference wire (0.35 mm diameter) with equivalent total cross-sectional area.",
+            "ElectroPuls E10000 electrical dynamic testing machine (INSTRON) equipped with a 10 kN load cell, operated under strain control.",
+            "K-type micro thermocouple (100 µm diameter) affixed with adhesive to the outer surface of the specimen, recorded by an HBM Quantum X data acquisition system at 100 Hz.",
+            "TA Instruments Q800 Dynamic Mechanical Analyzer (DMA) for isothermal tensile testing of single core wire (12.6 mm gauge length, 0.5%/min strain rate, 35 °C to 85 °C).",
+            "TA Instruments Q20 Differential Scanning Calorimeter (DSC) for transformation temperatures (-60 °C to 100 °C, 10 °C/min rate under nitrogen).",
+            "TESCAN VEGA3 Scanning Electron Microscope (SEM) with BSE detector and Oxford Instruments X-act Energy Dispersive Spectrometer (EDS)."
+          ],
+          "future_work": [
+            "Conducting detailed statistical fatigue analyses across larger specimen cohorts to establish probabilistic fatigue life distributions.",
+            "Investigating varying environmental convective and conductive heat transfer boundary conditions to control self-heating.",
+            "Optimizing cable manufacturing processes to minimize surface defect generation (e.g., dimples) that accelerate crack initiation."
+          ],
+          "independent_variables": [
+            "Dynamic cyclic loading frequency (0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 Hz)",
+            "Number of loading cycles (1 to 128 cycles for thermomechanical evaluation; up to ~6000 cycles for fatigue life)",
+            "Specimen geometry/architecture (1 × 7 twisted multi-strand micro cable vs. single solid reference wire of equivalent area)",
+            "Test temperature during isothermal DMA testing of core wire (35 °C to 85 °C)"
+          ],
+          "limitations_inferred": [
+            "Dynamic mechanical testing was performed exclusively under uniaxial tension, leaving bending, torsional, or multi-axial loading uncharacterized.",
+            "Surface thermocouple measurement at a single external location may not accurately capture internal radial temperature gradients inside the twisted multi-filament bundle.",
+            "Only a single pre-strain (5%) and strain amplitude (5% peak-to-peak) were evaluated dynamically, without exploring performance under smaller or larger strain amplitudes.",
+            "No active robotic system, soft actuator, or continuum manipulator was constructed or tested with the micro cables."
+          ],
+          "limitations_stated_by_authors": [
+            "The distance between grips was set equal to the 30 mm gauge length due to sample limitations, differing from the ASTM F2516 standard recommendation of at least 150 mm grip separation for wire diameters ≤ 0.2 mm.",
+            "The 128 cycles utilized during frequency sweep testing were insufficient to reach steady-state thermal equilibrium.",
+            "The structural fatigue evaluation was preliminary, lacking statistical analysis across multiple samples.",
+            "Manufacturing-induced surface defects, such as dimples, were observed on the micro cables, contributing to reduced structural fatigue life."
+          ],
+          "main_results": [
+            "The critical self-heating frequency (fc) was determined as 0.99 Hz for the NiTi micro cable and 1.76 Hz for the solid reference wire.",
+            "Above fc, accumulation of latent heat and inter-wire friction raised specimen temperature (e.g., reaching 49.25 °C at 10 Hz after 128 cycles for the micro cable, an 80% increase relative to 0.25 Hz), leading to upward shifting of superelastic loops and strain hardening due to the Clausius-Clapeyron relation.",
+            "Dissipated energy per cycle (ED) and equivalent damping factor (ξ) decreased with increasing cycling and loading frequency, dropping by up to ~45-50% at 10 Hz compared to 1 Hz.",
+            "The micro cable exhibited 15% to 30% higher dissipated energy (ΔED) and 20% to 47% higher equivalent damping factor (Δξ) compared to the monolithic wire due to inter-filament friction.",
+            "Structural fatigue life to first wire failure was shorter for the micro cable (~2000 cycles at frequencies ≥ 2 Hz) than for the monolithic wire (3000 to 6000 cycles) due to fretting friction and surface dimples.",
+            "The micro cable displayed progressive sequential failure across all 7 filaments, sustaining mechanical load and energy dissipation (up to ~1 MJ/m³) until the final wire broke."
+          ],
+          "modeling_methods": [
+            "Calculation of dissipated energy per cycle (ED) via numerical integration of the stress-strain hysteresis loop (closed contour integral of σ dε).",
+            "Calculation of equivalent viscous damping factor (ξ) using the dissipated energy normalized by 4π times the equivalent linear stored elastic energy.",
+            "Identification of the critical self-heating frequency (fc) via interpolation of the zero-crossing of percentage peak stress difference (Δσ = 0) between the 1st and 128th cycles.",
+            "Linear Clausius-Clapeyron phase diagram regression to determine temperature stress coefficients CM (5.54 MPa/°C) and CA (6.28 MPa/°C).",
+            "Asymptotic non-linear regression modeling of cycle temperature amplitude (Tamp) as a function of loading frequency.",
+            "Linear regression modeling of 128th cycle mean temperature (Tmean) and cycles to failure (Nf) as functions of loading frequency."
+          ],
+          "performance_metrics": [
+            "Critical self-heating frequency (fc, in Hz)",
+            "Dissipated energy per cycle (ED, in MJ/m³)",
+            "Equivalent viscous damping factor (ξ, in %)",
+            "Upper Plateau Strength (UPS, in MPa) and Lower Plateau Strength (LPS, in MPa)",
+            "Peak tensile stress (σpeak, in MPa) and peak stress variation (Δσ, in %)",
+            "Temperature amplitude (Tamp, in °C) and mean temperature (Tmean, in °C)",
+            "Cycles to failure (Nf for first failure and Nif for the ith failure, in cycles)"
+          ],
+          "possible_gap_implications": [
+            "Understanding the self-heating threshold and dynamic thermomechanical stiffening in NiTi micro cables could inform frequency boundaries and thermal management strategies for SMA-based tendons or variable-stiffness components in dynamic structural and robotic applications, though robotic efficacy remains to be directly evaluated."
+          ],
+          "research_objective": "To investigate the effect of thermomechanical coupling and heat accumulation during dynamic tensile cycling (frequencies from 0.25 Hz to 10 Hz) on the mechanical behavior, functional damping properties, and fatigue life (both structural and functional) of NiTi SMA micro cables, determining the critical self-heating frequency and characterizing progressive individual filament failure relative to a solid reference wire.",
+          "research_problem": "The lack of understanding regarding the influence of high loading frequencies, strain rates, and cumulative self-heating on the functional energy dissipation properties, thermomechanical stiffening, and fatigue life of multi-strand NiTi shape memory alloy micro cables under dynamic cyclic loading.",
+          "robot_type": "",
+          "stiffness_mechanism": [
+            "superelasticity",
+            "stress-induced martensitic phase transformation",
+            "thermomechanical coupling / temperature-induced stiffening governed by the Clausius-Clapeyron law"
+          ],
+          "title": "NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings",
+          "year": "2022"
+        }
+      }
+    }
+  ],
+  "matrix_sha256": "c95c9030eee21359ef39404e41f46b0bd32ec8b3675fb6fb62cc973864d71c5f"
+}

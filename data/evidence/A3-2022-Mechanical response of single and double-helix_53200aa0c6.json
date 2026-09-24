@@ -1,0 +1,199 @@
+{
+  "source": {
+    "paper_id": "53200aa0c6",
+    "filename": "A3-2022-Mechanical response of single and double-helix.pdf",
+    "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+    "page_count": 15,
+    "char_count": 44305,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27307,
+    "completion_tokens": 8057,
+    "total_tokens": 35364,
+    "thinking_tokens": 5287,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "thermal actuator",
+      "thermal lock"
+    ],
+    "authors": [
+      "Saeed Vahidi",
+      "Jamal Arghavani",
+      "Eunsoo Choi",
+      "Alireza Ostadrahimi"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Three-dimensional phenomenological Souza constitutive model based on plasticity theory and irreversible thermodynamics.",
+      "Decomposition of strain into deviatoric and volumetric components, and stress into deviatoric and volumetric components (p = K*theta, s = 2*G*(e - e_tr)).",
+      "Transformation strain tensor (e_tr) is bounded by a maximum transformation strain norm (||e_tr|| <= e_L).",
+      "Transformation stress tensor defined as X = s - alpha, where backstress tensor alpha incorporates temperature-dependent critical stress, linear hardening H, and transformation constraint multiplier.",
+      "Elastic domain bounded by limit function F = ||X|| - R <= 0.",
+      "Symmetric material behavior in tension and compression assumed (asymmetric behavior is neglected).",
+      "End boundary pressing and clamping friction preventing individual wire rotation about their longitudinal axes are ignored in the simulation."
+    ],
+    "control_variables": [
+      "Interwire friction coefficient (0.2 for steel wire rope, 0.115 for SMA wire ropes)",
+      "Ambient temperature (isothermal room temperature T0 = 25 °C for superelastic cables; deformation at T < As followed by heating above Af for SME cables)",
+      "Kinematic coupling and displacement boundary conditions (cantilever setup with reference point 1 translating axially and reference point 2 fully restrained)",
+      "Mesh element type and sizing (C3D8R 0.6 x 0.16 mm for steel rope; quadratic elements 0.05 x 0.03 mm for 1x27 SMA cable and 0.2 x 0.06 mm for 7x7 SMA cable)",
+      "SMA material constitutive parameters (E = 40 GPa for 1x27, E = 74 GPa for 7x7; Poisson ratio = 0.3; transformation parameters b, H, R, e_L, and transformation temperatures As, Af, Ms)"
+    ],
+    "dependent_variables": [
+      "Normal stress (for full cable and individual wire components A, B, C, D)",
+      "Shear stress and torsional torque (for full cable and individual wire components)",
+      "Normal and shear strain (including inelastic strain recovery upon heating)",
+      "Axial force distribution across cable components as a function of displacement",
+      "Specific energy (g = F * delta / M)",
+      "Cable elongation under tensile load"
+    ],
+    "doi": "10.1080/15376494.2021.1955313",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A three-dimensional phenomenological constitutive formulation (Souza model) implemented via UMAT in Abaqus captures the mechanical response of single-helix and double-helix SMA wire ropes under both superelasticity and shape memory effect conditions.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "claim": "Finite element analysis of a 1x37 steel wire rope under axial forces from 10 kN to 35 kN accurately reproduces benchmark numerical elongation results with relative errors below 2%, confirming the validity of the interwire contact and kinematic coupling approach.",
+        "evidence_type": "validation",
+        "page_numbers": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Simulations of 7x7 and 1x27 superelastic SMA wire ropes match published experimental normal and shear stress-strain behaviors with average discrepancies of 20% to 25%.",
+        "evidence_type": "validation",
+        "page_numbers": [
+          5,
+          6,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Axial loading of helical SMA cables induces significant internal shear stresses and torsional torques due to strand helicity, with the sign of shear stress directly dictated by the wire lay direction (left-handed versus right-handed lay).",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14
+        ]
+      },
+      {
+        "claim": "In shape memory effect cables deformed below As, interwire contact and friction lead to residual normal and shear stresses upon unloading, which are subsequently recovered through reverse phase transformation upon heating above Af within a narrow temperature and time range.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7,
+          8,
+          11,
+          14
+        ]
+      },
+      {
+        "claim": "Core wires experience the highest normal stress due to their smaller cross-sectional area but withstand the lowest axial force, whereas outer double-helix wires (such as D-type wires in 7x7 cables) bear the largest portion of the total axial load.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          14
+        ]
+      },
+      {
+        "claim": "Factorial design of experiments and response surface methodology show that maximizing the specific energy of an SME wire rope requires increasing the wire diameter and reducing the helix angle.",
+        "evidence_type": "optimization",
+        "page_numbers": [
+          11,
+          14
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "No original physical experiments were conducted in this study; the authors performed finite element simulations using Abaqus/Standard (implicit solver) with a user-defined material subroutine (UMAT).",
+      "Validation used published experimental test data from Reedlunn et al., where cable ends were clamped between steel plates using pneumatic clamps, axial displacement was imposed at one end, and temperatures were recorded via thermocouples.",
+      "Validation for the contact mechanics modeling used published numerical benchmark results for a 1x37 steel wire rope by Stanova et al.",
+      "Optimization employed a 3^2 factorial design of experiment consisting of 32 finite element simulation runs analyzed via Design-Expert software."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Wire rope geometric configuration (single-helix 1x27 vs. double-helix 7x7)",
+      "Thermomechanical operating regime (superelastic behavior at T > Af vs. shape memory effect behavior at T < As with subsequent heating above Af)",
+      "Radial position / component layer within the strand (core wire A, inner layer B, intermediate layer C, outer layer D)",
+      "Wire diameter D (evaluated at 0.10, 0.20, and 0.38 mm during optimization)",
+      "Helix angle phi (evaluated at 54.9°, 63.0°, and 72.0° during optimization)",
+      "Applied tensile load / axial displacement"
+    ],
+    "limitations_inferred": [
+      "The investigation is entirely numerical and relies strictly on third-party published data for empirical comparison without primary experimental testing.",
+      "Thermomechanical coupling (such as self-heating or latent heat release during rapid phase transformation) is not dynamically resolved, assuming essentially isothermal or prescribed temperature fields.",
+      "Cyclic degradation, fatigue life, fretting wear between wires under repeated loading, and functional fatigue of the SMA were not evaluated.",
+      "Simulated cable lengths were limited to minimal pitch lengths (4 mm for 1x27 and 10 mm for 7x7) to ensure full strand rotation while managing computational cost, which may not capture full-scale boundary friction effects.",
+      "Integration or physical realization of these cables as soft robotic actuators or continuum mechanisms was not demonstrated."
+    ],
+    "limitations_stated_by_authors": [
+      "The implicit finite element solution method employed is computationally complex and time-consuming compared to explicit solvers.",
+      "End clamping and pressing conditions that restrict wire rotation about the longitudinal axis in physical experiments were neglected in the numerical boundary condition setup.",
+      "Tension-compression asymmetry of the shape memory alloy material was not incorporated into the constitutive model.",
+      "Numerical predictions exhibited an average difference of 20% for normal stress and 25% for shear stress compared to experimental data for the 7x7 cable, and up to 25% difference for the 1x27 cable.",
+      "To reduce simulation run times in the factorial optimization, identical wire diameters were assumed for core and twisted wires, restricting the number of explored design factors."
+    ],
+    "main_results": [
+      "The finite element modeling framework successfully captured multi-wire contact and kinematic behavior, matching 1x37 steel cable benchmark data with under 2% error across tensile loads from 10 to 35 kN.",
+      "Superelastic SMA cable models reproduced experimental stress-strain trends with average deviations of 20% to 25%, showing that phase transformation yields substantial normal strains across cable components.",
+      "Axial loading induces coupled torsional torques and shear stresses in both 1x27 and 7x7 cables, with shear stress magnitude significantly higher in 1x27 due to its larger helix angle, and shear stress sign directly governed by strand lay direction.",
+      "In both SE and SME cables, core wires sustain the highest normal stresses (up to ~330 MPa in 7x7 and ~680 MPa in 1x27 SME cables) because of their low cross-sectional area, but they carry the smallest share of total axial force.",
+      "Outer wires with double-helix twisting (D-type wires in 7x7 cables) sustain lower normal and shear stresses but carry the largest portion of total axial force (~260 N) owing to their dominant collective cross-sectional area.",
+      "Upon unloading SME wire ropes at temperatures below As, interwire friction and contact generate residual stresses (~100 MPa in the 7x7 core wire), which together with inelastic strains recover rapidly upon heating above Af.",
+      "Statistical response surface optimization demonstrated that cable specific energy increases with larger wire diameter and smaller helix angle, identifying an optimal configuration at D = 0.38 mm and phi = 54.9°."
+    ],
+    "modeling_methods": [
+      "Three-dimensional phenomenological SMA constitutive model (Souza model) based on plasticity theory and irreversible thermodynamics",
+      "Finite element analysis using implicit solution method in Abaqus software",
+      "User-defined material subroutine (UMAT) implementation",
+      "Kinematic coupling of cross-sectional nodes at centerline reference points to enforce tensile displacement without artificial clamping constraints",
+      "Surface-to-surface interwire contact formulation with tangential and normal interaction including Coulomb friction",
+      "Parametric helical geometric modeling for single-helix and double-helix cables based on Stanova et al. formulation",
+      "Design of experiments (3^2 factorial design and response surface methodology using Design-Expert software)"
+    ],
+    "performance_metrics": [
+      "Specific energy (g = F * delta / M in J/kg or equivalent force*displacement/mass)",
+      "Normal stress-strain response (MPa vs. strain)",
+      "Shear stress-strain response (MPa vs. strain)",
+      "Axial force distribution across components (N) as a function of displacement (mm)",
+      "Inelastic strain recovery as a function of temperature and time during heating",
+      "Discrepancy / percentage error relative to reference experimental and numerical data"
+    ],
+    "possible_gap_implications": [
+      "Because axial tension in helical SMA wire ropes induces significant internal shear stresses and torsional coupling, deploying SMA cables as soft robotic tendons or continuum actuators will require accounting for twisting and transverse contact stresses.",
+      "The presence of significant residual stresses and interwire friction during unloading highlights that hysteresis and internal friction must be integrated into control models for SMA cable-driven mechanisms.",
+      "Neglecting tension-compression asymmetry and realistic boundary clamping resulted in up to 25% discrepancy with experimental tests, indicating that higher-fidelity constitutive formulations are needed for precision soft robotic applications.",
+      "Fretting wear, interwire friction degradation, and cyclic thermomechanical fatigue remain unaddressed, posing an open research question for durable soft robotic actuation."
+    ],
+    "research_objective": "To investigate the mechanical behavior (normal stress, shear stress, strain, temperature, and axial force-displacement relationships) of single-helix (1x27) and double-helix (7x7) SMA wire ropes and their individual components for both superelastic and shape memory effect modes using a 3D phenomenological constitutive model in Abaqus, and to optimize the wire rope geometry for maximum specific energy.",
+    "research_problem": "Lack of detailed investigations into the mechanical behavior, interwire contact mechanics, and component-level stress/strain/force distributions in shape memory alloy (SMA) wire ropes—particularly under the shape memory effect (SME) and double-helix configurations—subjected to tensile loading.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Mechanical response of single and double-helix SMA wire ropes",
+    "year": "2021"
+  }
+}
