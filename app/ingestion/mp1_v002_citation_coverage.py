@@ -102,7 +102,7 @@ def init_payload() -> dict[str, Any]:
             **item,
             "paper_id": "",
             "role": "core_protocol_anchor",
-            "backward": direction(True),
+            "backward": direction(False),
             "forward": direction(True),
         })
 
