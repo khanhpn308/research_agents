@@ -1,6 +1,6 @@
 # MP1 — Mentor-Pivot Current Handoff
 
-> **Status:** MP1-V001 COMPLETE — next round is MP1-V002 targeted citation chasing.  
+> **Status:** MP1-V002 ACTIVE — 8 targeted full texts ingested; next action is the interim targeted-threat audit, followed by protocol-bounded citation coverage if not directly falsified.  
 > **Important:** the existing D1/M1 thesis remains preserved and is NOT replaced unless MP1 survives falsification and a final adjudication explicitly selects it.
 
 ## Mentor-proposed architecture
@@ -161,4 +161,9 @@ The mechanics pivot survives only if NiTi superelasticity changes the pressure-d
 
 ## Immediate action
 
-Perform only the targeted backward/forward citation screening for T1-T3. Do not begin MP1-V003 and do not change the official D1/M1 thesis yet.
+1. Pull the latest repo state.
+2. Run `mp1_v002_targeted_threat_audit --prepare-only`.
+3. If preparation passes, run the formal interim V002 targeted-threat audit.
+4. If the interim result is not `FALSIFIED`, initialize `mp1_v002_citation_coverage --init`.
+5. Perform only the required backward/forward citation screening recorded by that tracker.
+6. Do not begin MP1-V003 and do not replace the official D1/M1 thesis yet.
