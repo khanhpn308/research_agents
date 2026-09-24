@@ -1,526 +1,325 @@
 # MP1-V002 — Current Handoff
 
-> **Purpose:** fast handoff for continuing MP1-V002 in a new chat without reconstructing the full history.  
-> **Status:** MP1-V002 ACTIVE. Interim full-text audit has substantially narrowed the direction; citation coverage is still open.  
-> **Important:** D1/M1 remains the preserved thesis direction until MP1 survives final adjudication.
+> **Mục đích:** checkpoint ngắn gọn nhưng đủ chính xác để một chat/agent mới có thể tiếp tục MP1-V002 mà không phải dựng lại lịch sử.  
+> **Checkpoint:** 2026-09-25.  
+> **Trạng thái:** `MP1-V002 ACTIVE`; matrix = **10 full-text papers**; audit = `SUBSTANTIALLY_NARROWED`, `confidence = high`; citation coverage vẫn **OPEN**.  
+> **Quan trọng:** D1/M1 vẫn là thesis direction được bảo toàn. MP1 chưa thay thế D1/M1.
 
-## 1. Current scientific state
+## 1. Tóm tắt một câu
 
-MP1 began from the mentor-proposed architecture:
+MP1 đã đi từ một kiến trúc “NiTi wire bundle + positive pressure + jamming + compact SMA pressure source” sang một câu hỏi mechanics rất hẹp:
 
-```text
-superelastic NiTi / metallic wire bundle
-+ positive-pressure confinement
-+ inter-wire frictional jamming
-+ variable bending stiffness
-+ optional SMA-driven syringe/piston pressure source
-```
+> Dưới actively varied confinement pressure, pressure và curvature chi phối stick-slip và bending stiffness của một superelastic NiTi wire bundle như thế nào, và response đó có vượt ra ngoài existing elastic-fiber/contact model chỉ với parameter substitution hay không?
 
-MP1-V001 formally returned:
+## 2. Vì sao không còn theo novelty kiểu component combination?
+
+MP1-V001 đã trả:
 
 ```text
 STATUS      = PIVOT_TO_MECHANICS_CORE
 CONFIDENCE  = high
 ```
 
-Broad claims already closed or substantially pre-empted:
+Các broad claims bị đóng/pre-empt:
 
 - wire/fiber jamming;
 - positive-pressure jamming;
-- SMA + jamming in one device;
-- compact/onboard pressure source;
-- SMA-driven pump/syringe as a stand-alone novelty claim;
+- SMA + jamming trong cùng device;
+- compact/onboard jamming pressure source;
+- SMA-driven syringe/piston như stand-alone contribution;
 - mechanical piston-driven jamming;
-- NiTi tendons/wires merely being present in a variable-stiffness robot.
+- NiTi chỉ đóng vai trò tendon/backbone trong variable-stiffness robot.
 
-The surviving question moved to mechanics rather than component combination.
+Do đó không được dùng “NiTi thay nylon”, “SMA thay motor”, “syringe thay pump” hoặc “robot khác” làm novelty.
 
-## 2. MP1-V002 interim result
+## 3. Audit 10-paper mới nhất
 
-The current 8-paper full-text threat set produced:
+Canonical matrix:
+
+`outputs/verification/MP1-V002/verification_matrix.json`
+
+```text
+paper_count = 10
+```
+
+Kết quả:
 
 ```text
 STATUS      = SUBSTANTIALLY_NARROWED
 CONFIDENCE  = high
 ```
 
-Interpretation:
+Canonical audit:
 
-### T1 — NiTi wires as contacting/slipping frictional bundles
+- `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json`
+- `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.md`
 
-**Substantially closed.**
+### T1 — CLOSED_BY_FULL_TEXT
 
-Prior literature already establishes NiTi/Nitinol strands, ropes, cables, and braided microfilaments with:
+NiTi/Nitinol cable/strand/rope literature đã có:
 
-- inter-wire/inter-filament contact;
-- friction and micro-slip;
-- hysteresis and damping;
-- superelastic / phase-transformation response;
-- structural stiffness effects.
+- wire-wire contact;
+- Coulomb friction;
+- micro-slip/sliding;
+- hysteresis/damping;
+- phase transformation;
+- architecture-dependent effective stiffness.
 
-Therefore, `NiTi + inter-wire friction + hysteresis` is not a defensible novelty claim by itself.
+Kết luận:
 
-### T2 — actively pressure-controlled NiTi/metallic wire bundle
+```text
+NiTi + inter-wire friction/slip + hysteresis = prior art
+```
 
-**Still open in the current full-text set.**
+Không claim novelty ở đây.
 
-The present evidence includes:
+### T2 — OPEN_IN_CURRENT_FULL_TEXT_SET
 
-- passive contact pressure caused by helix geometry;
+Đã có:
+
+- passive contact pressure;
 - axial-load-induced radial pressure;
 - manufacturing/preforming pressure;
-- fixed preload or confinement;
+- fixed radial preload.
 
-but has not yet established:
-
-```text
-actively varied positive / radial / transverse confinement pressure
-→ changes wire-wire normal force
-→ changes friction / stick-slip state
-→ changes bending or flexural stiffness
-```
-
-for a NiTi wire bundle.
-
-### T3 — NiTi superelasticity coupled with pressure-controlled contact/slip/stiffness
-
-**Substantially narrowed.**
-
-NiTi phase transformation + inter-wire friction is already known. The remaining candidate contribution is narrower:
+Chưa có trong full-text matrix:
 
 ```text
-actively varied confinement pressure
-+
-NiTi phase transformation / superelasticity
-+
-inter-wire contact / stick-slip
-+
-bending stiffness / hysteresis
+actively varied external confinement pressure
+→ NiTi/metallic wire bundle
+→ change inter-wire normal force
+→ change friction / stick-slip
+→ change bending stiffness
 ```
 
-## 3. Current provisional mechanics core
+T2 là phần còn mở quan trọng nhất.
 
-The strongest surviving question is:
+### T3 — SUBSTANTIALLY_PREEMPTED
 
-> Does actively varied radial/transverse confinement pressure create pressure-dependent stick/slip, bending stiffness, and hysteresis in a superelastic NiTi wire bundle that cannot be reproduced adequately by an existing elastic-fiber/contact model using only substituted material modulus and friction parameters?
+NiTi phase transformation + inter-wire friction/slip/hysteresis đã có prior art.
 
-### Kill test
+Phần còn mở là:
 
-MP1 should be killed or narrowed again if prior work shows either:
+```text
+P3 active confinement
+× NiTi transformation
+× inter-wire contact/slip
+→ pressure-dependent bending stiffness / hysteresis
+```
 
-1. actively pressure-controlled NiTi/metallic wire-bundle stiffness mechanics already exist; or
-2. the proposed response is adequately reproduced by an existing elastic-fiber/contact framework with only parameter substitution.
+## 4. Hai paper mới đã giải quyết gì?
 
-## 4. Pressure classification used in V002
+Sau metadata screening, hai full texts được thêm để đánh parameter-substitution kill test:
 
-Every pressure-related source must be classified as:
+### Reedlunn, Daly & Shaw 2013
+
+- paper_id: `fac21c950e`
+- DOI: `10.1016/j.ijsolstr.2013.03.015`
+
+Đóng góp đối với audit:
+
+- hierarchical subcomponent response của 7×7 và 1×27 NiTi cables;
+- phase transformation front propagation;
+- cable architecture làm thay đổi compliance;
+- analytical model đơn giản bắt đầu sai khi helix angle lớn vì bỏ qua local bending/twisting;
+- paper thừa nhận localized radial contact pressure có thể bị bỏ sót trong response decomposition.
+
+Không có P3 active confinement control.
+
+### Fang et al. 2019
+
+- paper_id: `2f7fcf2f8f`
+- DOI: `10.1016/j.engstruct.2019.01.049`
+
+Đóng góp đối với audit:
+
+- 7×7 NiTi cable hysteresis;
+- phenomenological multi-layer modelling;
+- stiffness-reduction factors;
+- non-synchronous wire engagement;
+- cyclic degradation.
+
+Paper cho thấy cable-level hysteresis có thể được fit bằng reduced-order model mà không resolve full contact mechanics, vì vậy tăng **parameter-substitution/reduced-order risk**.
+
+Nhưng không có actively varied external confinement pressure.
+
+## 5. Parameter-substitution kill test hiện tại
+
+Audit trả:
+
+```text
+existing_elastic_fiber_model_appears_sufficient = false
+niti_requires_distinct_constitutive_contact_coupling = false
+evidence_status = insufficient
+```
+
+Không được diễn giải thành “NiTi chắc chắn cần model mới”.
+
+Ý nghĩa đúng:
+
+- existing models chưa được chứng minh là đủ cho pressure-controlled bending;
+- cũng chưa chứng minh distinct NiTi constitutive-contact coupling là bắt buộc;
+- direct baseline comparison vẫn cần thiết.
+
+## 6. Pressure classification
 
 ```text
 P1 = passive contact pressure
-     caused by helix geometry, axial load, bending, or deformation
-
 P2 = fixed preload / fixed confinement
-     imposed but not varied as an operational control variable
-
 P3 = actively varied confinement pressure
-     pressure is an independent control variable during operation
 ```
 
-Only **P3** is a direct threat to the currently surviving pressure-controlled mechanics question.
+Chỉ P3 là direct threat cho mechanics core.
 
-## 5. Current 8-paper targeted full-text set
+## 7. Citation metadata screening
 
-The V002 matrix already includes the targeted NiTi/cable mechanics sources selected after Scopus T1-T3 searching, including:
-
-- Carboni et al. — Nitinol/steel strand hysteresis and inter-wire friction;
-- Liu et al. — superelastic SMA cable mechanics / simplified FE;
-- Vahidi et al. — single/double-helix SMA wire ropes;
-- Niu/Chen lineage — Nitinol wire-rope nonlinear response;
-- Xin Liu — cable vibration considering internal friction;
-- Tjahjanto et al. — cable-core bending/contact mechanics;
-- Liu et al. — braided NiTi microfilaments;
-- Silva et al. — NiTi SMA superelastic micro-cables.
-
-Key current conclusion from this set:
+Input:
 
 ```text
-NiTi + inter-wire friction/slip + hysteresis = known
-active pressure control of NiTi bundle stiffness = not established in current set
+8 CSV exports
+187 raw records
+178 deduplicated candidates
 ```
 
-## 6. Citation-chasing protocol now in force
-
-Protocol:
-
-`docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
-
-No broad keyword search should be reopened unless a later adjudication explicitly requires it.
-
-Required coverage:
-
-### Backward citation branches
-
-1. **B01 — Carboni et al.**
-   - DOI: `10.1061/(ASCE)EM.1943-7889.0000852`
-   - Direction: References / backward
-
-2. **B02 — Vahidi et al.**
-   - DOI: `10.1080/15376494.2021.1955313`
-   - Direction: References / backward
-
-3. **B03 — Xin Liu thesis**
-   - Title: *Cable Vibration Considering Internal Friction*
-   - University of Hawai‘i, M.S. thesis, 2004
-   - DOI: none
-   - Direction: References / backward
-
-4. **B04 — Tjahjanto et al.**
-   - DOI: `10.1115/OMAE2017-62553`
-   - Direction: References / backward
-
-5. **B05 — braided NiTi microfilaments**
-   - DOI: `10.1016/j.matlet.2026.141544`
-   - Direction: References / backward
-
-6. **B06 — Silva et al.**
-   - DOI: `10.3390/s22208045`
-   - Direction: References / backward
-   - Scopus does not expose the full reference list; use the publisher reference list:
-     `https://www.mdpi.com/1424-8220/22/20/8045#References`
-
-### Forward citation branches
-
-1. **F01 — Bai et al. 2022**
-   - DOI: `10.3390/app12073582`
-
-2. **F02 — Liu et al. 2021**
-   - DOI: `10.1109/LRA.2021.3097255`
-
-3. **F03 — Zhang & Yao 2026**
-   - DOI: `10.5194/ms-17-481-2026`
-   - Current Scopus result: **0 forward citations**
-   - Record this as a completed zero-result branch.
-
-4. **F04 — Takashima et al. 2022**
-   - DOI: `10.20965/jrm.2022.p0466`
-
-5. **F05 — Matsumoto et al. 2024**
-   - DOI: `10.1299/mej.24-00130`
-   - ResearchGate currently reports 1 citation.
-   - Need metadata of the **citing paper**, not another copy of the Matsumoto abstract.
-
-6. **F06 — Wang et al. 2024**
-   - DOI: `10.1108/IR-11-2023-0305`
-   - Current Scopus result: **0 forward citations**
-   - Record this as a completed zero-result branch.
-
-## 7. Citation exports already collected
-
-Current working set contains:
+Classification:
 
 ```text
-B01.csv
-B02.csv
-B03.csv
-B04.csv
-B05.csv
-
-F01.csv
-F02.csv
-F04.csv
+POTENTIAL_KILL_PAPER = 0
+GET_FULL_TEXT        = 12
+KEEP_METADATA        = 85
+UNCERTAIN            = 0
+EXCLUDE              = 81
 ```
 
-Observed record counts:
+Canonical files:
+
+- `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.json`
+- `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.csv`
+- `outputs/verification/MP1-V002/citation_screening/FULL_TEXT_SHORTLIST.csv`
+
+Metadata-only labels không phải scientific evidence. Full-text audit mới được dùng để quyết định mechanics.
+
+## 8. Citation coverage sau audit 10-paper
+
+Tracker:
+
+- `outputs/verification/MP1-V002/citation_coverage.json`
+- `outputs/verification/MP1-V002/CITATION_COVERAGE_STATUS.md`
+
+Hiện tại:
 
 ```text
-B01 = 57
-B02 = 33
-B03 = 4
-B04 = 9
-B05 = 10
+required directions = 14
+backward required   = 8
+forward required    = 6
 
-F01 = 14
-F02 = 51
-F04 = 9
-
-Total CSV records = 187
+all_required_directions_screened = false
+no_unresolved_high_threat_source = true
+stop_condition_satisfied         = false
+search_cutoff_date               = NOT SET
 ```
 
-Still to preserve manually:
+Tracker vừa được re-init từ audit 10-paper, nên các branch đã thu thập trước đó chưa được ghi lại status screened trong JSON mới.
+
+### Backward required
+
+- B01 — Carboni et al.
+- B02 — Vahidi et al.
+- B03 — Xin Liu thesis.
+- B04 — Tjahjanto et al.
+- B05 — braided NiTi microfilaments.
+- B06 — Silva et al. 2022.
+- B07 — Niu & Chen 2021, DOI `10.3390/app112110032`.
+- B08 — Reedlunn et al. 2013, DOI `10.1016/j.ijsolstr.2013.03.015`.
+
+### Forward required
+
+- F01 — Bai et al. 2022.
+- F02 — Liu et al. 2021.
+- F03 — Zhang & Yao 2026.
+- F04 — Takashima et al. 2022.
+- F05 — Matsumoto et al. 2024.
+- F06 — Wang et al. 2024.
+
+## 9. Citation provenance đã có
+
+Đã preserve:
+
+`data/search_exports/MP1-V002/raw/backward/`
+
+và:
+
+`data/search_exports/MP1-V002/raw/forward/`
+
+B06/F03/F05/F06 có manual provenance files trong repo.
+
+F03 và F06 là zero-result branches theo Scopus cutoff 2026-09-24.
+
+F05 citing paper đã resolve thành Takashima et al. 2026, DOI `10.20965/jrm.2026.p0646`; human screen = `KEEP_METADATA`.
+
+## 10. Stop condition
+
+V002 chỉ đóng khi:
+
+1. mọi required backward/forward branch đã được screen;
+2. `search_date` và `records_screened` được ghi;
+3. mọi high-threat candidate được resolve hoặc liệt kê unresolved;
+4. `citation_coverage --check` trả stop condition satisfied.
+
+Absence of a matching paper chỉ là **protocol-bounded result**, không phải proof of universal novelty.
+
+## 11. Việc tiếp theo
+
+Không broad search.
+
+Ưu tiên:
 
 ```text
-B06_silva_publisher_references.txt
-F03_zhang_yao_zero.txt
-F05_matsumoto_researchgate.txt
-F06_wang_zero.txt
+screen/resolve B07 + B08
+→ populate screening status for B01-B08 and F01-F06
+→ set search_cutoff_date
+→ run citation_coverage --check
+→ resolve any new high-threat source if exposed
+→ final MP1-V002 adjudication
 ```
 
-CSV is not mandatory for coverage. A publisher reference list, secondary-document record, or manual zero-result record is acceptable if provenance is explicit.
+Nếu B07/B08 chỉ dẫn về passive/fixed cable pressure, generic wire-rope damping hoặc uniaxial SMA hysteresis thì không kill T2.
 
-## 8. Recommended repository layout for citation exports
+## 12. Kill conditions còn hiệu lực
 
-```text
-data/search_exports/MP1-V002/raw/backward/
-    B01.csv
-    B02.csv
-    B03.csv
-    B04.csv
-    B05.csv
-    B06_silva_publisher_references.txt
+Kill hoặc narrow MP1 nếu:
 
-data/search_exports/MP1-V002/raw/forward/
-    F01.csv
-    F02.csv
-    F03_zhang_yao_zero.txt
-    F04.csv
-    F05_matsumoto_researchgate.txt
-    F06_wang_zero.txt
-```
-
-Zero-result note example:
-
-```text
-Anchor DOI: 10.5194/ms-17-481-2026
-Database: Scopus
-Search date: 2026-09-24
-Direction: forward
-Records found: 0
-Conclusion: No forward citations available in Scopus at the search cutoff date.
-```
-
-## 9. Screening rubric for citation candidates
-
-Do not ingest all citation records.
-
-Classify metadata candidates as:
-
-```text
-EXCLUDE
-→ unrelated to T1/T2/T3
-
-KEEP_METADATA
-→ relevant mechanics but not a direct threat
-
-GET_FULL_TEXT
-→ plausible threat to the remaining T2/T3 mechanics
-
-POTENTIAL_KILL_PAPER
-→ direct threat to the surviving mechanics core
-```
-
-A strong kill candidate should approach:
-
-```text
-actively varied confinement pressure
-+
-metallic / NiTi wire bundle
-+
-inter-wire normal-force / friction / stick-slip mechanics
-+
-bending / flexural stiffness
-```
-
-or:
-
-```text
-NiTi phase transformation
-+
-pressure-controlled contact/slip
-+
-structural stiffness / hysteresis
-```
-
-## 10. Important cable-mechanics lineage already exposed
-
-The Xin Liu thesis confirms a prior cable-mechanics lineage involving:
-
-- Lanteigne (1985) — helically armored cable response;
-- Sauter & Hagedorn (2002) — hysteresis of wire cables in Stockbridge dampers;
-- Sauter (2003) — dynamic characteristics of slack wire cables;
-- Vinogradov & Atatekin (1986);
-- Zhong (2003) — frictional bending model;
-- related work on wire slippage and curvature-dependent flexural rigidity.
-
-These are relevant mechanics sources, but passive/internal radial pressure or friction does not automatically close the active-pressure question.
-
-## 11. Citation coverage tracker
-
-Current tracker script:
-
-`app/ingestion/mp1_v002_citation_coverage.py`
-
-Commands:
-
-```bash
-python -m app.ingestion.mp1_v002_citation_coverage --check
-```
-
-Before citation screening, the tracker reported an open stop condition with:
-
-```text
-6 required forward branches
-6 required backward branches
-+ unresolved named high-threat sources
-```
-
-The tracker should only be marked complete after each required branch is actually screened and any high-threat candidate is either resolved or explicitly left unresolved.
-
-## 12. Immediate next action
-
-Do **not** download dozens of full texts yet.
-
-Next workflow:
-
-```text
-complete B06/F03/F05/F06 provenance files
-→ normalize/deduplicate citation metadata
-→ screen titles + abstracts
-→ classify EXCLUDE / KEEP_METADATA / GET_FULL_TEXT / POTENTIAL_KILL_PAPER
-→ download only high-threat full texts
-→ register those new full texts under MP1-V002
-→ ingest
-→ rebuild verification matrix
-→ re-audit / final V002 adjudication after coverage closes
-```
+1. prior art cho thấy P3 actively pressure-controlled metallic/NiTi wire-bundle stiffness mechanics đã tồn tại; hoặc
+2. parameter substitution trong existing elastic-fiber/contact framework đủ để reproduce pressure-dependent bending response.
 
 ## 13. Guardrails
 
-Do not claim novelty from:
+Không được claim novelty từ:
 
-- NiTi instead of nylon;
-- wire instead of fiber;
-- SMA instead of another actuator;
-- syringe/piston instead of an existing pump;
-- a different robot platform;
-- generic NiTi cable hysteresis;
-- passive cable contact pressure;
-- fixed preload alone.
+- NiTi thay nylon;
+- material substitution;
+- generic NiTi cable friction;
+- SMA + jamming trong cùng robot;
+- compact pump/syringe;
+- passive radial pressure;
+- fixed preload.
 
-Do not equate:
-
-```text
-NiTi wire rope friction
-==
-pressure-controlled NiTi jamming
-```
-
-and do not equate:
+Không đánh đồng:
 
 ```text
-passive radial contact pressure
-==
-actively varied confinement pressure
+wire-rope friction != pressure-controlled wire jamming
+P1/P2 pressure      != P3 active confinement
 ```
 
-## 14. Canonical project files
+## 14. File cần đọc khi handoff
 
-- `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
-- `docs/project/MP1-V002_CURRENT_HANDOFF.md`
-- `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
-- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.md`
-- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
-- `outputs/verification/MP1-V002/verification_matrix.json`
-- `outputs/verification/MP1-V002/verification_matrix.md`
+1. `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
+2. `docs/project/MP1-V002_CURRENT_HANDOFF.md`
+3. `docs/project/MP1_MENTOR_PIVOT_TUTOR.md`
+4. `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
+5. `outputs/verification/MP1-V002/verification_matrix.json`
+6. `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json`
+7. `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.json`
+8. `outputs/verification/MP1-V002/citation_coverage.json`
+9. `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
 
-When continuing in a new chat, read this file first, then the V002 protocol, then the latest citation-coverage output.
-
-
-## 15. Continuation checkpoint — 2026-09-24 citation provenance
-
-A follow-on citation-provenance pass completed the four manual artifacts that were still open in Section 7.
-
-Preserved on branch `mp1-v002-citation-provenance-20260924`:
-
-```text
-data/search_exports/MP1-V002/raw/backward/
-    B06_silva_publisher_references.txt
-
-data/search_exports/MP1-V002/raw/forward/
-    F03_zhang_yao_zero.txt
-    F05_matsumoto_researchgate.txt
-    F06_wang_zero.txt
-```
-
-### B06 interim metadata screen
-
-Silva et al. (2022) exposes 22 publisher references.
-
-Current pressure classification for the branch remains:
-
-```text
-P1/passive cable contact pressure and geometry = present
-P3 actively varied confinement pressure         = not identified
-```
-
-Two references are promoted for later full-text review because they matter to the parameter-substitution kill test:
-
-1. Reedlunn, Daly & Shaw (2013), Part II — DOI `10.1016/j.ijsolstr.2013.03.015`
-   - reason: hierarchical NiTi cable subcomponent/contact mechanics and phase-transformation response;
-   - current disposition: `GET_FULL_TEXT`;
-   - no P3 pressure-control signal in metadata.
-
-2. Fang et al. (2019) — DOI `10.1016/j.engstruct.2019.01.049`
-   - reason: superelastic NiTi cable hysteretic modelling and an effective numerical modelling approach;
-   - current disposition: `GET_FULL_TEXT`;
-   - no P3 pressure-control signal in metadata.
-
-Other cable-specific B06 references remain `KEEP_METADATA` unless full text exposes active radial/transverse confinement. Bulk NiTi material/fatigue/R-phase references are not direct threats to the surviving T2/T3 mechanics and can be `EXCLUDE` from this branch.
-
-### F05 resolved
-
-The single citing work for Matsumoto et al. (2024) is:
-
-```text
-Kazuto Takashima; Yuma Hirose; Hidetaka Suzuki; Hiroki Cho
-Pick-and-Place Motion by Two-Robot-Arm System Equipped with
-Variable-Stiffness and Deformable Link Using Shape-Memory Alloy
-and Jamming Transition Phenomenon
-Journal of Robotics and Mechatronics 38(2):646-657 (2026)
-DOI: 10.20965/jrm.2026.p0646
-```
-
-Screening disposition:
-
-```text
-KEEP_METADATA
-```
-
-Reason: this extends the SMA + jamming robot-link lineage but does not establish actively varied radial/transverse confinement of a metallic/NiTi wire bundle controlling inter-wire normal force, stick-slip, and flexural stiffness.
-
-### F03 / F06
-
-The previously obtained Scopus zero-result checks are now preserved as provenance records:
-
-```text
-F03  DOI 10.5194/ms-17-481-2026  forward citations = 0
-F06  DOI 10.1108/IR-11-2023-0305 forward citations = 0
-search cutoff = 2026-09-24
-```
-
-These are protocol-bounded zero results, not universal novelty evidence.
-
-### Remaining execution dependency
-
-The 187 CSV records (B01-B05, F01, F02, F04) exist in the local working set described above but are not present on GitHub or in the connected Project/Library file surface. Therefore the deterministic metadata-screening script cannot be executed from the connected environment without inventing records.
-
-The next exact local command remains:
-
-```bash
-python -m app.ingestion.mp1_v002_screen_citation_metadata
-```
-
-Expected inputs:
-
-```text
-data/search_exports/MP1-V002/raw/backward/B01.csv ... B05.csv
-data/search_exports/MP1-V002/raw/forward/F01.csv F02.csv F04.csv
-```
-
-After that command, inspect:
-
-```text
-outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.csv
-outputs/verification/MP1-V002/citation_screening/FULL_TEXT_SHORTLIST.csv
-```
-
-Do not download full text for the full 187-record set. Only resolve `POTENTIAL_KILL_PAPER` and `GET_FULL_TEXT` candidates, including the two B06 modelling/mechanics candidates above.
