@@ -224,7 +224,7 @@ def named_source_matches_title(source: str, title: str) -> bool:
     shared = source_tokens & title_tokens
     shorter = min(len(source_tokens), len(title_tokens))
 
-    return len(shared) >= 4 and (len(shared) / shorter) >= 0.65
+    return len(shared) >= 4 and (len(shared) / shorter) >= 0.60
 
 
 def historical_direction(
