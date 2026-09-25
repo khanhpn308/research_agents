@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "D1_HUMAN_REVIEW_CLEARANCE",
+  "canonical_filename": "D1_HUMAN_REVIEW_CLEARANCE.json",
+  "artifact_type": "CANONICAL_W11",
+  "worker_id": "W11",
+  "plan_version": "V6",
+  "created_at": "2026-09-26T05:21:00+07:00",
+  "total_reviews": 6,
+  "cleared_reviews": 0,
+  "pending_reviews": 4,
+  "blocked_reviews": 2,
+  "hg09_precheck": "BLOCKED",
+  "reviews": [
+    {
+      "review_id": "D1-REVIEW-001",
+      "gate": "OTHER",
+      "trigger": "W09 materially narrowed C02/C04 and redefined the surviving candidate scope.",
+      "artifact_under_review": "outputs/d1_execution/V4/W09/D1_CLAIM_EVOLUTION_MATRIX.json; D1_NOVELTY_CANDIDATE_REGISTER.json",
+      "claim_id": "NC-04",
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "NOT_REVIEWED",
+      "conditions": [
+        "Human confirms that generic N-layer partial interaction and generic threshold selection are not presented as novelty.",
+        "Human accepts the narrowed residual M→R→E validity question as the object to attack, not as a final novelty verdict."
+      ],
+      "evidence_reviewed": [
+        "D1-CON-002",
+        "W09 novelty/non-novelty registers"
+      ],
+      "sign_off_status": "PENDING",
+      "notes": "Material candidate revision requires explicit human disposition before final synthesis."
+    },
+    {
+      "review_id": "D1-REVIEW-002",
+      "gate": "OTHER",
+      "trigger": "New 2025 full-text named source T1 creates material partial overlap in direct vacuum-layer-jamming experiments.",
+      "artifact_under_review": "outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json#D1-TH-014",
+      "claim_id": "NC-02",
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "NOT_REVIEWED",
+      "conditions": [
+        "Human confirms physical slip-regime mapping is not being conflated with model-validity boundary mapping."
+      ],
+      "evidence_reviewed": [
+        "D1-TH-014",
+        "D1-SEARCH-W10-001"
+      ],
+      "sign_off_status": "PENDING",
+      "notes": "W10 classification is PARTIAL_OVERLAP; no final K verdict is made."
+    },
+    {
+      "review_id": "D1-REVIEW-003",
+      "gate": "OTHER",
+      "trigger": "New 2026 named source T2 is direct vacuum-MLJ + analytical model + cyclic experiment but full text is unavailable to the current execution.",
+      "artifact_under_review": "outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json#D1-TH-015",
+      "claim_id": "NC-04",
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "REVISION_REQUIRED",
+      "conditions": [
+        "Obtain and audit the full text before any survival/no-kill use of K1-K9.",
+        "If full text cannot be obtained, keep affected K-tests UNRESOLVED and final D1 outcome cannot be SURVIVES_TARGETED_NOVELTY_AUDIT."
+      ],
+      "evidence_reviewed": [
+        "D1-TH-015",
+        "D1-UT-001",
+        "D1-SEARCH-W10-002"
+      ],
+      "sign_off_status": "BLOCKED",
+      "notes": "Abstract/metadata cannot close the threat."
+    },
+    {
+      "review_id": "D1-REVIEW-004",
+      "gate": "THRESHOLD",
+      "trigger": "Canonical M1 architecture explicitly states ERROR TOLERANCES are not yet defined.",
+      "artifact_under_review": "outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json",
+      "claim_id": "THRESHOLD-GOVERNANCE",
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "REVISION_REQUIRED",
+      "conditions": [
+        "Provide uncertainty and engineering-use justification for output-specific tolerances.",
+        "Freeze epsilon_w, epsilon_K and epsilon_Q before final project validation/error inspection.",
+        "Do not adopt 5% merely because ca46dc062d used an adopted/post-hoc 5% applicability threshold."
+      ],
+      "evidence_reviewed": [
+        "M1_RESEARCH_ARCHITECTURE",
+        "D1-PQA-012"
+      ],
+      "sign_off_status": "BLOCKED",
+      "notes": "HG-06 is blocked by missing tolerance values/basis, not by post-hoc leakage of new project validation data."
+    },
+    {
+      "review_id": "D1-REVIEW-005",
+      "gate": "OTHER",
+      "trigger": "ca46dc062d is a direct threat to the M→R/error-boundary core and conceptual-equivalence case.",
+      "artifact_under_review": "outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json#D1-TH-005",
+      "claim_id": "NC-04",
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "NOT_REVIEWED",
+      "conditions": [
+        "W12 must evaluate frozen K2/K3/K4/K6/K7/K8/K9 without broadening criteria post hoc.",
+        "Any KILL or UNRESOLVED result requires explicit human disposition."
+      ],
+      "evidence_reviewed": [
+        "D1-TH-005",
+        "D1-CON-002"
+      ],
+      "sign_off_status": "PENDING",
+      "notes": "Pre-registered human-review dependency for the strongest same-act threat."
+    },
+    {
+      "review_id": "D1-REVIEW-006",
+      "gate": "FINAL_ADJUDICATION",
+      "trigger": "Final D1 pre-adjudication sign-off is mandatory.",
+      "artifact_under_review": "future D1 final evidence map / K1-K9 / red-team package",
+      "claim_id": null,
+      "K_test_id": null,
+      "review_required": true,
+      "reviewer": null,
+      "review_date": null,
+      "decision": "NOT_REVIEWED",
+      "conditions": [
+        "All K-tests resolved or outcome set to INCONCLUSIVE under cleared review.",
+        "All blocking threat/full-text/threshold issues resolved.",
+        "No unsupported thesis-critical claim and no open critical contradiction."
+      ],
+      "evidence_reviewed": [],
+      "sign_off_status": "PENDING",
+      "notes": "Cannot be cleared before W12/S14 outputs exist."
+    }
+  ],
+  "final_novelty_adjudication": "NOT_PERFORMED"
+}
