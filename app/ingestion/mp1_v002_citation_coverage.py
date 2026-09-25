@@ -71,6 +71,13 @@ HISTORICAL_COVERAGE: dict[tuple[str, str], dict[str, Any]] = {
         "source_paths": ["data/search_exports/MP1-V002/raw/backward/B01.csv"],
         "notes": "Restored from B01 citation export and completed metadata/full-text screening.",
     },
+    ("doi:10.1061/(asce)em.1943-7889.0001072", "backward"): {
+        "status": "screened_candidates_found",
+        "search_date": "2026-09-25",
+        "records_screened": 34,
+        "source_paths": ["data/search_exports/MP1-V002/raw/backward/B09.csv"],
+        "notes": "Restored from B09 citation export and 13-paper chase screening; candidates were human-reviewed and promoted when warranted.",
+    },
     ("doi:10.1080/15376494.2021.1955313", "backward"): {
         "status": "screened_candidates_found",
         "search_date": "2026-09-24",
