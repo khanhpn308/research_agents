@@ -1,477 +1,374 @@
 # PROJECT HANDOFF — CURRENT RESEARCH STATE
 
-> **Purpose:** Fast handoff for a new chat/agent.  
-> **Use this file as the current project entry point.**  
-> For any thesis-critical claim, drill down into the referenced canonical files and original evidence rather than trusting this summary alone.
+> **Purpose:** Fast handoff cho chat/agent mới.
+> **Authority:** File này là current project entry point, nhưng thesis-critical claim phải drill down tới canonical JSON / evidence / PDF.
+> **Updated:** 2026-09-25 sau final MP1-V002 adjudication và final D1/M1-vs-MP1 cross-direction adjudication.
 
 ---
 
-# 1. Current thesis title
+# 1. Current selected thesis direction
+
+```text
+selected_direction = D1_M1
+decision           = LOCK_WITH_FEASIBILITY_GATE
+confidence         = medium
+astra_required     = false
+```
+
+D1/M1 được chọn thay vì mentor-proposed MP1 sau khi **cả hai hướng** đã trải qua adversarial novelty/falsification workflows riêng.
+
+Điều này là **conditional lock**, chưa phải irreversible commitment.
+
+---
+
+# 2. Current thesis title
 
 ## English
 
-**Validity Assessment of a Continuum Model for Vacuum Layer-Jamming Beams through Full-Layer Simulation and Experimental Validation**
+**Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams**
 
 ## Vietnamese
 
-**Đánh giá giới hạn hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không bằng mô phỏng toàn lớp và kiểm chứng thực nghiệm**
+**Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không**
 
-This is the current working thesis title and should be treated as the default title unless deliberately revised later.
-
----
-
-# 2. Research direction in one sentence
-
-The thesis asks:
-
-> **Under what conditions is a selected continuum model for a vacuum layer-jamming beam sufficiently accurate, and under what conditions does it break down when compared against a higher-fidelity full-layer reference and physical experiments?**
-
-The thesis is therefore a **model-validity / model-form-error study**, not a project to invent a new continuum model.
+Đây là working title có authority cao nhất hiện tại vì xuất phát từ final cross-direction adjudication.
 
 ---
 
-# 3. Core research architecture
+# 3. Research direction in one sentence
 
-Use the shorthand:
+Luận văn hỏi:
 
-~~~text
+> Trong miền layer count × vacuum pressure × quasi-static bending severity được khai báo trước, khi nào Zhang et al. continuum layer-jamming beam model đạt độ chính xác chấp nhận được so với một full-layer frictional-contact reference đã kiểm chứng và thí nghiệm độc lập, và contact/slip mechanism nào giải thích breakdown khi model thất bại?
+
+Đây là **model-validity / model-form-error study**, không phải project phát minh một continuum model mới.
+
+---
+
+# 4. Core research architecture
+
+Dùng shorthand:
+
+```text
 M → R → E
-~~~
-
-where:
+```
 
 ## M — Reduced / continuum model
 
-The selected model is:
+**M1 — Zhang et al., _A continuum-based model for a layer jamming beam_**
 
-**M1 — Zhang et al., _A continuum-based model for a layer jamming beam_**  
-DOI: **10.5194/ms-16-821-2025**
+DOI: `10.5194/ms-16-821-2025`
 
-M1 replaces an explicitly layered stack with a continuum beam representation and predicts quantities such as:
+M1 là model cụ thể đang được đánh giá.
 
-- shear stress distribution;
-- jammed / partial-slip / full-slip state;
-- slip-zone boundary;
-- bending response;
-- load-deflection behavior.
+## R — Higher-fidelity numerical reference
 
-## R — Reference model
+Current scoped reference:
 
-Current provisional reference:
+> **Full-layer explicit frictional-contact finite-element model**
 
-> **Full-layer explicit-contact finite-element model**
-
-R should explicitly represent:
+R phải represent đủ các cơ chế cần để làm comparison có ý nghĩa:
 
 - individual layers;
-- interfaces between layers;
 - normal contact;
 - Coulomb friction;
 - stick/slip;
-- possible separation/lift-off;
-- vacuum-pressure-related normal contact mechanics.
+- relevant separation/lift-off nếu xuất hiện;
+- vacuum-pressure-related normal contact mechanics;
+- verified numerical convergence.
 
-R is a **higher-fidelity numerical reference**, not "truth."
+R là higher-fidelity reference, không được gọi là “truth”.
 
 ## E — Experiment
 
-Physical layer-jamming beam experiments are used to test whether the conclusions from M-vs-R comparison hold in reality.
+Physical layer-jamming beam experiments dùng để test predicted-valid và predicted-invalid conditions.
 
-The intended logic is:
+Scientific logic:
 
-~~~text
-M1 prediction
-→ compare with R
-→ quantify model-form error
-→ classify valid / invalid region
-→ experimentally test predicted-valid and predicted-invalid conditions
-~~~
-
----
-
-# 4. Current surviving contribution
-
-After D1-V001 through D1-V009, the surviving contribution is:
-
-> For one specified reduced/continuum vacuum-layer-jamming beam model under quasi-static bending, define output-specific acceptance tolerances before final validation/error inspection, then determine experimentally supported validity/breakdown regions against an interface-resolving/full-layer reference, while accounting for vacuum-pressure-controlled contact, friction/slip evolution, and—where relevant—pressure redistribution or layer separation.
-
-Important:
-
-- The contribution is **not** "continuum modeling of layered media."
-- The contribution is **not** "frictional slip in layered structures."
-- The contribution is **not** "Cosserat continuum."
-- The contribution is **not** "large-deformation layered continuum."
-- The contribution is **not** "FE modeling of multilayer friction."
-
-Those mechanics already exist in prior literature.
+```text
+M1
+→ compare against R
+→ quantify output-specific model-form error
+→ identify candidate validity boundary
+→ test both sides experimentally
+→ explain failure through contact/slip mechanics
+```
 
 ---
 
-# 5. Current novelty / falsification status
+# 5. Surviving contribution after D1 verification
 
-## Discovery phase
+Sau D1-V001 đến D1-V009, contribution còn defensible là:
 
-54 seed papers were used to generate 5 candidate research directions.
+> Một output-specific, uncertainty-aware validity/breakdown map của **một specified continuum model M1**, được đối chiếu với interface-resolving/full-layer reference và independent experiment, với tolerance được biện minh và fixed trước khi final validation/error results được dùng để kết luận.
 
-D1 was initially selected, but the broad D1 was later falsified/narrowed.
+Không được claim novelty cho:
 
-## Verification rounds
-
-### D1-V001
-
-Broad D1 was challenged using Narang 2018, Caruso 2023, Atakuru 2024.
-
-Result:
-
-~~~text
-PIVOT
-confidence: high
-~~~
-
-Broad novelty around pressure/friction/slip/bending-stiffness modeling was not defensible.
-
-### D1-V002
-
-Established that continuum layer-jamming models already exist.
-
-Therefore:
-
-> **Do not propose a new continuum model as the thesis contribution.**
-
-The research question shifted to validity limits of an existing model.
-
-### D1-V003
-
-Direct validity-gap audit.
-
-Result:
-
-~~~text
-SURVIVES_WITH_REVISED_SCOPE
-~~~
-
-Existence of a continuum model does not equal systematic mapping of when that model is valid.
-
-### D1-V004 / C01
-
-Adjacent frictional multilayer mechanics.
-
-Result:
-
-~~~text
-SUBSTANTIALLY_NARROWED
-~~~
-
-### D1-V005 / C02
-
-Partial-interaction composite beam literature.
-
-Result:
-
-~~~text
-SUBSTANTIALLY_NARROWED
-~~~
-
-### D1-V006 / C03
-
-Imperfect-interface / friction-contact literature.
-
-Strongest generic threat included a 2026 multilayer continuum/discrete-contact study with quantitative error and an adopted 5% criterion.
-
-Important semantic guardrail:
-
-> An adopted or observed 5% threshold is **not automatically a predeclared acceptance tolerance**.
-
-### D1-V007 / C04
-
-Forward-citation closure of the strongest generic threat.
-
-Key correction:
-
-~~~text
-PREDECLARED
-=
-fixed a priori before the relevant validation/model-error results are inspected
-~~~
-
-### D1-V008
-
-Final named high-threat target audit.
-
-Result:
-
-~~~text
-SURVIVES_FINAL_TARGET
-kill condition: false
-broad search stop: true
-final novelty lock allowed: true
-~~~
-
-This was a **protocol stopping condition**, not proof that no overlapping paper exists anywhere.
-
-### D1-V009
-
-Late-found post-lock audit of:
-
-**Adhikary, Mühlhaus, Dyskin (1999), _Modelling the large deformations in stratified media—the Cosserat continuum approach_**
-
-Result:
-
-~~~text
-SURVIVES_LATE_FOUND_TARGET
-confidence: high
-kill condition: false
-final novelty lock survives: true
-reopen broad search: false
-targeted follow-up required: false
-~~~
-
-D1-V009 established that the following are old mechanics and cannot be claimed as novel:
-
-- equivalent/smeared continuum treatment of layered media;
+- continuum modeling của layered media;
 - Cosserat/generalized continuum mechanics;
-- independent rotations and couple stresses;
-- layer-bending stiffness in continuum representation;
+- frictional interlayer slip;
+- contact/opening mechanics;
+- full-layer FE contact;
+- pressure/friction/slip mechanics nói chung;
+- một threshold/tolerance tự thân.
+
+---
+
+# 6. D1 novelty/falsification status
+
+Historical sequence:
+
+```text
+D1 broad direction
+→ D1-V001 PIVOT
+→ validity-limit framing
+→ D1-V002 ... D1-V007 narrowing
+→ D1-V008 SURVIVES_FINAL_TARGET
+→ D1-V009 SURVIVES_LATE_FOUND_TARGET
+→ final novelty lock preserved
+```
+
+D1-V009 xác nhận các mechanics sau là old/prior-art và không được claim novel:
+
+- equivalent/smeared layered continuum;
+- Cosserat/generalized continuum;
+- independent rotations/couple stresses;
+- layer-bending stiffness in continuum;
 - large-deformation layered continua;
 - frictional/plastic interlayer slip;
 - interface opening/delamination;
-- FE implementation of those mechanics.
+- FE implementation của các mechanics trên.
+
+Broad D1 search vẫn stopped trừ khi có concrete new high-threat source.
 
 ---
 
-# 6. What is currently LOCKED
+# 7. Mentor-proposed MP1 branch — final disposition
 
-~~~text
+Mentor alternative:
+
+```text
+superelastic NiTi / metallic wire bundle
++ positive-pressure confinement
++ inter-wire frictional jamming
++ variable bending stiffness
++ optional SMA-driven pressure source
+```
+
+MP1 không bị bỏ bằng intuition. Nó trải qua:
+
+```text
+MP1-V001
+→ broad architecture pre-empted
+→ pivot to mechanics core
+
+MP1-V002
+→ 16 full-text papers
+→ Astra critique G01–G12
+→ Stage 3 remediation
+→ citation chase 15/15 directions
+→ final V002 adjudication
+```
+
+Final MP1 result:
+
+```text
+protocol_outcome =
+SURVIVES_TARGETED_CITATION_CHASE
+
+confidence =
+high
+
+direct_kill_found =
+false
+
+citation_coverage_closed =
+true
+```
+
+MP1 vì vậy là **scientifically viable** nhưng chỉ ở scope hẹp:
+
+```text
+active radial/transverse confinement pressure
+×
+NiTi bundle bending
+→ contact/slip regime
+→ phase transformation
+→ hysteresis/stiffness
+→ model discrimination vs H0b
+```
+
+Không được claim novelty cho NiTi, jamming, SMA+jamming, inter-wire friction, hysteresis hoặc active pressure tự thân.
+
+Canonical:
+
+- `outputs/verification/MP1-V002/FINAL_ADJUDICATION.json`
+- `outputs/verification/MP1-V002/citation_coverage.json`
+
+---
+
+# 8. Why D1/M1 was selected over MP1
+
+Final cross-direction adjudication:
+
+```text
+selected_direction = D1_M1
+decision           = LOCK_WITH_FEASIBILITY_GATE
+confidence         = medium
+```
+
+D1/M1 được ưu tiên vì:
+
+1. một named model M1 đã khóa;
+2. scientific question rõ và falsifiable hơn;
+3. measurable beam-level outputs trực tiếp hơn;
+4. lower identifiability burden;
+5. apparatus/diagnostic burden thấp hơn;
+6. model-discrimination path ít phụ thuộc một coupled regime khó đạt;
+7. null/negative result vẫn có scientific value;
+8. MSc implementation risk tractable hơn.
+
+MP1 có key fatal unknowns:
+
+- slip + stress-induced transformation có coexist trong accessible domain hay không;
+- local transformation/slip có đo đủ tốt hay không;
+- pressure-to-contact-force calibration có credible hay không;
+- existing transformation-aware NiTi + Coulomb contact model H0b có thể đã đủ.
+
+Canonical:
+
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json`
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.md`
+
+---
+
+# 9. Final research question
+
+> **Across a declared range of layer count, vacuum pressure, and quasi-static bending severity, for which measurable outputs and operating conditions does the Zhang et al. continuum layer-jamming beam model meet predeclared, justified error tolerances against a verified full-layer frictional-contact reference and independent experiments, and which contact or slip mechanisms explain failures?**
+
+Đây là final working RQ từ cross-direction adjudication.
+
+---
+
+# 10. Scientific hypothesis
+
+> **M1's output-specific error will generally grow as finite-layer discreteness and slip or contact-pressure redistribution become important, yielding experimentally resolvable validity and breakdown regions. The predicted trend and boundary are testable and may be rejected.**
+
+Hypothesis được phép bị bác bỏ mà thesis vẫn có thể có giá trị nếu validity domain được xác định đáng tin cậy.
+
+---
+
+# 11. What is locked now
+
+```text
 RESEARCH DOMAIN
 =
-vacuum layer-jamming beam validity
+vacuum layer-jamming beam model validity/breakdown
+
+SELECTED DIRECTION
+=
+D1_M1
 
 REDUCED MODEL M
 =
-Zhang et al. continuum beam model
+Zhang et al. continuum layer-jamming beam model
 DOI 10.5194/ms-16-821-2025
 
-GENERAL SCIENTIFIC QUESTION
+SCIENTIFIC ARCHITECTURE
 =
-when is M1 acceptably accurate and when does it break down?
+M → R → E
 
-BROAD SEARCH STATUS
+DECISION
 =
-stopped unless a concrete new high-threat source appears
-~~~
+LOCK_WITH_FEASIBILITY_GATE
+
+BROAD SEARCH
+=
+stopped unless concrete high-threat evidence appears
+```
 
 ---
 
-# 7. What is NOT yet fully locked
+# 12. What is not yet fully locked
 
-The following remain provisional and must be finalized through research design:
+Phải được freeze trong feasibility/research-design stage:
 
-~~~text
-PRIMARY REFERENCE R
-exact FE formulation
-FE solver/software
-2D vs 3D
-contact formulation
-friction law
-vacuum-pressure representation
-separation/lift-off treatment
+- exact full-layer reference R;
+- FE solver / 2D-vs-3D scope;
+- contact formulation;
+- friction law/calibration;
+- vacuum-pressure representation;
+- separation/lift-off treatment;
+- primary output;
+- error metric;
+- justified tolerance;
+- uncertainty budget;
+- accepted/rejected pilot conditions;
+- experimental apparatus/boundary sampling.
 
-PRIMARY OUTPUTS
-deflection?
-effective stiffness?
-slip-transition load?
-other output-specific quantities?
-
-PRIMARY BREAKDOWN VARIABLES
-finite layer count n
-vacuum pressure p
-bending severity/load/curvature
-possibly secondary variables later
-
-FINAL RESEARCH QUESTION
-FINAL HYPOTHESIS
-ERROR METRICS
-ERROR TOLERANCES
-PARAMETER SPACE
-CALIBRATION / VALIDATION SPLIT
-EXPERIMENTAL BOUNDARY-SAMPLING PLAN
-~~~
+Không expand parameter space sớm.
 
 ---
 
-# 8. Current working research question
+# 13. Immediate next scientific gate
 
-Current working version:
+```text
+D1/M1 boundary-resolvability pilot
+```
 
-> **Under what combinations of finite layer count, vacuum pressure, and bending severity does the Zhang et al. continuum layer-jamming beam model remain within predeclared output-specific model-form error tolerances relative to an explicit full-layer frictional-contact reference and physical experiments?**
+Objective:
 
-This is still a **working RQ**, not yet final.
+> Xác định liệu verified M1-vs-full-layer comparison có tạo được ít nhất một accepted condition và một rejected condition trong miền thực nghiệm khả thi, với uncertainty đủ nhỏ để classification có ý nghĩa hay không.
 
----
+Required outputs:
 
-# 9. Current working hypothesis
+1. reconstructed M1 equations, assumptions và published-case reproduction;
+2. specified full-layer contact formulation + convergence/verification;
+3. independent parameter-calibration record;
+4. predeclared primary output;
+5. error metric;
+6. justified tolerance;
+7. uncertainty budget;
+8. predicted accepted condition;
+9. predicted rejected condition;
+10. pilot measurement plan/data đủ để test boundary.
 
-Current provisional hypothesis:
-
-> As layer count increases, M1 should generally approach the finite-layer reference. Model-form error is expected to increase for small layer count, stronger bending/slip conditions, and conditions where local contact-pressure redistribution or layer separation becomes important.
-
-This is a **hypothesis**, not a conclusion.
-
-It may be rejected without invalidating the thesis.
-
----
-
-# 10. Current candidate outputs
-
-Provisional candidates:
-
-~~~text
-O1 = beam deflection w
-O2 = effective bending stiffness K or EI_eff
-O3 = slip-transition load Q_slip or equivalent external load
-~~~
-
-Possible model-form error metrics:
-
-~~~math
-e_w = |w_M - w_R| / |w_R|
-~~~
-
-~~~math
-e_K = |K_M - K_R| / |K_R|
-~~~
-
-~~~math
-e_Q = |Q_{slip,M} - Q_{slip,R}| / |Q_{slip,R}|
-~~~
-
-These are not yet final.
-
-Near-zero denominators may require absolute or normalized alternatives.
+Pass chỉ khi accepted/rejected contrast được uncertainty-resolve và apparatus có thể test cả hai.
 
 ---
 
-# 11. Current candidate breakdown variables
+# 14. First task inside the gate
 
-Primary candidates:
-
-~~~text
-B1 = finite layer count n
-B2 = vacuum pressure p
-B3 = bending severity P, kappa, or a normalized equivalent
-~~~
-
-Possible secondary variables later:
-
-- friction coefficient;
-- layer thickness;
-- aspect ratio;
-- boundary conditions;
-- membrane/sheath effects;
-- pressure redistribution;
-- separation/lift-off.
-
-Do not expand the parameter space prematurely.
-
----
-
-# 12. Immediate next scientific task
-
-The next task is **NOT broad literature search**.
-
-The next task is:
+Bước đầu tiên vẫn là:
 
 > **Reconstruct M1 completely.**
 
-The user should understand M1 well enough to explain and eventually implement:
+User phải hiểu/implement được:
 
-~~~text
-physical mechanism
-→ assumptions
-→ governing equations
-→ shear stress
+```text
+physical assumptions
+→ kinematics
+→ force/moment balance
+→ shear/contact stress
 → Coulomb condition
-→ jammed / partial-slip / full-slip states
+→ jammed / partial-slip / full-slip state
 → slip-zone boundary
 → bending response
 → load-deflection prediction
 → incremental update
-→ possible breakdown mechanisms
-~~~
+→ candidate breakdown mechanisms
+```
 
-Only after M1 is deeply understood should the exact reference model R be frozen.
-
----
-
-# 13. Minimal knowledge needed to start
-
-The current 80/20 learning stack is:
-
-~~~text
-1. Euler-Bernoulli beam mechanics
-2. shear force / bending moment / curvature
-3. cross-sectional shear stress
-4. Coulomb friction
-5. stick / partial slip / full slip
-6. layered-beam and partial-interaction intuition
-7. M1 continuum beam model
-8. incremental nonlinear mechanics
-9. FEM fundamentals
-10. contact + frictional FE
-11. verification / validation
-12. uncertainty / model-form error
-13. experimental mechanics
-~~~
-
-Learn only what is required by M1 and R.
-
-Do not drift into broad soft-robotics theory unless directly needed.
-
----
-
-# 14. Conceptual meaning of the thesis
-
-The physical system is:
-
-~~~text
-many finite layers
-+ many interfaces
-+ normal contact
-+ friction
-+ slip
-+ possible separation
-~~~
-
-M1 replaces this with a simplified continuum representation.
-
-The thesis asks:
-
-> **How far can that simplification be trusted?**
-
-A useful mental model is:
-
-~~~text
-M1 = fast simplified model
-R  = detailed full-layer numerical reference
-E  = physical experiment
-~~~
-
-The thesis studies:
-
-~~~text
-M ↔ R ↔ E
-~~~
+Chỉ sau khi M1 được reconstruct/reproduce mới freeze R.
 
 ---
 
 # 15. Evidence hierarchy
 
-For any important claim, use:
-
-~~~text
-L0 — markdown summary / verdict
+```text
+L0 — markdown summary / handoff
 ↓
-L1 — structured JSON result
+L1 — canonical JSON verdict
 ↓
 L2 — verification matrix
 ↓
@@ -480,165 +377,88 @@ L3 — evidence JSON
 L4 — original PDF
 ↓
 L5 — prompt / raw output / provenance
-~~~
+```
 
-Core audit question:
-
-> **Does the inference at this level actually follow from the evidence below it?**
-
-Never rely only on L0 for thesis-critical claims.
+Thesis-critical claim phải trace xuống evidence level phù hợp.
 
 ---
 
-# 16. Search-stop rule
+# 16. Search-stop rules
 
-Broad search remains stopped after D1-V009.
+Không mở broad search chỉ vì “còn paper”.
 
-Reopen only if:
+Reopen targeted search khi:
 
-1. a concrete new paper appears to satisfy a missing kill-chain link;
-2. a forward citation/reference names a direct high-threat predecessor;
-3. implementation exposes a relevant theory/model family not previously covered;
-4. mentor/reviewer raises a specific prior-art challenge suitable for targeted search.
+1. có concrete new high-threat paper;
+2. forward/reference chase nêu direct predecessor;
+3. implementation lộ ra model/theory family chưa audit;
+4. mentor/reviewer đưa prior-art challenge cụ thể.
 
-Do not reopen broad search just because more literature exists.
-
----
-
-# 17. Current theoretical lineage
-
-## General layered-media mechanics
-
-~~~text
-classical layered / partial-interaction mechanics
-→ Cosserat / generalized continuum approaches
-→ Adhikary et al. 1999
-→ modern imperfect-interface / homogenization / contact mechanics
-~~~
-
-## Layer-jamming-specific mechanics
-
-~~~text
-Narang 2018
-→ Caruso 2023
-→ Zhang 2025 continuum beam model
-→ current question: quantitative validity limits of M1
-~~~
-
-The thesis contribution is **not** the invention of continuum layered mechanics.
+MP1 broad search cũng closed theo V002 protocol; chỉ reopen nếu có lý do cụ thể.
 
 ---
 
-# 18. Canonical files to read in a new chat
+# 17. Canonical authority order for a new chat
 
-Use these as source of truth:
+1. `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json`
+2. `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.md`
+3. `docs/project/PROJECT_HANDOFF_CURRENT.md`
+4. `docs/project/RESEARCH_LOG.md`
+5. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
+6. `docs/research_design/EXACT_MODEL_SELECTION.md`
+7. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.json`
+8. `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json`
+9. `outputs/verification/MP1-V002/FINAL_ADJUDICATION.json`
+10. `outputs/verification/MP1-V002/citation_coverage.json`
 
-1. `docs/project/POST_D1_V009_RESEARCH_ROADMAP_VI.md`
-2. `docs/project/POST_D1_V009_RESEARCH_ROADMAP.md`
-3. `docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md`
-4. `docs/research_design/M1_RESEARCH_ARCHITECTURE.md`
-5. `docs/research_design/EXACT_MODEL_SELECTION.md`
-6. `outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md`
-7. `outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.md`
-
-Historical files are useful for chronology but are not the latest authority.
-
----
-
-# 19. Recommended prompt for a new chat/agent
-
-Copy this into a new chat:
-
-~~~text
-I am continuing an MSc research project titled:
-
-Validity Assessment of a Continuum Model for Vacuum Layer-Jamming Beams through Full-Layer Simulation and Experimental Validation
-
-Use docs/project/PROJECT_HANDOFF_CURRENT.md as the primary project handoff.
-
-Then, when needed, drill into:
-- docs/project/POST_D1_V009_RESEARCH_ROADMAP_VI.md
-- docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md
-- docs/research_design/EXACT_MODEL_SELECTION.md
-- outputs/verification/D1-V009/LATE_FOUND_ADJACENT_AUDIT.md
-
-Working rules:
-1. Distinguish verified evidence, inference, and hypothesis.
-2. Do not defend the topic by default.
-3. Challenge incorrect assumptions directly.
-4. Trace thesis-critical claims back to paper/evidence.
-5. Help me understand and decide; do not decide for me.
-6. Do not restart broad literature searching unless a concrete high-threat reason appears.
-7. The current reduced model is M1: Zhang et al. 2025 continuum layer-jamming beam model.
-8. The immediate task is to reconstruct and understand M1 before freezing reference model R.
-
-Start by summarizing the research direction in no more than 7 sentences, then question me one step at a time to test whether I actually understand the topic.
-~~~
+Historical Stage 3 MP1 summaries không được dùng để override canonical final files.
 
 ---
 
-# 20. Current bottom line
+# 18. Prompt for the next chat/agent
 
-~~~text
-TOPIC:
-Validity Assessment of a Continuum Model for Vacuum Layer-Jamming Beams
-through Full-Layer Simulation and Experimental Validation
+```text
+Continue the mechanical MSc project from docs/project/PROJECT_HANDOFF_CURRENT.md.
 
-M:
-Zhang et al. 2025 continuum beam model
+Canonical current state:
+- selected_direction = D1_M1
+- decision = LOCK_WITH_FEASIBILITY_GATE
+- confidence = medium
+- mentor-proposed MP1 survived MP1-V002 but was not selected
+- MP1 citation coverage is closed
+- no broad literature search is currently required
 
-R:
-full-layer explicit-contact FE reference
-(exact implementation not yet frozen)
+Current thesis title:
+Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams
 
-E:
-physical experiment
+Immediate gate:
+D1/M1 boundary-resolvability pilot
 
-NOVELTY POSITION:
-validity/breakdown assessment of M1
-not invention of continuum layered mechanics
-
-SEARCH STATUS:
-broad search stopped after D1-V009
-
-NEXT TASK:
-reconstruct M1 completely
-→ then freeze R
-→ then finalize outputs / variables / RQ / hypothesis / tolerances
-→ implement
-→ compare
-→ experimentally test the predicted validity boundary
-~~~
-
+Start by reconstructing M1 completely from the original Zhang et al. paper and repository evidence. Do not freeze the full-layer reference R until M1 has been reproduced. Distinguish verified evidence, inference, and hypothesis, and cite thesis-critical claims to concrete source files/papers.
+```
 
 ---
 
-# 21. Active mentor-pivot audit branch
+# 19. Current bottom line
 
-A mentor-proposed alternative direction is currently under adversarial novelty audit. It has **not** replaced the current D1/M1 thesis.
+```text
+MENTOR MP1:
+scientifically viable
+but not selected
+→ archived alternative
 
-Candidate concept:
+CURRENT THESIS:
+D1/M1 model-validity/breakdown study
 
-~~~text
-superelastic NiTi / metal wire bundle
-+ positive-pressure confinement
-+ inter-wire frictional jamming
-+ variable bending stiffness
-+ optional SMA-driven syringe/piston pressure source
-~~~
+DECISION:
+LOCK_WITH_FEASIBILITY_GATE
 
-Current status:
-
-- broad component novelty is already heavily pre-empted;
-- the strongest surviving hypotheses concern NiTi wires themselves as the jamming medium, positive-pressure confinement of that metallic wire bundle, and possible coupling between superelastic response and inter-wire friction/slip;
-- formal repository audit begins with `MP1-V001`;
-- if the core mechanics survives, continue with `MP1-V002` targeted citation chasing;
-- do not change the official thesis title or abandon D1/M1 until the MP1 branch reaches formal adjudication.
-
-Entry points:
-
-1. `docs/project/MENTOR_PIVOT_STATUS.md`
-2. `docs/protocols/MP1_NOVELTY_FALSIFICATION_ROADMAP.md`
-3. `docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md`
-4. `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
-5. `app/ingestion/mp1_v001_core_prior_art_audit.py`
+NEXT:
+reconstruct M1
+→ verify/reproduce M1
+→ freeze R
+→ predeclare output/metric/tolerance/uncertainty
+→ boundary-resolvability pilot
+→ if PASS: commit thesis execution
+→ if FAIL: narrow/pivot
+```
