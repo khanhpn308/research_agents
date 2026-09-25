@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0.0",
+  "macro_stage": "W02",
+  "verification_id": "MP1-V002",
+  "total_contradictions": 9,
+  "contradictions": [
+    {
+      "contradiction_id": "CONTRA-WF-01",
+      "title": "Evidence Matrix Paper Count Discrepancy (10 vs 13 vs 16 papers)",
+      "contradiction_type": "WORKFLOW_INVENTORY_DISCREPANCY",
+      "classification": "RESOLVED_BY_LATER_CANONICAL_STATE",
+      "original_source": "docs/project/MP1-V002_CURRENT_HANDOFF.md (commit bf0b79a) and W01-W11 packets (commit af9e7a5)",
+      "conflicting_source": "outputs/verification/MP1-V002/verification_matrix.json (commit 8ccfa3c) and W01 Remediation (commit 3a216d6)",
+      "historical_state": "Stage 1 handoff reported 10 full-text papers; interim disk snapshot contained 13 papers.",
+      "current_state": "The canonical MP1-V002 verification matrix is verified and locked at exactly 16 full-text papers at commit HEAD (8ccfa3c).",
+      "resolution_rule": "RESOLVED_BY_LATER_CANONICAL_STATE: Paper count evolved naturally across stages: Stage 1 initiated with 10 papers, expanded to 13 during threat audit, and finalized at 16 canonical papers at Stage 3 HEAD. 16 papers form the definitive evidence base.",
+      "claims_affected": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "targets_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None; exactly 16 physical PDFs and structured records exist and are verified."
+    },
+    {
+      "contradiction_id": "CONTRA-WF-02",
+      "title": "Semantic Conflict between 'established' and 'insufficient' in Prior Art Status",
+      "contradiction_type": "SEMANTIC_EVALUATION_CONFLICT",
+      "classification": "RESOLVED_BY_SOURCE_PRECEDENCE",
+      "original_source": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+      "conflicting_source": "docs/project/MP1-V002_CURRENT_HANDOFF.md and docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G11)",
+      "historical_state": "Audit JSON used 'established' for parameter substitution while text report stated evidence was 'insufficient'.",
+      "current_state": "Tripartite hypothesis decoupling: 'established' refers strictly to the refutation of naive constant-modulus substitution (H0a); evidence for a distinct new coupling law (H1) is 'insufficient'; existing transformation-aware model (H0b) is 'not falsified'.",
+      "resolution_rule": "RESOLVED_BY_SOURCE_PRECEDENCE: Source precedence resolves semantic ambiguity by decoupling hypotheses H0a, H0b, and H1 as formulated by worker W07 and Astra critique remediation.",
+      "claims_affected": [
+        "C5",
+        "C7"
+      ],
+      "targets_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None; semantic definitions are formally standardized across all downstream artifacts."
+    },
+    {
+      "contradiction_id": "CONTRA-WF-03",
+      "title": "Definitive Gap Narrative vs Unmet Citation Stopping Condition",
+      "contradiction_type": "METHODOLOGICAL_OVERCLAIM",
+      "classification": "RESOLVED_BY_LATER_CANONICAL_STATE",
+      "original_source": "Early Stage 1/2 narrative reports stating research gap was firmly established",
+      "conflicting_source": "Stage 3 W11 Citation QA and Audit files indicating stop_condition.satisfied = false",
+      "historical_state": "Text claimed a defensible research gap while citation branches B11 and B12 remained open on disk.",
+      "current_state": "Gap statements were demoted to provisionally surviving hypotheses. Stage 4 subsequently completed screening of B11 (22 records) and B12 (46 records), achieving protocol closure (stop_condition.satisfied = true, 15/15 directions screened).",
+      "resolution_rule": "RESOLVED_BY_LATER_CANONICAL_STATE: Canonical citation coverage JSON supersedes interim open status. Stopping condition is satisfied under protocol, with the strict caveat that protocol closure is not universal novelty proof.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "Universal absence of closer prior art outside protocol boundary remains unproven."
+    },
+    {
+      "contradiction_id": "CONTRA-WF-04",
+      "title": "Thesis Status Ambiguity: Viable Candidate vs Approved Thesis Topic",
+      "contradiction_type": "GOVERNANCE_STATUS_CONFLICT",
+      "classification": "RESOLVED_BY_LATER_CANONICAL_STATE",
+      "original_source": "Exploratory MP1 planning documents treating MP1 as active/approved thesis topic",
+      "conflicting_source": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json and docs/project/PROJECT_HANDOFF_CURRENT.md",
+      "historical_state": "MP1 was considered as a candidate topic competing to be locked for the MSc thesis.",
+      "current_state": "Master cross-direction adjudication selected D1_M1 with decision LOCK_WITH_FEASIBILITY_GATE. MP1 survived verification protocol but was archived as a viable alternative; it is NOT the active thesis topic.",
+      "resolution_rule": "RESOLVED_BY_LATER_CANONICAL_STATE: Final cross-direction adjudication JSON represents highest repository governance authority. MP1 is archived as a viable alternative.",
+      "claims_affected": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "targets_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None; governance role is completely locked."
+    },
+    {
+      "contradiction_id": "CONTRA-EV-01",
+      "title": "Carboni et al. (2015) Specimen S2a vs S1a Material Attribution",
+      "contradiction_type": "FACTUAL_EXTRACTION_ERROR",
+      "classification": "RESOLVED_BY_SOURCE_PRECEDENCE",
+      "original_source": "Stage 1 W08 packet asserting S2a proved NiTi pure-bending phase transformation",
+      "conflicting_source": "Carboni et al. (2015) Table 4 in primary PDF (data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf)",
+      "historical_state": "W08 attributed pure-bending pinched hysteresis of specimen S2a to NiTi phase transformation.",
+      "current_state": "Corrected 100% to primary PDF: Table 4 verifies S2a is ST49 steel strand (pure frictional sliding). S1a is NiTi7 subjected to combined tension-bending with substantial axial preload. Pure-bending NiTi claims expunged.",
+      "resolution_rule": "RESOLVED_BY_SOURCE_PRECEDENCE: Primary full-text PDF overrules secondary worker extraction. False claims of pure-bending NiTi transformation in Carboni 2015 are completely removed.",
+      "claims_affected": [
+        "C5",
+        "C7"
+      ],
+      "targets_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None; physical facts verified directly against published Table 4."
+    },
+    {
+      "contradiction_id": "CONTRA-EV-02",
+      "title": "Active Confinement Pressure P3: Mechanics Principle vs Boundary Condition",
+      "contradiction_type": "PHYSICAL_INTERPRETATION_CONFLICT",
+      "classification": "RESOLVED_BY_SOURCE_PRECEDENCE",
+      "original_source": "Stage 1 claims treating positive pressure P3 as a novel constitutive mechanics principle",
+      "conflicting_source": "Continuum mechanics traction boundary derivations (Stage 3 W05) and standard contact mechanics (Tjahjanto 2017)",
+      "historical_state": "Active chamber pressure was claimed to create a novel variable-stiffness mechanics principle.",
+      "current_state": "Pressure enters standard continuum differential equations strictly as a time-varying surface traction boundary condition (sigma \u00b7 n = -p(t) n). P3 is demoted to an experimental control boundary condition.",
+      "resolution_rule": "RESOLVED_BY_SOURCE_PRECEDENCE: Mathematical mechanics derivation shows standard contact equations naturally accept p(t) without requiring any new constitutive law.",
+      "claims_affected": [
+        "C2",
+        "C6"
+      ],
+      "targets_affected": [
+        "T2"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None regarding principle; transmission mapping p -> f_n remains an experimental challenge."
+    },
+    {
+      "contradiction_id": "CONTRA-EV-03",
+      "title": "Reedlunn et al. (2013) Costello Kinematic Error vs Missing Contact Law",
+      "contradiction_type": "INFERENCE_SCOPE_ERROR",
+      "classification": "RESOLVED_BY_SOURCE_PRECEDENCE",
+      "original_source": "Initial worker inference that Costello model divergence proved need for new constitutive contact law",
+      "conflicting_source": "Reedlunn et al. (2013, Part II) full text (data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II \u2013 Subcomponent isothermal responses.pdf)",
+      "historical_state": "Costello kinematic error in 1x27 wire ropes was cited as evidence that multi-wire straight bundle contact theory is missing.",
+      "current_state": "Reedlunn's error in steep-helix outer strands is mathematically attributed to Costello kinematics omitting local wire bending and twisting moments, not missing constitutive laws for straight wires. Contact indentations were pre-existing manufacturing artifacts.",
+      "resolution_rule": "RESOLVED_BY_SOURCE_PRECEDENCE: Conservative primary text reading overrules speculative extrapolation.",
+      "claims_affected": [
+        "C5",
+        "C7"
+      ],
+      "targets_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "None; Costello limitations are well-understood in cable mechanics."
+    },
+    {
+      "contradiction_id": "CONTRA-EV-04",
+      "title": "Parameter Compensation under Free Fitting vs Causal Identifiability",
+      "contradiction_type": "METHODOLOGICAL_IDENTIFIABILITY_RISK",
+      "classification": "STILL_OPEN_NONBLOCKING",
+      "original_source": "Fang et al. (2019) fitting hysteretic macromodels by floating parameters simultaneously",
+      "conflicting_source": "Astra critique G08 and Locked Calibration Rule requiring independent parameter estimation",
+      "historical_state": "Literature commonly optimizes multiple hysteretic parameters simultaneously to fit cyclic curves.",
+      "current_state": "The Locked Calibration Rule is formally adopted as a mandatory protocol guardrail. However, physical execution of independent parameter measurement (separate single-wire, direct-shear, and membrane-inflation tests) has not yet been conducted in the repository.",
+      "resolution_rule": "STILL_OPEN_NONBLOCKING: Resolved methodologically as a mandatory rule; remains physically open pending future experimental calibration.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "Risk of parameter cross-talk remains until independent test bench data are obtained."
+    },
+    {
+      "contradiction_id": "CONTRA-STALE-K5",
+      "title": "Stale W2-08 K5/THREAT-05 Citation Stopping Status vs Canonical Closure",
+      "contradiction_type": "HISTORICAL_STALE_RECORD",
+      "classification": "RESOLVED_BY_LATER_CANONICAL_STATE",
+      "original_source": "outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json and W2_08_KILL_GATE_REPORT.md (stating citation stopping unmet at B11/B12)",
+      "conflicting_source": "outputs/verification/MP1-V002/citation_coverage.json and FINAL_ADJUDICATION.json (recording 15/15 screened, satisfied = true)",
+      "historical_state": "Subrun W2-08 recorded citation stopping as unmet and flagged it as blocking threat THREAT-05 / BLOCK-07.",
+      "current_state": "Canonical citation coverage JSON confirms 15/15 directions screened and stop_condition.satisfied = true. Historical W2-08 record is preserved as State-at-Time, while current canonical state is protocol closure satisfied (with universal prior art caveat).",
+      "resolution_rule": "RESOLVED_BY_LATER_CANONICAL_STATE: Canonical verification JSON has higher precedence than earlier subrun worker text. Protocol closure was achieved at Stage 4 and confirmed in final adjudication.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H1"
+      ],
+      "blocks_adjudication": false,
+      "residual_uncertainty": "Universal absence of prior art remains unproven."
+    }
+  ]
+}

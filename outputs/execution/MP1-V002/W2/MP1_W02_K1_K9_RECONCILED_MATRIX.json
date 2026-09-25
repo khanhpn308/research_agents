@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0.0",
+  "macro_stage": "W02",
+  "verification_id": "MP1-V002",
+  "gate_summary": {
+    "total_k_tests": 9,
+    "kill": 0,
+    "partial_overlap": 3,
+    "no_kill_found": 1,
+    "unresolved": 5,
+    "overall_reconciled_gate_status": "BLOCKED",
+    "blocking_tests_count": 8,
+    "nonblocking_tests_count": 1
+  },
+  "k_tests": [
+    {
+      "test_id": "K1",
+      "test_name": "Coexistence Domain Feasibility",
+      "test_question": "Does there exist a physically and experimentally accessible operating envelope where inter-wire frictional slip and stress-induced Martensitic phase transformation coexist simultaneously?",
+      "w2_08_verdict": "PARTIAL_OVERLAP",
+      "w2_09_astra_challenge": "MAJOR_CHALLENGE: Coexistence was bounded analytically (~0.75% outer fiber strain) but not demonstrated in an accessible, durable operating envelope. Small-strain collapse to linear elastic wire jamming (H0a domain) and membrane integrity remain live blocking threats.",
+      "current_reconciled_status": "PARTIALLY_RESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Stage 3 W06 mechanics derivation; Reedlunn et al. 2013 (Part I & II); Carboni et al. 2015; Astra critique G03.",
+      "residual_uncertainty": "Whether achievable curvature in a sealed pressurized bundle activates transformation without causing membrane puncture, severe core arching, or low-cycle fatigue of outer wires.",
+      "required_future_evidence": "Experimental identification of simultaneous slip and transformation regime across defined (p, kappa, T) space."
+    },
+    {
+      "test_id": "K2",
+      "test_name": "H0b Competitor Sufficiency (Model Non-Discrimination)",
+      "test_question": "Can an independently calibrated, established transformation-aware NiTi constitutive model coupled to Coulomb friction (H0b) adequately predict the pressure-controlled bending response?",
+      "w2_08_verdict": "UNRESOLVED",
+      "w2_09_astra_challenge": "CONFIRMED_GAP: CRITICAL; H0b (existing NiTi constitutive law + Coulomb contact) has not been run with locked calibration on pressure-curvature paths. H0a rejection cannot discriminate H1.",
+      "current_reconciled_status": "UNRESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Vahidi et al. 2022 (Abaqus UMAT); Kang et al. 2020; Auricchio 1997; Astra critique G01.",
+      "residual_uncertainty": "High likelihood that standard nonlinear finite-element models or beam contact formulations already match moment-curvature data within reasonable error tolerances, killing H1.",
+      "required_future_evidence": "Numerical simulation of H0b with locked parameters on pressure-curvature paths evaluated against held-out experimental test cases."
+    },
+    {
+      "test_id": "K3",
+      "test_name": "Mechanism Identifiability from Macroscopic Data",
+      "test_question": "Can macroscopic moment-curvature softening curves uniquely isolate stress-induced transformation from inter-wire slip, cross-section ovalization, and membrane compliance?",
+      "w2_08_verdict": "UNRESOLVED",
+      "w2_09_astra_challenge": "CONFIRMED_GAP: CRITICAL; Global M-kappa data are non-identifying; local DIC/FBG/IR/slip channels are proposed but not executed and can still be confounded by clamps, packing, axial tension, and temperature.",
+      "current_reconciled_status": "UNRESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Astra critique G04; Stage 3 W08 report; W2-03 identifiability audit; Salvatore et al. 2021.",
+      "residual_uncertainty": "Observational equivalence between multiple softening mechanisms under macroscopic load-displacement measurements.",
+      "required_future_evidence": "Implementation of local diagnostic channels (embedded FBG sensors, external DIC, infrared thermal imaging, LVDT end-slip) within the pressurized bundle."
+    },
+    {
+      "test_id": "K4",
+      "test_name": "Architectural Contribution Collapse",
+      "test_question": "Does the candidate contribution collapse to trivial parameter variation of existing jamming systems without generating a new predictive mechanics question?",
+      "w2_08_verdict": "PARTIAL_OVERLAP",
+      "w2_09_astra_challenge": "MAJOR_CHALLENGE: Device/jamming/active-pressure novelty is closed or downgraded. Only model discrimination remains; contribution value is strictly conditional on a measurable H0b failure.",
+      "current_reconciled_status": "PARTIALLY_RESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "MP1-V001 adjudication; Bai et al. 2022; Liu et al. 2021; Takashima et al. 2022-2026; Wang et al. 2024.",
+      "residual_uncertainty": "If H0b suffices, zero novel contribution remains since device architecture is 100% prior art.",
+      "required_future_evidence": "Strict framing of the research as model-validity / model-discrimination under declared error tolerances."
+    },
+    {
+      "test_id": "K5",
+      "test_name": "Closer Prior Art & Citation Protocol Closure",
+      "test_question": "Does the repository evidence corpus or adjacent structural literature contain direct prior art describing pressure-controlled superelastic NiTi bundle bending mechanics?",
+      "w2_08_verdict": "NO_KILL_FOUND (noting historical open status of B11/B12 in subrun W2-08)",
+      "w2_09_astra_challenge": "MAJOR_CHALLENGE: The 15/15 stop condition is now true, but it means all required directions were screened under the protocol; citation closure is protocol closure, not universal novelty.",
+      "current_reconciled_status": "RECONCILED_PROTOCOL_CLOSED_NONBLOCKING",
+      "blocking": false,
+      "evidence_basis": "outputs/verification/MP1-V002/citation_coverage.json; FINAL_ADJUDICATION.json; B11 and B12 screening logs.",
+      "residual_uncertainty": "Universal absence of closer prior art outside the V002 search cutoff date (2026-09-25) cannot be guaranteed.",
+      "required_future_evidence": "Preserve explicit protocol-bounded scope in all publications; targeted search reopen only upon concrete high-threat discovery."
+    },
+    {
+      "test_id": "K6",
+      "test_name": "Pressure-to-Normal-Force Mapping (p -> f_n)",
+      "test_question": "Can external chamber pressure p be accurately and uniquely mapped to inter-wire normal contact forces f_n across the bundle cross-section?",
+      "w2_08_verdict": "UNRESOLVED",
+      "w2_09_astra_challenge": "CONFIRMED_GAP: HIGH; Chamber pressure is a boundary input, not a known inter-wire normal force f_n. Membrane hoop stress, packing/arching, curvature and axial load make p -> f_n underdetermined without independent calibration.",
+      "current_reconciled_status": "UNRESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Astra critique G09; Stage 3 W05 report; Tjahjanto et al. 2017.",
+      "residual_uncertainty": "Severe attenuation and spatial non-uniformity of contact forces due to membrane hoop stress, sheath compliance, and geometric void arching under bending.",
+      "required_future_evidence": "Independent calibration protocol for pressure transmission ratio alpha_trans(p, kappa) via pressure-film transducers, wire pull-out testing, or validated cross-section contact FEA."
+    },
+    {
+      "test_id": "K7",
+      "test_name": "Existing Cable/Contact Formulation Sufficiency",
+      "test_question": "Are existing beam stick-slip contact formulations (e.g. Tjahjanto 2017, Barsi 2025, Xin Liu 2004) already capable of capturing pressure-dependent NiTi bundle bending when supplied with tangent modulus E_t(sigma, eps_dot)?",
+      "w2_08_verdict": "UNRESOLVED",
+      "w2_09_astra_challenge": "MAJOR_CHALLENGE: Existing cable/contact incremental formulations can accept nonlinear constitutive laws. No forward calculation shows a phenomenon they cannot reproduce.",
+      "current_reconciled_status": "UNRESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Barsi et al. 2025; Tjahjanto et al. 2017; Xin Liu 2004; Salvatore et al. 2021; Astra critique G07.",
+      "residual_uncertainty": "Classical incremental beam contact formulations may completely capture the behavior without requiring any novel field equations or micro-coupling terms.",
+      "required_future_evidence": "Analytical derivation or numerical proof demonstrating that classical stick-slip beam mechanics cannot represent coupled phase-transformation contact behavior."
+    },
+    {
+      "test_id": "K8",
+      "test_name": "Parameter Origin & Leakage under Locked Calibration",
+      "test_question": "Can model parameters be independently identified and frozen prior to bending validation, preventing parameter compensation?",
+      "w2_08_verdict": "PARTIAL_OVERLAP",
+      "w2_09_astra_challenge": "CONFIRMED_GAP: HIGH; Locked Calibration Rule is a protocol requirement, not demonstrated data. mu, pressure transmission, prestrain, contact penalty and effective stiffness can compensate.",
+      "current_reconciled_status": "PARTIALLY_RESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Astra critique G08; Fang et al. 2019; Stage 3 W09/W10 reports.",
+      "residual_uncertainty": "Cross-talk and mutual compensation between friction coefficient mu, pressure transfer ratio alpha_trans, contact penalty, and transformation plateau stress.",
+      "required_future_evidence": "Execution of an independent parameter calibration protocol on separate single-wire, direct-shear, and membrane-inflation tests prior to bundle bending evaluation."
+    },
+    {
+      "test_id": "K9",
+      "test_name": "Hysteresis Observability & Confounding",
+      "test_question": "Can the observed hysteresis loops and stiffness variations be uniquely attributed to NiTi transformation and friction, isolated from thermal self-heating, loading rate, and mechanical wear?",
+      "w2_08_verdict": "UNRESOLVED",
+      "w2_09_astra_challenge": "UNRESOLVED: MEDIUM/HIGH residual risk; Hysteresis and stiffness are confounded by latent heat, rate, friction, training, wear, geometry, and clamp compliance. Quasi-static loading alone does not identify phase versus friction.",
+      "current_reconciled_status": "UNRESOLVED_BLOCKING",
+      "blocking": true,
+      "evidence_basis": "Silva et al. 2022; Liu et al. 2026; Astra critique G12; Stage 3 W08.",
+      "residual_uncertainty": "Latent heat (10-25 J/g) shifts NiTi transformation stress (dsigma/dT ~ 6-8 MPa/C), altering stiffness and hysteresis dynamically during cyclic loading.",
+      "required_future_evidence": "Strict quasi-static rate control (eps_dot < 10^-4 s^-1) verified by surface thermocouple/IR thermography, combined with standardized definitions of D_tan, D_sec, and D_dyn."
+    }
+  ]
+}

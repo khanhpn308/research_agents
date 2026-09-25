@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "macro_stage": "W02",
+  "task_id": "MP1-W02-CLOSEOUT",
+  "project": "MP1-V002",
+  "execution_root": "outputs/execution/MP1-V002/",
+  "canonical_output_directory": "outputs/execution/MP1-V002/W2/",
+  "workflow_architecture_correction": {
+    "description": "Macro-stage W02 was erroneously decomposed into a sequential chain of 12 subruns (W2-01 through W2-12). This decomposition was terminated. Completed subruns W2-01 through W2-09 are preserved as valid historical evidence-generation runs. Proposed subruns W2-10, W2-11, and W2-12 are designated SUPERSEDED_BY_W02_CLOSEOUT and NOT executed.",
+    "old_sequential_chain": [
+      "W2-01",
+      "W2-02",
+      "W2-03",
+      "W2-04",
+      "W2-05",
+      "W2-06",
+      "W2-07",
+      "W2-08",
+      "W2-09",
+      "W2-10",
+      "W2-11",
+      "W2-12"
+    ],
+    "historical_subruns_consumed": [
+      "W2-01",
+      "W2-02",
+      "W2-03",
+      "W2-04",
+      "W2-05",
+      "W2-06",
+      "W2-07",
+      "W2-08",
+      "W2-09"
+    ],
+    "w2_10_executed": false,
+    "w2_11_executed": false,
+    "w2_12_executed": false,
+    "status": "SUPERSEDED_BY_W02_CLOSEOUT"
+  },
+  "w02_workflow_status": "COMPLETE",
+  "w02_analytical_evidence_work": "COMPLETE",
+  "mp1_scientific_candidate_status": "CONDITIONAL",
+  "scientific_gate_status": "BLOCKED",
+  "scientific_gate_details": {
+    "k_test_summary": {
+      "total_k_tests": 9,
+      "kill": 0,
+      "partial_overlap": 3,
+      "no_kill_found": 1,
+      "unresolved": 5
+    },
+    "blocking_k_tests": [
+      "K1",
+      "K2",
+      "K3",
+      "K4",
+      "K6",
+      "K7",
+      "K8",
+      "K9"
+    ],
+    "unresolved_tests": [
+      "K2",
+      "K3",
+      "K6",
+      "K7",
+      "K9"
+    ],
+    "interpretation": "BLOCKED indicates the candidate is not authorized to claim novelty survival because critical scientific threats remain unresolved. It does NOT signify a failed thesis or non-novelty."
+  },
+  "astra_w2_09_incorporated": true,
+  "astra_red_team_summary": {
+    "status": "COMPLETE",
+    "role": "Adversarial Red-Team",
+    "key_findings": [
+      "H0b sufficiency remains untested under locked calibration",
+      "Global M-kappa data are non-identifying for micro-mechanisms",
+      "Chamber pressure p is a boundary condition, not an identified contact force f_n",
+      "Locked calibration rule remains a protocol requirement, not demonstrated empirical evidence",
+      "Slip / transformation coexistence remains an unproven feasibility hypothesis",
+      "Citation closure is protocol closure, not universal novelty proof",
+      "Existing contact/cable incremental formulations remain plausible competitors",
+      "Thermal, frictional, training, and geometry confounding remain active"
+    ]
+  },
+  "citation_protocol_closure": {
+    "status": "SATISFIED",
+    "total_screened_directions": "15/15",
+    "backward_branches": "9/9",
+    "forward_branches": "6/6",
+    "all_required_directions_screened": true,
+    "no_unresolved_high_threat_source": true,
+    "stop_condition_satisfied": true,
+    "search_cutoff_date": "2026-09-25",
+    "caveat": "Citation protocol closure satisfies stopping conditions under the protocol; it does NOT prove universal absence of prior art in the broader literature."
+  },
+  "governance_and_precedence_rules": {
+    "new_literature_search": false,
+    "new_papers_added": false,
+    "final_novelty_adjudication": "NOT PERFORMED",
+    "d1_analysis": "NOT PERFORMED",
+    "d1_vs_mp1_comparison": "NOT PERFORMED",
+    "historical_w2_01_through_w2_09_modified": false
+  },
+  "reconciled_hypotheses": {
+    "H0a": "REFUTED_IN_TRANSFORMATION_REGIME",
+    "H0b": "NOT_FALSIFIED_LIVE_COMPETITOR",
+    "H1": "INSUFFICIENT_EVIDENCE",
+    "logical_rule": "H0a false does NOT imply H1 true"
+  },
+  "current_mp1_candidate": {
+    "label": "CURRENT_MP1_CANDIDATE",
+    "status": "CONDITIONAL",
+    "formulation": "Across a declared, experimentally accessible range of positive confinement pressure, curvature, and temperature where both inter-wire slip and stress-induced Martensitic transformation coexist, does an established transformation-aware NiTi constitutive and Coulomb-contact model (H0b) under locked parameter calibration adequately predict the pressure-dependent moment-curvature response, tangent bending stiffness, hysteresis loops, and local slip/transformation observables of a superelastic NiTi wire bundle, or does model failure under held-out conditions demonstrate the necessity of a novel constitutive-contact coupling law (H1)?",
+    "what_is_excluded": [
+      "Device-level novelty (closed by Bai 2022, Liu 2021, Takashima 2022-2026, Wang 2024)",
+      "Generic pressure-controlled stiffness novelty (demoted to boundary condition p(t))",
+      "H1 claimed as established (insufficient evidence)",
+      "Universal absence of prior art (unproven)"
+    ]
+  },
+  "blocking_scientific_gaps_count": 8,
+  "next_top_level_dependency": "AWAITING_WORKFLOW_RECONCILIATION",
+  "master_project_context": {
+    "master_selected_direction": "D1_M1",
+    "master_decision": "LOCK_WITH_FEASIBILITY_GATE",
+    "mp1_role": "Closed, archived viable alternative"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "macro_stage": "W02",
+  "verification_id": "MP1-V002",
+  "total_blocking_gaps": 8,
+  "blocking_gaps": [
+    {
+      "gap_id": "GAP-01",
+      "title": "H0b Locked Forward Prediction Absent",
+      "related_k_test": "K2",
+      "scientific_question": "Does an independently calibrated, established transformation-aware NiTi constitutive model (Auricchio / Graesser-Cozzarelli) coupled to Coulomb friction adequately predict moment-curvature loops, tangent stiffness, and slip thresholds under variable confinement pressure?",
+      "current_evidence": "Auricchio UMAT in Vahidi et al. 2022; Kang et al. 2020 FEM; no locked forward comparison has been conducted against pressure-controlled bundle bending.",
+      "why_blocking": "If H0b is adequate within experimental tolerance, the distinct MP1 mechanics claim collapses entirely; H1 cannot be claimed while H0b remains an unfalsified viable competitor.",
+      "what_would_resolve_it": "Execute a numerical benchmark of H0b with locked parameters on declared pressure-curvature paths and compare against experimental data with predefined error metrics.",
+      "model_or_experiment_required": "MODEL_AND_EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-02",
+      "title": "Mechanism Non-Identifiability from Macroscopic M-kappa Data",
+      "related_k_test": "K3",
+      "scientific_question": "Can macroscopic moment-curvature softening curves uniquely isolate stress-induced Martensitic phase transformation from inter-wire frictional slip, cross-sectional ovalization, and membrane compliance?",
+      "current_evidence": "Astra critique G04 and Stage 3 W08 demonstrate that global M-kappa response is observationally degenerate; softening can be produced by multiple uncoupled mechanisms.",
+      "why_blocking": "Claims of coupled constitutive-contact mechanics based solely on global load-deflection or moment-curvature measurements are scientifically invalid and unidentifiable.",
+      "what_would_resolve_it": "Implementation of an instrumentation protocol combining global bending with local state observables (core FBG strain sensors, surface DIC, infrared thermal imaging, LVDT end-slip).",
+      "model_or_experiment_required": "EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-03",
+      "title": "Pressure-to-Normal-Force Mapping (p -> f_n) Uncertainty",
+      "related_k_test": "K6",
+      "scientific_question": "How quantitatively does positive chamber pressure p transmit through the elastomeric membrane into internal inter-wire normal contact forces f_n across the bundle cross-section under bending?",
+      "current_evidence": "Stage 3 W05 mechanics derivation; hoop stress in membrane and void arching in multi-wire packing significantly attenuate and redistribute contact forces nonlinearly with curvature.",
+      "why_blocking": "Without an identified p -> f_n mapping, pressure cannot be treated as a known mechanical contact variable in constitutive equations or numerical simulations.",
+      "what_would_resolve_it": "Independent pressure-transfer calibration using radial pressure-film sensors, wire pull-out force tests under variable chamber pressure, and cross-section FEA.",
+      "model_or_experiment_required": "MODEL_AND_EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-04",
+      "title": "Parameter Leakage and Compensation under Free Fitting",
+      "related_k_test": "K8",
+      "scientific_question": "How can mutual compensation between friction coefficient mu, pressure transfer ratio alpha_trans, contact penalty stiffness k_n, and NiTi transformation plateau parameters be prevented from producing false goodness-of-fit?",
+      "current_evidence": "Astra critique G08; Fang et al. 2019 macromodel parsimony analysis; W09/W10 Stage 3 remediation.",
+      "why_blocking": "Post-hoc free fitting allows a deficient model to match experimental data via unphysical parameter combinations, masking true model error and preventing causal falsification.",
+      "what_would_resolve_it": "Strict enforcement of the Locked Calibration Rule: measure mu, single-wire superelastic parameters, and pressure transmission in separate independent non-bending tests, then freeze them before evaluating bending response.",
+      "model_or_experiment_required": "EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-05",
+      "title": "Slip-Transformation Coexistence Feasibility Domain",
+      "related_k_test": "K1",
+      "scientific_question": "Does there exist an accessible, durable physical operating domain (curvature kappa, pressure p, temperature T, wire diameter d) where inter-wire slip and stress-induced phase transformation occur simultaneously without membrane burst or wire fatigue?",
+      "current_evidence": "Stage 3 W06 derivation shows transformation requires outer fiber strain > 0.75% (curvature > 0.01 mm^-1 for typical wires), below which the bundle degenerates to ordinary elastic wire jamming (H0a).",
+      "why_blocking": "If the bundle cannot physically operate in the coexistence regime, the core scientific phenomenon does not exist in practice and the topic degenerates to known linear elastic jamming.",
+      "what_would_resolve_it": "Experimental mapping of the (p, kappa, T) operating envelope demonstrating robust cycle life and simultaneous slip and transformation.",
+      "model_or_experiment_required": "MODEL_AND_EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-06",
+      "title": "Thermal and Loading-Rate Confounding of Hysteresis",
+      "related_k_test": "K9",
+      "scientific_question": "Can the latent heat of NiTi phase transformation (L ~ 10-25 J/g) and self-heating/cooling during cyclic bending be decoupled from mechanical frictional dissipation and rate-independent hysteresis?",
+      "current_evidence": "Silva et al. 2022; Liu et al. 2026; Astra critique G12. NiTi transformation stress varies with temperature at dsigma/dT ~ 6-8 MPa/C.",
+      "why_blocking": "Thermal drift during bending cycles changes both stiffness and hysteresis loop shape, confounding friction and phase transformation mechanisms.",
+      "what_would_resolve_it": "Strict quasi-static loading rate control (eps_dot < 10^-4 s^-1) to ensure isothermal conditions, verified by surface thermocouple/IR thermography, or fully coupled thermomechanical modeling.",
+      "model_or_experiment_required": "EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-07",
+      "title": "Existing Cable/Contact Formulation Sufficiency",
+      "related_k_test": "K7",
+      "scientific_question": "Are existing continuum and structural beam stick-slip contact formulations (e.g. Tjahjanto et al. 2017, Barsi et al. 2025, Xin Liu 2004) already capable of capturing pressure-dependent bundle bending simply by incorporating the nonlinear tangent modulus of NiTi?",
+      "current_evidence": "Barsi et al. 2025 short wire rope formulation; Tjahjanto et al. 2017 submarine cable core formulation.",
+      "why_blocking": "If incremental beam theory with nonlinear wire stiffness is analytically sufficient, no new field theory or micro-coupling law (H1) is required.",
+      "what_would_resolve_it": "Mathematical formulation analysis comparing classical incremental stick-slip kinematics with coupled phase-transformation kinematics to identify any missing coupling term.",
+      "model_or_experiment_required": "MODEL_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    },
+    {
+      "gap_id": "GAP-08",
+      "title": "Local Observable Measurement Feasibility under Sealed Pressure Envelope",
+      "related_k_test": "K3",
+      "scientific_question": "Is it experimentally feasible to embed local sensors (e.g. FBG optical fibers, internal contact transducers, or end-slip encoders) inside an active positive-pressure membrane without compromising pressure seal, altering internal packing, or damaging sensors during cyclic bending?",
+      "current_evidence": "Astra W2-09 challenge; W2-03 identifiability audit.",
+      "why_blocking": "If local observables cannot be measured in the actual sealed bundle, mechanism identifiability (GAP-02) cannot be achieved.",
+      "what_would_resolve_it": "Physical prototype design and verification of a sealed sensor feedthrough and non-intrusive embedded sensing layout.",
+      "model_or_experiment_required": "EXPERIMENT_REQUIRED",
+      "search_required": false,
+      "human_review_required": true,
+      "status": "OPEN_BLOCKING"
+    }
+  ]
+}
