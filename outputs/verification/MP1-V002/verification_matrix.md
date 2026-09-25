@@ -1,7 +1,7 @@
 # Verification Matrix
 
 **Verification ID:** MP1-V002
-**Paper count:** 13
+**Paper count:** 16
 **Purpose:** Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.
 
 ## Verification Papers
@@ -221,7 +221,131 @@
 - Equivalent secant stiffness and equivalent hysteretic damping across displacement amplitudes
 - Spectral power distribution of fundamental and superharmonic frequencies via FFT
 
-## V06 — Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification
+## V06 — Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes
+
+- **paper_id:** `1c81b2d35c`
+- **year:** 2024
+- **doi:** 10.3390/buildings14061567
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** High-value steel-vs-NiTi wire-rope comparison: experimental and FE assessment of SMA and steel wire ropes; relevant to model discrimination and to testing whether bundle architecture/contact adds mechanics beyond single-wire constitutive behavior.
+
+### Robot / Structure Type
+
+
+### Modeling Methods
+
+- 3D solid finite element modeling in ABAQUS (version 2020) using geometric models designed in SolidWorks.
+- C3D8R eight-node hexahedral continuum solid elements with hourglass control (constant 2 mm mesh size).
+- Surface-to-Surface contact formulation with hard normal contact and penalty tangential friction (friction coefficient 0.5).
+- Nonlinear general static analysis for monotonic tensile loading of single wires.
+- Explicit dynamic analysis method for sinusoidal cyclic and seismic excitation simulations.
+- Kinematic coupling of end-surface nodes to central reference points (RP1 and RP2) for boundary condition and displacement enforcement.
+
+### Performance Metrics
+
+- Yield stress (MPa)
+- Maximum tensile stress (MPa)
+- Maximum tensile force (N or kN)
+- Displacement amplitude (mm)
+- Phase transformation strain (%)
+- Loading plateau stress (MPa) and plateau strain
+- Residual deformation / strain recovery upon unloading (%)
+
+### Future Work
+
+- Exploring a broader range of rope configurations.
+- Conducting dynamic testing with realistic seismic excitations.
+- Investigating the influence of design parameters and evaluating long-term rope durability.
+- Directly comparing the performance of steel wire and SMA ropes under identical experimental seismic conditions on a shake table.
+- Assessing the feasibility and structural performance of SMA ropes in real-world civil engineering structures.
+- Conducting further investigations under diverse seismic ground motion records beyond El Centro.
+
+## V07 — A new mechanical model of short wire ropes: Theory and experimental validation
+
+- **paper_id:** `9f4295be23`
+- **year:** 2025
+- **doi:** 10.1016/j.engstruct.2024.119217
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** High-priority wire-rope bending baseline: mechanics model covers perfect-stick/full-slip limits, relative inter-wire sliding, bending stiffness, and quasi-static bending hysteresis; directly relevant to the stick-slip bending baseline for the parameter-substitution test.
+
+### Robot / Structure Type
+
+
+### Stiffness Mechanism
+
+- relative sliding between individual wires
+- interwire stick-slip (perfect stick, partial stick, and full slip states)
+- internal frictional forces at wire contact interfaces
+- helical and superhelical wire geometry (pitch, helix radius, lay orientation)
+- shear deformability of constituent curvilinear wires
+
+### Modeling Methods
+
+- One-dimensional shear-deformable beam theory (Timoshenko beam model) for the overall wire rope.
+- Saint-Venant beam theory extended to curvilinear thin rods with circular cross-sections for individual constituent wires.
+- Parametric analytical geometric modeling of helical wires and superhelical (doubly-twisted) wires using Frenet-Serret frames.
+- Incompatible eigenstrain formulation incorporated into individual wire strain measures to represent interwire stick-slip sliding modes.
+- Analytical closed-form solution of Dirichlet boundary value problems for pure bending and axial-torsional loading.
+- Derivation of a 6x6 generalized cross-sectional constitutive stiffness matrix relating stress resultants to beam generalized strains.
+
+### Performance Metrics
+
+- Effective bending stiffness k = F2 / u2 (in kN/mm).
+- Relative percentage error err(%) = |k_exp - k_the| / k_exp * 100.
+- Axial stiffness N / epsilon (in kN).
+- Axial-torsional coupling ratio T / N (in mm).
+- Experimental mean (mu) and standard deviation (sigma) confidence intervals for stiffness.
+
+### Future Work
+
+- Extending the mechanical formulation to predict the complete nonlinear hysteresis cycles and energy dissipation loops.
+- Developing models capable of handling coupled simultaneous bending and tensile loadings.
+- Investigating non-uniform sliding regimes where individual wires across the cross-section occupy different stick-slip states.
+
+## V08 — Finite Element Method for Mechanical Behavior of Shape Memory Alloy Superelastic Cables (形状记忆合金超弹性缆索力学行为的有限单元法)
+
+- **paper_id:** `56793dea9b`
+- **year:** 2020
+- **doi:** 10.3901/JME.2020.14.065
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** High-priority NiTi constitutive-contact baseline: finite-element model of superelastic SMA cables using an incremental SMA constitutive law and ABAQUS UMAT, with cable contact/geometry effects and experimental comparison; relevant to testing whether existing NiTi constitutive-contact mechanics already explain the response.
+
+### Robot / Structure Type
+
+
+### Stiffness Mechanism
+
+- shape memory alloy superelasticity
+- stress-induced martensitic phase transformation
+
+### Modeling Methods
+
+- Incremental shape memory alloy constitutive model derived from total-formulation equations using the shape memory factor concept
+- ABAQUS user material subroutine (UMAT) implementation considering phase-dependent elastic modulus variation
+- Finite element modeling with C3D4 tetrahedral elements for SMA strands and C3D8R brick elements for rigid cylindrical end grips
+- Simplified geometric cross-sectional representations (configurations a and b) for 7x7 helical stranded cables
+- Contact mechanics algorithm using smooth, frictionless surface contact between individual wire strands
+
+### Performance Metrics
+
+- Martensite transformation start stress (sigma_MS) and finish stress (sigma_MF) in MPa
+- Martensite reverse transformation start stress (sigma_AS) and finish stress (sigma_AF) in MPa
+- Relative error percentage between FEA simulation predictions and experimental literature measurements
+- Equivalent stress (von Mises stress) distribution in MPa
+- Shape memory factor (eta) distribution (dimensionless, 0 to 1)
+- Initial loading elastic modulus and initial unloading elastic modulus
+
+### Future Work
+
+- The authors state that the proposed finite element method and results can provide calculation methods and technical guidance for the structural design and engineering applications of SMA superelastic cables.
+
+## V09 — Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification
 
 - **paper_id:** `d9966f2f5e`
 - **year:** 2014
@@ -264,7 +388,7 @@
 - Developing systematic procedures for selecting a unified, amplitude-independent parameter set for dynamic simulations (such as identifying parameters from an average displacement amplitude or minimizing MSE across multiple amplitudes simultaneously)
 - Applying multiconfiguration strand assemblies and the extended Bouc-Wen pinching model to passive or semiactive nonlinear vibration control devices and nonlinear vibration absorbers
 
-## V07 — Superelasticity SMA cables and its simplified FE model
+## V10 — Superelasticity SMA cables and its simplified FE model
 
 - **paper_id:** `9e15094d68`
 - **year:** 2023
@@ -298,7 +422,7 @@
 - Ductility comparison between strands and individual wires.
 - Initial stiffness of the strand or rope.
 
-## V08 — Mechanical response of single and double-helix SMA wire ropes
+## V11 — Mechanical response of single and double-helix SMA wire ropes
 
 - **paper_id:** `53200aa0c6`
 - **year:** 2021
@@ -335,7 +459,7 @@
 - Inelastic strain recovery as a function of temperature and time during heating
 - Discrepancy / percentage error relative to reference experimental and numerical data
 
-## V09 — Nonlinear Vibration Isolation via a NiTiNOL Wire Rope
+## V12 — Nonlinear Vibration Isolation via a NiTiNOL Wire Rope
 
 - **paper_id:** `98fee47c04`
 - **year:** 2021
@@ -372,7 +496,7 @@
 - Generalized equivalent damping ratio zeta_e
 - Most suitable excitation amplitude for resonance suppression (Ab-pmin) and for low-frequency vibration isolation (Ab-rmin)
 
-## V10 — Cable Vibration Considering Internal Friction
+## V13 — Cable Vibration Considering Internal Friction
 
 - **paper_id:** `aaad9c248c`
 - **year:** 2004
@@ -418,7 +542,7 @@
 - Incorporate internal material damping as well as external damping effects to formulate damped cable vibration (PAGE 57).
 - Apply large motion and deformation theory to replace the current small deformation assumption for more realistic dynamic results (PAGE 57).
 
-## V11 — BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE
+## V14 — BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE
 
 - **paper_id:** `ccdc1bb980`
 - **year:** 2017
@@ -452,7 +576,7 @@
 - Development of an analytical formulation for the relative slip and kinematic interactions of helically-interwound power cores.
 - Use of the 3D FE modeling results to verify and refine analytical formulations for fatigue life assessments of dynamic cables.
 
-## V12 — High damping capacity with a wide temperature window in braided NiTi microfilaments
+## V15 — High damping capacity with a wide temperature window in braided NiTi microfilaments
 
 - **paper_id:** `e8462758c3`
 - **year:** 2026
@@ -479,7 +603,7 @@
 - Cyclic repeatability of damping performance (10 cooling-heating cycles)
 - Frequency insensitivity (overlap of tanδ and modulus curves between 1 Hz and 5 Hz)
 
-## V13 — NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings
+## V16 — NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings
 
 - **paper_id:** `6dd1ca94d1`
 - **year:** 2022

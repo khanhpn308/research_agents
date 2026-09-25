@@ -1,0 +1,183 @@
+{
+  "source": {
+    "paper_id": "1c81b2d35c",
+    "filename": "2024-Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes.pdf",
+    "sha256": "1c81b2d35c0df0efefd34f244dfa023045dfc33762f78d14fae54de0b040ae65",
+    "page_count": 19,
+    "char_count": 46933,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26440,
+    "completion_tokens": 7208,
+    "total_tokens": 33648,
+    "thinking_tokens": 4481,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Peyman Narjabadifam",
+      "Neda Fazlalipour",
+      "Somayeh Mollaei",
+      "Mohammad Momeni",
+      "Ali Saman Watandoust",
+      "Mahdi Chavoshi",
+      "Alireza Babaeian Amini",
+      "Farshad Karazmay"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Steel wires are modeled using isotropic linear elasticity (Young's modulus of 200 GPa, Poisson's ratio of 0.3) combined with experimental plastic stress-strain data from uniaxial tension tests.",
+      "Superelastic NiTi shape memory alloy material is defined with transformation parameters: Martensite-to-Austenite start stress of 420 MPa, Martensite-to-Austenite finish stress of 500 MPa, Austenite-to-Martensite start reverse-stress of 300 MPa, Austenite-to-Martensite finish reverse-stress of 200 MPa, phase transformation strain of 6.5%, and Martensite-to-Austenite elastic modulus of 40 GPa.",
+      "Normal contact interaction between adjacent wire surfaces is governed by hard contact behavior.",
+      "Tangential frictional interaction between individual wire surfaces is modeled using a penalty friction algorithm with a constant friction coefficient of 0.5.",
+      "Due to manual laboratory weaving, individual wires across rope layers are assumed to possess identical helix angles for a given rope design."
+    ],
+    "control_variables": [
+      "Individual wire diameter (1 mm for all constituent wires)",
+      "Finite element solid element type (C3D8R eight-node hexahedral with hourglass control)",
+      "Finite element mesh size (constant 2 mm mesh size)",
+      "Contact penalty friction coefficient (0.5)",
+      "Boundary constraints (RP2 constrained in all translational and rotational degrees of freedom; RP1 constrained to move exclusively along the longitudinal axis)",
+      "Shake table cyclic loading frequency (0.1 Hz in experimental tests; 0.01 Hz in numerical sinusoidal simulations)",
+      "Earthquake ground motion selection and scaling (El Centro earthquake record, magnitude 6.9, scaled to PGA values of 0.281 g and 0.6 g)"
+    ],
+    "dependent_variables": [
+      "Tensile axial force",
+      "Axial stress",
+      "Axial strain",
+      "Longitudinal displacement",
+      "Loading plateau stress and plateau strain",
+      "Hysteretic cyclic response and deformation recovery"
+    ],
+    "doi": "10.3390/buildings14061567",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Laboratory-made NiTi SMA wire ropes fully recover tensile deformation up to 8 mm displacement (past the transformation plateau) upon unloading, preserving the superelasticity of individual wires.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "Tensile force capacity of SMA wire ropes scales near-linearly with wire count, though tensile efficiency per wire decreases slightly with increasing number of wires.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          15,
+          16
+        ]
+      },
+      {
+        "claim": "Increasing the helix angle of SMA wire ropes decreases the loading plateau stress and increases the transformation plateau strain under El Centro seismic excitation.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          14,
+          17
+        ]
+      },
+      {
+        "claim": "Maximum stress in steel wire ropes under sinusoidal and pure tension loading equals that of an individual steel wire (approx. 200 MPa yield, 290 MPa ultimate), while total load capacity scales directly with wire count (3x, 7x, 19x, 27x, and 49x for corresponding configurations).",
+        "evidence_type": "experiment",
+        "page_numbers": [
+          7,
+          9,
+          17,
+          18
+        ]
+      },
+      {
+        "claim": "SMA 1x3 and 1x7 ropes develop maximum seismic forces under scaled El Centro earthquake excitation that are closely comparable to their maximum forces under quasi-static sinusoidal loading.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          16,
+          17,
+          18
+        ]
+      },
+      {
+        "claim": "Finite element modeling using explicit dynamic formulation, 3D hexahedral C3D8R elements, and surface-to-surface penalty contact friction (mu = 0.5) achieves close agreement with experimental cyclic test data of wire ropes.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Uniaxial tensile testing device according to ASTM A931 standard using clamping jaws to determine mechanical stress-strain characteristics of individual steel wires.",
+      "Shaking table apparatus manufactured by SANTAM engineering design company located at the Laboratory of Structural Earthquake Engineering (SEE-Lab), University of Bonab.",
+      "Specially designed steel reaction frame mounted on the shake table, comprising IPE140 profiles (Profile 1, 500 mm length) anchored with 12 mm G8.8 screws and 100 mm gussets, UNP200 longitudinal beams (Profile 4, 2850 mm length) stiffened by Profile 9, connected to Plate 5 (150 x 200 mm) with full welds and 8 mm G8.8 screws, and connection plates 7 and 8 (100 x 200 mm).",
+      "Special mechanical wire rope fasteners (single or dual fasteners depending on cable diameter and force capacity, supplemented by helper cables to prevent slippage on smaller wires/ropes) to grip and anchor specimens.",
+      "Displacement-controlled sinusoidal cyclic loading (0.1 Hz) applied to full-scale steel rope specimens via the shake table test frame."
+    ],
+    "future_work": [
+      "Exploring a broader range of rope configurations.",
+      "Conducting dynamic testing with realistic seismic excitations.",
+      "Investigating the influence of design parameters and evaluating long-term rope durability.",
+      "Directly comparing the performance of steel wire and SMA ropes under identical experimental seismic conditions on a shake table.",
+      "Assessing the feasibility and structural performance of SMA ropes in real-world civil engineering structures.",
+      "Conducting further investigations under diverse seismic ground motion records beyond El Centro."
+    ],
+    "independent_variables": [
+      "Rope material (structural steel vs. superelastic NiTi shape memory alloy)",
+      "Rope cross-sectional configuration/architecture (single wire, 1x3, 1x7, 1x7 bundle, 1x19, 1x27, and 7x7 regular lay)",
+      "Wire helix/twisting angle (0 deg, 3 deg, 5 deg, 7 deg, 9 deg, 13 deg in current specimens; 10 deg, 17 deg, 21 deg in validation cases)",
+      "Loading protocol (monotonic axial tension, quasi-static sinusoidal cyclic loading at 0.1 Hz experimental / 0.01 Hz numerical, and El Centro earthquake ground motion)",
+      "Prescribed displacement amplitude (8 mm for SMA ropes, 11 mm for steel ropes)"
+    ],
+    "limitations_inferred": [
+      "No direct physical shake table experiments were conducted on the fabricated SMA wire ropes; validation for SMA behavior relied entirely on numerical models cross-checked against steel tests and published external literature.",
+      "Thermomechanical coupling, self-heating, and strain-rate sensitivity of superelastic NiTi wire ropes under rapid dynamic cycling were not explicitly accounted for in the FE formulation.",
+      "Fretting wear, interwire fatigue damage, and multi-cycle degradation under repeated earthquake cycles were not evaluated."
+    ],
+    "limitations_stated_by_authors": [
+      "Manufacturer-provided material properties and specific data beyond the trade name 'NTSE01' (from Nimesis) were unavailable for the purchased NiTi material.",
+      "Data acquisition problems during shake table tests resulted in missing data, preventing the plotting of complete cyclic loops for the 7x7 steel rope.",
+      "Fasteners were not sufficiently tightened during certain laboratory tests, causing rope slippage inside fasteners that worsened with increasing numbers of bundles/strands.",
+      "Because ropes were manually woven in the laboratory, all rope layers had identical helix angles, which deviates from industrial wire ropes that feature distinct helix angles per layer.",
+      "Experimental testing on the shake table was limited to steel wire ropes, while SMA rope seismic responses were evaluated numerically.",
+      "Seismic evaluation was limited to a single earthquake excitation record (scaled El Centro record)."
+    ],
+    "main_results": [
+      "Peak stress and yield stress values of steel ropes under sinusoidal cyclic loading matched those under pure axial tension (approx. 200 MPa yield, 290 MPa peak stress).",
+      "Tensile force capacity of steel ropes scaled in direct proportion to wire count: 1x3, 1x7, 1x7 bundle, 1x19, 1x27, and 7x7 configurations sustained approximately 3, 7, 7, 19, 27, and 49 times the force of a single wire, respectively.",
+      "Under displacement-controlled sinusoidal loading up to 8 mm (past the transformation plateau), superelastic SMA wire ropes exhibited complete deformation recovery upon unloading across all configurations.",
+      "SMA peak tensile force at 8 mm displacement was approximately 365 N for a single wire, 1.09 kN for 1x3, 2.40 kN for 1x7, 6.01 kN for 1x19, 8.1 kN for 1x27, and 14 kN for 7x7 ropes, indicating a near-linear relationship with wire count but slightly lower tensile efficiency per wire in larger ropes.",
+      "Under scaled El Centro seismic excitation, 1x3 and 1x7 SMA ropes produced maximum tensile force responses (~1.09 kN and ~2.4 kN) that were nearly identical to their peak responses under sinusoidal loading.",
+      "Increasing the helix angle in SMA wire ropes decreased the transformation plateau stress and increased the plateau strain, while preserving the overall superelastic hysteretic form of a single wire."
+    ],
+    "modeling_methods": [
+      "3D solid finite element modeling in ABAQUS (version 2020) using geometric models designed in SolidWorks.",
+      "C3D8R eight-node hexahedral continuum solid elements with hourglass control (constant 2 mm mesh size).",
+      "Surface-to-Surface contact formulation with hard normal contact and penalty tangential friction (friction coefficient 0.5).",
+      "Nonlinear general static analysis for monotonic tensile loading of single wires.",
+      "Explicit dynamic analysis method for sinusoidal cyclic and seismic excitation simulations.",
+      "Kinematic coupling of end-surface nodes to central reference points (RP1 and RP2) for boundary condition and displacement enforcement."
+    ],
+    "performance_metrics": [
+      "Yield stress (MPa)",
+      "Maximum tensile stress (MPa)",
+      "Maximum tensile force (N or kN)",
+      "Displacement amplitude (mm)",
+      "Phase transformation strain (%)",
+      "Loading plateau stress (MPa) and plateau strain",
+      "Residual deformation / strain recovery upon unloading (%)"
+    ],
+    "possible_gap_implications": [
+      "The findings demonstrate that multi-wire NiTi SMA ropes provide high load capacity, full superelastic strain recovery, and geometric compliance tunable by helix angle; this mechanical behavior could be advantageous for compact, highly flexible, and fatigue-resistant tendons in continuum robots and soft grippers, although this application is outside the civil engineering scope of the paper.",
+      "The lack of dynamic experimental testing on SMA ropes leaves an open question regarding strain-rate effects and frictional heating in multi-wire superelastic cables during fast robotic actuation or cyclic deformation."
+    ],
+    "research_objective": "To investigate and compare the mechanical and dynamic behavior of laboratory-fabricated steel and superelastic NiTi shape memory alloy wire ropes under quasi-static sinusoidal loading and earthquake excitation (El Centro record) using experimental shake table testing and ABAQUS finite element numerical simulations across various rope configurations.",
+    "research_problem": "The seismic and dynamic cyclic behavior of superelastic shape memory alloy wire ropes with various structural configurations and lay geometries is inadequately understood, as existing studies have focused mostly on basic tensile or cyclic tests of single wires, solid bars, or specific individual rope designs rather than comprehensive seismic assessments.",
+    "robot_type": "",
+    "stiffness_mechanism": [],
+    "title": "Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes",
+    "year": "2024"
+  }
+}
