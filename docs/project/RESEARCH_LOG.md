@@ -675,3 +675,187 @@ Tạo/đồng bộ current-context documents để chat/agent mới có thể ti
 Current principle:
 
 > Finish the active D1 reconciliation/adversarial chain and MP1 workflow reconciliation before using either branch as the final mentor-facing comparison.
+
+
+## Phase 32 — D1 W09→W11 execution, named-threat reopening, and hard-gate stop (2026-09-26)
+
+Phiên D1-only này tiếp tục trực tiếp từ `docs/project/CURRENT_EXECUTION_SNAPSHOT.md`.
+
+### W09 — Cross-worker reconciliation
+
+W03-W08 được preflight lại trước khi merge:
+
+```text
+W03-W08 receipts = COMPLETE
+QA                 = PASS
+source records      = 71
+unique paper ids    = 68
+duplicate identities = 2
+```
+
+W09 tạo bốn canonical artifacts:
+
+- `outputs/d1_execution/V4/W09/D1_PAPER_EVIDENCE_PACKETS.jsonl`
+- `outputs/d1_execution/V4/W09/D1_CLAIM_EVOLUTION_MATRIX.json`
+- `outputs/d1_execution/V4/W09/D1_NON_NOVELTY_REGISTER.json`
+- `outputs/d1_execution/V4/W09/D1_NOVELTY_CANDIDATE_REGISTER.json`
+
+Kết quả reconciliation quan trọng:
+
+1. layer-jamming architecture, vacuum stiffness tuning, Coulomb slip, continuum-model creation, full-contact FE, generic model validation và percentage threshold **không được** quay lại thành novelty claim;
+2. broad C02 bị narrow: multi-layer / N-layer partial-interaction theory đã tồn tại trong prior art;
+3. `ca46dc062d` được reconcile theo scope:
+   - direct threat đối với M→R quantitative error-boundary core;
+   - chỉ partial overlap đối với full vacuum-layer-jamming M→R→E scientific act;
+4. residual novelty register còn bốn candidate components, tất cả vẫn pending falsification;
+5. final novelty adjudication = `NOT_PERFORMED`.
+
+Execution provenance correction:
+
+```text
+planned W09 model = GPT-6 Sol High
+actual session model = GPT-5.6 Sol High
+```
+
+Metadata W09 đã được sửa để không claim sai model execution. Scientific fields không bị thay đổi bởi correction này.
+
+### S9 — Freeze K1-K9 trước evaluation
+
+Tạo:
+
+- `outputs/d1_execution/V4/S09/D1_K_CRITERIA_REGISTER.json`
+
+State:
+
+```text
+criterion rows    = 9
+version           = K-CRITERIA-V3.1
+post-evidence edit = false
+K verdicts        = UNRESOLVED
+```
+
+Các tiêu chí được copy từ V6/V3 design freeze, không được viết lại theo evidence W09.
+
+### W10 — Named targeted threat integration
+
+Broad search vẫn CLOSED.
+
+W10 tạo:
+
+- `outputs/d1_execution/V4/W10/D1_PRIOR_ART_FAMILY_COVERAGE.json`
+- `outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json`
+- `outputs/d1_execution/V4/W10/D1_UNRESOLVED_THREAT_REGISTER.json`
+- `outputs/d1_execution/V4/W10/D1_SEARCH_DECISION_LOG.json`
+
+Coverage:
+
+```text
+required prior-art families = 18/18
+material threat rows        = 15
+named searches              = 2
+broad search                = false
+```
+
+Named target T1:
+
+```text
+Yang, Guo & Wang 2025
+DOI = 10.1038/s41598-025-22364-w
+full text = verified
+disposition = PARTIAL_OVERLAP
+```
+
+T1 trực tiếp cover vacuum-LJ experiment, layer-count/vacuum-pressure sweep và physical slip regimes, nhưng không chứa Zhang-M1-vs-interface-resolved-reference model-form validity map hay experiment chủ động đi qua hai phía của predicted model-validity boundary.
+
+Named target T2:
+
+```text
+Wang et al. 2026
+DOI = 10.1016/j.matdes.2026.116573
+publisher/repository metadata + abstract = verified
+full text = NOT AUDITED
+disposition = UNRESOLVED
+blocking = true
+```
+
+Không được dùng abstract để kết luận K1-K9.
+
+### W11 — Provenance / contradiction / threshold / human-review QA
+
+W11 tạo:
+
+- `outputs/d1_execution/V4/W11/D1_PROVENANCE_QA.json`
+- `outputs/d1_execution/V4/W11/D1_CONTRADICTION_REGISTER.json`
+- `outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json`
+- `outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json`
+
+Precheck:
+
+```text
+unsupported thesis-critical claims = 0
+invalid locators                   = 0
+critical open contradictions       = 0
+HG-02 provenance                   = PASS_WITH_DOWNSTREAM_BLOCKERS
+HG-03 contradiction                = PASS_PRECHECK
+HG-06 threshold freeze             = BLOCKED
+HG-09 human review                 = BLOCKED
+```
+
+Typed metadata contradiction:
+
+```text
+paper_id 53d328abaa
+
+wrong W09 DOI
+= 10.3390/app14073041
+
+authoritative D1-V008/full-text DOI
+= 10.1061/JSENDH.STENG-13096
+```
+
+W11 adjudicates downstream identity using the verified D1-V008 source precedence and preserves the W09 error as historical provenance rather than silently rewriting it.
+
+### Threshold stop
+
+Canonical M1 architecture explicitly states:
+
+```text
+ERROR TOLERANCES = not yet defined
+```
+
+Vì chưa có đủ:
+
+- experimental uncertainty;
+- reference/numerical uncertainty;
+- engineering-use tolerance;
+- event-detection uncertainty;
+
+nên W11 **không tự chọn** `epsilon_w`, `epsilon_K`, `epsilon_Q`.
+
+Đặc biệt:
+
+> Không dùng 5% của `ca46dc062d` làm D1 tolerance chỉ vì paper đó dùng/adopt 5%.
+
+Current state:
+
+```text
+threshold freeze = BLOCKED_NOT_FROZEN
+final project validation data inspected = false
+post-hoc leakage = false
+```
+
+### Hard-gate consequence
+
+W12 chưa được phép chạy.
+
+Required re-entry:
+
+1. full-text audit Wang et al. 2026 hoặc giữ các K-test liên quan ở UNRESOLVED;
+2. justify + freeze `epsilon_w`, `epsilon_K`, `epsilon_Q` trước final validation/error-map inspection;
+3. clear required human-review rows;
+4. chỉ sau HG-06 và HG-09 mới chạy W12 Astra adversarial K1-K9.
+
+Canonical fast-start state đã được đồng bộ tại:
+
+- `docs/project/CURRENT_EXECUTION_SNAPSHOT.md`;
+- `docs/project/research_state.json`.
