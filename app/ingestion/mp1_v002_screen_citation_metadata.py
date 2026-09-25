@@ -13,10 +13,25 @@ import csv
 import hashlib
 import json
 import re
+import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+# Scopus CSV exports can contain very large Abstract / Index Keywords fields.
+# Python's csv module defaults to a 131072-byte field limit, which is too low
+# for some exports. Raise it once at module load while remaining portable.
+try:
+    csv.field_size_limit(sys.maxsize)
+except OverflowError:
+    limit = sys.maxsize
+    while True:
+        try:
+            csv.field_size_limit(limit)
+            break
+        except OverflowError:
+            limit //= 10
 
 ROOT = Path(__file__).resolve().parents[2]
 ROUND_ID = "MP1-V002"
