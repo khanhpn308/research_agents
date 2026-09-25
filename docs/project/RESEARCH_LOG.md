@@ -2,7 +2,7 @@
 
 ## Dòng thời gian quyết định nghiên cứu (Research Decision Timeline)
 
-> File này ghi lại **vì sao hướng nghiên cứu thay đổi**, không chỉ ghi danh sách task đã thực hiện.  
+> File này ghi lại **vì sao hướng nghiên cứu thay đổi**, không chỉ ghi danh sách task đã thực hiện.
 > Code, schema, filename, key và status token giữ English; phần giải thích/decision viết tiếng Việt.
 
 ## Phase 0 — Định hướng rộng
@@ -383,9 +383,24 @@ As of 2026-09-25:
 
 Không được bắt đầu MP1-V003 chỉ để cứu novelty. Chỉ tiếp tục nếu V002 coverage hoặc final adjudication yêu cầu.
 
+## Phase 22 — Stage 3 Scientific Remediation & Consensus at HEAD (2026-09-25)
+
+**Mô hình:** Gemini 3.8 Flash High (Stage 3 Remediation Engine)
+**Tập tài liệu kiểm chứng:** 16 bài báo toàn văn PDF tại commit HEAD (`outputs/verification/MP1-V002/verification_matrix.json`)
+**Audit canonical:** `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json` (16 papers)
+
+### Các kết quả then chốt đạt được trong Stage 3:
+1. **Reconciliation Hiện trạng Repository:** Xác nhận quy mô 16 bài báo tại HEAD; chấm dứt sự mập mờ giữa snapshot 10 bài cũ và trạng thái thực tế.
+2. **Khắc phục 12 Lỗ hổng Trọng yếu của Astra (G01–G12):** Hoàn thành ma trận đối soát tại `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md` với 100% phê bình được kiểm chứng và hiệu chỉnh dứt điểm.
+3. **Tái cấu trúc Ba Tầng Giả Thuyết H0/H1:** Bác bỏ mô hình thay thế đàn hồi đơn giản H0a (`REFUTED`); giữ nguyên giả thuyết khung lý thuyết NiTi cấu thành + tiếp xúc Coulomb hiện hữu H0b (`NOT FALSIFIED`); xác nhận chưa có bằng chứng cho lý thuyết ghép cặp vi mô mới H1 (`INSUFFICIENT`).
+4. **Hạ cấp Phân loại Áp suất P3:** Xác định P3 (áp suất chủ động biến thiên) là giao thức điều khiển thực nghiệm, không phải nguyên lý cơ học mới; các phương trình tiếp xúc hiện hữu tự nhiên tiếp nhận $p(t)$.
+5. **Đính chính Dữ liệu Lịch sử:** Sửa chữa triệt để sai sót Carboni 2015 (S2a là cáp thép thuần ma sát; S1a mới là NiTi chịu kéo-uốn kết hợp); hiệu chỉnh bảo thủ Reedlunn 2013 và Fang 2019.
+6. **Ban hành Báo cáo Khoa học Tổng thể 24 Chương:** Hoàn thành `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md` cùng 11 báo cáo worker chuyên sâu `outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/` (W01–W11).
+
 ## File dùng để truy ngược toàn bộ mentor-pivot lineage
 
+- `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md`
+- `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md`
 - `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
 - `docs/project/MP1-V002_CURRENT_HANDOFF.md`
 - `docs/project/MP1_MENTOR_PIVOT_TUTOR.md`
-

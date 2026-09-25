@@ -1,12 +1,16 @@
-# MP1 — Mentor Pivot: Trạng thái hiện tại
+# MP1 — Mentor Pivot: Trạng thái hiện tại (Current Status at HEAD)
 
-> **Trạng thái:** `MP1-V002 ACTIVE`. Matrix hiện có **10 full-text papers**. Audit mới nhất vẫn trả `SUBSTANTIALLY_NARROWED` với `confidence = high`. Citation coverage vẫn **OPEN**.  
-> **Nguyên tắc:** hướng luận văn D1/M1 hiện tại vẫn được bảo toàn và **chưa bị thay thế**. MP1 chỉ có thể thay thế D1/M1 sau khi hoàn tất falsification và có final adjudication rõ ràng.
+> **Trạng thái:** `MP1-V002 ACTIVE` (Stage 3 Remediation Consensus at HEAD).
+> **Quy mô Ma trận:** **16 full-text papers** trong `outputs/verification/MP1-V002/verification_matrix.json`.
+> **Audit canonical mới nhất:** `TARGETED_THREAT_AUDIT.json` (16 papers) trả `final_v002_verdict = False`, `survives_current_full_text_set = True` (chỉ sống sót tạm thời dưới dạng câu hỏi cơ học hẹp về áp suất giam giữ), và `stop_condition_satisfied = False`.
+> **Báo cáo Khoa học Tổng hợp:** Đã ban hành báo cáo chi tiết 24 chương tại `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md` và ma trận khắc phục phê bình Astra tại `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md`.
+> **Nguyên tắc:** Hướng luận văn D1/M1 hiện tại vẫn được bảo toàn và **chưa bị thay thế**. MP1 chỉ có thể thay thế D1/M1 sau khi hoàn tất falsification và có final adjudication rõ ràng.
 
-## 1. Ý tưởng ban đầu từ mentor
+---
 
-Kiến trúc được đề xuất ban đầu:
+## 1. Ý tưởng Ban đầu từ Mentor và Lý do Bác bỏ Kiến trúc Thiết bị
 
+Kiến trúc ban đầu do Mentor đề xuất:
 ```text
 superelastic NiTi / metallic wire bundle
 + positive-pressure confinement
@@ -15,338 +19,79 @@ superelastic NiTi / metallic wire bundle
 + optional SMA-driven syringe/piston pressure source
 ```
 
-Ý tưởng ban đầu có nhiều lớp đóng góp tiềm năng: vật liệu NiTi, wire/fiber jamming, positive-pressure jamming, nguồn áp suất compact/onboard và khả năng thay đổi độ cứng uốn (variable bending stiffness).
-
-Điểm quan trọng của toàn bộ MP1 là **không mặc định xem tổ hợp linh kiện là novelty**. Mỗi lớp phải bị tấn công bằng prior art.
-
-## 2. Vì sao phải chạy MP1-V001?
-
-MP1-V001 được thiết kế như một **core prior-art architecture audit** để trả lời câu hỏi:
-
-> Trong kiến trúc mentor đề xuất, phần nào thực sự còn là câu hỏi khoa học mới và phần nào chỉ là tổ hợp những cơ chế đã có?
-
-Các claim được đánh số C1-C8.
-
-### Kết quả MP1-V001
-
-```text
-STATUS      = PIVOT_TO_MECHANICS_CORE
-CONFIDENCE  = high
-```
-
-Canonical outputs:
-
-- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
-- `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.md`
-
-### Các claim bị đóng hoặc bị pre-empt mạnh
-
-- **C1 — wire/fiber jamming for variable stiffness:** closed.
-- **C2 — positive-pressure jamming for variable stiffness:** closed.
-- **C3 — SMA + jamming in one variable-stiffness device:** closed.
-- **C4 — onboard/compact pressure source for jamming:** closed.
-- **C8 — SMA-driven syringe/piston powering jamming pressure:** substantially pre-empted; rủi ro rất cao trở thành implementation substitution.
-
-Điều này có nghĩa: nếu chỉ nói “dùng NiTi thay nylon”, “dùng SMA thay motor”, “dùng syringe/piston thay pump” hoặc “đưa các cơ cấu đã biết vào một robot khác”, thì chưa đủ để tạo scientific novelty.
-
-### Các claim còn mở sau MP1-V001
-
-- **C5:** NiTi wires tự thân là frictional contacting/slipping bundle.
-- **C6:** positive-pressure confinement trực tiếp lên một superelastic NiTi wire bundle.
-- **C7:** coupling giữa NiTi superelasticity, inter-wire contact/slip/friction, pressure và bending stiffness.
-
-Do đó MP1 không còn là một “component-combination project”. Nó chuyển sang một câu hỏi **mechanics** có thể falsify.
-
-## 3. Mechanics core hình thành như thế nào?
-
-Sau MP1-V001, câu hỏi được thu hẹp thành:
-
-> Positive confinement pressure, inter-wire slip/friction và superelastic NiTi response tương tác như thế nào để quyết định bending stiffness và hysteresis của một NiTi wire bundle?
-
-Dạng kill-test nghiêm ngặt hơn:
-
-> Một superelastic NiTi wire bundle có tạo ra pressure- và curvature-dependent stick/slip, bending stiffness và hysteresis mà **không thể** được mô tả đầy đủ bởi một existing elastic-fiber/contact model chỉ bằng cách thay material modulus, friction coefficient và các material parameters hay không?
-
-Nếu existing mechanics chỉ cần parameter substitution là đủ, phần mechanics còn lại của MP1 phải bị kill hoặc narrow tiếp.
-
-## 4. MP1-V002 — targeted citation chase
-
-MP1-V002 không mở lại broad keyword search. Mục tiêu là tấn công ba target còn sống:
-
-### T1 — NiTi wire bundle có contact/slip/friction
-
-```text
-NiTi / Nitinol wires
-→ bundle / strand / cable
-→ wire-wire contact
-→ friction / micro-slip / stick-slip
-→ structural response / stiffness / hysteresis
-```
-
-### T2 — actively controlled confinement pressure
-
-```text
-actively varied positive / radial / transverse pressure
-→ compress metallic/NiTi wire bundle
-→ change wire-wire normal force
-→ change friction / stick-slip
-→ change bending / flexural stiffness
-```
-
-### T3 — coupling giữa NiTi phase transformation và contact mechanics
-
-```text
-NiTi superelasticity / martensitic transformation
-+ inter-wire contact / slip / friction
-+ confinement pressure
-+ hysteresis
-+ structural / bending stiffness
-```
-
-## 5. Kết quả audit mới nhất trên 10 full-text papers
-
-Matrix hiện tại:
-
-- `outputs/verification/MP1-V002/verification_matrix.json`
-- `paper_count = 10`
-
-Hai paper được thêm sau citation screening để đánh trực tiếp vào parameter-substitution kill test:
-
-1. Reedlunn, Daly & Shaw (2013) — *Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses* — DOI `10.1016/j.ijsolstr.2013.03.015`.
-2. Fang et al. (2019) — *Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application* — DOI `10.1016/j.engstruct.2019.01.049`.
-
-Audit 10-paper mới nhất:
-
-```text
-STATUS      = SUBSTANTIALLY_NARROWED
-CONFIDENCE  = high
-```
-
-Canonical output:
-
-- `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json`
-- `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.md`
-
-### T1 — CLOSED_BY_FULL_TEXT
-
-Prior work đã chứng minh rõ:
-
-- NiTi/Nitinol strands, ropes, cables và braided microfilaments có inter-wire/inter-filament contact;
-- Coulomb friction, sliding/micro-slip và hysteresis tồn tại;
-- phase transformation và friction cùng tham gia structural response;
-- braid/cable architecture làm thay đổi effective stiffness, damping và transformation behavior.
-
-Vì vậy:
-
-```text
-NiTi + inter-wire friction/slip + hysteresis
-```
-
-**không còn là novelty claim có thể bảo vệ.**
-
-### T2 — OPEN_IN_CURRENT_FULL_TEXT_SET
-
-Corpus đã có:
-
-- passive contact pressure do helix geometry;
-- axial-load-induced radial pressure;
-- manufacturing/preforming pressure;
-- fixed radial preload/confinement.
-
-Nhưng chưa có full-text prior art trong matrix chứng minh chuỗi:
-
-```text
-actively varied confinement pressure
-→ NiTi/metallic wire bundle
-→ wire-wire normal force changes
-→ friction / stick-slip changes
-→ bending stiffness changes
-```
-
-T2 là phần quan trọng nhất còn mở.
-
-### T3 — SUBSTANTIALLY_PREEMPTED
-
-Prior work đã có nhiều phần của coupling:
-
-- NiTi phase transformation;
-- inter-wire friction;
-- micro-slip;
-- frictional heating;
-- transformation-stress shift;
-- hysteresis/damping;
-- effective stiffness changes.
-
-Phần còn thiếu không phải “NiTi + friction” mà là **active confinement pressure như independent control variable** và ảnh hưởng của nó lên bending mechanics.
-
-## 6. Pressure classification bắt buộc
-
-Mọi source liên quan đến pressure phải được phân loại:
-
-```text
-P1 = passive contact pressure
-     sinh ra bởi helix geometry, axial load, bending hoặc deformation
-
-P2 = fixed preload / fixed confinement
-     áp đặt nhưng không thay đổi như một operational control variable
-
-P3 = actively varied confinement pressure
-     pressure là independent control variable trong vận hành
-```
-
-Chỉ **P3** là direct threat đối với mechanics core còn sống.
-
-## 7. Parameter-substitution kill test hiện tại
-
-Audit 10-paper trả:
-
-```text
-existing_elastic_fiber_model_appears_sufficient = false
-niti_requires_distinct_constitutive_contact_coupling = false
-evidence_status = insufficient
-```
-
-Diễn giải:
-
-- Chưa có bằng chứng đủ mạnh để nói existing elastic-fiber/contact model chắc chắn là đủ.
-- Cũng chưa có bằng chứng đủ mạnh để nói NiTi chắc chắn cần một new constitutive-contact coupling.
-- Một số simplified/phenomenological NiTi cable models tái tạo được axial hysteresis mà không resolve full contact mechanics → đây là **substitution/reduced-order risk**.
-- Ngược lại, braided/micro-cable studies cho thấy transformation, frictional heating và localized slip có các hiệu ứng không thể mô tả bằng một constant elastic modulus duy nhất.
-- Nhưng các hiệu ứng đó chưa được chứng minh trong **quasi-static, pressure-controlled bending**.
-
-Vì vậy mechanics core vẫn sống nhưng chưa được xác nhận novelty.
-
-## 8. Câu hỏi khoa học còn sống ở checkpoint hiện tại
-
-> Dưới actively varied positive radial/transverse confinement, pressure và curvature chi phối stick-slip transitions và bending stiffness của một superelastic NiTi wire bundle như thế nào, và các response này có thể được dự đoán đầy đủ bởi existing elastic-fiber/contact framework với substituted NiTi properties hay không?
-
-Đây là câu hỏi phải tiếp tục bị falsify.
-
-## 9. Citation coverage hiện tại
-
-Tracker mới nhất:
-
-- `outputs/verification/MP1-V002/citation_coverage.json`
-- `outputs/verification/MP1-V002/CITATION_COVERAGE_STATUS.md`
-
-Trạng thái:
-
-```text
-required directions = 14
-backward branches   = 8
-forward branches    = 6
-
-all_required_directions_screened = false
-no_unresolved_high_threat_source = true
-stop_condition_satisfied         = false
-```
-
-Sau khi re-init tracker trên audit 10-paper, các branch chưa được ghi lại trạng thái screening trong `citation_coverage.json`.
-
-Backward anchors hiện gồm:
-
-1. Carboni et al.
-2. Vahidi et al.
-3. Niu & Chen 2021.
-4. Xin Liu thesis.
-5. Tjahjanto et al.
-6. braided NiTi microfilaments.
-7. Silva et al. 2022.
-8. Reedlunn et al. 2013.
-
-Forward anchors vẫn là:
-
-1. Bai et al. 2022.
-2. Liu et al. 2021.
-3. Zhang & Yao 2026.
-4. Takashima et al. 2022.
-5. Matsumoto et al. 2024.
-6. Wang et al. 2024.
-
-Các citation exports B01-B06/F01-F06 đã được thu thập và metadata screening đã chạy. Sau audit 10-paper, Niu 2021 và Reedlunn 2013 trở thành backward-priority anchors mới, tương ứng cần coverage bổ sung trước khi V002 có thể đóng.
-
-## 10. Metadata screening đã thực hiện
-
-Canonical screening:
-
-- `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.json`
-- `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.csv`
-- `outputs/verification/MP1-V002/citation_screening/FULL_TEXT_SHORTLIST.csv`
-
-Kết quả:
-
-```text
-input_csv_count              = 8
-raw_record_count             = 187
-deduplicated_candidate_count = 178
-
-POTENTIAL_KILL_PAPER = 0
-GET_FULL_TEXT        = 12
-KEEP_METADATA        = 85
-UNCERTAIN            = 0
-EXCLUDE              = 81
-```
-
-Human review không yêu cầu tải cả 12 paper. Reedlunn 2013 và Fang 2019 được nâng lên full text để kiểm tra parameter-substitution risk và đã được ingest vào matrix 10-paper.
-
-## 11. Guardrails hiện tại
-
-Không được claim novelty chỉ vì:
-
-- NiTi thay nylon/steel;
-- wire thay fiber;
-- SMA thay motor;
-- syringe/piston thay pump;
-- robot platform khác;
-- generic NiTi cable hysteresis;
-- passive radial contact pressure;
-- fixed preload;
-- compact integration.
-
-Không được đánh đồng:
-
-```text
-NiTi wire-rope friction
-==
-pressure-controlled NiTi jamming
-```
-
-hoặc:
-
-```text
-passive/fixed radial pressure
-==
-actively varied confinement pressure
-```
-
-## 12. Hành động tiếp theo
-
-Không mở lại broad search.
-
-Workflow:
-
-```text
-resolve remaining required citation branches
-→ write branch results into citation_coverage.json
-→ run citation coverage --check
-→ resolve any newly exposed high-threat source
-→ satisfy protocol stop condition
-→ final MP1-V002 adjudication
-```
-
-Nếu direct prior art cho P3 NiTi-bundle bending mechanics xuất hiện, hoặc existing elastic-fiber/contact model chỉ cần parameter substitution là đã giải thích đầy đủ response, MP1 phải bị kill hoặc narrow tiếp.
-
-## 13. Canonical files cần đọc
-
-Theo thứ tự:
-
-1. `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
-2. `outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json`
-3. `docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md`
-4. `outputs/verification/MP1-V002/verification_matrix.json`
-5. `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json`
-6. `outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.json`
-7. `outputs/verification/MP1-V002/citation_coverage.json`
-8. `docs/project/MP1-V002_CURRENT_HANDOFF.md`
-9. `docs/project/MP1_MENTOR_PIVOT_TUTOR.md`
-
+MP1-V001 và V002 đã phân rã toàn diện và khẳng định: **Không tồn tại tính mới ở cấp độ lắp ghép linh kiện/thiết bị**. Các khẳng định cấp hệ thống C1–C4 đã bị tiền nhiệm đóng hoàn toàn:
+- **C1 (Wire Jamming):** Đã có tiền nhiệm trực tiếp (Bai 2022, Liu 2021).
+- **C2 (Positive-Pressure Jamming):** Đã có tiền nhiệm trực tiếp (Zhang & Yao 2026, Huynh 2022).
+- **C3 (SMA + Jamming Coexistence):** Đã có tiền nhiệm trực tiếp (Takashima 2021, 2022).
+- **C4 (Compact Pressure Source):** Đã có tiền nhiệm trực tiếp (Huynh 2022, Wang 2024).
+- **C8 (Syringe/Piston Jamming):** Substantially preempted; chỉ là giải pháp kỹ thuật tích hợp.
+
+---
+
+## 2. Tiến hóa sang Mechanics Core và Thách thức Phản biện từ Astra
+
+Sau MP1-V001, đề tài rút lui về bài toán cơ học tiếp xúc lõi (mechanics core). Tuy nhiên, phản biện độc lập của GPT-5.6 Astra (`docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md`) đã chỉ ra 12 lỗ hổng trọng yếu (G01–G12). Nhóm nghiên cứu Stage 3 đã tiếp thu 100% và thực hiện hiệu chỉnh dứt điểm:
+
+### 2.1. Tái Cấu trúc Hệ Thống Giả Thuyết H0/H1 (G01 & G11 Remediation)
+- **H0a (Naive Elastic Substitution):** Thay thế dây NiTi bằng dầm đàn hồi tuyến tính đơn giản ($E = \text{const}$). **Đã bị bác bỏ (`REFUTED` / `established`)** khi vượt ngưỡng chuyển pha do NiTi có thềm ứng suất, trễ thắt và biến thiên mô-đun.
+- **H0b (Existing NiTi Constitutive + Contact Framework):** Khung lý thuyết kết hợp mô hình cấu thành NiTi hiện hữu (Auricchio, Graesser) với cơ học tiếp xúc Coulomb và điều kiện biên áp suất biến thiên $p(t)$. **Chưa bị bác bỏ (`NOT FALSIFIED` / `PLAUSIBLE`)**. Các công trình Vahidi 2022, Kang 2020, Carboni 2016, Barsi 2025 chứng minh khung lý thuyết này hoàn toàn khả thi và chưa từng thất bại.
+- **H1 (Novel Distinct Coupling Mechanics):** Đòi hỏi một phương trình ghép cặp vi mô mới vượt ngoài H0b. **Chưa có bằng chứng khoa học (`INSUFFICIENT EVIDENCE`)**.
+- **Hòa giải Audit JSON:** Nhãn `established` trong `TARGETED_THREAT_AUDIT.json` chỉ có giá trị cho việc bác bỏ H0a; đối với H1, trạng thái khoa học chính xác là `insufficient`.
+
+### 2.2. Hạ cấp Phân loại Áp suất P3 (G02 Remediation)
+- Phân loại áp suất:
+  - $P_1$: Áp suất chế tạo thụ động (Xin Liu 2013, Reedlunn 2013).
+  - $P_2$: Áp suất biên ngoài cố định (Tjahjanto 2017, Zhang & Yao 2026).
+  - $P_3$: Áp suất giam giữ chủ động biến thiên $p(t)$.
+- **Kết luận:** $P_1, P_2, P_3$ là phân loại về **giao thức điều khiển thực nghiệm (protocol)**, không phải là ba lớp lý thuyết cơ học khác nhau. Các phương trình cơ học tiếp xúc hiện hữu tự nhiên tiếp nhận $p(t)$ mà không cần phương trình vật lý mới. Bỏ luận điểm "áp suất chủ động tự tạo cơ học mới".
+
+### 2.3. Điều kiện Miền Cùng Tồn tại (Coexistence Domain: G03 Remediation)
+- Ngưỡng trượt $\kappa_{\text{slip}}(p)$ và ngưỡng chuyển pha $\kappa_{\text{tr}}(p)$ có thể phân tách hoàn toàn.
+- Nếu biến dạng uốn nhỏ dưới 0.75%, dây NiTi hoàn toàn ở pha Austenite đàn hồi ($E_A$). Khi đó hệ thống hành xử như **kẹt dây đàn hồi (elastic wire jamming)** truyền thống, mô hình H0a hoàn toàn đủ dùng.
+- Sự cùng tồn tại chỉ xảy ra khi uốn góc gập rất sâu hoặc có lực kéo căng dọc trục đáng kể.
+
+### 2.4. Đính chính Dữ liệu Thực tế Lịch sử (G05, G07, G08 Remediation)
+- **Carboni et al. (2015):** Đính chính sai sót của packet W08. Cấu hình S2a hoàn toàn là cáp thép (ST49) nhận diện bằng mô hình Bouc-Wen thuần ma sát; chỉ có cấu hình S1a là cáp NiTi chịu kéo - uốn kết hợp do khóa chuyển vị ngang.
+- **Reedlunn et al. (2013):** Sai số mô hình ở góc xoắn lớn là do bỏ qua uốn/xoắn cục bộ trong động học Costello, không phải chứng minh cần coupling mới cho bó dây thẳng.
+- **Fang et al. (2019):** Cáp NiTi chỉ thử kéo; mô hình dầm sợi phi tuyến là dành cho trụ cầu bê tông cốt thép (RC pier) 1.4 m. Fang chưa từng giải uốn cáp NiTi.
+- **Nhận diện Mô hình:** Cấm suy luận cơ chế từ đường cong $M-\kappa$ vĩ mô vì tích số $(\mu \cdot \alpha_{\text{trans}})$ và các tham số hình học có thể bù trừ nhau hoàn hảo; cảnh báo bẫy tính kép độ mềm (double-counting compliance).
+
+---
+
+## 3. Danh mục 16 Toàn văn Kiểm chứng MP1-V002 tại HEAD
+
+1. `00414aac4b`: Reedlunn et al. (2013 Part I) — Thí nghiệm kéo đẳng nhiệt cáp NiTi 7x7 và 1x27.
+2. `fac21c950e`: Reedlunn et al. (2013 Part II) — Phân rã cấu phần cáp NiTi và tương tác tiếp xúc.
+3. `40760daa02`: Carboni & Lacarbonara (2016) — Thiết bị tiêu tán dao động trễ thắt NiTi và thép.
+4. `2f7fcf2f8f`: Fang et al. (2019) — Mô hình phần tử sợi OpenSees cho cáp NiTi và ứng dụng kháng chấn.
+5. `7f3f45407f`: Ting-Long et al. (2021) — Đáp ứng động học và nhận diện tham số bộ cách ly cáp xoắn.
+6. `1c81b2d35c`: Falcetelli et al. (2024) — Đánh giá thực nghiệm đối đầu cáp thép vs cáp NiTi.
+7. `9f4295be23`: Barsi, Carboni, Lacarbonara (2025) — Mô hình dầm biến dạng cắt tính cận trên/dưới độ cứng uốn.
+8. `56793dea9b`: Kang et al. (2020) — Abaqus UMAT cho cáp NiTi có ma sát tiếp xúc giữa các dây.
+9. `d9966f2f5e`: Carboni et al. (2015) — Thí nghiệm trễ đa cấu hình của tao cáp Nitinol và thép.
+10. `9e15094d68`: Niu et al. (2023) — Mô hình FE đơn giản hóa cho cáp SMA siêu đàn hồi.
+11. `53200aa0c6`: Vahidi et al. (2022) — Mô hình FEA 3D chi tiết ghép luật Auricchio với tiếp xúc Coulomb.
+12. `98fee47c04`: de Paula et al. (2021) — Cách ly dao động phi tuyến sử dụng cáp dây xoắn Nitinol.
+13. `aaad9c248c`: Xin Liu (2013) — Luận án tiến sĩ về ma sát nội và áp suất hướng kính trong cáp.
+14. `ccdc1bb980`: Tjahjanto et al. (2017) — Cơ học uốn cáp ngầm dưới áp suất hướng kính và tiếp xúc dính - trượt.
+15. `e8462758c3`: Liu et al. (2026) — Vi sợi NiTi bện: micro-slip tiếp xúc và chuyển pha cục bộ.
+16. `6dd1ca94d1`: Silva et al. (2022) — Vi cáp NiTi: tự gia nhiệt ma sát làm dịch ứng suất chuyển pha.
+
+---
+
+## 4. Trạng thái Phủ sóng Trích dẫn và Câu hỏi Khoa học Còn Sống
+
+- **Trạng thái Citation Coverage:** `stop_condition_satisfied = false` (hai nhánh trích dẫn ngược B11 và B12 chưa đóng trong audit JSON).
+- **Câu hỏi Cơ học Còn Sống Tạm thời:**
+  > *"Dưới áp suất giam giữ biến thiên độc lập $p(t)$, liệu khung lý thuyết NiTi cấu thành – tiếp xúc Coulomb hiện hữu (H0b) với các tham số đo độc lập có đủ khả năng dự đoán các quá trình chuyển tiếp dính – trượt, sự phân bố chuyển pha và độ cứng uốn tiếp tuyến của bó dây NiTi hay không; và nếu thất bại thì cơ chế vi mô nào chịu trách nhiệm cho sự sai lệch đó?"*
+- **Tiêu chí Bác bỏ:** Nếu mô hình H0b với tham số bị khóa dự đoán thành công đáp ứng uốn, hoặc nếu miền vận hành thực tế không kích hoạt chuyển pha (thoái hóa về H0a), đề tài MP1 sẽ bị bác bỏ hoàn toàn (`REJECT`).
+
+---
+
+## 5. Tài liệu Canonical Cần Đọc
+
+1. `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md` (Báo cáo tổng thể 24 chương)
+2. `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md` (Ma trận khắc phục phê bình G01–G12)
+3. `outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/` (11 báo cáo worker chuyên sâu W01–W11)
+4. `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json` (Audit canonical 16 bài báo)
+5. `outputs/verification/MP1-V002/verification_matrix.json` (Ma trận 16 bài báo kiểm chứng)
