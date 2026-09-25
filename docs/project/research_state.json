@@ -1,104 +1,155 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-09-25",
+  "schema_version": 2,
+  "updated_at": "2026-09-26",
   "project": "mechanical-research-agents",
-  "research_domain": [
-    "mechanics modeling",
-    "vacuum layer jamming",
-    "model validity",
-    "frictional contact",
-    "experimental validation",
-    "soft robotics",
-    "variable stiffness"
-  ],
-  "discovery": {
-    "seed_papers": 54,
-    "status": "complete",
-    "candidate_count": 5,
-    "original_selected_direction": "D1"
+  "source_head_before_snapshot_commit": "fa4f5d2f823cbd67a055f5d6d2309adf91c5d755",
+  "fast_start_file": "docs/project/CURRENT_EXECUTION_SNAPSHOT.md",
+  "current_workstream": {
+    "id": "MENTOR_DEFENSE_DUAL_TRACK",
+    "objective": "Complete controlled D1 novelty reconstruction/falsification and MP1 workflow reconciliation before producing a fresh mentor-facing D1-vs-MP1 comparison.",
+    "final_mentor_comparison_started": false
   },
-  "d1_m1": {
-    "selected": true,
-    "decision": "LOCK_WITH_FEASIBILITY_GATE",
-    "confidence": "medium",
-    "current_title_en": "Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams",
-    "current_title_vi": "Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không",
-    "reduced_model": {
-      "id": "M1",
-      "title": "A continuum-based model for a layer jamming beam",
-      "doi": "10.5194/ms-16-821-2025"
-    },
-    "scientific_architecture": "M -> R -> E",
-    "novelty_lock": {
-      "d1_v008": "SURVIVES_FINAL_TARGET",
-      "d1_v009": "SURVIVES_LATE_FOUND_TARGET",
-      "final_novelty_lock_survives": true
-    },
-    "final_research_question": "Across a declared range of layer count, vacuum pressure, and quasi-static bending severity, for which measurable outputs and operating conditions does the Zhang et al. continuum layer-jamming beam model meet predeclared, justified error tolerances against a verified full-layer frictional-contact reference and independent experiments, and which contact or slip mechanisms explain failures?",
-    "scientific_hypothesis": "M1's output-specific error will generally grow as finite-layer discreteness and slip or contact-pressure redistribution become important, yielding experimentally resolvable validity and breakdown regions. The predicted trend and boundary are testable and may be rejected."
-  },
-  "mp1": {
-    "status": "closed_archived_viable_alternative",
-    "verification_id": "MP1-V002",
-    "full_text_papers": 16,
-    "citation_coverage": {
-      "backward_required": 9,
-      "backward_screened": 9,
-      "forward_required": 6,
-      "forward_screened": 6,
-      "total_required": 15,
-      "total_screened": 15,
-      "search_cutoff_date": "2026-09-25",
-      "stop_condition_satisfied": true,
-      "unresolved_high_threat_sources": 0
-    },
-    "final_adjudication": {
-      "protocol_outcome": "SURVIVES_TARGETED_CITATION_CHASE",
-      "confidence": "high",
-      "direct_kill_found": false,
-      "citation_coverage_closed": true,
-      "msc_topic_readiness": "READY_FOR_CROSS_DIRECTION_COMPARISON",
-      "astra_escalation_required": false,
-      "model": "gpt-6-sol",
-      "effort": "high"
-    },
-    "disposition": "Not selected in final cross-direction adjudication; retain as viable alternative only."
-  },
-  "final_cross_direction_adjudication": {
+  "historical_thesis_selection": {
     "selected_direction": "D1_M1",
     "decision": "LOCK_WITH_FEASIBILITY_GATE",
     "confidence": "medium",
-    "astra_escalation_required": false,
-    "model": "gpt-6-sol",
-    "effort": "high",
-    "canonical_json": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json"
+    "canonical_json": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json",
+    "note": "Preserved historical cross-direction decision; current dual-track audit is not yet finished."
   },
-  "current_gate": {
-    "name": "D1/M1 boundary-resolvability pilot",
-    "status": "pending",
-    "objective": "Demonstrate an uncertainty-resolved accepted/rejected contrast for a shared measurable output within an experimentally accessible domain.",
-    "first_task": "Reconstruct M1 completely and reproduce a published case before freezing the full-layer reference.",
-    "pass_requirements": [
-      "Reconstructed M1 equations, assumptions, and reproduction check",
-      "Verified full-layer frictional-contact reference formulation",
-      "Independent parameter calibration",
-      "Predeclared primary output, error metric, justified tolerance, and uncertainty budget",
-      "At least one accessible accepted condition",
-      "At least one accessible rejected condition",
-      "Experimental measurement precision sufficient to test the classification"
-    ]
+  "d1": {
+    "active_plan_version": "V6",
+    "active_plan": "outputs/plans/D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md",
+    "control_root": "outputs/execution/D1/",
+    "worker_execution_namespace": "outputs/d1_execution/V4/",
+    "namespace_note": "V4 is the intentional historical execution namespace retained by Plan V6; do not rename or migrate.",
+    "completed_workers": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08"
+    ],
+    "latest_worker": {
+      "id": "W08",
+      "status": "COMPLETE",
+      "canonical_output": "outputs/d1_execution/V4/W08/D1_PAPER_EVIDENCE_SHARD_W08.jsonl",
+      "receipt": "outputs/d1_execution/V4/W08/W08_EXECUTION_RECEIPT.json",
+      "assigned_papers": 19,
+      "papers_processed": 19,
+      "qa": "PASS",
+      "direct_prior_art_threat_candidates": 1,
+      "partial_overlap": 8,
+      "reconciliation_candidates": 3,
+      "retrospective_threshold_risks": 4,
+      "model_form_ambiguities": 13,
+      "contradictions_found": 0,
+      "human_review_triggered": false,
+      "literature_search_reopened": false,
+      "final_novelty_adjudication": "NOT_PERFORMED"
+    },
+    "next": {
+      "worker": "W09",
+      "stage": "S4",
+      "task": "CROSS-WORKER RECONCILIATION",
+      "model": "GPT-6 Sol",
+      "reasoning_effort": "High",
+      "output_directory": "outputs/d1_execution/V4/W09/",
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+        "D1_CLAIM_EVOLUTION_MATRIX.json",
+        "D1_NON_NOVELTY_REGISTER.json",
+        "D1_NOVELTY_CANDIDATE_REGISTER.json"
+      ],
+      "final_novelty_authority": false
+    },
+    "downstream": {
+      "W10": "conditional targeted search only on a named trigger",
+      "W11": "provenance/contradiction/threshold QA",
+      "W12": "GPT-6 Astra High adversarial K1-K9",
+      "final": "S14/S15 D1-only synthesis/adjudication"
+    }
+  },
+  "mp1": {
+    "verification_id": "MP1-V002",
+    "historical_citation_protocol": {
+      "status": "CLOSED",
+      "total_screened": "15/15",
+      "backward": "9/9",
+      "forward": "6/6",
+      "stop_condition_satisfied": true,
+      "search_cutoff_date": "2026-09-25",
+      "caveat": "Protocol closure is not universal novelty proof."
+    },
+    "w02": {
+      "canonical_directory": "outputs/execution/MP1-V002/W2/",
+      "status": "COMPLETE",
+      "historical_subruns_consumed": [
+        "W2-01",
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05",
+        "W2-06",
+        "W2-07",
+        "W2-08",
+        "W2-09"
+      ],
+      "superseded_not_executed": [
+        "W2-10",
+        "W2-11",
+        "W2-12"
+      ],
+      "astra_w2_09_incorporated": true,
+      "claim_reconciliation_QA": "PASS",
+      "target_reconciliation_QA": "PASS",
+      "hypothesis_reconciliation_QA": "PASS",
+      "K1_K9_reconciliation_QA": "PASS",
+      "provenance_QA": "PASS"
+    },
+    "scientific_state": {
+      "H0a": "REFUTED_IN_TRANSFORMATION_REGIME",
+      "H0b": "NOT_FALSIFIED_LIVE_COMPETITOR",
+      "H1": "INSUFFICIENT_EVIDENCE",
+      "candidate_status": "CONDITIONAL",
+      "scientific_gate_status": "BLOCKED",
+      "blocking_gaps_count": 8,
+      "unresolved_K_tests": [
+        "K2",
+        "K3",
+        "K6",
+        "K7",
+        "K9"
+      ],
+      "final_novelty_adjudication": "NOT_PERFORMED"
+    },
+    "next": {
+      "task_id": "MP1-WR1",
+      "task": "Workflow Reconciliation & Next-Stage Routing",
+      "model": "GPT-6 Sol",
+      "reasoning_effort": "High",
+      "input_handoff": "outputs/execution/MP1-V002/W2/MP1_W02_HANDOFF.md",
+      "status": "NOT_STARTED",
+      "old_W2_10_to_W2_12_chain_must_not_resume": true
+    }
   },
   "search_status": {
-    "d1_broad_search": "stopped_after_D1-V009",
-    "mp1_broad_search": "closed_after_MP1-V002",
-    "reopen_only_for_concrete_high_threat_reason": true
+    "d1_broad_search": "CLOSED",
+    "mp1_broad_search": "CLOSED",
+    "reopen_only_on_named_evidence_first_trigger": true
   },
-  "canonical_authority": [
-    "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json",
-    "docs/project/PROJECT_HANDOFF_CURRENT.md",
-    "docs/project/RESEARCH_LOG.md",
-    "outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
-    "outputs/verification/MP1-V002/citation_coverage.json"
-  ],
-  "core_rule": "DO NOT DEFEND A DIRECTION BY DEFAULT. TEST THE CURRENT FEASIBILITY GATE AND PIVOT IF THE EVIDENCE FAILS."
+  "later_thesis_feasibility_gate": {
+    "name": "D1/M1 boundary-resolvability pilot",
+    "status": "PENDING_AFTER_CURRENT_MENTOR_DEFENSE_WORKSTREAM",
+    "note": "Still required for the thesis direction, but not the immediate current task."
+  },
+  "core_rules": [
+    "Do not defend a direction by default; test it.",
+    "Do not use citation closure as proof of universal novelty.",
+    "Do not rename outputs/d1_execution/V4/.",
+    "Do not execute MP1 W2-10/W2-12.",
+    "Do not start final mentor comparison before current D1 and MP1 branches reach their designated synthesis/adjudication checkpoints."
+  ]
 }

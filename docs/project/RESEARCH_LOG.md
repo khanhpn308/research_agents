@@ -551,3 +551,127 @@ Nếu không có accepted/rejected contrast được uncertainty-resolve trong a
 Không broad search thêm cho MP1 hoặc D1 chỉ để tăng số paper.
 
 Từ đây workflow chuyển từ **novelty/falsification selection** sang **feasibility + mechanics execution**.
+
+
+## Phase 27 — Mentor-defense dual-track planning and audit hardening (2026-09-25/26)
+
+Mục tiêu công việc được tách thành hai nhánh độc lập trước khi làm mentor-facing comparison:
+
+```text
+D1 = reconstruct + falsify novelty lineage
+MP1 = reconstruct + falsify mentor-direction lineage
+comparison = defer until both branches reach controlled checkpoints
+```
+
+D1 Master Plan trải qua nhiều vòng audit/remediation và chốt ở Plan V6 với worker contracts, ownership, hard-gate routing, failure routing và canonical package hợp lệ.
+
+Quy tắc path D1:
+
+```text
+Plan authority = V6
+control root   = outputs/execution/D1/
+worker root    = outputs/d1_execution/V4/
+```
+
+`V4` là historical execution namespace được V6 giữ lại; không migrate/rename.
+
+## Phase 28 — D1 execution W01-W08 complete (2026-09-26)
+
+D1 execution preflight PASS, sau đó W01-W08 được chạy có kiểm soát.
+
+Đến W08:
+
+```text
+W01-W08 = COMPLETE
+W08 assigned papers = 19
+W08 processed       = 19
+QA                   = PASS
+direct threat candidates = 1
+partial overlap          = 8
+reconciliation candidates = 3
+retrospective threshold risks = 4
+model-form ambiguities = 13
+contradictions = 0
+search reopened = false
+```
+
+Canonical latest:
+
+- `outputs/d1_execution/V4/W08/D1_PAPER_EVIDENCE_SHARD_W08.jsonl`
+- `outputs/d1_execution/V4/W08/W08_EXECUTION_RECEIPT.json`
+
+Next D1 dependency:
+
+```text
+W09 / S4 CROSS-WORKER RECONCILIATION
+MODEL = GPT-6 Sol High
+```
+
+W09 phải hợp nhất W03-W08 nhưng không được tuyên bố final novelty.
+
+## Phase 29 — MP1 W02 architecture correction and macro-stage closeout (2026-09-26)
+
+MP1 execution từng bị phân rã sai thành chuỗi bắt buộc W2-01→W2-12.
+
+Các run W2-01→W2-09 đã hoàn thành được giữ làm historical subruns. W2-10/W2-11/W2-12 không chạy và bị supersede bởi W02 closeout.
+
+Canonical package:
+
+`outputs/execution/MP1-V002/W2/`
+
+State:
+
+```text
+W02 = COMPLETE
+Astra W2-09 incorporated = true
+claim/target/hypothesis/K1-K9/provenance QA = PASS
+citation protocol closure = SATISFIED
+final novelty adjudication = NOT PERFORMED
+candidate = CONDITIONAL
+scientific gate = BLOCKED
+blocking gaps = 8
+unresolved K tests = K2,K3,K6,K7,K9
+```
+
+Next MP1 dependency:
+
+```text
+AWAITING_WORKFLOW_RECONCILIATION
+→ MP1-WR1 with GPT-6 Sol High
+```
+
+Không được tiếp tục W2-10/W2-12.
+
+## Phase 30 — Dual Sol-High checkpoint (2026-09-26)
+
+Cả hai hướng kết thúc phiên tại một reasoning checkpoint:
+
+```text
+D1 next  = W09/S4 GPT-6 Sol High
+MP1 next = MP1-WR1 GPT-6 Sol High
+```
+
+Astra chưa cần chạy ở bước kế tiếp. D1 Astra được giữ cho adversarial K1-K9 stage (W12) hoặc formal escalation route. MP1 W2-09 Astra đã được incorporated trong W02 closeout.
+
+Final mentor-facing D1-vs-MP1 comparison vẫn chưa bắt đầu trong workstream hiện tại.
+
+## Phase 31 — End-of-session snapshot (2026-09-26)
+
+User đã push toàn bộ worker outputs lên `main` tại source HEAD:
+
+`fa4f5d2f823cbd67a055f5d6d2309adf91c5d755`
+
+Tạo/đồng bộ current-context documents để chat/agent mới có thể tiếp tục không cần suy đoán:
+
+- `docs/project/CURRENT_EXECUTION_SNAPSHOT.md`
+- `docs/project/NEXT_SESSION_START_HERE.md`
+- `docs/project/PROJECT_HANDOFF_CURRENT.md`
+- `docs/project/RESEARCH_STATE.md`
+- `docs/project/research_state.json`
+- `docs/project/MP1-V002_CURRENT_HANDOFF.md`
+- `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
+- `docs/project/MENTOR_PIVOT_STATUS.md`
+
+Current principle:
+
+> Finish the active D1 reconciliation/adversarial chain and MP1 workflow reconciliation before using either branch as the final mentor-facing comparison.
