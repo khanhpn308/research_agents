@@ -1,0 +1,243 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "selected_direction",
+    "decision",
+    "confidence",
+    "executive_summary",
+    "d1_m1_assessment",
+    "mp1_assessment",
+    "direct_comparison",
+    "fatal_risks",
+    "selection_rationale",
+    "final_title_en",
+    "final_title_vi",
+    "final_research_question",
+    "scientific_hypothesis",
+    "immediate_next_gate",
+    "astra_escalation_required",
+    "astra_escalation_reason"
+  ],
+  "properties": {
+    "selected_direction": {
+      "type": "string",
+      "enum": [
+        "D1_M1",
+        "MP1",
+        "INSUFFICIENT_CONFIDENCE"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "LOCK_DIRECTION",
+        "LOCK_WITH_FEASIBILITY_GATE",
+        "INSUFFICIENT_CONFIDENCE"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "d1_m1_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scientific_question",
+        "novelty_position",
+        "modeling_readiness",
+        "experimental_readiness",
+        "identifiability",
+        "execution_risk",
+        "publication_logic",
+        "remaining_unknowns"
+      ],
+      "properties": {
+        "scientific_question": {
+          "type": "string"
+        },
+        "novelty_position": {
+          "type": "string"
+        },
+        "modeling_readiness": {
+          "type": "string"
+        },
+        "experimental_readiness": {
+          "type": "string"
+        },
+        "identifiability": {
+          "type": "string"
+        },
+        "execution_risk": {
+          "type": "string"
+        },
+        "publication_logic": {
+          "type": "string"
+        },
+        "remaining_unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mp1_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scientific_question",
+        "novelty_position",
+        "modeling_readiness",
+        "experimental_readiness",
+        "identifiability",
+        "execution_risk",
+        "publication_logic",
+        "remaining_unknowns"
+      ],
+      "properties": {
+        "scientific_question": {
+          "type": "string"
+        },
+        "novelty_position": {
+          "type": "string"
+        },
+        "modeling_readiness": {
+          "type": "string"
+        },
+        "experimental_readiness": {
+          "type": "string"
+        },
+        "identifiability": {
+          "type": "string"
+        },
+        "execution_risk": {
+          "type": "string"
+        },
+        "publication_logic": {
+          "type": "string"
+        },
+        "remaining_unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "direct_comparison": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criterion",
+          "d1_m1",
+          "mp1",
+          "decision_relevance"
+        ],
+        "properties": {
+          "criterion": {
+            "type": "string"
+          },
+          "d1_m1": {
+            "type": "string"
+          },
+          "mp1": {
+            "type": "string"
+          },
+          "decision_relevance": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fatal_risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "direction",
+          "risk",
+          "kill_or_pivot_condition"
+        ],
+        "properties": {
+          "direction": {
+            "type": "string",
+            "enum": [
+              "D1_M1",
+              "MP1"
+            ]
+          },
+          "risk": {
+            "type": "string"
+          },
+          "kill_or_pivot_condition": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "selection_rationale": {
+      "type": "string"
+    },
+    "final_title_en": {
+      "type": "string"
+    },
+    "final_title_vi": {
+      "type": "string"
+    },
+    "final_research_question": {
+      "type": "string"
+    },
+    "scientific_hypothesis": {
+      "type": "string"
+    },
+    "immediate_next_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "objective",
+        "pass_condition",
+        "fail_condition",
+        "required_outputs"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "pass_condition": {
+          "type": "string"
+        },
+        "fail_condition": {
+          "type": "string"
+        },
+        "required_outputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "astra_escalation_required": {
+      "type": "boolean"
+    },
+    "astra_escalation_reason": {
+      "type": "string"
+    }
+  }
+}

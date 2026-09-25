@@ -1,0 +1,196 @@
+{
+  "selected_direction": "D1_M1",
+  "decision": "LOCK_WITH_FEASIBILITY_GATE",
+  "confidence": "medium",
+  "executive_summary": "Select D1/M1 provisionally. It has a specified baseline model, a clearer model-error question, measurable beam-level outputs, and a stronger path to an interpretable result even if the expected breakdown pattern is wrong. Its contribution must be an experimentally tested, output-specific validity map with a physical explanation; predeclared tolerances alone add little. MP1 survived its citation audit, but its decisive transformation-plus-slip regime is not yet known to be accessible, and an existing transformation-aware NiTi contact model may explain the data. D1/M1 should pass one boundary-resolvability pilot before irreversible thesis commitment.",
+  "d1_m1_assessment": {
+    "scientific_question": "Where, across layer count, vacuum pressure, and bending severity, does the specified Zhang et al. continuum beam model predict selected outputs within justified tolerances, and what contact or slip mechanisms explain failure?",
+    "novelty_position": "D1-V008 and D1-V009 permit a protocol-bounded novelty lock for an experimentally supported validity/breakdown map. Neither a predeclared tolerance by itself nor established continuum, frictional-slip, or contact mechanics is a contribution.",
+    "modeling_readiness": "The reduced model M1 is named and its principal slip mechanics and beam outputs are documented. A full-layer frictional-contact FE reference is specified in architecture but its formulation, pressure representation, convergence protocol, and implementation remain open.",
+    "experimental_readiness": "Deflection and load response are plausible primary measurements; stiffness and slip onset are candidates. The apparatus and boundary-sampling plan are not frozen.",
+    "identifiability": "Vacuum-to-interface-pressure mapping, friction, contact state, and sheath effects could confound model-form error. Independent calibration and uncertainty bounds are needed before interpreting an M1–reference discrepancy.",
+    "execution_risk": "Moderate to high: reconstructing M1 and building a credible contact FE reference are substantial MSc tasks. The critical risk is that the predicted accepted and rejected regions cannot be resolved experimentally within an accessible domain.",
+    "publication_logic": "A journal paper is coherent if it reports reproducible output-specific validity regions, deliberately tests conditions on both sides, and explains discrepancies through observed or well-supported contact and slip mechanisms. A merely expanded M1 comparison or threshold choice would be weak.",
+    "remaining_unknowns": [
+      "Exact full-layer reference formulation and its numerical credibility",
+      "Final shared outputs, error metrics, and justified tolerances",
+      "Independent calibration of friction and vacuum-generated contact pressure",
+      "Existence of experimentally accessible, distinguishable valid and invalid conditions"
+    ]
+  },
+  "mp1_assessment": {
+    "scientific_question": "Does independently varied confinement pressure alter NiTi-bundle bending, slip, transformation, and hysteresis in ways that calibrated elastic-wire and transformation-aware NiTi contact models cannot predict?",
+    "novelty_position": "MP1-V002 closed its targeted citation coverage without a direct kill. Active pressure is a control protocol; NiTi friction, transformation, wire mechanics, and contact are prior art. A distinct coupling claim fails if the existing transformation-aware contact model, H0b, predicts the declared domain adequately.",
+    "modeling_readiness": "Relevant elastic-wire and transformation-aware contact frameworks are identified, but no single implemented baseline and higher-fidelity pair is frozen for the proposed specimen and loading protocol.",
+    "experimental_readiness": "Moment–curvature loops and pressure can be measured in principle. Credible discrimination also requires local transformation evidence, inter-wire slip evidence, independent material calibration, and control of temperature and history.",
+    "identifiability": "Material transformation, friction, contact force, temperature, axial bias, and cycle history can trade off in fitted bending curves. Without local measurements, model discrimination may collapse into effective-parameter fitting.",
+    "execution_risk": "High: the required pressure-controlled fixture, NiTi state control, and local diagnostics add substantial burden. It is unverified that slip and stress-induced transformation coexist in an accessible pressure–curvature domain.",
+    "publication_logic": "A strong paper is possible if an accessible transformation-plus-slip regime supports a decisive, independently calibrated H0b comparison. If H0b predicts the observations, a distinct mechanics claim is lost; careful characterization may still be useful but has less certain publication strength.",
+    "remaining_unknowns": [
+      "Accessible overlap of inter-wire slip and stress-induced transformation",
+      "Practical resolution of local transformation and slip measurements",
+      "Pressure-to-contact-force calibration",
+      "Predictive adequacy of the existing transformation-aware NiTi contact model"
+    ]
+  },
+  "direct_comparison": [
+    {
+      "criterion": "1. Scientific-question clarity",
+      "d1_m1": "One named model and an output-specific validity question.",
+      "mp1": "Clear discrimination question, conditional on reaching coupled slip and transformation.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "2. Novelty/falsification maturity",
+      "d1_m1": "D1-V008 and D1-V009 support a narrow, protocol-bounded lock.",
+      "mp1": "MP1-V002 citation chase is closed; the distinct coupling claim remains experimentally contingent.",
+      "decision_relevance": "Favors D1/M1 modestly."
+    },
+    {
+      "criterion": "3. Concrete baseline model",
+      "d1_m1": "Zhang et al. M1 is fixed.",
+      "mp1": "Candidate elastic-wire and NiTi-contact frameworks are identified but not frozen as one implementation.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "4. Concrete higher-fidelity/reference model",
+      "d1_m1": "Full-layer explicit-contact FE is defined in scope; exact formulation remains open.",
+      "mp1": "Transformation-aware constitutive plus Coulomb contact is a plausible comparator; implementation remains open.",
+      "decision_relevance": "Slightly favors D1/M1; neither reference is ready."
+    },
+    {
+      "criterion": "5. Independent and dependent variables",
+      "d1_m1": "Layer count, vacuum pressure, and bending severity map to beam outputs.",
+      "mp1": "Pressure and curvature are controllable, while temperature, axial state, and history need tighter control.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "6. Parameter identifiability",
+      "d1_m1": "Friction and contact pressure are challenging but can be separately constrained.",
+      "mp1": "Transformation, friction, contact, and thermal history can produce similar global responses.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "7. Experimental measurability",
+      "d1_m1": "Deflection and load are direct; local slip and pressure remain harder.",
+      "mp1": "Global loops are accessible, but decisive local transformation and slip evidence is demanding.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "8. Apparatus complexity",
+      "d1_m1": "Vacuum beam bending rig plus contact FE.",
+      "mp1": "Pressure-controlled bundle fixture plus NiTi state and local diagnostics.",
+      "decision_relevance": "Favors D1/M1 for MSc execution."
+    },
+    {
+      "criterion": "9. Reachability of critical regime",
+      "d1_m1": "M1 explicitly predicts slip transitions; accessible boundary crossing is still unproved.",
+      "mp1": "Coexistence of slip and stress-induced transformation is unproved.",
+      "decision_relevance": "Favors D1/M1, subject to the immediate gate."
+    },
+    {
+      "criterion": "10. Model-discrimination strength",
+      "d1_m1": "M1, full-layer reference, and experiment can give output-specific tests.",
+      "mp1": "Could discriminate elastic and transformation-aware contact models if the coupled regime is reached and local states are measured.",
+      "decision_relevance": "D1/M1 has the more reliable path; MP1 has conditional upside."
+    },
+    {
+      "criterion": "11. Risk of parameter fitting",
+      "d1_m1": "Contact and pressure parameters could be tuned to hide model-form error.",
+      "mp1": "Effective stiffness and hysteresis parameters could absorb the proposed effect.",
+      "decision_relevance": "Both require independent calibration; risk is greater for MP1."
+    },
+    {
+      "criterion": "12. Scientifically weak negative result",
+      "d1_m1": "No observed breakdown can still bound M1 validity if the tested domain and resolution are adequate.",
+      "mp1": "If H0b predicts the data, the distinct coupling claim ends.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "13. MSc implementation burden",
+      "d1_m1": "Contact FE is substantial, but the model and primary outputs are already specified.",
+      "mp1": "Fixture development, NiTi calibration, local diagnostics, and multiple models must converge.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "14. Reproducibility",
+      "d1_m1": "Geometry, pressure, loading, and numerical protocols can be reported explicitly.",
+      "mp1": "Temperature, preconditioning, loading rate, and cycle history add sensitivity.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "15. Journal publication logic",
+      "d1_m1": "A physically explained, experimentally tested validity map is a coherent mechanics paper.",
+      "mp1": "A decisive H0b discrimination study could publish, but its key regime and measurements are unconfirmed.",
+      "decision_relevance": "Favors D1/M1 at current readiness."
+    },
+    {
+      "criterion": "16. Specialized instrumentation or material control",
+      "d1_m1": "Needs reliable pressure and beam-response measurement.",
+      "mp1": "Needs credible transformation and inter-wire slip diagnostics plus material-state control.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "17. Publishability of a null result",
+      "d1_m1": "An uncertainty-bounded wide validity domain or falsified expected mechanism remains informative.",
+      "mp1": "H0b success can support a characterization paper, but weakens the distinct mechanics contribution.",
+      "decision_relevance": "Favors D1/M1."
+    },
+    {
+      "criterion": "18. Remaining fatal unknowns",
+      "d1_m1": "Reference credibility and experimental boundary resolvability.",
+      "mp1": "Coupled-regime accessibility, local-state observability, and H0b adequacy.",
+      "decision_relevance": "D1/M1 has the more tractable immediate feasibility test."
+    }
+  ],
+  "fatal_risks": [
+    {
+      "direction": "D1_M1",
+      "risk": "No accessible operating conditions yield an uncertainty-resolved accepted/rejected contrast, or the full-layer reference cannot credibly represent vacuum contact.",
+      "kill_or_pivot_condition": "The boundary-resolvability pilot fails after independent calibration and numerical verification; narrow to a defensible validity-domain study only if that result remains scientifically substantial."
+    },
+    {
+      "direction": "D1_M1",
+      "risk": "The work becomes another M1 simulation/experiment comparison without an interpretable model-form boundary or physical mechanism.",
+      "kill_or_pivot_condition": "If no output-specific map and independently tested explanation can be produced, the claimed thesis contribution is not met."
+    },
+    {
+      "direction": "MP1",
+      "risk": "Slip and stress-induced transformation do not coexist within safe, measurable pressure–curvature conditions.",
+      "kill_or_pivot_condition": "Reject the distinct coupled-mechanics question if the overlap regime cannot be demonstrated."
+    },
+    {
+      "direction": "MP1",
+      "risk": "Existing transformation-aware NiTi constitutive behavior plus Coulomb contact predicts the observations.",
+      "kill_or_pivot_condition": "Reject a new coupling or constitutive claim if independently calibrated H0b meets the declared predictive criteria."
+    }
+  ],
+  "selection_rationale": "D1/M1 better balances defensibility and MSc feasibility because its named model, measurable outputs, and M1–reference–experiment comparison make both agreement and disagreement interpretable. Its novelty survives only as a physical validity study, so commitment is conditional on showing that an accepted/rejected contrast can be resolved in practice. MP1 is scientifically legitimate but depends on a harder-to-reach coupled regime and measurements needed to distinguish a new effect from H0b or fitted parameters. This ranking is an inference from the supplied D1-V008, D1-V009, M1 architecture, MP1-V002 adjudication, and citation-coverage files; it is not a claim that either experiment has already succeeded.",
+  "final_title_en": "Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams",
+  "final_title_vi": "Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không",
+  "final_research_question": "Across a declared range of layer count, vacuum pressure, and quasi-static bending severity, for which measurable outputs and operating conditions does the Zhang et al. continuum layer-jamming beam model meet predeclared, justified error tolerances against a verified full-layer frictional-contact reference and independent experiments, and which contact or slip mechanisms explain failures?",
+  "scientific_hypothesis": "M1's output-specific error will generally grow as finite-layer discreteness and slip or contact-pressure redistribution become important, yielding experimentally resolvable validity and breakdown regions. The predicted trend and boundary are testable and may be rejected.",
+  "immediate_next_gate": {
+    "name": "D1/M1 boundary-resolvability pilot",
+    "objective": "Determine whether a verified M1–full-layer reference comparison yields both accepted and rejected conditions within a physically testable domain, with measurement precision sufficient to test the distinction.",
+    "pass_condition": "Using independently calibrated parameters and tolerances fixed before inspecting final pilot errors, verify M1 and reference implementations; identify at least one accessible condition on each side of an output-specific M1–reference tolerance boundary with numerical uncertainty smaller than the classification margin; and demonstrate physical measurements of that output at those conditions with uncertainty small enough to test the classifications. Experimental disagreement is recorded as evidence, not treated as automatic gate failure.",
+    "fail_condition": "No accepted/rejected contrast is accessible and uncertainty-resolved for a shared measurable output, or the full-layer reference cannot be numerically verified or independently constrained well enough to interpret the contrast.",
+    "required_outputs": [
+      "Reconstructed M1 equations, assumptions, and reproduction check",
+      "Specified full-layer contact formulation, convergence check, and independent parameter-calibration record",
+      "Predeclared primary output, error metric, justified tolerance, and uncertainty budget",
+      "Predicted accepted and rejected pilot conditions within apparatus limits",
+      "Pilot measurements and a decision on whether the boundary can be tested"
+    ]
+  },
+  "astra_escalation_required": false,
+  "astra_escalation_reason": "The supplied evidence supports a defensible D1/M1 preference with one concrete feasibility gate. The remaining uncertainty is empirical and implementation-specific rather than a close unresolved scientific contradiction requiring Astra.",
+  "_provenance": {
+    "run_id": "20260925T094054Z",
+    "created_at_utc": "2026-09-25T09:42:49.300826+00:00",
+    "evidence_bundle_sha256": "9fd2de53ff436591394306f26c925441890d1a10e22f4a7ed853d056ebd15fa4",
+    "model": "gpt-6-sol",
+    "effort": "high",
+    "final_direction_lock_run": true
+  }
+}
