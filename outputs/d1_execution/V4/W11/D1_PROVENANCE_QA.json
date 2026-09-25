@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "D1_PROVENANCE_QA",
+  "canonical_filename": "D1_PROVENANCE_QA.json",
+  "artifact_type": "CANONICAL_W11",
+  "worker_id": "W11",
+  "plan_version": "V6",
+  "created_at": "2026-09-26T05:21:00+07:00",
+  "actual_execution_model": "GPT-5.6 Sol High",
+  "planned_model": "Deterministic validator + GPT-6 Sol High",
+  "model_version_deviation_recorded": true,
+  "thesis_critical_claims_checked": [
+    "NC-01",
+    "NC-02",
+    "NC-03",
+    "NC-04",
+    "CLM-D1-C04",
+    "K1-K9-CRITERIA",
+    "THRESHOLD-GOVERNANCE"
+  ],
+  "qa_rows": 12,
+  "unsupported_claims": 0,
+  "invalid_locators": 0,
+  "external_fulltext_not_ingested": 1,
+  "fulltext_blocked_sources": 1,
+  "result": "PASS_PROVENANCE_WITH_DOWNSTREAM_BLOCKERS",
+  "rows": [
+    {
+      "qa_id": "D1-PQA-001",
+      "claim_id": "NC-01",
+      "evidence_packet_id": "CAN-95646b2cfc",
+      "source_chain": [
+        "W09/CAN-95646b2cfc",
+        "outputs/verification/D1-V002/verification_matrix.json",
+        "original Zhang 2025 full text (repository evidence lineage)"
+      ],
+      "source_hash": "71791dd7a72c4030f744d58b7f75351bd98c8b17",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS: verified full-text audit controls over narrative summary.",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-002",
+      "claim_id": "NC-01",
+      "evidence_packet_id": "CAN-a792efc445",
+      "source_chain": [
+        "W09/CAN-a792efc445",
+        "outputs/verification/D1-V003/cross_round_adversarial_synthesis.json",
+        "verified full-text lineage for Continuum modeling for layer jamming structures"
+      ],
+      "source_hash": "4f96197c4c0f3513e19f857784ae85e3d1bc2a8c",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-003",
+      "claim_id": "NC-01",
+      "evidence_packet_id": "CAN-ca46dc062d",
+      "source_chain": [
+        "W09/CAN-ca46dc062d",
+        "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json",
+        "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md",
+        "verified full-text lineage"
+      ],
+      "source_hash": "48d6987a5ae7e36518cb8b15dc6020be9b86bf36",
+      "locator_validation_status": "PASS_WITH_SEMANTIC_CORRECTION_LINK",
+      "source_precedence_check": "PASS: full-text evidence + later semantic correction supersede loose summary wording.",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-004",
+      "claim_id": "NC-02",
+      "evidence_packet_id": "CAN-5f7ccd7357",
+      "source_chain": [
+        "W09/CAN-5f7ccd7357",
+        "outputs/verification/D1-V001/direction_verification.json",
+        "verified Narang 2018 full-text lineage"
+      ],
+      "source_hash": "d3341cfcc9a04c77d6902d0de10dad363513990b",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-005",
+      "claim_id": "NC-02",
+      "evidence_packet_id": "CAN-652e62758f",
+      "source_chain": [
+        "W09/CAN-652e62758f",
+        "outputs/verification/D1-V001/direction_verification.json",
+        "verified Caruso 2023 full-text lineage"
+      ],
+      "source_hash": "d3341cfcc9a04c77d6902d0de10dad363513990b",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-006",
+      "claim_id": "NC-02",
+      "evidence_packet_id": "EXT-T1-YANG2025-LJP",
+      "source_chain": [
+        "W10/D1-TH-014",
+        "Scientific Reports full text",
+        "DOI 10.1038/s41598-025-22364-w"
+      ],
+      "source_hash": "EXTERNAL_DOI:10.1038/s41598-025-22364-w",
+      "locator_validation_status": "PASS_EXTERNAL_FULLTEXT_VERIFIED_NOT_REPOSITORY_INGESTED",
+      "source_precedence_check": "PASS_FOR_PARTIAL_OVERLAP_ONLY: publisher full text was inspected; source is not used as proof of global absence.",
+      "unsupported_claim": false,
+      "result": "PASS_WITH_INGESTION_DEBT",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-007",
+      "claim_id": "NC-04",
+      "evidence_packet_id": "EXT-T2-WANG2026-MLJ",
+      "source_chain": [
+        "W10/D1-TH-015",
+        "TU Delft/ScienceDirect metadata + abstract",
+        "DOI 10.1016/j.matdes.2026.116573",
+        "full text not retrieved"
+      ],
+      "source_hash": "EXTERNAL_DOI:10.1016/j.matdes.2026.116573",
+      "locator_validation_status": "PASS_METADATA_LOCATOR_BUT_FULLTEXT_BLOCKED",
+      "source_precedence_check": "PASS_BY_NON_USE: metadata/abstract are used only to register an unresolved threat, never to support a survival/kill mechanics claim.",
+      "unsupported_claim": false,
+      "result": "BLOCKED_FOR_K_CLASSIFICATION_NOT_ORPHANED",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-008",
+      "claim_id": "NC-03",
+      "evidence_packet_id": "CAN-afe2a3a310",
+      "source_chain": [
+        "W09/CAN-afe2a3a310",
+        "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json",
+        "verified full-layer flexible-pipe evidence lineage"
+      ],
+      "source_hash": "48d6987a5ae7e36518cb8b15dc6020be9b86bf36",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-009",
+      "claim_id": "NC-04",
+      "evidence_packet_id": "CAN-a300a3b714",
+      "source_chain": [
+        "W09/CAN-a300a3b714",
+        "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json",
+        "verified full-text flexible-pipe reduced/reference/experiment lineage"
+      ],
+      "source_hash": "48d6987a5ae7e36518cb8b15dc6020be9b86bf36",
+      "locator_validation_status": "PASS_CANONICAL_AUDIT_LOCATOR",
+      "source_precedence_check": "PASS",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-010",
+      "claim_id": "CLM-D1-C04",
+      "evidence_packet_id": "CAN-53d328abaa",
+      "source_chain": [
+        "W09/CAN-53d328abaa",
+        "outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json",
+        "verified Ye 2024 full text"
+      ],
+      "source_hash": "2955ba4ab168fe6e4ea476388771116c415b1f4a",
+      "locator_validation_status": "PASS_WITH_METADATA_CONTRADICTION",
+      "source_precedence_check": "RESOLVED: D1-V008 verified full-text identity controls DOI metadata; correct DOI is 10.1061/JSENDH.STENG-13096.",
+      "unsupported_claim": false,
+      "result": "PASS_AFTER_TYPED_CONTRADICTION",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-011",
+      "claim_id": "K1-K9-CRITERIA",
+      "evidence_packet_id": "D1_K_CRITERIA_REGISTER",
+      "source_chain": [
+        "outputs/d1_execution/V4/S09/D1_K_CRITERIA_REGISTER.json",
+        "V6 embedded V3 section 24"
+      ],
+      "source_hash": "51f3dbf034f98791a264c4cf205c8eb6fdb4904e",
+      "locator_validation_status": "PASS",
+      "source_precedence_check": "PASS: frozen canonical S9 register controls K-test definitions.",
+      "unsupported_claim": false,
+      "result": "PASS",
+      "reviewer": "W11 — deterministic structural QA"
+    },
+    {
+      "qa_id": "D1-PQA-012",
+      "claim_id": "THRESHOLD-GOVERNANCE",
+      "evidence_packet_id": "M1_RESEARCH_ARCHITECTURE",
+      "source_chain": [
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE.md",
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md",
+        "POST_D1 roadmap"
+      ],
+      "source_hash": "ee45164b770ce50ea4d51ddae74012db752b4251",
+      "locator_validation_status": "PASS",
+      "source_precedence_check": "PASS: architecture explicitly states exact tolerance values remain unresolved and forbids adopting 5% from prior art.",
+      "unsupported_claim": false,
+      "result": "PASS_WITH_THRESHOLD_NOT_YET_FROZEN",
+      "reviewer": "W11 — GPT-5.6 Sol High + deterministic structural QA"
+    }
+  ],
+  "final_novelty_adjudication": "NOT_PERFORMED"
+}
