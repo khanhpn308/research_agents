@@ -1,0 +1,165 @@
+{
+  "source": {
+    "paper_id": "40760daa02",
+    "filename": "2016-Nonlinear Vibration Absorber with Pinched Hysteresis Theory and Experiments.pdf",
+    "sha256": "40760daa02b35309d91df1f6aadf35cf34726dc98d8e9520f1324e23cc59a4b3",
+    "page_count": 21,
+    "char_count": 89342,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 40140,
+    "completion_tokens": 6018,
+    "total_tokens": 46158,
+    "thinking_tokens": 3656,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "passive"
+    ],
+    "authors": [
+      "Biagio Carboni",
+      "Walter Lacarbonara"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The restoring force is modeled as the direct sum of a linear-elastic component and a hysteretic component governed by a first-order differential equation (modified Bouc-Wen model).",
+      "The pinched hysteretic behavior arises from the simultaneous occurrence of interwire friction and martensitic phase transformations in the superelastic NiTiNOL layers.",
+      "The wire ropes in the principal stiffness group (PSG) are assumed to undergo pure bending deformation when the support bars are free to slide, avoiding geometric tension-stretching hardening.",
+      "Equivalent viscous damping ratio and resonance frequency of the nonlinear hysteretic oscillator can be evaluated by equating the cyclic dissipated energy to that of an equivalent linear viscoelastic oscillator.",
+      "The scaled multi-story building behaves as a shear-type structure where the reinforced concrete slabs deliver high in-plane floor stiffness."
+    ],
+    "control_variables": [
+      "Ambient testing temperature around 20°C (ensuring superelastic NiTiNOL behavior with austenite start temperature at -25°C)",
+      "Quasistatic cyclic excitation frequency of 0.066 Hz (0.418 rad/s) in MTS tests",
+      "Mass of the TMD oscillating mass (6.46 kg)",
+      "Building floor dimensions (0.9 m by 1.2 m), interstory height (0.5 m), and total height (2.5 m)",
+      "Configuration of the principal stiffness group using four NiTi-ST61 wire ropes",
+      "Mass ratio between TMD and building model (1.14%)"
+    ],
+    "dependent_variables": [
+      "Measured restoring force of the wire rope assembly",
+      "Relative displacement amplitude of the TMD oscillating mass",
+      "Top-floor absolute acceleration and relative displacement of the building model",
+      "Equivalent damping ratio as a function of oscillation amplitude",
+      "Steady-state frequency-response curves (FRCs)",
+      "Resonance frequency and peak mitigation percentages for displacement and acceleration"
+    ],
+    "doi": "10.1061/(ASCE)EM.1943-7889.0001072",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Mixed wire ropes fabricated with concentric layers of NiTiNOL and stainless steel subject to cyclic bending exhibit quasi-linear-softening pinched hysteresis due to the simultaneous action of interwire friction and superelastic phase transformations.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          1,
+          2,
+          4,
+          5,
+          20
+        ]
+      },
+      {
+        "claim": "A modified Bouc-Wen phenomenological model incorporating an exponential pinching function combined with differential evolution optimization accurately reproduces the pinched hysteretic force-displacement response of mixed wire ropes.",
+        "evidence_type": "mechanical modeling",
+        "page_numbers": [
+          1,
+          4,
+          8,
+          20
+        ]
+      },
+      {
+        "claim": "The pinched hysteretic behavior provides an equivalent damping ratio and resonance frequency that saturate and remain nearly constant past a displacement amplitude threshold, preventing detuning across varying excitation amplitudes.",
+        "evidence_type": "variable stiffness / mechanical modeling",
+        "page_numbers": [
+          1,
+          5,
+          6,
+          10,
+          20
+        ]
+      },
+      {
+        "claim": "Experimental shaking table validation on a five-story scaled frame building demonstrated that the wire rope absorber reduced resonant top-floor displacement by 38.32% to 69.12% and acceleration by 39.08% to 72.13% under harmonic base excitations.",
+        "evidence_type": "experimental mechanics",
+        "page_numbers": [
+          1,
+          17,
+          19,
+          20
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Quasistatic displacement-controlled testing fixture mounted in a Material Testing System (MTS) with a hydraulic actuator and load cell",
+      "Single-stranded 61-wire rope (NiTi-ST61) consisting of layered NiTiNOL and stainless steel wires (0.63 mm wire diameter, 5.7 mm total rope diameter)",
+      "Testing mechanism with frames F1 and F2, smooth guide rods S1 and S2, and PTFE bushings allowing pure bending of wire ropes",
+      "Unidirectional shaking table setup for dynamic testing of the isolated TMD prototype and the building-TMD assembly",
+      "Laser displacement sensors (Micro-Epsilon) and inductive displacement transducers (HBM)",
+      "Piezoelectric accelerometers (PCB Piezotronics) mounted on the shaking table and building floors",
+      "Five-story scaled steel moment-resisting frame building (total mass 677 kg) with reinforced concrete floor slabs",
+      "Instrumented hammer for hammer-blow modal testing"
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Prescribed displacement amplitude during quasistatic cyclic tests (10, 15, 20, 25, and 30 mm)",
+      "Base acceleration amplitude of the shaking table (0.145g to 0.784g for isolated TMD tests; 0.023g, 0.030g, 0.038g, and 0.045g for building tests)",
+      "Base excitation frequency swept across 3.5 Hz to 5 Hz with 0.025 Hz increments",
+      "Length of the wire ropes (75 mm in configuration S2b vs 76 mm in configuration S2c)",
+      "Initial displacement amplitude in free-vibration decay tests (2, 5, 10, 15, and 20 mm)"
+    ],
+    "limitations_inferred": [
+      "The device is entirely passive with fixed geometry and rope dimensions once assembled, lacking online re-tunability if structural parameters or excitation frequencies drift outside the designed saturation range.",
+      "Cyclic fatigue, wear caused by repeated interwire friction, and long-term degradation of the superelastic NiTiNOL wires under extended cyclic loading were not investigated.",
+      "Dynamic validation was restricted to unidirectional harmonic base excitation, leaving performance under broadband random or realistic multi-axis earthquake records unverified.",
+      "The effect of ambient temperature variations on the superelastic transformation stress and damping response was not experimentally evaluated."
+    ],
+    "limitations_stated_by_authors": [
+      "Base acceleration levels required experimentally to attain target TMD displacement amplitudes were higher than numerical predictions due to viscous damping, rolling friction on shaft guides, and the use of a single parameter set across all amplitudes.",
+      "Detuning of the absorber occurred at lower excitation amplitudes (0.023g, 0.030g, 0.038g), where only a single resonance peak formed because the TMD resonance frequency was too high and damping was higher than optimal.",
+      "Dynamic operation of the TMD introduced parasitic rolling friction damping from the ball bearings along the support shafts, leading to lower TMD displacements and higher damping than measured during quasistatic characterization.",
+      "The experimental building exhibited amplitude-dependent modal behavior (resonance frequency decreased and damping increased with vibration amplitude), which challenged optimal tuning across multiple excitation amplitudes.",
+      "Manufacturing the mixed NiTiNOL-steel wire rope presented significant fabrication difficulties due to the strong shape recovery and high elasticity of NiTiNOL."
+    ],
+    "main_results": [
+      "Mixed NiTiNOL-steel wire ropes (NiTi-ST61) subjected to flexural cycles demonstrated quasi-linear-softening pinched hysteretic behavior resulting from interwire friction and martensitic phase transformations.",
+      "The equivalent damping ratio and resonance frequency of the absorber stabilized to nearly constant values above a threshold amplitude, addressing the detuning issue common in traditional nonlinear absorbers.",
+      "A modified Bouc-Wen model fitted using the differential evolution algorithm achieved high accuracy in capturing the experimental pinched cycles with mean-square error below 0.37%.",
+      "Shaking table testing confirmed softening behavior of the isolated absorber with an approximately 40% reduction in resonance frequency across a 30-fold displacement increase before saturating.",
+      "In shaking table tests of the 5-story building model, the TMD achieved peak top-floor displacement reductions between 38.32% and 69.12% and peak acceleration reductions between 39.08% and 72.13% across base excitations from 0.023g to 0.045g.",
+      "Optimal twin-peak response was obtained at 0.045g base acceleration, where resonant displacement of the top floor was reduced from 24.77 mm to 7.65 mm."
+    ],
+    "modeling_methods": [
+      "Modified Bouc-Wen hysteretic model featuring an exponential pinching function",
+      "Differential evolution (DE) heuristic algorithm for parameter identification and multi-amplitude restoring force optimization",
+      "Continuation / path-following pseudo-arc-length method based on the Jacobian of the Poincaré map for periodic solution branches and stability evaluation",
+      "Fourth-order Runge-Kutta numerical integration scheme for evaluating Poincaré maps",
+      "Reduced single-degree-of-freedom (SDOF) and two-degree-of-freedom (2DOF) state-space dynamic modeling",
+      "Nonlinear least-squares fitting using the Levenberg-Marquardt algorithm for modal decay parameter estimation"
+    ],
+    "performance_metrics": [
+      "Mean-square error (MSE) between experimental and modeled force-displacement and frequency-response curves",
+      "Equivalent viscoelastic damping ratio (ξ0) evaluated from loop enclosed area and average stiffness",
+      "Resonance frequency and frequency-response curves (FRCs) across target bandwidth",
+      "Differential evolution cost function defined as the integrated area subtended by FRCs across multiple excitation levels",
+      "Percentage mitigation of top-floor peak displacement and peak acceleration"
+    ],
+    "possible_gap_implications": [
+      "The mechanisms of combined interwire friction and superelastic phase transformations in hybrid wire ropes could inform passive variable-stiffness and damping elements in flexible structures or continuum mechanisms, though this paper only investigated structural tuned mass dampers.",
+      "The capability of pinched hysteresis to maintain nearly constant equivalent stiffness and damping over large cyclic deformation ranges could potentially address amplitude-dependent detuning in compliant mechanisms subjected to cyclic dynamic loads."
+    ],
+    "research_objective": "To design, phenomenologically model, optimize, and experimentally validate a nonlinear vibration absorber exploiting the pinched hysteresis of mixed NiTiNOL-steel wire ropes undergoing cyclic bending to achieve amplitude-independent equivalent damping and stiffness for mitigating structural vibrations across varying excitation magnitudes.",
+    "research_problem": "Detuning in nonlinear vibration absorbers (tuned mass dampers) caused by significant variations in resonance frequency and damping with oscillation amplitude under changing external excitation levels.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "cyclic bending of mixed NiTiNOL-steel wire ropes",
+      "interwire friction within wire ropes",
+      "martensitic phase transformations in superelastic NiTiNOL wires"
+    ],
+    "title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+    "year": "2016"
+  }
+}

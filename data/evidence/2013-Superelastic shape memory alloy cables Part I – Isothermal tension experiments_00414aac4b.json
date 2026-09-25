@@ -1,0 +1,194 @@
+{
+  "source": {
+    "paper_id": "00414aac4b",
+    "filename": "2013-Superelastic shape memory alloy cables Part I – Isothermal tension experiments.pdf",
+    "sha256": "00414aac4beeeba749d7c59ffa6c9ddd3ee5f3dfc97c0d0529241f8bcf4f5ce9",
+    "page_count": 18,
+    "char_count": 98976,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 41272,
+    "completion_tokens": 6060,
+    "total_tokens": 47332,
+    "thinking_tokens": 3408,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Lead-screw driven electro-mechanical load frame (elongation control in uniaxial tension)"
+    ],
+    "authors": [
+      "Benjamin Reedlunn",
+      "Samantha Daly",
+      "John Shaw"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Idealized circular wire cross-sections in polar moment of inertia calculation (J0) neglecting elliptical projection and contact deformation",
+      "Linear elastic shear stress distribution formula (Mz*R/J0) applied as a simplified reference normalization for reaction torque",
+      "Green-Lagrange finite strain tensor formulation used for digital image correlation (DIC) calculations",
+      "First-order Maxwellian differential rate equation governing the cyclic evolution of characteristic transformation stresses and residual strain"
+    ],
+    "control_variables": [
+      "Ambient room temperature (~20-21 °C)",
+      "Stagnant air environment enforced by mosquito netting enclosure around the test frame",
+      "Rigid clamping of specimen ends preventing axial rotation (zero end rotation)",
+      "Reference laser extensometer gage length (approximately 49 to 53 mm) and free length (75 to 90 mm)",
+      "Specimen illumination using non-heating diffuse fluorescent and fiber-optic light sources",
+      "Identical manufacturing wire lot and nominal shape-setting heat treatment (~500 °C) within each cable design"
+    ],
+    "dependent_variables": [
+      "Axial tensile force and normalized axial engineering stress (P/A0)",
+      "Reaction torque and normalized shear stress (Mz*R/J0)",
+      "Laser extensometer axial gage strain (delta_e/Le) and crosshead grip strain (delta/L)",
+      "Full-field surface strain distribution (EL_zz) via stereo digital image correlation",
+      "Specimen temperature, ambient temperature, and full-field axial temperature evolution T(z,t) via thermocouples and infrared thermography",
+      "Cross-sectional rotation profile about the cable axis (phi_z(z))",
+      "Residual strain accumulation (epsilon_r) after unloading",
+      "Initial loading and unloading elastic moduli",
+      "Phase transformation front nucleation and propagation kinetics"
+    ],
+    "doi": "10.1016/j.ijsolstr.2013.03.013",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Cables fabricated from superelastic shape memory alloy wires combine high axial stiffness, large recoverable strain, and high energy density with bending and torsional compliance, providing damage resistance and redundancy over monolithic bars.",
+        "evidence_type": "experimental and theoretical review",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Application of penetrating lubricant between cable wires produced virtually no change in the superelastic tensile response, indicating high static friction prevents relative inter-wire sliding during axial extension.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "The 7x7 right regular lay Nitinol cable exhibits a mechanical response analogous to parallel straight wires, showing sharp loading and unloading plateaus (upper plateau at 493 MPa) and localized propagating phase transformation fronts.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "The 1x27 alternating lay Nitinol cable demonstrates a stable, compliant tensile response with a continuous positive tangent modulus, no distinct stress plateau, and a large recoverable strain (~11%) without localized propagating transformation fronts.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Constraining end rotation during axial tension induces non-monotonic axial reaction torques, with the 1x27 cable generating substantially higher normalized torque than the 7x7 cable due to deeper wire helix angles.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Full-field digital image correlation reveals localized cross-sectional rotation kinks (up to 17.5 degrees) and incomplete wire transformation in outer strands as transformation fronts propagate along the 7x7 cable.",
+        "evidence_type": "optical measurement",
+        "page_numbers": [
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Cyclic loading produces severe shakedown, plateau degradation, and ~4.0% residual strain by cycle 6 in the 7x7 cable, whereas the 1x27 cable exhibits mild shakedown with only ~2.0% residual strain and near limit-cycle repeatability.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Instron 5585 electro-mechanical, lead-screw driven load frame operating in displacement/elongation control",
+      "Pneumatically-actuated grips with hardened steel plates clamping specimen ends rigidly against rotation",
+      "Instron load cells (500 N model 2525-816 or 5 kN model 2525-805) for axial load measurement",
+      "Futek TFF400 reaction torque cell (2824 N-mm capacity) mounted below the lower grip",
+      "Electronic Instruments Research model LE-05 non-contact laser extensometer tracking retro-reflective tags",
+      "Stereo digital image correlation (DIC) system comprising two Point Grey Research Grasshopper CCD cameras (2448x2048) with Tamron 75 mm CCTV lenses and Vic-3D analysis software",
+      "Inframetrics ThermCam SC1000 infrared radiometer (256x256 pixel array) measuring full-field temperature profiles T(z,t) with a background ice/water container for thermal contrast",
+      "K-type thermocouples measuring ambient temperature and specimen surface temperature with thermally conductive paste",
+      "Perkin-Elmer Pyris 1 and TA Instruments Q2000 differential scanning calorimeters for measuring transformation temperatures and enthalpies"
+    ],
+    "future_work": [
+      "Developing structural and constitutive models to capture multi-axial stress states, contact mechanics, and phase transformation kinetics in SMA cables",
+      "Experimentally dissecting and testing hierarchical subcomponents (strands and single wires) in Part II to quantify individual constituent contributions",
+      "Investigating higher strain rate regimes and thermomechanical coupling effects on cable behavior",
+      "Exploring alternative cable architectures, layups, and geometries to tailor mechanical response, compliance, and energy absorption for specific applications"
+    ],
+    "independent_variables": [
+      "Cable construction geometry (7x7 right regular lay vs. 1x27 alternating lay vs. single core wires)",
+      "Inter-wire friction condition (as-received dry vs. lubricated with synthetic di-ester oil)",
+      "Prescribed elongation rate (nominal strain rates ranging from 1x10^-5 s^-1 to 4x10^-4 s^-1)",
+      "Number of loading-unloading cycles (single cycle vs. 6 continuous cycles)",
+      "Maximum applied strain amplitude (gage strain up to ~10.4% for 7x7 cable, ~12.5% for 1x27 cable)"
+    ],
+    "limitations_inferred": [
+      "Experiments were restricted to pure uniaxial elongation under zero end rotation at room temperature; multi-axial loading modes such as combined tension-bending-torsion and free-end rotation were not evaluated.",
+      "Tests were conducted at slow, nearly isothermal rates, leaving rate-dependent self-heating and dynamic actuation capabilities uncharacterized in this part.",
+      "Cyclic evaluation was restricted to 6 cycles, leaving long-term high-cycle fatigue, functional degradation, and wire fretting wear unaddressed."
+    ],
+    "limitations_stated_by_authors": [
+      "Structural and constitutive modeling of the cables was not conducted and was deferred to future work.",
+      "Direct quantitative comparison between the two cable constructions was hindered by differing base NiTi alloy compositions/transformation temperatures (superelastic down to 24 °C for 7x7 vs. 10 °C for 1x27).",
+      "The two cable constructions were cycled to different maximum strains (10.37% vs. 12.5%), confounding direct comparison of shakedown severity.",
+      "Six loading cycles were insufficient to achieve complete steady-state limit-cycle shakedown.",
+      "Stereo DIC field of view was constrained to a ~15 mm section due to camera resolution limits and the small wire diameters (requiring >=35-47 pixels across a wire).",
+      "Laser extensometer tags created low-emissivity optical artifacts (horizontal streaks) in infrared temperature field readings.",
+      "Minor grip slippage occurred during localized transformation front propagation in straight clamped specimens."
+    ],
+    "main_results": [
+      "Inter-wire lubrication had no noticeable effect on the axial load-strain curves of either cable design, confirming that high static friction prevents relative wire slippage.",
+      "The 7x7 cable exhibited a high initial stiffness (modulus EA = 45.5 GPa), flat transformation plateaus (loading plateau at 493 MPa, unloading at 262 MPa), and localized transformation front propagation.",
+      "The 1x27 cable exhibited a compliant, continuous work-hardening response with no flat stress plateau, remaining superelastic up to 12% strain with ~11% recoverable strain.",
+      "Both cables generated substantial non-monotonic axial reaction torque during elongation; normalized torque was significantly greater in the 1x27 cable due to larger wire lay angles (up to 47.9 degrees).",
+      "Infrared thermography and DIC confirmed discrete propagating transformation fronts with localized cross-sectional rotation kinks in the 7x7 cable, while the 1x27 cable exhibited spatially uniform temperature and strain evolutions.",
+      "During 6 cycles, the 7x7 cable displayed pronounced shakedown with plateau loss, front dispersion, and 4.0% residual strain, whereas the 1x27 cable underwent mild shakedown and reached near-limit cycle behavior with 2.0% residual strain."
+    ],
+    "modeling_methods": [
+      "Calculation of idealized polar moment of inertia (J0) and reference elastic shear stress (Mz*R/J0) for cables",
+      "Empirical exponential curve fitting and first-order Maxwellian differential rate equations for cyclic shakedown of characteristic stresses and residual strains"
+    ],
+    "performance_metrics": [
+      "Loading and unloading plateau stresses (or characteristic knee stresses)",
+      "Plateau strain extent and total recoverable superelastic strain",
+      "Accumulated residual strain (ratcheting strain) after unloading",
+      "Effective initial loading elastic modulus and unloading modulus",
+      "Normalized reaction torque magnitude (Mz*R/J0)",
+      "Specimen temperature deviation from ambient (Delta Ts)",
+      "Cycle-to-cycle shakedown progression rate and asymptotic residual strain values"
+    ],
+    "possible_gap_implications": [
+      "Tailoring helical lay angle and cable architecture enables selection between high-force plateau switching (7x7) and compliant, stable, large-stroke actuation with minimal shakedown (1x27) for tendon-driven systems.",
+      "Substantial axial-torsional coupling and reaction torques generated under constrained rotation indicate that soft robotic cable routing must incorporate torsional balancing or free-rotation terminations to avoid unwanted twisting.",
+      "The absence of validated multi-scale constitutive models for SMA cables under complex multi-axial contact stresses represents an ongoing design and simulation barrier for soft continuum robot actuators."
+    ],
+    "research_objective": "To experimentally measure, characterize, and compare the room-temperature, nearly isothermal superelastic tensile behavior, full-field strain distributions, temperature evolutions, reaction torques, and cyclic shakedown of two distinct Nitinol cable architectures (a 7x7 right regular lay and a 1x27 alternating lay).",
+    "research_problem": "Shape memory alloy (SMA) cables are promising high-force, flexible, and damage-tolerant tension elements, but their thermomechanical response, localized deformation modes, multi-axial stress states, and cyclic shakedown behavior had not been systematically characterized.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Reversible stress-induced martensitic transformation (superelasticity)",
+      "Cable construction architecture and helical lay angle variation"
+    ],
+    "title": "Superelastic shape memory alloy cables: Part I – Isothermal tension experiments",
+    "year": "2013"
+  }
+}

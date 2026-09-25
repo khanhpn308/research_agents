@@ -1,12 +1,56 @@
 # Verification Matrix
 
 **Verification ID:** MP1-V002
-**Paper count:** 10
+**Paper count:** 13
 **Purpose:** Independent adversarial literature verification of an existing research direction. Verification papers must be used to challenge, narrow, pivot, or reject the direction rather than to confirm it by default.
 
 ## Verification Papers
 
-## V01 — Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses
+## V01 — Superelastic shape memory alloy cables: Part I – Isothermal tension experiments
+
+- **paper_id:** `00414aac4b`
+- **year:** 2013
+- **doi:** 10.1016/j.ijsolstr.2013.03.013
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** High-value NiTi cable baseline: full-scale 7x7 and 1x27 superelastic cable experiments; architecture, friction/sliding boundary, and phase-transformation response relevant to T1/T3 baseline.
+
+### Robot / Structure Type
+
+
+### Stiffness Mechanism
+
+- Reversible stress-induced martensitic transformation (superelasticity)
+- Cable construction architecture and helical lay angle variation
+
+### Actuation
+
+- Lead-screw driven electro-mechanical load frame (elongation control in uniaxial tension)
+
+### Modeling Methods
+
+- Calculation of idealized polar moment of inertia (J0) and reference elastic shear stress (Mz*R/J0) for cables
+- Empirical exponential curve fitting and first-order Maxwellian differential rate equations for cyclic shakedown of characteristic stresses and residual strains
+
+### Performance Metrics
+
+- Loading and unloading plateau stresses (or characteristic knee stresses)
+- Plateau strain extent and total recoverable superelastic strain
+- Accumulated residual strain (ratcheting strain) after unloading
+- Effective initial loading elastic modulus and unloading modulus
+- Normalized reaction torque magnitude (Mz*R/J0)
+- Specimen temperature deviation from ambient (Delta Ts)
+- Cycle-to-cycle shakedown progression rate and asymptotic residual strain values
+
+### Future Work
+
+- Developing structural and constitutive models to capture multi-axial stress states, contact mechanics, and phase transformation kinetics in SMA cables
+- Experimentally dissecting and testing hierarchical subcomponents (strands and single wires) in Part II to quantify individual constituent contributions
+- Investigating higher strain rate regimes and thermomechanical coupling effects on cable behavior
+- Exploring alternative cable architectures, layups, and geometries to tailor mechanical response, compliance, and energy absorption for specific applications
+
+## V02 — Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses
 
 - **paper_id:** `fac21c950e`
 - **year:** 2013
@@ -56,7 +100,47 @@
 - Exploring alternative cable cross-sections, lay architectures, and NiTi alloy compositions.
 - Investigating shape memory behavior at elevated or sub-ambient transformation temperatures for thermally-responsive, high-tension cable actuators in flexible robotic and prosthetic systems.
 
-## V02 — Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application
+## V03 — Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments
+
+- **paper_id:** `40760daa02`
+- **year:** 2016
+- **doi:** 10.1061/(ASCE)EM.1943-7889.0001072
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** High-threat full text: mixed NiTiNOL-steel wire rope under bending; directly couples interwire friction and NiTi phase transformation; relevant to T3 and parameter-substitution test.
+
+### Robot / Structure Type
+
+
+### Stiffness Mechanism
+
+- cyclic bending of mixed NiTiNOL-steel wire ropes
+- interwire friction within wire ropes
+- martensitic phase transformations in superelastic NiTiNOL wires
+
+### Actuation
+
+- passive
+
+### Modeling Methods
+
+- Modified Bouc-Wen hysteretic model featuring an exponential pinching function
+- Differential evolution (DE) heuristic algorithm for parameter identification and multi-amplitude restoring force optimization
+- Continuation / path-following pseudo-arc-length method based on the Jacobian of the Poincaré map for periodic solution branches and stability evaluation
+- Fourth-order Runge-Kutta numerical integration scheme for evaluating Poincaré maps
+- Reduced single-degree-of-freedom (SDOF) and two-degree-of-freedom (2DOF) state-space dynamic modeling
+- Nonlinear least-squares fitting using the Levenberg-Marquardt algorithm for modal decay parameter estimation
+
+### Performance Metrics
+
+- Mean-square error (MSE) between experimental and modeled force-displacement and frequency-response curves
+- Equivalent viscoelastic damping ratio (ξ0) evaluated from loop enclosed area and average stiffness
+- Resonance frequency and frequency-response curves (FRCs) across target bandwidth
+- Differential evolution cost function defined as the integrated area subtended by FRCs across multiple excitation levels
+- Percentage mitigation of top-floor peak displacement and peak acceleration
+
+## V04 — Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application
 
 - **paper_id:** `2f7fcf2f8f`
 - **year:** 2019
@@ -102,7 +186,42 @@
 - Evaluating seismic response under a wider and more diverse suite of earthquake ground motions.
 - Developing a comprehensive performance-based design framework for structures incorporating SMA-cable restrainers.
 
-## V03 — Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification
+## V05 — Nonlinear dynamic response of a wire rope isolator: Experiment, identification and validation
+
+- **paper_id:** `7f3f45407f`
+- **year:** 2021
+- **doi:** 10.1016/j.engstruct.2021.112121
+- **source_type:** verification
+- **verification_id:** MP1-V002
+- **screening_status:** included
+- **screening_reason:** Generic wire-rope mechanics baseline: interwire friction and geometric nonlinearity with experimentally identified phenomenological model; relevant to parameter-substitution test.
+
+### Robot / Structure Type
+
+
+### Stiffness Mechanism
+
+- curved wire rope assembly undergoing interwire friction and geometric nonlinearities
+- asymmetric tension-compression stiffness exhibiting softening under compression and hardening under tension
+- tightening of spiral cable strands under tension and loosening under compression
+
+### Modeling Methods
+
+- Modified asymmetric Bouc-Wen hysteretic formulation with velocity-dependent control functions and asymmetric cubic polynomials
+- Differential evolution optimization algorithm for parameter identification from quasi-static cyclic test data
+- Lumped-parameter two-degree-of-freedom (2DOF) dynamic modeling using coupled second-order ordinary differential equations
+- Numerical time-domain integration of equations of motion and Fast Fourier Transform (FFT) stationary response analysis
+- Analytical transfer function and closed-form frequency response function modeling for the linear uncontrolled cantilever structure
+
+### Performance Metrics
+
+- Transmissibility coefficient (H) for displacement and absolute acceleration across 5–100 Hz
+- Peak displacement and acceleration amplitudes at primary and superharmonic resonances
+- Resonant frequency shift between non-isolated and isolated configurations
+- Equivalent secant stiffness and equivalent hysteretic damping across displacement amplitudes
+- Spectral power distribution of fundamental and superharmonic frequencies via FFT
+
+## V06 — Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification
 
 - **paper_id:** `d9966f2f5e`
 - **year:** 2014
@@ -145,7 +264,7 @@
 - Developing systematic procedures for selecting a unified, amplitude-independent parameter set for dynamic simulations (such as identifying parameters from an average displacement amplitude or minimizing MSE across multiple amplitudes simultaneously)
 - Applying multiconfiguration strand assemblies and the extended Bouc-Wen pinching model to passive or semiactive nonlinear vibration control devices and nonlinear vibration absorbers
 
-## V04 — Superelasticity SMA cables and its simplified FE model
+## V07 — Superelasticity SMA cables and its simplified FE model
 
 - **paper_id:** `9e15094d68`
 - **year:** 2023
@@ -179,7 +298,7 @@
 - Ductility comparison between strands and individual wires.
 - Initial stiffness of the strand or rope.
 
-## V05 — Mechanical response of single and double-helix SMA wire ropes
+## V08 — Mechanical response of single and double-helix SMA wire ropes
 
 - **paper_id:** `53200aa0c6`
 - **year:** 2021
@@ -216,7 +335,7 @@
 - Inelastic strain recovery as a function of temperature and time during heating
 - Discrepancy / percentage error relative to reference experimental and numerical data
 
-## V06 — Nonlinear Vibration Isolation via a NiTiNOL Wire Rope
+## V09 — Nonlinear Vibration Isolation via a NiTiNOL Wire Rope
 
 - **paper_id:** `98fee47c04`
 - **year:** 2021
@@ -253,7 +372,7 @@
 - Generalized equivalent damping ratio zeta_e
 - Most suitable excitation amplitude for resonance suppression (Ab-pmin) and for low-frequency vibration isolation (Ab-rmin)
 
-## V07 — Cable Vibration Considering Internal Friction
+## V10 — Cable Vibration Considering Internal Friction
 
 - **paper_id:** `aaad9c248c`
 - **year:** 2004
@@ -299,7 +418,7 @@
 - Incorporate internal material damping as well as external damping effects to formulate damped cable vibration (PAGE 57).
 - Apply large motion and deformation theory to replace the current small deformation assumption for more realistic dynamic results (PAGE 57).
 
-## V08 — BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE
+## V11 — BENDING MECHANICS OF CABLE CORES AND FILLERS IN A DYNAMIC SUBMARINE CABLE
 
 - **paper_id:** `ccdc1bb980`
 - **year:** 2017
@@ -333,7 +452,7 @@
 - Development of an analytical formulation for the relative slip and kinematic interactions of helically-interwound power cores.
 - Use of the 3D FE modeling results to verify and refine analytical formulations for fatigue life assessments of dynamic cables.
 
-## V09 — High damping capacity with a wide temperature window in braided NiTi microfilaments
+## V12 — High damping capacity with a wide temperature window in braided NiTi microfilaments
 
 - **paper_id:** `e8462758c3`
 - **year:** 2026
@@ -360,7 +479,7 @@
 - Cyclic repeatability of damping performance (10 cooling-heating cycles)
 - Frequency insensitivity (overlap of tanδ and modulus curves between 1 Hz and 5 Hz)
 
-## V10 — NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings
+## V13 — NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings
 
 - **paper_id:** `6dd1ca94d1`
 - **year:** 2022

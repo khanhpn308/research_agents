@@ -1,0 +1,255 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "confidence",
+    "executive_summary",
+    "target_audit",
+    "paper_threat_assessments",
+    "narrowed_mechanics_core",
+    "parameter_substitution_test",
+    "citation_chase_plan",
+    "recommended_next_action"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "FALSIFIED",
+        "SUBSTANTIALLY_NARROWED",
+        "SURVIVES_CURRENT_FULL_TEXT_SET",
+        "INCONCLUSIVE"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "target_audit": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target_id",
+          "target",
+          "status",
+          "assessment",
+          "evidence_paper_ids",
+          "missing_mechanics"
+        ],
+        "properties": {
+          "target_id": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "closed_by_full_text",
+              "substantially_preempted",
+              "open_in_current_full_text_set",
+              "uncertain"
+            ]
+          },
+          "assessment": {
+            "type": "string"
+          },
+          "evidence_paper_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_mechanics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "paper_threat_assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "title",
+          "doi",
+          "target_ids",
+          "threat_level",
+          "what_it_establishes",
+          "what_it_does_not_establish",
+          "backward_citation_priority"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "doi": {
+            "type": "string"
+          },
+          "target_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "threat_level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "fatal"
+            ]
+          },
+          "what_it_establishes": {
+            "type": "string"
+          },
+          "what_it_does_not_establish": {
+            "type": "string"
+          },
+          "backward_citation_priority": {
+            "type": "string",
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        }
+      }
+    },
+    "narrowed_mechanics_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "niti_interwire_friction_prior_art_exists",
+        "niti_phase_transformation_plus_interwire_friction_prior_art_exists",
+        "pressure_controlled_niti_bundle_established",
+        "pressure_dependent_bending_stiffness_established_for_niti_bundle",
+        "survives_current_full_text_set",
+        "provisional_surviving_question",
+        "assessment"
+      ],
+      "properties": {
+        "niti_interwire_friction_prior_art_exists": {
+          "type": "boolean"
+        },
+        "niti_phase_transformation_plus_interwire_friction_prior_art_exists": {
+          "type": "boolean"
+        },
+        "pressure_controlled_niti_bundle_established": {
+          "type": "boolean"
+        },
+        "pressure_dependent_bending_stiffness_established_for_niti_bundle": {
+          "type": "boolean"
+        },
+        "survives_current_full_text_set": {
+          "type": "boolean"
+        },
+        "provisional_surviving_question": {
+          "type": "string"
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "parameter_substitution_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "existing_elastic_fiber_model_appears_sufficient",
+        "niti_requires_distinct_constitutive_contact_coupling",
+        "evidence_status",
+        "assessment"
+      ],
+      "properties": {
+        "existing_elastic_fiber_model_appears_sufficient": {
+          "type": "boolean"
+        },
+        "niti_requires_distinct_constitutive_contact_coupling": {
+          "type": "boolean"
+        },
+        "evidence_status": {
+          "type": "string",
+          "enum": [
+            "established",
+            "not_established",
+            "conflicting",
+            "insufficient"
+          ]
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "citation_chase_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "backward_priority_paper_ids",
+        "forward_core_anchor_dois",
+        "named_high_threat_sources",
+        "stop_condition_satisfied",
+        "rationale"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "backward_priority_paper_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forward_core_anchor_dois": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "named_high_threat_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stop_condition_satisfied": {
+          "type": "boolean"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "recommended_next_action": {
+      "type": "string"
+    }
+  }
+}
