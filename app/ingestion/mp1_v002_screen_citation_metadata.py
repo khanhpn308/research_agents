@@ -106,14 +106,17 @@ def first(row: dict[str, Any], aliases: list[str]) -> str:
     return ""
 
 
-def parse_csv(path: Path) -> list[dict[str, Any]]:
+def parse_csv(
+    path: Path,
+    input_root: Path,
+) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         for n, row in enumerate(reader, start=2):
             item = {name: first(row, aliases) for name, aliases in FIELD_ALIASES.items()}
             item["doi"] = norm_doi(item["doi"])
-            item["branch_file"] = path.relative_to(DEFAULT_INPUT_DIR).as_posix()
+            item["branch_file"] = path.relative_to(input_root).as_posix()
             item["source_line"] = n
             out.append(item)
     return out
@@ -261,7 +264,12 @@ def main() -> None:
 
     records: list[dict[str, Any]] = []
     for path in csv_paths:
-        records.extend(parse_csv(path))
+        records.extend(
+            parse_csv(
+                path,
+                input_dir,
+            )
+        )
 
     candidates = merge_records(records)
     output_dir.mkdir(parents=True, exist_ok=True)
