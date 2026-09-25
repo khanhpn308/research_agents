@@ -404,3 +404,150 @@ Không được bắt đầu MP1-V003 chỉ để cứu novelty. Chỉ tiếp t�
 - `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
 - `docs/project/MP1-V002_CURRENT_HANDOFF.md`
 - `docs/project/MP1_MENTOR_PIVOT_TUTOR.md`
+
+
+## Phase 23 — Citation Coverage Closure (2026-09-25)
+
+Sau Stage 3, hai backward branches cuối của MP1-V002 được xử lý:
+
+- B11 — Kang et al. 2020: 22 references;
+- B12 — Barsi, Carboni & Lacarbonara: 46 references.
+
+Kết quả:
+
+```text
+backward = 9/9
+forward  = 6/6
+total    = 15/15
+
+search_cutoff_date               = 2026-09-25
+all_required_directions_screened = true
+no_unresolved_high_threat_source = true
+stop_condition.satisfied         = true
+```
+
+Không phát hiện direct prior-art kill mới cho active-pressure NiTi-bundle bending chain.
+
+Quyết định:
+
+> Dừng MP1 citation chase. Không mở broad search thêm.
+
+Canonical:
+
+- `outputs/verification/MP1-V002/citation_coverage.json`
+- `outputs/verification/MP1-V002/CITATION_COVERAGE_STATUS.md`
+
+## Phase 24 — Final MP1-V002 Adjudication (2026-09-25)
+
+Final adjudication chạy bằng:
+
+```text
+model  = gpt-6-sol
+effort = high
+```
+
+Kết quả:
+
+```text
+protocol_outcome =
+SURVIVES_TARGETED_CITATION_CHASE
+
+confidence =
+high
+
+citation_coverage_closed =
+true
+
+direct_kill_found =
+false
+
+msc_topic_readiness =
+READY_FOR_CROSS_DIRECTION_COMPARISON
+
+astra_escalation_required =
+false
+```
+
+Decision meaning:
+
+- MP1 không bị falsify trong V002 protocol;
+- không được diễn giải thành universal novelty;
+- surviving contribution chỉ còn là pressure-controlled NiTi-bundle bending **model discrimination**;
+- H0b vẫn là competitor chưa bị bác bỏ;
+- MP1 đủ điều kiện để so với D1/M1, chưa đủ để tự lock thesis.
+
+Canonical:
+
+- `outputs/verification/MP1-V002/FINAL_ADJUDICATION.json`
+- `outputs/verification/MP1-V002/FINAL_ADJUDICATION.md`
+
+## Phase 25 — Final Cross-Direction Adjudication: D1/M1 vs MP1 (2026-09-25)
+
+Hai hướng đã sống sót các falsification workflow riêng được so trực tiếp.
+
+Kết quả:
+
+```text
+selected_direction = D1_M1
+decision           = LOCK_WITH_FEASIBILITY_GATE
+confidence         = medium
+astra_required     = false
+```
+
+Lý do D1/M1 được ưu tiên:
+
+- scientific object/model cụ thể hơn;
+- baseline M1 đã khóa;
+- output dễ đo hơn;
+- identifiability tốt hơn;
+- apparatus/instrumentation burden thấp hơn;
+- critical regime dễ tiếp cận hơn;
+- negative/null result vẫn tạo validity-domain evidence;
+- MSc execution risk thấp hơn MP1.
+
+MP1 vẫn được lưu như một `viable alternative`, không bị gán nhãn scientifically invalid.
+
+Canonical:
+
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json`
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.md`
+
+## Phase 26 — D1/M1 Conditional Topic Lock (Current HEAD)
+
+Current working title:
+
+> *Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams*
+
+Tiếng Việt:
+
+> *Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không*
+
+Current state:
+
+```text
+selected_direction = D1_M1
+lock_state         = LOCK_WITH_FEASIBILITY_GATE
+```
+
+Immediate next gate:
+
+```text
+D1/M1 boundary-resolvability pilot
+```
+
+Gate phải tạo được:
+
+1. M1 reconstruction + published-case reproduction;
+2. verified full-layer frictional-contact reference;
+3. predeclared primary output, error metric, justified tolerance và uncertainty budget;
+4. ít nhất một accessible accepted condition;
+5. ít nhất một accessible rejected condition;
+6. measurement precision đủ để test classification.
+
+Nếu không có accepted/rejected contrast được uncertainty-resolve trong apparatus domain, D1/M1 phải narrow hoặc pivot.
+
+### Current principle
+
+Không broad search thêm cho MP1 hoặc D1 chỉ để tăng số paper.
+
+Từ đây workflow chuyển từ **novelty/falsification selection** sang **feasibility + mechanics execution**.
