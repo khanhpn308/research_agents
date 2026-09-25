@@ -1,68 +1,244 @@
-# MP1-V002 — Current Handoff (Stage 3 Remediation Checkpoint)
+# MP1-V002 — Current Handoff (Closed Protocol)
 
-> **Mục đích:** Điểm bàn giao chính xác, đầy đủ để phiên làm việc mới có thể tiếp tục công việc trên MP1-V002 mà không bị sai lệch về trạng thái hay lặp lại các lỗi dữ liệu cũ.
-> **Checkpoint:** 2026-09-25 (Stage 3 Remediation Consensus at HEAD).
-> **Trạng thái:** `MP1-V002 ACTIVE`; ma trận kiểm chứng = **16 full-text papers**; audit canonical = `TARGETED_THREAT_AUDIT.json` (16 papers, `final_v002_verdict = False`, `survives_current_full_text_set = True`); citation coverage vẫn **OPEN** (`stop_condition_satisfied = False`).
-> **Quan trọng:** D1/M1 vẫn là thesis direction được bảo toàn. MP1 chưa thay thế D1/M1.
-
----
-
-## 1. Tóm tắt Hiện trạng Khoa học trong Một Câu
-
-MP1 đã hoàn thành việc rà soát phản biện đối kháng của GPT-5.6 Astra, khắc phục toàn bộ 12 lỗ hổng (G01–G12), đính chính dữ liệu thực tế lịch sử (Carboni, Reedlunn, Fang), và định hình lại câu hỏi cơ học còn sống thành bài toán kiểm chứng thực nghiệm đối đầu:
-> *Dưới áp suất giam giữ biến thiên độc lập $p(t)$, liệu khung lý thuyết NiTi cấu thành – tiếp xúc Coulomb hiện hữu (H0b) với các tham số đo độc lập có đủ khả năng dự đoán đáp ứng uốn và biến thiên độ cứng của bó dây hay không, hay bắt buộc phải có một lý thuyết ghép cặp vi mô mới (H1)?*
+> **Checkpoint:** 2026-09-25, sau citation closure + final V002 adjudication + cross-direction adjudication.
+> **Protocol status:** `MP1-V002 CLOSED`.
+> **Full-text matrix:** **16 papers**.
+> **Citation coverage:** `15/15 required directions screened`; `stop_condition.satisfied = true`; `search_cutoff_date = 2026-09-25`.
+> **Final MP1-V002 outcome:** `SURVIVES_TARGETED_CITATION_CHASE`, `confidence = high`, `direct_kill_found = false`.
+> **Cross-direction disposition:** MP1 không được chọn làm thesis direction; D1/M1 được chọn với `LOCK_WITH_FEASIBILITY_GATE`.
+> **Reopen rule:** Không mở lại broad MP1 search. Chỉ reopen nếu xuất hiện concrete direct threat, mentor/reviewer yêu cầu targeted challenge, hoặc D1/M1 feasibility gate thất bại và project chủ động xem xét lại MP1.
 
 ---
 
-## 2. Các Kết quả Rà soát và Khắc phục Trọng yếu (Stage 3 Remediation)
+## 1. Tóm tắt một câu
 
-1. **Đồng bộ hóa Trạng thái HEAD (16 Papers):**
-   - Đã chấm dứt việc tham chiếu nhầm ma trận 10 bài báo cũ.
-   - Toàn bộ 16 bài báo PDF trong `data/papers/verification/MP1-V002/` đã được đối soát, bao gồm các bài báo then chốt mới: Reedlunn 2013 Part I (`00414aac4b`), Carboni 2016 (`40760daa02`), Ting-Long 2021 (`7f3f45407f`), Falcetelli 2024 (`1c81b2d35c`), Barsi 2025 (`9f4295be23`), và Kang 2020 (`56793dea9b`).
-2. **Tách Rõ Ba Giả Thuyết H0a, H0b và H1 (G01 & G11):**
-   - **H0a (Naive Elastic Substitution):** Bác bỏ dứt điểm (`REFUTED`). NiTi có thềm ứng suất và trễ, không thể thay bằng mô-đun hằng. Nhãn `established` trong JSON audit chỉ áp dụng cho việc bác bỏ H0a.
-   - **H0b (Existing NiTi Constitutive + Contact):** Chưa bị bác bỏ (`NOT FALSIFIED`). Là giả thuyết cạnh tranh mạnh nhất hiện tại.
-   - **H1 (Novel Coupling Mechanics):** Chưa có bằng chứng (`INSUFFICIENT`).
-3. **Hạ cấp P3 (G02):**
-   - Áp suất chủ động biến thiên $p(t)$ chỉ là điều kiện biên tải trọng ngoài, không phải là một nguyên lý cơ học mới. Phương trình ma sát và cân bằng hiện hữu hoàn toàn tự nhiên tiếp nhận $p(t)$.
-4. **Miền Cùng Tồn tại (Coexistence Domain: G03):**
-   - Ở biến dạng uốn nhỏ ($< 0.75\%$), dây NiTi hoàn toàn ở pha Austenite đàn hồi, bài toán thoái hóa 100% về kẹt dây đàn hồi (H0a đủ dùng).
-   - Chỉ khi uốn gập sâu hoặc có lực kéo dọc trục đồng thời thì chuyển pha và trượt mới cùng kích hoạt.
-5. **Đính chính Dữ liệu Lịch sử (G05, G07, G08):**
-   - **Carboni 2015:** S2a là cáp thép (ST49) thuần ma sát Bouc-Wen; S1a mới là cáp NiTi chịu kéo - uốn kết hợp.
-   - **Reedlunn 2013:** Sai số ở góc xoắn dốc do bỏ qua uốn/xoắn cục bộ trong động học Costello, không áp dụng cho bó dây thẳng.
-   - **Fang 2019:** Mô hình dầm sợi phi tuyến là dành cho trụ cầu bê tông cốt thép 1.4 m, không phải cáp NiTi chịu uốn.
-   - **Nhận diện:** Đường cong uốn vĩ mô không thể phân biệt cơ chế; cấm thả nổi tham số để ép khớp đường cong uốn; cảnh báo bẫy tính kép độ mềm.
+MP1-V002 đã hoàn thành falsification protocol mà không tìm thấy direct kill cho pressure-controlled NiTi-bundle bending mechanics; tuy nhiên final D1/M1-vs-MP1 adjudication kết luận D1/M1 có scientific/execution balance tốt hơn cho MSc hiện tại, nên MP1 được archive như một viable alternative chứ không phải thesis direction đang active.
 
 ---
 
-## 3. Trạng thái Đe dọa Cốt lõi (Core Threat Verdicts)
+## 2. Stage 1–3 đã hoàn tất
 
-- **T1 (NiTi Wire Contact/Friction):** `CLOSED_BY_FULL_TEXT`. Tiếp xúc và ma sát trượt nội tại giữa các dây NiTi đã có prior art phong phú (Vahidi 2022, Kang 2020, Carboni 2015, Reedlunn 2013).
-- **T2 (Active Confinement Bending):** `PROVISIONALLY_OPEN_AS_HYPOTHESIS`. Áp suất biến thiên $p(t)$ dưới tải uốn chưa có bài báo trực tiếp trong matrix, nhưng không cấu thành nguyên lý vật lý mới nếu H0b dự đoán được.
-- **T3 (Transformation + Friction Coupling):** `SUBSTANTIALLY_PREEMPTED`. Sự kết hợp giữa chuyển pha và ma sát đã bị chiếm lĩnh phần lớn.
-- **Citation Coverage:** `stop_condition_satisfied = false` (các nhánh B11 và B12 chưa đóng trong audit JSON). Không được tuyên bố tính mới toàn cầu.
+### Stage 1 — Mechanics trace packets
+
+`outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/`
+
+### Stage 2 — Astra adversarial critique
+
+`docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md`
+
+12 critique gaps: G01–G12.
+
+### Stage 3 — Remediation & consensus
+
+Outputs chính:
+
+- `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md`
+- `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md`
+- `outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W01_STATE_RECONCILIATION.md` đến `W11_CITATION_COVERAGE_QA.md`
+- `outputs/verification/MP1-V002/verification_matrix.json` — 16 full-text papers.
+
+Các sửa chữa khoa học bắt buộc:
+
+```text
+H0a = REFUTED in transformation-active regime
+H0b = NOT FALSIFIED
+H1  = INSUFFICIENT EVIDENCE
+```
+
+P3 active confinement pressure là experimental protocol/boundary condition, không tự động là mechanics novelty.
 
 ---
 
-## 4. Danh mục Tệp Bàn giao Chính thức
+## 3. Stage 4 — Citation coverage closure
 
-1. **Báo cáo Khoa học Tổng hợp 24 Chương (Deliverable Chính):**
-   `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md`
-2. **Ma trận Khắc phục Phê bình Astra (G01–G12):**
-   `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md`
-3. **11 Báo cáo Rà soát Worker Chuyên sâu:**
-   `outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W01_STATE_RECONCILIATION.md` đến `W11_CITATION_COVERAGE_QA.md`
-4. **Báo cáo Phản biện Đối kháng của Astra (Đầu vào Stage 2):**
-   `docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md`
-5. **Dữ liệu Kiểm chứng Canonical:**
-   `outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json` (16 papers)
-   `outputs/verification/MP1-V002/verification_matrix.json` (16 papers)
+Stage 3 trước đây ghi `stop_condition_satisfied = false`. Trạng thái đó đã stale.
+
+Hai branch cuối:
+
+### B11 — Kang et al. 2020
+
+```text
+paper_id         = 56793dea9b
+backward records = 22
+status           = screened_candidates_found
+```
+
+### B12 — Barsi, Carboni & Lacarbonara
+
+```text
+paper_id         = 9f4295be23
+backward records = 46
+status           = screened_candidates_found
+```
+
+B11+B12:
+
+```text
+raw records    = 68
+unique records = 67
+```
+
+Không còn unresolved named high-threat source.
+
+Canonical:
+
+`outputs/verification/MP1-V002/citation_coverage.json`
+
+```text
+backward required/screened = 9/9
+forward required/screened  = 6/6
+total                      = 15/15
+
+all_required_directions_screened = true
+no_unresolved_high_threat_source = true
+stop_condition.satisfied         = true
+search_cutoff_date               = 2026-09-25
+```
 
 ---
 
-## 5. Nhiệm vụ Tiếp theo (Next Action)
+## 4. Stage 5 — Final MP1-V002 adjudication
 
-- Không mở lại tìm kiếm từ khóa rộng.
-- Hoàn tất rà soát hai nhánh trích dẫn ngược B11 (`56793dea9b`) và B12 (`9f4295be23`) để đạt điều kiện dừng giao thức.
-- Nếu H0b dự đoán thành công đáp ứng uốn trong thí nghiệm kiểm chứng có khóa tham số, đề tài MP1 sẽ chính thức bị bác bỏ (`REJECT`), bảo toàn nguyên trạng hướng nghiên cứu D1/M1 ban đầu.
+Canonical:
+
+- `outputs/verification/MP1-V002/FINAL_ADJUDICATION.json`
+- `outputs/verification/MP1-V002/FINAL_ADJUDICATION.md`
+
+Run provenance:
+
+```text
+model  = gpt-6-sol
+effort = high
+run_id = 20260925T093414Z
+```
+
+Final result:
+
+```text
+protocol_outcome =
+SURVIVES_TARGETED_CITATION_CHASE
+
+confidence =
+high
+
+citation_coverage_closed =
+true
+
+direct_kill_found =
+false
+
+msc_topic_readiness =
+READY_FOR_CROSS_DIRECTION_COMPARISON
+
+astra_escalation_required =
+false
+```
+
+Điều này chỉ là protocol-bounded survival; không phải universal novelty proof.
+
+---
+
+## 5. Final surviving MP1 question
+
+MP1 chỉ còn defensible dưới dạng model-discrimination question:
+
+> Dưới radial/transverse confinement pressure được biến thiên độc lập, một superelastic NiTi wire bundle chịu uốn có tạo ra response về contact, stick/partial-slip/full-slip, transformation distribution, hysteresis và tangent/effective bending stiffness mà existing transformation-aware NiTi constitutive + Coulomb-contact framework (H0b) không dự đoán được hay không?
+
+### What is not novel
+
+- NiTi wire bundles.
+- Inter-wire friction/slip.
+- NiTi transformation + contact/hysteresis.
+- Wire/fiber jamming.
+- Positive-pressure jamming.
+- SMA + jamming.
+- Passive helix/contact pressure.
+- Manufacturing preload / fixed radial preload.
+- Generic metallic-wire-rope bending stick-slip mechanics.
+
+### What remains scientifically unestablished
+
+- Có accessible domain nơi slip và stress-induced transformation cùng xảy ra hay không.
+- Local diagnostics có phân biệt được transformation/slip khỏi parameter compensation hay không.
+- H0b có predict pressure-dependent response đủ tốt hay không.
+- Universal absence of closer prior work ngoài V002 cutoff/protocol.
+
+---
+
+## 6. Kill logic nếu MP1 được mở lại trong tương lai
+
+MP1 distinct-mechanics claim bị kill nếu một trong các điều kiện sau xảy ra:
+
+1. accessible operating domain không tạo coexistence của inter-wire slip và stress-induced transformation;
+2. independently calibrated H0b dự đoán dữ liệu trong declared acceptance criteria;
+3. global response chỉ có thể match bằng parameter fitting nhưng local mechanism không identifiable;
+4. contribution co lại thành active-pressure boundary condition mà không có new predictive mechanics.
+
+---
+
+## 7. Stage 6 — Cross-direction adjudication
+
+Canonical:
+
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json`
+- `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.md`
+
+Kết quả:
+
+```text
+selected_direction = D1_M1
+decision           = LOCK_WITH_FEASIBILITY_GATE
+confidence         = medium
+astra_required     = false
+```
+
+MP1 được đánh giá là scientifically legitimate nhưng execution risk cao hơn vì:
+
+- chưa xác nhận coupled transformation+slip regime;
+- local transformation/slip measurement khó;
+- identifiability kém hơn;
+- pressure/contact/material-history control phức tạp;
+- H0b success có thể làm mất distinct MP1 claim;
+- MSc implementation burden cao hơn.
+
+---
+
+## 8. Current thesis direction sau khi MP1-V002 đóng
+
+Working title hiện tại:
+
+> **Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams**
+
+Tiếng Việt:
+
+> **Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không**
+
+Current decision:
+
+```text
+D1_M1
+LOCK_WITH_FEASIBILITY_GATE
+```
+
+Next gate:
+
+```text
+D1/M1 boundary-resolvability pilot
+```
+
+MP1 không cần thêm action ở thời điểm hiện tại.
+
+---
+
+## 9. Canonical files khi cần kiểm tra nguồn
+
+1. `outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json`
+2. `outputs/verification/MP1-V002/FINAL_ADJUDICATION.json`
+3. `outputs/verification/MP1-V002/citation_coverage.json`
+4. `outputs/verification/MP1-V002/verification_matrix.json`
+5. `docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md`
+6. `docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md`
+7. `docs/project/MP1_MENTOR_PIVOT_CURRENT.md`
+8. `docs/project/PROJECT_HANDOFF_CURRENT.md`
+
+Nếu một summary cũ mâu thuẫn với các canonical JSON trên, ưu tiên canonical JSON có provenance mới hơn.
