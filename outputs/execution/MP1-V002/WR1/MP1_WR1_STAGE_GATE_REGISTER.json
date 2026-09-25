@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-WR1",
+  "stage_execution_status": "PROPOSED_NOT_EXECUTED",
+  "stages": [
+    {
+      "stage_id": "WR1-S01",
+      "purpose": "Low-cost analytical triage: choose strongest existing H0b cable/contact/FE formulation, test applicability, predeclare observable signatures and validation split.",
+      "blocking_gaps": [
+        "GAP-07",
+        "GAP-02",
+        "GAP-04"
+      ],
+      "dependency_ids": [],
+      "entry_conditions": [
+        "W02 canonical closeout available",
+        "No held-out validation data inspected for fitting"
+      ],
+      "exit_conditions": [
+        "Formulation crosswalk and H0b model specification signed",
+        "Observable/signature and data-partition protocol drafted",
+        "Named missing-equation retrieval trigger either documented or closed"
+      ],
+      "failure_route": "If published formulation already includes proposed coupling, remove that H1 rationale; if equations unavailable, bounded targeted retrieval; if no applicable baseline, document applicability failure before model extension.",
+      "model_tool_class": [
+        "analytical mechanics",
+        "existing-corpus full-text analysis",
+        "human review"
+      ],
+      "parallelizable": true,
+      "search_allowed": "CONDITIONAL_NAMED_TARGETED_RETRIEVAL_ONLY",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S02",
+      "purpose": "Cheap sealed-prototype feasibility gate for coexistence, local sensing, thermal/rate controls and specimen integrity.",
+      "blocking_gaps": [
+        "GAP-05",
+        "GAP-08",
+        "GAP-06"
+      ],
+      "dependency_ids": [],
+      "entry_conditions": [
+        "W02 feasibility bounds and actual apparatus limits available",
+        "Pilot specimens/data clearly segregated from held-out validation"
+      ],
+      "exit_conditions": [
+        "Repeatable p-kappa-T coexistence map with local slip and transformation evidence",
+        "Sealed sensor/noise/perturbation and leak checks",
+        "Temperature/rate/history confounds bounded or explicit thermomechanical requirement"
+      ],
+      "failure_route": "No coexistence: stop/narrow current mechanics core. No local discriminating channels: redesign or restrict to predictive validity. Excess thermal confounding: add thermal H0b or narrow rate/domain.",
+      "model_tool_class": [
+        "analytical mechanics",
+        "instrumentation feasibility",
+        "feasibility pilot",
+        "human review"
+      ],
+      "parallelizable": true,
+      "search_allowed": "CONDITIONAL_NAMED_TARGETED_RETRIEVAL_ONLY",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S03",
+      "purpose": "Quantify mechanism observability and choose minimum local/auxiliary channels before full experiments.",
+      "blocking_gaps": [
+        "GAP-02",
+        "GAP-08",
+        "GAP-06"
+      ],
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S02"
+      ],
+      "entry_conditions": [
+        "Feasible coexistence and sealed channels shown",
+        "H0b signature/sensitivity candidates defined"
+      ],
+      "exit_conditions": [
+        "Sensitivity/observability matrix separates slip, transformation, thermal, ovalization, membrane and fixture effects above pilot noise",
+        "Minimum observable set and controls accepted"
+      ],
+      "failure_route": "Redesign channels, vary excitation or narrow to non-mechanistic prediction; no H1 mechanism test if rank/noise fails.",
+      "model_tool_class": [
+        "identifiability analysis",
+        "experiment design",
+        "pilot analysis"
+      ],
+      "parallelizable": false,
+      "search_allowed": "NO_NEW_SEARCH",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S04",
+      "purpose": "Independently calibrate NiTi, friction, pressure transfer, membrane, geometry/prestrain and contact parameters; quantify nonuniqueness.",
+      "blocking_gaps": [
+        "GAP-03",
+        "GAP-04"
+      ],
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S02"
+      ],
+      "entry_conditions": [
+        "Feasible apparatus/domain fixed",
+        "Calibration tests and future held-out paths registered separately"
+      ],
+      "exit_conditions": [
+        "Parameter provenance, intervals/covariance and pressure-transfer uncertainty established from non-validation tests",
+        "Sensitivity shows verdict robust to remaining compensation"
+      ],
+      "failure_route": "If pressure/contact mapping or compensation reverses predicted verdict, improve calibration or narrow domain; never fit to held-out bending.",
+      "model_tool_class": [
+        "parameter calibration",
+        "contact modeling",
+        "uncertainty analysis"
+      ],
+      "parallelizable": true,
+      "search_allowed": "CONDITIONAL_NAMED_TARGETED_RETRIEVAL_ONLY",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S05",
+      "purpose": "Implement and verify strongest H0b; choose thermal branch, declare metrics/tolerances, then freeze code and parameters.",
+      "blocking_gaps": [
+        "GAP-07",
+        "GAP-04",
+        "GAP-06"
+      ],
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S03",
+        "WR1-S04"
+      ],
+      "entry_conditions": [
+        "Existing-formulation audit completed",
+        "Observable set and calibrated parameter ranges available",
+        "Held-out validation specimens/paths untouched"
+      ],
+      "exit_conditions": [
+        "Numerical verification and convergence pass",
+        "Transformation-aware NiTi plus wire contact plus membrane BC and appropriate cable/FE kinematics implemented",
+        "Physical parameters, code, outputs, uncertainty propagation, validation paths and tolerances timestamped and locked"
+      ],
+      "failure_route": "Implementation/nonconvergence: repair and reverify before lock. Unidentifiable parameters: return S04. Missing thermal physics: extend H0b before held-out evaluation.",
+      "model_tool_class": [
+        "numerical modeling",
+        "uncertainty analysis",
+        "human review"
+      ],
+      "parallelizable": false,
+      "search_allowed": "NO_NEW_SEARCH",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S06",
+      "purpose": "Acquire controlled held-out bending and local-observable data under the locked protocol.",
+      "blocking_gaps": [
+        "GAP-02",
+        "GAP-06",
+        "GAP-01"
+      ],
+      "dependency_ids": [
+        "WR1-S05"
+      ],
+      "entry_conditions": [
+        "H0b parameters/code and tolerance locked",
+        "Instrumented, controlled apparatus passes pilots",
+        "Held-out paths/specimens registered"
+      ],
+      "exit_conditions": [
+        "Pressure-curvature-temperature cycles and global/local channels captured with uncertainty and QC",
+        "No calibration/validation leakage",
+        "Fixture, membrane and cycle-history controls present"
+      ],
+      "failure_route": "Quality/control failure: mark data non-identifying, repair apparatus and acquire a new held-out set; no validation refit.",
+      "model_tool_class": [
+        "controlled experiment",
+        "measurement QC"
+      ],
+      "parallelizable": false,
+      "search_allowed": "NO_NEW_SEARCH",
+      "Astra_allowed": false,
+      "human_review_required": true
+    },
+    {
+      "stage_id": "WR1-S07",
+      "purpose": "Compare locked forward H0b predictions against held-out global and local data and classify A/B/C without H1 adjudication.",
+      "blocking_gaps": [
+        "GAP-01",
+        "GAP-02",
+        "GAP-03",
+        "GAP-04",
+        "GAP-05",
+        "GAP-06",
+        "GAP-07",
+        "GAP-08"
+      ],
+      "dependency_ids": [
+        "WR1-S06"
+      ],
+      "entry_conditions": [
+        "Complete locked model/version and validation dataset",
+        "Predeclared metrics/tolerances and uncertainty budget available"
+      ],
+      "exit_conditions": [
+        "Outcome A: H0b adequate; or B: systematic locked failure with independently observed local mechanism correlation; or C: uncertainty/non-identification",
+        "Residual analysis and versioned decision recorded"
+      ],
+      "failure_route": "A: stop H1 necessity claim. B: open later H1 formulation and independent retest, without claiming H1 proved. C: redesign/narrow; if any refit is proposed, declare model version failed and require new untouched validation set.",
+      "model_tool_class": [
+        "forward prediction",
+        "model discrimination",
+        "uncertainty analysis",
+        "human review"
+      ],
+      "parallelizable": false,
+      "search_allowed": "NO_NEW_SEARCH",
+      "Astra_allowed": false,
+      "human_review_required": true
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-WR1",
+  "graph_type": "DIRECTED_ACYCLIC",
+  "stage_status": "PROPOSED_NOT_EXECUTED",
+  "entry_stages": [
+    "WR1-S01",
+    "WR1-S02"
+  ],
+  "next_executable_stage": "WR1-S01 and WR1-S02 may start in parallel; if one owner, begin WR1-S01 analytical triage while preparing WR1-S02 pilot",
+  "stages": [
+    {
+      "stage_id": "WR1-S01",
+      "dependency_ids": [],
+      "blocking_gaps": [
+        "GAP-07",
+        "GAP-02",
+        "GAP-04"
+      ]
+    },
+    {
+      "stage_id": "WR1-S02",
+      "dependency_ids": [],
+      "blocking_gaps": [
+        "GAP-05",
+        "GAP-08",
+        "GAP-06"
+      ]
+    },
+    {
+      "stage_id": "WR1-S03",
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S02"
+      ],
+      "blocking_gaps": [
+        "GAP-02",
+        "GAP-08",
+        "GAP-06"
+      ]
+    },
+    {
+      "stage_id": "WR1-S04",
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S02"
+      ],
+      "blocking_gaps": [
+        "GAP-03",
+        "GAP-04"
+      ]
+    },
+    {
+      "stage_id": "WR1-S05",
+      "dependency_ids": [
+        "WR1-S01",
+        "WR1-S03",
+        "WR1-S04"
+      ],
+      "blocking_gaps": [
+        "GAP-07",
+        "GAP-04",
+        "GAP-06"
+      ]
+    },
+    {
+      "stage_id": "WR1-S06",
+      "dependency_ids": [
+        "WR1-S05"
+      ],
+      "blocking_gaps": [
+        "GAP-02",
+        "GAP-06",
+        "GAP-01"
+      ]
+    },
+    {
+      "stage_id": "WR1-S07",
+      "dependency_ids": [
+        "WR1-S06"
+      ],
+      "blocking_gaps": [
+        "GAP-01",
+        "GAP-02",
+        "GAP-03",
+        "GAP-04",
+        "GAP-05",
+        "GAP-06",
+        "GAP-07",
+        "GAP-08"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "WR1-S01",
+      "to": "WR1-S03",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S02",
+      "to": "WR1-S03",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S01",
+      "to": "WR1-S04",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S02",
+      "to": "WR1-S04",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S01",
+      "to": "WR1-S05",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S03",
+      "to": "WR1-S05",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S04",
+      "to": "WR1-S05",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S05",
+      "to": "WR1-S06",
+      "reason": "Entry gate"
+    },
+    {
+      "from": "WR1-S06",
+      "to": "WR1-S07",
+      "reason": "Entry gate"
+    }
+  ],
+  "conditional_routes": [
+    {
+      "gate": "WR1-S01",
+      "condition": "named published governing equation/applicability condition missing from repository",
+      "route": "bounded targeted retrieval; then resume S01; broad search remains closed"
+    },
+    {
+      "gate": "WR1-S02",
+      "condition": "no durable observed slip-plus-transformation region",
+      "route": "STOP_OR_NARROW_MP1_COUPLING_CORE"
+    },
+    {
+      "gate": "WR1-S02/WR1-S03",
+      "condition": "no sealed local/auxiliary observable set that discriminates mechanisms",
+      "route": "REDESIGN_INSTRUMENTATION_OR_NARROW_TO_PREDICTIVE_VALIDITY"
+    },
+    {
+      "gate": "WR1-S04",
+      "condition": "pressure transmission/parameter compensation leaves verdict unstable",
+      "route": "RETURN_TO_CALIBRATION_OR_NARROW_DOMAIN"
+    },
+    {
+      "gate": "WR1-S07",
+      "condition": "H0b adequate within predeclared uncertainty-aware tolerance",
+      "route": "OUTCOME_A_STOP_H1_NECESSITY"
+    },
+    {
+      "gate": "WR1-S07",
+      "condition": "locked H0b fails systematically and independent local mechanisms correlate",
+      "route": "OUTCOME_B_H1_MOTIVATED_FOR_LATER_FORMULATION_AND_NEW_TEST"
+    },
+    {
+      "gate": "WR1-S07",
+      "condition": "non-identifying data or uncertainty dominates",
+      "route": "OUTCOME_C_REDESIGN_OR_NARROW"
+    }
+  ],
+  "parameter_lock_rule": "No parameter refit on held-out validation. Any attempted refit fails the frozen model version and requires a new version and new untouched validation set.",
+  "scientific_guardrail": "H0a false does not imply H1 true; WR1 makes no novelty or H1 verdict."
+}

@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-WR1",
+  "status": "ROUTING_COMPLETE_NOT_SCIENTIFICALLY_RESOLVED",
+  "source_authority": [
+    "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+    "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json",
+    "outputs/execution/MP1-V002/W2/MP1_W02_FINAL_STATE.json"
+  ],
+  "dependency_semantics": "dependency_ids are scientific prerequisites for final resolution, not prohibitions on parallel preparatory work; GAP-05 depends on GAP-08 only for observed coexistence, while analytical bounds may begin earlier",
+  "gaps": [
+    {
+      "gap_id": "GAP-01",
+      "related_k_test": "K2",
+      "current_status": "OPEN_BLOCKING; H0b NOT_FALSIFIED",
+      "dependency_ids": [
+        "GAP-07",
+        "GAP-04",
+        "GAP-03",
+        "GAP-05",
+        "GAP-02",
+        "GAP-06"
+      ],
+      "work_type": [
+        "numerical modeling",
+        "experiment design",
+        "uncertainty analysis",
+        "human review"
+      ],
+      "required_inputs": [
+        "Versioned strongest applicable H0b from GAP-07",
+        "independently calibrated and locked NiTi/contact/membrane/pressure parameters from GAP-03/04",
+        "feasible coexistence domain and identifiable local channels from GAP-05/02/06",
+        "untouched held-out pressure-curvature-temperature paths, measurement uncertainty and predeclared tolerances"
+      ],
+      "required_outputs": [
+        "Verified H0b code and convergence/implementation checks",
+        "timestamped parameter/model lock",
+        "blind forward predictions and signed residual/discrimination report"
+      ],
+      "pass_criterion": "A complete, converged locked H0b prediction is compared with untouched held-out global and local data, with uncertainty-aware predeclared metrics; the adequacy or systematic-failure outcome is classifiable.",
+      "fail_or_narrow_criterion": "If H0b is adequate, stop the distinct H1 mechanics claim (Outcome A). If locked H0b fails with independent local mechanism correlation, permit only a subsequent H1 formulation/test (Outcome B). If uncertainty or missing channels prevents discrimination, redesign/narrow (Outcome C); never rescue failure by refitting validation data.",
+      "search_trigger": "NO NEW SEARCH; only a named missing implementation detail for the selected published formulation may trigger targeted retrieval.",
+      "next_stage": "WR1-S07",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-02",
+      "related_k_test": "K3",
+      "current_status": "OPEN_BLOCKING; global M-kappa non-identifying",
+      "dependency_ids": [
+        "GAP-08",
+        "GAP-06",
+        "GAP-07"
+      ],
+      "work_type": [
+        "identifiability analysis",
+        "experiment design",
+        "feasibility pilot",
+        "human review"
+      ],
+      "required_inputs": [
+        "Sealed-bundle channel feasibility and perturbation estimates from GAP-08",
+        "temperature/rate/history control plan from GAP-06",
+        "candidate mechanism signatures from H0b sensitivity analysis and calibration pilots",
+        "artifact controls for membrane, clamps and cross-section shape"
+      ],
+      "required_outputs": [
+        "Observability/identifiability matrix with sensitivities and expected noise",
+        "minimum channel set and null/positive controls",
+        "pilot data demonstrating independent mechanism readouts"
+      ],
+      "pass_criterion": "At least one direct or independently validated slip measure and one transformation-sensitive measure, with local temperature, section-shape/membrane and fixture controls, distinguish prespecified competing mechanism signatures above uncertainty in the operating domain.",
+      "fail_or_narrow_criterion": "If only global loops or mutually confounded proxies remain, H1 coupling is untestable here; redesign instrumentation or narrow to predictive H0b validity without mechanistic attribution.",
+      "search_trigger": "NO NEW SEARCH; targeted measurement-method retrieval only if an exact proposed sensor method lacks a technical feasibility basis in the corpus.",
+      "next_stage": "WR1-S03",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-03",
+      "related_k_test": "K6",
+      "current_status": "OPEN_BLOCKING; p is boundary input, not known f_n",
+      "dependency_ids": [
+        "GAP-05",
+        "GAP-07"
+      ],
+      "work_type": [
+        "parameter calibration",
+        "analytical mechanics",
+        "numerical modeling",
+        "uncertainty analysis",
+        "human review"
+      ],
+      "required_inputs": [
+        "Actual bundle packing/geometry and feasible pressure-curvature range",
+        "membrane pressure-displacement/traction response",
+        "independent pull-out or direct-shear response across pressure; optional contact-pressure proxy",
+        "cross-section contact model with uncertainty and nonuniqueness analysis"
+      ],
+      "required_outputs": [
+        "Calibrated pressure-transfer/contact-traction map or bounded latent-contact model",
+        "uncertainty envelope propagated to H0b predictions"
+      ],
+      "pass_criterion": "Independent non-validation tests constrain effective normal traction or its prediction-relevant bounds over the declared domain sufficiently that H0b adequacy conclusions are robust to the remaining p-to-f_n uncertainty.",
+      "fail_or_narrow_criterion": "If distinct contact-force maps fit calibration data but reverse the H0b verdict, return to measurement/model redesign; do not substitute chamber p for f_n or freely fit transmission to bending validation.",
+      "search_trigger": "NO NEW SEARCH; targeted retrieval only for a named missing membrane/contact property or calibration method required by the selected apparatus.",
+      "next_stage": "WR1-S04",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-04",
+      "related_k_test": "K8",
+      "current_status": "OPEN_BLOCKING; lock is protocol, not measured",
+      "dependency_ids": [
+        "GAP-03",
+        "GAP-05",
+        "GAP-07"
+      ],
+      "work_type": [
+        "parameter calibration",
+        "identifiability analysis",
+        "uncertainty analysis",
+        "human review"
+      ],
+      "required_inputs": [
+        "Separate single-wire thermomechanical tests for transformation parameters",
+        "direct-shear/pull-out friction tests for mu",
+        "GAP-03 pressure-transfer and membrane characterization",
+        "geometry, packing, prestrain, clamp/compliance characterization",
+        "explicit calibration/validation data partition"
+      ],
+      "required_outputs": [
+        "Parameter provenance table, estimates, covariance/ranges and physical bounds",
+        "frozen model version and parameter file with calibration-only provenance",
+        "sensitivity/profile analysis for compensation"
+      ],
+      "pass_criterion": "Every influential H0b parameter is measured or bounded from independent calibration data; joint sensitivity shows the held-out decision is robust over remaining parameter ranges; model and parameters are frozen before held-out acquisition/unblinding.",
+      "fail_or_narrow_criterion": "If mu, pressure transfer, transformation or contact parameters remain mutually compensating enough to reverse the test, improve calibration or narrow prediction domain. Validation refitting declares the version failed and requires a new version/new untouched validation set.",
+      "search_trigger": "NO NEW SEARCH; targeted retrieval only for a named, necessary material limit unavailable in existing corpus and direct calibration.",
+      "next_stage": "WR1-S04",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-05",
+      "related_k_test": "K1",
+      "current_status": "OPEN_BLOCKING; coexistence not demonstrated",
+      "dependency_ids": [
+        "GAP-08"
+      ],
+      "work_type": [
+        "analytical mechanics",
+        "feasibility pilot",
+        "experiment design",
+        "human review"
+      ],
+      "required_inputs": [
+        "W02 transformation strain/curvature estimate as a planning bound, not a universal threshold",
+        "actual wire diameter, prestrain, phase state and fatigue/membrane limits",
+        "sealed prototype with GAP-08 viable diagnostic channels",
+        "pressure, curvature, temperature and cycle-history measurements"
+      ],
+      "required_outputs": [
+        "Instrumented feasibility map of p-kappa-T and cycle count",
+        "evidence for simultaneous local slip and transformation with specimen-integrity record"
+      ],
+      "pass_criterion": "A repeatable, sealed, safe operating region demonstrates temporally overlapping inter-wire slip and independently supported transformation over enough cycles for validation, with prespecified specimen-integrity limits.",
+      "fail_or_narrow_criterion": "If no accessible durable coexistence region exists, stop the current MP1 coupling-core formulation; narrow to a single-mechanism/model-validity question or redesign apparatus. An analytical threshold alone does not pass.",
+      "search_trigger": "NO NEW SEARCH; targeted retrieval only if a specific safety/fatigue/material limit needed for the pilot is absent from corpus and cannot be measured.",
+      "next_stage": "WR1-S02",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-06",
+      "related_k_test": "K9",
+      "current_status": "OPEN_BLOCKING; thermal/rate/history confounding",
+      "dependency_ids": [
+        "GAP-08"
+      ],
+      "work_type": [
+        "feasibility pilot",
+        "experiment design",
+        "uncertainty analysis"
+      ],
+      "required_inputs": [
+        "Local and ambient temperature channel feasibility",
+        "rate sweeps, dwell/cooling and repeated-cycle pilots",
+        "training history and wear tracking",
+        "fixture and membrane-only controls"
+      ],
+      "required_outputs": [
+        "Thermal/rate/history control and uncertainty protocol",
+        "decision whether isothermal approximation is valid or thermomechanical H0b is required"
+      ],
+      "pass_criterion": "Temperature and rate effects are measured and bounded below the predeclared discrimination margin, or explicitly represented in a locked thermomechanical H0b; cycle history and wear are controlled or stratified.",
+      "fail_or_narrow_criterion": "If temperature/rate/history effects can explain purported H0b residuals, no H1 inference; add thermomechanics/controls or restrict the domain. A nominal quasi-static rate by itself is insufficient.",
+      "search_trigger": "NO NEW SEARCH; targeted retrieval only for a named missing thermal property or measurement-method requirement.",
+      "next_stage": "WR1-S02",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-07",
+      "related_k_test": "K7",
+      "current_status": "OPEN_BLOCKING; existing cable/contact sufficiency unresolved",
+      "dependency_ids": [],
+      "work_type": [
+        "analytical mechanics",
+        "numerical modeling",
+        "targeted retrieval",
+        "human review"
+      ],
+      "required_inputs": [
+        "Existing repository full text/extractions for Barsi 2025, Tjahjanto 2017, Xin Liu 2004, Kang 2020 and Vahidi 2022",
+        "MP1 geometry, loading, confinement and H0b constitutive options",
+        "published governing equations, contact assumptions and applicability limits"
+      ],
+      "required_outputs": [
+        "Formulation crosswalk and strongest applicable H0b specification",
+        "adaptation/implementation feasibility verdict with explicit assumptions"
+      ],
+      "pass_criterion": "A competent baseline is selected or constructed from the strongest applicable published cable/contact or FE formulation, including transformation-aware NiTi, frictional contact and membrane traction; limitations are explicit and implementation can be verified.",
+      "fail_or_narrow_criterion": "If an existing formulation already supplies the alleged missing coupling term, withdraw that H1 rationale. If no formulation applies, document the precise failure of applicability before opening a bounded model-extension task; do not infer H1 merely from implementation difficulty.",
+      "search_trigger": "CONDITIONAL TARGETED RETRIEVAL ONLY if the exact governing equations or applicability conditions of a named existing formulation are absent from repository full text; no broad search.",
+      "next_stage": "WR1-S01",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    },
+    {
+      "gap_id": "GAP-08",
+      "related_k_test": "K3",
+      "current_status": "OPEN_BLOCKING; sealed local sensing unproven",
+      "dependency_ids": [],
+      "work_type": [
+        "instrumentation feasibility",
+        "feasibility pilot",
+        "experiment design",
+        "human review"
+      ],
+      "required_inputs": [
+        "Actual sleeve and feedthrough design, pressure/seal limits and wire packing",
+        "candidate nonintrusive/local channels: optical tracking or end-slip, strain/transformation proxy, thermometry, section geometry",
+        "sensor calibration, noise and perturbation estimates"
+      ],
+      "required_outputs": [
+        "Sealed-sensor prototype and leak/packing perturbation report",
+        "channel feasibility and calibration/noise table"
+      ],
+      "pass_criterion": "At least one validated slip channel plus a transformation-sensitive channel and required temperature/geometry controls operate in a sealed bundle without materially changing baseline mechanics beyond quantified uncertainty.",
+      "fail_or_narrow_criterion": "If channels cannot operate without leakage or changing packing, redesign instrumentation; if no discriminating local/auxiliary set is possible, stop H1-style mechanism claims from global M-kappa alone.",
+      "search_trigger": "NO NEW SEARCH; targeted retrieval only for a named sensor/feedthrough method whose physical feasibility is undocumented in the repository.",
+      "next_stage": "WR1-S02",
+      "provenance": [
+        "outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json",
+        "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json"
+      ]
+    }
+  ]
+}
