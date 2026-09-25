@@ -113,6 +113,20 @@ HISTORICAL_COVERAGE: dict[tuple[str, str], dict[str, Any]] = {
         "source_paths": ["data/search_exports/MP1-V002/raw/backward/B06_silva_publisher_references.txt"],
         "notes": "Restored from B06 publisher-reference provenance; candidates were resolved by full text.",
     },
+    ("doi:10.3901/jme.2020.14.065", "backward"): {
+        "status": "screened_candidates_found",
+        "search_date": "2026-09-25",
+        "records_screened": 22,
+        "source_paths": ["data/search_exports/MP1-V002/raw/backward/B11_kang2020.csv"],
+        "notes": "Restored from B11 backward-citation export. Screening found only already-resolved NiTi cable lineage plus one adjacent Carboni dynamic-device paper; no active-confinement NiTi-bundle kill source remained unresolved.",
+    },
+    ("doi:10.1016/j.engstruct.2024.119217", "backward"): {
+        "status": "screened_candidates_found",
+        "search_date": "2026-09-25",
+        "records_screened": 46,
+        "source_paths": ["data/search_exports/MP1-V002/raw/backward/B12_barsi.csv"],
+        "notes": "Restored from B12 backward-citation export. Screening recovered established Carboni/Reedlunn lineage but no actively pressure-controlled metallic/NiTi bundle bending source.",
+    },
     ("doi:10.1016/j.ijsolstr.2013.03.015", "backward"): {
         "status": "screened_candidates_found",
         "search_date": "2026-09-25",
@@ -622,6 +636,25 @@ def init_payload(
         matrix,
     )
 
+    derived_cutoff_dates = [
+        str(anchor[direction_name].get("search_date") or "").strip()
+        for anchor in anchors
+        for direction_name in ["backward", "forward"]
+        if anchor[direction_name].get("required")
+        and anchor[direction_name].get("status") in SCREENED
+        and str(anchor[direction_name].get("search_date") or "").strip()
+    ]
+    previous_cutoff = (
+        str(previous.get("search_cutoff_date") or "").strip()
+        if previous
+        else ""
+    )
+    search_cutoff_date = previous_cutoff or (
+        max(derived_cutoff_dates)
+        if derived_cutoff_dates
+        else ""
+    )
+
     return {
         "schema_version": 2,
         "verification_id": VERIFICATION_ID,
@@ -629,11 +662,7 @@ def init_payload(
             "Document protocol-bounded backward/forward citation screening. "
             "This is coverage evidence, not scientific evidence."
         ),
-        "search_cutoff_date": (
-            str(previous.get("search_cutoff_date") or "")
-            if previous
-            else ""
-        ),
+        "search_cutoff_date": search_cutoff_date,
         "anchors": anchors,
         "resolved_named_high_threat_sources": resolved_named,
         "unresolved_named_high_threat_sources": unresolved_named,
