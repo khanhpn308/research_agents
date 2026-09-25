@@ -1,101 +1,104 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-15",
+  "updated_at": "2026-09-25",
   "project": "mechanical-research-agents",
   "research_domain": [
-    "soft robotics",
-    "variable stiffness",
-    "layer jamming",
-    "continuum robots",
-    "soft grippers",
     "mechanics modeling",
-    "experimental validation"
+    "vacuum layer jamming",
+    "model validity",
+    "frictional contact",
+    "experimental validation",
+    "soft robotics",
+    "variable stiffness"
   ],
   "discovery": {
     "seed_papers": 54,
     "status": "complete",
-    "snapshot_dir": "outputs/discovery_snapshot",
     "candidate_count": 5,
     "original_selected_direction": "D1"
   },
-  "original_direction": {
-    "id": "D1",
-    "title": "Modeling and Experimental Characterization of Interlayer Slip and Bending Stiffness in Vacuum Layer-Jamming Beams",
-    "final_adjudication_decision": "select_with_revision",
-    "final_adjudication_confidence": "medium",
-    "status_after_verification": "pivoted"
-  },
-  "latest_completed_verification": {
-    "verification_id": "D1-V001",
-    "paper_count": 3,
-    "verdict": "PIVOT",
-    "confidence": "high",
-    "papers": [
-      {
-        "paper_id": "5f7ccd7357",
-        "year": 2018,
-        "title": "Mechanically Versatile Soft Machines through Laminar Jamming",
-        "doi": "10.1002/adfm.201707136"
-      },
-      {
-        "paper_id": "652e62758f",
-        "year": 2023,
-        "title": "Layer jamming: Modeling and experimental validation",
-        "doi": "10.1016/j.ijmecsci.2023.108325"
-      },
-      {
-        "paper_id": "56d058a34a",
-        "year": 2024,
-        "title": "Layer Jamming of Magnetorheological Elastomers for Variable Stiffness in Soft Robots",
-        "doi": "10.1007/s11340-024-01031-7"
-      }
-    ]
-  },
-  "current_candidate": {
-    "id": "P1",
-    "title": "Validity Limits of a Homogenized Slip Model for High-Layer-Count Vacuum-Jammed Beams",
-    "status": "provisional",
-    "novelty_status": "unverified",
-    "current_instruction": "attack, do not defend"
-  },
-  "current_corpus": {
-    "total_papers": 57,
-    "seed": 54,
-    "verification": 3,
-    "screening_included": 57,
-    "ingestion_complete": 57,
-    "evidence_present": 57,
-    "consistency": "PASS"
-  },
-  "highest_priority_threats": [
-    {
-      "year": 2025,
+  "d1_m1": {
+    "selected": true,
+    "decision": "LOCK_WITH_FEASIBILITY_GATE",
+    "confidence": "medium",
+    "current_title_en": "Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams",
+    "current_title_vi": "Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không",
+    "reduced_model": {
+      "id": "M1",
       "title": "A continuum-based model for a layer jamming beam",
-      "doi": "10.5194/ms-16-821-2025",
-      "status": "must_screen"
+      "doi": "10.5194/ms-16-821-2025"
     },
-    {
-      "year": 2025,
-      "title": "Toward a deeper understanding of layer jamming structures",
-      "doi": "10.1007/s11465-025-0843-5",
-      "status": "must_screen"
+    "scientific_architecture": "M -> R -> E",
+    "novelty_lock": {
+      "d1_v008": "SURVIVES_FINAL_TARGET",
+      "d1_v009": "SURVIVES_LATE_FOUND_TARGET",
+      "final_novelty_lock_survives": true
     },
-    {
-      "year": 2026,
-      "title": "Modeling, Control, and Stiffness Regulation of Layer Jamming-Based Continuum Robots",
-      "doi": "10.1109/TCST.2026.3690756",
-      "status": "must_screen"
-    }
-  ],
-  "next_verification_round": {
-    "recommended_id": "D1-V002",
-    "objective": "Attack P1 using 2025-2026 closest prior work and forward citations",
-    "allowed_verdicts": [
-      "KEEP",
-      "NARROW",
-      "PIVOT",
-      "REJECT"
+    "final_research_question": "Across a declared range of layer count, vacuum pressure, and quasi-static bending severity, for which measurable outputs and operating conditions does the Zhang et al. continuum layer-jamming beam model meet predeclared, justified error tolerances against a verified full-layer frictional-contact reference and independent experiments, and which contact or slip mechanisms explain failures?",
+    "scientific_hypothesis": "M1's output-specific error will generally grow as finite-layer discreteness and slip or contact-pressure redistribution become important, yielding experimentally resolvable validity and breakdown regions. The predicted trend and boundary are testable and may be rejected."
+  },
+  "mp1": {
+    "status": "closed_archived_viable_alternative",
+    "verification_id": "MP1-V002",
+    "full_text_papers": 16,
+    "citation_coverage": {
+      "backward_required": 9,
+      "backward_screened": 9,
+      "forward_required": 6,
+      "forward_screened": 6,
+      "total_required": 15,
+      "total_screened": 15,
+      "search_cutoff_date": "2026-09-25",
+      "stop_condition_satisfied": true,
+      "unresolved_high_threat_sources": 0
+    },
+    "final_adjudication": {
+      "protocol_outcome": "SURVIVES_TARGETED_CITATION_CHASE",
+      "confidence": "high",
+      "direct_kill_found": false,
+      "citation_coverage_closed": true,
+      "msc_topic_readiness": "READY_FOR_CROSS_DIRECTION_COMPARISON",
+      "astra_escalation_required": false,
+      "model": "gpt-6-sol",
+      "effort": "high"
+    },
+    "disposition": "Not selected in final cross-direction adjudication; retain as viable alternative only."
+  },
+  "final_cross_direction_adjudication": {
+    "selected_direction": "D1_M1",
+    "decision": "LOCK_WITH_FEASIBILITY_GATE",
+    "confidence": "medium",
+    "astra_escalation_required": false,
+    "model": "gpt-6-sol",
+    "effort": "high",
+    "canonical_json": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json"
+  },
+  "current_gate": {
+    "name": "D1/M1 boundary-resolvability pilot",
+    "status": "pending",
+    "objective": "Demonstrate an uncertainty-resolved accepted/rejected contrast for a shared measurable output within an experimentally accessible domain.",
+    "first_task": "Reconstruct M1 completely and reproduce a published case before freezing the full-layer reference.",
+    "pass_requirements": [
+      "Reconstructed M1 equations, assumptions, and reproduction check",
+      "Verified full-layer frictional-contact reference formulation",
+      "Independent parameter calibration",
+      "Predeclared primary output, error metric, justified tolerance, and uncertainty budget",
+      "At least one accessible accepted condition",
+      "At least one accessible rejected condition",
+      "Experimental measurement precision sufficient to test the classification"
     ]
   },
-  "core_rule": "DO NOT DEFEND THE CURRENT IDEA. TRY TO KILL IT."
+  "search_status": {
+    "d1_broad_search": "stopped_after_D1-V009",
+    "mp1_broad_search": "closed_after_MP1-V002",
+    "reopen_only_for_concrete_high_threat_reason": true
+  },
+  "canonical_authority": [
+    "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json",
+    "docs/project/PROJECT_HANDOFF_CURRENT.md",
+    "docs/project/RESEARCH_LOG.md",
+    "outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+    "outputs/verification/MP1-V002/citation_coverage.json"
+  ],
+  "core_rule": "DO NOT DEFEND A DIRECTION BY DEFAULT. TEST THE CURRENT FEASIBILITY GATE AND PIVOT IF THE EVIDENCE FAILS."
 }
