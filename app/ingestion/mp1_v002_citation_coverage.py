@@ -13,6 +13,9 @@ MATRIX_PATH = OUT_DIR / "verification_matrix.json"
 COVERAGE_PATH = OUT_DIR / "citation_coverage.json"
 STATUS_MD = OUT_DIR / "CITATION_COVERAGE_STATUS.md"
 
+# Metadata for the protocol anchors that may not be present in the
+# MP1-V002 full-text matrix. Required forward directions are NOT
+# hard-coded here; they are read dynamically from the latest audit.
 CORE_ANCHORS = [
     {
         "anchor_key": "doi:10.3390/app12073582",
@@ -60,6 +63,24 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_doi(value: Any) -> str:
+    doi = str(value or "").strip()
+    if doi.lower().startswith("https://doi.org/"):
+        doi = doi[len("https://doi.org/"):]
+    if doi.lower().startswith("http://doi.org/"):
+        doi = doi[len("http://doi.org/"):]
+    if doi.lower().startswith("doi:"):
+        doi = doi[4:].strip()
+    return doi.lower()
+
+
+def doi_key(value: Any) -> str:
+    doi = normalize_doi(value)
+    if not doi:
+        raise RuntimeError("Cannot build DOI anchor key from an empty DOI.")
+    return f"doi:{doi}"
+
+
 def split_named_threats_by_matrix(
     named_sources: list[str],
     matrix: dict[str, Any],
@@ -68,8 +89,12 @@ def split_named_threats_by_matrix(
     identities: list[tuple[str, str]] = []
     for paper in matrix.get("papers", []):
         evidence = paper.get("evidence", {}).get("paper", {})
-        title = str(evidence.get("title") or paper.get("filename") or "").strip().casefold()
-        doi = str(evidence.get("doi") or "").strip().casefold()
+        title = str(
+            evidence.get("title")
+            or paper.get("filename")
+            or ""
+        ).strip().casefold()
+        doi = normalize_doi(evidence.get("doi"))
         identities.append((title, doi))
 
     resolved: list[str] = []
@@ -109,60 +134,288 @@ def direction(required: bool) -> dict[str, Any]:
     }
 
 
-def init_payload() -> dict[str, Any]:
+def merge_direction(
+    fresh: dict[str, Any],
+    previous: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """Preserve prior screening provenance while updating requirement state."""
+    if not previous:
+        return fresh
+
+    required = bool(fresh.get("required"))
+
+    # Preserve only known coverage fields. The current audit controls whether
+    # the direction is required; historical screening metadata remains useful.
+    merged = {
+        **fresh,
+        "required": required,
+        "status": previous.get("status", fresh["status"]),
+        "database": previous.get("database", fresh["database"]),
+        "search_date": previous.get("search_date", fresh["search_date"]),
+        "records_screened": previous.get(
+            "records_screened",
+            fresh["records_screened"],
+        ),
+        "included_candidate_ids": list(
+            previous.get(
+                "included_candidate_ids",
+                fresh["included_candidate_ids"],
+            )
+        ),
+        "unresolved_high_threat_sources": list(
+            previous.get(
+                "unresolved_high_threat_sources",
+                fresh["unresolved_high_threat_sources"],
+            )
+        ),
+        "notes": previous.get("notes", fresh["notes"]),
+    }
+
+    if merged["status"] not in ALLOWED:
+        # Do not silently carry invalid legacy values into the new tracker.
+        merged["status"] = "not_screened"
+
+    return merged
+
+
+def build_previous_index(
+    previous: dict[str, Any] | None,
+) -> dict[str, dict[str, Any]]:
+    if not previous:
+        return {}
+
+    index: dict[str, dict[str, Any]] = {}
+    for anchor in previous.get("anchors", []):
+        key = str(anchor.get("anchor_key") or "").strip().lower()
+        if key:
+            index[key] = anchor
+    return index
+
+
+def matrix_identity_maps(
+    matrix: dict[str, Any],
+) -> tuple[
+    dict[str, dict[str, Any]],
+    dict[str, dict[str, Any]],
+]:
+    by_id: dict[str, dict[str, Any]] = {}
+    by_doi: dict[str, dict[str, Any]] = {}
+
+    for p in matrix.get("papers", []):
+        evidence = p.get("evidence", {}).get("paper", {})
+        pid = str(p.get("paper_id") or "").strip()
+        title = str(
+            evidence.get("title")
+            or p.get("filename")
+            or ""
+        ).strip()
+        doi = str(evidence.get("doi") or "").strip()
+
+        item = {
+            "paper_id": pid,
+            "title": title,
+            "doi": doi,
+        }
+
+        if pid:
+            by_id[pid] = item
+
+        doi_norm = normalize_doi(doi)
+        if doi_norm:
+            by_doi[doi_norm] = item
+
+    return by_id, by_doi
+
+
+def core_metadata_by_doi() -> dict[str, dict[str, Any]]:
+    return {
+        normalize_doi(item["doi"]): item
+        for item in CORE_ANCHORS
+    }
+
+
+def upsert_anchor(
+    anchors: list[dict[str, Any]],
+    positions: dict[str, int],
+    *,
+    anchor_key: str,
+    paper_id: str,
+    title: str,
+    doi: str,
+    target_ids: list[str],
+    role: str,
+    backward_required: bool,
+    forward_required: bool,
+) -> None:
+    key = anchor_key.strip().lower()
+
+    if key in positions:
+        anchor = anchors[positions[key]]
+
+        # The same paper may be required in both directions. Merge rather than
+        # dropping one requirement because of DOI de-duplication.
+        anchor["backward"]["required"] = (
+            anchor["backward"]["required"]
+            or backward_required
+        )
+        anchor["forward"]["required"] = (
+            anchor["forward"]["required"]
+            or forward_required
+        )
+
+        if not anchor.get("paper_id") and paper_id:
+            anchor["paper_id"] = paper_id
+        if not anchor.get("title") and title:
+            anchor["title"] = title
+        if not anchor.get("doi") and doi:
+            anchor["doi"] = doi
+
+        existing_targets = list(anchor.get("target_ids", []))
+        for target_id in target_ids:
+            if target_id not in existing_targets:
+                existing_targets.append(target_id)
+        anchor["target_ids"] = existing_targets
+
+        roles = set(str(anchor.get("role") or "").split("+"))
+        roles.add(role)
+        anchor["role"] = "+".join(sorted(x for x in roles if x))
+        return
+
+    positions[key] = len(anchors)
+    anchors.append({
+        "anchor_key": key,
+        "paper_id": paper_id,
+        "title": title,
+        "doi": doi,
+        "target_ids": list(target_ids),
+        "role": role,
+        "backward": direction(backward_required),
+        "forward": direction(forward_required),
+    })
+
+
+def init_payload(
+    previous: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     if not AUDIT_PATH.exists():
         raise RuntimeError(
-            "TARGETED_THREAT_AUDIT.json not found. Run the interim V002 audit first."
+            "TARGETED_THREAT_AUDIT.json not found. "
+            "Run the interim V002 audit first."
         )
+
     audit = load_json(AUDIT_PATH)
     matrix = load_json(MATRIX_PATH)
+
     if matrix.get("verification_id") != VERIFICATION_ID:
         raise RuntimeError("V002 matrix identity mismatch.")
 
-    by_id: dict[str, dict[str, Any]] = {}
-    for p in matrix.get("papers", []):
-        evidence = p.get("evidence", {}).get("paper", {})
-        by_id[str(p.get("paper_id"))] = {
-            "paper_id": str(p.get("paper_id")),
-            "title": str(evidence.get("title") or p.get("filename") or ""),
-            "doi": str(evidence.get("doi") or ""),
-        }
+    plan = audit.get("citation_chase_plan", {})
+    by_id, by_doi = matrix_identity_maps(matrix)
+    core_by_doi = core_metadata_by_doi()
 
     anchors: list[dict[str, Any]] = []
-    seen: set[str] = set()
+    positions: dict[str, int] = {}
 
-    for item in CORE_ANCHORS:
-        key = item["anchor_key"]
-        seen.add(key)
-        anchors.append({
-            **item,
-            "paper_id": "",
-            "role": "core_protocol_anchor",
-            "backward": direction(False),
-            "forward": direction(True),
-        })
+    # ------------------------------------------------------------
+    # Forward coverage comes from the CURRENT audit, not a static list.
+    # ------------------------------------------------------------
+    for doi_raw in plan.get("forward_core_anchor_dois", []):
+        doi = str(doi_raw or "").strip()
+        doi_norm = normalize_doi(doi)
+        if not doi_norm:
+            raise RuntimeError(
+                "Audit contains an empty forward_core_anchor_doi."
+            )
 
-    plan = audit.get("citation_chase_plan", {})
+        matrix_item = by_doi.get(doi_norm)
+        core_item = core_by_doi.get(doi_norm)
+
+        title = ""
+        paper_id = ""
+        target_ids: list[str] = []
+        role = "audit_forward_anchor"
+
+        if matrix_item:
+            title = matrix_item["title"]
+            paper_id = matrix_item["paper_id"]
+            role = "v002_full_text_forward_anchor"
+
+        if core_item:
+            if not title:
+                title = str(core_item.get("title") or "")
+            target_ids = list(core_item.get("target_ids", []))
+            if not matrix_item:
+                role = "core_protocol_anchor"
+
+        if not title:
+            # The DOI itself remains a valid auditable anchor even when the
+            # matrix lacks bibliographic metadata.
+            title = f"DOI {doi}"
+
+        upsert_anchor(
+            anchors,
+            positions,
+            anchor_key=f"doi:{doi_norm}",
+            paper_id=paper_id,
+            title=title,
+            doi=doi,
+            target_ids=target_ids,
+            role=role,
+            backward_required=False,
+            forward_required=True,
+        )
+
+    # ------------------------------------------------------------
+    # Backward coverage also comes from the CURRENT audit.
+    # ------------------------------------------------------------
     for pid_raw in plan.get("backward_priority_paper_ids", []):
-        pid = str(pid_raw)
+        pid = str(pid_raw or "").strip()
+
         if pid not in by_id:
-            raise RuntimeError(f"Audit names unknown V002 paper_id: {pid}")
+            raise RuntimeError(
+                f"Audit names unknown V002 paper_id: {pid}"
+            )
+
         p = by_id[pid]
-        doi_norm = p["doi"].strip().lower()
-        key = f"doi:{doi_norm}" if doi_norm else f"paper:{pid}"
-        if key in seen:
-            continue
-        seen.add(key)
-        anchors.append({
-            "anchor_key": key,
-            "paper_id": pid,
-            "title": p["title"],
-            "doi": p["doi"],
-            "target_ids": [],
-            "role": "v002_high_threat_backward_anchor",
-            "backward": direction(True),
-            "forward": direction(False),
-        })
+        doi_norm = normalize_doi(p["doi"])
+        key = (
+            f"doi:{doi_norm}"
+            if doi_norm
+            else f"paper:{pid}"
+        )
+
+        upsert_anchor(
+            anchors,
+            positions,
+            anchor_key=key,
+            paper_id=pid,
+            title=p["title"],
+            doi=p["doi"],
+            target_ids=[],
+            role="v002_high_threat_backward_anchor",
+            backward_required=True,
+            forward_required=False,
+        )
+
+    # ------------------------------------------------------------
+    # Preserve previously completed provenance for matching anchors.
+    # New requirements start as not_screened.
+    # ------------------------------------------------------------
+    previous_index = build_previous_index(previous)
+
+    for anchor in anchors:
+        old = previous_index.get(
+            str(anchor["anchor_key"]).lower()
+        )
+
+        anchor["backward"] = merge_direction(
+            anchor["backward"],
+            old.get("backward") if old else None,
+        )
+        anchor["forward"] = merge_direction(
+            anchor["forward"],
+            old.get("forward") if old else None,
+        )
 
     resolved_named, unresolved_named = split_named_threats_by_matrix(
         list(plan.get("named_high_threat_sources", [])),
@@ -170,13 +423,17 @@ def init_payload() -> dict[str, Any]:
     )
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "verification_id": VERIFICATION_ID,
         "purpose": (
             "Document protocol-bounded backward/forward citation screening. "
             "This is coverage evidence, not scientific evidence."
         ),
-        "search_cutoff_date": "",
+        "search_cutoff_date": (
+            str(previous.get("search_cutoff_date") or "")
+            if previous
+            else ""
+        ),
         "anchors": anchors,
         "resolved_named_high_threat_sources": resolved_named,
         "unresolved_named_high_threat_sources": unresolved_named,
@@ -192,63 +449,112 @@ def validate_and_update(
     payload: dict[str, Any],
 ) -> tuple[bool, list[str]]:
     if payload.get("verification_id") != VERIFICATION_ID:
-        raise RuntimeError("citation_coverage.json verification_id mismatch.")
+        raise RuntimeError(
+            "citation_coverage.json verification_id mismatch."
+        )
 
     issues: list[str] = []
     all_required = True
     unresolved = list(
-        payload.get("unresolved_named_high_threat_sources", [])
+        payload.get(
+            "unresolved_named_high_threat_sources",
+            [],
+        )
     )
 
     for anchor in payload.get("anchors", []):
-        name = anchor.get("title") or anchor.get("anchor_key")
+        name = (
+            anchor.get("title")
+            or anchor.get("anchor_key")
+        )
+
         for direction_name in ["backward", "forward"]:
             d = anchor.get(direction_name, {})
             status = d.get("status")
+
             if status not in ALLOWED:
                 raise RuntimeError(
-                    f"{name} {direction_name}: invalid status {status!r}."
+                    f"{name} {direction_name}: "
+                    f"invalid status {status!r}."
                 )
+
             if not d.get("required"):
                 continue
 
             if status not in SCREENED:
                 all_required = False
                 issues.append(
-                    f"NOT SCREENED: {name} [{direction_name}]"
+                    f"NOT SCREENED: "
+                    f"{name} [{direction_name}]"
                 )
 
             if status in SCREENED:
-                if not str(d.get("search_date", "")).strip():
+                if not str(
+                    d.get("search_date", "")
+                ).strip():
                     issues.append(
-                        f"MISSING search_date: {name} [{direction_name}]"
+                        f"MISSING search_date: "
+                        f"{name} [{direction_name}]"
                     )
                     all_required = False
-                if int(d.get("records_screened", 0)) < 0:
+
+                if int(
+                    d.get("records_screened", 0)
+                ) < 0:
                     raise RuntimeError(
                         "records_screened cannot be negative."
                     )
 
             for item in d.get(
-                "unresolved_high_threat_sources", []
+                "unresolved_high_threat_sources",
+                [],
             ):
                 unresolved.append(str(item))
 
     no_unresolved = (
-        len([x for x in unresolved if str(x).strip()]) == 0
+        len([
+            x
+            for x in unresolved
+            if str(x).strip()
+        ])
+        == 0
     )
-    satisfied = all_required and no_unresolved
+
+    satisfied = (
+        all_required
+        and no_unresolved
+    )
 
     payload["stop_condition"] = {
-        "all_required_directions_screened": all_required,
-        "no_unresolved_high_threat_source": no_unresolved,
-        "satisfied": satisfied,
+        "all_required_directions_screened":
+            all_required,
+        "no_unresolved_high_threat_source":
+            no_unresolved,
+        "satisfied":
+            satisfied,
     }
 
     if not no_unresolved:
-        issues.append("UNRESOLVED HIGH-THREAT SOURCES remain.")
+        issues.append(
+            "UNRESOLVED HIGH-THREAT SOURCES remain."
+        )
 
     return satisfied, issues
+
+
+def required_direction_counts(
+    payload: dict[str, Any],
+) -> tuple[int, int]:
+    backward = 0
+    forward = 0
+
+    for anchor in payload.get("anchors", []):
+        if anchor.get("backward", {}).get("required"):
+            backward += 1
+        if anchor.get("forward", {}).get("required"):
+            forward += 1
+
+    return backward, forward
 
 
 def render_md(
@@ -256,16 +562,27 @@ def render_md(
     issues: list[str],
 ) -> str:
     stop = payload["stop_condition"]
+    backward_count, forward_count = (
+        required_direction_counts(payload)
+    )
+
     lines = [
         "# MP1-V002 Citation Coverage Status",
         "",
         f"- **Search cutoff date:** "
         f"{payload.get('search_cutoff_date') or 'NOT SET'}",
+        f"- **Required backward directions:** "
+        f"{backward_count}",
+        f"- **Required forward directions:** "
+        f"{forward_count}",
+        f"- **Total required directions:** "
+        f"{backward_count + forward_count}",
         f"- **All required directions screened:** "
         f"{stop['all_required_directions_screened']}",
         f"- **No unresolved high-threat source:** "
         f"{stop['no_unresolved_high_threat_source']}",
-        f"- **Stop condition satisfied:** {stop['satisfied']}",
+        f"- **Stop condition satisfied:** "
+        f"{stop['satisfied']}",
         "",
         "## Coverage",
         "",
@@ -276,14 +593,34 @@ def render_md(
     for a in payload.get("anchors", []):
         b = a["backward"]
         f = a["forward"]
-        btxt = b["status"] if b["required"] else "not required"
-        ftxt = f["status"] if f["required"] else "not required"
-        lines.append(
-            f"| {a['title']} | {a['role']} | {btxt} | {ftxt} |"
+        btxt = (
+            b["status"]
+            if b["required"]
+            else "not required"
+        )
+        ftxt = (
+            f["status"]
+            if f["required"]
+            else "not required"
         )
 
-    lines += ["", "## Open issues", ""]
-    lines += [f"- {x}" for x in issues] or ["- None."]
+        lines.append(
+            f"| {a['title']} | "
+            f"{a['role']} | "
+            f"{btxt} | {ftxt} |"
+        )
+
+    lines += [
+        "",
+        "## Open issues",
+        "",
+    ]
+
+    lines += (
+        [f"- {x}" for x in issues]
+        or ["- None."]
+    )
+
     lines += [
         "",
         "## Rule",
@@ -294,16 +631,28 @@ def render_md(
         ),
         "",
     ]
+
     return "\n".join(lines)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Initialize/check MP1-V002 citation coverage."
+        description=(
+            "Initialize/check MP1-V002 citation coverage."
+        )
     )
-    parser.add_argument("--init", action="store_true")
-    parser.add_argument("--check", action="store_true")
-    parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "--init",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     if args.init == args.check:
@@ -311,44 +660,107 @@ def main() -> None:
             "Choose exactly one of --init or --check."
         )
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
     if args.init:
-        if COVERAGE_PATH.exists() and not args.force:
+        if (
+            COVERAGE_PATH.exists()
+            and not args.force
+        ):
             raise RuntimeError(
-                f"Coverage file already exists: {COVERAGE_PATH}. "
+                f"Coverage file already exists: "
+                f"{COVERAGE_PATH}. "
                 "Use --force only intentionally."
             )
-        payload = init_payload()
+
+        previous = (
+            load_json(COVERAGE_PATH)
+            if COVERAGE_PATH.exists()
+            else None
+        )
+
+        payload = init_payload(
+            previous=previous,
+        )
+
+        _, issues = validate_and_update(
+            payload
+        )
+
         COVERAGE_PATH.write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            json.dumps(
+                payload,
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
             encoding="utf-8",
         )
-        _, issues = validate_and_update(payload)
+
         STATUS_MD.write_text(
-            render_md(payload, issues),
+            render_md(
+                payload,
+                issues,
+            ),
             encoding="utf-8",
+        )
+
+        backward_count, forward_count = (
+            required_direction_counts(payload)
+        )
+
+        print(
+            f"[INITIALIZED] "
+            f"{COVERAGE_PATH.relative_to(ROOT)}"
         )
         print(
-            f"[INITIALIZED] {COVERAGE_PATH.relative_to(ROOT)}"
+            "[REQUIRED DIRECTIONS] "
+            f"backward={backward_count} "
+            f"forward={forward_count} "
+            f"total={backward_count + forward_count}"
         )
-        print(f"[STATUS] {STATUS_MD.relative_to(ROOT)}")
+        print(
+            "[PRESERVED PREVIOUS COVERAGE] "
+            + ("yes" if previous else "no")
+        )
+        print(
+            f"[STATUS] "
+            f"{STATUS_MD.relative_to(ROOT)}"
+        )
         return
 
     if not COVERAGE_PATH.exists():
         raise RuntimeError(
-            "citation_coverage.json not found. Run --init first."
+            "citation_coverage.json not found. "
+            "Run --init first."
         )
 
-    payload = load_json(COVERAGE_PATH)
-    satisfied, issues = validate_and_update(payload)
+    payload = load_json(
+        COVERAGE_PATH
+    )
+
+    satisfied, issues = validate_and_update(
+        payload
+    )
 
     COVERAGE_PATH.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
         encoding="utf-8",
     )
+
     STATUS_MD.write_text(
-        render_md(payload, issues),
+        render_md(
+            payload,
+            issues,
+        ),
         encoding="utf-8",
     )
 
@@ -356,10 +768,17 @@ def main() -> None:
         f"[STOP CONDITION] "
         f"{'SATISFIED' if satisfied else 'OPEN'}"
     )
-    print(f"[OPEN ISSUES] {len(issues)}")
+    print(
+        f"[OPEN ISSUES] {len(issues)}"
+    )
+
     for issue in issues:
         print(f"- {issue}")
-    print(f"[SAVED] {STATUS_MD.relative_to(ROOT)}")
+
+    print(
+        f"[SAVED] "
+        f"{STATUS_MD.relative_to(ROOT)}"
+    )
 
 
 if __name__ == "__main__":
