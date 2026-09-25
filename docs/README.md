@@ -20,7 +20,10 @@ For the current thesis execution phase, continue with the Vietnamese M1 architec
 
 ### `project/` — state, handoff, and roadmap
 
-- `PROJECT_HANDOFF_CURRENT.md`: current project entry point.\n- `MENTOR_PIVOT_STATUS.md`: active alternative mentor-proposed direction under novelty falsification; does not replace the current thesis yet.
+- `NEXT_SESSION_START_HERE.md`: immediate entry checkpoint for the next session.
+- `PROJECT_HANDOFF_CURRENT.md`: current project entry point.
+- `MP1_MENTOR_PIVOT_CURRENT.md`: final disposition of mentor-proposed MP1 alternative (viable alternative, not selected).
+- `MENTOR_PIVOT_STATUS.md`: historical pre-V001 note.
 - `RESEARCH_STATE.md` and `research_state.json`: human- and machine-readable state.
 - `RESEARCH_LOG.md`: research decision timeline.
 - `POST_D1_V009_RESEARCH_ROADMAP.md`: post-verification roadmap in English.

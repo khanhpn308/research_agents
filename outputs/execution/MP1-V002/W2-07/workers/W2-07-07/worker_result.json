@@ -1,0 +1,111 @@
+{
+  "worker_id": "W2-07-07",
+  "task": "Paper/evidence contradiction detection",
+  "status": "COMPLETE",
+  "count": 4,
+  "contradictions": [
+    {
+      "contradiction_id": "CONTRA-EV-01",
+      "contradiction_type": "EVIDENCE_DATA_FACTUAL_ERROR",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md (commit af9e7a5)",
+      "source_B": "papers/verification/MP1-V002/A1-2015.pdf Table 4 (Carboni 2015) và W04 Remediation (commit 3a216d6)",
+      "historical_context": "Packet W08 khẳng định cấu hình S2a trong bài báo của Carboni 2015 là bằng chứng thực nghiệm về chuyển pha siêu đàn hồi NiTi dưới uốn thuần.",
+      "difference": "S2a thực chất là cáp thép ST49 thuần trượt ma sát; S1a mới là cáp NiTi7 nhưng chịu tải kéo-uốn kết hợp.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "severity": "CRITICAL",
+      "current_interpretation": "Đính chính 100% dữ liệu thực tế: S2a là cáp thép ST49; hiện tượng trễ thắt trên S1a gắn liền với lực kéo hình học lớn; văn hiến vẫn thiếu dữ liệu thực nghiệm về uốn thuần NiTi.",
+      "resolution_status": "CURRENT_RESOLVED",
+      "adjudicator_owner": "W2-07-12 / final synthesis auditor",
+      "residual_uncertainty": "Thiếu dữ liệu thực nghiệm về uốn thuần bó dây NiTi không có lực kéo.",
+      "blocks_adjudication": false,
+      "human_review_required": true,
+      "provenance": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md#G05, outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W04_T1_REAUDIT_CARBONI_CORRECTION.md"
+    },
+    {
+      "contradiction_id": "CONTRA-EV-02",
+      "contradiction_type": "EVIDENCE_MECHANICS_CONCEPT_OVERCLAIM",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md (commit af9e7a5)",
+      "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (commit 8ccfa3c) và W05 Remediation (commit 3a216d6)",
+      "historical_context": "Packet W07 phân loại áp suất P3 là một nhánh cơ học mới có khả năng tạo ra tính mới khoa học độc lập.",
+      "difference": "Áp suất chủ động là nguyên lý cơ học mới vs áp suất chủ động là điều kiện biên biến thiên theo thời gian.",
+      "claims_affected": [
+        "C6"
+      ],
+      "targets_affected": [
+        "T2"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "severity": "CRITICAL",
+      "current_interpretation": "Hạ cấp P3: Phương trình vi phân tiếp xúc hiện hữu tự nhiên tiếp nhận p(t); P3 là giao thức điều khiển thực nghiệm (boundary condition).",
+      "resolution_status": "CURRENT_RESOLVED",
+      "adjudicator_owner": "W2-07-12 / final synthesis auditor",
+      "residual_uncertainty": "Trễ truyền áp động học chất lưu qua màng đàn hồi khi tần số cao.",
+      "blocks_adjudication": false,
+      "human_review_required": false,
+      "provenance": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md#G02, outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W05_T2_MECHANICS_P1_P2_P3_TEST.md"
+    },
+    {
+      "contradiction_id": "CONTRA-EV-03",
+      "contradiction_type": "EVIDENCE_KINEMATIC_THEORY_OVEREXTENSION",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W09_REEDLUNN_2013_DEEP_AUDIT.md (commit af9e7a5)",
+      "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (commit 8ccfa3c) và W10 Remediation (commit 3a216d6)",
+      "historical_context": "Packet W09 dùng sự sai lệch của mô hình Costello ở lớp ngoài cáp 1x27 trong Reedlunn 2013 để lập luận rằng lý thuyết tiếp xúc-chuyển pha hiện hữu đã sụp đổ.",
+      "difference": "Sai số do giả thiết động học thanh xoắn Costello bỏ qua uốn/xoắn cục bộ vs thiếu hụt luật cơ học cấu thành tiếp xúc.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H1"
+      ],
+      "severity": "HIGH",
+      "current_interpretation": "Áp dụng nguyên tắc trích dẫn bảo thủ: Sai số trong Reedlunn thuần túy là giới hạn động học của cáp xoắn góc dốc; không liên quan đến bó dây song song thẳng.",
+      "resolution_status": "CURRENT_RESOLVED",
+      "adjudicator_owner": "W2-07-12 / final synthesis auditor",
+      "residual_uncertainty": "Không còn rủi ro suy diễn sai lệch.",
+      "blocks_adjudication": false,
+      "human_review_required": false,
+      "provenance": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md#G07, outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W10_REEDLUNN_FANG_CONSERVATIVE_REMEDIATION.md"
+    },
+    {
+      "contradiction_id": "CONTRA-EV-04",
+      "contradiction_type": "EVIDENCE_PARAMETER_CONFOUNDING_IN_MODEL_FIT",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W10_FANG_2019_PARAMETER_SUBSTITUTION.md (commit af9e7a5)",
+      "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (commit 8ccfa3c) và W09 Remediation (commit 3a216d6)",
+      "historical_context": "Mô hình uốn bó dây có nguy cơ thả nổi đồng thời hệ số ma sát mu và tỷ lệ truyền áp alpha_trans, dẫn đến việc nhiều bộ tham số khác nhau cùng cho ra một đường cong uốn giống hệt nhau.",
+      "difference": "Khớp số liệu tự do bằng bù trừ tham số vs nhận diện nhân quả đơn nhất của mô hình vật lý.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "severity": "HIGH",
+      "current_interpretation": "Ban hành Quy tắc Khóa tham số tuyệt đối (Locked Calibration Rule): Bắt buộc đo độc lập mu và tỷ lệ truyền áp trước khi mô phỏng uốn; cấm thả nổi tham số để ép khớp.",
+      "resolution_status": "PARTIALLY_RESOLVED",
+      "adjudicator_owner": "W2-07-12 / final synthesis auditor",
+      "residual_uncertainty": "Cần kiểm chứng bằng thực nghiệm đo đạc độc lập để khẳng định tính khả thi của Locked Calibration.",
+      "blocks_adjudication": false,
+      "human_review_required": true,
+      "provenance": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md#G08, outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W09_MODEL_VALIDATION_CREDIBILITY.md"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "hypothesis_id": "H0a",
+  "exact_formulation": "The bending response of a vacuum/pressure-confined NiTi wire bundle can be predicted by substituting an equivalent constant elastic modulus E_eff into an existing elastic fiber/wire jamming model.",
+  "hypothesis_type": "naive_parameter_substitution_null",
+  "null_or_alternative_role": "Primary null hypothesis (elementary model)",
+  "historical_origin": "Formulated explicitly by Astra critique G01 and Stage 3 remediation W07 to evaluate parameter substitution.",
+  "repository_commit": "3a216d680b6e5d4c263121afee0577ac86e530ac",
+  "evidence_supporting": "Valid only in Regime II (small-strain elastic austenite deformation below transformation threshold eps_Ms ~ 0.75%, where NiTi behaves purely as linear elastic wire with E = E_A).",
+  "evidence_challenging": "Fails completely in the presence of martensitic transformation: transformation plateau, pinched hysteresis, tension-compression asymmetry, and large stiffness divergence between loading (E_A ~ 60 GPa) and unloading/phase mixture (E_M ~ 25 GPa).",
+  "what_would_falsify_it": "Demonstrating that cyclic bending drives wire strains beyond eps_Ms, causing severe pinched hysteresis and stiffness drops that no single constant E_eff can match.",
+  "what_would_support_it": "Restricting bundle deformation strictly to small curvatures where strains remain below eps_Ms.",
+  "status_at_each_stage": {
+    "S02": "IMPLICIT",
+    "S06": "REJECTED_AS_ELASTIC_MODEL",
+    "S10": "FORMALIZED_AS_H0a",
+    "S12": "REFUTED_WHEN_TRANSFORMATION_ACTIVE",
+    "S16": "REFUTED"
+  },
+  "current_canonical_status": "REFUTED",
+  "logical_relation_to_other_hypotheses": "Rejection of H0a is necessary but NOT sufficient to prove H1; H0b sits between H0a and H1.",
+  "remaining_uncertainty": "None regarding its insufficiency under phase transformation; well-bounded that H0a fails whenever strains exceed 0.75%.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "provenance": {
+    "source_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W07_PARAMETER_SUBSTITUTION_H0_H1.md",
+    "commit": "3a216d680b6e5d4c263121afee0577ac86e530ac"
+  }
+}

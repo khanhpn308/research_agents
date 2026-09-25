@@ -1,0 +1,80 @@
+{
+  "worker_id": "W2-02-02",
+  "claim_id": "C1",
+  "claim_label": "Wire/Fiber Jamming for Variable Stiffness",
+  "claim_text_original": "Wire/fiber jamming for variable stiffness is novel.",
+  "claim_text_normalized": "Variable bending stiffness achieved via frictional jamming of metallic or synthetic wire/fiber bundles.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "CLOSED",
+    "S12": "CLOSED_CONFIRMED",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "CLOSED",
+  "claim_verdict": "CLOSED",
+  "decision": "REJECT",
+  "scientific_category": "structural_mechanics",
+  "novelty_category": "device_level_principle",
+  "why_potentially_novel": "At mentor proposal, using parallel wire bundles instead of granular media or planar sheets was hypothesized to offer higher bending stiffness contrast and directional compliance.",
+  "search_conducted": "MP1-V001 core prior-art search across IEEE, MDPI, and Copernicus publications.",
+  "search_source_file": "outputs/verification/MP1-V001/verification_matrix.json",
+  "search_commit": "3d152e951711a15d9f86946df99f22785a8be9a4",
+  "papers_retrieved": ["240fbf6022", "3aa8790db0"],
+  "strongest_prior_art_threat": {
+    "paper_id": "240fbf6022",
+    "paper_title": "Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming",
+    "authors": "Bai et al.",
+    "year": 2022,
+    "DOI": "10.3390/app12073582",
+    "repository_path": "data/papers/verification/MP1-V001/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+    "what_source_actually_proves": "Demonstrates that vacuum-activated frictional jamming of kraft ropes, hemp ropes, and nylon wires inside a flexible sleeve achieves an ~7x increase in bending stiffness (from 0.13 to 0.89 N/mm).",
+    "what_source_does_not_prove": "Does not use shape memory alloys (NiTi) and does not examine phase-transformation-mediated contact mechanics."
+  },
+  "source_records": [
+    {
+      "paper_id": "240fbf6022",
+      "paper_title": "Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming",
+      "authors": "Bai et al.",
+      "year": 2022,
+      "DOI": "10.3390/app12073582",
+      "repository_path": "data/papers/verification/MP1-V001/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+      "what_source_actually_proves": "Frictional wire jamming yields tunable bending stiffness under negative pressure.",
+      "what_source_does_not_prove": "Does not evaluate superelastic alloys."
+    },
+    {
+      "paper_id": "3aa8790db0",
+      "paper_title": "A variable stiffness omnidirectional chain based on positive-pressure fiber jamming",
+      "authors": "Zhang & Yao",
+      "year": 2026,
+      "DOI": "10.5194/ms-17-481-2026",
+      "repository_path": "data/papers/verification/MP1-V001/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+      "what_source_actually_proves": "Models and experimentally confirms 3-regime friction mechanics (jammed, transition, slipping) in a 700-fiber nylon bundle under positive confinement pressure up to 300 kPa.",
+      "what_source_does_not_prove": "Does not examine metallic superelasticity or phase transformation."
+    }
+  ],
+  "claim_before": "Wire/fiber jamming for variable stiffness is novel.",
+  "claim_after": "Wire/fiber jamming is established prior art; device-level novelty rejected.",
+  "reason_for_change": "Direct prior art in Bai et al. (2022) and Zhang & Yao (2026) fully demonstrates the working principle and mechanics of wire/fiber jamming.",
+  "scientific_consequence": "Forced abandonment of generic wire-jamming claims; project cannot claim novelty merely by using a bundle of wires.",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "PREEMPTED_AT_EXISTENCE_LEVEL",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "Confirms mechanical viability of wire jamming, but eliminates patentable or novel device claims.",
+  "pivot_relevance": "Direct trigger for PIVOT_TO_MECHANICS_CORE in MP1-V001.",
+  "historical_interpretation": "At V001 (S04), classified as directly closed. At Stage 3 (S12), confirmed as robust closure with residual caveat that material changes do not restore novelty.",
+  "superseded_interpretation": "Initial belief at proposal that wire jamming was an unexploited mechanism.",
+  "corrected_interpretation": "Wire jamming is established prior art; material substitution to NiTi only matters if new mechanics arise.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": [],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W02_C1_C4_ROBUST_CLOSURES.md"
+  }
+}

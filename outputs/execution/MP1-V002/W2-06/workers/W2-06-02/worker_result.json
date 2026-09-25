@@ -1,0 +1,178 @@
+{
+  "worker_id": "W2-06-02",
+  "task": "Stage 1 packets W01–W04 reconstruction",
+  "status": "COMPLETE",
+  "packet_count": 4,
+  "packets": [
+    {
+      "packet_id": "W01",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W01_ORIGINAL_ARCHITECTURE_AND_V001_DECISION.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Tái dựng kiến trúc thiết bị ban đầu từ đề xuất của mentor, phân tích nguyên nhân sụp đổ tính mới ở cấp độ linh kiện trong MP1-V001, và xác định tiền đề chuyển dịch sang mechanics core.",
+      "claims_affected": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "targets_affected": [
+        "T1",
+        "T2"
+      ],
+      "hypotheses_affected": [
+        "H0a"
+      ],
+      "papers_used": [
+        "240fbf6022",
+        "182d854610",
+        "3aa8790db0",
+        "2cd907e77a",
+        "bbe88a0c04",
+        "c6a31066f8",
+        "de64029540",
+        "55457a97c6"
+      ],
+      "method_or_model": "Phân tích cấu trúc hệ thống (subsystem functional decomposition) chia tách cơ cấu jamming, vật liệu thông minh, nguồn áp suất tích hợp và cơ cấu bơm vi mô.",
+      "experiment_discussed": "Đối soát các hệ thống robot mềm và cơ cấu thay đổi độ cứng thực nghiệm trong y sinh và robot đeo (exoskeletons).",
+      "verified_conclusions": "Sự kết hợp linh kiện cấp thiết bị (wire jamming + SMA + micropump tích hợp) hoàn toàn không có tính mới khoa học; bị tiền nhiệm bởi hàng loạt nghiên cứu từ 2013-2024.",
+      "inferred_conclusions": "Hướng nghiên cứu duy nhất có thể bảo vệ được là đi sâu vào cơ học bản chất (friction, phase transformation, variable normal pressure) thay vì phối hợp linh kiện.",
+      "unresolved_issues": "Chưa làm rõ ranh giới giữa việc sụp đổ tính mới linh kiện và việc phát biểu một bài toán cơ học tiếp xúc mới thực sự.",
+      "later_critique_ids": [
+        "G01",
+        "G02"
+      ],
+      "later_remediation_ids": [
+        "W02",
+        "W03"
+      ],
+      "superseded_interpretation": "Từng kỳ vọng việc tích hợp bơm vi mô SMA với cơ cấu jamming dây tạo nên một hệ thống robot mềm mới toàn diện.",
+      "corrected_interpretation": "Toàn bộ cấu trúc thiết bị C1-C4 và C8 đã bị đóng; chỉ chuyển dịch sang nghiên cứu lõi cơ học (C5-C7, T1-T3) với tư cách một giả thuyết cơ học.",
+      "evidence_status": "established",
+      "confidence": "high",
+      "provenance": "W01_ORIGINAL_ARCHITECTURE_AND_V001_DECISION.md#L1-L286"
+    },
+    {
+      "packet_id": "W02",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W02_C1_C2_EVIDENCE.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra toàn diện tính mới của cơ chế wire jamming (C1) và positive-pressure jamming (C2) trong robot mềm.",
+      "claims_affected": [
+        "C1",
+        "C2"
+      ],
+      "targets_affected": [],
+      "hypotheses_affected": [
+        "H0a"
+      ],
+      "papers_used": [
+        "240fbf6022",
+        "182d854610",
+        "3aa8790db0"
+      ],
+      "method_or_model": "Mô hình dầm Euler-Bernoulli có trượt ma sát Coulomb giữa các sợi; mô hình nén dương màng đàn hồi.",
+      "experiment_discussed": "Thử nghiệm uốn 3 điểm trên dầm dây thép và dầm sợi nylon chịu áp suất dương từ 0 đến 250 kPa; đo lực uốn vĩ mô.",
+      "verified_conclusions": "C1 và C2 hoàn toàn bị đóng (closed by full text). Bai et al. 2022 chứng minh thay đổi độ cứng 15 lần với bó dây thép; Liu et al. 2021 dùng áp suất dương trong đồ gá đeo; Zhang & Yao 2026 lập mô hình sợi nylon chi tiết.",
+      "inferred_conclusions": "Mô hình sợi đàn hồi của Zhang & Yao 2026 có thể được mở rộng sang sợi siêu đàn hồi NiTi hay không là một câu hỏi mở.",
+      "unresolved_issues": "Khả năng mô hình đàn hồi hiện có mở rộng sang vật liệu có biến dạng phi tuyến và biến đổi pha.",
+      "later_critique_ids": [
+        "G01",
+        "G02"
+      ],
+      "later_remediation_ids": [
+        "W02"
+      ],
+      "superseded_interpretation": "Cho rằng wire jamming dưới áp suất dương là một nguyên lý hoạt động mới mẻ chưa được mô hình hóa.",
+      "corrected_interpretation": "C1 và C2 đóng 100%; không được phép đưa vào novelty claim của luận văn.",
+      "evidence_status": "established",
+      "confidence": "high",
+      "provenance": "W02_C1_C2_EVIDENCE.md#L1-L261"
+    },
+    {
+      "packet_id": "W03",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W03_C3_SMA_JAMMING_LINEAGE.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Kiểm chứng chuyên sâu dòng nghiên cứu tích hợp SMA và Jamming (C3) của nhóm Takashima (2022-2024) và Matsumoto (2024).",
+      "claims_affected": [
+        "C3"
+      ],
+      "targets_affected": [
+        "T1"
+      ],
+      "hypotheses_affected": [
+        "H0a"
+      ],
+      "papers_used": [
+        "2cd907e77a",
+        "7ce492505d",
+        "99fe24da8b",
+        "d3b3b6963f"
+      ],
+      "method_or_model": "Kích hoạt nhiệt dây SMA trong môi trường hạt jamming hoặc tấm jamming để điều khiển độ cứng và biến dạng hình học.",
+      "experiment_discussed": "Tay gắp mềm biến đổi độ cứng kết hợp dây nhiệt SMA và hạt jamming chân không; cơ cấu ngón tay uốn chủ động.",
+      "verified_conclusions": "C3 bị đón đầu thực chất (substantially preempted). Dây SMA được dùng rộng rãi để làm khung trợ lực hoặc kích hoạt biến dạng cho cơ cấu jamming.",
+      "inferred_conclusions": "Các công trình của Takashima dùng dây SMA làm actuator nhiệt hoặc cốt nâng đỡ trong hạt, không phải bó dây NiTi tự trượt ma sát với nhau.",
+      "unresolved_issues": "Phân biệt rõ ràng giữa cơ cấu SMA phát nhiệt uốn chủ động và cơ cấu bó dây NiTi siêu đàn hồi tự kẹt ma sát thụ động.",
+      "later_critique_ids": [
+        "G01",
+        "G03"
+      ],
+      "later_remediation_ids": [
+        "W02",
+        "W03"
+      ],
+      "superseded_interpretation": "Cho rằng việc đặt dây SMA vào trong cấu trúc jamming tự nó tạo nên tính mới kiến trúc.",
+      "corrected_interpretation": "C3 bị đón đầu ở cấp hệ thống; chỉ có bài toán ma sát trượt nội tại giữa các dây NiTi siêu đàn hồi là có thể còn khác biệt về cơ học.",
+      "evidence_status": "established",
+      "confidence": "high",
+      "provenance": "W03_C3_SMA_JAMMING_LINEAGE.md#L1-L235"
+    },
+    {
+      "packet_id": "W04",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W04_C4_C8_PRESSURE_SOURCE_EVIDENCE.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra nguồn áp suất tích hợp trên thân (C4) và cơ cấu piston/bơm vi mô SMA (C8).",
+      "claims_affected": [
+        "C4",
+        "C8"
+      ],
+      "targets_affected": [
+        "T2"
+      ],
+      "hypotheses_affected": [
+        "H0a"
+      ],
+      "papers_used": [
+        "bbe88a0c04",
+        "c6a31066f8",
+        "de64029540",
+        "55457a97c6"
+      ],
+      "method_or_model": "Bơm vi mô chất lỏng điện liên hợp (ECF), bơm giãn nở nhiệt chất lỏng-khí, và bơm màng/piston dẫn động bằng dây SMA.",
+      "experiment_discussed": "Đo áp suất đầu ra và lưu lượng của bơm vi mô tích hợp trong cơ cấu chấp hành mềm và thiết bị phân phối thuốc vi mô.",
+      "verified_conclusions": "C4 và C8 hoàn toàn bị đóng / đón đầu thực chất. Bơm vi mô ECF (Huynh 2022), bơm nhiệt vi lưu (Wang 2024), và bơm màng SMA (Pierce 2013, Kotb 2021) đã được phát triển sâu sắc.",
+      "inferred_conclusions": "C8 chỉ là sự thay thế cơ cấu chấp hành (actuator substitution), mang rủi ro bị bác bỏ rất cao nếu coi là đóng góp khoa học chính.",
+      "unresolved_issues": "Khả năng đáp ứng tần số và tổn hao nhiệt khi tích hợp bơm thu nhỏ vào thân robot mềm.",
+      "later_critique_ids": [
+        "G02",
+        "G09"
+      ],
+      "later_remediation_ids": [
+        "W02",
+        "W03"
+      ],
+      "superseded_interpretation": "Xem nguồn bơm tích hợp SMA là một trụ cột novel của đề tài luận văn.",
+      "corrected_interpretation": "Loại bỏ hoàn toàn C4 và C8 khỏi trọng tâm nghiên cứu; áp suất chỉ được xem như điều kiện biên điều khiển $p(t)$.",
+      "evidence_status": "established",
+      "confidence": "high",
+      "provenance": "W04_C4_C8_PRESSURE_SOURCE_EVIDENCE.md#L1-L299"
+    }
+  ]
+}

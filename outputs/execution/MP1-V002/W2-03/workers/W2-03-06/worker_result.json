@@ -1,0 +1,28 @@
+{
+  "hypothesis_id": "H0b",
+  "exact_formulation": "The bending response, stiffness variation, and energy dissipation of a pressure-confined NiTi wire bundle can be predicted by combining existing transformation-aware NiTi constitutive models (e.g., Auricchio-Petrini or Graesser) with standard frictional contact mechanics (Coulomb stick-slip), treating confining pressure p(t) as an external boundary condition, using independently calibrated material and friction parameters.",
+  "hypothesis_type": "established_physics_null",
+  "null_or_alternative_role": "Secondary / Competitor null hypothesis (established continuum mechanics)",
+  "historical_origin": "Formulated by Astra critique G01 and Stage 3 remediation W07 to prevent premature claims of novelty.",
+  "repository_commit": "3a216d680b6e5d4c263121afee0577ac86e530ac",
+  "evidence_supporting": "Vahidi et al. (2022) successfully combined Auricchio UMAT with Coulomb contact in Abaqus to predict NiTi cable hysteresis. Barsi et al. (2025) and Tjahjanto et al. (2017) demonstrated friction beam formulation under radial pressure. Standard contact mechanics readily admits time-varying normal tractions p(t).",
+  "evidence_challenging": "No repository study has yet performed a full forward prediction under actively varying dynamic pressure p(t) on NiTi bundles.",
+  "what_would_falsify_it": "A statistically significant and systematic discrepancy between H0b forward predictions (with locked, independently measured parameters) and experimental moment-curvature data under diverse pressure paths p(t) that exceeds experimental and geometric uncertainty.",
+  "what_would_support_it": "Demonstrating that an Abaqus Auricchio+Coulomb FEA model or an OpenSees fiber model with locked single-wire parameters predicts the measured moment-curvature curves within experimental error bands.",
+  "status_at_each_stage": {
+    "S02": "UNFORMULATED",
+    "S06": "OVERLOOKED_IN_AUDIT",
+    "S10": "INTRODUCED_BY_ASTRA",
+    "S12": "ESTABLISHED_AS_COMPETITOR_NULL",
+    "S16": "NOT_FALSIFIED"
+  },
+  "current_canonical_status": "NOT_FALSIFIED",
+  "logical_relation_to_other_hypotheses": "Direct alternative to H1. Unless H0b is falsified under locked calibration, H1 cannot be claimed.",
+  "remaining_uncertainty": "Untested on actively pressure-confined soft robotic bundles; remains a live, scientifically plausible hypothesis.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "provenance": {
+    "source_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W07_PARAMETER_SUBSTITUTION_H0_H1.md",
+    "commit": "3a216d680b6e5d4c263121afee0577ac86e530ac"
+  }
+}

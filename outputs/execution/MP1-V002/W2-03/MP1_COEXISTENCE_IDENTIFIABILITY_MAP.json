@@ -1,0 +1,95 @@
+{
+  "coexistence_domain_reconstruction": {
+    "overall_status": "COEXISTENCE_CONDITIONALLY_ACCESSIBLE",
+    "regimes": [
+      {
+        "regime_id": "Regime_I",
+        "name": "Full Stick / Elastic Beam",
+        "status_enum": "NEITHER",
+        "kinematic_condition": "kappa < kappa_slip(p) and eps_max < eps_Ms",
+        "mechanics_description": "Normal confinement pressure prevents relative slip; strain is too low to trigger martensitic transformation. System behaves as a monolithic linear elastic beam."
+      },
+      {
+        "regime_id": "Regime_II",
+        "name": "Pure Wire Jamming (Small/Moderate Strains)",
+        "status_enum": "SLIP_ONLY",
+        "kinematic_condition": "kappa_slip(p) <= kappa < kappa_tr and eps_max < eps_Ms (~0.75%)",
+        "mechanics_description": "Frictional slip occurs between adjacent wires, modulating bending stiffness. However, NiTi remains 100% in linear elastic austenite phase (E = E_A = const). Zero phase transformation occurs. H0a fully predicts this regime! Scientific novelty collapses to conventional elastic wire jamming."
+      },
+      {
+        "regime_id": "Regime_III",
+        "name": "Coupled Transformation and Frictional Slip",
+        "status_enum": "COEXISTENCE",
+        "kinematic_condition": "kappa >= kappa_tr and kappa > kappa_slip(p)",
+        "mechanics_description": "Both inter-wire slip and stress-induced martensitic transformation are simultaneously active. Requires deep bending curvature (bend radius < few cm) or substantial axial tensile preload."
+      }
+    ],
+    "threshold_equations": {
+      "slip_onset": "kappa_slip(p) = C_geom * (mu * p) / (E_A * d)",
+      "transformation_strain_threshold": "eps_Ms = sigma_Ms / E_A ~ 450 MPa / 60 GPa ~ 0.75% - 1.0%",
+      "transformation_onset_stick": "kappa_tr_stick = eps_Ms / R_b",
+      "transformation_onset_slip": "kappa_tr_slip = 2 * eps_Ms / d"
+    },
+    "critical_finding": "In typical soft robotic bending (bending angles < 90 deg, curvature strains < 0.75%), operation falls entirely in Regime II (SLIP_ONLY). Coexistence requires specialized deep-flexure kinematics or axial tension.",
+    "remaining_uncertainty": "Exact boundary kappa_tr(p) depends on inter-wire normal force distribution and packing geometry."
+  },
+  "experimental_identifiability_reconstruction": {
+    "overall_status": "PARTIALLY_IDENTIFIABLE",
+    "stiffness_definitions": {
+      "tangent_stiffness": "D_tan = dM/dkappa at constant pressure. Captures local stick-slip and transformation softening transitions; highly sensitive to loading branch.",
+      "secant_stiffness": "D_sec = (M - M0) / (kappa - kappa0). Global structural flexural metric; smooths out local slip/transformation jumps.",
+      "dynamic_stiffness": "D_dyn = (Delta M / Delta kappa) * cos(delta). Small-amplitude cyclic storage stiffness around prestrained state; reflects micro-stick bounds."
+    },
+    "chamber_pressure_mapping": {
+      "issue": "Chamber pressure p does not map directly to inter-wire normal force f_n.",
+      "shielding_mechanisms": [
+        "Membrane sleeve hoop tension: sigma_r = p - (t_mem / R_mem) * sigma_theta",
+        "Geometric arching and packing voids: outer wires shield inner core wires",
+        "End-cap axial tension effect from pressurized chamber"
+      ]
+    },
+    "mechanism_confounding_matrix": [
+      {
+        "mechanism": "Inter-wire frictional slip",
+        "observable": "Softening slope on loading; energy dissipation in hysteresis loop",
+        "local_measurement": "DIC surface slip tracking, end-wire axial displacement differential",
+        "global_measurement": "Moment-curvature M-kappa hysteresis",
+        "confounders": "Martensitic transformation softening, sleeve viscoelasticity, grip compliance",
+        "independent_calibration": "Direct flat-contact friction coupon test (mu)",
+        "discrimination_rule": "Friction dissipation scales linearly with normal pressure and displacement; independent of temperature above Af.",
+        "identifiability_status": "PARTIALLY_IDENTIFIABLE"
+      },
+      {
+        "mechanism": "Stress-induced martensitic transformation",
+        "observable": "Plateau flattening, pinched hysteresis neck, asymmetric tension-compression",
+        "local_measurement": "Infrared thermal imaging (latent heat of transformation), electrical resistance",
+        "global_measurement": "Moment-curvature pinched loop",
+        "confounders": "Inter-wire slip softening, cross-sectional ovalization / flattening",
+        "independent_calibration": "Single wire uniaxial tensile testing at controlled temperature (EA, EM, sigma_Ms)",
+        "discrimination_rule": "Transformation stress shifts linearly with temperature via Clausius-Clapeyron (6-8 MPa/K); friction does not.",
+        "identifiability_status": "IDENTIFIABLE_WITH_THERMAL_PROBE"
+      },
+      {
+        "mechanism": "Contact-force redistribution & geometric arching",
+        "observable": "Nonlinear stiffening at high confinement pressure",
+        "local_measurement": "Thin-film piezoresistive pressure sensor array inside bundle",
+        "global_measurement": "Stiffness vs pressure curve",
+        "confounders": "Friction coefficient variation, membrane stiffening",
+        "independent_calibration": "Hydrostatic radial compression test without bending",
+        "discrimination_rule": "Pressure transmission factor alpha_trans calibrated under zero bending.",
+        "identifiability_status": "PARTIALLY_IDENTIFIABLE"
+      },
+      {
+        "mechanism": "Temperature & cycle history",
+        "observable": "Drift in transformation plateau and residual strain accumulation",
+        "local_measurement": "Thermocouples embedded in bundle, cycle counter",
+        "global_measurement": "Hysteresis loop narrowing over cycles",
+        "confounders": "Frictional fretting wear, thermal self-heating from dissipation",
+        "independent_calibration": "Isothermal cycling of single wires",
+        "discrimination_rule": "Low-frequency loading (< 0.05 Hz) ensures near-isothermal conditions.",
+        "identifiability_status": "IDENTIFIABLE"
+      }
+    ],
+    "verdict_on_global_measurement": "NON_IDENTIFIABLE from global force-displacement or moment-curvature measurements alone. Local instrumentation and decoupled calibrations are mandatory."
+  }
+}

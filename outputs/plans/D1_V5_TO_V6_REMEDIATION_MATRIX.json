@@ -1,0 +1,33 @@
+{
+  "matrix_id": "D1_V5_TO_V6_REMEDIATION_MATRIX",
+  "source_plan": "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V5.md",
+  "source_reaudit": "D1_MASTER_PLAN_REAUDIT_V5",
+  "target_plan": "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md",
+  "records": [
+    {
+      "audit_revision_id": "A5-HI-01",
+      "severity": "HIGH",
+      "audit_problem": "The V5 artifact ownership matrix disagreed with worker/stage contracts and omitted ownership rows for several worker outputs.",
+      "V1_location": "D1_WORKER_EXECUTION_READINESS_MATRIX_V5.json; D1_ARTIFACT_OWNERSHIP_MATRIX.json; V5 §V5-7",
+      "audit_required_change": "Define one canonical ownership precedence, derive a complete ownership graph from V6 contracts, use one primary writer per artifact, remove W12/S9 and W11/S16 conflicts, and add ownership QA.",
+      "V2_change": "V6 defines canonical worker/stage contracts first, derives a 40-artifact single-writer graph, removes conflicting W12 and W11 outputs, adds missing output rows, and validates every source against the canonical owner.",
+      "V2_location": "D1_ARTIFACT_OWNERSHIP_MATRIX_V6.json; D1_ARTIFACT_OWNERSHIP_QA_V6.json; D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json; V6 §V6-Ownership",
+      "resolved": true,
+      "residual_risk": "Future execution must retain the single-writer rule when new artifacts are introduced."
+    },
+    {
+      "audit_revision_id": "A5-HI-02",
+      "severity": "HIGH",
+      "audit_problem": "HG-11 routed worker-output failure generically to S16 and did not identify the originating worker or repair stage.",
+      "V1_location": "D1_HARD_GATE_MATRIX.json; D1_REVISION_ROUTING_MATRIX_V5.json; V5 §V5-9",
+      "audit_required_change": "Create per-worker failure routes with failure class, failed artifact, return worker/stage, reconciliation stage, owner, revision, re-entry gate, retry policy and human-review condition; cross-check routes against hard gates.",
+      "V2_change": "V6 adds a route matrix covering W01-W12 and all required failure classes, failure_routes and re-entry fields to every worker, and a worker-to-hard-gate QA matrix. S16 is retained only for genuine package-level failures.",
+      "V2_location": "D1_WORKER_FAILURE_ROUTING_MATRIX.json; D1_WORKER_ROUTING_HARD_GATE_QA.json; D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json; V6 §V6-Failure-Routing",
+      "resolved": true,
+      "residual_risk": "A future execution must use worker-specific routes for content failures and the package route only for package defects."
+    }
+  ],
+  "critical_count": 0,
+  "high_count": 2,
+  "unresolved_critical_high_count": 0
+}

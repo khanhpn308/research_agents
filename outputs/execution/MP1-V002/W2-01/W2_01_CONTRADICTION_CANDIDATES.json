@@ -1,0 +1,50 @@
+[
+  {
+    "contradiction_candidate_id": "CONTRA-01",
+    "source_A": "docs/project/MP1-V002_CURRENT_HANDOFF.md (commit bf0b79a)",
+    "source_B": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json (commit 8ccfa3c) and docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G11)",
+    "historical_context": "During Stage 1 and Stage 2 of MP1-V002, the operational handoff reported 10 full-text papers, while an interim audit snapshot on disk referenced 13 papers and the final matrix commit expanded to 16 papers.",
+    "difference": "Discrepancy in evidence matrix paper count (10 vs 13 vs 16 full-text papers).",
+    "resolution_or_handling": "Reconciled in Stage 3 by worker W01 and Chapter 3 of MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md. The canonical matrix was verified at 16 full-text papers at commit 8ccfa3c."
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-02",
+    "source_A": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json (lines 237–241, commit 8ccfa3c)",
+    "source_B": "docs/project/MP1-V002_CURRENT_HANDOFF.md (commit bf0b79a) and docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G11)",
+    "historical_context": "The automated audit runner recorded niti_requires_distinct_constitutive_contact_coupling = true with evidence_status = established, whereas project handoffs recorded evidence_status = insufficient and verdict = false.",
+    "difference": "Semantic conflict between claiming established need for distinct coupling vs insufficient evidence.",
+    "resolution_or_handling": "Reconciled in Stage 3 by worker W07 and Chapter 10 of Detailed Evidence Report. 'Established' applied strictly to the refutation of naive constant-modulus substitution (H0a); evidence comparing existing transformation-aware contact models (H0b) against a new coupling law (H1) remained insufficient."
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-03",
+    "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md (commit af9e7a5)",
+    "source_B": "Carboni et al. (2015) primary PDF (doi:10.1061/(ASCE)EM.1943-7889.0000852, Table 4, pp. 9–10) and docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G05)",
+    "historical_context": "Stage 1 extraction worker W08 asserted that Carboni 2015 configuration S2a proved NiTi phase transformation under pure cyclic bending.",
+    "difference": "Factually incorrect specimen material and loading identification: S2a was ST49 steel wire rope with Bouc-Wen friction, whereas S1a was NiTi7 under tension-bending.",
+    "resolution_or_handling": "Reconciled in Stage 3 by worker W04, Chapter 9 of Detailed Evidence Report, and Astra Remediation Matrix G05. S2a pure-bending NiTi claim was completely expunged from the valid evidence chain."
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-04",
+    "source_A": "docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md (Chapters 3 & 19, commit 3a216d6)",
+    "source_B": "outputs/verification/MP1-V002/citation_coverage.json and CITATION_COVERAGE_STATUS.md (commit 313cdf2)",
+    "historical_context": "Stage 3 evidence report was finalized before the final citation screening of branches B11 (Kang 2020) and B12 (Barsi 2025). The report recorded stop_condition_satisfied = false, whereas later Stage 4 closed all 15/15 directions.",
+    "difference": "Citation coverage status disagreement: stop_condition_satisfied = false in Stage 3 report vs stop_condition.satisfied = true in canonical JSON.",
+    "resolution_or_handling": "Historical sequence artifact. Stage 4 commits (14444e5, 313cdf2) completed B11/B12 screening, satisfying the stop condition. The canonical JSON has precedence over stale narrative text."
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-05",
+    "source_A": "docs/project/RESEARCH_LOG.md (Phases 14, 17) and docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md (commit 8494d02)",
+    "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G02) and outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W05_T2_MECHANICS_P1_P2_P3_TEST.md (commit 3a216d6)",
+    "historical_context": "Early MP1-V002 framing treated actively varied positive confinement pressure P3 as a potentially novel mechanics principle that distinguished MP1 from passive metallic cables.",
+    "difference": "Active pressure treated as novel mechanics principle vs experimental control boundary condition.",
+    "resolution_or_handling": "Reconciled in Stage 3: P3 demoted to experimental protocol/boundary condition. Incremental contact equations in existing literature naturally accept time-varying pressure p(t); novelty cannot be claimed based on pressure control alone."
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-06",
+    "source_A": "outputs/verification/MP1-V002/FINAL_ADJUDICATION.json (commit 73b6354)",
+    "source_B": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json (commit bccdb5e) and docs/project/research_state.json (commit 0ade68e)",
+    "historical_context": "MP1-V002 final adjudication concluded that MP1 survived its targeted citation chase and was ready for thesis consideration, proposing working titles in English and Vietnamese.",
+    "difference": "Candidate thesis direction ready for execution vs archived viable alternative not selected for current MSc.",
+    "resolution_or_handling": "Reconciled in Stage 6: Cross-direction adjudication selected D1_M1 under LOCK_WITH_FEASIBILITY_GATE due to lower execution and identifiability risks. MP1 remains scientifically valid within its protocol but is officially archived as a viable alternative."
+  }
+]

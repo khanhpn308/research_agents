@@ -1,0 +1,80 @@
+{
+  "worker_id": "W2-02-03",
+  "claim_id": "C2",
+  "claim_label": "Positive-Pressure Jamming for Variable Stiffness",
+  "claim_text_original": "Positive-pressure jamming for variable stiffness is novel.",
+  "claim_text_normalized": "Variable stiffness achieved by applying positive fluid confinement pressure to compress jamming media.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "CLOSED",
+    "S12": "CLOSED_CONFIRMED",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "CLOSED",
+  "claim_verdict": "CLOSED",
+  "decision": "REJECT",
+  "scientific_category": "fluid_structure_mechanics",
+  "novelty_category": "boundary_condition_concept",
+  "why_potentially_novel": "At mentor proposal, using positive confinement pressure was hypothesized to overcome the 101.3 kPa theoretical atmospheric limit of conventional vacuum jamming.",
+  "search_conducted": "MP1-V001 core prior-art search on positive pressure soft robotics jamming.",
+  "search_source_file": "outputs/verification/MP1-V001/verification_matrix.json",
+  "search_commit": "3d152e951711a15d9f86946df99f22785a8be9a4",
+  "papers_retrieved": ["182d854610", "3aa8790db0"],
+  "strongest_prior_art_threat": {
+    "paper_id": "182d854610",
+    "paper_title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+    "authors": "Liu et al.",
+    "year": 2021,
+    "DOI": "10.1109/LRA.2021.3097255",
+    "repository_path": "data/papers/verification/MP1-V001/2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+    "what_source_actually_proves": "Demonstrates positive-pressure jamming exceeding atmospheric limits (up to 200 kPa positive pressure), achieving a 5.7x stiffness increase.",
+    "what_source_does_not_prove": "Uses granular particles inside an inflatable chamber rather than a metallic wire bundle."
+  },
+  "source_records": [
+    {
+      "paper_id": "182d854610",
+      "paper_title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+      "authors": "Liu et al.",
+      "year": 2021,
+      "DOI": "10.1109/LRA.2021.3097255",
+      "repository_path": "data/papers/verification/MP1-V001/2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+      "what_source_actually_proves": "Positive fluid pressure enables stiffness variation well beyond vacuum limits.",
+      "what_source_does_not_prove": "Does not study metallic wire friction or superelasticity."
+    },
+    {
+      "paper_id": "3aa8790db0",
+      "paper_title": "A variable stiffness omnidirectional chain based on positive-pressure fiber jamming",
+      "authors": "Zhang & Yao",
+      "year": 2026,
+      "DOI": "10.5194/ms-17-481-2026",
+      "repository_path": "data/papers/verification/MP1-V001/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+      "what_source_actually_proves": "Directly confines a fiber bundle using positive pressure (0–300 kPa) and derives the pressure-dependent slip onset equation.",
+      "what_source_does_not_prove": "Does not use superelastic NiTi wires."
+    }
+  ],
+  "claim_before": "Positive-pressure jamming for variable stiffness is novel.",
+  "claim_after": "Positive-pressure jamming is established prior art; concept-level novelty rejected.",
+  "reason_for_change": "Direct prior art in Liu et al. (2021) and Zhang & Yao (2026) demonstrates positive-pressure granular and fiber jamming exceeding atmospheric limits.",
+  "scientific_consequence": "Positive pressure is recognized as an alternative boundary condition, not an unestablished physics principle.",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "PREEMPTED_AT_CONCEPT_LEVEL",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "Validates that positive pressure is feasible and effective, but cannot form the basis of a novelty claim.",
+  "pivot_relevance": "Direct trigger for PIVOT_TO_MECHANICS_CORE in MP1-V001.",
+  "historical_interpretation": "Closed at V001 (S04). Confirmed as robust closure at Stage 3 (S12) with residual caveat that changing pressurization media does not create novelty.",
+  "superseded_interpretation": "Belief that exceeding atmospheric pressure via positive pressurization constituted novel mechanics.",
+  "corrected_interpretation": "Positive pressure is an established loading condition; contact equations naturally accept positive normal pressure.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": [],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W02_C1_C4_ROBUST_CLOSURES.md"
+  }
+}

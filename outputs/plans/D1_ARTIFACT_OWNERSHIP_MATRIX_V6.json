@@ -1,0 +1,1056 @@
+{
+  "matrix_id": "D1_ARTIFACT_OWNERSHIP_MATRIX_V6",
+  "plan_version": "V6",
+  "ownership_precedence": "V6 canonical worker/stage contract > derived ownership matrix > package manifest",
+  "single_writer_rule": "Exactly one primary writer per execution artifact; shared_write=false unless a future scientific exception is approved.",
+  "artifact_count": 40,
+  "artifacts": [
+    {
+      "artifact_id": "SCOPE_LOCK",
+      "artifact_name": "scope_lock.json",
+      "creation_stage": "S0",
+      "primary_owner": "W01",
+      "writer": "W01",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S1",
+      "readers": [
+        "S1",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S1",
+      "worker_contract_reference": "W01",
+      "stage_contract_reference": "S0",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W01",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W01"
+      ]
+    },
+    {
+      "artifact_id": "REPOSITORY_MANIFEST",
+      "artifact_name": "repository_manifest.json",
+      "creation_stage": "S0",
+      "primary_owner": "W01",
+      "writer": "W01",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S1",
+      "readers": [
+        "S1",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S1",
+      "worker_contract_reference": "W01",
+      "stage_contract_reference": "S0",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W01",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W01"
+      ]
+    },
+    {
+      "artifact_id": "PLAN_HASH_RECORD",
+      "artifact_name": "plan_hash_record.json",
+      "creation_stage": "S0",
+      "primary_owner": "W01",
+      "writer": "W01",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S1",
+      "readers": [
+        "S1",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S1",
+      "worker_contract_reference": "W01",
+      "stage_contract_reference": "S0",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W01",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W01"
+      ]
+    },
+    {
+      "artifact_id": "D1_EVIDENCE_INVENTORY",
+      "artifact_name": "D1_EVIDENCE_INVENTORY.json",
+      "creation_stage": "S1",
+      "primary_owner": "W02",
+      "writer": "W02",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "S2",
+      "readers": [
+        "W03",
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S2",
+      "worker_contract_reference": "W02",
+      "stage_contract_reference": "S1",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W02",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W02"
+      ]
+    },
+    {
+      "artifact_id": "D1_ROUND_COVERAGE",
+      "artifact_name": "D1_ROUND_COVERAGE.json",
+      "creation_stage": "S1",
+      "primary_owner": "W02",
+      "writer": "W02",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "S2",
+      "readers": [
+        "W03",
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S2",
+      "worker_contract_reference": "W02",
+      "stage_contract_reference": "S1",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W02",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W02"
+      ]
+    },
+    {
+      "artifact_id": "D1_HISTORICAL_STATE_REGISTER",
+      "artifact_name": "D1_HISTORICAL_STATE_REGISTER.json",
+      "creation_stage": "S2",
+      "primary_owner": "W03",
+      "writer": "W03",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "S4",
+      "readers": [
+        "W04",
+        "W09",
+        "W11",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "RECONCILER_AFTER_REVIEW",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W03",
+      "stage_contract_reference": "S2",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W03",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W03"
+      ]
+    },
+    {
+      "artifact_id": "D1_CLAIM_EVOLUTION_MATRIX_DRAFT",
+      "artifact_name": "D1_CLAIM_EVOLUTION_MATRIX_DRAFT.json",
+      "creation_stage": "S4",
+      "primary_owner": "W04",
+      "writer": "W04",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W09",
+      "readers": [
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W04",
+      "stage_contract_reference": "S4",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W04",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W04"
+      ]
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W05",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W05.jsonl",
+      "creation_stage": "S3",
+      "primary_owner": "W05",
+      "writer": "W05",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W09",
+      "readers": [
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W05",
+      "stage_contract_reference": "S3",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W05",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W05"
+      ]
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W06",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W06.jsonl",
+      "creation_stage": "S3",
+      "primary_owner": "W06",
+      "writer": "W06",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W09",
+      "readers": [
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W06",
+      "stage_contract_reference": "S3",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W06",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W06"
+      ]
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W07",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W07.jsonl",
+      "creation_stage": "S3",
+      "primary_owner": "W07",
+      "writer": "W07",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W09",
+      "readers": [
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W07",
+      "stage_contract_reference": "S3",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W07",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W07"
+      ]
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W08",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W08.jsonl",
+      "creation_stage": "S3",
+      "primary_owner": "W08",
+      "writer": "W08",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W09",
+      "readers": [
+        "W09",
+        "W11"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S4",
+      "worker_contract_reference": "W08",
+      "stage_contract_reference": "S3",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W08",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W08"
+      ]
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_PACKETS",
+      "artifact_name": "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+      "creation_stage": "S4",
+      "primary_owner": "W09",
+      "writer": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "S14",
+      "readers": [
+        "W04",
+        "W10",
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S5",
+      "worker_contract_reference": "W09",
+      "stage_contract_reference": "S4",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W09",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W09"
+      ]
+    },
+    {
+      "artifact_id": "D1_CLAIM_EVOLUTION_MATRIX",
+      "artifact_name": "D1_CLAIM_EVOLUTION_MATRIX.json",
+      "creation_stage": "S4",
+      "primary_owner": "W09",
+      "writer": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "S14",
+      "readers": [
+        "W10",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S5",
+      "worker_contract_reference": "W09",
+      "stage_contract_reference": "S4",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W09",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W09"
+      ]
+    },
+    {
+      "artifact_id": "D1_NON_NOVELTY_REGISTER",
+      "artifact_name": "D1_NON_NOVELTY_REGISTER.json",
+      "creation_stage": "S6",
+      "primary_owner": "W09",
+      "writer": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "final_consumer": "W10",
+      "readers": [
+        "W10",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S7",
+      "worker_contract_reference": "W09",
+      "stage_contract_reference": "S6",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W09",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W09"
+      ]
+    },
+    {
+      "artifact_id": "D1_NOVELTY_CANDIDATE_REGISTER",
+      "artifact_name": "D1_NOVELTY_CANDIDATE_REGISTER.json",
+      "creation_stage": "S7",
+      "primary_owner": "W09",
+      "writer": "W09",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "final_consumer": "W10",
+      "readers": [
+        "W10",
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "RECONCILER_AFTER_REVIEW",
+      "handoff_stage": "S8",
+      "worker_contract_reference": "W09",
+      "stage_contract_reference": "S7",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W09",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W09"
+      ]
+    },
+    {
+      "artifact_id": "D1_PRIOR_ART_FAMILY_COVERAGE",
+      "artifact_name": "D1_PRIOR_ART_FAMILY_COVERAGE.json",
+      "creation_stage": "S5",
+      "primary_owner": "W10",
+      "writer": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "final_consumer": "S14",
+      "readers": [
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S8",
+      "worker_contract_reference": "W10",
+      "stage_contract_reference": "S5",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W10",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W10"
+      ]
+    },
+    {
+      "artifact_id": "D1_PRIOR_ART_THREAT_MATRIX",
+      "artifact_name": "D1_PRIOR_ART_THREAT_MATRIX.json",
+      "creation_stage": "S5",
+      "primary_owner": "W10",
+      "writer": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "final_consumer": "W12",
+      "readers": [
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "RECONCILER_AFTER_REVIEW",
+      "handoff_stage": "S8",
+      "worker_contract_reference": "W10",
+      "stage_contract_reference": "S5",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W10",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W10"
+      ]
+    },
+    {
+      "artifact_id": "D1_UNRESOLVED_THREAT_REGISTER",
+      "artifact_name": "D1_UNRESOLVED_THREAT_REGISTER.json",
+      "creation_stage": "S5",
+      "primary_owner": "W10",
+      "writer": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "final_consumer": "W12",
+      "readers": [
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "RECONCILER_AFTER_REVIEW",
+      "handoff_stage": "S8",
+      "worker_contract_reference": "W10",
+      "stage_contract_reference": "S5",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W10",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W10"
+      ]
+    },
+    {
+      "artifact_id": "D1_SEARCH_DECISION_LOG",
+      "artifact_name": "D1_SEARCH_DECISION_LOG.json",
+      "creation_stage": "S10",
+      "primary_owner": "W10",
+      "writer": "W10",
+      "reconciliation_owner": "S10",
+      "QA_owner": "W11",
+      "final_consumer": "S10",
+      "readers": [
+        "W11",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S11",
+      "worker_contract_reference": "W10",
+      "stage_contract_reference": "S10",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W10",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W10"
+      ]
+    },
+    {
+      "artifact_id": "D1_PROVENANCE_QA",
+      "artifact_name": "D1_PROVENANCE_QA.json",
+      "creation_stage": "S8",
+      "primary_owner": "W11",
+      "writer": "W11",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S9",
+      "worker_contract_reference": "W11",
+      "stage_contract_reference": "S8",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W11",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W11"
+      ]
+    },
+    {
+      "artifact_id": "D1_CONTRADICTION_REGISTER",
+      "artifact_name": "D1_CONTRADICTION_REGISTER.json",
+      "creation_stage": "S8",
+      "primary_owner": "W11",
+      "writer": "W11",
+      "reconciliation_owner": "S9",
+      "QA_owner": "S16",
+      "final_consumer": "S9",
+      "readers": [
+        "S9",
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "RECONCILER_AFTER_REVIEW",
+      "handoff_stage": "S9",
+      "worker_contract_reference": "W11",
+      "stage_contract_reference": "S8",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W11",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W11"
+      ]
+    },
+    {
+      "artifact_id": "D1_THRESHOLD_FREEZE_REGISTER",
+      "artifact_name": "D1_THRESHOLD_FREEZE_REGISTER.json",
+      "creation_stage": "S11",
+      "primary_owner": "W11",
+      "writer": "W11",
+      "reconciliation_owner": "S11",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S12",
+      "worker_contract_reference": "W11",
+      "stage_contract_reference": "S11",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W11",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W11"
+      ]
+    },
+    {
+      "artifact_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "artifact_name": "D1_HUMAN_REVIEW_CLEARANCE.json",
+      "creation_stage": "S13",
+      "primary_owner": "W11",
+      "writer": "W11",
+      "reconciliation_owner": "S13",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S14",
+      "worker_contract_reference": "W11",
+      "stage_contract_reference": "S13",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W11",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W11"
+      ]
+    },
+    {
+      "artifact_id": "D1_K_CRITERIA_REGISTER",
+      "artifact_name": "D1_K_CRITERIA_REGISTER.json",
+      "creation_stage": "S9",
+      "primary_owner": "S9",
+      "writer": "S9",
+      "reconciliation_owner": "S9",
+      "QA_owner": "W11",
+      "final_consumer": "S10",
+      "readers": [
+        "W10",
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "APPROVED_CHANGE_RECORD_ONLY",
+      "handoff_stage": "S10",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S9",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S9",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S9"
+      ]
+    },
+    {
+      "artifact_id": "KILL_CRITERION_CHANGE_RECORD",
+      "artifact_name": "KILL_CRITERION_CHANGE_RECORD.jsonl",
+      "creation_stage": "S12",
+      "primary_owner": "W12",
+      "writer": "W12",
+      "reconciliation_owner": "S9",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S9",
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "APPEND_ONLY_WITH_HUMAN_APPROVAL",
+      "handoff_stage": "S14",
+      "worker_contract_reference": "W12",
+      "stage_contract_reference": "S12",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W12",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W12"
+      ]
+    },
+    {
+      "artifact_id": "D1_K1_K9_FALSIFICATION_MATRIX",
+      "artifact_name": "D1_K1_K9_FALSIFICATION_MATRIX.json",
+      "creation_stage": "S12",
+      "primary_owner": "W12",
+      "writer": "W12",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S14",
+      "worker_contract_reference": "W12",
+      "stage_contract_reference": "S12",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W12",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W12"
+      ]
+    },
+    {
+      "artifact_id": "D1_RED_TEAM_MATRIX",
+      "artifact_name": "D1_RED_TEAM_MATRIX.json",
+      "creation_stage": "S12",
+      "primary_owner": "W12",
+      "writer": "W12",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "final_consumer": "S14",
+      "readers": [
+        "S14",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S14",
+      "worker_contract_reference": "W12",
+      "stage_contract_reference": "S12",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "W12",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "W12"
+      ]
+    },
+    {
+      "artifact_id": "D1_FINAL_EVIDENCE_MAP",
+      "artifact_name": "D1_FINAL_EVIDENCE_MAP.json",
+      "creation_stage": "S14",
+      "primary_owner": "S14",
+      "writer": "S14",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "final_consumer": "S15",
+      "readers": [
+        "S15",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S15",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S14",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S14",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S14"
+      ]
+    },
+    {
+      "artifact_id": "FINAL_D1_NOVELTY_ADJUDICATION",
+      "artifact_name": "FINAL_D1_NOVELTY_ADJUDICATION.json",
+      "creation_stage": "S15",
+      "primary_owner": "S15",
+      "writer": "S15",
+      "reconciliation_owner": "S15",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S15",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S15",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S15"
+      ]
+    },
+    {
+      "artifact_id": "FINAL_D1_NOVELTY_ADJUDICATION_MD",
+      "artifact_name": "FINAL_D1_NOVELTY_ADJUDICATION.md",
+      "creation_stage": "S15",
+      "primary_owner": "S15",
+      "writer": "S15",
+      "reconciliation_owner": "S15",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S15",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S15",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S15"
+      ]
+    },
+    {
+      "artifact_id": "D1_HARD_GATE_MATRIX_V6",
+      "artifact_name": "D1_HARD_GATE_MATRIX_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S15",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_HARD_GATE_MATRIX_V6_MD",
+      "artifact_name": "D1_HARD_GATE_MATRIX_V6.md",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "human reviewer",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_HARD_GATE_ROUTING_QA_V6",
+      "artifact_name": "D1_HARD_GATE_ROUTING_QA_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_REVISION_ROUTING_MATRIX_V6",
+      "artifact_name": "D1_REVISION_ROUTING_MATRIX_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "all gates"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_WORKER_FAILURE_ROUTING_MATRIX",
+      "artifact_name": "D1_WORKER_FAILURE_ROUTING_MATRIX.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "W01-W12",
+        "S16"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_WORKER_ROUTING_HARD_GATE_QA",
+      "artifact_name": "D1_WORKER_ROUTING_HARD_GATE_QA.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_ARTIFACT_OWNERSHIP_MATRIX_V6",
+      "artifact_name": "D1_ARTIFACT_OWNERSHIP_MATRIX_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_ARTIFACT_OWNERSHIP_QA_V6",
+      "artifact_name": "D1_ARTIFACT_OWNERSHIP_QA_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_WORKER_EXECUTION_READINESS_MATRIX_V6",
+      "artifact_name": "D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "S16",
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    },
+    {
+      "artifact_id": "D1_EXECUTION_QA",
+      "artifact_name": "D1_EXECUTION_QA.json",
+      "creation_stage": "S16",
+      "primary_owner": "S16",
+      "writer": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "final_consumer": "S16",
+      "readers": [
+        "re-auditor"
+      ],
+      "write_permission": "CREATE",
+      "update_permission": "OWNER_ONLY",
+      "handoff_stage": "S16",
+      "worker_contract_reference": null,
+      "stage_contract_reference": "S16",
+      "shared_write": false,
+      "secondary_writer": null,
+      "merge_owner": "S16",
+      "reconciliation_rule": "SINGLE_WRITER",
+      "write_order": [
+        "S16"
+      ]
+    }
+  ]
+}

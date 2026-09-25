@@ -1,0 +1,147 @@
+{
+  "worker_id": "W2-04-05",
+  "task": "Full-text extraction for papers 07\u201308 (Barsi 2025 & Kang 2020)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "9f4295be23",
+    "56793dea9b"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "07",
+      "paper_id": "9f4295be23",
+      "paper_title": "A new mechanical model of short wire ropes: Theory and experimental validation",
+      "authors": [
+        "F. Barsi",
+        "B. Carboni",
+        "W. Lacarbonara"
+      ],
+      "year": 2025,
+      "DOI": "10.1016/j.engstruct.2024.119217",
+      "repository_path": "data/papers/verification/MP1-V002/2025-A new mechanical model of short wire ropes Theory and experimental.pdf",
+      "matrix_filename": "2025-A new mechanical model of short wire ropes Theory and experimental.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "State-of-the-art 2025 analytical and experimental formulation of stick-slip flexural mechanics in short wire ropes.",
+      "threat_addressed": "Directly threatens T1, T2, and H0b by formulating exact stick-slip bending bounds under contact friction.",
+      "claim_ids_affected": [
+        "C1",
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Analytical continuum beam modeling and experimental static/dynamic bending tests",
+      "material_or_system": "Short multiwire steel wire ropes (19-wire and 49-wire configurations)",
+      "loading_mode": "Three-point bending and cantilever cyclic bending flexure",
+      "control_variables": "Displacement amplitude, span length (aspect ratio)",
+      "independent_variables": "Rope length (short vs long), wire lay geometry, contact normal force distribution",
+      "dependent_variables": "Bending moment-curvature response, stick-slip transition curvature, upper/lower flexural stiffness bounds (EI_stick, EI_slip)",
+      "model_used": "Shear-deformable beam theory with inter-wire tangential slip and normal contact tractions",
+      "constitutive_model": "Linear elastic wire material with inter-wire stick-slip contact equilibrium",
+      "contact_or_friction_model": "Coulomb friction law with normal contact pressure resulting from internal geometry and clamping",
+      "experiment_used": "Custom bending test rig with digital image correlation and load cells",
+      "experimental_setup": "Wire ropes clamped at ends and loaded laterally to measure moment-curvature and slip thresholds",
+      "key_results": "Derived closed-form equations for stick stiffness bound (EI_stick) and slip stiffness bound (EI_slip); proved that the transition from full stick to full slip depends on normal contact force and friction coefficient; experimental data validated the predictive bounds without parameter fitting.",
+      "what_it_proves": "Proves that beam stick-slip mechanics rigorously predicts the variable flexural stiffness of multiwire bundles under frictional contact.",
+      "what_it_does_not_prove": "Does not incorporate superelastic NiTi phase transformation; steel ropes only.",
+      "directly_verified_statements": [
+        "The flexural rigidity of a multiwire rope transitions smoothly from EI_stick (full composite action) to EI_slip (isolated wire sum) as inter-wire friction is overcome (Section 2, pp. 3-6).",
+        "The model predicts both stiffness bounds using only wire geometry and elastic properties without fitting parameters (Section 4, pp. 11-14)."
+      ],
+      "inferred_statements": [
+        "The mechanics of positive-pressure wire jamming is mathematically isomorphic to the stick-slip transition in short wire ropes, where pressure modulates the normal force."
+      ],
+      "limitations": "Linear elastic steel wires; did not evaluate active fluid membrane confinement.",
+      "impact_on_MP1": "Confirms that variable bending stiffness via contact friction is a solved continuum mechanics problem (H0b competitor).",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 2 (pp. 2-7), Section 4 (pp. 10-15)",
+      "evidence_pointers": "Eq. (12)-(15) (stiffness bounds), Fig. 6 (bending moment vs curvature comparison)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2025-A new mechanical model of short wire ropes Theory and experimental_9f4295be23.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2025-A new mechanical model of short wire ropes Theory and experimental.pdf"
+      }
+    },
+    {
+      "paper_index": "08",
+      "paper_id": "56793dea9b",
+      "paper_title": "Finite Element Method for Mechanical Behavior of Shape Memory Alloy Superelastic Cables (\u5f62\u72b6\u8bb0\u5fc6\u5408\u91d1\u8d85\u5f39\u6027\u7f06\u7d22\u529b\u5b66\u884c\u4e3a\u7684\u6709\u9650\u5355\u5143\u6cd5)",
+      "authors": [
+        "KANG Zetian",
+        "WANG Zhiyong",
+        "WANG Zhenqing",
+        "LIANG Xuedong"
+      ],
+      "year": 2020,
+      "DOI": "10.3901/JME.2020.14.065",
+      "repository_path": "data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+      "matrix_filename": "2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Branch B11 citation anchor: specialized finite element method for superelastic SMA cables.",
+      "threat_addressed": "Threatens T1 and T3 by demonstrating tailored finite element formulation for contacting NiTi cable structures.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Nonlinear finite element formulation using corotational beam elements with contact",
+      "material_or_system": "1x7 and 1x19 superelastic NiTi SMA cables",
+      "loading_mode": "Monotonic and cyclic tension and pure bending",
+      "control_variables": "Displacement increments, convergence tolerance",
+      "independent_variables": "Cable lay geometry, friction coefficient, strain amplitude",
+      "dependent_variables": "Hysteresis curves, axial force, bending moment, contact stress distribution along helix",
+      "model_used": "Corotational beam element incorporating Auricchio 1D superelastic constitutive model",
+      "constitutive_model": "1D Auricchio superelastic constitutive model with tension-compression asymmetry",
+      "contact_or_friction_model": "Point-to-line and line-to-line contact element with Coulomb friction",
+      "experiment_used": "Comparison against experimental data from Reedlunn 2013",
+      "experimental_setup": "Numerical validation study benchmarking against published experimental cable data",
+      "key_results": "Developed a dedicated beam finite element algorithm capable of simulating large deformation, inter-wire contact, and superelastic phase transformation in NiTi cables with high numerical efficiency and stability.",
+      "what_it_proves": "Proves that existing beam contact finite elements combined with standard 1D Auricchio models (H0b) accurately simulate NiTi multiwire cable deformation.",
+      "what_it_does_not_prove": "Does not apply active external pneumatic/hydraulic confinement pressure.",
+      "directly_verified_statements": [
+        "The corotational beam FE model with 1D Auricchio constitutive relations reproduces the tensile and bending hysteresis of SMA cables (Section 3, pp. 68-71).",
+        "Inter-wire contact forces concentrate along helical line contacts and dictate local frictional slip (Section 4, pp. 71-73)."
+      ],
+      "inferred_statements": [
+        "Standard continuum/structural finite element methods can capture coupled NiTi contact behavior without novel constitutive laws."
+      ],
+      "limitations": "Numerical paper without new standalone experimental tests (benchmarked against Reedlunn).",
+      "impact_on_MP1": "Confirms H0b feasibility for beam finite element modeling of NiTi wire bundles.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 2 (pp. 66-68), Section 3 (pp. 68-72)",
+      "evidence_pointers": "Fig. 4 (corotational beam contact formulation), Fig. 7 (validation against Reedlunn 2013)",
+      "metadata_conflicts": "Filename lists 2025 prefix, but paper publication year is verified as 2020 in Chinese JME.",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy _56793dea9b.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf"
+      }
+    }
+  ]
+}

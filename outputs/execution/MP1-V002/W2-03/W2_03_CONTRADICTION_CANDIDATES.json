@@ -1,0 +1,73 @@
+[
+  {
+    "contradiction_candidate_id": "CONTRA-02",
+    "source_A": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json (commit 8ccfa3c)",
+    "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G11) and docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md (W07)",
+    "historical_context": "TARGETED_THREAT_AUDIT recorded niti_requires_distinct_constitutive_contact_coupling = true with evidence_status = established, while Astra determined evidence was insufficient.",
+    "difference": "Semantic conflict between claiming an established requirement for new coupling versus insufficient evidence.",
+    "targets_affected": [
+      "T3"
+    ],
+    "hypotheses_affected": [
+      "H0a",
+      "H0b",
+      "H1"
+    ],
+    "why_it_matters": "Crucial distinction: 'established' strictly applies to refuting naive substitution (H0a); evidence comparing existing models (H0b) against a new coupling theory (H1) is completely insufficient.",
+    "resolution_status": "OPEN",
+    "recommended_owner": "W2-04 / synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-03",
+    "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md (commit af9e7a5)",
+    "source_B": "Carboni et al. (2015) primary PDF (doi:10.1061/(ASCE)EM.1943-7889.0000852) and docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md (G05)",
+    "historical_context": "Stage 1 extraction worker W08 asserted that Carboni 2015 configuration S2a proved NiTi phase transformation under pure cyclic bending.",
+    "difference": "Factually incorrect specimen identification: S2a was ST49 steel wire rope with Bouc-Wen friction; S1a was NiTi7 under tension-bending.",
+    "targets_affected": [
+      "T1",
+      "T3"
+    ],
+    "hypotheses_affected": [
+      "H0a",
+      "H0b"
+    ],
+    "why_it_matters": "Expunges alleged pure-bending NiTi transformation data from Carboni 2015; pure bending in NiTi multiwire bundles remains unverified without tension preload in that paper.",
+    "resolution_status": "OPEN",
+    "recommended_owner": "W2-04 / synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-04",
+    "source_A": "docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md (commit 3a216d6)",
+    "source_B": "outputs/verification/MP1-V002/citation_coverage.json (commit 313cdf2)",
+    "historical_context": "Stage 3 narrative text reported stop_condition_satisfied = false, whereas later Stage 4 closed all 15/15 branches and set satisfied = true.",
+    "difference": "Coverage stop condition disagreement: false in narrative vs true in canonical JSON.",
+    "targets_affected": [
+      "T1",
+      "T2",
+      "T3"
+    ],
+    "hypotheses_affected": [
+      "H0b",
+      "H1"
+    ],
+    "why_it_matters": "Temporal sequencing mismatch; canonical JSON supersedes narrative report, verifying 15/15 citation closure.",
+    "resolution_status": "OPEN",
+    "recommended_owner": "W2-04"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-05",
+    "source_A": "docs/project/RESEARCH_LOG.md and docs/protocols/MP1-V002_TARGETED_CITATION_CHASING_PROTOCOL.md (commit 8494d02)",
+    "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (G02) and outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W05_T2_MECHANICS_P1_P2_P3_TEST.md (commit 3a216d6)",
+    "historical_context": "Early MP1 framing treated actively varied positive confinement pressure P3 as a potentially novel mechanics principle distinguishing MP1 from passive cables.",
+    "difference": "Active pressure treated as novel mechanics principle vs experimental control boundary condition.",
+    "targets_affected": [
+      "T2"
+    ],
+    "hypotheses_affected": [
+      "H0b"
+    ],
+    "why_it_matters": "Demoted P3 from mechanics novelty to experimental boundary condition p(t). Normal traction equations naturally accept time-varying pressure without new constitutive physics.",
+    "resolution_status": "OPEN",
+    "recommended_owner": "W2-04 / synthesis auditor"
+  }
+]

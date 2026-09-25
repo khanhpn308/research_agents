@@ -1,0 +1,101 @@
+{
+  "matrix_version": "V4",
+  "decision_vocabulary": [
+    "APPROVED",
+    "REJECTED",
+    "REVISION_REQUIRED",
+    "NOT_REVIEWED"
+  ],
+  "records": [
+    {
+      "revision_trigger": "KILL_CRITERION_CHANGE_AFTER_EVIDENCE",
+      "source_gate": "HG-04/HG-05",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S9",
+      "required_artifact_update": "D1_K1_K9_FALSIFICATION_MATRIX and KILL_CRITERION_CHANGE_RECORD_V4",
+      "responsible_owner": "W11 with W12 and human reviewer",
+      "reentry_condition": "new criterion version frozen before any further classification; prior evidence retained",
+      "reentry_gate": "HG-04"
+    },
+    {
+      "revision_trigger": "THRESHOLD_CHANGE_AFTER_VALIDATION_DATA",
+      "source_gate": "HG-06",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S11",
+      "required_artifact_update": "D1_THRESHOLD_FREEZE_REGISTER and bias record",
+      "responsible_owner": "W11/Sol",
+      "reentry_condition": "threshold frozen with uncertainty basis and human clearance",
+      "reentry_gate": "HG-06"
+    },
+    {
+      "revision_trigger": "PROVENANCE_OR_UNSUPPORTED_CLAIM",
+      "source_gate": "HG-02",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S8",
+      "required_artifact_update": "D1_PROVENANCE_QA, evidence packet or claim row",
+      "responsible_owner": "W09/W11",
+      "reentry_condition": "source, page/section and evidence pointer resolve",
+      "reentry_gate": "HG-02"
+    },
+    {
+      "revision_trigger": "CRITICAL_CONTRADICTION",
+      "source_gate": "HG-03",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S9",
+      "required_artifact_update": "D1_CONTRADICTION_REGISTER and adjudication record",
+      "responsible_owner": "W11 with human reviewer",
+      "reentry_condition": "critical row ADJUDICATED or WAIVED_WITH_JUSTIFICATION with residual uncertainty",
+      "reentry_gate": "HG-03"
+    },
+    {
+      "revision_trigger": "SEARCH_OPENING_DEFECT",
+      "source_gate": "HG-07",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S10",
+      "required_artifact_update": "D1_SEARCH_DECISION_LOG",
+      "responsible_owner": "W10/W11",
+      "reentry_condition": "repository evidence checked first, reason necessary and stop condition recorded",
+      "reentry_gate": "HG-07"
+    },
+    {
+      "revision_trigger": "WORKER_CONTRACT_OR_PATH_DEFECT",
+      "source_gate": "HG-11",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "originating worker contract stage",
+      "required_artifact_update": "D1_WORKER_EXECUTION_READINESS_MATRIX and worker output",
+      "responsible_owner": "originating worker owner/W11",
+      "reentry_condition": "all required contract fields and unique output path pass machine check",
+      "reentry_gate": "HG-11"
+    },
+    {
+      "revision_trigger": "HUMAN_REVIEW_REVISION_REQUIRED",
+      "source_gate": "HG-09",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "reviewer-specified stage from this matrix",
+      "required_artifact_update": "D1_HUMAN_REVIEW_CLEARANCE plus named artifact",
+      "responsible_owner": "human reviewer and originating owner",
+      "reentry_condition": "required revision complete and reviewer decision CLEARED",
+      "reentry_gate": "HG-09"
+    },
+    {
+      "revision_trigger": "UNRESOLVED_HIGH_THREAT",
+      "source_gate": "HG-07",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S7 or S10 depending whether threat is repository-known or search-triggered",
+      "required_artifact_update": "D1_PRIOR_ART_THREAT_MATRIX, D1_UNRESOLVED_THREAT_REGISTER or D1_SEARCH_DECISION_LOG",
+      "responsible_owner": "W10/W11",
+      "reentry_condition": "threat disposition is evidence-bound or explicitly unavailable with human clearance",
+      "reentry_gate": "HG-07"
+    },
+    {
+      "revision_trigger": "PACKAGE_MANIFEST_OR_SCHEMA_FAILURE",
+      "source_gate": "HG-12",
+      "decision": "REVISION_REQUIRED",
+      "return_stage": "S16",
+      "required_artifact_update": "D1_PLAN_PACKAGE_MANIFEST and affected artifact",
+      "responsible_owner": "S16",
+      "reentry_condition": "canonical artifact list, JSON/Markdown pairing and schema checks pass",
+      "reentry_gate": "HG-12"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "worker_id": "W2-04-02",
+  "task": "Full-text extraction for papers 01\u201302 (Reedlunn 2013 Part I & Part II)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "00414aac4b",
+    "fac21c950e"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "01",
+      "paper_id": "00414aac4b",
+      "paper_title": "Superelastic shape memory alloy cables: Part I \u2013 Isothermal tension experiments",
+      "authors": [
+        "Benjamin Reedlunn",
+        "Samantha Daly",
+        "John Shaw"
+      ],
+      "year": 2013,
+      "DOI": "10.1016/j.ijsolstr.2013.03.013",
+      "repository_path": "data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part I \u2013 Isothermal tension experiments.pdf",
+      "matrix_filename": "2013-Superelastic shape memory alloy cables Part I \u2013 Isothermal tension experiments.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Core prior art on multiwire superelastic NiTi cables under tension testing inter-wire friction and transformation.",
+      "threat_addressed": "Directly threatens T1 by proving inter-wire contact, friction, and hysteretic energy dissipation in NiTi wire bundles.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Experimental testing with non-contact optical diagnostics and thermal imaging",
+      "material_or_system": "7x7 right regular lay and 1x27 alternating lay superelastic NiTi cables",
+      "loading_mode": "Quasi-static isothermal uniaxial elongation under rigid end rotation constraint",
+      "control_variables": "Displacement rate (1e-5 to 4e-4 s^-1), room temperature (22 deg C), lubrication state",
+      "independent_variables": "Cable geometry (7x7 regular lay vs 1x27 alternating lay), dry vs synthetic oil lubrication, strain amplitude up to 12.5%",
+      "dependent_variables": "Axial force-strain response, reaction torque Mz, localized temperature rise Delta T, strain field via stereo DIC",
+      "model_used": "Idealized polar moment of inertia J0; exponential shakedown curve fits",
+      "constitutive_model": "Phenomenological shakedown laws (modeling deferred to Part II)",
+      "contact_or_friction_model": "Qualitative Coulomb friction assessment via dry vs lubricated testing",
+      "experiment_used": "Instron 5585 load frame, stereo DIC, Inframetrics SC1000 infrared radiometer, Futek reaction torque cell",
+      "experimental_setup": "Straight cable specimens clamped rigidly in pneumatic grips with hardened steel serrated jaws",
+      "key_results": "Lubrication had negligible impact on axial stress-strain response, proving static friction locks inter-wire slip during initial loading; 7x7 cables exhibited flat transformation plateaus (493 MPa load, 262 MPa unload) with propagating fronts, while 1x27 exhibited continuous work hardening; substantial reaction torque generated.",
+      "what_it_proves": "Proves that multiwire NiTi cables exhibit inter-wire contact normal forces, high static friction, and severe cyclic shakedown.",
+      "what_it_does_not_prove": "Does not evaluate bending flexure or external transverse fluid confinement pressure; does not validate a predictive contact constitutive law.",
+      "directly_verified_statements": [
+        "Lubrication does not noticeably alter the axial load-strain curves of 7x7 or 1x27 NiTi cables (Section 4.1, p. 3012).",
+        "7x7 cable exhibits localized transformation front propagation with localized rotation kinks (Section 4.2, p. 3014).",
+        "Contact indentations observed in SEM are pre-existing manufacturing artifacts from stranding and shape setting (Section 4.5, p. 3019)."
+      ],
+      "inferred_statements": [
+        "High inter-wire normal force in helical cables suppresses inter-wire slip until high axial strains are reached."
+      ],
+      "limitations": "Uniaxial tension only; constrained rotation boundary condition; isothermal slow strain rates.",
+      "impact_on_MP1": "Closes C5/T1 at existence level by demonstrating mutual contact in NiTi wire bundles; refutes overclaims that contact indentations were operational fretting wear.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 4.1 (pp. 3011-3013), Section 4.5 (pp. 3018-3021)",
+      "evidence_pointers": "Fig. 5 (load-strain curves), Fig. 8 (SEM micrographs of inter-wire contact indentations)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2013-Superelastic shape memory alloy cables Part I \u2013 Isothermal tension experiments_00414aac4b.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part I \u2013 Isothermal tension experiments.pdf"
+      }
+    },
+    {
+      "paper_index": "02",
+      "paper_id": "fac21c950e",
+      "paper_title": "Superelastic Shape Memory Alloy Cables: Part II \u2013 Subcomponent Isothermal Responses",
+      "authors": [
+        "Benjamin Reedlunn",
+        "Samantha Daly",
+        "John Shaw"
+      ],
+      "year": 2013,
+      "DOI": "10.1016/j.ijsolstr.2013.03.015",
+      "repository_path": "data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II \u2013 Subcomponent isothermal responses.pdf",
+      "matrix_filename": "2013-Superelastic shape memory alloy cables Part II \u2013 Subcomponent isothermal responses.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Evaluates subcomponent wire mechanics and tests Costello analytical contact-kinematics modeling on NiTi cables.",
+      "threat_addressed": "Evaluates whether existing cable kinematics and contact formulations can predict multiwire NiTi response (T1, T3, H0b).",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Hierarchical experimental testing and analytical kinematic modeling",
+      "material_or_system": "Single NiTi wires, 1x7 strands, 1x19 cables, and 1x27 cables",
+      "loading_mode": "Quasi-static uniaxial tension",
+      "control_variables": "Displacement rate, room temperature (22 deg C)",
+      "independent_variables": "Subcomponent level (individual wires, straight core, outer helical wires, complete strands)",
+      "dependent_variables": "Axial force-strain response, torque generation, comparison against Costello model",
+      "model_used": "Costello kinematic wire rope theory with linear elastic wire assumptions",
+      "constitutive_model": "Costello wire rope kinematics combined with single-wire experimental curves",
+      "contact_or_friction_model": "Line contact formulation with inter-wire radial pressure",
+      "experiment_used": "MTS / Instron load frames with custom wire untwisting grips",
+      "experimental_setup": "Individual wires dissected from cables and tested in tension to isolate base material response",
+      "key_results": "Costello cable theory matched 1x7 strands and shallow helix angles well, but severely deviated for 1x27 cables with steep helix angles (>20 deg); deviation was caused by neglecting local bending and twisting moments in outer wires, not by novel constitutive contact physics.",
+      "what_it_proves": "Proves that shallow helix angle NiTi bundles behave closely to single wires; proves that model divergence at steep angles is due to kinematic reduction omissions.",
+      "what_it_does_not_prove": "Does not prove a failure of continuum contact mechanics; does not support the requirement of a new micro-coupling law H1.",
+      "directly_verified_statements": [
+        "The Costello model divergence in 1x27 cables stems from the neglect of individual wire bending and twisting moments (Section 5.3, pp. 3035-3037).",
+        "Single wire responses closely match 1x7 strand response when normalized by metallic cross-sectional area (Section 4.2, p. 3028)."
+      ],
+      "inferred_statements": [
+        "For parallel or nearly-parallel wire bundles (like MP1), kinematic helix angle errors do not arise."
+      ],
+      "limitations": "Tension only; analytical model did not resolve full 3D frictional stick-slip.",
+      "impact_on_MP1": "Mandates conservative remediation of Reedlunn 2013 (Astra G07): model failure in steep helical cables cannot be cited as evidence that parallel NiTi bundles require new mechanics.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 5.3 (pp. 3034-3038)",
+      "evidence_pointers": "Fig. 11 (Costello model vs experiment for 1x7 and 1x27 cables)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2013-Superelastic shape memory alloy cables Part II \u2013 Subcomponent isothermal responses_fac21c950e.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II \u2013 Subcomponent isothermal responses.pdf"
+      }
+    }
+  ]
+}

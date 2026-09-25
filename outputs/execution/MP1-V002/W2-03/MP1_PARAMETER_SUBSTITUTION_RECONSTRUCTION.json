@@ -1,0 +1,132 @@
+{
+  "worker_id": "W2-03-08",
+  "task": "Parameter-substitution and model-credibility reconstruction",
+  "status": "COMPLETE",
+  "credibility_hierarchy": {
+    "Level_1": "Model Formulation / Mathematical existence of governing differential equations",
+    "Level_2": "Numerical Verification / Algorithm convergence, energy conservation, solver correctness",
+    "Level_3": "Parameter Calibration / Curve fitting post-hoc with free floating parameters (high confounding risk)",
+    "Level_4": "Independent Experimental Validation / Forward prediction with FROZEN locked parameters on unseen load paths",
+    "Level_5": "Causal Mechanism Identification / Direct local measurement of internal state variables (phase fraction, local slip)"
+  },
+  "prior_art_positioning": {
+    "Fang_2019": {
+      "paper_id": "2f7fcf2f8f",
+      "attained_level": "Level_3 (Calibration)",
+      "finding": "Phenomenological macromodel in OpenSees (Steel02 + Self-centering) fits cable hysteresis without resolving micro-contacts. Tested pure axial tension only (RC bridge pier was 1.4m column; cables were unbonded restrainers). Threat: if macromodel matches M-kappa, contact micro-modeling lacks added parsimony value."
+    },
+    "Vahidi_2022": {
+      "paper_id": "53200aa0c6",
+      "attained_level": "Level_3-4 (Tension Validation)",
+      "finding": "3D Abaqus FEA with Auricchio UMAT using Reedlunn single-wire parameters successfully predicted 1x27 and 7x7 cable tension hysteresis with locked parameters."
+    },
+    "Reedlunn_2013": {
+      "paper_id": "fac21c950e",
+      "attained_level": "Level_4 (Kinematic Evaluation)",
+      "finding": "Costello model failure at steep helix angles (>20 deg) resulted from neglecting local wire bending/twisting moments, not failure of NiTi continuum laws. Shallow helix cables closely matched single wire responses. Contact indentations were pre-existing manufacturing artifacts."
+    },
+    "Zhang_Yao_2026": {
+      "paper_id": "3aa8790db0",
+      "attained_level": "Level_3 (Calibration)",
+      "finding": "Calibrated 3-regime friction model for 700 nylon fibers under positive pressure up to 300 kPa; did not independently measure inter-fiber normal forces."
+    }
+  },
+  "parameter_origin_summary": [
+    {
+      "parameter": "E_A (Austenite elastic modulus)",
+      "value_or_range": "50 - 70 GPa (nominal 60 GPa)",
+      "origin": "single_wire_tensile_test",
+      "measured": true,
+      "calibrated": false,
+      "literature_fixed": false,
+      "floating": false,
+      "frozen_before_validation": true,
+      "uncertainty": "+/- 5 GPa",
+      "compensation_risk": "Low if measured independently; high if floated to compensate for slip compliance.",
+      "source": "Reedlunn 2013 / Vahidi 2022"
+    },
+    {
+      "parameter": "E_M (Martensite elastic modulus)",
+      "value_or_range": "20 - 30 GPa (nominal 25 GPa)",
+      "origin": "single_wire_tensile_test",
+      "measured": true,
+      "calibrated": false,
+      "literature_fixed": false,
+      "floating": false,
+      "frozen_before_validation": true,
+      "uncertainty": "+/- 3 GPa",
+      "compensation_risk": "Moderate; easily confounded with plastic slip at large strains.",
+      "source": "Reedlunn 2013 / Vahidi 2022"
+    },
+    {
+      "parameter": "sigma_Ms (Forward transformation start stress)",
+      "value_or_range": "400 - 520 MPa",
+      "origin": "single_wire_tensile_test",
+      "measured": true,
+      "calibrated": false,
+      "literature_fixed": false,
+      "floating": false,
+      "frozen_before_validation": true,
+      "uncertainty": "+/- 20 MPa",
+      "compensation_risk": "High; strongly temperature-dependent (Clausius-Clapeyron slope ~ 6-8 MPa/K).",
+      "source": "Reedlunn 2013 / Carboni 2015"
+    },
+    {
+      "parameter": "mu (Inter-wire friction coefficient)",
+      "value_or_range": "0.10 - 0.25 (nominal 0.115 - 0.15)",
+      "origin": "pin-on-disk / crossed-cylinder test",
+      "measured": false,
+      "calibrated": true,
+      "literature_fixed": true,
+      "floating": false,
+      "frozen_before_validation": true,
+      "uncertainty": "+/- 0.05",
+      "compensation_risk": "Extreme; can directly trade off against pressure transmission factor alpha_trans.",
+      "source": "Vahidi 2022 / Barsi 2025"
+    },
+    {
+      "parameter": "alpha_trans (Radial pressure transmission factor)",
+      "value_or_range": "0.4 - 0.8",
+      "origin": "radial_compression_calibration",
+      "measured": false,
+      "calibrated": true,
+      "literature_fixed": false,
+      "floating": true,
+      "frozen_before_validation": false,
+      "uncertainty": "+/- 0.2",
+      "compensation_risk": "Critical; product (mu * alpha_trans) governs slip onset. Indistinguishable in global M-kappa.",
+      "source": "Remediation W08 / W09"
+    },
+    {
+      "parameter": "t_mem / E_mem (Membrane sleeve elasticity/thickness)",
+      "value_or_range": "t = 0.5 - 1.0 mm, E = 1 - 5 MPa",
+      "origin": "tensile_coupon_test",
+      "measured": true,
+      "calibrated": false,
+      "literature_fixed": false,
+      "floating": false,
+      "frozen_before_validation": true,
+      "uncertainty": "+/- 10%",
+      "compensation_risk": "Hoop stress absorbs chamber pressure p, causing effective normal force to drop.",
+      "source": "Remediation W08"
+    },
+    {
+      "parameter": "f_n0 (Initial packing prestrain normal force)",
+      "value_or_range": "0 - 5 N/m",
+      "origin": "assembly_packing",
+      "measured": false,
+      "calibrated": true,
+      "literature_fixed": false,
+      "floating": true,
+      "frozen_before_validation": false,
+      "uncertainty": "High (random packing void ratio)",
+      "compensation_risk": "Can mimic zero-pressure residual bending stiffness.",
+      "source": "Remediation W08 / W09"
+    }
+  ],
+  "confounding_warnings": [
+    "Global M-kappa curve only constrains the product (mu * alpha_trans * p); individual parameters cannot be uniquely identified.",
+    "Double-counting compliance danger: using bundle-measured E_bundle inside contact FEA doubles structural softness.",
+    "Superior curve fit achieved by floating parameters is NOT evidence of new physics."
+  ]
+}

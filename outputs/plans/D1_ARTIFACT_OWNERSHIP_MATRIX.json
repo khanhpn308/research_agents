@@ -1,0 +1,448 @@
+{
+  "matrix_id": "D1_ARTIFACT_OWNERSHIP_MATRIX",
+  "plan_version": "V5",
+  "owner_rule": "Exactly one primary owner; reconciliation and QA owners are explicit; READ_ONLY is required for historical inputs.",
+  "artifacts": [
+    {
+      "artifact_id": "D1_HISTORICAL_STATE_REGISTER",
+      "artifact_name": "D1_HISTORICAL_STATE_REGISTER.json",
+      "primary_owner": "W03",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "W02 inventory",
+        "handoff",
+        "research log",
+        "D1-V001..D1-V009"
+      ],
+      "downstream_consumers": [
+        "W04",
+        "HG-01"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_CLAIM_EVOLUTION_MATRIX",
+      "artifact_name": "D1_CLAIM_EVOLUTION_MATRIX.json",
+      "primary_owner": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "W03",
+        "W04",
+        "D1_PAPER_EVIDENCE_PACKETS"
+      ],
+      "downstream_consumers": [
+        "W05-W10",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_PACKETS",
+      "artifact_name": "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+      "primary_owner": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "W05-W08 shards",
+        "original PDFs"
+      ],
+      "downstream_consumers": [
+        "W04",
+        "W10",
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PRIOR_ART_FAMILY_COVERAGE",
+      "artifact_name": "D1_PRIOR_ART_FAMILY_COVERAGE.json",
+      "primary_owner": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "W09 registers",
+        "repository evidence",
+        "search log"
+      ],
+      "downstream_consumers": [
+        "D1_PRIOR_ART_THREAT_MATRIX",
+        "W12"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PRIOR_ART_THREAT_MATRIX",
+      "artifact_name": "D1_PRIOR_ART_THREAT_MATRIX.json",
+      "primary_owner": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "family coverage",
+        "candidate register",
+        "packets"
+      ],
+      "downstream_consumers": [
+        "D1_UNRESOLVED_THREAT_REGISTER",
+        "W12"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_NON_NOVELTY_REGISTER",
+      "artifact_name": "D1_NON_NOVELTY_REGISTER.json",
+      "primary_owner": "W09",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "W04",
+        "packets",
+        "prior art"
+      ],
+      "downstream_consumers": [
+        "D1_NOVELTY_CANDIDATE_REGISTER",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_NOVELTY_CANDIDATE_REGISTER",
+      "artifact_name": "D1_NOVELTY_CANDIDATE_REGISTER.json",
+      "primary_owner": "W09",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "claim matrix",
+        "non-novelty register",
+        "packets"
+      ],
+      "downstream_consumers": [
+        "W10",
+        "W12",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_CONTRADICTION_REGISTER",
+      "artifact_name": "D1_CONTRADICTION_REGISTER.json",
+      "primary_owner": "W11",
+      "reconciliation_owner": "S9",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "all source chains",
+        "worker outputs"
+      ],
+      "downstream_consumers": [
+        "HG-03",
+        "S13",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_K1_K9_FALSIFICATION_MATRIX",
+      "artifact_name": "D1_K1_K9_FALSIFICATION_MATRIX.json",
+      "primary_owner": "W12",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "candidate register",
+        "threat matrix",
+        "frozen criteria"
+      ],
+      "downstream_consumers": [
+        "HG-05",
+        "S14",
+        "S15"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_UNRESOLVED_THREAT_REGISTER",
+      "artifact_name": "D1_UNRESOLVED_THREAT_REGISTER.json",
+      "primary_owner": "W10",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "threat matrix",
+        "search log"
+      ],
+      "downstream_consumers": [
+        "W12",
+        "HG-07"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PROVENANCE_QA",
+      "artifact_name": "D1_PROVENANCE_QA.json",
+      "primary_owner": "W11",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "all thesis-critical claims",
+        "packets",
+        "PDFs"
+      ],
+      "downstream_consumers": [
+        "HG-02",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_FINAL_EVIDENCE_MAP",
+      "artifact_name": "D1_FINAL_EVIDENCE_MAP.json",
+      "primary_owner": "S14",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "all stable registers",
+        "K matrix",
+        "human clearance"
+      ],
+      "downstream_consumers": [
+        "S15",
+        "HG-10"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_RED_TEAM_MATRIX",
+      "artifact_name": "D1_RED_TEAM_MATRIX.json",
+      "primary_owner": "W12",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "candidate register",
+        "threats",
+        "K matrix"
+      ],
+      "downstream_consumers": [
+        "HG-08",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_THRESHOLD_FREEZE_REGISTER",
+      "artifact_name": "D1_THRESHOLD_FREEZE_REGISTER.json",
+      "primary_owner": "W11",
+      "reconciliation_owner": "S11",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "candidate outputs",
+        "pre-error criteria",
+        "timing"
+      ],
+      "downstream_consumers": [
+        "HG-06",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "artifact_name": "D1_HUMAN_REVIEW_CLEARANCE.json",
+      "primary_owner": "W11",
+      "reconciliation_owner": "S13",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "triggered reviews",
+        "source evidence",
+        "routes"
+      ],
+      "downstream_consumers": [
+        "HG-09",
+        "S14"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_SEARCH_DECISION_LOG",
+      "artifact_name": "D1_SEARCH_DECISION_LOG.json",
+      "primary_owner": "W10",
+      "reconciliation_owner": "S10",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "repository evidence",
+        "named gap",
+        "frozen K criteria"
+      ],
+      "downstream_consumers": [
+        "HG-14",
+        "S10"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_REVISION_ROUTING_MATRIX",
+      "artifact_name": "D1_REVISION_ROUTING_MATRIX_V5.json",
+      "primary_owner": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "A4 routes",
+        "hard gates"
+      ],
+      "downstream_consumers": [
+        "W11",
+        "all gates"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_HARD_GATE_MATRIX",
+      "artifact_name": "D1_HARD_GATE_MATRIX.json",
+      "primary_owner": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "all gate inputs",
+        "routing matrix"
+      ],
+      "downstream_consumers": [
+        "S15",
+        "S16"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_K_CRITERIA_REGISTER",
+      "artifact_name": "D1_K_CRITERIA_REGISTER.json",
+      "primary_owner": "S9",
+      "reconciliation_owner": "S9",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "D1 objective",
+        "K1-K9 definitions",
+        "human review"
+      ],
+      "downstream_consumers": [
+        "W10",
+        "W12",
+        "HG-04"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_HARD_GATE_ROUTING_QA",
+      "artifact_name": "D1_HARD_GATE_ROUTING_QA.json",
+      "primary_owner": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "hard gate matrix",
+        "routing matrix"
+      ],
+      "downstream_consumers": [
+        "HG-15",
+        "re-audit"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "FINAL_D1_NOVELTY_ADJUDICATION",
+      "artifact_name": "FINAL_D1_NOVELTY_ADJUDICATION.json",
+      "primary_owner": "S15",
+      "reconciliation_owner": "S15",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "final evidence map",
+        "all gates",
+        "human clearance"
+      ],
+      "downstream_consumers": [
+        "mentor workflow downstream"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "FINAL_D1_NOVELTY_ADJUDICATION_MD",
+      "artifact_name": "FINAL_D1_NOVELTY_ADJUDICATION.md",
+      "primary_owner": "S15",
+      "reconciliation_owner": "S15",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "final adjudication JSON"
+      ],
+      "downstream_consumers": [
+        "mentor workflow downstream"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W05",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W05.jsonl",
+      "primary_owner": "W05",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "assigned PDFs"
+      ],
+      "downstream_consumers": [
+        "W09"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W06",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W06.jsonl",
+      "primary_owner": "W06",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "assigned PDFs"
+      ],
+      "downstream_consumers": [
+        "W09"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W07",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W07.jsonl",
+      "primary_owner": "W07",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "assigned PDFs"
+      ],
+      "downstream_consumers": [
+        "W09"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_PAPER_EVIDENCE_SHARD_W08",
+      "artifact_name": "D1_PAPER_EVIDENCE_SHARD_W08.jsonl",
+      "primary_owner": "W08",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "upstream_inputs": [
+        "assigned PDFs"
+      ],
+      "downstream_consumers": [
+        "W09"
+      ],
+      "write_permission": "CREATE"
+    },
+    {
+      "artifact_id": "D1_EXECUTION_PACKAGE_MANIFEST",
+      "artifact_name": "D1_PLAN_PACKAGE_MANIFEST_V5.json",
+      "primary_owner": "S16",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "upstream_inputs": [
+        "all required artifacts",
+        "directories",
+        "gate rows"
+      ],
+      "downstream_consumers": "re-audit",
+      "write_permission": "CREATE"
+    }
+  ]
+}

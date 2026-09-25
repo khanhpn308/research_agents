@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "SCOPE_LOCK",
+  "canonical_filename": "scope_lock.json",
+  "worker_id": "W01",
+  "stage": "S0",
+  "task_id": "D1-E1-W01",
+  "plan_version": "V6",
+  "created_at": "2026-09-25T23:44:30+07:00",
+  "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+  "repository_branch": "main",
+  "execution_status": "LOCKED_FOR_EXECUTION",
+  "selected_direction": {
+    "direction_id": "D1_M1",
+    "decision": "LOCK_WITH_FEASIBILITY_GATE",
+    "confidence": "medium",
+    "working_title_en": "Experimental Assessment of the Validity and Breakdown of a Continuum Model for Vacuum Layer-Jamming Beams",
+    "working_title_vi": "Đánh giá thực nghiệm giới hạn hiệu lực và sự mất hiệu lực của mô hình liên tục cho dầm kẹt lớp chân không",
+    "reduced_model_m1": {
+      "citation": "Zhang et al., A continuum-based model for a layer jamming beam, Mech. Sci., 16, 821-2025",
+      "doi": "10.5194/ms-16-821-2025",
+      "paper_id": "95646b2cfc",
+      "full_text_path": "data/papers/verification/D1-V002/2025-A continuum-based model for a layer jamming beam.pdf"
+    },
+    "scientific_architecture": "M -> R -> E",
+    "research_question": "Across a declared range of layer count, vacuum pressure, and quasi-static bending severity, for which measurable outputs and operating conditions does the Zhang et al. continuum layer-jamming beam model meet predeclared, justified error tolerances against a verified full-layer frictional-contact reference and independent experiments, and which contact or slip mechanisms explain failures?",
+    "scientific_hypothesis": "M1's output-specific error will generally grow as finite-layer discreteness and slip or contact-pressure redistribution become important, yielding experimentally resolvable validity and breakdown regions. The predicted trend and boundary are testable and may be rejected."
+  },
+  "canonical_authority": {
+    "plan_path": "outputs/plans/D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md",
+    "plan_version": "V6",
+    "approval_source": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V6.md",
+    "approval_verdict": "APPROVED_FOR_EXECUTION",
+    "precedence_rule": "V6 canonical worker/stage contracts > V6 derived ownership graph > V6 package manifest; V1-V5 are historical records.",
+    "preflight_report": "outputs/execution/D1/D1_EXECUTION_KICKOFF_V6.md",
+    "preflight_json": "outputs/execution/D1/D1_EXECUTION_PREFLIGHT_V6.json",
+    "preflight_verdict": "PASS"
+  },
+  "scope_boundaries": {
+    "in_scope": [
+      "D1/M1 novelty reconstruction and falsification execution",
+      "Model validity / model-form error boundary determination",
+      "Deterministic lineage tracking and claim evolution",
+      "Prior-art threat evaluation against 2025-2026 literature",
+      "K1-K9 falsification criteria evaluation",
+      "Threshold freeze before visible validation data",
+      "Adversarial red-team critique and provenance QA",
+      "Adjudication within negative or conditional survival space"
+    ],
+    "out_of_scope": [
+      "MP1 evaluation or reopen (archived viable alternative, closed under MP1-V002)",
+      "D1 vs MP1 cross-direction comparison during D1 execution",
+      "Mentor persuasion or topic re-ranking",
+      "Thesis execution beyond novelty audit (no physical beam fabrication/experimentation in this workflow)",
+      "Direct CAD apparatus manufacturing",
+      "Broad literature search without a named trigger",
+      "Independent novelty adjudication by individual workers W01-W14"
+    ]
+  },
+  "inference_controls": {
+    "allowed_inference": "Verify paths, hashes, scope and repository identity.",
+    "forbidden_inference": [
+      "Must not interpret papers, novelty or scientific validity.",
+      "Absence of discovered prior art must not be inferred as global novelty.",
+      "Correlation must not be inferred as mechanism.",
+      "Better curve fit must not be inferred as mechanics validity.",
+      "Technical implementation difference must not be inferred as scientific novelty."
+    ],
+    "must_not_conclude": "Must not interpret papers, novelty or scientific validity; must not issue final novelty adjudication; must not declare D1 novel or not novel; must not compare D1 with MP1."
+  },
+  "governance_links": {
+    "ownership_matrix": "outputs/plans/D1_ARTIFACT_OWNERSHIP_MATRIX_V6.json",
+    "worker_failure_routing": "outputs/plans/D1_WORKER_FAILURE_ROUTING_MATRIX.json",
+    "hard_gate_matrix": "outputs/plans/D1_HARD_GATE_MATRIX_V6.json",
+    "downstream_consumer": "S1 / W02",
+    "handoff_gate": "HG-11"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "worker_id": "W2-04-11",
+  "task": "Provenance, completeness and contradiction QA",
+  "status": "PASS",
+  "checks": {
+    "paper_count_check": {
+      "expected": 16,
+      "actual": 16,
+      "status": "PASS"
+    },
+    "paper_id_uniqueness": {
+      "unique_ids": 16,
+      "duplicate_ids": 0,
+      "status": "PASS"
+    },
+    "pdf_mapping_verification": {
+      "total_mapped": 16,
+      "missing_pdfs": 0,
+      "all_verified_on_disk": true,
+      "status": "PASS"
+    },
+    "schema_completeness": {
+      "required_fields_present_in_all_records": true,
+      "page_level_evidence_present": true,
+      "limitations_recorded": true,
+      "what_it_proves_and_does_not_prove_distinct": true,
+      "status": "PASS"
+    },
+    "mandatory_historical_corrections": {
+      "carboni_2015_s2a_vs_s1a": {
+        "verified": true,
+        "s2a_correctly_identified_as_steel": true,
+        "s1a_correctly_identified_as_niti_tension_bending": true,
+        "pure_bending_niti_claims_expunged": true,
+        "status": "PASS"
+      },
+      "reedlunn_2013_conservative_stance": {
+        "verified": true,
+        "costello_failure_attributed_to_local_moments": true,
+        "contact_indentations_identified_as_manufacturing_artifacts": true,
+        "no_unsupported_h1_claims": true,
+        "status": "PASS"
+      },
+      "fang_2019_conservative_stance": {
+        "verified": true,
+        "axial_tension_nature_clarified": true,
+        "rc_bridge_pier_1_4m_column_corrected": true,
+        "macromodel_parsimony_threat_recognized": true,
+        "status": "PASS"
+      },
+      "active_pressure_interpretation": {
+        "verified": true,
+        "demoted_to_boundary_condition_p_t": true,
+        "not_claimed_as_novel_constitutive_principle": true,
+        "status": "PASS"
+      },
+      "h0_logic_integrity": {
+        "verified": true,
+        "h0a_rejection_does_not_imply_h1": true,
+        "h0b_preserved_as_live_competitor": true,
+        "status": "PASS"
+      }
+    },
+    "contradiction_management": {
+      "imported_contradictions": [
+        "CONTRA-01",
+        "CONTRA-02",
+        "CONTRA-03",
+        "CONTRA-04",
+        "CONTRA-05"
+      ],
+      "all_statuses_open": true,
+      "silent_reconciliations": 0,
+      "status": "PASS"
+    },
+    "scope_lock_compliance": {
+      "new_literature_search_conducted": false,
+      "new_papers_added": false,
+      "novelty_adjudicated": false,
+      "d1_analyzed": false,
+      "d1_mp1_compared": false,
+      "canonical_files_modified": false,
+      "status": "PASS"
+    }
+  },
+  "overall_qa_verdict": "PASS"
+}

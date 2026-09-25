@@ -1,0 +1,39 @@
+{
+  "matrix_id": "D1_V4_TO_V5_REMEDIATION_MATRIX",
+  "source_audit": "D1_MASTER_PLAN_REAUDIT_V4",
+  "source_plan": "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V4",
+  "target_plan": "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V5",
+  "records": [
+    {
+      "audit_revision_id": "A4-HI-01",
+      "severity": "HIGH",
+      "audit_problem": "W01-W12 readiness was overclaimed because all declared output directories were absent and required control/final artifacts lacked an explicit owner.",
+      "problem": "W01-W12 readiness was overclaimed because all declared output directories were absent and required control/final artifacts lacked an explicit owner.",
+      "audit_required_change": "Create the twelve physical worker directories, add explicit existence and contract/ownership checks, make false directory or ownership checks force execution_ready=false, and assign every required control/final artifact to an explicit worker or named stage.",
+      "V1_location": "V4 §38 and D1_WORKER_EXECUTION_READINESS_MATRIX.json",
+      "V2_change": "Created physical W01-W12 directories, added explicit structural checks, and assigned worker-owned or stage-owned control/final artifacts.",
+      "V2_location": "D1_WORKER_EXECUTION_READINESS_MATRIX_V5.json; D1_ARTIFACT_OWNERSHIP_MATRIX.json; V5 §V5-Workers",
+      "resolved": true,
+      "residual_risk": "Runtime contents remain absent until a separately authorized execution; structural readiness is not scientific execution.",
+      "remaining_risk": "Runtime contents remain absent until a separately authorized execution; structural readiness is not scientific execution.",
+      "validation_test": "All twelve Test-Path checks true; all structural booleans true; every required artifact has one owner; launch_authorization=false."
+    },
+    {
+      "audit_revision_id": "A4-HI-02",
+      "severity": "HIGH",
+      "audit_problem": "HG-01-HG-10 lacked return routes and HG-11-HG-15 were prose-only, so no complete machine-checkable fifteen-gate matrix existed.",
+      "problem": "HG-01-HG-10 lacked return routes and HG-11-HG-15 were prose-only, so no complete machine-checkable fifteen-gate matrix existed.",
+      "audit_required_change": "Create JSON and Markdown matrices containing exactly HG-01 through HG-15 with required inputs, required artifacts, machine checks, pass/fail conditions, blocked stage, exact return route and re-entry stage, owner, human-review fields and status; add route-consistency QA.",
+      "V1_location": "V4 §41 and D1_MASTER_PLAN_REAUDIT_V4.md §§K,S",
+      "V2_change": "Created exactly fifteen complete hard-gate rows, fifteen route-consistency QA rows, and a versioned routing matrix with exact re-entry stages.",
+      "V2_location": "D1_HARD_GATE_MATRIX.json/.md; D1_HARD_GATE_ROUTING_QA.json; D1_REVISION_ROUTING_MATRIX_V5.json; V5 §V5-Hard-Gates",
+      "resolved": true,
+      "residual_risk": "Gate statuses remain NOT_REACHED before execution; the remediation proves control completeness only.",
+      "remaining_risk": "Gate statuses remain NOT_REACHED before execution; the remediation proves control completeness only.",
+      "validation_test": "Gate ID set exactly HG-01..HG-15; all required fields present; every route resolves and re-enters through a named gate."
+    }
+  ],
+  "critical_count": 0,
+  "high_count": 2,
+  "unresolved_critical_high_count": 0
+}

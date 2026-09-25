@@ -1,0 +1,114 @@
+{
+  "worker_id": "W2-03-11",
+  "task": "Cross-worker contradiction, provenance and schema QA",
+  "status": "PASS",
+  "checks": {
+    "targets_presence_and_separation": {
+      "expected_targets": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "observed_targets": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "targets_merged": false,
+      "status": "PASS"
+    },
+    "hypotheses_presence_and_separation": {
+      "expected_hypotheses": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "observed_hypotheses": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "hypotheses_merged": false,
+      "forbidden_logic_error_detected": {
+        "h0a_rejection_implies_h1": false,
+        "note": "H0a rejection is explicitly decoupled from H1; H0b is preserved as competitor null hypothesis."
+      },
+      "status": "PASS"
+    },
+    "git_commit_verification": {
+      "commits_checked": [
+        "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+        "3d152e951711a15d9f86946df99f22785a8be9a4",
+        "1a5e1f20072cf7fe0e969feb1ab868a20138c1d7",
+        "8494d02ff7c1c57184ab5770baf006bc79d4ddbb",
+        "e9685a65263635cffd4d946e8763c3417b59eb0d",
+        "748c943afecae0a0d1157eaa6ab192ed55aeb57f",
+        "8ccfa3c31d19dde1c87f5653b401fd2afb5d786d",
+        "3a216d680b6e5d4c263121afee0577ac86e530ac",
+        "14444e5a62786c4c7c649d7f249a63c0dacd93c7",
+        "313cdf2e5e0f6fae5383f83f631787a9fa1a88a9",
+        "73b635433237f2682accd4b7799c566fe1e80871",
+        "0ade68e73d93c38618b366a000ac7a01215a3936"
+      ],
+      "unresolved_commits": 0,
+      "fabricated_commits": 0,
+      "status": "PASS"
+    },
+    "parameter_origin_audit": {
+      "parameter_count": 7,
+      "required_fields_present": [
+        "parameter",
+        "value_or_range",
+        "origin",
+        "measured",
+        "calibrated",
+        "literature_fixed",
+        "floating",
+        "frozen_before_validation",
+        "uncertainty",
+        "compensation_risk",
+        "source"
+      ],
+      "all_fields_complete": true,
+      "status": "PASS"
+    },
+    "coexistence_status_audit": {
+      "controlled_enum_used": "COEXISTENCE_CONDITIONALLY_ACCESSIBLE",
+      "regimes_defined": [
+        "NEITHER",
+        "SLIP_ONLY",
+        "COEXISTENCE"
+      ],
+      "slip_only_collapse_noted": true,
+      "status": "PASS"
+    },
+    "identifiability_status_audit": {
+      "controlled_enum_used": "PARTIALLY_IDENTIFIABLE",
+      "global_measurement_verdict": "NON_IDENTIFIABLE",
+      "confounding_mechanisms_mapped": 4,
+      "status": "PASS"
+    },
+    "contradiction_management": {
+      "imported_contradictions": [
+        "CONTRA-02",
+        "CONTRA-03",
+        "CONTRA-04",
+        "CONTRA-05"
+      ],
+      "silent_reconciliations": 0,
+      "all_statuses_open": true,
+      "status": "PASS"
+    },
+    "scope_lock_compliance": {
+      "new_literature_search_conducted": false,
+      "new_papers_added": false,
+      "h1_claimed_true": false,
+      "h0b_claimed_false": false,
+      "d1_analyzed": false,
+      "d1_mp1_compared": false,
+      "canonical_files_modified": false,
+      "status": "PASS"
+    }
+  },
+  "overall_qa_verdict": "PASS"
+}

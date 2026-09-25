@@ -1,0 +1,136 @@
+{
+  "worker_id": "W2-06-10",
+  "task": "Remediation workers W09–W11 reconstruction",
+  "status": "COMPLETE",
+  "worker_count": 3,
+  "workers": [
+    {
+      "worker_id": "W09",
+      "worker_question": "Làm thế nào để xây dựng thang bậc độ tin cậy mô hình và giải quyết hiện tượng bù trừ tham số (parameter confounding) trong bài toán khớp uốn?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W10_FANG_2019_PARAMETER_SUBSTITUTION.md",
+        "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "papers_reviewed": [
+        "2f7fcf2f8f",
+        "9e15094d68",
+        "53200aa0c6"
+      ],
+      "claims_repaired": [
+        "C7"
+      ],
+      "targets_repaired": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G06",
+        "G08"
+      ],
+      "evidence_produced": "Xây dựng Thang bậc 5 tầng: T1 (Formulation) -> T2 (Verification số) -> T3 (Calibration khớp đường cong) -> T4 (Validation với tham số bị khóa) -> T5 (Nhận diện nhân quả). Phân tích tích số mu * alpha_trans.",
+      "result": "Ban hành Quy tắc Khóa tham số tuyệt đối (Locked Calibration Rule): Cấm thả nổi tham số ma sát và truyền lực để ép khớp đường cong uốn; yêu cầu kiểm tra tính duy nhất của nghiệm.",
+      "remaining_uncertainty": "Mức độ nhạy của mô hình đối với sai số đo đạc thực nghiệm các tham số vật liệu độc lập.",
+      "corrected_interpretation": "Khớp đường cong thực nghiệm chỉ đạt Tầng 3; một mô hình chỉ có giá trị khoa học kiểm chứng khi đạt Tầng 4 và Tầng 5.",
+      "evidence_status": "model_credibility_hierarchy_established",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W09_MODEL_VALIDATION_CREDIBILITY.md#L1-L185"
+    },
+    {
+      "worker_id": "W10",
+      "worker_question": "Làm thế nào để diễn giải bảo thủ các kết quả của Reedlunn et al. (2013) và Fang et al. (2019), ngăn chặn việc suy diễn sai lệch phạm vi cơ học?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W09_REEDLUNN_2013_DEEP_AUDIT.md",
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W10_FANG_2019_PARAMETER_SUBSTITUTION.md",
+        "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "papers_reviewed": [
+        "fac21c950e",
+        "2f7fcf2f8f"
+      ],
+      "claims_repaired": [
+        "C7"
+      ],
+      "targets_repaired": [
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G07",
+        "G08"
+      ],
+      "evidence_produced": "Phân tích giới hạn động học trong Reedlunn: Thất bại của mô hình Costello xuất phát từ góc xoắn dốc ở lớp ngoài cáp 1x27 bỏ qua uốn/xoắn cục bộ. Phân tích mô hình sợi Fang: OpenSees bỏ qua ma sát tiếp xúc vi mô cục bộ.",
+      "result": "Khắc phục triệt để các suy diễn quá đà: Không dùng lỗi động học của cáp xoắn để biện hộ cho nhu cầu lý thuyết bó dây thẳng; thừa nhận khả năng mô phỏng vĩ mô tốt của mô hình sợi OpenSees.",
+      "remaining_uncertainty": "Khả năng mở rộng mô hình sợi OpenSees sang bài toán có áp suất pháp tuyến biến thiên lớn.",
+      "corrected_interpretation": "Cả hai công trình đều có phạm vi hiệu lực riêng biệt; không được bóp méo kết quả của tác giả tiền nhiệm để tạo khoảng trống nghiên cứu giả.",
+      "evidence_status": "conservative_interpretation_enforced",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W10_REEDLUNN_FANG_CONSERVATIVE_REMEDIATION.md#L1-L150"
+    },
+    {
+      "worker_id": "W11",
+      "worker_question": "Làm thế nào để đánh giá khách quan trạng thái bao phủ trích dẫn, xử lý việc chưa đạt điều kiện dừng tìm kiếm, và bảo toàn tính toàn vẹn dữ liệu nguồn?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md",
+        "outputs/verification/MP1-V002/citation_coverage.json (commit 8ccfa3c)",
+        "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "papers_reviewed": [
+        "00414aac4b",
+        "fac21c950e",
+        "40760daa02",
+        "2f7fcf2f8f",
+        "7f3f45407f",
+        "1c81b2d35c",
+        "9f4295be23",
+        "56793dea9b",
+        "d9966f2f5e",
+        "9e15094d68",
+        "53200aa0c6",
+        "98fee47c04",
+        "aaad9c248c",
+        "ccdc1bb980",
+        "e8462758c3",
+        "6dd1ca94d1"
+      ],
+      "claims_repaired": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "targets_repaired": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G10",
+        "G11"
+      ],
+      "evidence_produced": "Đối soát 15 hướng trích dẫn bắt buộc; xác nhận điều kiện dừng chưa thỏa mãn (stop_condition_satisfied = false); thiết lập cơ chế ghi nhận tính mới thận trọng.",
+      "result": "Chuyển toàn bộ các phát biểu về 'khoảng trống nghiên cứu' thành 'giả thuyết còn sống sót tạm thời' (PROVISIONALLY SURVIVING HYPOTHESIS); nghiêm cấm kết luận tính mới tuyệt đối.",
+      "remaining_uncertainty": "Các nhánh trích dẫn sâu hơn có thể tiếp tục thu hẹp hoặc bác bỏ giả thuyết còn lại.",
+      "corrected_interpretation": "Tính mới chỉ có giá trị tương đối trong phạm vi tập bằng chứng đã khảo sát; quy trình kiểm chứng phải mở và sẵn sàng bị phản biện.",
+      "evidence_status": "stop_condition_transparently_acknowledged",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W11_CITATION_COVERAGE_QA.md#L1-L140"
+    }
+  ]
+}

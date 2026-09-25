@@ -1,0 +1,144 @@
+{
+  "worker_id": "W2-05-05",
+  "task": "Backward branch B12 and historical B10 reconciliation",
+  "status": "COMPLETE",
+  "branches_reconstructed": [
+    {
+      "branch_id": "B12",
+      "direction": "BACKWARD",
+      "required": true,
+      "historical_or_canonical": "CANONICAL",
+      "anchor_key": "doi:10.1016/j.engstruct.2024.119217",
+      "anchor_title": "A new mechanical model of short wire ropes: Theory and experimental validation",
+      "anchor_paper_id": "9f4295be23",
+      "anchor_DOI": "10.1016/j.engstruct.2024.119217",
+      "target_ids": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "database": "Scopus",
+      "search_date": "2026-09-25",
+      "search_cutoff_date": "2026-09-25",
+      "query_family": "REFLIST(Barsi2025)",
+      "source_export_files": [
+        "data/search_exports/MP1-V002/raw/backward/B12_barsi.csv"
+      ],
+      "source_commit": "14444e5",
+      "raw_record_count": 46,
+      "unique_record_count": 46,
+      "screened_record_count": 46,
+      "included_candidate_ids": [
+        "d9966f2f5e",
+        "40760daa02",
+        "fac21c950e"
+      ],
+      "excluded_candidate_count": 43,
+      "uncertain_candidate_count": 0,
+      "high_threat_candidate_ids": [
+        "d9966f2f5e",
+        "40760daa02",
+        "fac21c950e"
+      ],
+      "resolved_high_threat_source_ids": [
+        "Carboni et al. 2015 (d9966f2f5e)",
+        "Carboni and Lacarbonara 2016 (40760daa02)",
+        "Reedlunn et al. Part II 2013 (fac21c950e)"
+      ],
+      "unresolved_high_threat_source_ids": [],
+      "branch_status": "SCREENED_CANDIDATES_FOUND",
+      "stop_receipt": "STOP_RECEIPT_B12_20260925_SCOPUS",
+      "canonical_coverage_status": "screened_candidates_found",
+      "historical_status": "SCREENED",
+      "current_canonical_status": "CLOSED",
+      "claim_ids_affected": [
+        "C1",
+        "C3",
+        "C4",
+        "C5",
+        "C7",
+        "C8"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "what_branch_proves": "Short wire rope bending theory resolves internal normal force and slip transitions directly from applied tension and bending curvature; no actively varied external pressure is utilized.",
+      "what_branch_does_not_prove": "Does not prove global novelty.",
+      "evidence_status": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": "data/search_exports/MP1-V002/raw/backward/B12_barsi.csv"
+    },
+    {
+      "branch_id": "B10",
+      "direction": "BACKWARD",
+      "required": false,
+      "historical_or_canonical": "HISTORICAL_AUXILIARY",
+      "anchor_key": "historical:b10_sma_cable_lineage",
+      "anchor_title": "Historical SMA Cable Lineage Exploration (Reedlunn Part I / Niu & Chen background)",
+      "anchor_paper_id": "HISTORICAL_B10",
+      "anchor_DOI": "UNKNOWN",
+      "target_ids": [
+        "T1",
+        "T3"
+      ],
+      "database": "Scopus",
+      "search_date": "2026-09-25",
+      "search_cutoff_date": "2026-09-25",
+      "query_family": "REFLIST(Historical_SMA_Cable)",
+      "source_export_files": [
+        "data/search_exports/MP1-V002/raw/backward/B10.csv",
+        "data/search_exports/MP1-V002/new_13paper_chase/backward/B10.csv"
+      ],
+      "source_commit": "2bbc2bc",
+      "raw_record_count": 28,
+      "unique_record_count": 28,
+      "screened_record_count": 28,
+      "included_candidate_ids": [],
+      "excluded_candidate_count": 28,
+      "uncertain_candidate_count": 0,
+      "high_threat_candidate_ids": [],
+      "resolved_high_threat_source_ids": [],
+      "unresolved_high_threat_source_ids": [],
+      "branch_status": "NOT_REQUIRED",
+      "stop_receipt": "STOP_RECEIPT_B10_HISTORICAL_AUXILIARY",
+      "canonical_coverage_status": "not_screened",
+      "historical_status": "SCREENED_IN_13PAPER_CHASE",
+      "current_canonical_status": "HISTORICAL_AUXILIARY_PRESERVED",
+      "claim_ids_affected": [
+        "C1",
+        "C4",
+        "C5"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a"
+      ],
+      "what_branch_proves": "Recovers early TiNi crystallography and general SMA constitutive literature without active pneumatic confinement.",
+      "what_branch_does_not_prove": "Does not alter the canonical 9-backward denominator.",
+      "evidence_status": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": "data/search_exports/MP1-V002/raw/backward/B10.csv"
+    }
+  ],
+  "summary": {
+    "B12_records": 46,
+    "B10_records": 28,
+    "B11_plus_B12_raw": 68,
+    "B11_plus_B12_unique": 67,
+    "duplicate_between_B11_and_B12": {
+      "DOI": "10.1061/(ASCE)EM.1943-7889.0000852",
+      "title": "Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification"
+    },
+    "canonical_status": "B12 is required branch #9; B10 is historical auxiliary preserved outside canonical denominator."
+  }
+}

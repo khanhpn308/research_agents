@@ -1,0 +1,124 @@
+{
+  "worker_id": "W2-06-05",
+  "task": "Astra critique G01–G04 reconstruction",
+  "status": "COMPLETE",
+  "critique_count": 4,
+  "critiques": [
+    {
+      "critique_id": "G01",
+      "original_weakness": "H0 chưa được định nghĩa nhất quán: Bác bỏ mô-đun đàn hồi hằng số (naive substitution) không đồng nghĩa với việc các mô hình NiTi cấu thành - tiếp xúc hiện hữu bị thất bại hay cần coupling mới.",
+      "scientific_severity": "CRITICAL",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "Audit JSON, W08-W10; Vahidi 2022 (53200aa0c6); Fang 2019 (2f7fcf2f8f)",
+      "astras_reasoning": "Mô hình NiTi phi tuyến ghép tiếp xúc Coulomb đã tồn tại trong Abaqus UMAT (Vahidi 2022). Việc bác bỏ mô-đun hằng chỉ loại trừ mô hình đàn hồi sơ đẳng H0a, hoàn toàn chưa thử thách mô hình NiTi phi tuyến hiện có H0b.",
+      "required_remediation": "Tách H0 thành 3 tầng rõ rệt: H0a (đàn hồi hằng số), H0b (mô hình NiTi phi tuyến + Coulomb hiện hữu), và H1 (lý thuyết ghép cặp vi mô mới); kiểm tra độc lập cả hai baseline.",
+      "remediation_worker_ids": [
+        "W07",
+        "W02",
+        "W03"
+      ],
+      "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+      "residual_risk": "H0b chưa bị bác bỏ bởi thực nghiệm uốn; nguy cơ các mô hình phần tử hữu hạn thương mại hiện có vẫn mô tả đầy đủ mà không cần phát triển lý thuyết mới.",
+      "historical_status": "H0 bị gộp chung; phán quyết bác bỏ H0a bị đánh đồng với việc xác lập H1.",
+      "current_interpretation": "H0a bị bác bỏ dứt điểm (REFUTED); H0b chưa bị bác bỏ (NOT FALSIFIED); H1 chưa đủ bằng chứng (INSUFFICIENT).",
+      "evidence_status": "partially_repaired_with_conceptual_split",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L30-L37"
+    },
+    {
+      "critique_id": "G02",
+      "original_weakness": "P3 đang được xem gần như một cơ chế mới chỉ vì áp suất điều chỉnh được: Thay đổi điều kiện biên từ hằng số sang biến thiên theo thời gian $p(t)$ có thể không cần phương trình cơ học mới.",
+      "scientific_severity": "CRITICAL",
+      "claim_affected": [
+        "C6"
+      ],
+      "target_affected": [
+        "T2"
+      ],
+      "hypothesis_affected": [
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "W07; Tjahjanto 2017 (ccdc1bb980); Xin Liu 2004/2013 (aaad9c248c); Barsi 2025 (9f4295be23)",
+      "astras_reasoning": "Các phương trình tiếp xúc dầm vi phân trong Tjahjanto 2017 và Xin Liu 2013 đều tự nhiên tiếp nhận áp suất pháp tuyến biến thiên $p(t)$ theo từng bước gia số tải mà không làm thay đổi định luật cấu thành vật lý.",
+      "required_remediation": "Kiểm tra trực tiếp các phương trình vi phân tiếp xúc hiện hữu; hạ cấp P3 từ một cơ chế cơ học mới thành một giao thức điều khiển thực nghiệm (experimental protocol).",
+      "remediation_worker_ids": [
+        "W05",
+        "W02"
+      ],
+      "remediation_status": "REPAIRED",
+      "residual_risk": "Áp suất biến thiên nhanh có thể gây trễ động học chất lưu trong màng bao, cần kiểm chứng thực nghiệm riêng.",
+      "historical_status": "P3 được xem là trụ cột tính mới độc lập tạo ra cơ học mới.",
+      "current_interpretation": "P3 chỉ là điều kiện biên thay đổi theo thời gian; không tạo ra định luật vật lý mới.",
+      "evidence_status": "repaired_by_downgrade_to_boundary_condition",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L38-L44"
+    },
+    {
+      "critique_id": "G03",
+      "original_weakness": "Chưa chứng minh chuyển pha và inter-wire slip cùng hoạt động trong miền vận hành dự kiến: Nếu chỉ một cơ chế kích hoạt, lập luận ghép cặp sụp đổ về kẹt dây đàn hồi hoặc dầm siêu đàn hồi liền khối.",
+      "scientific_severity": "CRITICAL",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "Chưa có phép thử áp suất - uốn tương ứng trong bằng chứng đã kiểm tra; các mô hình uốn giả định sẵn chuyển pha.",
+      "astras_reasoning": "Ngưỡng trượt $\\kappa_{\\text{slip}}$ và ngưỡng chuyển pha $\\kappa_{\\text{tr}}$ có thể phân tách rất xa. Ở biến dạng uốn nhỏ dưới 0.75%, NiTi hoàn toàn ở pha Austenite đàn hồi ($E_A$), không có chuyển pha xảy ra.",
+      "required_remediation": "Xác định độc lập ngưỡng chuyển pha và ngưỡng trượt ma sát; thiết lập điều kiện cần cho Miền Cùng Tồn Tại (Coexistence Domain) đòi hỏi uốn góc gập sâu hoặc kéo căng dọc trục.",
+      "remediation_worker_ids": [
+        "W06",
+        "W03"
+      ],
+      "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+      "residual_risk": "Trong miền uốn nhỏ thường gặp của tay gắp mềm, cơ cấu bị thoái hóa về bài toán kẹt dây đàn hồi thông thường (H0a đủ dùng).",
+      "historical_status": "Mặc định coi chuyển pha và trượt luôn luôn xảy ra đồng thời trong mọi chế độ uốn.",
+      "current_interpretation": "Sự cùng tồn tại bị giới hạn nghiêm ngặt trong miền biến dạng lớn; ở biến dạng nhỏ bài toán thoái hóa về kẹt đàn hồi.",
+      "evidence_status": "repaired_with_coexistence_domain_bounds",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L45-L52"
+    },
+    {
+      "critique_id": "G04",
+      "original_weakness": "Đáp ứng uốn vĩ mô không nhận diện riêng được các cơ chế: Đường cong $M - \\kappa$ không thể phân biệt giữa chuyển pha, ma sát trượt, biến dạng bẹp tiết diện và trượt tại ngàm.",
+      "scientific_severity": "CRITICAL",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H1"
+      ],
+      "evidence_challenged": "Carboni 2015 (d9966f2f5e); Fang 2019 (2f7fcf2f8f); Barsi 2025 (9f4295be23); Reedlunn 2013 (fac21c950e)",
+      "astras_reasoning": "Dữ liệu lực - chuyển vị vĩ mô là đại lượng tích phân không gian. Nhiều hiện tượng vật lý khác nhau (chuyển pha, trượt ma sát, trượt ngàm) đều cùng dẫn đến hiện tượng mềm hóa độ cứng (softening).",
+      "required_remediation": "Nghiêm cấm quy kết hiện tượng mềm hóa vĩ mô cho coupling NiTi; bắt buộc phải bổ sung đo đạc trạng thái cục bộ (DIC, FBG, ảnh nhiệt hồng ngoại, đo trượt đầu dây).",
+      "remediation_worker_ids": [
+        "W08"
+      ],
+      "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+      "residual_risk": "Thí nghiệm đo cục bộ trên từng sợi dây trong bó dây bọc kín dưới áp suất là cực kỳ phức tạp về mặt kỹ thuật.",
+      "historical_status": "Kỳ vọng chỉ cần đo đường cong uốn vĩ mô $M - \\kappa$ là đủ chứng minh cơ chế ghép cặp mới.",
+      "current_interpretation": "Đường cong vĩ mô không có tính nhận diện đơn nhất; phải có đối chứng cơ chế cục bộ.",
+      "evidence_status": "repaired_with_experimental_identifiability_bounds",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L53-L60"
+    }
+  ]
+}

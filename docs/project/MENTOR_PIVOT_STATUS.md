@@ -1,5 +1,6 @@
 # Mentor-Pivot Candidate — Current Status
 
+> **Historical Note:** Tài liệu này ghi lại trạng thái ban đầu trước khi chạy MP1-V001. Vòng kiểm chứng MP1-V002 đã hoàn tất (`MP1-V002 CLOSED`). Xem tài liệu cập nhật tại [`MP1_MENTOR_PIVOT_CURRENT.md`](MP1_MENTOR_PIVOT_CURRENT.md) và [`PROJECT_HANDOFF_CURRENT.md`](PROJECT_HANDOFF_CURRENT.md).
 > **Important:** this is an alternative research direction under audit. It has NOT replaced the current D1/M1 thesis.
 
 ## Mentor-proposed concept

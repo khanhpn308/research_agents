@@ -1,0 +1,63 @@
+{
+  "target_id": "T3",
+  "original_formulation": "Material coupling involving stress-induced martensitic transformation / superelastic plateau, hysteresis / recoverable strain, wire-wire contact, inter-wire slip/friction, confining pressure, structural stiffness.",
+  "scientific_purpose": "Determine whether the simultaneous occurrence of NiTi martensitic phase transformation and inter-wire frictional slip yields coupled behavior that necessitates a brand-new constitutive coupling law.",
+  "kill_condition": "Finding prior work demonstrating that existing transformation-aware constitutive models coupled with standard contact mechanics (H0b) adequately capture the response, or that coupling reduces to disjoint regimes.",
+  "papers_tested": [
+    {
+      "paper_id": "40760daa02",
+      "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+      "authors": "Carboni & Lacarbonara",
+      "year": 2016,
+      "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+      "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis.pdf",
+      "method": "Asymptotic analysis and experimental vibration testing",
+      "material_or_system": "Nonlinear absorbers with NiTi wires exhibiting friction and superelasticity",
+      "loading_mode": "Dynamic cyclic flexure",
+      "model_used": "Multi-mechanism pinched hysteresis model combining Coulomb friction and phase transformation",
+      "experiment_used": "Shaker table frequency-response tests",
+      "what_source_proves": "Proves that combining NiTi phase transformation with frictional contact creates pinched hysteresis and amplitude-dependent flexural stiffness.",
+      "what_source_does_not_prove": "Does not incorporate actively variable fluid confinement pressure."
+    },
+    {
+      "paper_id": "53200aa0c6",
+      "paper_title": "Mechanical response of single and double-helix SMA wire ropes",
+      "authors": "Vahidi et al.",
+      "year": 2022,
+      "DOI": "10.1080/15376494.2021.1955313",
+      "repository_path": "data/papers/verification/MP1-V002/2022-Mechanical response of single and double-helix SMA wire ropes.pdf",
+      "method": "Abaqus 3D FEA with Auricchio UMAT",
+      "material_or_system": "NiTi multiwire ropes",
+      "loading_mode": "Tensile loading/unloading cycles",
+      "model_used": "Standard Auricchio model + Coulomb contact",
+      "experiment_used": "Comparison with experimental hysteresis",
+      "what_source_proves": "Proves that existing transformation-aware models (H0b) coupled with Coulomb friction successfully capture the combined hysteretic response without a new coupling law.",
+      "what_source_does_not_prove": "Did not explore variable radial pressure paths."
+    }
+  ],
+  "paper_id": "40760daa02",
+  "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+  "authors": "Carboni & Lacarbonara",
+  "year": 2016,
+  "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+  "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis.pdf",
+  "method": "Asymptotic analysis and experimental vibration testing",
+  "material_or_system": "NiTi wire assemblies",
+  "loading_mode": "Dynamic cyclic flexure",
+  "model_used": "Pinched hysteresis model",
+  "experiment_used": "Shaker table tests",
+  "what_source_proves": "Directly demonstrates coupled inter-wire friction and NiTi transformation causing pinched hysteresis.",
+  "what_source_does_not_prove": "Did not examine fluid membrane confinement pressure.",
+  "initial_status": "open_in_current_full_text_set",
+  "status_after_astra": "CRITIQUED_FOR_UNVERIFIED_COEXISTENCE_AND_H0_CONFUSION",
+  "status_after_remediation": "REFORMULATED_AS_H0b_DISCRIMINATION_HYPOTHESIS",
+  "current_canonical_status": "REFORMULATED_TO_MODEL_DISCRIMINATION",
+  "final_historical_status": "NARROWED_TO_H0b_DISCRIMINATION",
+  "remaining_uncertainty": "Material coupling exists in literature; the sole open question is whether H0b is quantitatively sufficient or if a distinct coupling law H1 is required.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "provenance": {
+    "source_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W07_PARAMETER_SUBSTITUTION_H0_H1.md",
+    "commit": "3a216d680b6e5d4c263121afee0577ac86e530ac"
+  }
+}

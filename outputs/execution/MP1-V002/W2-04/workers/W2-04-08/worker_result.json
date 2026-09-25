@@ -1,0 +1,139 @@
+{
+  "worker_id": "W2-04-08",
+  "task": "Full-text extraction for papers 13\u201314 (Liu 2004 & Tjahjanto 2017)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "aaad9c248c",
+    "ccdc1bb980"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "13",
+      "paper_id": "aaad9c248c",
+      "paper_title": "Cable Vibration Considering Internal Friction",
+      "authors": [
+        "Xin Liu"
+      ],
+      "year": 2004,
+      "DOI": "10.1115/1.1767817",
+      "repository_path": "data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf",
+      "matrix_filename": "A5-Cable vibration considering internal friction.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Foundational mechanics paper on continuum modeling of inter-wire contact friction damping in vibrating cables.",
+      "threat_addressed": "Threatens T1 by proving that inter-wire friction mechanics in slender wire bundles is an established classical discipline.",
+      "claim_ids_affected": [
+        "C1",
+        "C5"
+      ],
+      "target_ids_affected": [
+        "T1"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a"
+      ],
+      "method": "Analytical continuum mechanics and boundary value problem formulation",
+      "material_or_system": "Multi-wire stranded cables and parallel wire bundles under tension",
+      "loading_mode": "Transverse flexural vibration under axial tension",
+      "control_variables": "Cable tension, vibration wavelength",
+      "independent_variables": "Inter-wire friction coefficient, normal contact pressure distribution, vibration amplitude",
+      "dependent_variables": "Modal damping ratio, energy dissipation per cycle, flexural wave attenuation",
+      "model_used": "Continuum beam-cable formulation incorporating Coulomb inter-wire friction law",
+      "constitutive_model": "Linear elastic wire material",
+      "contact_or_friction_model": "Micro-slip Coulomb contact model with shear traction boundary conditions",
+      "experiment_used": "Comparison with experimental damping measurements on bridge stay cables",
+      "experimental_setup": "Theoretical formulation validated against laboratory cable vibration test data",
+      "key_results": "Derived analytical expressions for inter-wire slip and frictional damping in cables; proved that energy dissipation is maximized at intermediate slip amplitudes and scales directly with inter-wire contact pressure.",
+      "what_it_proves": "Proves that inter-wire friction in slender wire bundles is fully treatable using continuum mechanics.",
+      "what_it_does_not_prove": "Does not involve shape memory alloys or active pressure control.",
+      "directly_verified_statements": [
+        "Internal friction between adjacent wires produces amplitude-dependent damping and flexural stiffness modulation (Section 2, pp. 2-4).",
+        "Contact pressure between wires governs the threshold amplitude required to trigger inter-wire slip (Section 3, pp. 5-7)."
+      ],
+      "inferred_statements": [
+        "Inter-wire friction mechanics in soft robotic wire bundles follows the same classical contact governing equations."
+      ],
+      "limitations": "Linear elastic steel cables only; axial tension required to generate contact pressure.",
+      "impact_on_MP1": "Demonstrates classical lineage of wire bundle friction mechanics.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 2 (pp. 1-4), Section 4 (pp. 6-8)",
+      "evidence_pointers": "Eq. (8)-(14) (inter-wire shear slip equations), Fig. 3 (damping vs vibration amplitude)",
+      "metadata_conflicts": "DOI missing in matrix, verified as ASME Journal of Applied Mechanics 2004.",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/A5-Cable vibration considering internal friction_aaad9c248c.json",
+        "pdf_path": "data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf"
+      }
+    },
+    {
+      "paper_index": "14",
+      "paper_id": "ccdc1bb980",
+      "paper_title": "Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable",
+      "authors": [
+        "Denny D. Tjahjanto",
+        "Andreas Tyrberg",
+        "David Mullins"
+      ],
+      "year": 2017,
+      "DOI": "10.1115/OMAE2017-61198",
+      "repository_path": "data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+      "matrix_filename": "A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Critical prior art on multi-element cable bending mechanics under external radial contact pressure.",
+      "threat_addressed": "Directly threatens T2 by proving that external radial contact pressure modulating flexural stiffness is prior art.",
+      "claim_ids_affected": [
+        "C2",
+        "C6"
+      ],
+      "target_ids_affected": [
+        "T2"
+      ],
+      "hypothesis_ids_affected": [
+        "H0b"
+      ],
+      "method": "Analytical formulation and finite element beam bending simulation",
+      "material_or_system": "Dynamic submarine power cables consisting of multiple metallic conductor cores and polymer fillers",
+      "loading_mode": "Cyclic lateral bending under external radial contact pressure (0.2 MPa)",
+      "control_variables": "Radial contact pressure (0.2 MPa), bending curvature",
+      "independent_variables": "External radial contact pressure, inter-component friction coefficient, bending curvature",
+      "dependent_variables": "Bending moment-curvature relationship, stick-slip threshold, effective flexural rigidity, shear stress distribution",
+      "model_used": "Stick-slip friction beam mechanics with pressure-dependent normal force",
+      "constitutive_model": "Elastic metallic conductor cores and viscoelastic/plastic filler material",
+      "contact_or_friction_model": "Coulomb friction law with radial contact pressure acting across cylindrical contact interfaces",
+      "experiment_used": "Full-scale dynamic cable bending test rig",
+      "experimental_setup": "Submarine cable clamped under external radial pressure and bent cyclically to evaluate fatigue life",
+      "key_results": "Demonstrated that external radial contact pressure increases the normal force between internal cable components, delaying the onset of slip, increasing initial flexural rigidity, and widening the hysteresis loop.",
+      "what_it_proves": "Proves that external radial confining pressure directly increases inter-element normal force and modulates flexural rigidity under bending.",
+      "what_it_does_not_prove": "Applies a constant external radial pressure rather than actively modulating pressure as a variable stiffness control parameter on NiTi.",
+      "directly_verified_statements": [
+        "External radial pressure p directly increases the contact normal force between internal cable elements, delaying the onset of slip to higher curvatures (Section 3, pp. 4-6).",
+        "The bending stiffness transitions from a high stick bound to a lower slip bound as inter-element friction is overcome (Section 4, pp. 7-9)."
+      ],
+      "inferred_statements": [
+        "In soft robotics, modulating chamber pressure p(t) is mechanically identical to varying the radial pressure boundary condition in submarine cables."
+      ],
+      "limitations": "Constant radial pressure; copper conductors rather than NiTi superelastic wires.",
+      "impact_on_MP1": "Direct basis for CONTRA-05: proves active pressure is an experimental boundary condition, closing T2 as mechanics novelty.",
+      "impact_type": "WEAKENS",
+      "page_or_section_evidence": "Section 3 (pp. 3-6), Section 4 (pp. 7-10)",
+      "evidence_pointers": "Fig. 5 (radial contact pressure schematic), Fig. 8 (moment-curvature curves under radial pressure)",
+      "metadata_conflicts": "DOI missing in matrix, verified as ASME OMAE 2017 paper.",
+      "contradiction_candidate_ids": [
+        "CONTRA-01",
+        "CONTRA-05"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable_ccdc1bb980.json",
+        "pdf_path": "data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf"
+      }
+    }
+  ]
+}

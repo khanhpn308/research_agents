@@ -1,0 +1,1386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "D1_CLAIM_EVOLUTION_MATRIX_DRAFT",
+  "canonical_filename": "D1_CLAIM_EVOLUTION_MATRIX_DRAFT.json",
+  "artifact_type": "CLAIM_TRANSITION_REGISTER_DRAFT",
+  "worker_id": "W04",
+  "stage": "S4 \u2014 CLAIM TRANSITION EXTRACTION",
+  "task_id": "D1-E1-W04",
+  "plan_version": "V6",
+  "created_at": "2026-09-26T00:18:00+07:00",
+  "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+  "execution_mode": "DETERMINISTIC",
+  "source_temporal_baseline": "outputs/d1_execution/V4/W03/D1_HISTORICAL_STATE_REGISTER.json",
+  "reconciliation_owner": "W09",
+  "QA_owner": "W11",
+  "handoff_gate": "HG-02",
+  "total_claims_identified": 11,
+  "total_transitions_extracted": 14,
+  "total_category_shifts_recorded": 3,
+  "total_superseded_interpretations_mapped": 4,
+  "total_corrected_interpretations_mapped": 2,
+  "contradictions_found": 0,
+  "human_review_triggered": false,
+  "literature_search_reopened": false,
+  "final_novelty_adjudication": "NOT_PERFORMED",
+  "claims": [
+    {
+      "claim_id": "CLM-D1-GEN",
+      "canonical_title": "Broad Layer Jamming Soft Robot Novelty Claim",
+      "initial_text": "Layer jamming for variable-stiffness continuum robots is a scientifically novel and defensible research direction.",
+      "initial_state": "HS-01-DISCOVERY",
+      "initial_category": "ARCHITECTURE",
+      "current_status": "REJECTED_PIVOTED",
+      "latest_transition": "TR-01",
+      "superseded_by_interpretation": "SUP-01",
+      "active": false
+    },
+    {
+      "claim_id": "CLM-D1-P1",
+      "canonical_title": "P1 Provisional Pivot: Homogenized Slip Model Novelty Claim",
+      "initial_text": "Developing a homogenized slip continuum model for high-layer-count vacuum-jammed beams is novel.",
+      "initial_state": "HS-02-D1-V001",
+      "initial_category": "MODEL",
+      "current_status": "SUPERSEDED_REFORMULATED",
+      "latest_transition": "TR-02",
+      "superseded_by_interpretation": "SUP-02",
+      "active": false
+    },
+    {
+      "claim_id": "CLM-D1-M1-BASELINE",
+      "canonical_title": "Adoption of Zhang et al. 2025 as Baseline M1 Model",
+      "initial_text": "Zhang et al. (2025) continuum model represents baseline M1; research must evaluate validity limits of M1 rather than inventing M1.",
+      "initial_state": "HS-03-D1-V002",
+      "initial_category": "MODEL_DISCRIMINATION",
+      "current_status": "ACTIVE_BASELINE",
+      "latest_transition": "TR-02",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-M1-SCOPE",
+      "canonical_title": "D1/M1 Output-Specific Model-Form Error Validity Domain Claim",
+      "initial_text": "Output-specific model-form error quantification across N x p_vac x kappa for vacuum-jammed beams relative to interface-resolved reference and experiments is novel.",
+      "initial_state": "HS-04-D1-V003",
+      "initial_category": "VALIDATION",
+      "current_status": "SURVIVES_TARGETED_AUDIT",
+      "latest_transition": "TR-08",
+      "plan_v6_candidate_id": "D1-CANDIDATE-M1-VALIDITY-DOMAIN",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-C01",
+      "canonical_title": "Candidate Claim C01: Vacuum Friction vs Composite Gradient Theory",
+      "initial_text": "Discrete layer friction in vacuum jamming behaves distinctly from bonded composite relative gradient theories.",
+      "initial_state": "HS-05-D1-V004-C01",
+      "initial_category": "MECHANISM",
+      "current_status": "NARROWED_ACTIVE",
+      "latest_transition": "TR-04",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-C02",
+      "canonical_title": "Candidate Claim C02: Multi-Layer Friction Contact vs 2-Layer Partial Interaction",
+      "initial_text": "Partial interaction beam models are predominantly 2-layer steel-concrete; multi-layer unbonded frictional contact with pressure-dependent slip remains open.",
+      "initial_state": "HS-06-D1-V005-C02",
+      "initial_category": "MECHANISM",
+      "current_status": "NARROWED_ACTIVE",
+      "latest_transition": "TR-05",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-C03",
+      "canonical_title": "Candidate Claim C03: Beam-Scale Validity vs Microscopic Joint Roughness",
+      "initial_text": "Microscopic roughness and bolted joint contact redistribution theories do not provide macroscopic beam validity boundaries.",
+      "initial_state": "HS-07-D1-V006-C03",
+      "initial_category": "MECHANISM",
+      "current_status": "NARROWED_ACTIVE",
+      "latest_transition": "TR-06",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-C04",
+      "canonical_title": "Candidate Claim C04: Continuum Jamming Breakdown & Predeclared Tolerance",
+      "initial_text": "Forward citations address multi-physics extensions; predeclared acceptance tolerance and continuum jamming breakdown are unaddressed in prior art.",
+      "initial_state": "HS-08-D1-V007-C04",
+      "initial_category": "VALIDATION",
+      "current_status": "CORRECTED_ACTIVE",
+      "latest_transition": "TR-07",
+      "corrected_by_interpretation": "CORR-01",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-FINAL-LOCK",
+      "canonical_title": "Targeted Prior-Art Survival (Ye 2024 & Adhikary 1999)",
+      "initial_text": "D1/M1 validity scope survives targeted falsification attacks against direct composite beam target Ye 2024 and adjacent Cosserat target Adhikary 1999.",
+      "initial_state": "HS-09-D1-V008-V009",
+      "initial_category": "VALIDATION",
+      "current_status": "SURVIVES_TARGETED_AUDIT",
+      "latest_transition": "TR-08",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-TOPIC-LOCK",
+      "canonical_title": "Final MSc Thesis Topic Lock with Feasibility Gate",
+      "initial_text": "D1_M1 selected as active MSc thesis topic with conditional feasibility pilot gate; MP1 archived as viable alternative.",
+      "initial_state": "HS-10-FINAL-DIRECTION-LOCK",
+      "initial_category": "SYSTEM",
+      "current_status": "LOCKED_WITH_FEASIBILITY_GATE",
+      "latest_transition": "TR-09",
+      "superseded_by_interpretation": null,
+      "active": true
+    },
+    {
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "canonical_title": "Plan V6 Deterministic Governance and Verification Framework",
+      "initial_text": "D1_M1 novelty reconstruction is governed by strict deterministic execution under Plan V6 with single-writer ownership, per-worker failure routes, and frozen K1-K9 criteria.",
+      "initial_state": "HS-11-PLAN-EVOLUTION",
+      "initial_category": "METHOD",
+      "current_status": "CANONICAL_EXECUTION_LOCKED",
+      "latest_transition": "TR-14",
+      "superseded_by_interpretation": "SUP-04",
+      "active": true
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "TR-01",
+      "claim_id": "CLM-D1-GEN",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-01-DISCOVERY",
+      "historical_state_after": "HS-02-D1-V001",
+      "stage_before": "DISCOVERY_CORPUS",
+      "stage_after": "D1-V001",
+      "repository_commit": "3c03bd9",
+      "transition_trigger": "External verification against direct prior art (Narang 2018, Caruso 2023)",
+      "trigger_source": "outputs/verification/D1-V001/direction_verification.json",
+      "claim_before": "Layer jamming for variable-stiffness continuum robots is a scientifically novel and defensible research direction.",
+      "threat": "Direct prior art exists for laminar jamming stiffness models, friction-slip transitions, and experimental validation in soft machines.",
+      "counter_evidence": "Narang et al. 2018 (Adv. Funct. Mater. 28, 1707136) and Caruso et al. 2023 (Int. J. Mech. Sci. 248, 108325) already solved laminar jamming modeling, slip onset, and hysteresis.",
+      "evidence_available_before": "54 seed papers in discovery corpus without integrated continuum layer-jamming beam model.",
+      "new_evidence": "Narang 2018 and Caruso 2023 verified full text demonstrating analytical models, FEA, and experimental validation.",
+      "assumptions_before": "Variable-stiffness layer jamming continuum robots lack predictive mechanics models in the literature.",
+      "assumptions_after": "Broad architecture is uninventive; only specific unresolved mechanics limits (such as high-layer-count homogenized slip validity) could be novel.",
+      "novelty_category_before": "ARCHITECTURE",
+      "novelty_category_after": "MODEL",
+      "claim_status_before": "PROVISIONAL_SELECTED",
+      "claim_status_after": "PIVOT",
+      "transition_type": "PIVOT",
+      "decision": "PIVOT: Falsify broad D1 claim; formulate provisional pivot candidate P1; mandate: DO NOT DEFEND P1, ATTACK IT WITH 2025-2026 LITERATURE.",
+      "scientific_consequence": "Eliminated broad claim that layer jamming / variable stiffness continuum robots are novel in principle.",
+      "what_changed": "Broad architecture novelty rejected; scope narrowed to mathematical modeling of homogenized slip in high-layer-count beams (P1).",
+      "what_did_not_change": "Focus on layer jamming structures under vacuum confinement.",
+      "superseded_interpretation": "SUP-01",
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "PKT-5f7ccd7357-NARANG2018",
+        "PKT-652e62758f-CARUSO2023"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V001/direction_verification.json#closest_prior_work",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V001/direction_verification.json",
+        "source_type": "VERIFICATION_VERDICT_JSON",
+        "paper_id": "5f7ccd7357, 652e62758f",
+        "title": "Mechanically Versatile Soft Machines through Laminar Jamming / Layer jamming: Modeling and experimental validation",
+        "authors": [
+          "Narang et al.",
+          "Caruso et al."
+        ],
+        "year": 2018,
+        "DOI": "10.1002/adfm.201707136 / 10.1016/j.ijmecsci.2023.108325",
+        "page_or_section": "Section 2-4 / Section 3-5",
+        "what_the_evidence_proves": "Laminar jamming stiffness modulation, friction-slip transitions, and experimental validation are well-established prior art.",
+        "what_the_evidence_does_not_prove": "Does not prove that high-layer-count homogenized slip models have verified validity boundaries."
+      }
+    },
+    {
+      "transition_id": "TR-02",
+      "claim_id": "CLM-D1-P1",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-02-D1-V001",
+      "historical_state_after": "HS-03-D1-V002",
+      "stage_before": "D1-V001",
+      "stage_after": "D1-V002",
+      "repository_commit": "e654cb0",
+      "transition_trigger": "Forward-citation discovery of Zhang et al. 2025 continuum beam model",
+      "trigger_source": "outputs/verification/D1-V002/verification_matrix.json",
+      "claim_before": "P1 candidate: Homogenized slip model for high-layer-count vacuum-jammed beams may possess an unresolved validity limit (or creating such a model is novel).",
+      "threat": "Zhang et al. 2025 published a continuum-based model for layer jamming beams, deriving closed-form stress distributions and solving homogenized beam slip.",
+      "counter_evidence": "Zhang et al. 2025 ('Toward a deeper understanding of layer jamming structures', Mech. Sci., 16, 821-2025) formulated the continuum beam slip model.",
+      "evidence_available_before": "P1 hypothesis that homogenized slip continuum modeling remained open.",
+      "new_evidence": "Zhang et al. 2025 full paper demonstrates closed-form sliding boundary quadratic approximation, Euler-Bernoulli extension, and iterative algorithm.",
+      "assumptions_before": "Developing a homogenized continuum model for vacuum-jammed beam slip is an open research contribution.",
+      "assumptions_after": "Model development is already solved by Zhang et al. 2025; research novelty cannot be in model formulation, but only in evaluating validity limits and breakdown boundaries.",
+      "novelty_category_before": "MODEL",
+      "novelty_category_after": "MODEL_DISCRIMINATION",
+      "claim_status_before": "PIVOT_PROVISIONAL",
+      "claim_status_after": "TARGET_M1_IDENTIFIED",
+      "transition_type": "REFORMULATE",
+      "decision": "REFORMULATE: Adopt Zhang et al. 2025 as baseline model M1; evaluate validity breakdown limits instead of inventing M1.",
+      "scientific_consequence": "Shifted thesis architecture from 'model development' to 'model validity / model-form error quantification' (M -> R -> E).",
+      "what_changed": "Novelty locus migrated from model synthesis to model-form error quantification and breakdown domain mapping.",
+      "what_did_not_change": "Target system remains vacuum-jammed beam with interlayer slip.",
+      "superseded_interpretation": "SUP-02",
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "PKT-10.5194-ms-16-821-2025-ZHANG2025"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V002/verification_matrix.json#papers",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V002/verification_matrix.json",
+        "source_type": "VERIFICATION_MATRIX_JSON",
+        "paper_id": "zhang_2025_toward_a_deeper_understanding_of_layer_jamming_structures",
+        "title": "Toward a deeper understanding of layer jamming structures",
+        "authors": [
+          "Zhang et al."
+        ],
+        "year": 2025,
+        "DOI": "10.5194/ms-16-821-2025",
+        "page_or_section": "Mech. Sci., 16, 821\u2013834, 2025",
+        "what_the_evidence_proves": "A continuum beam model for layer jamming with interlayer sliding boundary is formulated and experimentally tested.",
+        "what_the_evidence_does_not_prove": "Does not prove where the continuum model breaks down across comprehensive parameter grids of layer count, vacuum, and curvature."
+      }
+    },
+    {
+      "transition_id": "TR-03",
+      "claim_id": "CLM-D1-M1-SCOPE",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-03-D1-V002",
+      "historical_state_after": "HS-04-D1-V003",
+      "stage_before": "D1-V002",
+      "stage_after": "D1-V003",
+      "repository_commit": "cb359e9",
+      "transition_trigger": "D1-V003 validity gap search and cross-round synthesis",
+      "trigger_source": "outputs/verification/D1-V003/cross_round_adversarial_synthesis.json",
+      "claim_before": "Zhang et al. 2025 continuum model M1 validity limits are unexplored.",
+      "threat": "Follow-up 2025-2026 papers (Zhang 2025b, Fan 2026) might have already characterized the validity limits of layer jamming continuum models.",
+      "counter_evidence": "Semantic Scholar / forward citation screening showed Zhang 2025b (10.1007/s11465-025-0843-5) and Fan 2026 (10.1016/j.taml.2025.100633) focus on specific applications and control, not systematic model-form error boundaries.",
+      "evidence_available_before": "D1-V002 matrix on Zhang 2025.",
+      "new_evidence": "Verified full-text analysis of forward citations confirms lack of systematic output-specific error maps across layer count and vacuum pressure.",
+      "assumptions_before": "Validity limits can be claimed as a broad generic gap.",
+      "assumptions_after": "Validity limits must be rigorously defined over an explicit 3-variable space (N x p_vac x kappa) with candidate claims C01-C04.",
+      "novelty_category_before": "MODEL_DISCRIMINATION",
+      "novelty_category_after": "VALIDATION",
+      "claim_status_before": "TARGET_M1_IDENTIFIED",
+      "claim_status_after": "SURVIVES_WITH_REVISED_SCOPE",
+      "transition_type": "NARROW",
+      "decision": "NARROW: Formulate candidate claims C01-C04 around explicit 3-variable space (N x p_vac x kappa).",
+      "scientific_consequence": "Defined concrete falsifiable candidate claims C01-C04.",
+      "what_changed": "Generic validity claim replaced by parameterized domain (N x p_vac x kappa) and partitioned into subclaims C01-C04.",
+      "what_did_not_change": "Focus on Zhang 2025 M1 model validity.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "PKT-10.1007-s11465-025-0843-5",
+        "PKT-10.1016-j.taml.2025.100633"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V003/cross_round_adversarial_synthesis.json#current_p1",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V003/cross_round_adversarial_synthesis.json",
+        "source_type": "SYNTHESIS_JSON",
+        "paper_id": "zhang_2025b, fan_2026",
+        "title": "Forward citation corpus for Zhang et al. 2025",
+        "authors": [
+          "Zhang et al.",
+          "Fan et al."
+        ],
+        "year": 2025,
+        "DOI": "10.1007/s11465-025-0843-5, 10.1016/j.taml.2025.100633",
+        "page_or_section": "Full paper",
+        "what_the_evidence_proves": "Forward citations extend to control and dynamics but do not systematically quantify model-form error across N x p_vac x kappa.",
+        "what_the_evidence_does_not_prove": "Does not prove absence of prior art in adjacent fields (composite beams, geology, contact mechanics)."
+      }
+    },
+    {
+      "transition_id": "TR-04",
+      "claim_id": "CLM-D1-C01",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-04-D1-V003",
+      "historical_state_after": "HS-05-D1-V004-C01",
+      "stage_before": "D1-V003",
+      "stage_after": "D1-V004",
+      "repository_commit": "6f1adc4",
+      "transition_trigger": "Adversarial audit against composite relative gradient theories",
+      "trigger_source": "outputs/verification/D1-V004/C01_ADVERSARIAL_AUDIT.json",
+      "claim_before": "C01: Discrete layer friction in vacuum jamming behaves distinctly from bonded composite relative gradient theories.",
+      "threat": "Gradient elasticity and higher-order composite beam theories might account for interlayer sliding slip boundaries.",
+      "counter_evidence": "15 papers in gradient elasticity evaluated; composite beam models rely on continuous shear interaction without vacuum pressure coupling.",
+      "evidence_available_before": "Theoretical formulation of C01.",
+      "new_evidence": "Full text of 15 gradient elasticity papers confirms lack of normal pressure confinement and unbonded Coulomb friction slip.",
+      "assumptions_before": "Gradient theories might be mathematically equivalent to vacuum layer jamming.",
+      "assumptions_after": "Gradient theories assume continuous interface cohesion; vacuum layer jamming requires discrete Coulomb slip with normal pressure coupling.",
+      "novelty_category_before": "MECHANISM",
+      "novelty_category_after": "MECHANISM",
+      "claim_status_before": "OPEN_AUDIT",
+      "claim_status_after": "C01_NARROWED",
+      "transition_type": "NARROW",
+      "decision": "NARROW: C01 narrowed to vacuum-confinement frictional contact.",
+      "scientific_consequence": "Separated layer jamming mechanics from bonded composite gradient theories.",
+      "what_changed": "C01 explicitly distinguished from cohesive shear interaction gradient beam models.",
+      "what_did_not_change": "C01 hypothesis that discrete friction behaves distinctly from continuous gradient theory.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V004/C01_ADVERSARIAL_AUDIT.json#paper_audits",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V004/C01_ADVERSARIAL_AUDIT.json",
+        "source_type": "ADVERSARIAL_AUDIT_JSON",
+        "paper_id": "15 gradient elasticity papers",
+        "title": "Composite gradient elasticity corpus",
+        "authors": [
+          "Various"
+        ],
+        "year": 2024,
+        "DOI": null,
+        "page_or_section": "Section 3",
+        "what_the_evidence_proves": "Relative gradient elasticity theories do not incorporate vacuum-induced normal confinement or Coulomb slip.",
+        "what_the_evidence_does_not_prove": "Does not address multi-layer partial interaction beam theory."
+      }
+    },
+    {
+      "transition_id": "TR-05",
+      "claim_id": "CLM-D1-C02",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-05-D1-V004-C01",
+      "historical_state_after": "HS-06-D1-V005-C02",
+      "stage_before": "D1-V004",
+      "stage_after": "D1-V005",
+      "repository_commit": "d2d2bcd",
+      "transition_trigger": "Adversarial audit against multi-layered beam partial interaction models",
+      "trigger_source": "outputs/verification/D1-V005/C02_ADVERSARIAL_AUDIT.json",
+      "claim_before": "C02: Partial interaction beam models are predominantly 2-layer steel-concrete; multi-layer unbonded frictional contact remains open.",
+      "threat": "Civil engineering partial-interaction composite beam models (Newmark-type) might have solved multi-layer friction slip.",
+      "counter_evidence": "16 papers on exact stiffness matrices audited; partial interaction literature focuses almost exclusively on 2-layer steel-concrete with constant-stiffness linear shear connectors.",
+      "evidence_available_before": "C02 candidate claim.",
+      "new_evidence": "Civil engineering literature corpus confirms lack of multi-layer unbonded frictional contact with pressure-dependent slip.",
+      "assumptions_before": "Partial interaction theory might already encompass N-layer vacuum jamming.",
+      "assumptions_after": "Partial interaction theory is limited to 2-layer linear shear connection; N-layer vacuum jamming requires non-linear unbonded contact.",
+      "novelty_category_before": "MECHANISM",
+      "novelty_category_after": "MECHANISM",
+      "claim_status_before": "OPEN_AUDIT",
+      "claim_status_after": "C02_NARROWED",
+      "transition_type": "NARROW",
+      "decision": "NARROW: C02 narrowed to multi-layer frictional contact with pressure-dependent slip.",
+      "scientific_consequence": "Differentiated civil engineering 2-layer composite beams from N-layer vacuum jamming beams.",
+      "what_changed": "C02 narrowed to exclude bonded/pinned shear connectors and focus on unbonded Coulomb friction.",
+      "what_did_not_change": "C02 core proposition regarding partial interaction limitations.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V005/C02_ADVERSARIAL_AUDIT.json#paper_audits",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V005/C02_ADVERSARIAL_AUDIT.json",
+        "source_type": "ADVERSARIAL_AUDIT_JSON",
+        "paper_id": "16 partial interaction papers",
+        "title": "Partial interaction composite beam corpus",
+        "authors": [
+          "Various"
+        ],
+        "year": 2024,
+        "DOI": null,
+        "page_or_section": "Section 3",
+        "what_the_evidence_proves": "Partial interaction literature is predominantly 2-layer steel-concrete with discrete or smeared connectors.",
+        "what_the_evidence_does_not_prove": "Does not evaluate microscopic contact mechanics or bolted joints."
+      }
+    },
+    {
+      "transition_id": "TR-06",
+      "claim_id": "CLM-D1-C03",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-06-D1-V005-C02",
+      "historical_state_after": "HS-07-D1-V006-C03",
+      "stage_before": "D1-V005",
+      "stage_after": "D1-V006",
+      "repository_commit": "e17e5be",
+      "transition_trigger": "Adversarial audit against interface friction and bolted joint roughness models",
+      "trigger_source": "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json",
+      "claim_before": "C03: Microscopic roughness contact redistribution does not provide closed continuum beam validity boundaries.",
+      "threat": "Tribological roughness models and bolted joint fretting theories might predict continuum slip validity breakdown.",
+      "counter_evidence": "16 papers on microscopic joint contact audited; contact pressure redistribution models focus on local fretting and wear, not macroscopic beam-scale validity boundaries.",
+      "evidence_available_before": "C03 candidate claim.",
+      "new_evidence": "Joint friction corpus demonstrates microscopic contact models do not solve continuum beam validity boundaries.",
+      "assumptions_before": "Microscopic joint contact theories might predict macroscopic beam validity limits.",
+      "assumptions_after": "Microscopic models operate at asperities; beam-scale validity boundary is a macroscopic continuum mechanics question.",
+      "novelty_category_before": "MECHANISM",
+      "novelty_category_after": "MECHANISM",
+      "claim_status_before": "OPEN_AUDIT",
+      "claim_status_after": "C03_NARROWED",
+      "transition_type": "NARROW",
+      "decision": "NARROW: C03 narrowed to beam-scale contact mechanics.",
+      "scientific_consequence": "Established that joint roughness theories do not pre-empt continuum beam validity maps.",
+      "what_changed": "C03 scoped strictly to beam-scale macroscopic mechanics rather than microscopic asperity wear.",
+      "what_did_not_change": "C03 focus on contact mechanics role in jamming breakdown.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json#paper_audits",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json",
+        "source_type": "ADVERSARIAL_AUDIT_JSON",
+        "paper_id": "16 bolted joint papers",
+        "title": "Bolted joint interface friction corpus",
+        "authors": [
+          "Various"
+        ],
+        "year": 2024,
+        "DOI": null,
+        "page_or_section": "Section 3",
+        "what_the_evidence_proves": "Microscopic joint roughness models address local stress concentrations and fretting rather than macroscopic beam validity.",
+        "what_the_evidence_does_not_prove": "Does not check forward citations of Zhang 2025."
+      }
+    },
+    {
+      "transition_id": "TR-07",
+      "claim_id": "CLM-D1-C04",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-07-D1-V006-C03",
+      "historical_state_after": "HS-08-D1-V007-C04",
+      "stage_before": "D1-V006",
+      "stage_after": "D1-V007",
+      "repository_commit": "4f1a2f4",
+      "transition_trigger": "Review of C04 focal paper tolerance semantics",
+      "trigger_source": "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md",
+      "claim_before": "C04: Forward citations address multi-physics extensions; prior art supported a predeclared 5% acceptance tolerance.",
+      "threat": "If prior art predeclared acceptance tolerances a priori, D1/M1's methodological rigor is not novel.",
+      "counter_evidence": "Audit review in C04_SEMANTIC_CORRECTION.md showed focal paper ca46dc062d adopted a 5% error threshold post-hoc during inspection, NOT a priori.",
+      "evidence_available_before": "Initial C04 audit assuming predeclared tolerance in paper ca46dc062d.",
+      "new_evidence": "Verified full-text re-inspection of paper ca46dc062d confirming threshold was adopted post-hoc.",
+      "assumptions_before": "Prior literature utilized predeclared acceptance tolerances.",
+      "assumptions_after": "Prior literature relied on post-hoc error thresholds; predeclared tolerance is an unaddressed standard in prior art.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "VALIDATION",
+      "claim_status_before": "OPEN_AUDIT",
+      "claim_status_after": "C04_CORRECTED",
+      "transition_type": "CORRECT",
+      "decision": "CORRECT: Mark predeclared acceptance tolerance as unsupported in prior art; enforce a priori freeze in project governance (HG-06).",
+      "scientific_consequence": "Corrected factual inaccuracy in C04 audit; established requirement for threshold freeze (HG-06).",
+      "what_changed": "Semantic classification of tolerance in paper ca46dc062d changed from predeclared to post-hoc adopted.",
+      "what_did_not_change": "Overall falsification verdict (no kill).",
+      "superseded_interpretation": null,
+      "corrected_interpretation": "CORR-01",
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "PKT-ca46dc062d"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md#scope",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md",
+        "source_type": "SEMANTIC_CORRECTION_MD",
+        "paper_id": "ca46dc062d",
+        "title": "Focal paper for C04 audit",
+        "authors": [
+          "Unspecified"
+        ],
+        "year": 2024,
+        "DOI": null,
+        "page_or_section": "Section 2",
+        "what_the_evidence_proves": "Focal paper uses an adopted 5% threshold post-hoc without a priori predeclaration.",
+        "what_the_evidence_does_not_prove": "Does not prove that other literature predeclared acceptance thresholds."
+      }
+    },
+    {
+      "transition_id": "TR-08",
+      "claim_id": "CLM-D1-FINAL-LOCK",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-08-D1-V007-C04",
+      "historical_state_after": "HS-09-D1-V008-V009",
+      "stage_before": "D1-V007",
+      "stage_after": "D1-V008/V009",
+      "repository_commit": "abf0fb6",
+      "transition_trigger": "Targeted audits against Ye 2024 (D1-V008) and Adhikary 1999 (D1-V009)",
+      "trigger_source": "outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json",
+      "claim_before": "D1/M1 validity scope survives C01-C04, pending targeted attacks from Ye 2024 and Adhikary 1999.",
+      "threat": "Ye 2024 (10.1061/JSENDH.STENG-13096) and Adhikary 1999 (Cosserat stratified media) could directly pre-empt D1/M1 validity mapping.",
+      "counter_evidence": "Ye 2024 addresses 2-layer steel-concrete composite beams under static load; Adhikary 1999 addresses rock mechanics. Neither models vacuum-jammed multi-layer beams or solves jamming breakdown.",
+      "evidence_available_before": "DOI and metadata nominations for Ye 2024 and Adhikary 1999.",
+      "new_evidence": "Verified full-text audits of Ye 2024 and Adhikary 1999 confirm structural mechanics differences and lack of vacuum-jammed beam breakdown mapping.",
+      "assumptions_before": "Ye 2024 or Adhikary 1999 might constitute direct kills.",
+      "assumptions_after": "Neither target kills D1/M1; D1/M1 survives targeted novelty audit.",
+      "novelty_category_before": "VALIDATION",
+      "novelty_category_after": "VALIDATION",
+      "claim_status_before": "TARGETED_AUDIT_PENDING",
+      "claim_status_after": "FINAL_NOVELTY_LOCK_SURVIVES",
+      "transition_type": "KEEP",
+      "decision": "KEEP: Confirm survival of D1/M1 novelty lock against final named and adjacent targets.",
+      "scientific_consequence": "D1 novelty verification workflow successfully completed with SURVIVES verdicts.",
+      "what_changed": "Status of D1/M1 confirmed from provisional to verified surviving candidate.",
+      "what_did_not_change": "Scope of D1/M1 validity limits across N x p_vac x kappa.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "PKT-53d328abaa-YE2024",
+        "PKT-d75a3e82bc-ADHIKARY1999"
+      ],
+      "provenance_pointer": "outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json#target_identity",
+      "evidence_details": {
+        "source_path": "outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json",
+        "source_type": "FINAL_AUDIT_JSON",
+        "paper_id": "53d328abaa, d75a3e82bc",
+        "title": "Analytical Solution for Bending Deformation of Steel-Concrete Composite Beams / Modelling large deformations in stratified media",
+        "authors": [
+          "Ye et al.",
+          "Adhikary et al."
+        ],
+        "year": 2024,
+        "DOI": "10.1061/JSENDH.STENG-13096",
+        "page_or_section": "Full paper",
+        "what_the_evidence_proves": "Neither study models vacuum-jammed layered beams, nor do they map validity breakdown regimes.",
+        "what_the_evidence_does_not_prove": "Does not prove global novelty across all unindexed or undiscovered literature."
+      }
+    },
+    {
+      "transition_id": "TR-09",
+      "claim_id": "CLM-D1-TOPIC-LOCK",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-09-D1-V008-V009",
+      "historical_state_after": "HS-10-FINAL-DIRECTION-LOCK",
+      "stage_before": "D1-V008/V009",
+      "stage_after": "FINAL_DIRECTION_LOCK",
+      "repository_commit": "bccdb5e",
+      "transition_trigger": "Final cross-direction adjudication D1/M1 vs MP1",
+      "trigger_source": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json",
+      "claim_before": "D1/M1 is a surviving novelty candidate competing with MP1 for MSc thesis selection.",
+      "threat": "MP1 might be scientifically stronger or more feasible than D1/M1.",
+      "counter_evidence": "18-criterion formal adjudication showed D1/M1 possesses a published baseline (Zhang 2025), fewer confounding variables, and lower experimental instrumentation risk.",
+      "evidence_available_before": "Surviving D1/M1 audit and MP1-V002 audit.",
+      "new_evidence": "18-criterion comparative adjudication matrix.",
+      "assumptions_before": "Either D1_M1 or MP1 could be selected unconditionally.",
+      "assumptions_after": "D1_M1 selected with conditional feasibility pilot gate; MP1 archived as backup.",
+      "novelty_category_before": "VALIDATION",
+      "novelty_category_after": "SYSTEM",
+      "claim_status_before": "FINAL_NOVELTY_LOCK_SURVIVES",
+      "claim_status_after": "LOCK_WITH_FEASIBILITY_GATE",
+      "transition_type": "CLOSE",
+      "decision": "LOCK_WITH_FEASIBILITY_GATE: Select D1_M1 as MSc thesis topic; archive MP1 as viable alternative.",
+      "scientific_consequence": "Final selection of D1/M1 as active thesis topic, conditioned on feasibility pilot gate.",
+      "what_changed": "Direction competition closed; D1_M1 locked as active thesis topic.",
+      "what_did_not_change": "Scientific scope of D1_M1.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json#decision",
+      "evidence_details": {
+        "source_path": "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json",
+        "source_type": "ADJUDICATION_JSON",
+        "paper_id": "Cross-direction adjudication",
+        "title": "D1_M1 vs MP1 18-Criterion Final Adjudication",
+        "authors": [
+          "Adjudication Team"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Section 4",
+        "what_the_evidence_proves": "D1_M1 is higher feasibility and lower confounding risk than MP1.",
+        "what_the_evidence_does_not_prove": "Does not prove experimental feasibility before pilot testing."
+      }
+    },
+    {
+      "transition_id": "TR-10",
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "claim_version_before": "v1.0",
+      "claim_version_after": "v1.1",
+      "historical_state_before": "HS-10-FINAL-DIRECTION-LOCK",
+      "historical_state_after": "HS-11-PLAN-EVOLUTION",
+      "stage_before": "FINAL_DIRECTION_LOCK",
+      "stage_after": "PLAN_REMEDIATION",
+      "repository_commit": "outputs/plans uncommitted history",
+      "transition_trigger": "D1 Master Execution Plan architecture drafting and iterative audits A1-A5",
+      "trigger_source": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V5.md",
+      "claim_before": "Master Plan V5 architecture is sufficient for execution kickoff.",
+      "threat": "Audit A5 identified two blocking High findings: A5-HI-01 (ownership graph conflicts) and A5-HI-02 (generic S16-only failure routes).",
+      "counter_evidence": "Formal plan audit demonstrated multiple writers on same artifacts and lack of per-worker failure return routes.",
+      "evidence_available_before": "Plan V5 artifact suite.",
+      "new_evidence": "Audit D1-A5 findings report.",
+      "assumptions_before": "Plan V5 had resolved all governance defects.",
+      "assumptions_after": "Strict single-writer ownership (single_writer_rule) and per-worker failure routing are mandatory.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "METHOD",
+      "claim_status_before": "PLAN_V5_DRAFT",
+      "claim_status_after": "MAJOR_REVISION_REQUIRED",
+      "transition_type": "SUPERSEDE",
+      "decision": "REMEDIATE: Mandate Plan V6 remediation to establish strict single-writer ownership and per-worker failure routes.",
+      "scientific_consequence": "Plans V1-V5 superseded; strict execution governance established.",
+      "what_changed": "Plan governance architecture restructured into single-writer ownership and per-worker failure routing.",
+      "what_did_not_change": "Core scientific mission of D1_M1.",
+      "superseded_interpretation": "SUP-04",
+      "corrected_interpretation": null,
+      "evidence_status": "CANONICAL_PLAN",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V5.md#executive_summary",
+      "evidence_details": {
+        "source_path": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V5.md",
+        "source_type": "PLAN_AUDIT_MD",
+        "paper_id": "Plan Audit A5",
+        "title": "D1 Master Plan Re-Audit V5",
+        "authors": [
+          "Audit Team"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Section 2",
+        "what_the_evidence_proves": "Plan V5 had structural defects in ownership and failure routing.",
+        "what_the_evidence_does_not_prove": "Does not prove Plan V6 is defect-free before re-audit A6."
+      }
+    },
+    {
+      "transition_id": "TR-11",
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "claim_version_before": "v1.1",
+      "claim_version_after": "v1.2",
+      "historical_state_before": "HS-11-PLAN-EVOLUTION",
+      "historical_state_after": "HS-12-PLAN-V6-APPROVAL",
+      "stage_before": "PLAN_REMEDIATION",
+      "stage_after": "PLAN_V6_AUDIT",
+      "repository_commit": "outputs/plans uncommitted history",
+      "transition_trigger": "Independent re-audit D1-A6 of Master Plan V6",
+      "trigger_source": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V6.md",
+      "claim_before": "Plan V6 resolves A5 findings and satisfies execution readiness.",
+      "threat": "Residual ownership conflicts or unrouted failure paths could block execution.",
+      "counter_evidence": "Audit A6 verified: 0 ownership conflicts across 40 artifacts, 12/12 worker failure routes mapped, package valid.",
+      "evidence_available_before": "Plan V6 package.",
+      "new_evidence": "Audit D1-A6 report issuing APPROVED_FOR_EXECUTION verdict.",
+      "assumptions_before": "Plan V6 might have residual blocking audit findings.",
+      "assumptions_after": "Plan V6 is fully approved and structurally ready for deterministic launch.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "METHOD",
+      "claim_status_before": "PLAN_V6_DRAFT",
+      "claim_status_after": "APPROVED_FOR_EXECUTION",
+      "transition_type": "CLOSE",
+      "decision": "APPROVE: Issue APPROVED_FOR_EXECUTION verdict for Master Plan V6.",
+      "scientific_consequence": "Canonical execution plan locked and authorized for execution kickoff.",
+      "what_changed": "Plan status changed from draft to APPROVED_FOR_EXECUTION.",
+      "what_did_not_change": "W01-W12 scope definitions.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "CANONICAL_PLAN",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V6.md#verdict",
+      "evidence_details": {
+        "source_path": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V6.md",
+        "source_type": "PLAN_AUDIT_MD",
+        "paper_id": "Plan Audit A6",
+        "title": "D1 Master Plan Re-Audit V6",
+        "authors": [
+          "Audit Team"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Section 1",
+        "what_the_evidence_proves": "All blocking audit findings resolved; 0 ownership conflicts; 12/12 failure routes valid.",
+        "what_the_evidence_does_not_prove": "Does not replace runtime preflight machine checks."
+      }
+    },
+    {
+      "transition_id": "TR-12",
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "claim_version_before": "v1.2",
+      "claim_version_after": "v1.3",
+      "historical_state_before": "HS-12-PLAN-V6-APPROVAL",
+      "historical_state_after": "HS-13-PREFLIGHT-S0",
+      "stage_before": "PLAN_V6_AUDIT",
+      "stage_after": "PREFLIGHT_S0",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+      "transition_trigger": "Execution of task D1-E1.0 (Preflight S0/W01)",
+      "trigger_source": "outputs/execution/D1/D1_EXECUTION_KICKOFF_V6.md",
+      "claim_before": "Runtime environment and git tree must pass machine checks before worker launch.",
+      "threat": "Material repository drift, missing worker output directories, or gate failures could cause execution failure.",
+      "counter_evidence": "Preflight checks passed: 0 material drift, 12/12 physical output directories verified, HG-11 machine checks pass 4/4.",
+      "evidence_available_before": "Approved Plan V6.",
+      "new_evidence": "D1_EXECUTION_PREFLIGHT_V6.json and D1_EXECUTION_KICKOFF_V6.md.",
+      "assumptions_before": "Repository environment might have drifted.",
+      "assumptions_after": "Repository is verified clean and authorized for W01 launch.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "METHOD",
+      "claim_status_before": "APPROVED_FOR_EXECUTION",
+      "claim_status_after": "PREFLIGHT_PASS",
+      "transition_type": "CLOSE",
+      "decision": "PASS: Authorize execution launch for worker W01.",
+      "scientific_consequence": "Preflight gate passed; deterministic execution initiated.",
+      "what_changed": "Execution authorization granted for W01.",
+      "what_did_not_change": "Contract boundaries of workers.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "PREFLIGHT_JSON",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/execution/D1/D1_EXECUTION_PREFLIGHT_V6.json#preflight_verdict",
+      "evidence_details": {
+        "source_path": "outputs/execution/D1/D1_EXECUTION_PREFLIGHT_V6.json",
+        "source_type": "PREFLIGHT_JSON",
+        "paper_id": "Preflight S0",
+        "title": "D1 Execution Preflight V6",
+        "authors": [
+          "Execution Preflight Worker"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Machine checks",
+        "what_the_evidence_proves": "Preflight conditions satisfied; HG-11 passed.",
+        "what_the_evidence_does_not_prove": "Does not execute scientific extraction."
+      }
+    },
+    {
+      "transition_id": "TR-13",
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "claim_version_before": "v1.3",
+      "claim_version_after": "v1.4",
+      "historical_state_before": "HS-13-PREFLIGHT-S0",
+      "historical_state_after": "HS-14-EXECUTION-W01",
+      "stage_before": "PREFLIGHT_S0",
+      "stage_after": "EXECUTION_W01",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+      "transition_trigger": "Deterministic execution of worker W01",
+      "trigger_source": "outputs/d1_execution/V4/W01/W01_EXECUTION_RECEIPT.json",
+      "claim_before": "W01 must establish scope lock, repository manifest, and plan hash record.",
+      "threat": "Scope drift or hash discrepancy could invalidate execution baseline.",
+      "counter_evidence": "W01 created scope_lock.json, repository_manifest.json, plan_hash_record.json; QA passed.",
+      "evidence_available_before": "Preflight authorization.",
+      "new_evidence": "W01 receipt and canonical artifacts.",
+      "assumptions_before": "Scope and hash record need physical verification.",
+      "assumptions_after": "Cryptographic and scope baseline established; W02 authorized.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "METHOD",
+      "claim_status_before": "PREFLIGHT_PASS",
+      "claim_status_after": "W01_COMPLETE",
+      "transition_type": "CLOSE",
+      "decision": "COMPLETE: Stage S0 completed; hand off to Stage S1 / W02.",
+      "scientific_consequence": "Execution scope and cryptographic baseline locked on disk.",
+      "what_changed": "Scope lock and manifest created on disk.",
+      "what_did_not_change": "Downstream worker contracts.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "EXECUTION_RECEIPT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/d1_execution/V4/W01/W01_EXECUTION_RECEIPT.json#status",
+      "evidence_details": {
+        "source_path": "outputs/d1_execution/V4/W01/W01_EXECUTION_RECEIPT.json",
+        "source_type": "EXECUTION_RECEIPT",
+        "paper_id": "W01 execution",
+        "title": "Worker W01 Execution Receipt",
+        "authors": [
+          "Worker W01"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Full receipt",
+        "what_the_evidence_proves": "W01 executed deterministically with complete outputs.",
+        "what_the_evidence_does_not_prove": "Does not inventory historical artifacts (owned by W02)."
+      }
+    },
+    {
+      "transition_id": "TR-14",
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "claim_version_before": "v1.4",
+      "claim_version_after": "v1.5",
+      "historical_state_before": "HS-14-EXECUTION-W01",
+      "historical_state_after": "HS-15-EXECUTION-W02",
+      "stage_before": "EXECUTION_W01",
+      "stage_after": "EXECUTION_W02",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+      "transition_trigger": "Deterministic execution of worker W02",
+      "trigger_source": "outputs/d1_execution/V4/W02/W02_EXECUTION_RECEIPT.json",
+      "claim_before": "W02 must inventory all project artifacts and map 16 execution rounds/stages.",
+      "threat": "Unmapped artifacts or missing rounds could cause temporal distortion in W03.",
+      "counter_evidence": "W02 cataloged 82 project artifacts with SHA256 and mapped 16 execution rounds/stages; QA passed.",
+      "evidence_available_before": "W01 baseline.",
+      "new_evidence": "D1_EVIDENCE_INVENTORY.json and D1_ROUND_COVERAGE.json.",
+      "assumptions_before": "Artifact inventory and round mapping need complete cataloging.",
+      "assumptions_after": "Artifact inventory complete; ready for historical reconstruction in W03.",
+      "novelty_category_before": "METHOD",
+      "novelty_category_after": "METHOD",
+      "claim_status_before": "W01_COMPLETE",
+      "claim_status_after": "W02_COMPLETE",
+      "transition_type": "CLOSE",
+      "decision": "COMPLETE: Stage S1 completed; hand off to Stage S2 / W03.",
+      "scientific_consequence": "Complete structural inventory and round coverage map available for historical reconstruction.",
+      "what_changed": "82 artifacts cataloged and 16 rounds mapped.",
+      "what_did_not_change": "Downstream worker duties.",
+      "superseded_interpretation": null,
+      "corrected_interpretation": null,
+      "evidence_status": "EXECUTION_RECEIPT",
+      "confidence": "high",
+      "evidence_packet_ids": [
+        "UNAVAILABLE"
+      ],
+      "provenance_pointer": "outputs/d1_execution/V4/W02/W02_EXECUTION_RECEIPT.json#status",
+      "evidence_details": {
+        "source_path": "outputs/d1_execution/V4/W02/W02_EXECUTION_RECEIPT.json",
+        "source_type": "EXECUTION_RECEIPT",
+        "paper_id": "W02 execution",
+        "title": "Worker W02 Execution Receipt",
+        "authors": [
+          "Worker W02"
+        ],
+        "year": 2026,
+        "DOI": null,
+        "page_or_section": "Full receipt",
+        "what_the_evidence_proves": "W02 executed deterministically with 82 artifacts and 16 rounds.",
+        "what_the_evidence_does_not_prove": "Does not reconstruct temporal states (owned by W03)."
+      }
+    }
+  ],
+  "category_shifts": [
+    {
+      "shift_id": "SHIFT-01",
+      "claim_id": "CLM-D1-GEN",
+      "category_before": "ARCHITECTURE",
+      "category_after": "MODEL",
+      "transition_id": "TR-01",
+      "transition_source": "outputs/verification/D1-V001/direction_verification.json",
+      "scientific_reason": "Narang 2018 and Caruso 2023 pre-empted the broad soft-robot architecture of variable-stiffness layer jamming beams; the project pivoted away from system/architecture novelty to mathematical modeling of homogenized slip.",
+      "supported_or_inferred": "SUPPORTED",
+      "risk_of_novelty_migration": "HIGH_IF_UNMONITORED: If unmonitored, the project could have confused building a new physical gripper with a novel mechanics contribution."
+    },
+    {
+      "shift_id": "SHIFT-02",
+      "claim_id": "CLM-D1-P1",
+      "category_before": "MODEL",
+      "category_after": "VALIDATION",
+      "transition_id": "TR-02",
+      "transition_source": "outputs/verification/D1-V002/verification_matrix.json",
+      "scientific_reason": "Zhang et al. 2025 published the homogenized continuum beam model, eliminating model-creation novelty; the project pivoted from model invention to model validity limits and model-form error quantification.",
+      "supported_or_inferred": "SUPPORTED",
+      "risk_of_novelty_migration": "CRITICAL: Presenting the model formulation as novel would be an immediate fatal novelty collision with Zhang 2025."
+    },
+    {
+      "shift_id": "SHIFT-03",
+      "claim_id": "CLM-D1-C04",
+      "category_before": "METHOD",
+      "category_after": "VALIDATION",
+      "transition_id": "TR-07",
+      "transition_source": "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md",
+      "scientific_reason": "Semantic review demonstrated prior art used post-hoc adopted thresholds rather than a priori predeclared acceptance tolerances; establishing a priori criteria became a mandatory validation governance standard.",
+      "supported_or_inferred": "SUPPORTED",
+      "risk_of_novelty_migration": "MODERATE: Retrospective thresholding could falsely disguise calibration fit as predictive validity."
+    }
+  ],
+  "superseded_interpretation_mappings": [
+    {
+      "superseded_id": "SUP-01",
+      "original_interpretation": "Layer jamming for variable-stiffness continuum robots is novel in principle based on 54 seed papers.",
+      "affected_claims": [
+        "CLM-D1-GEN"
+      ],
+      "transition_type": "PIVOT",
+      "downstream_inherited_old_interpretation": false,
+      "when_corrected_became_canonical": "2026-09-14 (Round D1-V001, commit 3c03bd9)",
+      "canonical_replacement": "P1 provisional pivot candidate (validity limits of homogenized slip model)."
+    },
+    {
+      "superseded_id": "SUP-02",
+      "original_interpretation": "P1 candidate: Developing a homogenized slip continuum model for high-layer-count vacuum-jammed beams is novel.",
+      "affected_claims": [
+        "CLM-D1-P1"
+      ],
+      "transition_type": "REFORMULATE",
+      "downstream_inherited_old_interpretation": false,
+      "when_corrected_became_canonical": "2026-09-15 (Round D1-V002, commit e654cb0)",
+      "canonical_replacement": "Adopt Zhang et al. 2025 as baseline M1; quantify output-specific model-form error against reference R and experiments E."
+    },
+    {
+      "superseded_id": "SUP-03",
+      "original_interpretation": "Broad candidate MP1 architecture (superelastic NiTi wire bundle + positive pressure + SMA piston + jamming) is novel.",
+      "affected_claims": [
+        "MP1-BROAD-ARCH"
+      ],
+      "transition_type": "PIVOT",
+      "downstream_inherited_old_interpretation": false,
+      "when_corrected_became_canonical": "2026-09-22 (Round MP1-V001, commit cf17a7e)",
+      "canonical_replacement": "Pivoted MP1 to mechanics core: constitutive-contact coupling between NiTi transformation and inter-wire frictional contact."
+    },
+    {
+      "superseded_id": "SUP-04",
+      "original_interpretation": "Master Plan V5 architecture is sufficient for execution kickoff.",
+      "affected_claims": [
+        "CLM-D1-GOVERNANCE"
+      ],
+      "transition_type": "SUPERSEDE",
+      "downstream_inherited_old_interpretation": false,
+      "when_corrected_became_canonical": "2026-09-25 (Audit A6, commit outputs/plans uncommitted history)",
+      "canonical_replacement": "Master Plan V6 with strict single-writer ownership (40 rows, 0 conflicts) and 26 per-worker failure routes."
+    }
+  ],
+  "corrected_interpretation_mappings": [
+    {
+      "correction_id": "CORR-01",
+      "original_claim_context": "D1-V007 C04 audit of forward citation focal paper ca46dc062d.",
+      "original_interpretation": "Focal paper ca46dc062d was interpreted as having supported a predeclared 5% acceptance tolerance.",
+      "correction_source": "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md (commits 4f1a2f4 and dafacaa)",
+      "corrected_interpretation": "Paper ca46dc062d adopted a 5% error threshold post-hoc during validation inspection, but did NOT predeclare it a priori before validation data was examined.",
+      "affected_claim_id": "CLM-D1-C04",
+      "transition_type": "CORRECT",
+      "downstream_impact": "Predeclared acceptance tolerance remains an unaddressed standard in prior art; reinforced surviving novelty gap of D1/M1 and established Hard Gate HG-06 (Threshold freeze before validation)."
+    },
+    {
+      "correction_id": "CORR-02",
+      "original_claim_context": "Early MP1 literature review of NiTi wire contact under bending.",
+      "original_interpretation": "Carboni 2015 was cited as an example of NiTi frictional contact under bending.",
+      "correction_source": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md and docs/project/RESEARCH_LOG.md Phase 22",
+      "corrected_interpretation": "Carboni 2015 specimen S2a was a pure steel wire cable with friction; only S1a was a NiTi specimen (subjected to combined tension-bending).",
+      "affected_claim_id": "MP1-CITATION-RECORD",
+      "transition_type": "CORRECT",
+      "downstream_impact": "Corrected factual citation record and prevented false-kill attribution on MP1 in cross-direction comparison."
+    }
+  ],
+  "claim_lineage_graph": {
+    "nodes": [
+      {
+        "id": "NODE-CLM-D1-GEN-v1.0",
+        "claim_id": "CLM-D1-GEN",
+        "version": "v1.0",
+        "label": "Broad D1 Jamming Novelty",
+        "category": "ARCHITECTURE",
+        "status": "PROVISIONAL_SELECTED",
+        "state_id": "HS-01-DISCOVERY"
+      },
+      {
+        "id": "NODE-CLM-D1-P1-v1.0",
+        "claim_id": "CLM-D1-P1",
+        "version": "v1.0",
+        "label": "P1 Homogenized Slip Model",
+        "category": "MODEL",
+        "status": "PIVOT_PROVISIONAL",
+        "state_id": "HS-02-D1-V001"
+      },
+      {
+        "id": "NODE-CLM-D1-M1-BASELINE-v1.0",
+        "claim_id": "CLM-D1-M1-BASELINE",
+        "version": "v1.0",
+        "label": "M1 Baseline Adoption (Zhang 2025)",
+        "category": "MODEL_DISCRIMINATION",
+        "status": "TARGET_M1_IDENTIFIED",
+        "state_id": "HS-03-D1-V002"
+      },
+      {
+        "id": "NODE-CLM-D1-M1-SCOPE-v1.0",
+        "claim_id": "CLM-D1-M1-SCOPE",
+        "version": "v1.0",
+        "label": "D1/M1 Error Quantification Scope",
+        "category": "VALIDATION",
+        "status": "SURVIVES_WITH_REVISED_SCOPE",
+        "state_id": "HS-04-D1-V003"
+      },
+      {
+        "id": "NODE-CLM-D1-C01-v1.0",
+        "claim_id": "CLM-D1-C01",
+        "version": "v1.0",
+        "label": "C01: Vacuum Friction vs Gradient Elasticity",
+        "category": "MECHANISM",
+        "status": "C01_NARROWED",
+        "state_id": "HS-05-D1-V004-C01"
+      },
+      {
+        "id": "NODE-CLM-D1-C02-v1.0",
+        "claim_id": "CLM-D1-C02",
+        "version": "v1.0",
+        "label": "C02: Multi-Layer Slip vs Partial Interaction",
+        "category": "MECHANISM",
+        "status": "C02_NARROWED",
+        "state_id": "HS-06-D1-V005-C02"
+      },
+      {
+        "id": "NODE-CLM-D1-C03-v1.0",
+        "claim_id": "CLM-D1-C03",
+        "version": "v1.0",
+        "label": "C03: Beam-Scale vs Joint Roughness",
+        "category": "MECHANISM",
+        "status": "C03_NARROWED",
+        "state_id": "HS-07-D1-V006-C03"
+      },
+      {
+        "id": "NODE-CLM-D1-C04-v1.0",
+        "claim_id": "CLM-D1-C04",
+        "version": "v1.0",
+        "label": "C04: Jamming Breakdown & Predeclared Tolerance",
+        "category": "VALIDATION",
+        "status": "C04_CORRECTED",
+        "state_id": "HS-08-D1-V007-C04"
+      },
+      {
+        "id": "NODE-CLM-D1-FINAL-LOCK-v1.0",
+        "claim_id": "CLM-D1-FINAL-LOCK",
+        "version": "v1.0",
+        "label": "Survives Ye 2024 & Adhikary 1999",
+        "category": "VALIDATION",
+        "status": "FINAL_NOVELTY_LOCK_SURVIVES",
+        "state_id": "HS-09-D1-V008-V009"
+      },
+      {
+        "id": "NODE-CLM-D1-TOPIC-LOCK-v1.0",
+        "claim_id": "CLM-D1-TOPIC-LOCK",
+        "version": "v1.0",
+        "label": "Topic Selection Lock with Feasibility Gate",
+        "category": "SYSTEM",
+        "status": "LOCK_WITH_FEASIBILITY_GATE",
+        "state_id": "HS-10-FINAL-DIRECTION-LOCK"
+      },
+      {
+        "id": "NODE-CLM-D1-GOVERNANCE-v1.0",
+        "claim_id": "CLM-D1-GOVERNANCE",
+        "version": "v1.0",
+        "label": "Plan Evolution & V5 Remediation",
+        "category": "METHOD",
+        "status": "MAJOR_REVISION_REQUIRED",
+        "state_id": "HS-11-PLAN-EVOLUTION"
+      },
+      {
+        "id": "NODE-CLM-D1-GOVERNANCE-v1.1",
+        "claim_id": "CLM-D1-GOVERNANCE",
+        "version": "v1.1",
+        "label": "Plan V6 Independent Approval",
+        "category": "METHOD",
+        "status": "APPROVED_FOR_EXECUTION",
+        "state_id": "HS-12-PLAN-V6-APPROVAL"
+      },
+      {
+        "id": "NODE-CLM-D1-GOVERNANCE-v1.2",
+        "claim_id": "CLM-D1-GOVERNANCE",
+        "version": "v1.2",
+        "label": "Execution Preflight S0",
+        "category": "METHOD",
+        "status": "PREFLIGHT_PASS",
+        "state_id": "HS-13-PREFLIGHT-S0"
+      },
+      {
+        "id": "NODE-CLM-D1-GOVERNANCE-v1.3",
+        "claim_id": "CLM-D1-GOVERNANCE",
+        "version": "v1.3",
+        "label": "Worker W01 Execution (Scope/Hash Lock)",
+        "category": "METHOD",
+        "status": "COMPLETE",
+        "state_id": "HS-14-EXECUTION-W01"
+      },
+      {
+        "id": "NODE-CLM-D1-GOVERNANCE-v1.4",
+        "claim_id": "CLM-D1-GOVERNANCE",
+        "version": "v1.4",
+        "label": "Worker W02 Execution (Artifact/Round Inventory)",
+        "category": "METHOD",
+        "status": "COMPLETE",
+        "state_id": "HS-15-EXECUTION-W02"
+      }
+    ],
+    "edges": [
+      {
+        "source": "NODE-CLM-D1-GEN-v1.0",
+        "target": "NODE-CLM-D1-P1-v1.0",
+        "transition_id": "TR-01",
+        "transition_type": "PIVOT",
+        "trigger": "Narang 2018 & Caruso 2023 pre-emption"
+      },
+      {
+        "source": "NODE-CLM-D1-P1-v1.0",
+        "target": "NODE-CLM-D1-M1-BASELINE-v1.0",
+        "transition_id": "TR-02",
+        "transition_type": "REFORMULATE",
+        "trigger": "Zhang et al. 2025 continuum model publication"
+      },
+      {
+        "source": "NODE-CLM-D1-M1-BASELINE-v1.0",
+        "target": "NODE-CLM-D1-M1-SCOPE-v1.0",
+        "transition_id": "TR-03",
+        "transition_type": "NARROW",
+        "trigger": "Zhang 2025b and Fan 2026 forward citation audit"
+      },
+      {
+        "source": "NODE-CLM-D1-M1-SCOPE-v1.0",
+        "target": "NODE-CLM-D1-C01-v1.0",
+        "transition_id": "TR-04",
+        "transition_type": "NARROW",
+        "trigger": "Gradient elasticity audit"
+      },
+      {
+        "source": "NODE-CLM-D1-C01-v1.0",
+        "target": "NODE-CLM-D1-C02-v1.0",
+        "transition_id": "TR-05",
+        "transition_type": "NARROW",
+        "trigger": "Composite beam partial interaction audit"
+      },
+      {
+        "source": "NODE-CLM-D1-C02-v1.0",
+        "target": "NODE-CLM-D1-C03-v1.0",
+        "transition_id": "TR-06",
+        "transition_type": "NARROW",
+        "trigger": "Bolted joint roughness audit"
+      },
+      {
+        "source": "NODE-CLM-D1-C03-v1.0",
+        "target": "NODE-CLM-D1-C04-v1.0",
+        "transition_id": "TR-07",
+        "transition_type": "CORRECT",
+        "trigger": "Semantic correction on predeclared tolerance"
+      },
+      {
+        "source": "NODE-CLM-D1-C04-v1.0",
+        "target": "NODE-CLM-D1-FINAL-LOCK-v1.0",
+        "transition_id": "TR-08",
+        "transition_type": "KEEP",
+        "trigger": "Survival of Ye 2024 and Adhikary 1999 audits"
+      },
+      {
+        "source": "NODE-CLM-D1-FINAL-LOCK-v1.0",
+        "target": "NODE-CLM-D1-TOPIC-LOCK-v1.0",
+        "transition_id": "TR-09",
+        "transition_type": "CLOSE",
+        "trigger": "18-criterion adjudication vs MP1"
+      },
+      {
+        "source": "NODE-CLM-D1-TOPIC-LOCK-v1.0",
+        "target": "NODE-CLM-D1-GOVERNANCE-v1.0",
+        "transition_id": "TR-10",
+        "transition_type": "SUPERSEDE",
+        "trigger": "Audit A5 findings on ownership and routing"
+      },
+      {
+        "source": "NODE-CLM-D1-GOVERNANCE-v1.0",
+        "target": "NODE-CLM-D1-GOVERNANCE-v1.1",
+        "transition_id": "TR-11",
+        "transition_type": "CLOSE",
+        "trigger": "Audit A6 independent plan approval"
+      },
+      {
+        "source": "NODE-CLM-D1-GOVERNANCE-v1.1",
+        "target": "NODE-CLM-D1-GOVERNANCE-v1.2",
+        "transition_id": "TR-12",
+        "transition_type": "CLOSE",
+        "trigger": "Preflight machine checks and HG-11 pass"
+      },
+      {
+        "source": "NODE-CLM-D1-GOVERNANCE-v1.2",
+        "target": "NODE-CLM-D1-GOVERNANCE-v1.3",
+        "transition_id": "TR-13",
+        "transition_type": "CLOSE",
+        "trigger": "Deterministic execution of W01"
+      },
+      {
+        "source": "NODE-CLM-D1-GOVERNANCE-v1.3",
+        "target": "NODE-CLM-D1-GOVERNANCE-v1.4",
+        "transition_id": "TR-14",
+        "transition_type": "CLOSE",
+        "trigger": "Deterministic execution of W02"
+      }
+    ]
+  },
+  "current_claims": [
+    {
+      "claim_id": "CLM-D1-M1-BASELINE",
+      "current_text": "Zhang et al. (2025) continuum model represents baseline M1; research evaluates validity limits of M1 rather than inventing M1.",
+      "current_status": "ACTIVE_BASELINE",
+      "current_novelty_category": "MODEL_DISCRIMINATION",
+      "origin_state": "HS-03-D1-V002",
+      "latest_transition": "TR-02",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V002/verification_matrix.json"
+      ],
+      "open_threats": [
+        "Unpublished preprints or unindexed models replicating Zhang 2025"
+      ],
+      "unresolved_assumptions": [
+        "Euler-Bernoulli assumptions hold for slender beams under quasi-static bending"
+      ],
+      "downstream_worker_consumer": "W09, W12, S14"
+    },
+    {
+      "claim_id": "CLM-D1-M1-SCOPE",
+      "current_text": "For Zhang-type continuous-slip beam models, output-specific model-form error quantification across N x p_vac x kappa relative to interface-resolved reference and experiments is novel.",
+      "current_status": "SURVIVES_TARGETED_AUDIT",
+      "current_novelty_category": "VALIDATION",
+      "origin_state": "HS-04-D1-V003",
+      "latest_transition": "TR-08",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V003/cross_round_adversarial_synthesis.json",
+        "outputs/verification/D1-V008/FINAL_NAMED_TARGET_AUDIT.json"
+      ],
+      "open_threats": [
+        "K1-K9 operational falsification tests"
+      ],
+      "unresolved_assumptions": [
+        "Interface friction is Coulomb-like; normal vacuum confinement is uniform"
+      ],
+      "downstream_worker_consumer": "W09, W10, W12, S14"
+    },
+    {
+      "claim_id": "CLM-D1-C01",
+      "current_text": "Discrete layer friction under vacuum confinement behaves distinctly from bonded composite relative gradient theories.",
+      "current_status": "NARROWED_ACTIVE",
+      "current_novelty_category": "MECHANISM",
+      "origin_state": "HS-05-D1-V004-C01",
+      "latest_transition": "TR-04",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V004/C01_ADVERSARIAL_AUDIT.json"
+      ],
+      "open_threats": [
+        "Coupled gradient-frictional formulation in advanced mechanics"
+      ],
+      "unresolved_assumptions": [
+        "Gradient elasticity assumes continuous shear bonding"
+      ],
+      "downstream_worker_consumer": "W06, W09"
+    },
+    {
+      "claim_id": "CLM-D1-C02",
+      "current_text": "Multi-layer unbonded frictional contact with pressure-dependent slip is open relative to civil engineering 2-layer partial interaction beam theory.",
+      "current_status": "NARROWED_ACTIVE",
+      "current_novelty_category": "MECHANISM",
+      "origin_state": "HS-06-D1-V005-C02",
+      "latest_transition": "TR-05",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V005/C02_ADVERSARIAL_AUDIT.json"
+      ],
+      "open_threats": [
+        "Multi-layer partial interaction composite beams in recent mechanics literature"
+      ],
+      "unresolved_assumptions": [
+        "Steel-concrete connectors do not transfer to vacuum-confined smooth sheets"
+      ],
+      "downstream_worker_consumer": "W07, W09"
+    },
+    {
+      "claim_id": "CLM-D1-C03",
+      "current_text": "Macroscopic beam validity boundaries are distinct from microscopic roughness and bolted joint fretting contact models.",
+      "current_status": "NARROWED_ACTIVE",
+      "current_novelty_category": "MECHANISM",
+      "origin_state": "HS-07-D1-V006-C03",
+      "latest_transition": "TR-06",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V006/C03_ADVERSARIAL_AUDIT.json"
+      ],
+      "open_threats": [
+        "Macro-micro coupled tribological contact models"
+      ],
+      "unresolved_assumptions": [
+        "Frictional breakdown at beam level is governed by macroscopic slip zones"
+      ],
+      "downstream_worker_consumer": "W07, W09"
+    },
+    {
+      "claim_id": "CLM-D1-C04",
+      "current_text": "Predeclared acceptance tolerance and continuum jamming breakdown mapping are unaddressed in forward citations; strict a priori freeze required.",
+      "current_status": "CORRECTED_ACTIVE",
+      "current_novelty_category": "VALIDATION",
+      "origin_state": "HS-08-D1-V007-C04",
+      "latest_transition": "TR-07",
+      "supporting_artifacts": [
+        "outputs/verification/D1-V007/C04_SEMANTIC_CORRECTION.md"
+      ],
+      "open_threats": [
+        "Prior art paper discovering predeclared tolerance"
+      ],
+      "unresolved_assumptions": [
+        "Predeclared threshold freeze is necessary for methodological validity"
+      ],
+      "downstream_worker_consumer": "W08, W09, W11"
+    },
+    {
+      "claim_id": "CLM-D1-TOPIC-LOCK",
+      "current_text": "D1_M1 selected as active MSc thesis topic with conditional feasibility pilot gate; MP1 archived as viable alternative.",
+      "current_status": "LOCKED_WITH_FEASIBILITY_GATE",
+      "current_novelty_category": "SYSTEM",
+      "origin_state": "HS-10-FINAL-DIRECTION-LOCK",
+      "latest_transition": "TR-09",
+      "supporting_artifacts": [
+        "outputs/final_direction_lock/FINAL_DIRECTION_ADJUDICATION.json"
+      ],
+      "open_threats": [
+        "Experimental feasibility failure during pilot testing"
+      ],
+      "unresolved_assumptions": [
+        "Feasibility pilot gate will pass"
+      ],
+      "downstream_worker_consumer": "S15, Supervisor"
+    },
+    {
+      "claim_id": "CLM-D1-GOVERNANCE",
+      "current_text": "D1_M1 execution is governed by Plan V6 with strict single-writer ownership (40 artifacts, 0 conflicts) and 26 per-worker failure routes.",
+      "current_status": "CANONICAL_EXECUTION_LOCKED",
+      "current_novelty_category": "METHOD",
+      "origin_state": "HS-12-PLAN-V6-APPROVAL",
+      "latest_transition": "TR-14",
+      "supporting_artifacts": [
+        "outputs/plans/D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md",
+        "outputs/plans/D1_MASTER_PLAN_REAUDIT_V6.md",
+        "outputs/d1_execution/V4/W01/W01_EXECUTION_RECEIPT.json",
+        "outputs/d1_execution/V4/W02/W02_EXECUTION_RECEIPT.json"
+      ],
+      "open_threats": [
+        "Execution gate failure or contradictory worker findings"
+      ],
+      "unresolved_assumptions": [
+        "Workers execute deterministically within contract boundaries"
+      ],
+      "downstream_worker_consumer": "W04-W12, S16"
+    }
+  ],
+  "qa_summary": {
+    "mandatory_inputs_verified": true,
+    "chronology_respected": true,
+    "all_required_transitions_extracted": true,
+    "claim_identity_stable": true,
+    "state_at_time_preserved": true,
+    "novelty_categories_tracked": true,
+    "category_migration_explicit": true,
+    "superseded_interpretations_mapped": true,
+    "corrected_interpretations_mapped": true,
+    "evidence_provenance_attached": true,
+    "claims_and_assumptions_distinguished": true,
+    "current_claim_not_confused_with_novelty": true,
+    "contradictions_found": 0,
+    "contradictions_routed": true,
+    "ownership_respected": true,
+    "search_remained_closed": true,
+    "final_novelty_adjudication_performed": false,
+    "unauthorized_canonical_files_modified": false,
+    "qa_verdict": "PASS"
+  }
+}

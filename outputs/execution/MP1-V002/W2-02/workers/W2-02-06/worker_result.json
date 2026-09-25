@@ -1,0 +1,93 @@
+{
+  "worker_id": "W2-02-06",
+  "claim_id": "C5",
+  "claim_label": "Superelastic NiTi Wires Themselves as Frictional Jamming Medium",
+  "claim_text_original": "Superelastic NiTi wires themselves as the frictional jamming medium remain open.",
+  "claim_text_normalized": "Use of superelastic NiTi wires as the mutual contacting, frictionally slipping, and load-bearing jamming elements in a variable-stiffness bundle.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S06", "S11", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "OPEN_IN_SUPPLIED_CORPUS",
+    "S06": "CLOSED_AT_EXISTENCE_LEVEL_MAPPED_TO_T1",
+    "S11": "CONFIRMED_PREEMPTED_BY_16_PAPERS",
+    "S12": "BOUNDARY_REPAIRED_CLOSED_ROBUSTLY",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "CLOSED",
+  "claim_verdict": "CLOSED",
+  "decision": "REJECT",
+  "scientific_category": "contact_mechanics_materials",
+  "novelty_category": "material_substitution",
+  "why_potentially_novel": "At mentor proposal, using superelastic NiTi wires directly as the frictionally slipping media was believed absent from the soft robotics jamming literature.",
+  "search_conducted": "MP1-V001 supplied corpus audit followed by MP1-V002 targeted citation chase on NiTi wire ropes, cables, and strands.",
+  "search_source_file": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+  "search_commit": "8ccfa3c31d19dde1c87f5653b401fd2afb5d786d",
+  "papers_retrieved": ["53200aa0c6", "d9966f2f5e", "40760daa02", "1c81b2d35c", "6dd1ca94d1", "fac21c950e"],
+  "strongest_prior_art_threat": {
+    "paper_id": "53200aa0c6",
+    "paper_title": "Mechanical response of single and double-helix SMA wire ropes",
+    "authors": "Vahidi et al.",
+    "year": 2022,
+    "DOI": "10.1080/15376494.2021.1955313",
+    "repository_path": "data/papers/verification/MP1-V002/2022-Mechanical response of single and double-helix SMA wire ropes.pdf",
+    "what_source_actually_proves": "Establishes a 3D FE model of multiwire NiTi ropes with Coulomb friction (mu = 0.115) and Auricchio superelastic constitutive law, demonstrating inter-wire contact, relative slip, and frictional dissipation.",
+    "what_source_does_not_prove": "Does not apply an active fluid/membrane confinement pressure independent of axial cable tension."
+  },
+  "source_records": [
+    {
+      "paper_id": "53200aa0c6",
+      "paper_title": "Mechanical response of single and double-helix SMA wire ropes",
+      "authors": "Vahidi et al.",
+      "year": 2022,
+      "DOI": "10.1080/15376494.2021.1955313",
+      "repository_path": "data/papers/verification/MP1-V002/2022-Mechanical response of single and double-helix SMA wire ropes.pdf",
+      "what_source_actually_proves": "Multiwire NiTi ropes exhibit inter-wire contact and friction during mechanical deformation.",
+      "what_source_does_not_prove": "Does not study actively varied fluid confinement pressure."
+    },
+    {
+      "paper_id": "40760daa02",
+      "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+      "authors": "Carboni & Lacarbonara",
+      "year": 2016,
+      "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+      "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis.pdf",
+      "what_source_actually_proves": "Demonstrates pinched hysteresis and amplitude-dependent stiffness in Nitinol wire assemblies due to combined inter-wire friction and phase transformation.",
+      "what_source_does_not_prove": "Does not examine external positive pressure."
+    },
+    {
+      "paper_id": "1c81b2d35c",
+      "paper_title": "Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes",
+      "authors": "Falcetelli et al.",
+      "year": 2024,
+      "DOI": "10.1007/s11340-024-01053-5",
+      "repository_path": "data/papers/verification/MP1-V002/2024-Experimental-Numerical Assessment of Mechanical Behavior of Steel and NiTi Ropes.pdf",
+      "what_source_actually_proves": "Direct head-to-head comparison of steel vs NiTi wire ropes under cyclic tension, proving inter-wire friction and contact damping in NiTi assemblies.",
+      "what_source_does_not_prove": "Does not study pressure-controlled bending."
+    }
+  ],
+  "claim_before": "Superelastic NiTi wires themselves as the frictional jamming medium remain open.",
+  "claim_after": "Inter-wire contact and frictional dissipation in multiwire NiTi assemblies is established prior art; broad claim closed.",
+  "reason_for_change": "Extensive literature on NiTi wire ropes and strands (Vahidi 2022, Carboni 2015/2016, Falcetelli 2024) proves that inter-wire friction and slipping in NiTi bundles is already well-studied.",
+  "scientific_consequence": "Material substitution alone cannot establish novelty; switching from twisted cables to parallel bundles is not a distinct mechanics principle.",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "PREEMPTED_AT_EXISTENCE_LEVEL",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "Confirms that NiTi wires can slide and dissipate energy, but eliminates novelty based solely on NiTi material choice.",
+  "pivot_relevance": "Drove the transition in V002 from Target T1 to Target T2/T3.",
+  "historical_interpretation": "Open in V001 (S04) because V001 papers did not use NiTi. In V002 (S06/S12), robustly closed by Target T1 evidence showing NiTi contact and friction is old art.",
+  "superseded_interpretation": "Belief that using NiTi as a frictionally slipping jamming element was an unaddressed scientific gap.",
+  "corrected_interpretation": "NiTi inter-wire friction is established; novelty can only exist if active confinement pressure alters the constitutive-contact coupling.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": ["CONTRA-03"],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "threat_file": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W03_C5_C8_BOUNDARY_REPAIR.md"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "verification_id": "MP1-V002",
+  "generated_at_utc": "2026-09-25T15:33:44.413103Z",
+  "scopes": {
+    "canonical_15_branches": {
+      "backward_raw_records": 237,
+      "forward_raw_records": 75,
+      "total_raw_records": 312,
+      "duplicate_instances": 54,
+      "unique_candidate_records": 258,
+      "description": "Total raw and deduplicated candidate records across the canonical 15 required citation directions."
+    },
+    "b11_plus_b12_late_stage_addition": {
+      "b11_raw_records": 22,
+      "b12_raw_records": 46,
+      "total_raw_records": 68,
+      "duplicate_instances": 1,
+      "unique_candidate_records": 67,
+      "overlapping_record": {
+        "doi": "10.1061/(ASCE)EM.1943-7889.0000852",
+        "title": "Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification",
+        "authors": "Carboni, Lacarbonara, and Auricchio",
+        "year": "2015"
+      },
+      "historical_context": "Reconciles the '68 raw / 67 unique' statement in MP1-V002_CURRENT_HANDOFF.md Section 3 and Stage 4 research logs."
+    },
+    "initial_metadata_screening_run_20260924": {
+      "input_csvs_count": 8,
+      "input_csvs": [
+        "B01.csv",
+        "B02.csv",
+        "B03.csv",
+        "B04.csv",
+        "B05.csv",
+        "F01.csv",
+        "F02.csv",
+        "F04.csv"
+      ],
+      "total_raw_records": 187,
+      "duplicate_instances": 9,
+      "unique_candidate_records": 178,
+      "shortlisted_for_full_text": 12,
+      "source_file": "outputs/verification/MP1-V002/citation_screening/METADATA_SCREENING.json"
+    },
+    "auxiliary_13paper_chase_screening_run_20260925": {
+      "input_csvs_count": 8,
+      "input_csvs": [
+        "B09.csv",
+        "B10.csv",
+        "F07.csv",
+        "F08.csv",
+        "F09.csv",
+        "F10.csv",
+        "F11.csv",
+        "F12.csv"
+      ],
+      "total_raw_records": 372,
+      "duplicate_instances": 85,
+      "unique_candidate_records": 287,
+      "shortlisted_for_full_text": 16,
+      "source_file": "outputs/verification/MP1-V002/citation_screening_13paper_chase/METADATA_SCREENING.json"
+    }
+  },
+  "reconciliation_verdict": {
+    "discrepancy_resolved": true,
+    "explanation": "Different numerical counts reflect distinct historical scopes: 68 raw / 67 unique is the specific addition of B11+B12 to achieve closure; 187/178 is the initial 8-CSV batch; 372/287 is the 13-paper expansion batch; 312/258 is the canonical 15-branch scope."
+  }
+}

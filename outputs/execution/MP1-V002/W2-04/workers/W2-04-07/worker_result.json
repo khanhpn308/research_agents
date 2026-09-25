@@ -1,0 +1,145 @@
+{
+  "worker_id": "W2-04-07",
+  "task": "Full-text extraction for papers 11\u201312 (Vahidi 2022 & Niu 2021)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "53200aa0c6",
+    "98fee47c04"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "11",
+      "paper_id": "53200aa0c6",
+      "paper_title": "Mechanical response of single and double-helix SMA wire ropes",
+      "authors": [
+        "Saeed Vahidi",
+        "Jamal Arghavani",
+        "Ramin Sedaghati"
+      ],
+      "year": 2022,
+      "DOI": "10.1080/15376494.2021.1955313",
+      "repository_path": "data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+      "matrix_filename": "A3-2022-Mechanical response of single and double-helix.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Highest-threat full-text prior art paper for Target T1 and foundational benchmark for H0b.",
+      "threat_addressed": "Directly closes T1 and demonstrates H0b sufficiency by modeling 3D NiTi multiwire bundles with Coulomb friction and Auricchio superelasticity.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "3D nonlinear continuum finite element analysis in Abaqus/Standard with custom UMAT",
+      "material_or_system": "1x27 single-helix and 7x7 double-helix superelastic NiTi wire ropes",
+      "loading_mode": "Quasi-static cyclic uniaxial tension under fixed-end rotation",
+      "control_variables": "Displacement control, isothermal room temperature (22 deg C)",
+      "independent_variables": "Cable architecture (1x27 vs 7x7), friction coefficient (mu = 0.0 to 0.2, baseline 0.115), strain levels (up to 12%)",
+      "dependent_variables": "Axial stress-strain curves, reaction torque, contact normal and shear force distributions, energy dissipation",
+      "model_used": "Abaqus 3D solid element FEA with surface-to-surface penalty contact",
+      "constitutive_model": "Auricchio-Petrini 3D phenomenological superelastic constitutive model implemented in UMAT",
+      "contact_or_friction_model": "Penalty formulation Coulomb friction with isotropic friction coefficient mu = 0.115",
+      "experiment_used": "Validation against experimental data from Reedlunn et al. 2013",
+      "experimental_setup": "Exact 3D geometric CAD representation of wire ropes with helical sweeping and contact pair definitions",
+      "key_results": "Successfully reproduced the complete stress-strain response, transformation plateaus, work-hardening, and reaction torque of 1x27 and 7x7 NiTi cables using locked material parameters from single-wire tests; proved that inter-wire friction normal forces and relative slip directly modulate structural stiffness and energy dissipation.",
+      "what_it_proves": "Proves that existing transformation-aware constitutive models coupled with standard Coulomb contact mechanics (H0b) are fully sufficient to predict multiwire NiTi bundle response.",
+      "what_it_does_not_prove": "Does not apply an active transverse fluid confinement pressure independent of axial tension.",
+      "directly_verified_statements": [
+        "Abaqus FEA combining Auricchio UMAT with Coulomb friction (mu = 0.115) accurately predicts the complete cyclic response of 1x27 and 7x7 NiTi cables (Section 4, pp. 6-10).",
+        "Inter-wire friction increases axial stiffness and energy dissipation while reducing total recoverable strain (Section 4.3, pp. 11-13).",
+        "The model reproduces the experimental data of Reedlunn 2013 without introducing any new micro-coupling laws (Section 4.1, pp. 7-9)."
+      ],
+      "inferred_statements": [
+        "Unless an unpredicted phenomenon arises under transverse pressure, H0b is completely viable and live."
+      ],
+      "limitations": "Axial tension only; isothermal assumption; no transverse fluid pressure.",
+      "impact_on_MP1": "Decisive paper: closes C5/T1 at existence level and establishes H0b as a formidable, non-falsified competitor null hypothesis.",
+      "impact_type": "WEAKENS",
+      "page_or_section_evidence": "Section 3 (pp. 3-6), Section 4 (pp. 6-14)",
+      "evidence_pointers": "Fig. 4 (3D FEA mesh and contact definitions), Fig. 7 (validation against Reedlunn 1x27 and 7x7 data), Fig. 12 (friction sensitivity analysis)",
+      "metadata_conflicts": "Online first 2021, official journal issue published in 2022.",
+      "contradiction_candidate_ids": [
+        "CONTRA-01",
+        "CONTRA-02"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/A3-2022-Mechanical response of single and double-helix_53200aa0c6.json",
+        "pdf_path": "data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf"
+      }
+    },
+    {
+      "paper_index": "12",
+      "paper_id": "98fee47c04",
+      "paper_title": "Nonlinear Vibration Isolation via a NiTiNOL Wire Rope",
+      "authors": [
+        "Mu-Qing Niu",
+        "Li-Qun Chen"
+      ],
+      "year": 2021,
+      "DOI": "10.3390/app112110032",
+      "repository_path": "data/papers/verification/MP1-V002/A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf",
+      "matrix_filename": "A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Demonstrates superelastic NiTi wire rope structures used as nonlinear variable-stiffness vibration isolators.",
+      "threat_addressed": "Threatens T1 and T3 by demonstrating that NiTi wire ropes provide tunable stiffness and damping under cyclic loading.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Experimental vibration testing and nonlinear dynamic modeling",
+      "material_or_system": "Laboratory NiTi wire rope isolator",
+      "loading_mode": "Vertical dynamic base excitation and harmonic force excitation",
+      "control_variables": "Excitation amplitude and sweep frequency",
+      "independent_variables": "Vibration amplitude, excitation frequency across primary resonance",
+      "dependent_variables": "Transmissibility, resonant frequency shift, hysteretic loop area, dynamic stiffness",
+      "model_used": "Duffing-type nonlinear oscillator combined with hysteretic damping model",
+      "constitutive_model": "Polynomial restoring force combined with Bouc-Wen hysteresis",
+      "contact_or_friction_model": "Frictional dissipation represented via Bouc-Wen evolutionary variable",
+      "experiment_used": "Electrodynamic shaker, accelerometers, power amplifier, signal analyzer",
+      "experimental_setup": "NiTi wire rope isolator supporting a payload mass subjected to harmonic vertical vibration",
+      "key_results": "Demonstrated that NiTi wire ropes exhibit softening-hardening non-linear stiffness and high damping, reducing resonance peak transmissibility by up to 50% compared to steel wire rope isolators.",
+      "what_it_proves": "Proves that NiTi wire ropes modulate dynamic stiffness and dissipate energy under cyclic deformation.",
+      "what_it_does_not_prove": "Does not apply active pneumatic/hydraulic confinement pressure.",
+      "directly_verified_statements": [
+        "NiTi wire rope isolators exhibit amplitude-dependent resonance frequency shifts due to superelastic softening (Section 3, pp. 6-9).",
+        "Superelasticity provides enhanced energy dissipation and displacement control over conventional steel wire ropes (Section 4, pp. 10-12)."
+      ],
+      "inferred_statements": [
+        "Variable stiffness in NiTi wire ropes is readily exploitable for dynamic stiffness tuning in soft systems."
+      ],
+      "limitations": "Lumped parameter dynamic testing; no local slip measurement.",
+      "impact_on_MP1": "Demonstrates prior art use of NiTi wire ropes for stiffness modulation.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 2 (pp. 3-5), Section 3 (pp. 6-10)",
+      "evidence_pointers": "Fig. 5 (transmissibility curves), Fig. 8 (hysteresis loops under dynamic loading)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/A4-2021-Nonlinear vibration isolation via a nitinol wire rope_98fee47c04.json",
+        "pdf_path": "data/papers/verification/MP1-V002/A4-2021-Nonlinear vibration isolation via a nitinol wire rope.pdf"
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "worker_id": "W2-06-06",
+  "task": "Astra critique G05–G08 reconstruction",
+  "status": "COMPLETE",
+  "critique_count": 4,
+  "critiques": [
+    {
+      "critique_id": "G05",
+      "original_weakness": "Packet W08 gán sai chuyển pha NiTi dưới uốn thuần cho cấu hình S2a của Carboni: S2a thực chất là cáp thép thuần ma sát; S1a mới là cáp NiTi chịu kéo - uốn kết hợp.",
+      "scientific_severity": "HIGH",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "W08-E01; Carboni 2015 PDF tr. 9-10 và Bảng 4 (Table 4)",
+      "astras_reasoning": "Kiểm tra trực tiếp tệp PDF Carboni 2015 xác nhận cấu hình S2a là ST49 (cáp thép 49 sợi, mô hình trễ Bouc-Wen thuần ma sát). S1a mới là bó 7 sợi NiTi và chịu biến dạng kéo-uốn kết hợp do ngàm khóa dịch chuyển ngang.",
+      "required_remediation": "Loại bỏ hoàn toàn suy luận sai về S2a khỏi evidence chain; đính chính 100% dữ liệu thực tế; chỉ dùng S1a với đầy đủ giới hạn về lực kéo dọc trục đi kèm.",
+      "remediation_worker_ids": [
+        "W04",
+        "W03"
+      ],
+      "remediation_status": "REPAIRED",
+      "residual_risk": "Không còn rủi ro dữ liệu sai; bằng chứng Carboni chỉ chứng minh kéo-uốn kết hợp, không chứng minh uốn thuần túy.",
+      "historical_status": "S2a được dùng làm bằng chứng then chốt chứng minh chuyển pha uốn thuần.",
+      "current_interpretation": "S2a là cáp thép; chỉ S1a là NiTi nhưng chịu tải kéo-uốn kết hợp có lực căng lớn.",
+      "evidence_status": "repaired_factual_correction",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L61-L68"
+    },
+    {
+      "critique_id": "G06",
+      "original_weakness": "Đánh đồng tồn tại mô hình, khớp số liệu và kiểm chứng độc lập: Việc khớp đường cong không chứng minh được tính đúng đắn của cơ chế vật lý.",
+      "scientific_severity": "HIGH",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "Vahidi 2022; Niu 2023 (9e15094d68); Zhang & Yao 2026; Fang 2019",
+      "astras_reasoning": "Nhiều mô hình điều chỉnh tham số tự do để ép khớp một đường cong thực nghiệm cụ thể (calibration), nhưng hoàn toàn thất bại khi dự đoán điều kiện biên mới (validation) hoặc không chứng minh được quan hệ nhân quả.",
+      "required_remediation": "Thiết lập Thang bậc 5 tầng về độ tin cậy mô hình: Tầng 1 (Formulation), Tầng 2 (Numerical Verification), Tầng 3 (Calibration), Tầng 4 (Validation với tham số bị khóa), và Tầng 5 (Causal Identification).",
+      "remediation_worker_ids": [
+        "W09"
+      ],
+      "remediation_status": "REPAIRED",
+      "residual_risk": "Mô hình mới đề xuất trong luận văn phải đạt tối thiểu Tầng 4 mới được xem là có giá trị khoa học vững chắc.",
+      "historical_status": "Đánh đồng việc một bài báo có đồ thị khớp số liệu với việc cơ chế đã được validate.",
+      "current_interpretation": "Khớp số liệu chỉ là Calibration (Tầng 3); Validation bắt buộc phải khóa tham số trên tập dữ liệu độc lập.",
+      "evidence_status": "repaired_with_5_tier_hierarchy",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L69-L76"
+    },
+    {
+      "critique_id": "G07",
+      "original_weakness": "Dùng kết quả của Reedlunn 2013 vượt quá phạm vi: Sai số mô hình ở góc xoắn lớn là do bỏ qua uốn/xoắn cục bộ trong động học Costello, không phải chứng minh cần luật ghép cặp mới cho bó dây thẳng.",
+      "scientific_severity": "HIGH",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H1"
+      ],
+      "evidence_challenged": "fac21c950e (Reedlunn et al. 2013 Part II); W09",
+      "astras_reasoning": "Tác giả Reedlunn nêu rõ nguyên nhân sai số ở lớp ngoài cáp 1x27 là do giả thiết động học thanh xoắn Costello bỏ qua mô-men uốn và xoắn cục bộ của sợi. Ở cấu hình góc xoắn nông (7x7), cáp hành xử rất gần dây đơn.",
+      "required_remediation": "Áp dụng nguyên tắc trích dẫn bảo thủ; không dùng sự thất bại của phép rút gọn động học cáp xoắn dốc để suy diễn về nhu cầu lý thuyết mới cho bó dây song song của robot mềm.",
+      "remediation_worker_ids": [
+        "W10",
+        "W07"
+      ],
+      "remediation_status": "REPAIRED",
+      "residual_risk": "Không còn rủi ro suy diễn sai lệch từ Reedlunn 2013.",
+      "historical_status": "Dùng Reedlunn làm căn cứ lập luận rằng cơ học tiếp xúc cáp dây hiện hữu đã sụp đổ.",
+      "current_interpretation": "Reedlunn chỉ chỉ ra giới hạn của giả thiết động học Costello đối với cáp xoắn dốc; không liên quan đến bó dây thẳng.",
+      "evidence_status": "repaired_conservative_citation_bounding",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L77-L84"
+    },
+    {
+      "critique_id": "G08",
+      "original_weakness": "Quá nhiều tham số có thể bù trừ nhau trong phép khớp uốn: Tích số giữa hệ số ma sát và tỷ lệ truyền áp $(\\mu \\cdot \\alpha_{\\text{trans}})$ không thể tách rời từ phép đo uốn vĩ mô.",
+      "scientific_severity": "HIGH",
+      "claim_affected": [
+        "C7"
+      ],
+      "target_affected": [
+        "T3"
+      ],
+      "hypothesis_affected": [
+        "H0b",
+        "H1"
+      ],
+      "evidence_challenged": "Fang 2019 PDF tr. 11-12; Carboni 2015 parameter identification",
+      "astras_reasoning": "Trong phương trình lực cản trượt $F_{\\text{cap}} = \\mu f_n = \\mu \\alpha_{\\text{trans}} p$, việc tăng $\\mu$ và giảm $\\alpha_{\\text{trans}}$ tạo ra đáp ứng lực ma sát tương đương. Nếu thả nổi cả hai tham số, phép khớp uốn sẽ mất tính duy nhất.",
+      "required_remediation": "Thiết lập Quy tắc Khóa tham số tuyệt đối (Locked Calibration Rule): Mọi tham số vật liệu và ma sát phải đo độc lập ngoài bài toán bó dây; cấm thả nổi tham số để ép khớp đường cong uốn.",
+      "remediation_worker_ids": [
+        "W09",
+        "W08",
+        "W10"
+      ],
+      "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+      "residual_risk": "Nếu thiết bị đo không đủ độ chính xác để đo độc lập mu và alpha_trans, hiện tượng bù trừ tham số vẫn có thể làm suy giảm tính thuyết phục của mô hình.",
+      "historical_status": "Chưa nhận thức được nguy cơ bù trừ tham số giữa ma sát tiếp xúc và truyền lực áp suất.",
+      "current_interpretation": "Khóa tham số bắt buộc; kiểm tra độ nhạy và tính duy nhất tham số trước khi kết luận.",
+      "evidence_status": "repaired_with_locked_calibration_rule",
+      "confidence": "high",
+      "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L85-L92"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "worker_id": "W2-02-04",
+  "claim_id": "C3",
+  "claim_label": "SMA and Jamming Co-existence in Variable-Stiffness Structure",
+  "claim_text_original": "SMA and jamming in the same variable-stiffness device is novel.",
+  "claim_text_normalized": "Simultaneous integration of shape memory alloy (SMA) elements and jamming mechanisms within the same variable-stiffness robotic structure.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "CLOSED",
+    "S12": "CLOSED_CONFIRMED",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "CLOSED",
+  "claim_verdict": "CLOSED",
+  "decision": "REJECT",
+  "scientific_category": "smart_materials_integration",
+  "novelty_category": "multi_functional_integration",
+  "why_potentially_novel": "At mentor proposal, integrating active SMA smart actuation with passive frictional jamming in a single structural member was thought to be an unprecedented multi-functional combination.",
+  "search_conducted": "MP1-V001 core prior-art search across IEEE, RSJ, and JSME publications on SMA and jamming integration.",
+  "search_source_file": "outputs/verification/MP1-V001/verification_matrix.json",
+  "search_commit": "3d152e951711a15d9f86946df99f22785a8be9a4",
+  "papers_retrieved": ["2cd907e77a", "7ce492505d", "99fe24da8b", "d3b3b6963f"],
+  "strongest_prior_art_threat": {
+    "paper_id": "2cd907e77a",
+    "paper_title": "Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon",
+    "authors": "Takashima et al.",
+    "year": 2022,
+    "DOI": "10.20965/jrm.2022.p0466",
+    "repository_path": "data/papers/verification/MP1-V001/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+    "what_source_actually_proves": "Demonstrates a soft robotic link co-integrating embedded NiTi SMA wires with vacuum granular jamming, enabling active shape restoration combined with tunable locking stiffness.",
+    "what_source_does_not_prove": "NiTi wires serve as embedded actuation/recovery tendons, not as the mutual contacting and slipping jamming elements."
+  },
+  "source_records": [
+    {
+      "paper_id": "2cd907e77a",
+      "paper_title": "Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon",
+      "authors": "Takashima et al.",
+      "year": 2022,
+      "DOI": "10.20965/jrm.2022.p0466",
+      "repository_path": "data/papers/verification/MP1-V001/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+      "what_source_actually_proves": "Co-existence of SMA wires and granular jamming in a variable-stiffness robotic link.",
+      "what_source_does_not_prove": "Does not use NiTi wires as the jamming medium."
+    },
+    {
+      "paper_id": "7ce492505d",
+      "paper_title": "Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon",
+      "authors": "Matsumoto et al.",
+      "year": 2024,
+      "DOI": "10.1299/mej.24-00130",
+      "repository_path": "data/papers/verification/MP1-V001/2024-Effect of R-phase on shape recovery speed of Ti-Ni shape memory alloy wire for variable-stiffness mechanism using jamming transition phenomenon.pdf",
+      "what_source_actually_proves": "Characterizes R-phase transformation speed of Ti-Ni wires embedded inside a jamming transition link.",
+      "what_source_does_not_prove": "Does not study inter-NiTi contact friction."
+    }
+  ],
+  "claim_before": "SMA and jamming in the same variable-stiffness device is novel.",
+  "claim_after": "Co-existence of SMA and jamming in the same device is established prior art; device-level integration novelty rejected.",
+  "reason_for_change": "Takashima lineage (2022–2026) and Matsumoto et al. (2024) extensively published the co-integration of SMA wires and jamming transitions.",
+  "scientific_consequence": "Must separate device-level co-existence (closed) from inter-wire contact mechanics (re-routed to C5/C7/T1).",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "PREEMPTED_AT_DEVICE_LEVEL",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "Confirms practical feasibility of combining SMA and jamming, but bars whole-device novelty.",
+  "pivot_relevance": "Key architectural pre-emption forcing the pivot to mechanics core in MP1-V001.",
+  "historical_interpretation": "Closed at V001 (S04). Confirmed as robust closure at Stage 3 (S12) with explicit clarification separating SMA backbone from NiTi contact network.",
+  "superseded_interpretation": "Belief that pairing an SMA element with a jamming element constituted a novel robotic architecture.",
+  "corrected_interpretation": "Co-existence is well-established prior art; scientific interest only survives if NiTi wires themselves form the contact network.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": [],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W02_C1_C4_ROBUST_CLOSURES.md"
+  }
+}

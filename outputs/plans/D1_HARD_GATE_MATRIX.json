@@ -1,0 +1,470 @@
+{
+  "matrix_id": "D1_HARD_GATE_MATRIX",
+  "plan_version": "V5",
+  "gate_count": 15,
+  "allowed_statuses": [
+    "NOT_REACHED",
+    "READY",
+    "PASS",
+    "FAIL",
+    "BLOCKED"
+  ],
+  "gates": [
+    {
+      "gate_id": "HG-01",
+      "gate_name": "Historical completeness",
+      "scientific_or_execution_purpose": "Protect state-at-time lineage",
+      "stage": "S2",
+      "required_inputs": [
+        "D1_ROUND_COVERAGE.json",
+        "D1_HISTORICAL_STATE_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_HISTORICAL_STATE_REGISTER.json"
+      ],
+      "machine_checks": [
+        "rounds_expected==rounds_present",
+        "state_at_time_rows_complete==true",
+        "supporting_source_present==true"
+      ],
+      "pass_condition": "all discovery,V001-V009,current rows complete with provenance",
+      "fail_condition": "any round/state row/source missing",
+      "blocked_stage": "S4 onward",
+      "return_route": "RR-W03",
+      "return_stage": "S2",
+      "responsible_owner": "W03",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-02",
+      "gate_name": "Provenance QA",
+      "scientific_or_execution_purpose": "Ensure thesis-critical claims are traceable",
+      "stage": "S8",
+      "required_inputs": [
+        "D1_PROVENANCE_QA.json",
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl"
+      ],
+      "required_artifacts": [
+        "D1_PROVENANCE_QA.json"
+      ],
+      "machine_checks": [
+        "unsupported_claims==0",
+        "invalid_locators==0",
+        "source_precedence_failures==0"
+      ],
+      "pass_condition": "all claims trace to packet, source, paper and locator",
+      "fail_condition": "orphan claim, invalid locator or missing source",
+      "blocked_stage": "S9 onward",
+      "return_route": "RR-P",
+      "return_stage": "S8",
+      "responsible_owner": "W11",
+      "human_review_required": false,
+      "human_review_gate_id": null,
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-03",
+      "gate_name": "Critical contradiction clearance",
+      "scientific_or_execution_purpose": "Prevent silent reconciliation",
+      "stage": "S9",
+      "required_inputs": [
+        "D1_CONTRADICTION_REGISTER.json",
+        "D1_HUMAN_REVIEW_CLEARANCE.json"
+      ],
+      "required_artifacts": [
+        "D1_CONTRADICTION_REGISTER.json"
+      ],
+      "machine_checks": [
+        "critical_open_rows==0",
+        "critical_blocked_rows==0",
+        "adjudication_fields_complete==true"
+      ],
+      "pass_condition": "no critical OPEN or BLOCKED contradiction",
+      "fail_condition": "any unresolved critical contradiction",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-C",
+      "return_stage": "S9",
+      "responsible_owner": "S9",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-04",
+      "gate_name": "K1-K9 criterion freeze",
+      "scientific_or_execution_purpose": "Prevent criterion leakage",
+      "stage": "S9",
+      "required_inputs": [
+        "D1_K_CRITERIA_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_K_CRITERIA_REGISTER.json"
+      ],
+      "machine_checks": [
+        "criterion_rows==9",
+        "criterion_frozen_before_evaluation==true",
+        "unapproved_changes==0"
+      ],
+      "pass_condition": "nine criteria frozen before evidence evaluation",
+      "fail_condition": "missing or modified criterion without approved record",
+      "blocked_stage": "S10 onward",
+      "return_route": "RR-K",
+      "return_stage": "S9",
+      "responsible_owner": "S9",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-05",
+      "gate_name": "K1-K9 resolution",
+      "scientific_or_execution_purpose": "Attempt to falsify candidate",
+      "stage": "S10",
+      "required_inputs": [
+        "D1_K1_K9_FALSIFICATION_MATRIX.json",
+        "D1_NOVELTY_CANDIDATE_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_K1_K9_FALSIFICATION_MATRIX.json"
+      ],
+      "machine_checks": [
+        "K1_to_K9_rows==9",
+        "high_significance_unresolved==0",
+        "verdicts_valid==true"
+      ],
+      "pass_condition": "all K rows resolved or explicitly block survival",
+      "fail_condition": "missing or unresolved row used for survival",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-K-E",
+      "return_stage": "S10",
+      "responsible_owner": "W12",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-06",
+      "gate_name": "Threshold freeze",
+      "scientific_or_execution_purpose": "Prevent retrospective acceptance criteria",
+      "stage": "S11",
+      "required_inputs": [
+        "D1_THRESHOLD_FREEZE_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_THRESHOLD_FREEZE_REGISTER.json"
+      ],
+      "machine_checks": [
+        "freeze_before_visible_data==true",
+        "uncertainty_basis_present==true",
+        "retroactive_changes==0"
+      ],
+      "pass_condition": "boundary, metric and tolerance frozen before visible validation data",
+      "fail_condition": "post-result threshold or missing uncertainty",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-T",
+      "return_stage": "S11",
+      "responsible_owner": "W11",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-07",
+      "gate_name": "Prior-art threat completion",
+      "scientific_or_execution_purpose": "Close material prior-art threats",
+      "stage": "S5",
+      "required_inputs": [
+        "D1_PRIOR_ART_THREAT_MATRIX.json",
+        "D1_UNRESOLVED_THREAT_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_PRIOR_ART_THREAT_MATRIX.json",
+        "D1_UNRESOLVED_THREAT_REGISTER.json"
+      ],
+      "machine_checks": [
+        "material_open_threats==0",
+        "unavailable_sources_documented==true",
+        "family_coverage_complete==true"
+      ],
+      "pass_condition": "every material threat has disposition and evidence status",
+      "fail_condition": "high-threat row open without documented unavailability",
+      "blocked_stage": "S10 onward",
+      "return_route": "RR-TH",
+      "return_stage": "S5",
+      "responsible_owner": "W10",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-08",
+      "gate_name": "Red-team completion",
+      "scientific_or_execution_purpose": "Attack assumptions and novelty migration",
+      "stage": "S12",
+      "required_inputs": [
+        "D1_RED_TEAM_MATRIX.json",
+        "D1_NOVELTY_CANDIDATE_REGISTER.json"
+      ],
+      "required_artifacts": [
+        "D1_RED_TEAM_MATRIX.json"
+      ],
+      "machine_checks": [
+        "blocking_open_attacks==0",
+        "claim_attacked_ids_valid==true",
+        "severity_reviewed==true"
+      ],
+      "pass_condition": "all applicable attack rows closed and reconciled",
+      "fail_condition": "open blocking attack or missing candidate link",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-RT",
+      "return_stage": "S12",
+      "responsible_owner": "W12",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-09",
+      "gate_name": "Human review clearance",
+      "scientific_or_execution_purpose": "Require human decisions at irreversible scientific forks",
+      "stage": "S13",
+      "required_inputs": [
+        "D1_HUMAN_REVIEW_CLEARANCE.json"
+      ],
+      "required_artifacts": [
+        "D1_HUMAN_REVIEW_CLEARANCE.json"
+      ],
+      "machine_checks": [
+        "required_review_rows_complete==true",
+        "rejected_rows==0",
+        "revision_required_rows_routed==true"
+      ],
+      "pass_condition": "all required reviews CLEARED",
+      "fail_condition": "pending, rejected or unrouted review",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-HUMAN-REVIEW",
+      "return_stage": "S13",
+      "responsible_owner": "W11",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-10",
+      "gate_name": "Final adjudication readiness",
+      "scientific_or_execution_purpose": "Ensure negative outcomes remain possible and supported",
+      "stage": "S14",
+      "required_inputs": [
+        "HG-01..HG-09",
+        "D1_FINAL_EVIDENCE_MAP.json"
+      ],
+      "required_artifacts": [
+        "D1_FINAL_EVIDENCE_MAP.json"
+      ],
+      "machine_checks": [
+        "HG01_to_HG09==PASS",
+        "unsupported_claims==0",
+        "outcome_space_valid==true"
+      ],
+      "pass_condition": "all prerequisite gates pass and final map is source-bound",
+      "fail_condition": "any prerequisite gate fails or map is unsupported",
+      "blocked_stage": "S15",
+      "return_route": "RR-F",
+      "return_stage": "S14",
+      "responsible_owner": "S14",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-11",
+      "gate_name": "Worker execution readiness",
+      "scientific_or_execution_purpose": "Prevent orphaned or ambiguous worker outputs",
+      "stage": "S16",
+      "required_inputs": [
+        "D1_WORKER_EXECUTION_READINESS_MATRIX_V5.json",
+        "D1_ARTIFACT_OWNERSHIP_MATRIX.json"
+      ],
+      "required_artifacts": [
+        "D1_WORKER_EXECUTION_READINESS_MATRIX_V5.json",
+        "D1_ARTIFACT_OWNERSHIP_MATRIX.json"
+      ],
+      "machine_checks": [
+        "worker_count==12",
+        "missing_output_directories==0",
+        "ownerless_outputs==0",
+        "all_structural_booleans==true"
+      ],
+      "pass_condition": "all twelve workers structurally execution-ready",
+      "fail_condition": "false directory, false ownership or false contract check",
+      "blocked_stage": "worker launch",
+      "return_route": "RR-WORKER-PACKAGE",
+      "return_stage": "S16",
+      "responsible_owner": "S16",
+      "human_review_required": false,
+      "human_review_gate_id": null,
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-12",
+      "gate_name": "Package QA",
+      "scientific_or_execution_purpose": "Validate canonical V5 package",
+      "stage": "S16",
+      "required_inputs": [
+        "D1_PLAN_PACKAGE_MANIFEST_V5.json",
+        "all required artifacts"
+      ],
+      "required_artifacts": [
+        "D1_PLAN_PACKAGE_MANIFEST_V5.json"
+      ],
+      "machine_checks": [
+        "required_missing==0",
+        "ownerless==0",
+        "invalid_paths==0",
+        "duplicates==0",
+        "hard_gate_rows_missing==0"
+      ],
+      "pass_condition": "manifest and all required artifacts parse and pass QA",
+      "fail_condition": "missing, invalid, duplicate or ownerless artifact",
+      "blocked_stage": "re-audit readiness",
+      "return_route": "RR-PKG",
+      "return_stage": "S16",
+      "responsible_owner": "S16",
+      "human_review_required": false,
+      "human_review_gate_id": null,
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-13",
+      "gate_name": "Post-freeze criterion change bias",
+      "scientific_or_execution_purpose": "Expose evidence-dependent criterion changes",
+      "stage": "S9",
+      "required_inputs": [
+        "KILL_CRITERION_CHANGE_RECORD.jsonl",
+        "D1_FINAL_EVIDENCE_MAP.json"
+      ],
+      "required_artifacts": [
+        "KILL_CRITERION_CHANGE_RECORD.jsonl"
+      ],
+      "machine_checks": [
+        "post_freeze_bias_risk_none==false_when_exposed",
+        "human_review_present==true",
+        "final_bias_status_sticky==true",
+        "unqualified_survival_blocked==true"
+      ],
+      "pass_condition": "all changes carry exposure, bias, review and final qualification",
+      "fail_condition": "any exposed change lacks bias or review control",
+      "blocked_stage": "S14 onward",
+      "return_route": "RR-K-BIAS",
+      "return_stage": "S9",
+      "responsible_owner": "W12",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-14",
+      "gate_name": "Search-opening authorization",
+      "scientific_or_execution_purpose": "Prevent search-query and absence bias",
+      "stage": "S10",
+      "required_inputs": [
+        "D1_SEARCH_DECISION_LOG.json",
+        "repository evidence inventory"
+      ],
+      "required_artifacts": [
+        "D1_SEARCH_DECISION_LOG.json"
+      ],
+      "machine_checks": [
+        "open_rows_have_trigger==true",
+        "existing_evidence_checked_first==true",
+        "stop_condition_present==true",
+        "broad_search_rows==0"
+      ],
+      "pass_condition": "every OPEN row is named, bounded and evidence-first",
+      "fail_condition": "search opened without trigger or stop condition",
+      "blocked_stage": "S10",
+      "return_route": "RR-S",
+      "return_stage": "S10",
+      "responsible_owner": "W10",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    },
+    {
+      "gate_id": "HG-15",
+      "gate_name": "Revision routing integrity",
+      "scientific_or_execution_purpose": "Ensure every blocker has an exact return route",
+      "stage": "S16",
+      "required_inputs": [
+        "D1_REVISION_ROUTING_MATRIX_V5.json",
+        "D1_HARD_GATE_ROUTING_QA.json"
+      ],
+      "required_artifacts": [
+        "D1_REVISION_ROUTING_MATRIX_V5.json",
+        "D1_HARD_GATE_ROUTING_QA.json"
+      ],
+      "machine_checks": [
+        "all_gate_routes_exist==true",
+        "return_stages_valid==true",
+        "reentry_gates_valid==true",
+        "generic_routes==0"
+      ],
+      "pass_condition": "every REVISION_REQUIRED and failed gate has one exact route",
+      "fail_condition": "missing or generic return route",
+      "blocked_stage": "all downstream stages",
+      "return_route": "RR-REVISION",
+      "return_stage": "S13",
+      "responsible_owner": "S16",
+      "human_review_required": true,
+      "human_review_gate_id": "D1_HUMAN_REVIEW_CLEARANCE",
+      "status": "NOT_REACHED",
+      "status_evidence": "V5 plan remediation preflight only; no scientific execution or worker output exists.",
+      "last_checked_at": "2026-09-25T00:00:00+07:00",
+      "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936"
+    }
+  ]
+}

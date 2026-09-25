@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "contradictions": [
+    {
+      "contradiction_candidate_id": "CONTRA-01",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md",
+      "source_B": "data/paper_registry.json & outputs/verification/MP1-V002/verification_matrix.json",
+      "branch_ids_affected": [
+        "B01",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "historical_context": "Discrepancy in evidence matrix paper count (10 vs 13 vs 16 full-text papers). Early reports recorded 10 papers; subsequent expansions added papers up to 16.",
+      "difference": "Earlier documents refer to 10 or 13 papers, whereas current canonical full-text corpus contains exactly 16 papers.",
+      "why_it_matters": "Audit trail must maintain clear provenance so reviewers do not perceive missing or hallucinated literature.",
+      "resolution_status": "RESOLVED_HISTORICAL_PROGRESSION",
+      "recommended_owner": "MP1-E1 Orchestrator"
+    },
+    {
+      "contradiction_candidate_id": "CONTRA-02",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W01_PARAMETER_SUBSTITUTION_AND_MODEL_CREDIBILITY.md",
+      "source_B": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+      "branch_ids_affected": [
+        "B01",
+        "B02",
+        "B06",
+        "B11",
+        "B12"
+      ],
+      "historical_context": "Semantic conflict between claiming an established requirement for new coupling law vs recognizing evidence as insufficient.",
+      "difference": "Early narrative treated NiTi transformation coupling as a proven necessity; threat audit correctly rated existing_elastic_fiber_model_appears_sufficient=false and niti_requires_distinct_constitutive_contact_coupling=false with evidence_status=insufficient.",
+      "why_it_matters": "Prevents claiming an unvalidated hypothesis as an established scientific fact.",
+      "resolution_status": "RESOLVED_BY_CANONICAL_AUDIT",
+      "recommended_owner": "Scientific Adjudication Core"
+    },
+    {
+      "contradiction_candidate_id": "CONTRA-04",
+      "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md (Section 3)",
+      "source_B": "outputs/verification/MP1-V002/citation_coverage.json",
+      "branch_ids_affected": [
+        "B11",
+        "B12"
+      ],
+      "historical_context": "Coverage stop condition disagreement: W11 stated stop_condition_satisfied = false, while citation_coverage.json recorded true.",
+      "difference": "W11 reflected Stage 3 prior to screening Kang 2020 (B11) and Barsi 2025 (B12). Once commit 313cdf2 added B11 and B12, stop_condition.satisfied became true.",
+      "why_it_matters": "Confirms protocol closure was legitimately achieved at Stage 4, resolving the open requirement.",
+      "resolution_status": "RESOLVED_BY_STAGE_4_CLOSURE",
+      "recommended_owner": "W2-05 Citation Controller"
+    },
+    {
+      "contradiction_candidate_id": "CONTRA-06",
+      "source_A": "docs/project/MP1-V002_CURRENT_HANDOFF.md",
+      "source_B": "outputs/execution/MP1-V002/W2-01/MP1_HISTORICAL_STATE_REGISTER.md",
+      "branch_ids_affected": [
+        "ALL"
+      ],
+      "historical_context": "Candidate thesis direction ready for execution vs archived viable alternative not selected.",
+      "difference": "MP1-V002 survived targeted citation chasing, but cross-direction adjudication (Phases 23–26) selected D1/M1 as primary and archived MP1 as viable fallback.",
+      "why_it_matters": "Prevents MP1 work from mistakenly declaring itself the active thesis direction while preserving its technical integrity.",
+      "resolution_status": "RESOLVED_BY_CROSS_DIRECTION_ADJUDICATION",
+      "recommended_owner": "Project Supervisor"
+    },
+    {
+      "contradiction_candidate_id": "CONTRA-07",
+      "source_A": "docs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md & citation_screening_13paper_chase",
+      "source_B": "outputs/verification/MP1-V002/citation_coverage.json",
+      "branch_ids_affected": [
+        "B10",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13"
+      ],
+      "historical_context": "Branch Denominator Evolution (14 vs 15 vs 22 directions). Stage 3 listed 14 required directions; the 13-paper chase generated 22 directions; canonical JSON settled on exactly 15 directions.",
+      "difference": "14 directions omitted B11/B12 and included B07/B08; 22 directions included intermediate forward exports F07–F13; canonical JSON defines 9 backward + 6 forward = 15 required directions.",
+      "why_it_matters": "Establishes the immutable 15/15 denominator as the only canonical standard for MP1-V002 protocol completion.",
+      "resolution_status": "RESOLVED_BY_CANONICAL_REGISTRY",
+      "recommended_owner": "W2-05 Citation Controller"
+    },
+    {
+      "contradiction_candidate_id": "CONTRA-08",
+      "source_A": "docs/project/MP1-V002_CURRENT_HANDOFF.md (Section 3)",
+      "source_B": "outputs/execution/MP1-V002/W2-05/MP1_CITATION_PROVENANCE_MAP.json",
+      "branch_ids_affected": [
+        "B11",
+        "B12",
+        "ALL"
+      ],
+      "historical_context": "Scope Boundaries of Citation Counts. Conflict between '68 raw / 67 unique' and canonical total of 312 raw / 258 unique.",
+      "difference": "68 raw / 67 unique refers strictly to the B11+B12 terminal screening batch; 312 raw / 258 unique represents the total candidate population across all 15 canonical branches.",
+      "why_it_matters": "Eliminates confusion between localized branch reconciliation and whole-corpus citation coverage.",
+      "resolution_status": "RESOLVED_BY_W2_05_RECONCILIATION",
+      "recommended_owner": "W2-05 Data Reconciliation Worker"
+    }
+  ]
+}

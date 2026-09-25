@@ -1,0 +1,80 @@
+{
+  "worker_id": "W2-02-05",
+  "claim_id": "C4",
+  "claim_label": "Onboard/Compact Pressure Source for Jamming",
+  "claim_text_original": "An onboard/compact pressure source for jamming is novel.",
+  "claim_text_normalized": "Generation or modulation of jamming confinement pressure using an embedded, compact, or onboard micropump or actuator mechanism.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "CLOSED",
+    "S12": "CLOSED_CONFIRMED",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "CLOSED",
+  "claim_verdict": "CLOSED",
+  "decision": "REJECT",
+  "scientific_category": "mechatronic_integration",
+  "novelty_category": "subsystem_engineering",
+  "why_potentially_novel": "At mentor proposal, integrating a miniaturized pressure generator directly on the robot arm was thought to solve the tethering bottleneck of conventional vacuum jamming.",
+  "search_conducted": "MP1-V001 core prior-art search across IEEE and Elsevier publications on embedded pumps and compact jamming pressure generators.",
+  "search_source_file": "outputs/verification/MP1-V001/verification_matrix.json",
+  "search_commit": "3d152e951711a15d9f86946df99f22785a8be9a4",
+  "papers_retrieved": ["bbe88a0c04", "c6a31066f8"],
+  "strongest_prior_art_threat": {
+    "paper_id": "bbe88a0c04",
+    "paper_title": "Bidirectional flexible electro-conjugate fluid (ECF) micropump for soft actuators",
+    "authors": "Huynh et al.",
+    "year": 2022,
+    "DOI": "10.1016/j.sna.2022.113449",
+    "repository_path": "data/papers/verification/MP1-V001/2022-Bidirectional flexible electro-conjugate fluid micropump.pdf",
+    "what_source_actually_proves": "Embeds a flexible ECF micropump directly into a soft robotic actuator to generate negative pressure and activate granular jamming locally.",
+    "what_source_does_not_prove": "Requires external high-voltage supply and reservoir, so it is not completely untethered, but directly invalidates the broad 'embedded/compact jamming source' claim."
+  },
+  "source_records": [
+    {
+      "paper_id": "bbe88a0c04",
+      "paper_title": "Bidirectional flexible electro-conjugate fluid (ECF) micropump for soft actuators",
+      "authors": "Huynh et al.",
+      "year": 2022,
+      "DOI": "10.1016/j.sna.2022.113449",
+      "repository_path": "data/papers/verification/MP1-V001/2022-Bidirectional flexible electro-conjugate fluid micropump.pdf",
+      "what_source_actually_proves": "Directly integrates a micropump inside an actuator to activate jamming locally.",
+      "what_source_does_not_prove": "Does not study NiTi wire bundles."
+    },
+    {
+      "paper_id": "c6a31066f8",
+      "paper_title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+      "authors": "Wang et al.",
+      "year": 2024,
+      "DOI": "10.1108/IR-11-2023-0305",
+      "repository_path": "data/papers/verification/MP1-V001/2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+      "what_source_actually_proves": "Presents a compact modular motorized ball-screw piston mechanism directly mounted on a soft arm to compress jamming particles.",
+      "what_source_does_not_prove": "Does not use shape memory alloy actuation."
+    }
+  ],
+  "claim_before": "An onboard/compact pressure source for jamming is novel.",
+  "claim_after": "Onboard and compact jamming pressure generators are established prior art; subsystem novelty rejected.",
+  "reason_for_change": "Embedded micropumps (Huynh 2022) and motorized piston mechanisms (Wang 2024) directly establish compact local pressure generation for jamming.",
+  "scientific_consequence": "Compact pressure sourcing is an engineering integration challenge, not a fundamental mechanics contribution.",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "PREEMPTED_AT_SUBSYSTEM_LEVEL",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "Confirms engineering tractability of compact pressure sources, but eliminates it as a novelty anchor.",
+  "pivot_relevance": "Key contributor to the decision in MP1-V001 to abandon mechatronic integration claims.",
+  "historical_interpretation": "Closed at V001 (S04). Confirmed as robust closure at Stage 3 (S12) with clarification that 'compact' does not imply untethered autonomy.",
+  "superseded_interpretation": "Belief that designing a compact pump or piston mechanism for jamming constituted MSc research novelty.",
+  "corrected_interpretation": "Compact pressure sources are engineering integration solutions without new mechanics content.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": [],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W02_C1_C4_ROBUST_CLOSURES.md"
+  }
+}

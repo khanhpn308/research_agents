@@ -1,0 +1,718 @@
+{
+  "matrix_id": "D1_WORKER_EXECUTION_READINESS_MATRIX_V5",
+  "plan_version": "V5",
+  "source_plan": "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V4.md",
+  "checked_at": "2026-09-25T00:00:00+07:00",
+  "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+  "structural_readiness_rule": "execution_ready is true only when every required structural boolean is true, the output directory exists and ownership is explicit; it does not authorize execution.",
+  "worker_count": 12,
+  "launch_authorization": false,
+  "execution_started": false,
+  "workers": [
+    {
+      "worker_id": "W01",
+      "role": "Scope, plan hash and repository provenance",
+      "scientific_question": "Can the D1 execution package be bound to the correct plan, HEAD and scope?",
+      "exclusive_scope": "Only scope lock, repository manifest and immutable plan hashes.",
+      "input_files": [
+        "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V5.md",
+        "repository HEAD",
+        "git status"
+      ],
+      "input_artifacts": [
+        "D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V5.md"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W01",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "scope_lock.json",
+        "repository_manifest.json",
+        "plan_hash_record.json"
+      ],
+      "output_schema": [
+        "scope_lock",
+        "repository_manifest",
+        "plan_hash_record"
+      ],
+      "dependencies": [],
+      "parallelizable": false,
+      "allowed_inference": "Verify paths, hashes, repository state and scope identity.",
+      "forbidden_inference": "Interpret paper meaning, novelty or scientific validity.",
+      "must_not_conclude": "Interpret paper meaning, novelty or scientific validity.",
+      "reconciliation_owner": "S16",
+      "QA_owner": "S16",
+      "human_review_trigger": "Scope or hash conflict.",
+      "model": "Deterministic validation",
+      "reasoning_effort": "none",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "All input hashes and exclusions are recorded; no scientific conclusion is emitted.",
+      "artifact_owner": "W01",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W02",
+      "role": "D1 evidence inventory and round coverage",
+      "scientific_question": "Are all D1 evidence rounds and source artifacts present and classified?",
+      "exclusive_scope": "Inventory only; no scientific coverage inference.",
+      "input_files": [
+        "W01 scope_lock.json",
+        "D1-V001 through D1-V009",
+        "repository authority paths"
+      ],
+      "input_artifacts": [
+        "D1_HISTORICAL_STATE_REGISTER.json",
+        "D1-V001..D1-V009"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W02",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_EVIDENCE_INVENTORY.json",
+        "D1_ROUND_COVERAGE.json"
+      ],
+      "output_schema": [
+        "D1_EVIDENCE_INVENTORY",
+        "D1_ROUND_COVERAGE"
+      ],
+      "dependencies": [
+        "W01"
+      ],
+      "parallelizable": true,
+      "allowed_inference": "Classify paths, hashes, artifact types and round presence.",
+      "forbidden_inference": "Infer novelty or scientific completeness from filenames.",
+      "must_not_conclude": "Infer novelty or scientific completeness from filenames.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Missing, duplicate or unclassifiable round.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Every expected round and input path has a status, hash and provenance pointer.",
+      "artifact_owner": "W02",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W03",
+      "role": "Historical state-at-time reconstruction",
+      "scientific_question": "What did the project believe at each D1 phase?",
+      "exclusive_scope": "State-at-time reconstruction without hindsight rewriting.",
+      "input_files": [
+        "W02 D1_EVIDENCE_INVENTORY.json",
+        "PROJECT_HANDOFF_CURRENT.md",
+        "RESEARCH_LOG.md",
+        "research_state.json",
+        "D1-V001..D1-V009"
+      ],
+      "input_artifacts": [
+        "D1_HISTORICAL_STATE_REGISTER.json"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W03",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_HISTORICAL_STATE_REGISTER.json"
+      ],
+      "output_schema": [
+        "D1_HISTORICAL_STATE_REGISTER"
+      ],
+      "dependencies": [
+        "W02"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Bind contemporaneous claims and statuses to contemporaneous sources.",
+      "forbidden_inference": "Replace historical state with current canonical knowledge or adjudicate novelty.",
+      "must_not_conclude": "Replace historical state with current canonical knowledge or adjudicate novelty.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Supersession, correction or historical/current conflict.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Discovery, V001-V009 and current state rows contain state_at_time, supersession and correction fields.",
+      "artifact_owner": "W03",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W04",
+      "role": "Claim-transition extraction",
+      "scientific_question": "What evidence caused each material D1 claim transition?",
+      "exclusive_scope": "Extract claim-before→threat→evidence→decision→claim-after rows.",
+      "input_files": [
+        "W03 D1_HISTORICAL_STATE_REGISTER.json",
+        "round verdicts",
+        "historical prompts"
+      ],
+      "input_artifacts": [
+        "D1_HISTORICAL_STATE_REGISTER.json",
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W04",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_CLAIM_EVOLUTION_MATRIX_DRAFT.json"
+      ],
+      "output_schema": [
+        "D1_CLAIM_EVOLUTION_MATRIX"
+      ],
+      "dependencies": [
+        "W03"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Extract source-bound transition fields and packet IDs.",
+      "forbidden_inference": "Decide final survival, global novelty or causal mechanism.",
+      "must_not_conclude": "Decide final survival, global novelty or causal mechanism.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Missing source, disputed transition or unsupported claim-after.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Every material transition has before, threat, evidence, decision, after and provenance.",
+      "artifact_owner": "W04",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W05",
+      "role": "Direct layer-jamming evidence extraction",
+      "scientific_question": "What do direct layer-jamming papers actually establish?",
+      "exclusive_scope": "Full-text packet extraction for assigned direct layer-jamming sources.",
+      "input_files": [
+        "W02 inventory",
+        "assigned PDFs",
+        "repository evidence packets"
+      ],
+      "input_artifacts": [
+        "data/papers",
+        "data/evidence"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W05",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_SHARD_W05.jsonl"
+      ],
+      "output_schema": [
+        "D1_PAPER_EVIDENCE_PACKET"
+      ],
+      "dependencies": [
+        "W02"
+      ],
+      "parallelizable": true,
+      "allowed_inference": "Extract models, methods, experiments, domains, outputs, locators and limitations.",
+      "forbidden_inference": "Adjudicate D1 or infer global absence.",
+      "must_not_conclude": "Adjudicate D1 or infer global absence.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Direct-kill or conceptual-equivalence candidate.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Every assigned source has packet fields and explicit evidence status.",
+      "artifact_owner": "W05",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W06",
+      "role": "Continuum, homogenization, Cosserat and generalized-continuum evidence",
+      "scientific_question": "Does adjacent continuum mechanics answer an equivalent question?",
+      "exclusive_scope": "Extract mathematical assumptions, interface treatment and domain for assigned sources.",
+      "input_files": [
+        "W02 inventory",
+        "assigned PDFs",
+        "repository evidence packets"
+      ],
+      "input_artifacts": [
+        "data/papers",
+        "data/evidence"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W06",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_SHARD_W06.jsonl"
+      ],
+      "output_schema": [
+        "D1_PAPER_EVIDENCE_PACKET"
+      ],
+      "dependencies": [
+        "W02"
+      ],
+      "parallelizable": true,
+      "allowed_inference": "Extract equations, assumptions, model resolution and evidence locators.",
+      "forbidden_inference": "Promote mathematical similarity to scientific equivalence.",
+      "must_not_conclude": "Promote mathematical similarity to scientific equivalence.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Ambiguous model equivalence.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Model overlap and limits are source-located and marked VERIFIED_FULL_TEXT or other status.",
+      "artifact_owner": "W06",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W07",
+      "role": "Contact, partial-interaction and full-layer evidence",
+      "scientific_question": "What interface physics and higher-fidelity references exist?",
+      "exclusive_scope": "Extract contact, slip, separation and reference-resolution evidence.",
+      "input_files": [
+        "W02 inventory",
+        "assigned PDFs",
+        "repository evidence packets"
+      ],
+      "input_artifacts": [
+        "data/papers",
+        "data/evidence"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W07",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_SHARD_W07.jsonl"
+      ],
+      "output_schema": [
+        "D1_PAPER_EVIDENCE_PACKET"
+      ],
+      "dependencies": [
+        "W02"
+      ],
+      "parallelizable": true,
+      "allowed_inference": "Identify interface resolution, contact/slip and reference role with locators.",
+      "forbidden_inference": "Treat any FE result as unquestioned truth or automatic kill.",
+      "must_not_conclude": "Treat any FE result as unquestioned truth or automatic kill.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Reference fidelity or mechanism ambiguity.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Interface and reference claims have source pointers and limits.",
+      "artifact_owner": "W07",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W08",
+      "role": "Validity, model-form-error and uncertainty evidence",
+      "scientific_question": "Have validity domains, error, uncertainty and breakdown been tested?",
+      "exclusive_scope": "Extract thresholds, regimes, metrics and timing from assigned sources.",
+      "input_files": [
+        "W02 inventory",
+        "assigned PDFs",
+        "repository evidence packets"
+      ],
+      "input_artifacts": [
+        "data/papers",
+        "data/evidence"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W08",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_SHARD_W08.jsonl"
+      ],
+      "output_schema": [
+        "D1_PAPER_EVIDENCE_PACKET",
+        "D1_THRESHOLD_FREEZE_REGISTER"
+      ],
+      "dependencies": [
+        "W02"
+      ],
+      "parallelizable": true,
+      "allowed_inference": "Extract declared metrics, thresholds, regimes, uncertainty and timing.",
+      "forbidden_inference": "Choose thresholds after results or infer causality from correlation.",
+      "must_not_conclude": "Choose thresholds after results or infer causality from correlation.",
+      "reconciliation_owner": "W09",
+      "QA_owner": "W11",
+      "human_review_trigger": "Retrospective threshold or model-form ambiguity.",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Validity and breakdown statements include timing, uncertainty and locators.",
+      "artifact_owner": "W08",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W09",
+      "role": "Cross-worker claim, non-novelty and candidate reconciliation",
+      "scientific_question": "Which claims survive elimination of established components?",
+      "exclusive_scope": "Canonical merge and reconciliation of W03-W08 outputs.",
+      "input_files": [
+        "W03 historical register",
+        "W04 claim draft",
+        "W05-W08 evidence shards"
+      ],
+      "input_artifacts": [
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+        "D1_CLAIM_EVOLUTION_MATRIX_DRAFT.json"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W09",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+        "D1_CLAIM_EVOLUTION_MATRIX.json",
+        "D1_NON_NOVELTY_REGISTER.json",
+        "D1_NOVELTY_CANDIDATE_REGISTER.json"
+      ],
+      "output_schema": [
+        "D1_PAPER_EVIDENCE_PACKETS",
+        "D1_CLAIM_EVOLUTION_MATRIX",
+        "D1_NON_NOVELTY_REGISTER",
+        "D1_NOVELTY_CANDIDATE_REGISTER"
+      ],
+      "dependencies": [
+        "W03",
+        "W04",
+        "W05",
+        "W06",
+        "W07",
+        "W08"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Reconcile verified packets, categories, overlaps and disagreements while preserving provenance.",
+      "forbidden_inference": "Erase conflicts, bypass evidence or declare final novelty.",
+      "must_not_conclude": "Erase conflicts, bypass evidence or declare final novelty.",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "human_review_trigger": "Worker disagreement or material candidate change.",
+      "model": "GPT-6 Sol",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "Canonical packet IDs and both registers are stable, source-bound and referentially valid.",
+      "artifact_owner": "W09",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W10",
+      "role": "Targeted search and prior-art threat integration",
+      "scientific_question": "Are all named threats resolved using existing evidence first?",
+      "exclusive_scope": "Repository-first threat mapping and only triggered bounded search.",
+      "input_files": [
+        "W09 registers",
+        "S9 D1_K_CRITERIA_REGISTER.json",
+        "D1_SEARCH_DECISION_LOG.json"
+      ],
+      "input_artifacts": [
+        "D1_NOVELTY_CANDIDATE_REGISTER.json",
+        "D1_UNRESOLVED_THREAT_REGISTER.json"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W10",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PRIOR_ART_FAMILY_COVERAGE.json",
+        "D1_PRIOR_ART_THREAT_MATRIX.json",
+        "D1_UNRESOLVED_THREAT_REGISTER.json",
+        "D1_SEARCH_DECISION_LOG.json"
+      ],
+      "output_schema": [
+        "D1_PRIOR_ART_FAMILY_COVERAGE",
+        "D1_PRIOR_ART_THREAT_MATRIX",
+        "D1_UNRESOLVED_THREAT_REGISTER",
+        "D1_SEARCH_DECISION_LOG"
+      ],
+      "dependencies": [
+        "W09",
+        "S9"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Screen named threats, synonym families and bounded search records against frozen criteria.",
+      "forbidden_inference": "Open broad search, use no-hit as global absence or modify criteria.",
+      "must_not_conclude": "Open broad search, use no-hit as global absence or modify criteria.",
+      "reconciliation_owner": "S14",
+      "QA_owner": "W11",
+      "human_review_trigger": "New high-threat or conceptual-equivalence source.",
+      "model": "Gemini 3.8 Flash + GPT-6 Sol",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [
+        "S9:D1_K_CRITERIA_REGISTER.json"
+      ],
+      "definition_of_done": "Every family has inclusion/exclusion rationale; every search row has trigger and stop condition.",
+      "artifact_owner": "W10",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W11",
+      "role": "Provenance, contradiction, threshold and human-review QA",
+      "scientific_question": "Can every thesis-critical claim be traced and every conflict routed?",
+      "exclusive_scope": "Structural and interpretive QA; no silent repair.",
+      "input_files": [
+        "W01-W10 outputs",
+        "original PDFs",
+        "D1_REVISION_ROUTING_MATRIX_V5.json"
+      ],
+      "input_artifacts": [
+        "D1_PAPER_EVIDENCE_PACKETS.jsonl",
+        "D1_CONTRADICTION_REGISTER.json"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W11",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_PROVENANCE_QA.json",
+        "D1_CONTRADICTION_REGISTER.json",
+        "D1_THRESHOLD_FREEZE_REGISTER.json",
+        "D1_HUMAN_REVIEW_CLEARANCE.json",
+        "D1_HARD_GATE_MATRIX.json",
+        "D1_HARD_GATE_ROUTING_QA.json"
+      ],
+      "output_schema": [
+        "D1_PROVENANCE_QA",
+        "D1_CONTRADICTION_REGISTER",
+        "D1_THRESHOLD_FREEZE_REGISTER",
+        "D1_HUMAN_REVIEW_CLEARANCE",
+        "D1_HARD_GATE_MATRIX",
+        "D1_HARD_GATE_ROUTING_QA"
+      ],
+      "dependencies": [
+        "W10"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Validate chains, locators, freeze timing, statuses and exact revision routes.",
+      "forbidden_inference": "Silently reconcile conflicts or change K criteria after freeze.",
+      "must_not_conclude": "Silently reconcile conflicts or change K criteria after freeze.",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "human_review_trigger": "Critical contradiction, threshold change, missing clearance or route failure.",
+      "model": "Deterministic validator + GPT-6 Sol",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [],
+      "definition_of_done": "All critical claims have valid chains; contradictions and review decisions are registered; no critical blocker is hidden.",
+      "artifact_owner": "W11",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    },
+    {
+      "worker_id": "W12",
+      "role": "K1-K9 adversarial gate and red-team challenge",
+      "scientific_question": "Can the candidate be killed by the closest conceptual prior art?",
+      "exclusive_scope": "Adversarial K1-K9 and red-team analysis only.",
+      "input_files": [
+        "W09-W11 outputs",
+        "D1_K_CRITERIA_REGISTER.json",
+        "high-threat full-text packets"
+      ],
+      "input_artifacts": [
+        "D1_NOVELTY_CANDIDATE_REGISTER.json",
+        "D1_PRIOR_ART_THREAT_MATRIX.json"
+      ],
+      "output_directory": "outputs\\d1_execution\\V4\\W12",
+      "output_directory_exists": true,
+      "required_outputs": [
+        "D1_K_CRITERIA_REGISTER.json",
+        "KILL_CRITERION_CHANGE_RECORD.jsonl",
+        "D1_K1_K9_FALSIFICATION_MATRIX.json",
+        "D1_RED_TEAM_MATRIX.json"
+      ],
+      "output_schema": [
+        "D1_K_CRITERIA_REGISTER",
+        "KILL_CRITERION_CHANGE_RECORD",
+        "D1_K1_K9_FALSIFICATION_MATRIX",
+        "D1_RED_TEAM_MATRIX"
+      ],
+      "dependencies": [
+        "W11"
+      ],
+      "parallelizable": false,
+      "allowed_inference": "Attempt KILL, PARTIAL_OVERLAP and uncertainty classifications using cited evidence.",
+      "forbidden_inference": "Approve survival with unresolved K tests or perform routine extraction.",
+      "must_not_conclude": "Approve survival with unresolved K tests or perform routine extraction.",
+      "reconciliation_owner": "S14",
+      "QA_owner": "S16",
+      "human_review_trigger": "KILL, UNRESOLVED, candidate collapse or material conflict.",
+      "model": "GPT-6 Astra",
+      "reasoning_effort": "High",
+      "worker_contract_exists": true,
+      "input_artifacts_defined": true,
+      "dependencies_defined": true,
+      "output_directory_defined": true,
+      "required_outputs_defined": true,
+      "output_schema_defined": true,
+      "artifact_ownership_defined": true,
+      "allowed_inference_defined": true,
+      "forbidden_inference_defined": true,
+      "reconciliation_owner_defined": true,
+      "QA_owner_defined": true,
+      "definition_of_done_defined": true,
+      "stage_owned_outputs": [
+        "S9:D1_K_CRITERIA_REGISTER.json"
+      ],
+      "definition_of_done": "All K rows and red-team attacks contain source-bound verdicts, confidence and review status.",
+      "artifact_owner": "W12",
+      "execution_ready": true,
+      "structurally_execution_ready": true,
+      "execution_started": false,
+      "launch_authorization": false,
+      "blocking_reason": null
+    }
+  ],
+  "structural_execution_ready_count": 12,
+  "structural_execution_ready_total": 12
+}

@@ -1,0 +1,93 @@
+{
+  "worker_id": "W2-02-08",
+  "claim_id": "C7",
+  "claim_label": "Coupling of NiTi Superelasticity, Inter-Wire Friction, Pressure, and Bending Stiffness",
+  "claim_text_original": "Coupling among NiTi superelastic response, inter-wire slip/friction, pressure and bending stiffness remains open.",
+  "claim_text_normalized": "Coupled mechanics governing how stress-induced phase transformation, inter-wire stick-slip contact, and external confinement pressure interact to determine composite bending stiffness and hysteresis.",
+  "origin": "WORKFLOW",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S06", "S10", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "OPEN_IN_SUPPLIED_CORPUS",
+    "S06": "MAPPED_TO_T3_SUBSTANTIALLY_PREEMPTED",
+    "S10": "CHALLENGED_BY_ASTRA_G01_G03_G04",
+    "S12": "REFORMULATED_AS_MODEL_DISCRIMINATION_HYPOTHESIS",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "NARROWED",
+  "claim_verdict": "NARROWED",
+  "decision": "REFORMULATE",
+  "scientific_category": "coupled_mechanics",
+  "novelty_category": "constitutive_contact_interaction",
+  "why_potentially_novel": "At mentor proposal and early V001, coupling four physical domains (superelastic phase transformation, inter-wire contact, external fluid pressure, and beam bending stiffness) was hypothesized to require a new micromechanical constitutive-contact theory.",
+  "search_conducted": "MP1-V001 and MP1-V002 targeted searches on SMA cables, hysteretic damping, and frictional multiwire assemblies.",
+  "search_source_file": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+  "search_commit": "8ccfa3c31d19dde1c87f5653b401fd2afb5d786d",
+  "papers_retrieved": ["53200aa0c6", "40760daa02", "d9966f2f5e", "56793dea9b", "e8462758c3", "6dd1ca94d1"],
+  "strongest_prior_art_threat": {
+    "paper_id": "40760daa02",
+    "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+    "authors": "Carboni & Lacarbonara",
+    "year": 2016,
+    "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+    "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis.pdf",
+    "what_source_actually_proves": "Demonstrates that assemblies containing Nitinol wires under cyclic bending directly exhibit pinched hysteresis and amplitude-dependent stiffness caused by simultaneous inter-wire friction and martensitic phase transformation.",
+    "what_source_does_not_prove": "Does not apply an independently controlled external radial confinement pressure."
+  },
+  "source_records": [
+    {
+      "paper_id": "40760daa02",
+      "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+      "authors": "Carboni & Lacarbonara",
+      "year": 2016,
+      "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+      "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis.pdf",
+      "what_source_actually_proves": "Simultaneous inter-wire friction and phase transformation produce pinched hysteretic bending response.",
+      "what_source_does_not_prove": "Does not modulate pressure as an active control parameter."
+    },
+    {
+      "paper_id": "53200aa0c6",
+      "paper_title": "Mechanical response of single and double-helix SMA wire ropes",
+      "authors": "Vahidi et al.",
+      "year": 2022,
+      "DOI": "10.1080/15376494.2021.1955313",
+      "repository_path": "data/papers/verification/MP1-V002/2022-Mechanical response of single and double-helix SMA wire ropes.pdf",
+      "what_source_actually_proves": "Directly couples 3D Auricchio SMA constitutive model with Coulomb friction contact formulation in Abaqus.",
+      "what_source_does_not_prove": "Does not evaluate actively pressurized straight wire bundles in bending."
+    },
+    {
+      "paper_id": "6dd1ca94d1",
+      "paper_title": "NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings",
+      "authors": "Silva et al.",
+      "year": 2022,
+      "DOI": "10.3390/s22208045",
+      "repository_path": "data/papers/verification/MP1-V002/2022-NiTi SMA Superelastic Micro Cables.pdf",
+      "what_source_actually_proves": "Inter-filament friction causes self-heating, which shifts phase transformation stresses via Clausius-Clapeyron.",
+      "what_source_does_not_prove": "Does not apply active fluid confinement."
+    }
+  ],
+  "claim_before": "Coupling among NiTi superelastic response, inter-wire slip/friction, pressure, and bending stiffness is an unaddressed novel mechanics domain.",
+  "claim_after": "Coupling is partially pre-empted by existing NiTi-contact literature; survives only as an empirical hypothesis testing whether existing models predict pressure-controlled bending.",
+  "reason_for_change": "Prior literature (Carboni 2016, Vahidi 2022, Silva 2022) already couples NiTi transformation with inter-wire contact and friction. Combining standard NiTi constitutive laws with standard Coulomb contact naturally produces coupled response without requiring a new constitutive law.",
+  "scientific_consequence": "C7 cannot be claimed as a 'proven novel coupling theory'; it must be formulated as a model-discrimination question testing whether existing frameworks fail under active pressure.",
+  "system_novelty_impact": "PREEMPTED_AT_CONCEPT_LEVEL",
+  "mechanism_novelty_impact": "NARROWED_TO_HYPOTHESIS_TESTING",
+  "implementation_novelty_impact": "FEASIBLE_BUT_NOT_NOVEL",
+  "feasibility_impact": "Requires local diagnostic instrumentation (DIC, FBG, thermal imaging) to separate phase transformation from friction and avoid parameter compensation.",
+  "pivot_relevance": "Forms the ultimate surviving scientific core of MP1 after all architectural and material claims were stripped away.",
+  "historical_interpretation": "Open in V001 (S04); substantially pre-empted in early V002 (S06); challenged by Astra (S10); remediated in Stage 3 (S12) into a model-discrimination hypothesis.",
+  "superseded_interpretation": "Belief that the coexistence of 4 physical factors in one device demonstrated an unformulated branch of mechanics.",
+  "corrected_interpretation": "Coupling naturally emerges from standard constitutive + contact equations; empirical testing must verify if standard models break down before claiming novelty.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": ["CONTRA-02", "CONTRA-03"],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "threat_file": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W03_C5_C8_BOUNDARY_REPAIR.md"
+  }
+}

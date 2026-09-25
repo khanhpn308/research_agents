@@ -1,0 +1,99 @@
+{
+  "worker_id": "W2-02-11",
+  "task": "Cross-worker contradiction, provenance and schema QA",
+  "status": "PASS",
+  "checks": {
+    "claim_count": {
+      "expected": 8,
+      "actual": 8,
+      "status": "PASS",
+      "claim_ids": ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]
+    },
+    "duplicate_or_missing_claims": {
+      "duplicates": [],
+      "missing": [],
+      "status": "PASS"
+    },
+    "claim_verdict_enum_compliance": {
+      "allowed_values": ["CLOSED", "SUBSTANTIALLY_PREEMPTED", "NARROWED", "SURVIVED", "UNRESOLVED"],
+      "observed_values": {
+        "C1": "CLOSED",
+        "C2": "CLOSED",
+        "C3": "CLOSED",
+        "C4": "CLOSED",
+        "C5": "CLOSED",
+        "C6": "NARROWED",
+        "C7": "NARROWED",
+        "C8": "SUBSTANTIALLY_PREEMPTED"
+      },
+      "status": "PASS"
+    },
+    "decision_enum_compliance": {
+      "allowed_values": ["KEEP", "NARROW", "REJECT", "REFORMULATE", "UNRESOLVED"],
+      "observed_values": {
+        "C1": "REJECT",
+        "C2": "REJECT",
+        "C3": "REJECT",
+        "C4": "REJECT",
+        "C5": "REJECT",
+        "C6": "REFORMULATE",
+        "C7": "REFORMULATE",
+        "C8": "REJECT"
+      },
+      "status": "PASS"
+    },
+    "origin_enum_compliance": {
+      "allowed_values": ["MENTOR", "DERIVED", "WORKFLOW", "HYPOTHESIS"],
+      "status": "PASS"
+    },
+    "evidence_status_enum_compliance": {
+      "allowed_values": ["VERIFIED", "INFERENCE", "HYPOTHESIS"],
+      "status": "PASS"
+    },
+    "git_commit_verification": {
+      "status": "PASS",
+      "commits_checked": [
+        "0fdbf89fea7f1cd18c64db93c1029c5e499e5a9f",
+        "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+        "3d152e951711a15d9f86946df99f22785a8be9a4",
+        "1a5e1f20072cf7fe0e969feb1ab868a20138c1d7",
+        "8494d02ff7c1c57184ab5770baf006bc79d4ddbb",
+        "e9685a65263635cffd4d946e8763c3417b59eb0d",
+        "748c943afecae0a0d1157eaa6ab192ed55aeb57f",
+        "5bb0c9087b638d132e7f915a1f0fc662fd30ca21",
+        "af9e7a59b101ac68334eadc9ede33b1b48236622",
+        "8ccfa3c31d19dde1c87f5653b401fd2afb5d786d",
+        "3a216d680b6e5d4c263121afee0577ac86e530ac",
+        "14444e5a62786c4c7c649d7f249a63c0dacd93c7",
+        "313cdf2e5e0f6fae5383f83f631787a9fa1a88a9",
+        "73b635433237f2682accd4b7799c566fe1e80871",
+        "bccdb5e21ac825d2f116957bb6768c734eda35e4",
+        "0ade68e73d93c38618b366a000ac7a01215a3936"
+      ],
+      "unresolved_commits": 0,
+      "fabricated_commits": 0
+    },
+    "contradiction_tracking": {
+      "imported_contradictions": ["CONTRA-01", "CONTRA-02", "CONTRA-03", "CONTRA-04", "CONTRA-05", "CONTRA-06"],
+      "claims_affected": {
+        "C5": ["CONTRA-03"],
+        "C6": ["CONTRA-05"],
+        "C7": ["CONTRA-02", "CONTRA-03"]
+      },
+      "new_contradictions_detected": 0,
+      "silent_reconciliations": 0,
+      "status": "PASS"
+    },
+    "scope_lock_compliance": {
+      "new_literature_search_conducted": false,
+      "new_papers_added": false,
+      "canonical_files_modified": false,
+      "historical_files_modified": false,
+      "subjective_novelty_adjudicated": false,
+      "d1_analyzed": false,
+      "d1_mp1_compared": false,
+      "status": "PASS"
+    }
+  },
+  "overall_qa_verdict": "PASS"
+}

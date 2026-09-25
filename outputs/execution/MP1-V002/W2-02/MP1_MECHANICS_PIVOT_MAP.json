@@ -1,0 +1,75 @@
+{
+  "pivot_id": "PIVOT-MP1-V001-TO-MECHANICS-CORE",
+  "from_state_id": "S02",
+  "to_state_id": "S04",
+  "from_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "to_commit": "1a5e1f20072cf7fe0e969feb1ab868a20138c1d7",
+  "trigger_source": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+  "claims_lost_or_narrowed": [
+    {
+      "claim_id": "C1",
+      "status_after": "CLOSED",
+      "threat_source": "Bai et al. 2022 (240fbf6022), Zhang & Yao 2026 (3aa8790db0)"
+    },
+    {
+      "claim_id": "C2",
+      "status_after": "CLOSED",
+      "threat_source": "Liu et al. 2021 (182d854610), Zhang & Yao 2026 (3aa8790db0)"
+    },
+    {
+      "claim_id": "C3",
+      "status_after": "CLOSED",
+      "threat_source": "Takashima lineage 2022\u20132026 (2cd907e77a, 99fe24da8b, d3b3b6963f), Matsumoto et al. 2024 (7ce492505d)"
+    },
+    {
+      "claim_id": "C4",
+      "status_after": "CLOSED",
+      "threat_source": "Huynh et al. 2022 (bbe88a0c04), Wang et al. 2024 (c6a31066f8)"
+    },
+    {
+      "claim_id": "C8",
+      "status_after": "SUBSTANTIALLY_PREEMPTED",
+      "threat_source": "Pierce & Mascaro 2013 (de64029540), Kotb et al. 2021 (55457a97c6), Wang et al. 2024 (c6a31066f8)"
+    }
+  ],
+  "claims_remaining_open_at_time": [
+    {
+      "claim_id": "C5",
+      "status_at_time": "OPEN_IN_SUPPLIED_CORPUS",
+      "scope_at_time": "No supplied paper made superelastic NiTi wires themselves the mutually slipping jamming medium."
+    },
+    {
+      "claim_id": "C6",
+      "status_at_time": "OPEN_IN_SUPPLIED_CORPUS",
+      "scope_at_time": "No supplied paper positively confined a superelastic NiTi wire bundle to modulate stiffness."
+    },
+    {
+      "claim_id": "C7",
+      "status_at_time": "OPEN_IN_SUPPLIED_CORPUS",
+      "scope_at_time": "Coupling among NiTi superelasticity, inter-wire contact friction, positive pressure, and composite bending stiffness was unrepresented in the supplied corpus."
+    }
+  ],
+  "evidence_trigger": "Systematic audit of 10 full-text papers demonstrating that all component combination claims had direct prior art, leaving only contact mechanics open.",
+  "scientific_reasoning_at_time": "The broad architecture claims (wire jamming, positive pressure, SMA integration, compact micropumps) were completely pre-empted by literature published between 2021 and 2026. Defending a whole-system assembly claim would result in an indefensible thesis. However, C5\u2013C7 remained open within the supplied corpus, warranting a strategic pivot to the coupled frictional contact mechanics of actively confined NiTi bundles.",
+  "current_interpretation": "The pivot was a necessary elimination of indefensible device assembly claims, refocusing inquiry on contact mechanics. It served as a scoping decision, not proof of global novelty.",
+  "superseded_interpretation": "Initial belief at V001 completion that C5\u2013C7 constituted an unaddressed branch of mechanics that would readily yield a novel predictive constitutive theory.",
+  "corrected_interpretation": "Subsequent V002 audits revealed that C5 was already closed at the existence level by wire rope literature (T1), P3 active pressure was merely an experimental boundary condition, and C7 survived only as a model discrimination hypothesis against existing transformation-aware contact models (H0b).",
+  "what_pivot_established": [
+    "Permanent abandonment of device-level and architectural novelty claims for MP1.",
+    "Formulation of the research inquiry as a mechanics question: how positive confinement pressure, inter-wire friction, and NiTi superelasticity interact to govern bending stiffness.",
+    "Preservation of D1/M1 as baseline while MP1 mechanics core was subjected to targeted citation chasing."
+  ],
+  "what_pivot_did_not_establish": [
+    "Did NOT establish that the mechanics core is globally novel.",
+    "Did NOT prove that NiTi wire contact and friction were unaddressed outside the supplied 10-paper corpus.",
+    "Did NOT prove that a new constitutive-contact law is required.",
+    "Did NOT select MP1 as the thesis topic."
+  ],
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "provenance": {
+    "source_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "roadmap_file": "docs/protocols/MP1_NOVELTY_FALSIFICATION_ROADMAP.md",
+    "history_report": "outputs/execution/MP1-V002/W2-01/W2_01_STATE_HISTORY_REPORT.md"
+  }
+}

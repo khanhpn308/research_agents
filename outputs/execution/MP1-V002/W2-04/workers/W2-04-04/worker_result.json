@@ -1,0 +1,142 @@
+{
+  "worker_id": "W2-04-04",
+  "task": "Full-text extraction for papers 05\u201306 (Salvatore 2021 & Narjabadifam 2024)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "7f3f45407f",
+    "1c81b2d35c"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "05",
+      "paper_id": "7f3f45407f",
+      "paper_title": "Nonlinear dynamic response of a wire rope isolator: Experiment, identification and validation",
+      "authors": [
+        "Andrea Salvatore",
+        "Biagio Carboni",
+        "Walter Lacarbonara"
+      ],
+      "year": 2021,
+      "DOI": "10.1016/j.engstruct.2021.112121",
+      "repository_path": "data/papers/verification/MP1-V002/2021-Nonlinear dynamic response of a wire rope isolator Experiment, identification and validation.pdf",
+      "matrix_filename": "2021-Nonlinear dynamic response of a wire rope isolator Experiment, identification and validation.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Comprehensive mechanics study on multi-axis stick-slip friction in helical wire rope structures.",
+      "threat_addressed": "Threatens T1 by proving that multi-axis stick-slip friction in wire bundles is rigorously understood.",
+      "claim_ids_affected": [
+        "C1",
+        "C5"
+      ],
+      "target_ids_affected": [
+        "T1"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a"
+      ],
+      "method": "Experimental dynamic shaker testing and multi-mechanism phenomenological identification",
+      "material_or_system": "Standard stainless steel wire rope isolator (WRI) with helical loop configuration",
+      "loading_mode": "Multi-axis dynamic excitation: compression-roll and tension-shear cyclic loading",
+      "control_variables": "Shaker base acceleration amplitude and frequency sweeps",
+      "independent_variables": "Excitation direction, displacement amplitude (0.5 mm to 10 mm), frequency (2 to 30 Hz)",
+      "dependent_variables": "Restoring forces, pinched hysteresis loops, dynamic stiffness, phase shift",
+      "model_used": "Phenomenological generalized Bouc-Wen differential model with multi-axis coupling",
+      "constitutive_model": "Nonlinear elastic restoring force combined with hysteretic friction displacement variables",
+      "contact_or_friction_model": "Smooth hysteretic friction formulation representing distributed inter-wire slip",
+      "experiment_used": "Tri-axial electrodynamic shaker testing facility, LVDTs, force transducers",
+      "experimental_setup": "Wire rope isolator mounted between rigid shaker fixture and seismic mass",
+      "key_results": "Demonstrated that inter-wire frictional stick-slip produces strong stiffness softening and high energy dissipation; validated that a 3D phenomenological model accurately predicts dynamic response under multi-axial base excitation.",
+      "what_it_proves": "Proves that inter-wire friction in helical wire ropes produces amplitude-dependent stiffness variation and dry friction damping.",
+      "what_it_does_not_prove": "Does not use shape memory alloys (steel only); does not apply active fluid confinement pressure.",
+      "directly_verified_statements": [
+        "Inter-wire friction generates non-symmetric pinched hysteretic response under combined compression and roll (Section 3, pp. 6-9).",
+        "Initial stiffness is dominated by stick state, followed by gradual softening as inter-wire slip propagates (Section 4, pp. 10-12)."
+      ],
+      "inferred_statements": [
+        "Frictional jamming in wire bundles is mechanically equivalent to the stick-slip softening observed in wire rope isolators."
+      ],
+      "limitations": "Stainless steel only; phenomenological lumped parameter model rather than continuum FEA.",
+      "impact_on_MP1": "Demonstrates that friction-induced stiffness variation in wire bundles is thoroughly established in structural mechanics.",
+      "impact_type": "BOUNDS",
+      "page_or_section_evidence": "Section 2 (pp. 3-6), Section 4 (pp. 10-14)",
+      "evidence_pointers": "Fig. 4 (experimental multi-axis hysteresis loops), Fig. 11 (model validation)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2021-Nonlinear dynamic response of a wire rope isolator Experiment, identification and validation_7f3f45407f.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2021-Nonlinear dynamic response of a wire rope isolator Experiment, identification and validation.pdf"
+      }
+    },
+    {
+      "paper_index": "06",
+      "paper_id": "1c81b2d35c",
+      "paper_title": "Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes",
+      "authors": [
+        "Peyman Narjabadifam",
+        "Neda Fazlalipour",
+        "A. A. Moghadam"
+      ],
+      "year": 2024,
+      "DOI": "10.3390/buildings14061567",
+      "repository_path": "data/papers/verification/MP1-V002/2024-Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes.pdf",
+      "matrix_filename": "2024-Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Direct recent comparative experimental and numerical evaluation of steel vs NiTi wire ropes.",
+      "threat_addressed": "Threatens T1 and T3 by directly testing laboratory-made NiTi wire ropes under cyclic loading.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Laboratory fabrication, mechanical tensile testing, and Abaqus 3D finite element modeling",
+      "material_or_system": "1x7 laboratory-made steel wire ropes and 1x7 NiTi shape memory alloy wire ropes",
+      "loading_mode": "Quasi-static monotonic and cyclic axial tension",
+      "control_variables": "Displacement rate, strain levels (up to 6%)",
+      "independent_variables": "Material type (Steel vs NiTi), helical lay pitch, strain amplitude",
+      "dependent_variables": "Force-displacement curves, energy dissipation per cycle, residual strain, equivalent stiffness",
+      "model_used": "Abaqus/Standard 3D solid continuum modeling with surface-to-surface contact",
+      "constitutive_model": "Built-in Abaqus Superelastic material model (Auricchio formulation)",
+      "contact_or_friction_model": "Surface-to-surface penalty contact with Coulomb friction (mu = 0.15)",
+      "experiment_used": "Universal testing machine equipped with mechanical wedge grips",
+      "experimental_setup": "Custom stranding jig used to fabricate 1x7 NiTi wire ropes; tested under displacement control",
+      "key_results": "NiTi wire ropes demonstrated superior energy dissipation and flag-shaped re-centering compared to steel ropes; 3D FEA with Auricchio constitutive model and penalty Coulomb friction successfully matched experimental curves.",
+      "what_it_proves": "Proves that NiTi wire ropes can be fabricated and simulated using standard 3D FE contact tools, confirming mutual wire slip and phase transformation.",
+      "what_it_does_not_prove": "Does not apply active transverse fluid pressure; tension loading only.",
+      "directly_verified_statements": [
+        "NiTi wire ropes exhibit Flag-shaped hysteresis with minimal residual strain after cyclic loading to 6% strain (Section 3.2, pp. 8-11).",
+        "Abaqus 3D FE model with Auricchio superelasticity and Coulomb friction accurately captures inter-wire contact and axial response (Section 4, pp. 12-15)."
+      ],
+      "inferred_statements": [
+        "Commercial FEA tools (H0b) are capable of modeling multiwire NiTi structures without developing specialized coupling theories."
+      ],
+      "limitations": "1x7 strands only; uniaxial tension only; no active fluid confinement pressure.",
+      "impact_on_MP1": "Provides direct evidence that NiTi wire bundles in mutual contact are established in 2024 literature and well-predicted by H0b.",
+      "impact_type": "WEAKENS",
+      "page_or_section_evidence": "Section 3 (pp. 7-11), Section 4 (pp. 12-16)",
+      "evidence_pointers": "Fig. 7 (experimental load-unload curves), Fig. 12 (FEA contact stress contours)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2024-Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes_1c81b2d35c.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2024-Experimental-Numerical Assessment of Mechanical Behavior of Laboratory-Made Steel and NiTi Shape Memory Alloy Wire Ropes.pdf"
+      }
+    }
+  ]
+}

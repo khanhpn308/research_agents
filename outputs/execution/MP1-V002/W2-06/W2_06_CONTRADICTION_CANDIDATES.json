@@ -1,0 +1,131 @@
+[
+  {
+    "contradiction_candidate_id": "CONTRA-01",
+    "source_A": "docs/project/MP1-V002_CURRENT_HANDOFF.md (commit bf0b79a) và W01-W11 packets (commit af9e7a5)",
+    "source_B": "outputs/verification/MP1-V002/verification_matrix.json (commit 8ccfa3c) và W01 Remediation (commit 3a216d6)",
+    "packet_ids_affected": [
+      "W01",
+      "W05",
+      "W11"
+    ],
+    "critique_ids_affected": [
+      "G10",
+      "G11"
+    ],
+    "remediation_worker_ids_affected": [
+      "W01",
+      "W11"
+    ],
+    "historical_context": "Trong giai đoạn đầu của Stage 1, số lượng bài báo toàn văn được viện dẫn không nhất quán (ghi 10 bài báo trong một số báo cáo, 13 bài trong ma trận đĩa, và 16 bài trong verification matrix chính tắc tại HEAD).",
+    "difference": "10 bài báo toàn văn (Stage 1 ban đầu) so với 13 bài báo so với 16 bài báo toàn văn chính tắc.",
+    "why_it_matters": "Ảnh hưởng trực tiếp đến tính đầy đủ của việc thẩm tra tính tiền nhiệm; nếu chỉ dựa trên 10 bài thì bỏ sót các bài báo đe dọa trọng yếu như Barsi 2025 và Kang 2020.",
+    "resolution_status": "RECONCILED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-02",
+    "source_A": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json dòng 237-241 (commit 8ccfa3c)",
+    "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (commit 8ccfa3c) và W07 Remediation (commit 3a216d6)",
+    "packet_ids_affected": [
+      "W08",
+      "W10"
+    ],
+    "critique_ids_affected": [
+      "G01",
+      "G11"
+    ],
+    "remediation_worker_ids_affected": [
+      "W07",
+      "W01"
+    ],
+    "historical_context": "Tệp Audit JSON ghi 'niti_requires_distinct_constitutive_contact_coupling = true' với evidence_status = 'established', trong khi báo cáo phản biện của Astra và W10 kết luận bằng chứng là 'insufficient'.",
+    "difference": "Xung đột ngữ nghĩa giữa 'established' (đã xác lập) và 'insufficient' (chưa đủ bằng chứng).",
+    "why_it_matters": "Nếu tuyên bố là 'established' thì ngộ nhận rằng H1 đã được chứng minh và không cần làm thí nghiệm đối chứng; nếu là 'insufficient' thì đây mới chỉ là một giả thuyết mở cần kiểm chứng.",
+    "resolution_status": "RECONCILED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-03",
+    "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md (commit af9e7a5)",
+    "source_B": "papers/verification/MP1-V002/A1-2015.pdf Table 4 (Carboni 2015) và W04 Remediation (commit 3a216d6)",
+    "packet_ids_affected": [
+      "W06",
+      "W08"
+    ],
+    "critique_ids_affected": [
+      "G05"
+    ],
+    "remediation_worker_ids_affected": [
+      "W04",
+      "W03"
+    ],
+    "historical_context": "Packet W08 khẳng định cấu hình S2a trong bài báo của Carboni 2015 là bằng chứng thực nghiệm về chuyển pha siêu đàn hồi NiTi dưới uốn thuần.",
+    "difference": "Sai sót dữ liệu thực tế: Cấu hình S2a là ST49 (cáp thép 49 sợi thuần ma sát); chỉ có S1a là cáp NiTi7 nhưng chịu tải kéo-uốn kết hợp.",
+    "why_it_matters": "Lập luận về chuyển pha uốn thuần bị sụp đổ hoàn toàn về mặt bằng chứng thực nghiệm; không thể dùng S2a để biện minh cho cơ chế uốn NiTi.",
+    "resolution_status": "REPAIRED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-04",
+    "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md (commit af9e7a5)",
+    "source_B": "outputs/verification/MP1-V002/citation_coverage.json (commit 8ccfa3c) và W11 Remediation (commit 3a216d6)",
+    "packet_ids_affected": [
+      "W05",
+      "W07",
+      "W11"
+    ],
+    "critique_ids_affected": [
+      "G10"
+    ],
+    "remediation_worker_ids_affected": [
+      "W11",
+      "W01"
+    ],
+    "historical_context": "Lời văn tổng hợp trong một số báo cáo Stage 1 khẳng định khoảng trống cơ học đã được xác lập chắc chắn vì không tìm thấy bài báo nào trong tập rà soát, trong khi tệp canonical coverage JSON ghi rõ stop_condition_satisfied = false.",
+    "difference": "Khẳng định khoảng trống chắc chắn vs thừa nhận điều kiện dừng chưa đạt.",
+    "why_it_matters": "Vi phạm nguyên tắc phương pháp luận khoa học: Chưa thỏa mãn điều kiện dừng mà đã kết luận phủ định sự tồn tại của văn hiến tiền nhiệm.",
+    "resolution_status": "REPAIRED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-05",
+    "source_A": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md (commit af9e7a5)",
+    "source_B": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md (commit 8ccfa3c) và W05 Remediation (commit 3a216d6)",
+    "packet_ids_affected": [
+      "W01",
+      "W04",
+      "W07"
+    ],
+    "critique_ids_affected": [
+      "G02",
+      "G09"
+    ],
+    "remediation_worker_ids_affected": [
+      "W05",
+      "W08"
+    ],
+    "historical_context": "Packet W07 phân loại áp suất P3 là một nhánh cơ học mới có khả năng tạo ra tính mới khoa học độc lập.",
+    "difference": "Áp suất chủ động là nguyên lý cơ học mới vs áp suất chủ động là điều kiện biên thay đổi theo thời gian.",
+    "why_it_matters": "Nếu coi P3 là cơ học mới thì luận văn sẽ bị phản biện bác bỏ vì phương trình vi phân tiếp xúc hiện hữu đã tiếp nhận p(t) một cách tự nhiên.",
+    "resolution_status": "REPAIRED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  },
+  {
+    "contradiction_candidate_id": "CONTRA-06",
+    "source_A": "docs/project/MP1-V002_CURRENT_HANDOFF.md (commit bf0b79a)",
+    "source_B": "outputs/verification/D1-V001/direction_verification.json và Master Plan",
+    "packet_ids_affected": [
+      "W01"
+    ],
+    "critique_ids_affected": [],
+    "remediation_worker_ids_affected": [
+      "W01",
+      "W02"
+    ],
+    "historical_context": "Trạng thái đề tài MP1 được ghi nhận là một hướng nghiên cứu khả thi đang kiểm chứng (viable alternative candidate), nhưng đôi khi bị hiểu nhầm là đã được phê duyệt làm đề tài luận văn chính thức thay thế D1.",
+    "difference": "Hướng ứng viên dự phòng đang kiểm chứng đe dọa vs đề tài luận văn đã được phê duyệt chính thức.",
+    "why_it_matters": "Quyết định lựa chọn đề tài thuộc thẩm quyền của final adjudication sau khi hoàn tất kiểm toán đe dọa; không được vượt quyền hạn trong giai đoạn tái dựng bằng chứng.",
+    "resolution_status": "RECONCILED",
+    "recommended_owner": "W2-06-12 / final synthesis auditor"
+  }
+]

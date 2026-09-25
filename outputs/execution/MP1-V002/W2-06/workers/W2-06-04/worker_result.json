@@ -1,0 +1,149 @@
+{
+  "worker_id": "W2-06-04",
+  "task": "Stage 1 packets W09–W11 reconstruction",
+  "status": "COMPLETE",
+  "packet_count": 3,
+  "packets": [
+    {
+      "packet_id": "W09",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W09_REEDLUNN_2013_DEEP_AUDIT.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra toàn văn chuyên sâu Reedlunn et al. 2013 (Part II), phân tích cơ chế chuyển pha từng lớp và giới hạn động học Costello.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "papers_used": [
+        "fac21c950e"
+      ],
+      "method_or_model": "Lý thuyết cáp xoắn Costello kết hợp luật cấu thành siêu đàn hồi 1D có biến dạng trượt xuyên tâm và đo quang học.",
+      "experiment_discussed": "Kéo đẳng nhiệt cáp $7\\times 7$ và $1\\times 27$ NiTi trong bể chất lỏng kiểm soát nhiệt độ; chụp ảnh bề mặt xác định vùng chuyển pha.",
+      "verified_conclusions": "Reedlunn 2013 chứng minh quá trình chuyển pha diễn ra tuần tự từng lớp từ trong ra ngoài; cho thấy áp lực tiếp xúc hướng tâm làm thay đổi ứng suất kích hoạt chuyển pha.",
+      "inferred_conclusions": "Cho rằng việc mô hình Costello thất bại ở lớp ngoài cáp $1\\times 27$ chứng minh sự thiếu hụt của lý thuyết tiếp xúc-chuyển pha tổng quát.",
+      "unresolved_issues": "Diễn giải quá mức (overclaim) sai số động học cáp xoắn dốc Costello thành sự thất bại của luật cấu thành trong bó dây robot thẳng.",
+      "later_critique_ids": [
+        "G07"
+      ],
+      "later_remediation_ids": [
+        "W10"
+      ],
+      "superseded_interpretation": "Dùng sự sai lệch của mô hình Costello trong Reedlunn để làm căn cứ khẳng định cần một phương trình ghép cặp mới.",
+      "corrected_interpretation": "Thừa nhận sự sai lệch của Reedlunn thuần túy do giả thiết động học thanh xoắn góc lớn bỏ qua uốn/xoắn cục bộ; không suy diễn cho bó dây thẳng.",
+      "evidence_status": "closed_for_axial_cable_kinematics",
+      "confidence": "high",
+      "provenance": "W09_REEDLUNN_2013_DEEP_AUDIT.md#L1-L146"
+    },
+    {
+      "packet_id": "W10",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W10_FANG_2019_PARAMETER_SUBSTITUTION.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra sâu Fang et al. 2019 và đánh giá rủi ro của phép thử thay thế tham số (parameter-substitution risk).",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "papers_used": [
+        "2f7fcf2f8f"
+      ],
+      "method_or_model": "Phần tử thanh dầm OpenSees với mặt cắt sợi siêu đàn hồi và lò xo phi tuyến tự định tâm song song; mô hình suy giảm chu kỳ.",
+      "experiment_discussed": "Kéo chu kỳ và uốn-cắt trên cơ cấu giảm chấn cáp NiTi; khớp đường cong trễ dạng cờ và sự trơn mượt chuyển pha.",
+      "verified_conclusions": "Mô hình rút gọn của Fang 2019 tái hiện rất tốt hình dạng đường cong trễ vĩ mô bằng cách tinh chỉnh tham số hiện tượng học mà không cần giải phương trình tiếp xúc vi mô.",
+      "inferred_conclusions": "Rủi ro thay thế tham số là cực kỳ nghiêm trọng: một mô hình hiện tượng học hiện có có thể khớp đường cong mà không cần lý thuyết mới.",
+      "unresolved_issues": "Phép khớp đường cong vĩ mô không chứng minh được tính nhân quả vật lý; hiện tượng bù trừ giữa ma sát và độ cứng.",
+      "later_critique_ids": [
+        "G06",
+        "G08",
+        "G10"
+      ],
+      "later_remediation_ids": [
+        "W07",
+        "W09",
+        "W10"
+      ],
+      "superseded_interpretation": "Coi kết quả kiểm tra thay thế tham số là chưa kết luận dứt điểm (insufficient).",
+      "corrected_interpretation": "Xác nhận H0b (mô hình phi tuyến hiện có) chưa bị bác bỏ; các mô hình hiện tượng học khớp số liệu rất tốt; H1 đòi hỏi bằng chứng nhân quả cục bộ.",
+      "evidence_status": "parameter_substitution_risk_high",
+      "confidence": "high",
+      "provenance": "W10_FANG_2019_PARAMETER_SUBSTITUTION.md#L1-L149"
+    },
+    {
+      "packet_id": "W11",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra độ bao phủ trích dẫn và tính toàn vẹn của cơ sở dữ liệu nguồn, đánh giá điều kiện dừng tìm kiếm.",
+      "claims_affected": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "targets_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "papers_used": [
+        "00414aac4b",
+        "fac21c950e",
+        "40760daa02",
+        "2f7fcf2f8f",
+        "7f3f45407f",
+        "1c81b2d35c",
+        "9f4295be23",
+        "56793dea9b",
+        "d9966f2f5e",
+        "9e15094d68",
+        "53200aa0c6",
+        "98fee47c04",
+        "aaad9c248c",
+        "ccdc1bb980",
+        "e8462758c3",
+        "6dd1ca94d1"
+      ],
+      "method_or_model": "Kiểm toán đồ thị trích dẫn ngược (B01-B08/B12) và trích dẫn xuôi (F01-F06); sàng lọc 178 ứng viên theo tiêu chí bao gồm/loại trừ.",
+      "experiment_discussed": "Đối soát số lượng bài báo toàn văn (10 vs 13 vs 16) và trạng thái dừng trích dẫn trên ma trận kiểm chứng.",
+      "verified_conclusions": "Đã sàng lọc 178 ứng viên; 16 bài báo toàn văn chính tắc; điều kiện dừng chưa đạt (`stop_condition_satisfied = false`); ngày cắt tìm kiếm chưa thiết lập.",
+      "inferred_conclusions": "Không tìm thấy bài báo trong tập 178 bài không tương đương với việc bài toán chưa từng được giải trong toàn bộ nền khoa học.",
+      "unresolved_issues": "Xung đột giữa việc tuyên bố 'đã xác lập khoảng trống' trong báo cáo và cờ `stop_condition_satisfied = false` trong registry.",
+      "later_critique_ids": [
+        "G10",
+        "G11"
+      ],
+      "later_remediation_ids": [
+        "W01",
+        "W11"
+      ],
+      "superseded_interpretation": "Từng kết luận như thể khoảng trống cơ học đã được xác lập chắc chắn 100%.",
+      "corrected_interpretation": "Minh bạch hóa rằng khoảng trống chỉ là một giả thuyết còn sống sót tạm thời (PROVISIONALLY SURVIVING HYPOTHESIS).",
+      "evidence_status": "stop_condition_unmet",
+      "confidence": "high",
+      "provenance": "W11_CITATION_COVERAGE_AND_SOURCE_INTEGRITY.md#L1-L218"
+    }
+  ]
+}

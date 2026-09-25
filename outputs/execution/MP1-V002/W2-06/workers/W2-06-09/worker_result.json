@@ -1,0 +1,153 @@
+{
+  "worker_id": "W2-06-09",
+  "task": "Remediation workers W05–W08 reconstruction",
+  "status": "COMPLETE",
+  "worker_count": 4,
+  "workers": [
+    {
+      "worker_id": "W05",
+      "worker_question": "Làm thế nào để kiểm chứng xem các phương trình vi phân tiếp xúc dầm hiện hữu có thể tự nhiên tiếp nhận lịch sử áp suất biến thiên p(t) mà không cần phương trình mới hay không?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md",
+        "papers/verification/MP1-V002/2017-Submarine Cable Bending Mechanics_ccdc1bb980.pdf (Tjahjanto 2017)",
+        "papers/verification/MP1-V002/2004-Internal Friction of Cables_aaad9c248c.pdf (Xin Liu 2004)"
+      ],
+      "papers_reviewed": [
+        "ccdc1bb980",
+        "aaad9c248c",
+        "9f4295be23",
+        "53200aa0c6"
+      ],
+      "claims_repaired": [
+        "C6"
+      ],
+      "targets_repaired": [
+        "T2"
+      ],
+      "hypotheses_repaired": [
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G02",
+        "G09"
+      ],
+      "evidence_produced": "Chứng minh toán học rằng phương trình cân bằng tiếp xúc vi phân dq/dx = -mu * fn(p) tiếp nhận p = p(t) một cách tự nhiên trong công thức gia số tải; không xuất hiện số hạng vi phân mới đối với thời gian nếu bỏ qua quán tính chất lưu.",
+      "result": "Hạ cấp dứt điểm P3: P1/P2/P3 là phân loại giao thức điều khiển thực nghiệm (boundary conditions), không phải ba lớp lý thuyết cơ học riêng biệt.",
+      "remaining_uncertainty": "Ảnh hưởng động học trễ của áp suất qua màng nhớt đàn hồi khi tần số biến thiên áp suất cao.",
+      "corrected_interpretation": "Áp suất chủ động p(t) là một điều kiện biên ngoại vi; không tạo ra một định luật cơ học mới.",
+      "evidence_status": "p3_reclassified_as_boundary_condition",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W05_T2_MECHANICS_P1_P2_P3_TEST.md#L1-L155"
+    },
+    {
+      "worker_id": "W06",
+      "worker_question": "Làm thế nào để phân tích định lượng điều kiện vật lý cần thiết để hiện tượng chuyển pha siêu đàn hồi và trượt ma sát giữa các dây cùng kích hoạt trong bó dây NiTi chịu uốn?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md",
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W06_T1_NITI_CONTACT_FRICTION.md"
+      ],
+      "papers_reviewed": [
+        "fac21c950e",
+        "d9966f2f5e",
+        "53200aa0c6",
+        "3aa8790db0"
+      ],
+      "claims_repaired": [
+        "C7"
+      ],
+      "targets_repaired": [
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G03"
+      ],
+      "evidence_produced": "Phân tích cơ học dầm nhiều sợi: Ngưỡng trượt ma sát kappa_slip = 2 mu p / (E A h); ngưỡng bắt đầu chuyển pha kappa_tr = 2 sigma_tr / (E_A D_bundle). Tính toán cho thấy ở biến dạng nhỏ epsilon < 0.75%, NiTi thuần đàn hồi Austenite và chỉ có trượt ma sát thông thường.",
+      "result": "Thiết lập điều kiện cần cho Miền Cùng Tồn Tại (Coexistence Domain): Chỉ khi dầm bị uốn cong sâu vượt quá kappa_tr hoặc có kéo căng dọc trục thì chuyển pha và trượt mới tương tác; ở biến dạng nhỏ bài toán thoái hóa về dầm đàn hồi thông thường.",
+      "remaining_uncertainty": "Sự phân bố ứng suất tiếp xúc không đều giữa các sợi bên trong và bên ngoài làm chuyển pha xảy ra cục bộ từng sợi.",
+      "corrected_interpretation": "Cơ chế ghép cặp không tồn tại phổ quát mà phụ thuộc chặt chẽ vào biên độ tải trọng uốn.",
+      "evidence_status": "coexistence_domain_bounded",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W06_T3_TRANSFORMATION_SLIP_COEXISTENCE.md#L1-L170"
+    },
+    {
+      "worker_id": "W07",
+      "worker_question": "Làm thế nào để tái cấu trúc hệ thống giả thuyết H0/H1 thành 3 tầng chặt chẽ và hòa giải xung đột trạng thái giữa Audit JSON và báo cáo tổng hợp?",
+      "input_sources": [
+        "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json (commit 8ccfa3c)",
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W10_FANG_2019_PARAMETER_SUBSTITUTION.md",
+        "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "papers_reviewed": [
+        "2f7fcf2f8f",
+        "53200aa0c6",
+        "fac21c950e"
+      ],
+      "claims_repaired": [
+        "C7"
+      ],
+      "targets_repaired": [
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G01",
+        "G07",
+        "G11"
+      ],
+      "evidence_produced": "Tách H0 thành: H0a (thay thế mô-đun đàn hồi hằng số), H0b (khung lý thuyết NiTi cấu thành phi tuyến + tiếp xúc Coulomb hiện hữu), và H1 (lý thuyết ghép cặp vi mô mới). Phân tích nguồn gốc nhãn 'established' trong JSON.",
+      "result": "Hòa giải thành công: Bác bỏ H0a là 'established'; nhưng H0b chưa bị bác bỏ ('not falsified') và H1 là 'insufficient'. Loại bỏ hoàn toàn sự mâu thuẫn giữa JSON và narrative.",
+      "remaining_uncertainty": "Cần thiết kế thí nghiệm đối chứng có khả năng phân biệt dứt điểm giữa dự đoán của H0b và H1.",
+      "corrected_interpretation": "Bác bỏ mô hình đàn hồi sơ đẳng H0a không phải là bằng chứng ủng hộ H1.",
+      "evidence_status": "hypotheses_restructured_and_reconciled",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W07_PARAMETER_SUBSTITUTION_H0_H1.md#L1-L175"
+    },
+    {
+      "worker_id": "W08",
+      "worker_question": "Làm thế nào để xác định giới hạn nhận diện thực nghiệm (identifiability limits), phân tách cơ chế bị chồng lấn trong dữ liệu uốn vĩ mô, và chuẩn hóa định nghĩa độ cứng uốn?",
+      "input_sources": [
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md",
+        "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md",
+        "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "papers_reviewed": [
+        "d9966f2f5e",
+        "9f4295be23",
+        "3aa8790db0",
+        "ccdc1bb980"
+      ],
+      "claims_repaired": [
+        "C6",
+        "C7"
+      ],
+      "targets_repaired": [
+        "T2",
+        "T3"
+      ],
+      "hypotheses_repaired": [
+        "H1"
+      ],
+      "related_critique_ids": [
+        "G04",
+        "G09",
+        "G12"
+      ],
+      "evidence_produced": "Phân tích chuỗi nhận diện thực nghiệm: (1) Đường cong M-kappa vĩ mô không có tính nhận diện đơn nhất; (2) Chuỗi truyền áp suất p -> f_n chịu hiệu ứng vòm (arching); (3) Chuẩn hóa 3 công thức toán học cho D_tan, D_sec, D_dyn.",
+      "result": "Thiết lập yêu cầu bắt buộc: Phải dùng cảm biến cục bộ (DIC, FBG, ảnh nhiệt) để đo trực tiếp trượt và biến dạng sợi; cấm dùng dữ liệu uốn vĩ mô để tuyên bố cơ chế mới.",
+      "remaining_uncertainty": "Khó khăn trong việc tích hợp cảm biến đo quang FBG vào bên trong bó dây bọc kín dưới áp suất cao.",
+      "corrected_interpretation": "Hiện tượng mềm hóa uốn vĩ mô có thể do nhiều nguyên nhân cơ học gây ra; không thể gán đơn nhất cho cơ chế NiTi.",
+      "evidence_status": "identifiability_bounds_formalized",
+      "confidence": "high",
+      "provenance": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W08_EXPERIMENTAL_IDENTIFIABILITY.md#L1-L165"
+    }
+  ]
+}

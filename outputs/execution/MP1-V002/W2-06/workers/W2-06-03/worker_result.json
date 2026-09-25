@@ -1,0 +1,184 @@
+{
+  "worker_id": "W2-06-03",
+  "task": "Stage 1 packets W05–W08 reconstruction",
+  "status": "COMPLETE",
+  "packet_count": 4,
+  "packets": [
+    {
+      "packet_id": "W05",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W05_C5_C6_C7_V001_BOUNDARY.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Xác định ranh giới thẩm tra của C5, C6, C7 sau MP1-V001 và sự hình thành của Mechanics Core.",
+      "claims_affected": [
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "targets_affected": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0a",
+        "H1"
+      ],
+      "papers_used": [
+        "240fbf6022",
+        "182d854610",
+        "2cd907e77a",
+        "c6a31066f8",
+        "3aa8790db0"
+      ],
+      "method_or_model": "Ma trận giao thoa 3 trục: (1) Siêu đàn hồi/chuyển pha NiTi x (2) Trượt ma sát giữa các dây x (3) Áp suất giam giữ chủ động.",
+      "experiment_discussed": "Rà soát toàn bộ 11 bài báo trong tập V001 để tìm xem có bài báo nào giao thoa cả 3 trục hay không.",
+      "verified_conclusions": "Trong phạm vi 11 bài báo V001, không có công trình nào chứa cả 3 thành phần này cùng lúc.",
+      "inferred_conclusions": "Hình thành đề xuất Mechanics Core dựa trên giao điểm 3 trục này và coi đây là khoảng trống khoa học tiềm năng.",
+      "unresolved_issues": "Việc một giao điểm 'mở trong 11 bài báo V001' không đồng nghĩa với việc nó là khoảng trống mở trong toàn bộ nền khoa học cơ học.",
+      "later_critique_ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G10"
+      ],
+      "later_remediation_ids": [
+        "W03",
+        "W05",
+        "W06"
+      ],
+      "superseded_interpretation": "Nhận định giao điểm 3 trục là novel một cách mặc nhiên chỉ dựa trên ma trận rà soát V001.",
+      "corrected_interpretation": "Cần kiểm tra kỹ lưỡng với văn hiến cơ học cáp dây truyền thống (wire rope mechanics) trước khi khẳng định tính mới.",
+      "evidence_status": "open_in_corpus_only",
+      "confidence": "medium",
+      "provenance": "W05_C5_C6_C7_V001_BOUNDARY.md#L1-L160"
+    },
+    {
+      "packet_id": "W06",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W06_T1_NITI_CONTACT_FRICTION.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra chuyên sâu Mục tiêu T1: Cơ học tiếp xúc và ma sát trượt giữa các dây NiTi đã bị tiền nhiệm hay chưa.",
+      "claims_affected": [
+        "C5",
+        "C7"
+      ],
+      "targets_affected": [
+        "T1"
+      ],
+      "hypotheses_affected": [
+        "H0a"
+      ],
+      "papers_used": [
+        "d9966f2f5e",
+        "53200aa0c6",
+        "98fee47c04",
+        "e8462758c3",
+        "6dd1ca94d1"
+      ],
+      "method_or_model": "Mô phỏng phần tử hữu hạn 3D (Abaqus UMAT), luật tiếp xúc ma sát Coulomb/Hertz, mô hình trễ tiếp xúc Bouc-Wen.",
+      "experiment_discussed": "Thử nghiệm kéo chu kỳ và uốn chu kỳ trên cáp và tao dây NiTi; đo hệ số ma sát giữa các sợi dây NiTi ($\\mu = 0.18 - 0.22$).",
+      "verified_conclusions": "Mục tiêu T1 chính thức bị đóng bằng toàn văn (closed by full text). Vahidi 2022 và Carboni 2015 đã mô hình hóa và đo đạc đầy đủ ma sát tiếp xúc giữa các dây NiTi.",
+      "inferred_conclusions": "Không thể tuyên bố tính mới về mặt hiện tượng ma sát dây NiTi đơn thuần.",
+      "unresolved_issues": "Sự phụ thuộc của hệ số ma sát $\\mu$ vào trạng thái pha (Austenite vs Martensite) và ứng suất tiếp xúc pháp tuyến lớn.",
+      "later_critique_ids": [
+        "G05",
+        "G06"
+      ],
+      "later_remediation_ids": [
+        "W04"
+      ],
+      "superseded_interpretation": "Nghi ngờ ma sát tiếp xúc giữa các dây NiTi chưa được nghiên cứu trong cơ học.",
+      "corrected_interpretation": "Xác nhận T1 đã đóng hoàn toàn; loại bỏ T1 khỏi danh mục các khoảng trống mở.",
+      "evidence_status": "closed_by_full_text",
+      "confidence": "high",
+      "provenance": "W06_T1_NITI_CONTACT_FRICTION.md#L1-L339"
+    },
+    {
+      "packet_id": "W07",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra ranh giới Mục tiêu T2: Áp suất giam giữ chủ động (Active Confinement Pressure) và sự phân loại P1/P2/P3.",
+      "claims_affected": [
+        "C6"
+      ],
+      "targets_affected": [
+        "T2"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "papers_used": [
+        "ccdc1bb980",
+        "aaad9c248c",
+        "53200aa0c6",
+        "fac21c950e"
+      ],
+      "method_or_model": "Lý thuyết uốn dầm cáp dưới áp suất ngoài; phân loại áp suất P1 (tiếp xúc thụ động do hình học), P2 (áp suất cố định/thủy tĩnh), P3 (áp suất chủ động biến thiên $p(t)$).",
+      "experiment_discussed": "Cáp ngầm biển chịu áp suất thủy tĩnh (Tjahjanto 2017); cáp chịu kéo dọc trục sinh lực nén hướng tâm (Xin Liu 2004).",
+      "verified_conclusions": "T2 mở trong tập tài liệu toàn văn hiện tại (open in current full-text set). Các nghiên cứu truyền thống chỉ xét P1 và P2, chưa nghiên cứu sâu P3 trong dầm uốn biến dạng lớn.",
+      "inferred_conclusions": "Xem P3 như một lớp cơ học mới có khả năng tạo ra tính mới khoa học độc lập.",
+      "unresolved_issues": "P3 là một quy luật cơ học mới hay thực chất chỉ là một điều kiện biên biến thiên theo thời gian trong phương trình vi phân tiếp xúc hiện hữu.",
+      "later_critique_ids": [
+        "G02",
+        "G09",
+        "G10"
+      ],
+      "later_remediation_ids": [
+        "W05",
+        "W08"
+      ],
+      "superseded_interpretation": "Nhận định áp suất chủ động P3 tạo ra một nhánh cơ học mới chưa từng có phương trình.",
+      "corrected_interpretation": "Hạ cấp P3 thành giao thức điều khiển thực nghiệm (experimental protocol/boundary condition); phương trình vi phân hiện hữu tiếp nhận tự nhiên $p(t)$.",
+      "evidence_status": "open_in_current_full_text_set",
+      "confidence": "medium",
+      "provenance": "W07_T2_ACTIVE_CONFINEMENT_PRESSURE.md#L1-L199"
+    },
+    {
+      "packet_id": "W08",
+      "packet_file": "outputs/reports/MP1_MECHANICS_TRACE_PACKETS_2026-09-25/W08_T3_TRANSFORMATION_CONTACT_COUPLING.md",
+      "repository_commit": "af9e7a5",
+      "historical_stage": "Stage 1 (Mechanics Trace Packets)",
+      "question_answered": "Thẩm tra Mục tiêu T3: Sự ghép cặp chuyển pha và tiếp xúc ma sát dây NiTi; kiểm tra mức độ đón đầu của văn hiến.",
+      "claims_affected": [
+        "C7"
+      ],
+      "targets_affected": [
+        "T3"
+      ],
+      "hypotheses_affected": [
+        "H0b",
+        "H1"
+      ],
+      "papers_used": [
+        "d9966f2f5e",
+        "53200aa0c6",
+        "98fee47c04",
+        "e8462758c3",
+        "6dd1ca94d1"
+      ],
+      "method_or_model": "Mô hình cấu thành nhiệt-cơ ghép cặp tiếp xúc; mô hình trễ thắt (pinched hysteresis) kết hợp siêu đàn hồi và ma sát Bouc-Wen.",
+      "experiment_discussed": "Thử nghiệm uốn và kéo chu kỳ trên tao dây cáp; quan sát hiện tượng suy giảm chu kỳ và trễ năng lượng.",
+      "verified_conclusions": "Mục tiêu T3 bị đón đầu thực chất (substantially preempted). Các mô hình ghép cặp siêu đàn hồi và ma sát đã được nghiên cứu sâu trong giảm chấn công trình và hàng không.",
+      "inferred_conclusions": "Gán nhầm rằng cấu hình S2a của Carboni 2015 chứng minh chuyển pha siêu đàn hồi trong uốn thuần.",
+      "unresolved_issues": "Sai sót dữ liệu thực tế: Cấu hình S2a trong Carboni 2015 thực chất là cáp thép thuần ma sát ST49; S1a mới là cáp NiTi chịu kéo-uốn kết hợp.",
+      "later_critique_ids": [
+        "G03",
+        "G05",
+        "G11"
+      ],
+      "later_remediation_ids": [
+        "W04",
+        "W06",
+        "W07"
+      ],
+      "superseded_interpretation": "Sử dụng S2a làm bằng chứng cho rằng chuyển pha uốn thuần đã được thực nghiệm chứng minh.",
+      "corrected_interpretation": "Đính chính triệt để sai sót S2a; chỉ ra rằng Carboni 2015 chỉ thử nghiệm kéo-uốn kết hợp trên S1a, chưa chứng minh uốn thuần.",
+      "evidence_status": "substantially_preempted",
+      "confidence": "medium_low",
+      "provenance": "W08_T3_TRANSFORMATION_CONTACT_COUPLING.md#L1-L157"
+    }
+  ]
+}

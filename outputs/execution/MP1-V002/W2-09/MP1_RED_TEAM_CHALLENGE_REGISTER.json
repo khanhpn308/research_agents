@@ -1,0 +1,1427 @@
+{
+  "schema_version": "w2-09-challenge-register/1.0",
+  "status": "IN_PROGRESS",
+  "disposition_semantics": "CONFIRMED_GAP chỉ lỗ hổng dữ liệu/logic/provenance đã xác nhận; không mang nghĩa novel scientific gap.",
+  "challenges": [
+    {
+      "challenge_id": "RT-01",
+      "title": "Báo cáo cũ tự nhận hoàn tất không khớp inventory",
+      "target_claim_or_register_row": "legacy W2_09_ASTRA_RED_TEAM_REPORT.md / QA",
+      "affected_test_ids": [],
+      "affected_claim_ids": [],
+      "affected_target_ids": [],
+      "affected_hypothesis_ids": [],
+      "attack_statement": "Chỉ một file tồn tại trước run, nhưng báo cáo nói đã ghi bảy file và kiểm tra JSON. Không có cơ sở kế thừa completion, model execution hay primary verification của lần đó.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "LEGACY",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-09/W2_09_ASTRA_RED_TEAM_REPORT.md",
+          "sha256": "e90a2271310293ce506e6f02c9185f860eb91bbf64bbaf22f74c9612c4743f88",
+          "locator": "QA; final model/status block",
+          "finding": "Bản cũ ghi seven required files và JSON validated; inventory đầu run chỉ có chính file report."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "PROMPT",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/prompts/MP1-V002/MP1_E1_W2_09_ASTRA_HIGH_RED_TEAM_PROMPT.md",
+          "sha256": "9a68e69060b0e6801ef0bca2dca51ecf9b321baaceb841794a08d247edfb52c7",
+          "locator": "REQUIRED RED-TEAM OUTPUTS",
+          "finding": "Hợp đồng yêu cầu đúng bảy artifact; việc có một report không làm sai tự động mọi nhận xét khoa học bên trong."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-09/W2_09_ASTRA_RED_TEAM_REPORT.md",
+        "/home/khanh/projects/mechanical-research-agents/prompts/MP1-V002/MP1_E1_W2_09_ASTRA_HIGH_RED_TEAM_PROMPT.md"
+      ],
+      "paper_ids": [],
+      "severity": "HIGH",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Giữ nguyên bytes/text/hash của bản cũ trong legacy_attempt; ghi rõ UNVERIFIED_LEGACY.",
+        "Tạo đủ bảy file mới, kiểm tra cấu trúc và mở lại; không gán metadata phiên mới cho lần cũ."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Không tái dựng được nguyên nhân lần cũ thiếu file hoặc model thật của lần cũ.",
+      "evidence_status": "DIRECT_FILE_INVENTORY",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "LEGACY",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-09/W2_09_ASTRA_RED_TEAM_REPORT.md",
+            "sha256": "e90a2271310293ce506e6f02c9185f860eb91bbf64bbaf22f74c9612c4743f88",
+            "locator": "QA; final model/status block",
+            "finding": "Bản cũ ghi seven required files và JSON validated; inventory đầu run chỉ có chính file report."
+          },
+          {
+            "source_id": "PROMPT",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/prompts/MP1-V002/MP1_E1_W2_09_ASTRA_HIGH_RED_TEAM_PROMPT.md",
+            "sha256": "9a68e69060b0e6801ef0bca2dca51ecf9b321baaceb841794a08d247edfb52c7",
+            "locator": "REQUIRED RED-TEAM OUTPUTS",
+            "finding": "Hợp đồng yêu cầu đúng bảy artifact; việc có một report không làm sai tự động mọi nhận xét khoa học bên trong."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-02",
+      "title": "DOI và định danh nguồn bị thay sai qua register",
+      "target_claim_or_register_row": "W2-07 NN-01,NN-03,NN-04,NN-05,NN-06,NN-07; W2-04 provenance gaps",
+      "affected_test_ids": [
+        "K4",
+        "K5",
+        "K7"
+      ],
+      "affected_claim_ids": [
+        "C1",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b"
+      ],
+      "attack_statement": "Sáu dòng W2-07 gán DOI khác với PDF cùng paper_id hoặc DOI chưa được PDF xác thực; W2-04 tự lấp DOI trống cho luận văn Xin Liu và gán số OMAE không khớp. Đây là lỗi traceability thật, không phải bằng chứng phục hồi tính mới.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "NN",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+          "sha256": "78ac83ca8a25ba7dd1182a47dde4532d75114e8806a957611baefd147229ae7f",
+          "locator": "rows NN-01,NN-03,NN-04,NN-05,NN-06,NN-07 / DOI,paper_title",
+          "finding": "Các DOI được gắn lần lượt LRA.2022.3188880; LRA.2022.3144502; TMECH.2022.3168890; s11071-022-07450-4; oceaneng.2017.06.012; engstruct.2019.109356."
+        },
+        {
+          "source_id": "PDF-240fbf6022",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+          "sha256": "240fbf60229a87953954c85c3d858bebf945c06c2689f5dcb7c8d5c51742b2b5",
+          "locator": "PDF p1 header/DOI; pp4–5 keyword material excerpt",
+          "finding": "Bai: Detachable Soft Actuators…; 10.3390/app12073582; vật liệu chọn gồm kraft/hemp/nylon, không xác nhận bó thép tăng 15 lần."
+        },
+        {
+          "source_id": "PDF-2cd907e77a",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+          "sha256": "2cd907e77a983f289850ca4519da87f99b5fd5b26f6455fff5275ecc5baf8b6b",
+          "locator": "PDF p1 header",
+          "finding": "Takashima: 10.20965/jrm.2022.p0466."
+        },
+        {
+          "source_id": "PDF-bbe88a0c04",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Soft actuator with switchable stiffness using a micropump-activated jamming system.pdf",
+          "sha256": "bbe88a0c04b7a725f44d8f0271086a494a785b84030bde75a35ef892eeeecfcf",
+          "locator": "PDF p1 title/DOI",
+          "finding": "Huynh: Soft actuator with switchable stiffness using a micropump-activated jamming system; 10.1016/j.sna.2022.113449."
+        },
+        {
+          "source_id": "PDF-53200aa0c6",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "locator": "PDF p1",
+          "finding": "Vahidi: Mechanical response of single and double-helix SMA wire ropes; 10.1080/15376494.2021.1955313; online 03 Aug 2021."
+        },
+        {
+          "source_id": "PDF-2f7fcf2f8f",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+          "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+          "locator": "PDF p1 DOI",
+          "finding": "Fang: 10.1016/j.engstruct.2019.01.049."
+        },
+        {
+          "source_id": "PDF-ccdc1bb980",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+          "sha256": "ccdc1bb980abdaab2d8a3d7b2cc088ac7b5855f9137bef5c93a6a8d96fb70667",
+          "locator": "PDF p1 conference identifier",
+          "finding": "OMAE2017-62553 được in trên PDF, không phải 61198; không thấy DOI ở header đã đọc, không tự ghép DOI mới."
+        },
+        {
+          "source_id": "PDF-aaad9c248c",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf",
+          "sha256": "aaad9c248c7dea248b14e986a530760646cb7dbac8a44d41b94642a583514800",
+          "locator": "PDF p1 title page",
+          "finding": "Xin Liu là MSc thesis, University of Hawaii, August 2004; header không xác thực DOI journal 10.1115/1.1767817."
+        },
+        {
+          "source_id": "GAPS",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/W2_04_PROVENANCE_GAPS.json",
+          "sha256": "65189e6623799d1d28b21f54661c981f604a1081d6630ea1c49d5e65c4f5a37d",
+          "locator": "/doi_gaps_or_conflicts entries aaad9c248c,ccdc1bb980",
+          "finding": "W2-04 gọi DOI đã resolved dù nhận dạng không khớp nguồn."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "MATRIX",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/verification_matrix.json",
+          "sha256": "85f7858ca0ac7e0a8bbc23bb97076d1c56b22b71f38bcc0f15012b1f39bb9445",
+          "locator": "/papers/*/evidence/paper/title,doi",
+          "finding": "Matrix giữ đúng nhiều DOI và để trống hai DOI chưa có; phần lớn identity 16 PDF khớp canonical."
+        },
+        {
+          "source_id": "CLAIMS",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-02/MP1_C1_C8_CLAIM_MATRIX.json",
+          "sha256": "1fdb65329328f9528b637b72a1b4a2a5544b4d4b3da9480e660b851ac64aa412",
+          "locator": "rows C1,C3,C4,C5 / DOI",
+          "finding": "W2-02 còn giữ đúng nhiều DOI trước khi W2-07 drift; C4 vẫn sai tiêu đề so với PDF."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Soft actuator with switchable stiffness using a micropump-activated jamming system.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/W2_04_PROVENANCE_GAPS.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/verification_matrix.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-02/MP1_C1_C8_CLAIM_MATRIX.json"
+      ],
+      "paper_ids": [
+        "240fbf6022",
+        "2cd907e77a",
+        "bbe88a0c04",
+        "53200aa0c6",
+        "2f7fcf2f8f",
+        "ccdc1bb980",
+        "aaad9c248c"
+      ],
+      "severity": "CRITICAL",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Dùng bảng identity reconciliation trong critique mới, giữ DOI Xin Liu/Tjahjanto là UNVERIFIED_FROM_LOCAL_PDF.",
+        "Không dùng các dòng W2-07 lỗi như citations cho W2-10; yêu cầu remediation riêng cho nguồn dẫn và locator.",
+        "Giữ broad prior-art closures ở mức được nguồn đúng hỗ trợ; không suy ra novelty từ metadata sai."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Header audit không xác minh toàn bộ năm xuất bản chính thức/DOI qua mạng hoặc mọi câu trong bài.",
+      "evidence_status": "PRIMARY_IDENTITY_VERIFIED",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "NN",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+            "sha256": "78ac83ca8a25ba7dd1182a47dde4532d75114e8806a957611baefd147229ae7f",
+            "locator": "rows NN-01,NN-03,NN-04,NN-05,NN-06,NN-07 / DOI,paper_title",
+            "finding": "Các DOI được gắn lần lượt LRA.2022.3188880; LRA.2022.3144502; TMECH.2022.3168890; s11071-022-07450-4; oceaneng.2017.06.012; engstruct.2019.109356."
+          },
+          {
+            "source_id": "PDF-240fbf6022",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+            "sha256": "240fbf60229a87953954c85c3d858bebf945c06c2689f5dcb7c8d5c51742b2b5",
+            "locator": "PDF p1 header/DOI; pp4–5 keyword material excerpt",
+            "finding": "Bai: Detachable Soft Actuators…; 10.3390/app12073582; vật liệu chọn gồm kraft/hemp/nylon, không xác nhận bó thép tăng 15 lần."
+          },
+          {
+            "source_id": "PDF-2cd907e77a",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+            "sha256": "2cd907e77a983f289850ca4519da87f99b5fd5b26f6455fff5275ecc5baf8b6b",
+            "locator": "PDF p1 header",
+            "finding": "Takashima: 10.20965/jrm.2022.p0466."
+          },
+          {
+            "source_id": "PDF-bbe88a0c04",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2022-Soft actuator with switchable stiffness using a micropump-activated jamming system.pdf",
+            "sha256": "bbe88a0c04b7a725f44d8f0271086a494a785b84030bde75a35ef892eeeecfcf",
+            "locator": "PDF p1 title/DOI",
+            "finding": "Huynh: Soft actuator with switchable stiffness using a micropump-activated jamming system; 10.1016/j.sna.2022.113449."
+          },
+          {
+            "source_id": "PDF-53200aa0c6",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+            "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+            "locator": "PDF p1",
+            "finding": "Vahidi: Mechanical response of single and double-helix SMA wire ropes; 10.1080/15376494.2021.1955313; online 03 Aug 2021."
+          },
+          {
+            "source_id": "PDF-2f7fcf2f8f",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+            "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+            "locator": "PDF p1 DOI",
+            "finding": "Fang: 10.1016/j.engstruct.2019.01.049."
+          },
+          {
+            "source_id": "PDF-ccdc1bb980",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+            "sha256": "ccdc1bb980abdaab2d8a3d7b2cc088ac7b5855f9137bef5c93a6a8d96fb70667",
+            "locator": "PDF p1 conference identifier",
+            "finding": "OMAE2017-62553 được in trên PDF, không phải 61198; không thấy DOI ở header đã đọc, không tự ghép DOI mới."
+          },
+          {
+            "source_id": "PDF-aaad9c248c",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf",
+            "sha256": "aaad9c248c7dea248b14e986a530760646cb7dbac8a44d41b94642a583514800",
+            "locator": "PDF p1 title page",
+            "finding": "Xin Liu là MSc thesis, University of Hawaii, August 2004; header không xác thực DOI journal 10.1115/1.1767817."
+          },
+          {
+            "source_id": "GAPS",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/W2_04_PROVENANCE_GAPS.json",
+            "sha256": "65189e6623799d1d28b21f54661c981f604a1081d6630ea1c49d5e65c4f5a37d",
+            "locator": "/doi_gaps_or_conflicts entries aaad9c248c,ccdc1bb980",
+            "finding": "W2-04 gọi DOI đã resolved dù nhận dạng không khớp nguồn."
+          },
+          {
+            "source_id": "MATRIX",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/verification_matrix.json",
+            "sha256": "85f7858ca0ac7e0a8bbc23bb97076d1c56b22b71f38bcc0f15012b1f39bb9445",
+            "locator": "/papers/*/evidence/paper/title,doi",
+            "finding": "Matrix giữ đúng nhiều DOI và để trống hai DOI chưa có; phần lớn identity 16 PDF khớp canonical."
+          },
+          {
+            "source_id": "CLAIMS",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-02/MP1_C1_C8_CLAIM_MATRIX.json",
+            "sha256": "1fdb65329328f9528b637b72a1b4a2a5544b4d4b3da9480e660b851ac64aa412",
+            "locator": "rows C1,C3,C4,C5 / DOI",
+            "finding": "W2-02 còn giữ đúng nhiều DOI trước khi W2-07 drift; C4 vẫn sai tiêu đề so với PDF."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-03",
+      "title": "B11/B12 đã đóng nhưng W2-07/08 vẫn gắn chặn cũ",
+      "target_claim_or_register_row": "THREAT-05; K5; BLOCK-07; gate conditions_for_advancement",
+      "affected_test_ids": [
+        "K5"
+      ],
+      "affected_claim_ids": [
+        "C6",
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T2",
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Status chưa đóng của W2-07/08 là stale so với canonical hiện tại và cả W2-05; cần phân biệt lịch sử với hiện trạng. 15/15 là directions, không phải 15 bài đã xác thực cơ học.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "COVER",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/citation_coverage.json",
+          "sha256": "c04f4d70eb560b71b907e4e3158a27a427d9e5248150d2d72738f7c8a5af6b7b",
+          "locator": "/anchors (Kang,Barsi)/backward; /stop_condition",
+          "finding": "required directions tính lại 9 backward + 6 forward; satisfied=true; Kang=22, Barsi=46."
+        },
+        {
+          "source_id": "BRANCHES",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-05/MP1_CITATION_BRANCH_TABLE.json",
+          "sha256": "579bf6c1a547a6a2fe0c84f65daaeb7675ab0c22748f433286fd246db49d4292",
+          "locator": "/canonical_branches B11,B12 /current_canonical_status",
+          "finding": "Cả hai CLOSED."
+        },
+        {
+          "source_id": "RAW-B11",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B11_kang2020.csv",
+          "sha256": "a06b7834f73b82900ba6360f811facaca9436e531fd607a55cbd6f0a8fd66546",
+          "locator": "CSV data records 1–22 / Title,DOI,Year",
+          "finding": "Tự đếm 22 records, kiểm tra metadata; không có tái thẩm định full-text."
+        },
+        {
+          "source_id": "RAW-B12",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B12_barsi.csv",
+          "sha256": "d341a396ec2dda021f10301a5dd7b6e3f8ce9eb4d434ad10c3aeff177101a381",
+          "locator": "CSV data records 1–46 / Title,DOI,Year",
+          "finding": "Tự đếm 46 records, kiểm tra metadata."
+        },
+        {
+          "source_id": "BLOCKS",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/W2_08_BLOCKING_THREATS.json",
+          "sha256": "12ccbbfbb1039e6b8ea7134901077ecb8c7740686cecc0fbe9a28ebf030f64a7",
+          "locator": "BLOCK-07",
+          "finding": "Vẫn gắn HIGH, blocking=true và stop condition unsatisfied."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "FINAL",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+          "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+          "locator": "/executive_summary; /what_remains_unestablished",
+          "finding": "Final canonical nói rõ closure có giới hạn, không chứng minh universal novelty."
+        },
+        {
+          "source_id": "REMED",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md",
+          "sha256": "a0f15375f50caae6857fb2a865709186e4d37f17f923b66cb480182f060f41f7",
+          "locator": "line29 G10",
+          "finding": "Có diễn giải chưa đóng ở giai đoạn remediation cũ; đúng vai lịch sử không phải hiện tại."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/citation_coverage.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-05/MP1_CITATION_BRANCH_TABLE.json",
+        "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B11_kang2020.csv",
+        "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B12_barsi.csv",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/W2_08_BLOCKING_THREATS.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+        "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md"
+      ],
+      "paper_ids": [],
+      "severity": "HIGH",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Trong overlay W2-10, loại lý do chưa screen B11/B12 khỏi current blockers; giữ bản lịch sử nguyên vẹn.",
+        "Không mở lại tìm kiếm; xác nhận closure receipt dựa canonical, giữ caveat chưa tái duyệt mọi nhánh."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Không independently re-screen mọi 312 raw records; empty included_candidate_ids không tự chứng minh coverage failed.",
+      "evidence_status": "DIRECT_STATE_COMPARISON",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "COVER",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/citation_coverage.json",
+            "sha256": "c04f4d70eb560b71b907e4e3158a27a427d9e5248150d2d72738f7c8a5af6b7b",
+            "locator": "/anchors (Kang,Barsi)/backward; /stop_condition",
+            "finding": "required directions tính lại 9 backward + 6 forward; satisfied=true; Kang=22, Barsi=46."
+          },
+          {
+            "source_id": "BRANCHES",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-05/MP1_CITATION_BRANCH_TABLE.json",
+            "sha256": "579bf6c1a547a6a2fe0c84f65daaeb7675ab0c22748f433286fd246db49d4292",
+            "locator": "/canonical_branches B11,B12 /current_canonical_status",
+            "finding": "Cả hai CLOSED."
+          },
+          {
+            "source_id": "RAW-B11",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B11_kang2020.csv",
+            "sha256": "a06b7834f73b82900ba6360f811facaca9436e531fd607a55cbd6f0a8fd66546",
+            "locator": "CSV data records 1–22 / Title,DOI,Year",
+            "finding": "Tự đếm 22 records, kiểm tra metadata; không có tái thẩm định full-text."
+          },
+          {
+            "source_id": "RAW-B12",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/search_exports/MP1-V002/raw/backward/B12_barsi.csv",
+            "sha256": "d341a396ec2dda021f10301a5dd7b6e3f8ce9eb4d434ad10c3aeff177101a381",
+            "locator": "CSV data records 1–46 / Title,DOI,Year",
+            "finding": "Tự đếm 46 records, kiểm tra metadata."
+          },
+          {
+            "source_id": "BLOCKS",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/W2_08_BLOCKING_THREATS.json",
+            "sha256": "12ccbbfbb1039e6b8ea7134901077ecb8c7740686cecc0fbe9a28ebf030f64a7",
+            "locator": "BLOCK-07",
+            "finding": "Vẫn gắn HIGH, blocking=true và stop condition unsatisfied."
+          },
+          {
+            "source_id": "FINAL",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+            "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+            "locator": "/executive_summary; /what_remains_unestablished",
+            "finding": "Final canonical nói rõ closure có giới hạn, không chứng minh universal novelty."
+          },
+          {
+            "source_id": "REMED",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md",
+            "sha256": "a0f15375f50caae6857fb2a865709186e4d37f17f923b66cb480182f060f41f7",
+            "locator": "line29 G10",
+            "finding": "Có diễn giải chưa đóng ở giai đoạn remediation cũ; đúng vai lịch sử không phải hiện tại."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-04",
+      "title": "Hòa giải bằng lời chưa xóa xung đột máy đọc H1",
+      "target_claim_or_register_row": "AUDIT /parameter_substitution_test; CONTRA-WF-02; QA7",
+      "affected_test_ids": [
+        "K2",
+        "K7"
+      ],
+      "affected_claim_ids": [
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Current interim JSON vẫn ghi niti_requires_distinct_constitutive_contact_coupling=true, evidence_status=established. Đổi nghĩa nhãn thành bác bỏ H0a trong prose không sửa sự đối lập giữa tên field và H1 insufficient. CURRENT_RESOLVED/zero unresolved là quá mạnh.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "AUDIT",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+          "sha256": "2a7062fc2ef72d7d0ad49ed102d1ac6d24e1c45fed7440bb89e57d8cc1eb8e7d",
+          "locator": "/parameter_substitution_test",
+          "finding": "true + established vẫn tồn tại; assessment đồng thời chỉ bàn giới hạn constant modulus và yêu cầu model comparison."
+        },
+        {
+          "source_id": "CONTRA",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json",
+          "sha256": "1875f7583689d67fab67e390717a29d03ed68c9c7f2d3aefc81c099ca06bf150",
+          "locator": "CONTRA-WF-02 /resolution_status",
+          "finding": "CURRENT_RESOLVED dù literal machine flag chưa đổi."
+        },
+        {
+          "source_id": "QA7",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_PROVENANCE_QA.json",
+          "sha256": "6b8abfec740a34f521a74594c06b9c737d024dd4147342a7174da8b57fbd0d58",
+          "locator": "/unresolved_contradiction_count",
+          "finding": "Ghi 0."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "FINAL",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+          "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+          "locator": "/what_remains_unestablished; /scientific_hypothesis",
+          "finding": "Giữ established transformation-aware model chưa được kiểm chứng và H1 chưa được chứng minh."
+        },
+        {
+          "source_id": "ASTRA",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md",
+          "sha256": "271a15428e5c265e98dbc86bc7c924291e3911e3d592b3ba6d98f5712b510fcb",
+          "locator": "lines159–189",
+          "finding": "H0a inadequacy không đủ xác nhận H1; failure H0b vẫn cần kiểm tra alternative explanations."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_PROVENANCE_QA.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+        "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+      ],
+      "paper_ids": [],
+      "severity": "CRITICAL",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "W2-10 phải dùng explicit authority/semantic overlay: interim field không được đọc như bằng chứng H1.",
+        "Giữ contradiction OPEN_FOR_REMEDIATION; không sửa canonical trong W2-09 và không tự gán lại nghĩa field cũ."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Consumer đọc JSON cũ độc lập vẫn có thể nâng claim sai.",
+      "evidence_status": "DIRECT_STATE_AND_LOGIC_COMPARISON",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "AUDIT",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+            "sha256": "2a7062fc2ef72d7d0ad49ed102d1ac6d24e1c45fed7440bb89e57d8cc1eb8e7d",
+            "locator": "/parameter_substitution_test",
+            "finding": "true + established vẫn tồn tại; assessment đồng thời chỉ bàn giới hạn constant modulus và yêu cầu model comparison."
+          },
+          {
+            "source_id": "CONTRA",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json",
+            "sha256": "1875f7583689d67fab67e390717a29d03ed68c9c7f2d3aefc81c099ca06bf150",
+            "locator": "CONTRA-WF-02 /resolution_status",
+            "finding": "CURRENT_RESOLVED dù literal machine flag chưa đổi."
+          },
+          {
+            "source_id": "QA7",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_PROVENANCE_QA.json",
+            "sha256": "6b8abfec740a34f521a74594c06b9c737d024dd4147342a7174da8b57fbd0d58",
+            "locator": "/unresolved_contradiction_count",
+            "finding": "Ghi 0."
+          },
+          {
+            "source_id": "FINAL",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+            "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+            "locator": "/what_remains_unestablished; /scientific_hypothesis",
+            "finding": "Giữ established transformation-aware model chưa được kiểm chứng và H1 chưa được chứng minh."
+          },
+          {
+            "source_id": "ASTRA",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md",
+            "sha256": "271a15428e5c265e98dbc86bc7c924291e3911e3d592b3ba6d98f5712b510fcb",
+            "locator": "lines159–189",
+            "finding": "H0a inadequacy không đủ xác nhận H1; failure H0b vẫn cần kiểm tra alternative explanations."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-05",
+      "title": "H0b chưa bị bác bỏ; thiếu test không phải falsification",
+      "target_claim_or_register_row": "K2,K7; CAND /H0_relationship",
+      "affected_test_ids": [
+        "K2",
+        "K7"
+      ],
+      "affected_claim_ids": [
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Không thấy kết quả benchmark MP1 đã khóa calibration trong các nguồn kiểm tra. Điều này giữ UNRESOLVED, không xác nhận H0b và cũng không bác bỏ MP1. H0a chỉ thiếu biểu diễn chuyển pha trong miền active, không được gán REFUTED cho mọi miền/observable. H0b là một họ mô hình cần định danh cụ thể.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "K",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+          "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+          "locator": "K2 /what_is_established,what_is_not_established; K7 /observed_result",
+          "finding": "K2 viết H0a bác bỏ hoàn toàn; K7 nói khả năng rất cao hiện hữu hoàn toàn đủ nhưng thừa nhận chưa triển khai."
+        },
+        {
+          "source_id": "PARAM",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+          "sha256": "1e1eaaaa61cc655d67a70b9fad6bb8793e69b0a32a51788003acf8d25f3b3550",
+          "locator": "/prior_art_positioning",
+          "finding": "Bằng chứng được viện dẫn là mô hình cáp/tensile và kế hoạch, không run pressure-bending MP1."
+        },
+        {
+          "source_id": "PDF-53200aa0c6",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "locator": "PDF pp3,5 §§2,4.2,5.1",
+          "finding": "Có Souza + contact trong tensile; tác giả báo khác biệt stress khoảng 20%/25%, không bảo đảm accuracy MP1."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "FINAL",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+          "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+          "locator": "/model_discrimination_plan/falsification_logic",
+          "finding": "Baseline được yêu cầu freeze rồi so sánh; transformation-aware model có thể đủ."
+        },
+        {
+          "source_id": "PDF-d9966f2f5e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+          "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+          "locator": "PDF p9 S1a discussion",
+          "finding": "Chuyển pha và friction được diễn giải trong assembly; không cần coi mọi hysteresis là dấu hiệu H1."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf"
+      ],
+      "paper_ids": [
+        "53200aa0c6",
+        "d9966f2f5e"
+      ],
+      "severity": "CRITICAL",
+      "disposition": "UNRESOLVED",
+      "required_remediation": [
+        "Freeze một H0b có law, state variables, BC, thermal/asymmetry scope rõ; kế hoạch trước khi xem validation residual.",
+        "Cùng specimen/domain/outputs; dự đoán held-out với uncertainty và numerical verification.",
+        "H0b đạt tolerance chỉ bác bỏ nhu cầu H1 trong miền đó; H0b thất bại không đủ chọn H1 trước kiểm tra BC/calibration/numerics."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Không có experiment/FE execution trong scope; khả năng H0b đủ vẫn còn, không định lượng xác suất.",
+      "evidence_status": "BOUNDED_ABSENCE_AND_INFERENCE",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "K",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+            "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+            "locator": "K2 /what_is_established,what_is_not_established; K7 /observed_result",
+            "finding": "K2 viết H0a bác bỏ hoàn toàn; K7 nói khả năng rất cao hiện hữu hoàn toàn đủ nhưng thừa nhận chưa triển khai."
+          },
+          {
+            "source_id": "PARAM",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+            "sha256": "1e1eaaaa61cc655d67a70b9fad6bb8793e69b0a32a51788003acf8d25f3b3550",
+            "locator": "/prior_art_positioning",
+            "finding": "Bằng chứng được viện dẫn là mô hình cáp/tensile và kế hoạch, không run pressure-bending MP1."
+          },
+          {
+            "source_id": "PDF-53200aa0c6",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+            "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+            "locator": "PDF pp3,5 §§2,4.2,5.1",
+            "finding": "Có Souza + contact trong tensile; tác giả báo khác biệt stress khoảng 20%/25%, không bảo đảm accuracy MP1."
+          },
+          {
+            "source_id": "FINAL",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+            "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+            "locator": "/model_discrimination_plan/falsification_logic",
+            "finding": "Baseline được yêu cầu freeze rồi so sánh; transformation-aware model có thể đủ."
+          },
+          {
+            "source_id": "PDF-d9966f2f5e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+            "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+            "locator": "PDF p9 S1a discussion",
+            "finding": "Chuyển pha và friction được diễn giải trong assembly; không cần coi mọi hysteresis là dấu hiệu H1."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-06",
+      "title": "0,75% và slip-only không phải miền vận hành đã chứng minh",
+      "target_claim_or_register_row": "K1; COEX /regimes,/threshold_equations,/critical_finding; CAND /coexistence_requirement",
+      "affected_test_ids": [
+        "K1"
+      ],
+      "affected_claim_ids": [
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0a",
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "450 MPa/60 GPa=0,0075 là phép ước lượng chọn tham số, không ngưỡng phổ quát. Góc uốn <90° không xác định curvature hoặc strain nếu thiếu chiều dài và effective radius. K1 formula 2 mu p/(E A h) có thứ nguyên m^-3 nếu p là pressure,A là area,h là length; candidate còn so curvature với %. Regime map thiếu TRANSFORMATION_ONLY dù premise cho phép stick + transformation.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "COEX",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+          "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+          "locator": "/coexistence_domain_reconstruction",
+          "finding": "Chỉ ba regimes; critical_finding đặt toàn bộ typical bending vào SLIP_ONLY; C_geom chưa được chứng minh."
+        },
+        {
+          "source_id": "K",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+          "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+          "locator": "K1 /method_or_experiment,/observed_result",
+          "finding": "Formula và ngưỡng 0.75% được ghi như observed_result dù chưa có map thực nghiệm."
+        },
+        {
+          "source_id": "CAND",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+          "sha256": "87309dbbf9ad74ae8d2f72e496a3e051c9bf8f872e26c74b9399935928bcc767",
+          "locator": "row MP1-P1 /coexistence_requirement",
+          "finding": "kappa_tr ~ 0.75% trộn curvature và strain."
+        },
+        {
+          "source_id": "PDF-53200aa0c6",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "locator": "PDF p6 Table3",
+          "finding": "E được dùng 40 và 74 GPa cho hai cấu trúc, không universal60."
+        },
+        {
+          "source_id": "PDF-2f7fcf2f8f",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+          "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+          "locator": "PDF p11 Table2",
+          "finding": "Một wire calibration có eps_Ms=0.0125; giá trị thuộc specimen/protocol, không transfer tự động."
+        },
+        {
+          "source_id": "PDF-56793dea9b",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+          "sha256": "56793dea9b3dcbb4224e7c61297f37983f9ff0abcf43d1d782c0e0ad26355b61",
+          "locator": "PDF p5 Table1",
+          "finding": "EA=28.8GPa ở model này; threshold phụ thuộc constitutive/temperature."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "DETAIL",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md",
+          "sha256": "ea0c1794cfdcb86ddf375f3529edc052b371c06c9caa23d8ce32395cf829484a",
+          "locator": "lines254–264",
+          "finding": "Chính report có case full stick nhưng transformation hoạt động; đây là counterexample nội bộ với map ba regimes."
+        },
+        {
+          "source_id": "PDF-d9966f2f5e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+          "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+          "locator": "PDF p9",
+          "finding": "S1a chứng minh trạng thái kéo-uốn trong cấu hình cụ thể, không chứng minh chỉ góc sâu mới đạt chuyển pha."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+        "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf"
+      ],
+      "paper_ids": [
+        "53200aa0c6",
+        "2f7fcf2f8f",
+        "56793dea9b",
+        "d9966f2f5e"
+      ],
+      "severity": "HIGH",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Dùng bốn trạng thái NONE/SLIP_ONLY/TRANSFORMATION_ONLY/COEXISTENCE như phân loại giả thuyết; local fields và uncertainty quyết định ranh giới.",
+        "Gỡ universal threshold và typical robot claim; ghi strain với đơn vị không thứ nguyên, curvature m^-1.",
+        "Dẫn xuất slip criterion từ force balance/geometry/BC; kiểm tra units trước dùng; đo threshold đúng alloy/history."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Không có số đo chứng minh accessible coexistence của MP1; không thể kết luận regime không tồn tại.",
+      "evidence_status": "ANALYTIC_CHECK_AND_PRIMARY_SAMPLE",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "COEX",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+            "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+            "locator": "/coexistence_domain_reconstruction",
+            "finding": "Chỉ ba regimes; critical_finding đặt toàn bộ typical bending vào SLIP_ONLY; C_geom chưa được chứng minh."
+          },
+          {
+            "source_id": "K",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+            "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+            "locator": "K1 /method_or_experiment,/observed_result",
+            "finding": "Formula và ngưỡng 0.75% được ghi như observed_result dù chưa có map thực nghiệm."
+          },
+          {
+            "source_id": "CAND",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+            "sha256": "87309dbbf9ad74ae8d2f72e496a3e051c9bf8f872e26c74b9399935928bcc767",
+            "locator": "row MP1-P1 /coexistence_requirement",
+            "finding": "kappa_tr ~ 0.75% trộn curvature và strain."
+          },
+          {
+            "source_id": "PDF-53200aa0c6",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+            "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+            "locator": "PDF p6 Table3",
+            "finding": "E được dùng 40 và 74 GPa cho hai cấu trúc, không universal60."
+          },
+          {
+            "source_id": "PDF-2f7fcf2f8f",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+            "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+            "locator": "PDF p11 Table2",
+            "finding": "Một wire calibration có eps_Ms=0.0125; giá trị thuộc specimen/protocol, không transfer tự động."
+          },
+          {
+            "source_id": "PDF-56793dea9b",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+            "sha256": "56793dea9b3dcbb4224e7c61297f37983f9ff0abcf43d1d782c0e0ad26355b61",
+            "locator": "PDF p5 Table1",
+            "finding": "EA=28.8GPa ở model này; threshold phụ thuộc constitutive/temperature."
+          },
+          {
+            "source_id": "DETAIL",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_DETAILED_SCIENTIFIC_EVIDENCE_REPORT_2026-09-25.md",
+            "sha256": "ea0c1794cfdcb86ddf375f3529edc052b371c06c9caa23d8ce32395cf829484a",
+            "locator": "lines254–264",
+            "finding": "Chính report có case full stick nhưng transformation hoạt động; đây là counterexample nội bộ với map ba regimes."
+          },
+          {
+            "source_id": "PDF-d9966f2f5e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+            "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+            "locator": "PDF p9",
+            "finding": "S1a chứng minh trạng thái kéo-uốn trong cấu hình cụ thể, không chứng minh chỉ góc sâu mới đạt chuyển pha."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-07",
+      "title": "K3 không có định lý bất khả nhận diện tổng quát",
+      "target_claim_or_register_row": "K3; BLOCK-02; COEX /verdict_on_global_measurement",
+      "affected_test_ids": [
+        "K3"
+      ],
+      "affected_claim_ids": [
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Có confounding nguy hiểm nhưng không có forward operator, parameter domain, excitation, rank/sensitivity hoặc noise model để chứng minh mọi dữ liệu M-kappa đều non-identifiable. Nhiều cơ chế làm mềm không đủ suy ra mọi mô hình cùng prediction. DIC+FBG+IR cũng không tự bảo đảm nhận diện phase và slip trong sealed bundle.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "K",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+          "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+          "locator": "K3 /observed_result,/what_is_established",
+          "finding": "Ghi KILL hoàn toàn và giới hạn toán học mà không trình bày phép thử inverse/rank."
+        },
+        {
+          "source_id": "PDF-2f7fcf2f8f",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+          "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+          "locator": "PDF p11 §5.1",
+          "finding": "Tác giả cho phép các kết hợp area/modulus khác nhau fit tương tự trong macromodel cụ thể."
+        },
+        {
+          "source_id": "PDF-d9966f2f5e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+          "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+          "locator": "PDF p10 discussion after Table4",
+          "finding": "Redundancy của BW được nêu cho parametrization cụ thể, không là theorem cho mọi experiment."
+        },
+        {
+          "source_id": "PDF-fac21c950e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+          "locator": "PDF p33 before conclusions",
+          "finding": "IR trong full cable khó phân biệt các layer; component comparison và DIC bổ sung thông tin, cho thấy cần chọn observable theo task."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "ASTRA",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md",
+          "sha256": "271a15428e5c265e98dbc86bc7c924291e3911e3d592b3ba6d98f5712b510fcb",
+          "locator": "lines184–190,230–239",
+          "finding": "Cảnh báo lực–chuyển vị đơn độc và yêu cầu calibration/đối chứng là hợp lý."
+        },
+        {
+          "source_id": "COEX",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+          "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+          "locator": "/mechanism_confounding_matrix",
+          "finding": "Các sensor đề xuất có thể hữu ích, nhưng chưa được validation trong MP1."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+        "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json"
+      ],
+      "paper_ids": [
+        "2f7fcf2f8f",
+        "d9966f2f5e",
+        "fac21c950e"
+      ],
+      "severity": "HIGH",
+      "disposition": "MAJOR_CHALLENGE",
+      "required_remediation": [
+        "Đổi verdict diễn giải thành IDENTIFIABILITY_NOT_DEMONSTRATED, giữ K3 unresolved.",
+        "Kiểm tra sensitivity/Jacobian hoặc profile likelihood của mô hình định danh; chọn load paths và sensor qua prediction separation lớn hơn uncertainty.",
+        "M-kappa có thể đánh giá predictive adequacy của baseline đã khóa; claim về mechanism đòi hỏi evidence phân biệt phù hợp, không áp lệnh cấm mọi macro data."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Parameter-identifiability và model-discrimination khác nhau; local surface proxies có thể bỏ sót lõi.",
+      "evidence_status": "PRIMARY_SAMPLE_AND_INFERENCE",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "K",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+            "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+            "locator": "K3 /observed_result,/what_is_established",
+            "finding": "Ghi KILL hoàn toàn và giới hạn toán học mà không trình bày phép thử inverse/rank."
+          },
+          {
+            "source_id": "PDF-2f7fcf2f8f",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+            "sha256": "2f7fcf2f8f3fa43fc28f176f436243ed577e970f2caeaf2f4302c10b130c9248",
+            "locator": "PDF p11 §5.1",
+            "finding": "Tác giả cho phép các kết hợp area/modulus khác nhau fit tương tự trong macromodel cụ thể."
+          },
+          {
+            "source_id": "PDF-d9966f2f5e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+            "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+            "locator": "PDF p10 discussion after Table4",
+            "finding": "Redundancy của BW được nêu cho parametrization cụ thể, không là theorem cho mọi experiment."
+          },
+          {
+            "source_id": "PDF-fac21c950e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+            "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+            "locator": "PDF p33 before conclusions",
+            "finding": "IR trong full cable khó phân biệt các layer; component comparison và DIC bổ sung thông tin, cho thấy cần chọn observable theo task."
+          },
+          {
+            "source_id": "ASTRA",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md",
+            "sha256": "271a15428e5c265e98dbc86bc7c924291e3911e3d592b3ba6d98f5712b510fcb",
+            "locator": "lines184–190,230–239",
+            "finding": "Cảnh báo lực–chuyển vị đơn độc và yêu cầu calibration/đối chứng là hợp lý."
+          },
+          {
+            "source_id": "COEX",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+            "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+            "locator": "/mechanism_confounding_matrix",
+            "finding": "Các sensor đề xuất có thể hữu ích, nhưng chưa được validation trong MP1."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-08",
+      "title": "Áp suất là control độc lập và boundary input; chưa có transfer law",
+      "target_claim_or_register_row": "K6; BLOCK-05; COEX /chamber_pressure_mapping",
+      "affected_test_ids": [
+        "K6"
+      ],
+      "affected_claim_ids": [
+        "C6",
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T2",
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Câu hỏi K6 tạo lưỡng phân sai giữa biến điều khiển độc lập và điều kiện biên: p có thể đồng thời là cả hai. Nhận diện p->normal load thiếu là thật, nhưng khẳng định suy giảm đáng kể/alpha cố định là chưa đo; không so trực tiếp pressure với force. Cần tiếp xúc theo vị trí và curvature, không chỉ coupon ở zero bending.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "K",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+          "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+          "locator": "K6 /test_question,/observed_result",
+          "finding": "Giả định force suy giảm mà không có số liệu MP1."
+        },
+        {
+          "source_id": "COEX",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+          "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+          "locator": "/chamber_pressure_mapping; /mechanism_confounding_matrix contact-force row",
+          "finding": "Đề xuất alpha ở zero bending, không chứng minh transfer sang curvature khác."
+        },
+        {
+          "source_id": "PDF-ccdc1bb980",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+          "sha256": "ccdc1bb980abdaab2d8a3d7b2cc088ac7b5855f9137bef5c93a6a8d96fb70667",
+          "locator": "PDF p3 Eq6; p5 Figs6–7 discussion",
+          "finding": "Normal loads là force per unit length; phân bố/thay đổi theo core position và bending; từ FE, không phải gauge đo trực tiếp."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "FINAL",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+          "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+          "locator": "/experimental_scope/minimum_measurements",
+          "finding": "Cho phép pressure-to-contact calibration hoặc validated proxy; không yêu cầu đo tất cả contact points."
+        },
+        {
+          "source_id": "PDF-3aa8790db0",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+          "sha256": "3aa8790db042279ff0fe1f61876b3cdcc573878fd25a50be6ddc6f9ec7b8577f",
+          "locator": "PDF p1 abstract; p9 §5.1",
+          "finding": "Có pressure control ngoài và model hiệu dụng; không chứng minh mapping riêng cho NiTi MP1."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf"
+      ],
+      "paper_ids": [
+        "ccdc1bb980",
+        "3aa8790db0"
+      ],
+      "severity": "HIGH",
+      "disposition": "UNRESOLVED",
+      "required_remediation": [
+        "Định nghĩa p[Pa], contact traction[Pa], line load[N/m] và force[N] rõ.",
+        "Mô hình/đo chuỗi membrane-packing-contact với BC/end load độc lập và uncertainty; kiểm tra ở nhiều curvature/load-history.",
+        "Gỡ câu mọi force suy giảm theo một alpha; không gán calibration proposed thành measured."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Màng và sensor có thể thay contact; normal field dưới curvature chưa được biết.",
+      "evidence_status": "PRIMARY_SAMPLE_AND_INFERENCE",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "K",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-08/MP1_KILL_TEST_MATRIX.json",
+            "sha256": "19b9e5b464fd12e7167e22a2246ca2514fc001d202f82cbcf3f88bd6f22a6e6a",
+            "locator": "K6 /test_question,/observed_result",
+            "finding": "Giả định force suy giảm mà không có số liệu MP1."
+          },
+          {
+            "source_id": "COEX",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_COEXISTENCE_IDENTIFIABILITY_MAP.json",
+            "sha256": "c54fa6d035ceba27c7ec7e142cb918fad8ef18669eb77efbdf27ae05c4ff2741",
+            "locator": "/chamber_pressure_mapping; /mechanism_confounding_matrix contact-force row",
+            "finding": "Đề xuất alpha ở zero bending, không chứng minh transfer sang curvature khác."
+          },
+          {
+            "source_id": "PDF-ccdc1bb980",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+            "sha256": "ccdc1bb980abdaab2d8a3d7b2cc088ac7b5855f9137bef5c93a6a8d96fb70667",
+            "locator": "PDF p3 Eq6; p5 Figs6–7 discussion",
+            "finding": "Normal loads là force per unit length; phân bố/thay đổi theo core position và bending; từ FE, không phải gauge đo trực tiếp."
+          },
+          {
+            "source_id": "FINAL",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/FINAL_ADJUDICATION.json",
+            "sha256": "535eb2f4906804356a5573488b3d2bffa1f4527e48b3970488c9b501e5cc7ac3",
+            "locator": "/experimental_scope/minimum_measurements",
+            "finding": "Cho phép pressure-to-contact calibration hoặc validated proxy; không yêu cầu đo tất cả contact points."
+          },
+          {
+            "source_id": "PDF-3aa8790db0",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V001/2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+            "sha256": "3aa8790db042279ff0fe1f61876b3cdcc573878fd25a50be6ddc6f9ec7b8577f",
+            "locator": "PDF p1 abstract; p9 §5.1",
+            "finding": "Có pressure control ngoài và model hiệu dụng; không chứng minh mapping riêng cho NiTi MP1."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-09",
+      "title": "Vahidi bị gán sai law và độ tin cậy validation",
+      "target_claim_or_register_row": "W2-04 row 53200aa0c6; PARAM /Vahidi_2022; NN-05",
+      "affected_test_ids": [
+        "K2",
+        "K7",
+        "K8"
+      ],
+      "affected_claim_ids": [
+        "C5",
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T1",
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b"
+      ],
+      "attack_statement": "PDF dùng Souza UMAT, không phải Auricchio UMAT như worker ghi. Mu≈0.115 được considered, không có phép đo 0.18–0.22 tại đoạn cited. Dùng thông số từ thực nghiệm không bằng chứng toàn bộ parameters frozen trước validation độc lập; sai khác công bố cần giữ.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "PDF-53200aa0c6",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "locator": "PDF p3 §2; p5 §4.2,§5.1; p6 Table3",
+          "finding": "Souza model; adopted parameters; friction≈0.115; tác giả ghi stress differences khoảng20%/25%; E=40/74GPa."
+        },
+        {
+          "source_id": "ROLES",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json",
+          "sha256": "53af87f04ddf1c19dcd98110c6101fb244aeff0eb088348cf0357e7d728ee63d",
+          "locator": "row paper_id=53200aa0c6 /directly_verified_statements",
+          "finding": "Ghi Auricchio và accurately predicts complete response."
+        },
+        {
+          "source_id": "PARAM",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+          "sha256": "1e1eaaaa61cc655d67a70b9fad6bb8793e69b0a32a51788003acf8d25f3b3550",
+          "locator": "/prior_art_positioning/Vahidi_2022",
+          "finding": "Nâng lên Level3–4 và locked parameters."
+        },
+        {
+          "source_id": "NN",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+          "sha256": "78ac83ca8a25ba7dd1182a47dde4532d75114e8806a957611baefd147229ae7f",
+          "locator": "NN-05 /what_source_proves",
+          "finding": "Gán measured mu0.18–0.22."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "PDF-53200aa0c6",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+          "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+          "locator": "PDF pp3,5",
+          "finding": "Vẫn là tiền nhiệm trực tiếp cho model SMA + contact; lỗi gọi law không làm biến mất prior art."
+        },
+        {
+          "source_id": "AUDIT",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+          "sha256": "2a7062fc2ef72d7d0ad49ed102d1ac6d24e1c45fed7440bb89e57d8cc1eb8e7d",
+          "locator": "/paper_threat_assessments row53200aa0c6",
+          "finding": "Canonical mô tả rộng hơn là 3D SMA law + contact, không cần gán Auricchio."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json"
+      ],
+      "paper_ids": [
+        "53200aa0c6"
+      ],
+      "severity": "HIGH",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Sửa overlay law=Souza, mu provenance=assumed/considered in paper; không claim measurement.",
+        "Ghi rõ tensile/thermal scope và reported discrepancies; muốn claim independent locked validation cần trace datasets/parameter release, chưa có ở audit này."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Không kiểm chứng số solver gốc, không khẳng định mọi tham số là post-hoc.",
+      "evidence_status": "PRIMARY_EXCERPT_VERIFIED",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "PDF-53200aa0c6",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+            "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+            "locator": "PDF p3 §2; p5 §4.2,§5.1; p6 Table3",
+            "finding": "Souza model; adopted parameters; friction≈0.115; tác giả ghi stress differences khoảng20%/25%; E=40/74GPa."
+          },
+          {
+            "source_id": "ROLES",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json",
+            "sha256": "53af87f04ddf1c19dcd98110c6101fb244aeff0eb088348cf0357e7d728ee63d",
+            "locator": "row paper_id=53200aa0c6 /directly_verified_statements",
+            "finding": "Ghi Auricchio và accurately predicts complete response."
+          },
+          {
+            "source_id": "PARAM",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-03/MP1_PARAMETER_SUBSTITUTION_RECONSTRUCTION.json",
+            "sha256": "1e1eaaaa61cc655d67a70b9fad6bb8793e69b0a32a51788003acf8d25f3b3550",
+            "locator": "/prior_art_positioning/Vahidi_2022",
+            "finding": "Nâng lên Level3–4 và locked parameters."
+          },
+          {
+            "source_id": "NN",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NON_NOVELTY_REGISTER.json",
+            "sha256": "78ac83ca8a25ba7dd1182a47dde4532d75114e8806a957611baefd147229ae7f",
+            "locator": "NN-05 /what_source_proves",
+            "finding": "Gán measured mu0.18–0.22."
+          },
+          {
+            "source_id": "PDF-53200aa0c6",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf",
+            "sha256": "53200aa0c608c3ff3b7819b6c17bc87a79f236ac4e8ff4b1c69e3c5d7cbfed1a",
+            "locator": "PDF pp3,5",
+            "finding": "Vẫn là tiền nhiệm trực tiếp cho model SMA + contact; lỗi gọi law không làm biến mất prior art."
+          },
+          {
+            "source_id": "AUDIT",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json",
+            "sha256": "2a7062fc2ef72d7d0ad49ed102d1ac6d24e1c45fed7440bb89e57d8cc1eb8e7d",
+            "locator": "/paper_threat_assessments row53200aa0c6",
+            "finding": "Canonical mô tả rộng hơn là 3D SMA law + contact, không cần gán Auricchio."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    },
+    {
+      "challenge_id": "RT-10",
+      "title": "Reedlunn: giả thuyết pressure không phải phép đo; overcorrection cũng sai",
+      "target_claim_or_register_row": "CAND /supporting_evidence; CONTRA-EV-03; PARAM /Reedlunn_2013",
+      "affected_test_ids": [
+        "K1",
+        "K2",
+        "K3",
+        "K7",
+        "K9"
+      ],
+      "affected_claim_ids": [
+        "C5",
+        "C7"
+      ],
+      "affected_target_ids": [
+        "T1",
+        "T3"
+      ],
+      "affected_hypothesis_ids": [
+        "H0b",
+        "H1"
+      ],
+      "attack_statement": "Reedlunn không trực tiếp chứng minh ngưỡng dịch do pressure điều khiển: radial pressure unknown, tác giả speculate về subtraction. Đồng thời gọi mọi sai lệch chỉ là kinematics hoặc indentations chắc chắn pre-existing vượt modality của nguồn. Thực nghiệm cho little/no significant interlayer sliding ở gauge scale; không dùng nó làm chứng cứ trực tiếp coexistence slip+phase.",
+      "evidence_supporting_attack": [
+        {
+          "source_id": "PDF-fac21c950e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+          "locator": "PDF p17 Fig8 text",
+          "finding": "SEM sau test; tác giả nói likely/most likely pre-existing do chế tạo, không observation trước test."
+        },
+        {
+          "source_id": "PDF-fac21c950e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+          "locator": "PDF p26 §4.2 assumptions; p34 conclusion4",
+          "finding": "Flush-end/welded-end checks hỗ trợ little/no significant sliding; local sliding dưới resolution không loại tuyệt đối."
+        },
+        {
+          "source_id": "PDF-fac21c950e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+          "locator": "PDF pp29–30 §4.2.2",
+          "finding": "Áp lực ngang chưa biết; suy đoán core response khác nhau và viện dẫn Jacobus; Jacobus không được đọc trực tiếp run này."
+        },
+        {
+          "source_id": "CAND",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+          "sha256": "87309dbbf9ad74ae8d2f72e496a3e051c9bf8f872e26c74b9399935928bcc767",
+          "locator": "/supporting_evidence",
+          "finding": "Ghi Reedlunn chứng minh chuyển ngưỡng dưới áp lực hướng tâm."
+        },
+        {
+          "source_id": "CONTRA",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json",
+          "sha256": "1875f7583689d67fab67e390717a29d03ed68c9c7f2d3aefc81c099ca06bf150",
+          "locator": "CONTRA-EV-03 /current_interpretation,residual_uncertainty",
+          "finding": "Ghi thuần kinematics và không còn rủi ro suy diễn sai."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "source_id": "PDF-fac21c950e",
+          "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+          "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+          "locator": "PDF p33 conclusions1–3",
+          "finding": "Helix, architecture, component response quan trọng; shallow-helix gần core-wire là counterpressure cho H1 nhưng không certify H0b cho MP1."
+        }
+      ],
+      "source_files": [
+        "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+        "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json"
+      ],
+      "paper_ids": [
+        "fac21c950e"
+      ],
+      "severity": "HIGH",
+      "disposition": "CONFIRMED_GAP",
+      "required_remediation": [
+        "Giữ observed/inferred/speculative đúng câu nguồn; không promote cited-but-unread Jacobus thành primary của run.",
+        "Giữ Reedlunn làm contact/kinematic threat với limits, không pressure-controlled bending validation hoặc H1 proof."
+      ],
+      "blocking": true,
+      "human_review_required": true,
+      "residual_risk": "Cơ chế pressure và local slip chưa phân lập độc lập; không thể giải bằng đổi wording thành khẳng định phủ định.",
+      "evidence_status": "PRIMARY_EXCERPT_VERIFIED",
+      "confidence": "high",
+      "provenance": {
+        "method": "Đọc trực tiếp nguồn/đoạn PDF và phản biện inline; không kế thừa PASS.",
+        "source_manifest": "W2_09_SOURCE_MANIFEST.json",
+        "repository_commit": "0ade68e73d93c38618b366a000ac7a01215a3936",
+        "anchors": [
+          {
+            "source_id": "PDF-fac21c950e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+            "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+            "locator": "PDF p17 Fig8 text",
+            "finding": "SEM sau test; tác giả nói likely/most likely pre-existing do chế tạo, không observation trước test."
+          },
+          {
+            "source_id": "PDF-fac21c950e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+            "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+            "locator": "PDF p26 §4.2 assumptions; p34 conclusion4",
+            "finding": "Flush-end/welded-end checks hỗ trợ little/no significant sliding; local sliding dưới resolution không loại tuyệt đối."
+          },
+          {
+            "source_id": "PDF-fac21c950e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+            "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+            "locator": "PDF pp29–30 §4.2.2",
+            "finding": "Áp lực ngang chưa biết; suy đoán core response khác nhau và viện dẫn Jacobus; Jacobus không được đọc trực tiếp run này."
+          },
+          {
+            "source_id": "CAND",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_NOVELTY_CANDIDATE_REGISTER.json",
+            "sha256": "87309dbbf9ad74ae8d2f72e496a3e051c9bf8f872e26c74b9399935928bcc767",
+            "locator": "/supporting_evidence",
+            "finding": "Ghi Reedlunn chứng minh chuyển ngưỡng dưới áp lực hướng tâm."
+          },
+          {
+            "source_id": "CONTRA",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/outputs/execution/MP1-V002/W2-07/MP1_CONTRADICTION_REGISTER.json",
+            "sha256": "1875f7583689d67fab67e390717a29d03ed68c9c7f2d3aefc81c099ca06bf150",
+            "locator": "CONTRA-EV-03 /current_interpretation,residual_uncertainty",
+            "finding": "Ghi thuần kinematics và không còn rủi ro suy diễn sai."
+          },
+          {
+            "source_id": "PDF-fac21c950e",
+            "source_path": "/home/khanh/projects/mechanical-research-agents/data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+            "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+            "locator": "PDF p33 conclusions1–3",
+            "finding": "Helix, architecture, component response quan trọng; shallow-helix gần core-wire là counterpressure cho H1 nhưng không certify H0b cho MP1."
+          }
+        ],
+        "blind_review": false
+      },
+      "blocking_scope": "Chặn sử dụng claim sai hoặc nâng trạng thái survival/H1; không đồng nghĩa MP1 bị falsify."
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+[
+  {
+    "critique_id": "G01",
+    "original_weakness": "H0 chưa được định nghĩa nhất quán: Bác bỏ mô-đun đàn hồi hằng số (naive substitution) không đồng nghĩa với việc các mô hình NiTi cấu thành - tiếp xúc hiện hữu bị thất bại hay cần coupling mới.",
+    "scientific_severity": "CRITICAL",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0a",
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Audit JSON, W08-W10; Vahidi 2022 (53200aa0c6); Fang 2019 (2f7fcf2f8f)",
+    "astras_reasoning": "Mô hình NiTi phi tuyến ghép tiếp xúc Coulomb đã tồn tại trong Abaqus UMAT (Vahidi 2022). Việc bác bỏ mô-đun hằng chỉ loại trừ mô hình đàn hồi sơ đẳng H0a, hoàn toàn chưa thử thách mô hình NiTi phi tuyến hiện có H0b.",
+    "required_remediation": "Tách H0 thành 3 tầng rõ rệt: H0a (đàn hồi hằng số), H0b (mô hình NiTi phi tuyến + Coulomb hiện hữu), và H1 (lý thuyết ghép cặp vi mô mới); kiểm tra độc lập cả hai baseline.",
+    "remediation_worker_ids": [
+      "W07",
+      "W02",
+      "W03"
+    ],
+    "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+    "residual_risk": "H0b chưa bị bác bỏ bởi thực nghiệm uốn; nguy cơ các mô hình phần tử hữu hạn thương mại hiện có vẫn mô tả đầy đủ mà không cần phát triển lý thuyết mới.",
+    "historical_status": "H0 bị gộp chung; phán quyết bác bỏ H0a bị đánh đồng với việc xác lập H1.",
+    "current_interpretation": "H0a bị bác bỏ dứt điểm (REFUTED); H0b chưa bị bác bỏ (NOT FALSIFIED); H1 chưa đủ bằng chứng (INSUFFICIENT).",
+    "evidence_status": "partially_repaired_with_conceptual_split",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L30-L37"
+  },
+  {
+    "critique_id": "G02",
+    "original_weakness": "P3 đang được xem gần như một cơ chế mới chỉ vì áp suất điều chỉnh được: Thay đổi điều kiện biên từ hằng số sang biến thiên theo thời gian $p(t)$ có thể không cần phương trình cơ học mới.",
+    "scientific_severity": "CRITICAL",
+    "claim_affected": [
+      "C6"
+    ],
+    "target_affected": [
+      "T2"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "W07; Tjahjanto 2017 (ccdc1bb980); Xin Liu 2004/2013 (aaad9c248c); Barsi 2025 (9f4295be23)",
+    "astras_reasoning": "Các phương trình tiếp xúc dầm vi phân trong Tjahjanto 2017 và Xin Liu 2013 đều tự nhiên tiếp nhận áp suất pháp tuyến biến thiên $p(t)$ theo từng bước gia số tải mà không làm thay đổi định luật cấu thành vật lý.",
+    "required_remediation": "Kiểm tra trực tiếp các phương trình vi phân tiếp xúc hiện hữu; hạ cấp P3 từ một cơ chế cơ học mới thành một giao thức điều khiển thực nghiệm (experimental protocol).",
+    "remediation_worker_ids": [
+      "W05",
+      "W02"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Áp suất biến thiên nhanh có thể gây trễ động học chất lưu trong màng bao, cần kiểm chứng thực nghiệm riêng.",
+    "historical_status": "P3 được xem là trụ cột tính mới độc lập tạo ra cơ học mới.",
+    "current_interpretation": "P3 chỉ là điều kiện biên thay đổi theo thời gian; không tạo ra định luật vật lý mới.",
+    "evidence_status": "repaired_by_downgrade_to_boundary_condition",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L38-L44"
+  },
+  {
+    "critique_id": "G03",
+    "original_weakness": "Chưa chứng minh chuyển pha và inter-wire slip cùng hoạt động trong miền vận hành dự kiến: Nếu chỉ một cơ chế kích hoạt, lập luận ghép cặp sụp đổ về kẹt dây đàn hồi hoặc dầm siêu đàn hồi liền khối.",
+    "scientific_severity": "CRITICAL",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Chưa có phép thử áp suất - uốn tương ứng trong bằng chứng đã kiểm tra; các mô hình uốn giả định sẵn chuyển pha.",
+    "astras_reasoning": "Ngưỡng trượt $\\kappa_{\\text{slip}}$ và ngưỡng chuyển pha $\\kappa_{\\text{tr}}$ có thể phân tách rất xa. Ở biến dạng uốn nhỏ dưới 0.75%, NiTi hoàn toàn ở pha Austenite đàn hồi ($E_A$), không có chuyển pha xảy ra.",
+    "required_remediation": "Xác định độc lập ngưỡng chuyển pha và ngưỡng trượt ma sát; thiết lập điều kiện cần cho Miền Cùng Tồn Tại (Coexistence Domain) đòi hỏi uốn góc gập sâu hoặc kéo căng dọc trục.",
+    "remediation_worker_ids": [
+      "W06",
+      "W03"
+    ],
+    "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+    "residual_risk": "Trong miền uốn nhỏ thường gặp của tay gắp mềm, cơ cấu bị thoái hóa về bài toán kẹt dây đàn hồi thông thường (H0a đủ dùng).",
+    "historical_status": "Mặc định coi chuyển pha và trượt luôn luôn xảy ra đồng thời trong mọi chế độ uốn.",
+    "current_interpretation": "Sự cùng tồn tại bị giới hạn nghiêm ngặt trong miền biến dạng lớn; ở biến dạng nhỏ bài toán thoái hóa về kẹt đàn hồi.",
+    "evidence_status": "repaired_with_coexistence_domain_bounds",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L45-L52"
+  },
+  {
+    "critique_id": "G04",
+    "original_weakness": "Đáp ứng uốn vĩ mô không nhận diện riêng được các cơ chế: Đường cong $M - \\kappa$ không thể phân biệt giữa chuyển pha, ma sát trượt, biến dạng bẹp tiết diện và trượt tại ngàm.",
+    "scientific_severity": "CRITICAL",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H1"
+    ],
+    "evidence_challenged": "Carboni 2015 (d9966f2f5e); Fang 2019 (2f7fcf2f8f); Barsi 2025 (9f4295be23); Reedlunn 2013 (fac21c950e)",
+    "astras_reasoning": "Dữ liệu lực - chuyển vị vĩ mô là đại lượng tích phân không gian. Nhiều hiện tượng vật lý khác nhau (chuyển pha, trượt ma sát, trượt ngàm) đều cùng dẫn đến hiện tượng mềm hóa độ cứng (softening).",
+    "required_remediation": "Nghiêm cấm quy kết hiện tượng mềm hóa vĩ mô cho coupling NiTi; bắt buộc phải bổ sung đo đạc trạng thái cục bộ (DIC, FBG, ảnh nhiệt hồng ngoại, đo trượt đầu dây).",
+    "remediation_worker_ids": [
+      "W08"
+    ],
+    "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+    "residual_risk": "Thí nghiệm đo cục bộ trên từng sợi dây trong bó dây bọc kín dưới áp suất là cực kỳ phức tạp về mặt kỹ thuật.",
+    "historical_status": "Kỳ vọng chỉ cần đo đường cong uốn vĩ mô $M - \\kappa$ là đủ chứng minh cơ chế ghép cặp mới.",
+    "current_interpretation": "Đường cong vĩ mô không có tính nhận diện đơn nhất; phải có đối chứng cơ chế cục bộ.",
+    "evidence_status": "repaired_with_experimental_identifiability_bounds",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L53-L60"
+  },
+  {
+    "critique_id": "G05",
+    "original_weakness": "Packet W08 gán sai chuyển pha NiTi dưới uốn thuần cho cấu hình S2a của Carboni: S2a thực chất là cáp thép thuần ma sát; S1a mới là cáp NiTi chịu kéo - uốn kết hợp.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "W08-E01; Carboni 2015 PDF tr. 9-10 và Bảng 4 (Table 4)",
+    "astras_reasoning": "Kiểm tra trực tiếp tệp PDF Carboni 2015 xác nhận cấu hình S2a là ST49 (cáp thép 49 sợi, mô hình trễ Bouc-Wen thuần ma sát). S1a mới là bó 7 sợi NiTi và chịu biến dạng kéo-uốn kết hợp do ngàm khóa dịch chuyển ngang.",
+    "required_remediation": "Loại bỏ hoàn toàn suy luận sai về S2a khỏi evidence chain; đính chính 100% dữ liệu thực tế; chỉ dùng S1a với đầy đủ giới hạn về lực kéo dọc trục đi kèm.",
+    "remediation_worker_ids": [
+      "W04",
+      "W03"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Không còn rủi ro dữ liệu sai; bằng chứng Carboni chỉ chứng minh kéo-uốn kết hợp, không chứng minh uốn thuần túy.",
+    "historical_status": "S2a được dùng làm bằng chứng then chốt chứng minh chuyển pha uốn thuần.",
+    "current_interpretation": "S2a là cáp thép; chỉ S1a là NiTi nhưng chịu tải kéo-uốn kết hợp có lực căng lớn.",
+    "evidence_status": "repaired_factual_correction",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L61-L68"
+  },
+  {
+    "critique_id": "G06",
+    "original_weakness": "Đánh đồng tồn tại mô hình, khớp số liệu và kiểm chứng độc lập: Việc khớp đường cong không chứng minh được tính đúng đắn của cơ chế vật lý.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T1",
+      "T2",
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Vahidi 2022; Niu 2023 (9e15094d68); Zhang & Yao 2026; Fang 2019",
+    "astras_reasoning": "Nhiều mô hình điều chỉnh tham số tự do để ép khớp một đường cong thực nghiệm cụ thể (calibration), nhưng hoàn toàn thất bại khi dự đoán điều kiện biên mới (validation) hoặc không chứng minh được quan hệ nhân quả.",
+    "required_remediation": "Thiết lập Thang bậc 5 tầng về độ tin cậy mô hình: Tầng 1 (Formulation), Tầng 2 (Numerical Verification), Tầng 3 (Calibration), Tầng 4 (Validation với tham số bị khóa), và Tầng 5 (Causal Identification).",
+    "remediation_worker_ids": [
+      "W09"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Mô hình mới đề xuất trong luận văn phải đạt tối thiểu Tầng 4 mới được xem là có giá trị khoa học vững chắc.",
+    "historical_status": "Đánh đồng việc một bài báo có đồ thị khớp số liệu với việc cơ chế đã được validate.",
+    "current_interpretation": "Khớp số liệu chỉ là Calibration (Tầng 3); Validation bắt buộc phải khóa tham số trên tập dữ liệu độc lập.",
+    "evidence_status": "repaired_with_5_tier_hierarchy",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L69-L76"
+  },
+  {
+    "critique_id": "G07",
+    "original_weakness": "Dùng kết quả của Reedlunn 2013 vượt quá phạm vi: Sai số mô hình ở góc xoắn lớn là do bỏ qua uốn/xoắn cục bộ trong động học Costello, không phải chứng minh cần luật ghép cặp mới cho bó dây thẳng.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H1"
+    ],
+    "evidence_challenged": "fac21c950e (Reedlunn et al. 2013 Part II); W09",
+    "astras_reasoning": "Tác giả Reedlunn nêu rõ nguyên nhân sai số ở lớp ngoài cáp 1x27 là do giả thiết động học thanh xoắn Costello bỏ qua mô-men uốn và xoắn cục bộ của sợi. Ở cấu hình góc xoắn nông (7x7), cáp hành xử rất gần dây đơn.",
+    "required_remediation": "Áp dụng nguyên tắc trích dẫn bảo thủ; không dùng sự thất bại của phép rút gọn động học cáp xoắn dốc để suy diễn về nhu cầu lý thuyết mới cho bó dây song song của robot mềm.",
+    "remediation_worker_ids": [
+      "W10",
+      "W07"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Không còn rủi ro suy diễn sai lệch từ Reedlunn 2013.",
+    "historical_status": "Dùng Reedlunn làm căn cứ lập luận rằng cơ học tiếp xúc cáp dây hiện hữu đã sụp đổ.",
+    "current_interpretation": "Reedlunn chỉ chỉ ra giới hạn của giả thiết động học Costello đối với cáp xoắn dốc; không liên quan đến bó dây thẳng.",
+    "evidence_status": "repaired_conservative_citation_bounding",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L77-L84"
+  },
+  {
+    "critique_id": "G08",
+    "original_weakness": "Quá nhiều tham số có thể bù trừ nhau trong phép khớp uốn: Tích số giữa hệ số ma sát và tỷ lệ truyền áp $(\\mu \\cdot \\alpha_{\\text{trans}})$ không thể tách rời từ phép đo uốn vĩ mô.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Fang 2019 PDF tr. 11-12; Carboni 2015 parameter identification",
+    "astras_reasoning": "Trong phương trình lực cản trượt $F_{\\text{cap}} = \\mu f_n = \\mu \\alpha_{\\text{trans}} p$, việc tăng $\\mu$ và giảm $\\alpha_{\\text{trans}}$ tạo ra đáp ứng lực ma sát tương đương. Nếu thả nổi cả hai tham số, phép khớp uốn sẽ mất tính duy nhất.",
+    "required_remediation": "Thiết lập Quy tắc Khóa tham số tuyệt đối (Locked Calibration Rule): Mọi tham số vật liệu và ma sát phải đo độc lập ngoài bài toán bó dây; cấm thả nổi tham số để ép khớp đường cong uốn.",
+    "remediation_worker_ids": [
+      "W09",
+      "W08",
+      "W10"
+    ],
+    "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+    "residual_risk": "Nếu thiết bị đo không đủ độ chính xác để đo độc lập mu và alpha_trans, hiện tượng bù trừ tham số vẫn có thể làm suy giảm tính thuyết phục của mô hình.",
+    "historical_status": "Chưa nhận thức được nguy cơ bù trừ tham số giữa ma sát tiếp xúc và truyền lực áp suất.",
+    "current_interpretation": "Khóa tham số bắt buộc; kiểm tra độ nhạy và tính duy nhất tham số trước khi kết luận.",
+    "evidence_status": "repaired_with_locked_calibration_rule",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L85-L92"
+  },
+  {
+    "critique_id": "G09",
+    "original_weakness": "Ánh xạ từ áp suất buồng sang lực pháp tuyến tiếp xúc chưa được kiểm chứng: Sai số truyền áp qua màng đàn hồi và cấu hình sắp xếp có thể bị ngụy trang thành sai số luật cấu thành.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C6"
+    ],
+    "target_affected": [
+      "T2"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Zhang & Yao 2026; Tjahjanto 2017",
+    "astras_reasoning": "Màng bao có độ cứng vòng (hoop stiffness) và sự sắp xếp rỗng của bó dây tạo hiệu ứng vòm (arching effect), làm suy giảm lực pháp tuyến thực tế $f_n$ so với áp suất buồng $p$. Sai số hình học này dễ bị quy kết nhầm cho luật vật liệu NiTi.",
+    "required_remediation": "Bổ sung phân tích chuỗi truyền áp lực; yêu cầu đo đạc hoặc hiệu chuẩn độc lập mối quan hệ $p \to f_n$ bằng cảm biến áp lực màng hoặc thử nghiệm nén hướng kính độc lập.",
+    "remediation_worker_ids": [
+      "W08",
+      "W05"
+    ],
+    "remediation_status": "REPAIRED_WITH_RESIDUAL_RISK",
+    "residual_risk": "Hiệu ứng vòm thay đổi động theo độ cong uốn của dầm, gây khó khăn cho việc lập mô hình giải tích chính xác tuyệt đối.",
+    "historical_status": "Mặc định giả định áp suất buồng chuyển hóa 100% thành lực pháp tuyến đồng đều giữa các sợi dây.",
+    "current_interpretation": "Lực pháp tuyến thực tế bị suy giảm do hiệu ứng vòm; bắt buộc phải có mô hình truyền áp độc lập.",
+    "evidence_status": "repaired_with_pressure_transmission_chain",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L93-L100"
+  },
+  {
+    "critique_id": "G10",
+    "original_weakness": "Chưa thỏa mãn điều kiện dừng nhưng diễn đạt như thể 'chỉ còn thiếu active pressure': Không tìm thấy trong tập tài liệu đã duyệt không tương đương với việc không tồn tại trong toàn bộ nền khoa học.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C6",
+      "C7"
+    ],
+    "target_affected": [
+      "T2"
+    ],
+    "hypothesis_affected": [
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "W11; outputs/verification/MP1-V002/citation_coverage.json",
+    "astras_reasoning": "citation_coverage.json ghi nhận stop_condition_satisfied = false, các nhánh trích dẫn ngược B11 và B12 chưa đóng. Do đó, việc tuyên bố 'đã xác lập khoảng trống khoa học' là vội vàng và chưa có cơ sở phương pháp luận.",
+    "required_remediation": "Minh bạch hóa trạng thái bao phủ trích dẫn; khẳng định dứt khoát điều kiện dừng chưa đạt; định danh khoảng trống đề xuất chỉ là một giả thuyết còn sống sót tạm thời (PROVISIONALLY SURVIVING HYPOTHESIS).",
+    "remediation_worker_ids": [
+      "W11",
+      "W01"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Các nhánh trích dẫn sâu hơn trong văn hiến cơ học kết cấu có thể tìm thấy mô hình tương tự, đòi hỏi quy trình rà soát liên tục.",
+    "historical_status": "Tuyên bố khoảng trống nghiên cứu đã được xác lập vững chắc.",
+    "current_interpretation": "Khoảng trống chỉ là giả thuyết sống sót tạm thời trong phạm vi tập tài liệu đã rà soát.",
+    "evidence_status": "repaired_transparent_status_bounding",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L101-L108"
+  },
+  {
+    "critique_id": "G11",
+    "original_weakness": "Xung đột trạng thái giữa Audit JSON và Báo cáo: Tệp JSON ghi niti_requires_distinct_constitutive_contact_coupling = true với evidence_status = 'established' trong khi Astra kết luận là 'insufficient'.",
+    "scientific_severity": "HIGH",
+    "claim_affected": [
+      "C7"
+    ],
+    "target_affected": [
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0a",
+      "H1"
+    ],
+    "evidence_challenged": "outputs/verification/MP1-V002/TARGETED_THREAT_AUDIT.json dòng 237-241; provenance",
+    "astras_reasoning": "Phán quyết 'established' trong JSON xuất phát từ việc bác bỏ mô hình thay thế đàn hồi đơn giản H0a; nhưng đối với H1 (nhu cầu về một luật ghép cặp mới) thì bằng chứng hoàn toàn chưa đủ ('insufficient'). Việc dùng nhãn 'established' dễ gây hiểu lầm nghiêm trọng.",
+    "required_remediation": "Giữ nguyên tệp canonical JSON để bảo toàn provenance lịch sử; làm rõ trong báo cáo rằng nhãn 'established' chỉ áp dụng cho việc bác bỏ H0a; trạng thái khoa học giữa H0b và H1 là 'insufficient'.",
+    "remediation_worker_ids": [
+      "W07",
+      "W01"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Không còn rủi ro hiểu lầm khi đọc song song JSON và báo cáo tổng hợp.",
+    "historical_status": "Xung đột ngầm giữa JSON kết luận 'established' và báo cáo phản biện kết luận 'insufficient'.",
+    "current_interpretation": "Hòa giải minh bạch: 'established' áp dụng cho việc loại bỏ H0a; 'insufficient' áp dụng cho tính cần thiết của H1.",
+    "evidence_status": "repaired_semantic_reconciliation",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L109-L116"
+  },
+  {
+    "critique_id": "G12",
+    "original_weakness": "Đại lượng 'độ cứng uốn' chưa được định nghĩa theo lịch sử tải: Độ cứng tiếp tuyến, cát tuyến và động học có thể dẫn đến các kết luận trái ngược nhau.",
+    "scientific_severity": "MEDIUM",
+    "claim_affected": [
+      "C5",
+      "C6",
+      "C7"
+    ],
+    "target_affected": [
+      "T1",
+      "T2",
+      "T3"
+    ],
+    "hypothesis_affected": [
+      "H0a",
+      "H0b",
+      "H1"
+    ],
+    "evidence_challenged": "Các nguồn tài liệu trong V002 dùng các khái niệm tải trọng và định nghĩa độ cứng không đồng nhất.",
+    "astras_reasoning": "Trong vật liệu có trễ lớn và trượt ma sát, độ cứng tiếp tuyến $D_{\\text{tan}} = \\partial M / \\partial \\kappa$ biến thiên liên tục theo nhánh tải/dỡ tải và có thể âm; độ cứng cát tuyến $D_{\\text{sec}} = M / \\kappa$ phản ánh năng lượng biến dạng toàn phần; độ cứng động học $D_{\\text{dyn}}$ phụ thuộc tần số và biên độ dao động.",
+    "required_remediation": "Chuẩn hóa 3 định nghĩa toán học riêng biệt: $D_{\\text{tan}}(\\kappa, p)$ kèm theo điều kiện dấu $\\text{sgn}(\\dot{\\kappa})$, $D_{\\text{sec}}(\\kappa, p)$, và $D_{\\text{dyn}}(\\kappa_0, p, \\omega)$; quy định rõ đại lượng đo trong mọi phát biểu khoa học.",
+    "remediation_worker_ids": [
+      "W08"
+    ],
+    "remediation_status": "REPAIRED",
+    "residual_risk": "Cần đảm bảo tính nhất quán tuyệt đối trong các công thức toán học của các báo cáo tiếp theo.",
+    "historical_status": "Dùng chung một thuật ngữ 'bending stiffness' mơ hồ cho nhiều chế độ tải khác nhau.",
+    "current_interpretation": "Phân định nghiêm ngặt giữa độ cứng tiếp tuyến, cát tuyến và động học theo công thức toán học cụ thể.",
+    "evidence_status": "repaired_mathematical_standardization",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md#L117-L125"
+  }
+]

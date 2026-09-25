@@ -1,0 +1,44 @@
+{
+  "worker_id": "W2-08-09",
+  "task": "K8 kill test execution",
+  "status": "COMPLETE",
+  "test_record": {
+    "test_id": "K8",
+    "test_question": "Các tham số của mô hình có được đo lường độc lập và khóa chặt trước khi kiểm chứng hay không, hay mô hình chỉ khớp được số liệu nhờ vào việc thả nổi và bù trừ tham số tự do?",
+    "kill_condition": "Ứng viên chỉ vượt trội hơn H0b nhờ vào việc hiệu chỉnh tự do các tham số (over-fitting), bù trừ giữa hệ số ma sát mu và tỷ lệ truyền áp alpha_trans, hoặc rò rỉ dữ liệu kiểm chứng vào quá trình cân chỉnh tham số.",
+    "candidate_ids": [
+      "MP1-P1"
+    ],
+    "claim_ids": [
+      "C7"
+    ],
+    "target_ids": [
+      "T3"
+    ],
+    "hypothesis_ids": [
+      "H0b",
+      "H1"
+    ],
+    "required_evidence": "Quy trình khóa tham số (Locked Calibration Protocol); ma trận phân bổ tham số (đo độc lập vs cố định văn hiến vs hiệu chuẩn vs kiểm chứng).",
+    "source_files": [
+      "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W09_MODEL_VALIDATION_CREDIBILITY.md",
+      "docs/reports/MP1_ASTRA_SCIENTIFIC_CRITIQUE_2026-09-25.md"
+    ],
+    "paper_ids": [
+      "2f7fcf2f8f",
+      "d9966f2f5e",
+      "9e15094d68"
+    ],
+    "method_or_experiment": "Phân tích bù trừ tham số (Parameter Confounding Analysis): Khảo sát tích số mu * alpha_trans trong phương trình lực cản trượt F_cap = mu * alpha_trans * p; kiểm tra tính duy nhất của nghiệm.",
+    "observed_result": "Stage 3 W09 đã ban hành Quy tắc Khóa tham số tuyệt đối (Locked Calibration Rule): Cấm thả nổi tham số ma sát và truyền áp để ép khớp đường cong uốn; toàn bộ tham số phải đo độc lập ngoài bài toán bó dây. Tuy nhiên, đây mới là quy tắc phương pháp luận trên văn bản, chưa có dữ liệu thực nghiệm thực tế để chứng minh quy tắc này được thực thi thành công.",
+    "verdict": "PARTIAL_OVERLAP",
+    "blocking": true,
+    "human_review_required": true,
+    "what_is_established": "Đã thiết lập khung kiểm soát phương pháp luận nghiêm ngặt ngăn chặn hiện tượng bù trừ tham số và rò rỉ dữ liệu.",
+    "what_is_not_established": "Chưa thực hiện chiến dịch đo lường thực nghiệm độc lập các tham số vật liệu và ma sát.",
+    "residual_uncertainty": "Độ nhạy và lan truyền sai số đo đạc từ các thử nghiệm độc lập vào mô hình uốn tổng thể.",
+    "evidence_status": "locked_calibration_rule_mandated_pending_data",
+    "confidence": "high",
+    "provenance": "docs/reports/MP1_ASTRA_CRITIQUE_REMEDIATION_2026-09-25.md#G08, outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W09_MODEL_VALIDATION_CREDIBILITY.md"
+  }
+}

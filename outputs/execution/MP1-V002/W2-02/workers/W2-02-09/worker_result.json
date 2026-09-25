@@ -1,0 +1,90 @@
+{
+  "worker_id": "W2-02-09",
+  "claim_id": "C8",
+  "claim_label": "SMA-Driven Syringe/Piston Powering Jamming Pressure",
+  "claim_text_original": "SMA-driven syringe/piston specifically powering the jamming pressure remains open.",
+  "claim_text_normalized": "Use of shape memory alloy wires, springs, or actuators to drive a piston or syringe to generate positive jamming fluid confinement pressure.",
+  "origin": "MENTOR",
+  "origin_source_file": "docs/protocols/MP1-V001_CORE_PRIOR_ART_AUDIT_PLAN.md",
+  "first_appearance_stage": "S02 (Phase 10/11)",
+  "first_appearance_commit": "2e3a1a5d399c8bfc52c4ba5d0e926c9117891d79",
+  "historical_stages": ["S02", "S03", "S04", "S12", "S16"],
+  "status_at_each_stage": {
+    "S02": "ACTIVE_UNDER_AUDIT",
+    "S03": "UNDER_EVALUATION",
+    "S04": "SUBSTANTIALLY_PREEMPTED",
+    "S12": "SUBSTANTIALLY_PREEMPTED_CONFIRMED",
+    "S16": "CLOSED_ARCHIVED"
+  },
+  "current_canonical_status": "SUBSTANTIALLY_PREEMPTED",
+  "claim_verdict": "SUBSTANTIALLY_PREEMPTED",
+  "decision": "REJECT",
+  "scientific_category": "actuation_mechanism",
+  "novelty_category": "implementation_substitution",
+  "why_potentially_novel": "At mentor proposal, using thermal SMA contraction to actuate a compact syringe/piston for jamming pressure was thought to offer a high force-to-weight ratio without bulky pumps.",
+  "search_conducted": "MP1-V001 prior-art search on SMA pumps, capsule micropumps, and piston jamming.",
+  "search_source_file": "outputs/verification/MP1-V001/verification_matrix.json",
+  "search_commit": "3d152e951711a15d9f86946df99f22785a8be9a4",
+  "papers_retrieved": ["de64029540", "55457a97c6", "bbe88a0c04", "c6a31066f8"],
+  "strongest_prior_art_threat": {
+    "paper_id": "c6a31066f8",
+    "paper_title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+    "authors": "Wang et al.",
+    "year": 2024,
+    "DOI": "10.1108/IR-11-2023-0305",
+    "repository_path": "data/papers/verification/MP1-V001/2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+    "what_source_actually_proves": "Directly implements a piston-activated particle jamming mechanism mounted on a soft robot arm to control stiffness via mechanical compression.",
+    "what_source_does_not_prove": "Uses motor and ball-screw drive rather than SMA thermal actuation."
+  },
+  "source_records": [
+    {
+      "paper_id": "de64029540",
+      "paper_title": "A fluidic muscle actuator driven by a shape memory alloy pump",
+      "authors": "Pierce & Mascaro",
+      "year": 2013,
+      "DOI": "10.1109/TMECH.2012.2211032",
+      "repository_path": "data/papers/verification/MP1-V001/2013-A fluidic muscle actuator driven by a shape memory alloy pump.pdf",
+      "what_source_actually_proves": "Demonstrates that SMA thermal wire contraction effectively drives fluidic pumps to pressurize soft actuators.",
+      "what_source_does_not_prove": "Does not apply fluid pressure specifically to a jamming bundle."
+    },
+    {
+      "paper_id": "55457a97c6",
+      "paper_title": "Design and analysis of a novel wireless shape memory alloy-actuated capsule micropump",
+      "authors": "Kotb et al.",
+      "year": 2021,
+      "DOI": "10.3390/mi12050520",
+      "repository_path": "data/papers/verification/MP1-V001/2021-Design and analysis of a novel wireless shape memory alloy-actuated capsule micropump.pdf",
+      "what_source_actually_proves": "Develops a compact wireless SMA-actuated syringe/piston mechanism generating fluid pumping pressures.",
+      "what_source_does_not_prove": "Targets medical drug delivery rather than robotic jamming."
+    },
+    {
+      "paper_id": "c6a31066f8",
+      "paper_title": "Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm",
+      "authors": "Wang et al.",
+      "year": 2024,
+      "DOI": "10.1108/IR-11-2023-0305",
+      "repository_path": "data/papers/verification/MP1-V001/2024-Piston-like particle jamming for enhanced stiffness adjustment of soft robotic arm.pdf",
+      "what_source_actually_proves": "Piston-driven compression directly powers jamming stiffness change in soft robots.",
+      "what_source_does_not_prove": "Uses electric motor actuation."
+    }
+  ],
+  "claim_before": "SMA-driven syringe/piston specifically powering jamming pressure remains open.",
+  "claim_after": "SMA-driven syringe/piston is implementation substitution; component basis is substantially pre-empted.",
+  "reason_for_change": "SMA fluid pumps (Pierce 2013, Kotb 2021) and piston-driven jamming mechanisms (Wang 2024) exist. Replacing an electric motor or solenoid with an SMA actuator is engineering implementation/actuator substitution.",
+  "scientific_consequence": "C8 cannot carry the scientific contribution of an MSc thesis. Dropped from core research scope.",
+  "system_novelty_impact": "FATAL_PREEMPTION",
+  "mechanism_novelty_impact": "ZERO_MECHANICS_CONTENT",
+  "implementation_novelty_impact": "HIGH_PRIOR_ART",
+  "feasibility_impact": "SMA thermal actuation introduces severe thermal lag, low cycling frequency, and hysteresis, reducing practical feasibility.",
+  "pivot_relevance": "Key architectural factor abandoned during PIVOT_TO_MECHANICS_CORE in MP1-V001.",
+  "historical_interpretation": "Substantially pre-empted at V001 (S04); confirmed as engineering substitution at Stage 3 (S12).",
+  "superseded_interpretation": "Belief that pairing an SMA wire with a syringe to generate jamming pressure was a defensible novelty claim.",
+  "corrected_interpretation": "Actuator substitution lacks fundamental mechanics content and imposes severe thermal bandwidth penalties.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "contradiction_candidate_ids": [],
+  "provenance": {
+    "audit_file": "outputs/verification/MP1-V001/CORE_PRIOR_ART_AUDIT.json",
+    "remediation_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W03_C5_C8_BOUNDARY_REPAIR.md"
+  }
+}

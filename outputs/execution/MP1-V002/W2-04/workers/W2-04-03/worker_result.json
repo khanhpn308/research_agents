@@ -1,0 +1,147 @@
+{
+  "worker_id": "W2-04-03",
+  "task": "Full-text extraction for papers 03\u201304 (Carboni 2016 & Fang 2019)",
+  "status": "COMPLETE",
+  "papers_processed_count": 2,
+  "paper_ids": [
+    "40760daa02",
+    "2f7fcf2f8f"
+  ],
+  "paper_records": [
+    {
+      "paper_index": "03",
+      "paper_id": "40760daa02",
+      "paper_title": "Nonlinear Vibration Absorber with Pinched Hysteresis: Theory and Experiments",
+      "authors": [
+        "Biagio Carboni",
+        "Walter Lacarbonara"
+      ],
+      "year": 2016,
+      "DOI": "10.1061/(ASCE)EM.1943-7889.0001072",
+      "repository_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis Theory and Experiments.pdf",
+      "matrix_filename": "2016-Nonlinear Vibration Absorber with Pinched Hysteresis Theory and Experiments.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Direct evidence of combined dry friction and NiTi superelastic hysteresis in dynamic bending structures.",
+      "threat_addressed": "Directly threatens T3 by demonstrating that inter-wire friction combined with NiTi phase transformation is established prior art.",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Theoretical asymptotic formulation and experimental dynamic shaker testing",
+      "material_or_system": "Nonlinear vibration absorber consisting of a cantilever assembly with superelastic NiTi wires and friction sliders",
+      "loading_mode": "Harmonic base excitation inducing cyclic bending",
+      "control_variables": "Excitation frequency and base acceleration amplitude",
+      "independent_variables": "Excitation amplitude (0.1g to 1.5g), frequency sweeps across resonance",
+      "dependent_variables": "Tip displacement, frequency-response curves, pinched hysteresis loops, equivalent damping ratio",
+      "model_used": "Asymptotic perturbation method (method of multiple scales) on nonlinear differential equations",
+      "constitutive_model": "Multi-mechanism pinched hysteresis model combining Bouc-Wen friction and Graesser NiTi superelasticity",
+      "contact_or_friction_model": "Coulomb-like friction sliding element coupled in parallel/series",
+      "experiment_used": "Electrodynamic shaker, laser Doppler vibrometers, accelerometers, LMS acquisition system",
+      "experimental_setup": "Cantilever absorber beam mounted on shaker slip table with laser displacement tracking",
+      "key_results": "Demonstrated that combining NiTi phase transformation with frictional contact creates pinched hysteresis and amplitude-dependent flexural stiffness, effectively mitigating resonance vibrations across varying excitation levels.",
+      "what_it_proves": "Proves that coupling of friction and NiTi superelasticity directly governs flexural stiffness and damping in mechanical assemblies.",
+      "what_it_does_not_prove": "Does not apply an active pneumatic or hydraulic fluid confinement pressure on the wire assembly.",
+      "directly_verified_statements": [
+        "Pinched hysteresis arises naturally when frictional contact dissipation is combined with superelastic phase transformation (Section 2, pp. 2-4).",
+        "The flexural resonance peak shifts and broadens due to amplitude-dependent stiffness reduction during phase transformation (Section 4, pp. 8-10)."
+      ],
+      "inferred_statements": [
+        "Standard multi-mechanism phenomenological models adequately capture pinched flexural hysteresis without needing a micro-scale thermodynamic coupling law."
+      ],
+      "limitations": "Focused on vibration absorption; friction was concentrated at slider interfaces rather than distributed throughout a dense wire bundle.",
+      "impact_on_MP1": "Preempts claims that friction-transformation coupling is an unaddressed mechanics phenomenon; reinforces H0b.",
+      "impact_type": "WEAKENS",
+      "page_or_section_evidence": "Section 2 (pp. 2-5), Section 4 (pp. 7-11)",
+      "evidence_pointers": "Fig. 3 (pinched hysteresis loops), Fig. 8 (experimental frequency-response curves)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01",
+        "CONTRA-02"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2016-Nonlinear Vibration Absorber with Pinched Hysteresis Theory and Experiments_40760daa02.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2016-Nonlinear Vibration Absorber with Pinched Hysteresis Theory and Experiments.pdf"
+      }
+    },
+    {
+      "paper_index": "04",
+      "paper_id": "2f7fcf2f8f",
+      "paper_title": "Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic modelling and seismic application",
+      "authors": [
+        "Cheng Fang",
+        "Yue Zheng",
+        "Jian Chen",
+        "M. C. H. Yam",
+        "B. Wang"
+      ],
+      "year": 2019,
+      "DOI": "10.1016/j.engstruct.2019.01.049",
+      "repository_path": "data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+      "matrix_filename": "2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf",
+      "verification_round": "MP1-V002",
+      "why_added": "Major study on phenomenological fiber modeling of NiTi cables and seismic structural applications.",
+      "threat_addressed": "Threatens model necessity: proves that phenomenological fiber models capture cable hysteresis without resolving micro-contacts (H0b competitor).",
+      "claim_ids_affected": [
+        "C5",
+        "C7"
+      ],
+      "target_ids_affected": [
+        "T1",
+        "T3"
+      ],
+      "hypothesis_ids_affected": [
+        "H0a",
+        "H0b"
+      ],
+      "method": "Experimental testing, OpenSees fiber macromodeling, and seismic nonlinear time-history analysis",
+      "material_or_system": "1x7 and 7x7 superelastic NiTi cables (diameters 2.5 mm to 12.7 mm)",
+      "loading_mode": "Cyclic uniaxial tension on cables; pushover/cyclic loading on RC bridge pier",
+      "control_variables": "Displacement loading rate, cyclic strain amplitudes (up to 6%)",
+      "independent_variables": "Cable diameter, number of loading cycles (up to 20 cycles), temperature",
+      "dependent_variables": "Axial stress-strain loops, residual strain, energy dissipation, bridge pier drift and residual displacement",
+      "model_used": "OpenSees nonlinear beam-column fiber element framework",
+      "constitutive_model": "Steel02 (for core plastic residual strain) combined with Self-centering material in parallel/series",
+      "contact_or_friction_model": "Macroscopic phenomenological compliance; inter-wire contact is not explicitly modeled",
+      "experiment_used": "MTS servo-hydraulic universal testing machine",
+      "experimental_setup": "NiTi cables clamped using specialized wedge-barrel anchorages tested under uniaxial cyclic tension",
+      "key_results": "Demonstrated that an OpenSees fiber macromodel dividing the cross-section into concentric zones with Steel02 and Self-centering materials accurately predicts cyclic cable hysteresis without resolving inter-wire micro-contacts; applied NiTi cables as unbonded restrainers in a 1.4 m diameter RC bridge pier.",
+      "what_it_proves": "Proves that macroscopic phenomenological models can accurately predict overall cable stiffness and energy dissipation with minimal computational cost.",
+      "what_it_does_not_prove": "Does not model or test NiTi cables in bending; does not test positive confinement pressure.",
+      "directly_verified_statements": [
+        "Cables were tested exclusively in axial tension; the nonlinear beam-column fiber element in OpenSees was used to model the 1.4 m diameter reinforced concrete bridge pier (Section 4, pp. 11-14).",
+        "Multiple distinct parameter combinations produce identical macroscopic hysteretic curves (Section 3.2, pp. 7-9)."
+      ],
+      "inferred_statements": [
+        "If macroscopic stiffness and damping are the only design targets, complex contact-resolving FEA may offer little added engineering value over fiber macromodels."
+      ],
+      "limitations": "Axial tension only for SMA cables; beam model was for RC column; free floating parameters in Steel02 calibration.",
+      "impact_on_MP1": "Conservative remediation (Astra G07): corrects misconception that Fang modeled cable bending; highlights the macromodel parsimony threat to MP1.",
+      "impact_type": "WEAKENS",
+      "page_or_section_evidence": "Section 3 (pp. 6-10), Section 4 (pp. 11-15)",
+      "evidence_pointers": "Fig. 6 (OpenSees fiber discretization), Fig. 13 (RC bridge pier pushover response)",
+      "metadata_conflicts": "None",
+      "contradiction_candidate_ids": [
+        "CONTRA-01",
+        "CONTRA-02"
+      ],
+      "evidence_status": "VERIFIED",
+      "verification_level": "VERIFIED_FULL_TEXT",
+      "confidence": "high",
+      "provenance": {
+        "evidence_json": "data/evidence/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application_2f7fcf2f8f.json",
+        "pdf_path": "data/papers/verification/MP1-V002/2019-Superelastic NiTi SMA cables Thermal-mechanical behavior, hysteretic modelling and seismic application.pdf"
+      }
+    }
+  ]
+}

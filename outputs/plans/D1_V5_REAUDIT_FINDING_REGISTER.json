@@ -1,0 +1,42 @@
+{
+  "register_id": "D1_V5_REAUDIT_FINDING_REGISTER",
+  "source_audit": "outputs/plans/D1_MASTER_PLAN_REAUDIT_V5.md",
+  "audit_verdict": "MAJOR_REVISION_REQUIRED",
+  "expected_blocking_high_count": 2,
+  "findings": [
+    {
+      "finding_id": "A5-HI-01",
+      "severity": "HIGH",
+      "A5_problem": "The V5 artifact ownership matrix disagrees with worker and stage contracts. W01, W02 and W04 outputs lack formal ownership rows; W12 lists D1_K_CRITERIA_REGISTER while S9 is the stated freeze owner; W11 lists canonical hard-gate artifacts while S16 is their stated owner; and KILL_CRITERION_CHANGE_RECORD.jsonl has no ownership row.",
+      "affected_workers": ["W01", "W02", "W04", "W11", "W12"],
+      "affected_stages": ["S0", "S1", "S4", "S9", "S13", "S16"],
+      "affected_artifacts": ["scope_lock.json", "repository_manifest.json", "plan_hash_record.json", "D1_EVIDENCE_INVENTORY.json", "D1_ROUND_COVERAGE.json", "D1_CLAIM_EVOLUTION_MATRIX_DRAFT.json", "D1_K_CRITERIA_REGISTER.json", "D1_HARD_GATE_MATRIX.json", "D1_HARD_GATE_ROUTING_QA.json", "KILL_CRITERION_CHANGE_RECORD.jsonl"],
+      "exact_required_change": "Define one canonical ownership precedence, derive a complete ownership graph from V6 worker/stage contracts, use one primary writer per execution artifact, remove W12/S9 and W11/S16 conflicts, and add ownership QA that returns zero conflicts and verifies all W01-W12.",
+      "V6_resolution": "Created a contract-derived V6 ownership graph with creation stage, primary owner, writer, handoff, readers, update permission and contract references. S9 owns frozen K criteria; S16 owns canonical hard-gate and package artifacts; W11/W12 contracts now emit only their own artifacts. All worker output artifacts have one owner and ownership QA passes.",
+      "V6_location": "D1_ARTIFACT_OWNERSHIP_MATRIX_V6.json; D1_ARTIFACT_OWNERSHIP_QA_V6.json; D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json; D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md §V6-Ownership",
+      "verification_rule": "Every execution artifact has exactly one canonical owner/writer; worker and stage references agree; ownership_conflicts==0; W01-W12 ownership verified==12/12.",
+      "resolved": true,
+      "residual_risk": "Future execution must preserve the same single-writer rule when new artifacts are introduced."
+    },
+    {
+      "finding_id": "A5-HI-02",
+      "severity": "HIGH",
+      "A5_problem": "HG-11 routed worker-output failure generically to S16 package readiness, without identifying the originating worker or reconciliation stage that can repair the failed content.",
+      "affected_workers": ["W01", "W02", "W03", "W04", "W05", "W06", "W07", "W08", "W09", "W10", "W11", "W12"],
+      "affected_stages": ["S0", "S1", "S2", "S3", "S4", "S5", "S8", "S9", "S10", "S11", "S12", "S13", "S16"],
+      "affected_artifacts": ["D1_WORKER_EXECUTION_READINESS_MATRIX_V5.json", "D1_HARD_GATE_MATRIX.json", "D1_HARD_GATE_ROUTING_QA.json"],
+      "exact_required_change": "Create per-worker failure routes with failure class, failed artifact, return worker/stage, reconciliation stage, responsible owner, required correction, artifact update, re-entry gate, retry policy and human-review condition; cross-check every route against hard gates.",
+      "V6_resolution": "Created a worker failure routing matrix covering W01-W12 and all required failure classes, added failure_routes and reentry fields to every V6 worker contract, and created worker-to-hard-gate routing QA. No worker-specific route is an unqualified S16-only route.",
+      "V6_location": "D1_WORKER_FAILURE_ROUTING_MATRIX.json; D1_WORKER_ROUTING_HARD_GATE_QA.json; D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json; D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md §V6-Failure-Routing",
+      "verification_rule": "Each worker has valid failure routes; invalid generic S16-only routes==0; routing mismatches==0; route target and re-entry gate are valid.",
+      "resolved": true,
+      "residual_risk": "S16 remains available for genuine package-level failures only; worker-content failures must use the worker-specific matrix."
+    }
+  ],
+  "count_reconciliation": {
+    "number_of_critical_findings_in_audit": 0,
+    "number_of_high_findings_in_audit": 2,
+    "resolved_high_findings": 2,
+    "unresolved_critical_high_findings": 0
+  }
+}

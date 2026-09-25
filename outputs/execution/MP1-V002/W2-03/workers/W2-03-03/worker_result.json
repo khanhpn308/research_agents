@@ -1,0 +1,63 @@
+{
+  "target_id": "T2",
+  "original_formulation": "Positive/internal/confining pressure radially or transversely compresses a metallic wire bundle, increases inter-wire normal force/friction, changes bending/torsional/axial stiffness.",
+  "scientific_purpose": "Determine whether applying external positive fluid or mechanical confinement pressure to compress a metallic/NiTi wire bundle to modulate stiffness constitutes a novel mechanics principle.",
+  "kill_condition": "Finding prior work applying transverse/radial confining pressure to multi-element bundles, or demonstrating that pressure acts as an experimental boundary condition rather than a novel constitutive mechanism.",
+  "papers_tested": [
+    {
+      "paper_id": "ccdc1bb980",
+      "paper_title": "Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable",
+      "authors": "Tjahjanto, Tyrberg, and Mullins",
+      "year": 2017,
+      "DOI": "10.1115/OMAE2017-61198",
+      "repository_path": "data/papers/verification/MP1-V002/2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+      "method": "Analytical and finite element beam bending formulation",
+      "material_or_system": "Dynamic submarine power cable with multi-component metallic cores and fillers",
+      "loading_mode": "Cyclic bending under external radial contact pressure",
+      "model_used": "Stick-slip friction beam mechanics with pressure-dependent normal force",
+      "experiment_used": "Full-scale cable bending test rig with 0.2 MPa radial contact pressure",
+      "what_source_proves": "Proves that external radial confining pressure directly increases inter-element normal force, delaying slip and modulating dynamic flexural rigidity.",
+      "what_source_does_not_prove": "Applies a constant radial pressure rather than actively varying pressure as a dynamic control input on NiTi."
+    },
+    {
+      "paper_id": "182d854610",
+      "paper_title": "A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots",
+      "authors": "Liu et al.",
+      "year": 2021,
+      "DOI": "10.1109/LRA.2021.3097255",
+      "repository_path": "data/papers/verification/MP1-V001/2021-A Positive Pressure Jamming Based Variable Stiffness Structure and its Application on Wearable Robots.pdf",
+      "method": "Experimental fabrication and mechanical testing",
+      "material_or_system": "Granular jamming chamber under positive pneumatic pressure (up to 200 kPa)",
+      "loading_mode": "Cantilever bending and tensile stiffness modulation",
+      "model_used": "Empirical pressure-stiffness scaling law",
+      "experiment_used": "Universal testing machine with pressure regulator",
+      "what_source_proves": "Proves positive pneumatic pressure modulates bending stiffness via normal confinement.",
+      "what_source_does_not_prove": "Uses granular media instead of metallic NiTi wires."
+    }
+  ],
+  "paper_id": "ccdc1bb980",
+  "paper_title": "Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable",
+  "authors": "Tjahjanto, Tyrberg, and Mullins",
+  "year": 2017,
+  "DOI": "10.1115/OMAE2017-61198",
+  "repository_path": "data/papers/verification/MP1-V002/2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf",
+  "method": "Analytical beam friction formulation",
+  "material_or_system": "Dynamic submarine cable cores",
+  "loading_mode": "Cyclic bending with radial contact pressure",
+  "model_used": "Stick-slip friction with pressure-dependent normal traction",
+  "experiment_used": "Dynamic cable bending tests",
+  "what_source_proves": "Radial contact pressure increases inter-element normal force and alters flexural stiffness.",
+  "what_source_does_not_prove": "Constant pressure rather than actively modulated variable pressure control.",
+  "initial_status": "open_in_current_full_text_set",
+  "status_after_astra": "CRITIQUED_AS_BOUNDARY_CONDITION",
+  "status_after_remediation": "DEMOTED_TO_EXPERIMENTAL_BOUNDARY_CONDITION",
+  "current_canonical_status": "NARROWED_TO_EXPERIMENTAL_BC",
+  "final_historical_status": "CLOSED_AS_MECHANICS_NOVELTY",
+  "remaining_uncertainty": "Soft robotic positive-pressure fluid confinement on NiTi bundles has no direct full-text match, but mathematically pressure enters as a standard boundary condition p(t) rather than a new constitutive principle.",
+  "evidence_status": "VERIFIED",
+  "confidence": "high",
+  "provenance": {
+    "source_file": "outputs/reports/MP1_REMEDIATION_WORKERS_2026-09-25/W05_T2_MECHANICS_P1_P2_P3_TEST.md",
+    "commit": "3a216d680b6e5d4c263121afee0577ac86e530ac"
+  }
+}
