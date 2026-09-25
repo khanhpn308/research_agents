@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "D1_NOVELTY_CANDIDATE_REGISTER",
+  "canonical_filename": "D1_NOVELTY_CANDIDATE_REGISTER.json",
+  "artifact_type": "CANONICAL",
+  "worker_id": "W09",
+  "stage": "S4 — CROSS-WORKER RECONCILIATION",
+  "plan_version": "V6",
+  "source_head": "79eb54a9667ffb9e6aa6a2978521c4d52d0aac1d",
+  "created_at": "2026-09-26T05:21:00+07:00",
+  "purpose": "Record only residual novelty candidates after subtracting established prior art. These are candidates for later K1-K9 falsification, not final novelty conclusions.",
+  "final_novelty_adjudication": "NOT_PERFORMED",
+  "candidates": [
+    {
+      "candidate_id": "NC-01",
+      "contribution": "Systematic model-form error and validity-domain map for baseline M1 across layer count N, vacuum pressure p_vac, and bending severity/curvature kappa, against an interface-resolved reference R.",
+      "novelty_category": "VALIDATION",
+      "status": "NARROWED",
+      "known_overlap": [
+        {
+          "paper_id": "ca46dc062d",
+          "overlap": "Continuum/global-local model versus discrete-contact reference with quantitative error boundary over layer count/rotation; no vacuum-pressure sweep and no physical boundary-crossing experiment."
+        },
+        {
+          "paper_id": "a792efc445",
+          "overlap": "Continuum layer-jamming homogenization; no structural validity-domain map or physical validation."
+        },
+        {
+          "paper_id": "95646b2cfc",
+          "overlap": "Baseline continuum layer-jamming beam model M1; does not provide systematic breakdown map."
+        }
+      ],
+      "threats": [
+        "K1 comparable validity-domain map",
+        "K2 reduced-vs-layer-resolved comparison",
+        "K3 same-problem model-form error",
+        "K9 conceptual equivalence under different terminology"
+      ],
+      "evidence_paper_ids": [
+        "95646b2cfc",
+        "a792efc445",
+        "ca46dc062d"
+      ],
+      "kill_conditions": [
+        "Prior art performs a substantially equivalent validity-domain map for a vacuum layer-jamming continuum beam across the relevant operating domain.",
+        "Existing evidence shows the proposed error-map act is only a routine replication of ca46dc062d with no mechanics-specific new question."
+      ],
+      "role_in_candidate": "PRIMARY_COMPONENT",
+      "final_verdict": "NOT_PERFORMED"
+    },
+    {
+      "candidate_id": "NC-02",
+      "contribution": "Experimental tests deliberately sampling both sides of a predicted M1 validity/breakdown boundary under vacuum layer-jamming, with model parameters and acceptance criteria frozen before evaluation.",
+      "novelty_category": "VALIDATION",
+      "status": "NARROWED",
+      "known_overlap": [
+        {
+          "paper_id": "5f7ccd7357",
+          "overlap": "Physical layer-jamming bending experiments and model comparison, but not a predicted continuum-model breakdown boundary."
+        },
+        {
+          "paper_id": "652e62758f",
+          "overlap": "Experimental validation of slip/hysteresis, but not boundary-crossing validity testing of M1."
+        },
+        {
+          "paper_id": "ca46dc062d",
+          "overlap": "Quantitative numerical boundary mapping, but no physical experiments and no vacuum-jamming pressure sweep."
+        }
+      ],
+      "threats": [
+        "K4 deliberate valid/breakdown regimes",
+        "K5 physical sampling on both sides of boundary",
+        "K7 substantially equivalent M->R->E workflow",
+        "K8 routine-methodology collapse"
+      ],
+      "evidence_paper_ids": [
+        "5f7ccd7357",
+        "652e62758f",
+        "ca46dc062d"
+      ],
+      "kill_conditions": [
+        "Prior art already performs boundary-crossing physical experiments for the same or conceptually equivalent vacuum layer-jamming continuum model.",
+        "The proposed experiment does not test a pre-specified boundary and reduces to ordinary model validation."
+      ],
+      "role_in_candidate": "PRIMARY_COMPONENT",
+      "final_verdict": "NOT_PERFORMED"
+    },
+    {
+      "candidate_id": "NC-03",
+      "contribution": "Mechanistic attribution of M1 breakdown to interface-resolved slip/contact/normal-pressure redistribution, rather than reporting error alone.",
+      "novelty_category": "MECHANISM",
+      "status": "NARROWED",
+      "known_overlap": [
+        {
+          "paper_id": "652e62758f",
+          "overlap": "Mechanistically links layer-jamming stiffness/hysteresis to interlayer slip."
+        },
+        {
+          "paper_id": "ca46dc062d",
+          "overlap": "Links multilayer continuum error to interface slip in non-vacuum structures."
+        },
+        {
+          "paper_id": "afe2a3a310",
+          "overlap": "Full-layer contact model captures frictional hysteresis in unbonded flexible pipes."
+        }
+      ],
+      "threats": [
+        "K6 mechanism attribution already established for same scientific act",
+        "K9 conceptually equivalent failure-mechanism study"
+      ],
+      "evidence_paper_ids": [
+        "652e62758f",
+        "ca46dc062d",
+        "afe2a3a310"
+      ],
+      "kill_conditions": [
+        "A prior study already explains failure of a comparable vacuum layer-jamming continuum beam model using interface-resolved slip/contact mechanisms.",
+        "The proposed mechanism attribution adds no discriminating observation beyond generic 'slip causes stiffness loss'."
+      ],
+      "role_in_candidate": "SUPPORTING_COMPONENT_NOT_STANDALONE",
+      "final_verdict": "NOT_PERFORMED"
+    },
+    {
+      "candidate_id": "NC-04",
+      "contribution": "Integrated vacuum-layer-jamming M->R->E scientific act: baseline continuum model M1 -> interface-resolved reference R -> independent experiment E, used to map where M1 is valid, where it breaks down, and why.",
+      "novelty_category": "SCIENTIFIC_QUESTION",
+      "status": "NARROWED",
+      "known_overlap": [
+        {
+          "paper_id": "ca46dc062d",
+          "overlap": "Strong M->R overlap and error-boundary mapping, but not vacuum layer jamming and lacks physical E."
+        },
+        {
+          "paper_id": "5f7ccd7357",
+          "overlap": "Layer-jamming model + FEA + experiment, but not a systematic validity/breakdown map of Zhang-type M1."
+        },
+        {
+          "paper_id": "652e62758f",
+          "overlap": "Layer-jamming analytical model + experiment with slip mechanisms, but not the same M1 validity question."
+        },
+        {
+          "paper_id": "a792efc445",
+          "overlap": "Layer-jamming continuum model construction/verification at RVE level, not M->R->E breakdown mapping."
+        }
+      ],
+      "threats": [
+        "K1-K9 collectively",
+        "especially K5, K7, K8, K9"
+      ],
+      "evidence_paper_ids": [
+        "ca46dc062d",
+        "5f7ccd7357",
+        "652e62758f",
+        "a792efc445",
+        "95646b2cfc"
+      ],
+      "kill_conditions": [
+        "A substantially equivalent prior study integrates M->R->E for vacuum layer-jamming beams and maps validity/breakdown of the same conceptual continuum model.",
+        "The integrated act decomposes into only routine known steps with no new discriminating scientific question or boundary."
+      ],
+      "role_in_candidate": "COMPOSITE_RESIDUAL_CANDIDATE",
+      "final_verdict": "NOT_PERFORMED"
+    }
+  ],
+  "explicit_non_candidates": [
+    "Creating a new continuum layer-jamming model.",
+    "Using vacuum pressure to tune layer-jamming stiffness.",
+    "Observing interlayer slip, hysteresis, or stiffness change.",
+    "Using full-contact FE as a reference.",
+    "Comparing model predictions with experiments in a generic sense.",
+    "Using a 5% or other numerical error threshold by itself.",
+    "Claiming multi-layer partial interaction is absent from prior art."
+  ],
+  "high_threats_requiring_later_gate": [
+    {
+      "paper_id": "ca46dc062d",
+      "reason": "Closest same-act threat: M->R plus quantitative error boundary; must be explicitly attacked in K2/K3/K4/K7/K9."
+    },
+    {
+      "paper_id": "a792efc445",
+      "reason": "Closest continuum layer-jamming homogenization prior art; must be used to prevent model-creation novelty migration."
+    }
+  ],
+  "qa_summary": {
+    "residual_candidates_only": true,
+    "generic_components_removed": true,
+    "same_scientific_act_scope_explicit": true,
+    "high_threats_preserved": true,
+    "final_novelty_adjudication_performed": false,
+    "broad_search_reopened": false
+  }
+}
