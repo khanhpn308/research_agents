@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "D1_THRESHOLD_FREEZE_REGISTER",
+  "canonical_filename": "D1_THRESHOLD_FREEZE_REGISTER.json",
+  "artifact_type": "CANONICAL_W11",
+  "worker_id": "W11",
+  "plan_version": "V6",
+  "created_at": "2026-09-26T05:21:00+07:00",
+  "architecture_hash": "ee45164b770ce50ea4d51ddae74012db752b4251",
+  "historical_error_results_seen": true,
+  "final_project_validation_data_seen": false,
+  "prior_art_5_percent_adopted": false,
+  "prior_art_5_percent_reason": "Explicitly prohibited by M1 research architecture: another paper's post-hoc/adopted 5% is not an independent D1 tolerance justification.",
+  "freeze_status": "BLOCKED_NOT_FROZEN",
+  "blocker": "Exact output-specific tolerances and their uncertainty/engineering justification are explicitly unresolved in canonical M1 architecture.",
+  "required_to_unblock": [
+    "Lock exact reference R formulation and output extraction.",
+    "Quantify numerical/reference uncertainty for each primary output.",
+    "Define experimental measurement/event-detection uncertainty.",
+    "Define intended engineering use-case or decision sensitivity.",
+    "Choose and justify epsilon_w, epsilon_K and epsilon_Q before inspecting final validation/error surfaces.",
+    "Record human threshold review and timestamp the freeze."
+  ],
+  "rows": [
+    {
+      "threshold_id": "D1-THRESHOLD-001",
+      "metric": "e_w = |w_M - w_R| / |w_R|, with an alternative normalized/absolute metric required where the denominator is near zero.",
+      "physical_meaning": "Relative model-form error in primary deflection output between reduced model M1 and reference R.",
+      "used_for": "VALIDITY_CLASSIFICATION",
+      "justification_source": [
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE.md §9",
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md §9"
+      ],
+      "uncertainty_basis": "NOT_YET_QUANTIFIED: experimental measurement uncertainty, reference-model numerical uncertainty, engineering-use tolerance and near-zero denominator handling remain to be specified.",
+      "acceptance_threshold": "UNDEFINED — NOT FROZEN. No VALID classification is permitted until epsilon_w is justified independently of final validation outcomes.",
+      "breakdown_threshold": "UNDEFINED — NOT FROZEN. INVALID/breakdown classification cannot be instantiated before epsilon_w is frozen.",
+      "validity_boundary_definition": "Future boundary for this output is the locus e_w(x)=epsilon_w after epsilon_w is independently justified and frozen.",
+      "breakdown_criterion": "Future criterion: e_w(x)>epsilon_w after predeclaration; currently non-executable.",
+      "defined_at_stage": "S11",
+      "frozen_at_stage": null,
+      "frozen_before_final_validation_data": false,
+      "validation_data_seen_before_freeze": false,
+      "version": "TF-V3.1-PENDING",
+      "change_allowed": true,
+      "change_requires_human_review": true,
+      "change_record": null,
+      "threshold_status": "BLOCKED_NOT_FROZEN"
+    },
+    {
+      "threshold_id": "D1-THRESHOLD-002",
+      "metric": "e_K = |K_M - K_R| / |K_R|, with an alternative normalized/absolute metric required where appropriate.",
+      "physical_meaning": "Relative model-form error in effective bending stiffness.",
+      "used_for": "VALIDITY_CLASSIFICATION",
+      "justification_source": [
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE.md §5, §9",
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md §5, §9"
+      ],
+      "uncertainty_basis": "NOT_YET_QUANTIFIED: extraction method, experimental/reference uncertainty and engineering-use tolerance remain provisional.",
+      "acceptance_threshold": "UNDEFINED — NOT FROZEN. No VALID classification is permitted until epsilon_K is independently justified.",
+      "breakdown_threshold": "UNDEFINED — NOT FROZEN.",
+      "validity_boundary_definition": "Future boundary e_K(x)=epsilon_K after predeclaration.",
+      "breakdown_criterion": "Future criterion e_K(x)>epsilon_K; currently non-executable.",
+      "defined_at_stage": "S11",
+      "frozen_at_stage": null,
+      "frozen_before_final_validation_data": false,
+      "validation_data_seen_before_freeze": false,
+      "version": "TF-V3.1-PENDING",
+      "change_allowed": true,
+      "change_requires_human_review": true,
+      "change_record": null,
+      "threshold_status": "BLOCKED_NOT_FROZEN"
+    },
+    {
+      "threshold_id": "D1-THRESHOLD-003",
+      "metric": "e_Q = |Q_slip,M - Q_slip,R| / |Q_slip,R|, with event-detection uncertainty explicitly included.",
+      "physical_meaning": "Relative model-form error in slip-transition load/force.",
+      "used_for": "BREAKDOWN_CLASSIFICATION",
+      "justification_source": [
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE.md §5, §9",
+        "docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md §5, §9"
+      ],
+      "uncertainty_basis": "NOT_YET_QUANTIFIED: slip-event detection, experimental noise, reference discretization/contact convergence and intended use-case tolerance remain unresolved.",
+      "acceptance_threshold": "UNDEFINED — NOT FROZEN. No accepted/rejected classification is permitted until epsilon_Q is justified.",
+      "breakdown_threshold": "UNDEFINED — NOT FROZEN.",
+      "validity_boundary_definition": "Future boundary e_Q(x)=epsilon_Q after predeclaration.",
+      "breakdown_criterion": "Future criterion e_Q(x)>epsilon_Q; currently non-executable.",
+      "defined_at_stage": "S11",
+      "frozen_at_stage": null,
+      "frozen_before_final_validation_data": false,
+      "validation_data_seen_before_freeze": false,
+      "version": "TF-V3.1-PENDING",
+      "change_allowed": true,
+      "change_requires_human_review": true,
+      "change_record": null,
+      "threshold_status": "BLOCKED_NOT_FROZEN"
+    }
+  ],
+  "hg06_precheck": "BLOCKED",
+  "final_novelty_adjudication": "NOT_PERFORMED"
+}
