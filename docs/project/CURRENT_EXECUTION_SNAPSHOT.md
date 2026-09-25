@@ -2,7 +2,7 @@
 
 > **Snapshot date:** 2026-09-26 (GMT+7 working context)  
 > **Repository:** `khanhpn308/research_agents`  
-> **Source HEAD before snapshot commit:** `fa4f5d2f823cbd67a055f5d6d2309adf91c5d755`  
+> **Source HEAD before snapshot commit:** `ed90ccdfd4c1fde65c7f6d01b155c09222c011b2`  
 > **Purpose:** canonical fast-start snapshot for a new chat/agent. Read this before continuing either D1 or MP1.  
 > **Current workstream:** reconstruct and audit the scientific case for D1 and MP1 separately, then prepare a fresh mentor-facing comparison. Do not jump directly to persuasion or final comparison before the two branches finish their current workflows.
 
@@ -17,8 +17,14 @@ D1 branch
 =
 novelty reconstruction / falsification execution
 Plan V6
-W01-W08 complete
-NEXT = W09 / S4 with GPT-6 Sol High
+W01-W11 executed
+W09 reconciliation = COMPLETE
+S9 K1-K9 criterion freeze = COMPLETE
+W10 targeted threat integration = COMPLETE WITH NAMED FULL-TEXT BLOCKER
+W11 provenance / contradiction QA = COMPLETE
+HG-06 threshold freeze = BLOCKED
+HG-09 human review = BLOCKED
+NEXT = resolve blockers before W12
 
 MP1 branch
 =
@@ -75,6 +81,10 @@ W05 / S3 direct layer-jamming evidence = COMPLETE
 W06 / S3 continuum-homogenization evidence = COMPLETE
 W07 / S3 contact / partial-interaction / full-layer evidence = COMPLETE
 W08 / S3 validity / model-form-error / uncertainty evidence = COMPLETE
+W09 / S4 cross-worker reconciliation = COMPLETE
+S9 / K1-K9 criterion freeze = COMPLETE
+W10 / named targeted threat integration = COMPLETE_WITH_BLOCKER
+W11 / provenance + contradiction + threshold + human-review QA = COMPLETE_WITH_BLOCKERS
 ```
 
 W07 receipt:
@@ -111,57 +121,129 @@ Canonical W08 shard:
 
 `outputs/d1_execution/V4/W08/D1_PAPER_EVIDENCE_SHARD_W08.jsonl`
 
-### 2.3 D1 next action
+### 2.3 D1 current blocker state and next action
 
-**Run W09 / S4 — Cross-worker reconciliation with GPT-6 Sol High.**
-
-W09 contract is defined in:
-
-`outputs/plans/D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json`
-
-Expected W09 outputs:
+W09 canonical outputs:
 
 ```text
 outputs/d1_execution/V4/W09/
-├── D1_PAPER_EVIDENCE_PACKETS.jsonl
+├── D1_PAPER_EVIDENCE_PACKETS.jsonl          # 68 unique papers from 71 source records
 ├── D1_CLAIM_EVOLUTION_MATRIX.json
-├── D1_NON_NOVELTY_REGISTER.json
-└── D1_NOVELTY_CANDIDATE_REGISTER.json
+├── D1_NON_NOVELTY_REGISTER.json             # 13 frozen non-novel components
+└── D1_NOVELTY_CANDIDATE_REGISTER.json       # 4 residual candidates; no final verdict
 ```
 
-W09 responsibilities:
+Important W09 scientific narrowing:
 
-- canonical merge of W03-W08;
-- deduplicate paper/evidence identity;
-- reconcile claim evolution;
-- freeze what D1 must **not** claim as novel;
-- define only residual novelty candidates;
-- preserve disagreement and provenance;
-- **do not** issue final novelty adjudication.
+- generic layer-jamming, vacuum stiffness tuning, Coulomb slip, continuum-model creation, full-contact FE and generic validation are **not** novelty claims;
+- broad C02 wording was corrected: N-layer / multilayer partial-interaction theory already exists;
+- strongest current same-act threat remains `ca46dc062d`: direct threat to the M→R quantitative error-boundary core, partial overlap to the full vacuum-layer-jamming M→R→E act;
+- W09 final novelty adjudication remains `NOT_PERFORMED`.
 
-Model:
+S9 frozen criteria:
+
+`outputs/d1_execution/V4/S09/D1_K_CRITERIA_REGISTER.json`
 
 ```text
-GPT-6 Sol
-reasoning = High
-parallelizable = false
+K1-K9 rows = 9
+criterion version = K-CRITERIA-V3.1
+modified after evidence = false
+final K verdicts = UNRESOLVED
 ```
 
-### 2.4 D1 downstream after W09
+W10 canonical outputs:
 
 ```text
-W09 — Sol High reconciliation
+outputs/d1_execution/V4/W10/
+├── D1_PRIOR_ART_FAMILY_COVERAGE.json        # 18/18 required families
+├── D1_PRIOR_ART_THREAT_MATRIX.json          # 15 material threat rows
+├── D1_UNRESOLVED_THREAT_REGISTER.json       # 2 blocker rows
+└── D1_SEARCH_DECISION_LOG.json               # 2 named searches; broad search stayed closed
+```
+
+Named targeted-search result:
+
+```text
+T1 = Yang, Guo & Wang 2025
+DOI = 10.1038/s41598-025-22364-w
+status = VERIFIED_FULL_TEXT
+disposition = PARTIAL_OVERLAP
+
+T2 = Wang et al. 2026
+DOI = 10.1016/j.matdes.2026.116573
+status = METADATA/ABSTRACT VERIFIED; FULL TEXT NOT AUDITED
+disposition = UNRESOLVED
+blocking = true
+```
+
+W11 canonical outputs:
+
+```text
+outputs/d1_execution/V4/W11/
+├── D1_PROVENANCE_QA.json
+├── D1_CONTRADICTION_REGISTER.json
+├── D1_THRESHOLD_FREEZE_REGISTER.json
+└── D1_HUMAN_REVIEW_CLEARANCE.json
+```
+
+W11 state:
+
+```text
+HG-02 provenance precheck       = PASS_WITH_DOWNSTREAM_BLOCKERS
+HG-03 contradiction precheck    = PASS
+HG-04 K-criterion freeze        = READY/PASS PRECONDITION
+HG-06 threshold freeze          = BLOCKED
+HG-09 human-review clearance    = BLOCKED
+
+critical open contradictions    = 0
+unsupported thesis-critical claims = 0
+required tolerances frozen      = false
+human reviews cleared           = 0/6
+```
+
+Typed contradiction already adjudicated by source precedence:
+
+- `paper_id 53d328abaa` W09 metadata carried the wrong DOI;
+- authoritative D1-V008 full-text identity gives **DOI `10.1061/JSENDH.STENG-13096`**;
+- downstream artifacts must use the resolved identity while preserving the W09 historical metadata error.
+
+Execution-provenance note:
+
+- Plan V6 assigned GPT-6 Sol to W09/W11;
+- this chat actually executed them with **GPT-5.6 Sol High**;
+- W09 metadata was corrected and W11 records the model-version deviation;
+- no artifact may claim that GPT-6 performed these runs.
+
+### D1 exact next action
+
+**Do not run W12 yet.**
+
+Required re-entry work:
+
+1. obtain and full-text audit Wang et al. 2026 (`10.1016/j.matdes.2026.116573`) or formally retain affected K-tests as unresolved;
+2. define and justify output-specific `ε_w`, `ε_K`, `ε_Q` from engineering relevance + experimental/reference/numerical uncertainty, then freeze them **before** final validation/error-map inspection;
+3. obtain the required human dispositions recorded in `D1_HUMAN_REVIEW_CLEARANCE.json`;
+4. only after HG-06 and HG-09 clear may W12 adversarial K1-K9 execution start.
+
+### 2.4 D1 downstream from current HEAD
+
+```text
+W09 reconciliation = DONE
 ↓
-W10 — conditional targeted search only if a named trigger exists
+S9 K1-K9 freeze = DONE
 ↓
-W11 — provenance / contradiction / threshold QA
+W10 named threat integration = DONE WITH T2 FULL-TEXT BLOCKER
+↓
+W11 QA = DONE WITH HG-06 / HG-09 BLOCKED
+↓
+RE-ENTRY WORK = REQUIRED
 ↓
 W12 — GPT-6 Astra High K1-K9 adversarial falsification
 ↓
 S14/S15 — synthesis and final D1-only adjudication
 ```
 
-Do not call Astra before the workflow reaches its adversarial checkpoint unless a hard human-review/direct-kill route explicitly requires it.
+W12 is not authorized while HG-06 or HG-09 remains blocked.
 
 ---
 
@@ -344,12 +426,15 @@ Read in this order:
 2. `docs/project/research_state.json`
 3. `outputs/plans/D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md`
 4. `outputs/plans/D1_WORKER_EXECUTION_READINESS_MATRIX_V6.json`
-5. `outputs/d1_execution/V4/W08/W08_EXECUTION_RECEIPT.json`
-6. `outputs/d1_execution/V4/W08/D1_PAPER_EVIDENCE_SHARD_W08.jsonl`
-7. `outputs/execution/MP1-V002/W2/MP1_W02_HANDOFF.md`
-8. `outputs/execution/MP1-V002/W2/MP1_W02_FINAL_STATE.json`
-9. `outputs/execution/MP1-V002/W2/MP1_W02_BLOCKING_GAP_REGISTER.json`
-10. `docs/project/RESEARCH_LOG.md`
+5. `outputs/d1_execution/V4/W09/D1_NOVELTY_CANDIDATE_REGISTER.json`
+6. `outputs/d1_execution/V4/S09/D1_K_CRITERIA_REGISTER.json`
+7. `outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json`
+8. `outputs/d1_execution/V4/W10/D1_UNRESOLVED_THREAT_REGISTER.json`
+9. `outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json`
+10. `outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json`
+11. `outputs/execution/MP1-V002/W2/MP1_W02_HANDOFF.md`
+12. `outputs/execution/MP1-V002/W2/MP1_W02_FINAL_STATE.json`
+13. `docs/project/RESEARCH_LOG.md`
 
 For deeper historical provenance:
 
@@ -368,16 +453,24 @@ For deeper historical provenance:
 ```text
 NEXT
 =
-W09 / S4 CROSS-WORKER RECONCILIATION
+D1 RE-ENTRY / HARD-GATE REMEDIATION
 
-MODEL
+BLOCKERS
 =
-GPT-6 Sol High
+T2 FULL-TEXT AUDIT
+HG-06 THRESHOLD FREEZE
+HG-09 HUMAN REVIEW CLEARANCE
+
+W12
+=
+NOT AUTHORIZED YET
 ```
 
-Before writing, verify W03-W08 complete and verify the W09 single-writer path:
+Read first:
 
-`outputs/d1_execution/V4/W09/`
+- `outputs/d1_execution/V4/W10/D1_UNRESOLVED_THREAT_REGISTER.json`
+- `outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json`
+- `outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json`
 
 ### MP1
 
@@ -403,6 +496,9 @@ Consume W02 canonical closeout; do not resume W2-10/W2-12.
 - Do not run broad literature searches by default.
 - Do not treat citation closure as universal novelty proof.
 - Do not let W09 declare final D1 novelty.
+- Do not run W12 while HG-06 or HG-09 is BLOCKED.
+- Do not treat Wang et al. 2026 abstract/metadata as full-text K-test evidence.
+- Do not invent or borrow a 5% D1 tolerance from prior art.
 - Do not let MP1 workflow reconciliation declare final MP1 novelty.
 - Do not use Astra for bulk extraction, routine reconciliation, or formatting.
 - Do not begin the final mentor-facing D1-vs-MP1 comparison until both current branches reach their designated synthesis/adjudication checkpoints.
