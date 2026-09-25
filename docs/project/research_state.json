@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated_at": "2026-09-26",
   "project": "mechanical-research-agents",
-  "source_head_before_snapshot_commit": "fa4f5d2f823cbd67a055f5d6d2309adf91c5d755",
+  "source_head_before_snapshot_commit": "ed90ccdfd4c1fde65c7f6d01b155c09222c011b2",
   "fast_start_file": "docs/project/CURRENT_EXECUTION_SNAPSHOT.md",
   "current_workstream": {
     "id": "MENTOR_DEFENSE_DUAL_TRACK",
@@ -30,46 +30,102 @@
       "W05",
       "W06",
       "W07",
-      "W08"
+      "W08",
+      "W09",
+      "W10",
+      "W11"
     ],
     "latest_worker": {
-      "id": "W08",
-      "status": "COMPLETE",
-      "canonical_output": "outputs/d1_execution/V4/W08/D1_PAPER_EVIDENCE_SHARD_W08.jsonl",
-      "receipt": "outputs/d1_execution/V4/W08/W08_EXECUTION_RECEIPT.json",
-      "assigned_papers": 19,
-      "papers_processed": 19,
-      "qa": "PASS",
-      "direct_prior_art_threat_candidates": 1,
-      "partial_overlap": 8,
-      "reconciliation_candidates": 3,
-      "retrospective_threshold_risks": 4,
-      "model_form_ambiguities": 13,
-      "contradictions_found": 0,
-      "human_review_triggered": false,
-      "literature_search_reopened": false,
-      "final_novelty_adjudication": "NOT_PERFORMED"
+      "id": "W11",
+      "status": "COMPLETE_WITH_BLOCKERS",
+      "canonical_outputs": [
+        "outputs/d1_execution/V4/W11/D1_PROVENANCE_QA.json",
+        "outputs/d1_execution/V4/W11/D1_CONTRADICTION_REGISTER.json",
+        "outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json",
+        "outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json"
+      ],
+      "provenance_QA": "PASS_PROVENANCE_WITH_DOWNSTREAM_BLOCKERS",
+      "contradiction_QA": "PASS_PRECHECK",
+      "critical_open_contradictions": 0,
+      "unsupported_thesis_critical_claims": 0,
+      "threshold_freeze_status": "BLOCKED_NOT_FROZEN",
+      "human_review_clearance_status": "BLOCKED",
+      "human_reviews_cleared": "0/6",
+      "final_novelty_adjudication": "NOT_PERFORMED",
+      "actual_execution_model": "GPT-5.6 Sol High",
+      "planned_model": "Deterministic validator + GPT-6 Sol High",
+      "model_version_deviation_recorded": true
     },
     "next": {
-      "worker": "W09",
-      "stage": "S4",
-      "task": "CROSS-WORKER RECONCILIATION",
-      "model": "GPT-6 Sol",
-      "reasoning_effort": "High",
-      "output_directory": "outputs/d1_execution/V4/W09/",
-      "required_outputs": [
-        "D1_PAPER_EVIDENCE_PACKETS.jsonl",
-        "D1_CLAIM_EVOLUTION_MATRIX.json",
-        "D1_NON_NOVELTY_REGISTER.json",
-        "D1_NOVELTY_CANDIDATE_REGISTER.json"
+      "worker": null,
+      "stage": "S11/S13 RE-ENTRY",
+      "task": "D1 HARD-GATE REMEDIATION BEFORE W12",
+      "status": "BLOCKED_WAITING_REQUIRED_INPUTS_AND_HUMAN_CLEARANCE",
+      "required_actions": [
+        "Obtain and full-text audit Wang et al. 2026 DOI 10.1016/j.matdes.2026.116573, or retain affected K-tests as unresolved.",
+        "Define and justify output-specific epsilon_w, epsilon_K and epsilon_Q using engineering relevance plus experimental/reference/numerical uncertainty, then freeze before final validation/error-map inspection.",
+        "Clear required human-review rows in outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json."
       ],
+      "W12_authorized": false,
+      "W12_planned_model": "GPT-6 Astra High",
       "final_novelty_authority": false
     },
     "downstream": {
-      "W10": "conditional targeted search only on a named trigger",
-      "W11": "provenance/contradiction/threshold QA",
-      "W12": "GPT-6 Astra High adversarial K1-K9",
-      "final": "S14/S15 D1-only synthesis/adjudication"
+      "W12": "blocked until HG-06 and HG-09 clear; then adversarial K1-K9 + red-team",
+      "S14": "Sol scientific synthesis after W12 and required clearances",
+      "S15": "final D1-only adjudication after hard gates",
+      "S16": "deterministic packaging and hard-gate QA"
+    },
+    "s9_k_criteria": {
+      "status": "COMPLETE",
+      "canonical_output": "outputs/d1_execution/V4/S09/D1_K_CRITERIA_REGISTER.json",
+      "criterion_rows": 9,
+      "criterion_version": "K-CRITERIA-V3.1",
+      "modified_after_evidence": false,
+      "k_verdicts": "UNRESOLVED"
+    },
+    "w09": {
+      "status": "COMPLETE",
+      "canonical_directory": "outputs/d1_execution/V4/W09/",
+      "unique_papers": 68,
+      "source_records": 71,
+      "non_novelty_entries": 13,
+      "residual_novelty_candidates": 4,
+      "final_novelty_adjudication": "NOT_PERFORMED",
+      "actual_execution_model": "GPT-5.6 Sol High",
+      "planned_model": "GPT-6 Sol High",
+      "model_version_deviation_recorded": true
+    },
+    "w10": {
+      "status": "COMPLETE_WITH_BLOCKER",
+      "canonical_directory": "outputs/d1_execution/V4/W10/",
+      "required_prior_art_families_covered": "18/18",
+      "material_threat_rows": 15,
+      "unresolved_threat_rows": 2,
+      "named_searches": 2,
+      "broad_search_reopened": false,
+      "T1": {
+        "doi": "10.1038/s41598-025-22364-w",
+        "evidence_status": "VERIFIED_FULL_TEXT",
+        "disposition": "PARTIAL_OVERLAP"
+      },
+      "T2": {
+        "doi": "10.1016/j.matdes.2026.116573",
+        "evidence_status": "METADATA_ABSTRACT_ONLY",
+        "disposition": "UNRESOLVED",
+        "blocking": true
+      }
+    },
+    "hard_gate_precheck": {
+      "HG-02": "PASS_WITH_DOWNSTREAM_BLOCKERS",
+      "HG-03": "PASS_PRECHECK",
+      "HG-04": "CRITERIA_FROZEN",
+      "HG-06": "BLOCKED",
+      "HG-07": "BLOCKED_BY_NAMED_FULLTEXT_THREAT",
+      "HG-09": "BLOCKED",
+      "HG-05": "NOT_EVALUATED_W12_NOT_RUN",
+      "HG-08": "NOT_EVALUATED_W12_NOT_RUN",
+      "HG-10": "BLOCKED"
     }
   },
   "mp1": {
@@ -138,7 +194,9 @@
   "search_status": {
     "d1_broad_search": "CLOSED",
     "mp1_broad_search": "CLOSED",
-    "reopen_only_on_named_evidence_first_trigger": true
+    "reopen_only_on_named_evidence_first_trigger": true,
+    "d1_named_targeted_search": "BLOCKED_FULLTEXT_REQUIRED_FOR_WANG_2026",
+    "d1_named_target_doi": "10.1016/j.matdes.2026.116573"
   },
   "later_thesis_feasibility_gate": {
     "name": "D1/M1 boundary-resolvability pilot",
@@ -150,6 +208,9 @@
     "Do not use citation closure as proof of universal novelty.",
     "Do not rename outputs/d1_execution/V4/.",
     "Do not execute MP1 W2-10/W2-12.",
-    "Do not start final mentor comparison before current D1 and MP1 branches reach their designated synthesis/adjudication checkpoints."
+    "Do not start final mentor comparison before current D1 and MP1 branches reach their designated synthesis/adjudication checkpoints.",
+    "Do not run D1 W12 while HG-06 or HG-09 is BLOCKED.",
+    "Do not use Wang et al. 2026 abstract/metadata as full-text K-test evidence.",
+    "Do not invent or borrow a 5% D1 tolerance from prior art."
   ]
 }
