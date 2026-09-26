@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S01",
+  "status": "ANALYTICAL_AUDIT_COMPLETE",
+  "search_reopened": false,
+  "row_count": 5,
+  "rows": [
+    {
+      "source": "Barsi, Carboni & Lacarbonara (2025), Engineering Structures 323, 119217; DOI 10.1016/j.engstruct.2024.119217; paper_id 9f4295be23",
+      "formulation_name": "Linearized shear-deformable rope beam with wire eigenstrain limit states",
+      "mechanical_object": "Short helical single- or multi-strand steel wire rope",
+      "state_variables": [
+        "rope centerline displacement u(s)",
+        "cross-section rotation phi(s)",
+        "generalized strain gamma and curvature mu",
+        "wire eigenstrain beta^(i) assigned by limit slip state"
+      ],
+      "kinematics": {
+        "bending": "yes, two curvatures",
+        "axial": "yes",
+        "torsion": "yes",
+        "slip": "kinematically prescribed perfect-stick, partial-stick and full-slip limits",
+        "stick_slip_transition": "not solved as a local evolving contact law",
+        "wire_contact": "not spatially resolved",
+        "cross_section_deformation": "shared rope/wire section rotations; independent section distortion absent",
+        "prestrain": "not an explicit studied state",
+        "helix": "single and double helix parameterization"
+      },
+      "contact_model": {
+        "normal": "no resolved normal-contact law in published limit-state derivation",
+        "tangential": "slip represented by incompatible eigenstrain states",
+        "coulomb": "friction motivates modes, but no full Coulomb traction update or pressure-dependent transition solved",
+        "penalty": "none in this analytical formulation",
+        "normal_force_dependence": "qualitative transition rationale, not a calibrated p-to-contact-force law"
+      },
+      "constitutive_model": "Linear elastic E,G wire rods; generalized 6x6 rope stiffness depends on selected slip state.",
+      "supports_nonlinear_NiTi": "APPLICABLE_WITH_BOUNDED_EXTENSION: replace wire stress-resultant tangent/update and add transformation state, then rederive consistent rope tangent; constant matrix and closed forms no longer apply.",
+      "supports_history": "APPLICABLE_WITH_BOUNDED_EXTENSION for NiTi state; published rope model lacks contact-memory evolution.",
+      "supports_pressure_boundary": "APPLICABLE_WITH_BOUNDED_EXTENSION through an added membrane/contact submodel; not published for pressure-controlled rope.",
+      "supports_wire_slip": "BOUND_ONLY, not predictive transition path",
+      "supports_bending": "DIRECTLY_APPLICABLE within small-deformation short-rope limit",
+      "supports_local_observables": "Wire strain/resultants by assumed state; no predictive distributed slip/contact traction field.",
+      "geometry_assumptions": [
+        "helical or superhelical rope",
+        "small deformation/reference-configuration equilibrium",
+        "common wire/rope cross-section rotation",
+        "all wires in one slip state for constant stiffness matrix"
+      ],
+      "known_limitations": [
+        "published validation concerns upper/lower bending stiffness bounds, not full evolving pressure-controlled hysteresis",
+        "perfect-stick bound overestimates measured maximum stiffness in paper",
+        "no explicit membrane, transformation, heterogeneous contact topology or finite-deformation solver"
+      ],
+      "required_adaptation": [
+        "rebuild geometry for straight packed MP1 wires",
+        "add independently calibrated membrane/contact transmission",
+        "introduce transformation-aware incremental wire law",
+        "resolve heterogeneous stick-slip via contact solver if transition curves required"
+      ],
+      "MP1_applicability": "APPLICABLE_WITH_BOUNDED_EXTENSION as diagnostic stiffness bounds, not primary forward H0b",
+      "evidence_status": "VERIFIED FULL TEXT",
+      "evidence_pointer": [
+        "data/papers/verification/MP1-V002/2025-A new mechanical model of short wire ropes Theory and experimental.pdf: abstract; Section 2, Eqs. (1),(2),(6),(7),(11),(12),(18); Section 4",
+        "outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json:paper_id=9f4295be23"
+      ],
+      "correction_to_worker_record": "The prior matrix overstates this as a Coulomb transition predictor. The PDF calls its states kinematic hypotheses and limits its comparison to stiffness bounds."
+    },
+    {
+      "source": "Tjahjanto, Tyrberg & Jonathan Mullins (2017), ASME OMAE2017-62553; paper_id ccdc1bb980; DOI not verified from repository PDF",
+      "formulation_name": "Geometrically nonlinear 3D component-resolved cable FE plus loxodromic analytical stress comparator",
+      "mechanical_object": "Three helical power cores, fillers, armour and sheaths in dynamic submarine cable",
+      "state_variables": [
+        "3D displacement/contact state of each modeled component",
+        "interface normal and tangential tractions",
+        "relative slip",
+        "component stress",
+        "external radial pressure and axial strain"
+      ],
+      "kinematics": {
+        "bending": "cyclic curvature applied",
+        "axial": "yes",
+        "torsion": "component twisting and large rotations in FE",
+        "slip": "FE resolves relative component motion",
+        "stick_slip_transition": "Coulomb interface with elastic slip regularization",
+        "wire_contact": "component contact resolved; individual copper conductor wires are not separately resolved in shown cable FE",
+        "cross_section_deformation": "3D component geometry can deform",
+        "prestrain": "specified axial strain and residual-sheath pressure",
+        "helix": "three helical cores; analytical comparator assumes loxodromic slip"
+      },
+      "contact_model": {
+        "normal": "nonlinear contact penalty",
+        "tangential": "Coulomb friction, reported coefficient 0.25 and elastic slip limit 0.001",
+        "coulomb": "friction capacity depends on contact force; analytical Eq. (6): f=mu_o Q_o+mu_i Q_i",
+        "penalty": "normal penalty stated; numerical stiffness not extracted as physical parameter",
+        "normal_force_dependence": "analytical contact forces from axial straining, component tension and radial transmission through structure"
+      },
+      "constitutive_model": "Published FE examples use linear elastic constituent properties.",
+      "supports_nonlinear_NiTi": "APPLICABLE_WITH_PARAMETERIZATION at constitutive-point level of 3D FE, with a verified NiTi material update.",
+      "supports_history": "APPLICABLE_WITH_PARAMETERIZATION through constitutive/contact state updates; published material example is elastic.",
+      "supports_pressure_boundary": "DIRECTLY_APPLICABLE as radial traction on outer sheath in FE; published load case uses 0.2 MPa fixed pressure.",
+      "supports_wire_slip": "APPLICABLE_WITH_BOUNDED_EXTENSION: resolve actual MP1 individual wires instead of only cable-scale cores/components.",
+      "supports_bending": "DIRECTLY_APPLICABLE in FE; analytical comparator has helical/loxodromic restrictions.",
+      "supports_local_observables": "FE contact tractions, component stress and slip fields; exact MP1 wire-scale outputs require explicit-wire mesh.",
+      "geometry_assumptions": [
+        "published cable is helical and sheathed",
+        "periodic segment 1/3 lay length",
+        "specified axial strain and radial pressure",
+        "analytical contact estimate neglects same-layer contact"
+      ],
+      "known_limitations": [
+        "published numerical study is not pressure-controlled NiTi bundle bending validation",
+        "analytical p-to-normal mapping for three-core system is acknowledged insufficient and FE is used",
+        "no independent MP1 membrane or wire packing calibration"
+      ],
+      "required_adaptation": [
+        "replace cable geometry by actual straight packed wires and sleeve",
+        "assign NiTi thermomechanical UMAT",
+        "mesh wire-to-wire contact topology",
+        "apply chamber pressure to fluid-wetted membrane surface and calibrate transmitted traction"
+      ],
+      "MP1_applicability": "APPLICABLE_WITH_BOUNDED_EXTENSION; main mechanical template for pressure, bending, membrane and resolved contact",
+      "evidence_status": "VERIFIED FULL TEXT",
+      "evidence_pointer": [
+        "data/papers/verification/MP1-V002/A6-2017-Bending Mechanics of Cable Cores and Fillers in a Dynamic Submarine Cable.pdf: title page, analytical Eqs. (1)-(6), Analysis Load Case, 3D FE Model",
+        "outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json:paper_id=ccdc1bb980"
+      ],
+      "correction_to_worker_record": "Repository PDF identifies Jonathan Mullins and OMAE2017-62553; worker row states David Mullins and a different proceeding number/DOI. PDF presents FE-versus-analytical comparison, not a new full-scale bending experiment."
+    },
+    {
+      "source": "Xin Liu (2004), University of Hawaii MSc thesis, Cable Vibration Considering Internal Friction; paper_id aaad9c248c; no DOI verified",
+      "formulation_name": "1D transverse cable dynamics with curvature-dependent flexural rigidity supplied by CableCAD",
+      "mechanical_object": "Multi-layer steel cable idealized as a variable-rigidity continuum beam/cable",
+      "state_variables": [
+        "transverse deflection w(x,t)",
+        "curvature kappa",
+        "elementwise EI(kappa) supplied by external CableCAD calculation",
+        "axial tension",
+        "velocity/acceleration"
+      ],
+      "kinematics": {
+        "bending": "yes",
+        "axial": "tension input; elongation neglected in vibration equation",
+        "torsion": "not resolved",
+        "slip": "represented through EI-curvature input and layer transition estimates",
+        "stick_slip_transition": "not independently resolved by vibration PDE",
+        "wire_contact": "not explicit in 1D PDE; CableCAD uses measured layer pressures",
+        "cross_section_deformation": "warping allowed conceptually, not spatially resolved",
+        "prestrain": "tension and manufacturing pressure inputs",
+        "helix": "layered stranded cable"
+      },
+      "contact_model": {
+        "normal": "measured internal layer pressure supplied to CableCAD",
+        "tangential": "static interlayer friction in upstream CableCAD; kinetic friction neglected in stated PDE assumptions",
+        "coulomb": "not an explicit local contact update in thesis 1D solver",
+        "penalty": "not applicable",
+        "normal_force_dependence": "critical slip curvatures depend on measured layer pressure in CableCAD input"
+      },
+      "constitutive_model": "Published 1D cable assumptions are homogeneous isotropic linear elasticity with EI(kappa) supplied externally.",
+      "supports_nonlinear_NiTi": "APPLICABLE_WITH_BOUNDED_EXTENSION only if an independently predicted history-dependent EI(kappa,T,p) is supplied; otherwise risks circular calibration.",
+      "supports_history": "INSUFFICIENT_EVIDENCE in local contact law; dynamic integration alone does not provide NiTi phase history.",
+      "supports_pressure_boundary": "APPLICABLE_WITH_BOUNDED_EXTENSION through external pressure-to-EI/contact solver, not direct 1D traction.",
+      "supports_wire_slip": "INDIRECT_ONLY via precomputed EI curves",
+      "supports_bending": "DIRECTLY_APPLICABLE for transverse vibration with supplied EI",
+      "supports_local_observables": "No local contact or transformation fields",
+      "geometry_assumptions": [
+        "1D continuum",
+        "small strain",
+        "constant axial tension",
+        "negligible shear and axial extension"
+      ],
+      "known_limitations": [
+        "cannot independently predict MP1 local slip and transformation signatures",
+        "not a journal paper in repository PDF",
+        "requires measured layer pressure and external CableCAD closure"
+      ],
+      "required_adaptation": [
+        "independent NiTi/contact/membrane solver for EI",
+        "history-aware state update if cyclic response needed"
+      ],
+      "MP1_applicability": "NOT_APPLICABLE as strongest stand-alone H0b; useful legacy reduced comparator",
+      "evidence_status": "VERIFIED FULL TEXT",
+      "evidence_pointer": [
+        "data/papers/verification/MP1-V002/A5-Cable vibration considering internal friction.pdf: title page; Chapter 2 assumptions; Chapter 3 Section 3.2 and CableCAD EI-curvature discussion; Appendix A",
+        "outputs/execution/MP1-V002/W2-04/MP1_16_PAPER_ROLE_MATRIX.json:paper_id=aaad9c248c"
+      ],
+      "correction_to_worker_record": "Earlier matrix labels it an ASME journal paper with DOI and explicit local Coulomb model; repository PDF is a 2004 MSc thesis using CableCAD-derived EI."
+    },
+    {
+      "source": "Kang, Wang, Zhou & Xue (2020), Journal of Mechanical Engineering 56(14), 65 onward; DOI 10.3901/JME.2020.14.065; paper_id 56793dea9b",
+      "formulation_name": "Incremental SMA UMAT with 3D solid FE cable and smooth interwire contact",
+      "mechanical_object": "7x7 helical SMA superelastic cable under axial tension",
+      "state_variables": [
+        "3D nodal displacement",
+        "stress and strain",
+        "shape-memory factor eta / martensite fraction xi",
+        "temperature",
+        "transformation strain and changing elastic modulus"
+      ],
+      "kinematics": {
+        "bending": "not validated in the reported simulations",
+        "axial": "uniaxial cable tension",
+        "torsion": "geometric helix present, torsional response not target",
+        "slip": "frictional slip suppressed by smooth contact",
+        "stick_slip_transition": "absent",
+        "wire_contact": "3D solid surface contact",
+        "cross_section_deformation": "possible in solid mesh",
+        "prestrain": "not specified as MP1 prestrain",
+        "helix": "simplified 7x7 cable"
+      },
+      "contact_model": {
+        "normal": "smooth contact algorithm in Abaqus",
+        "tangential": "frictionless/smooth",
+        "coulomb": "absent in reported model",
+        "penalty": "specific method and parameters not verified",
+        "normal_force_dependence": "not a frictional threshold model"
+      },
+      "constitutive_model": "Incremental shape-memory-factor SMA law; transformation-dependent modulus, temperature-dependent thresholds and internal state in UMAT.",
+      "supports_nonlinear_NiTi": "DIRECTLY_APPLICABLE at material-law level",
+      "supports_history": "DIRECTLY_APPLICABLE for material transformation history, not contact friction history",
+      "supports_pressure_boundary": "APPLICABLE_WITH_BOUNDED_EXTENSION in 3D FE, with a membrane mesh/traction added",
+      "supports_wire_slip": "NOT_APPLICABLE in reported frictionless implementation; framework can be extended with Coulomb interface",
+      "supports_bending": "APPLICABLE_WITH_BOUNDED_EXTENSION in FE, but published validation is tensile",
+      "supports_local_observables": "Stress/transformation fields available; no frictional slip field in reported setup",
+      "geometry_assumptions": [
+        "simplified helical 7x7 NiTi cable",
+        "rigid end grips",
+        "25 C reported conditions"
+      ],
+      "known_limitations": [
+        "reported contact is frictionless",
+        "reported validation concerns tension, not pressure-controlled bending",
+        "repository filename starts 2025 but paper itself is 2020"
+      ],
+      "required_adaptation": [
+        "introduce frictional contact and mesh verification",
+        "model actual MP1 packing and sleeve",
+        "apply radial traction to membrane",
+        "validate bending implementation separately"
+      ],
+      "MP1_applicability": "APPLICABLE_WITH_BOUNDED_EXTENSION as constitutive/solid FE precedent; insufficient alone for H0b frictional mechanism",
+      "evidence_status": "VERIFIED FULL TEXT",
+      "evidence_pointer": [
+        "data/papers/verification/MP1-V002/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf: English abstract; Section 1 transformation evolution; model setup around Eq. (23); conclusions",
+        "data/evidence/2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy _56793dea9b.json"
+      ],
+      "correction_to_worker_record": "W2-04 role matrix claims corotational beam elements, Coulomb friction and pure-bending validation; PDF instead reports C3D4 SMA solids, C3D8R grips, smooth interwire contact and tensile loading."
+    },
+    {
+      "source": "Vahidi, Arghavani, Choi & Ostadrahimi (published online 2021; corpus file labeled 2022), Mechanics of Advanced Materials and Structures; DOI 10.1080/15376494.2021.1955313; paper_id 53200aa0c6",
+      "formulation_name": "3D solid explicit-wire FE with Souza transformation model and interwire friction",
+      "mechanical_object": "Single- and double-helix SMA wire ropes under axial tension",
+      "state_variables": [
+        "3D displacement and component stresses",
+        "temperature T",
+        "deviatoric transformation strain tensor e_tr",
+        "backstress-like tensor alpha",
+        "contact normal/tangential state"
+      ],
+      "kinematics": {
+        "bending": "not reported as applied loading",
+        "axial": "tension",
+        "torsion": "helical geometry generates torque and shear",
+        "slip": "interwire frictional contact in FE",
+        "stick_slip_transition": "implicit contact solution, but local transition results not fully specified",
+        "wire_contact": "surface-to-surface interactions between solid wires",
+        "cross_section_deformation": "3D solid mesh can represent it within discretization",
+        "prestrain": "MP1 prestrain not modeled",
+        "helix": "1x27 and 7x7 configurations"
+      },
+      "contact_model": {
+        "normal": "surface-to-surface contact; exact normal enforcement and penalty constants not specified in checked text",
+        "tangential": "friction coefficient approximately 0.115 for SMA wires",
+        "coulomb": "frictional contact stated; exact tangential regularization not specified in checked text",
+        "penalty": "not verified in PDF text, so no physical inference from penalty setting",
+        "normal_force_dependence": "computed from geometry/load/contact, not imposed equal to external pressure"
+      },
+      "constitutive_model": "Souza et al. 3D phenomenological thermodynamic SMA law, Eqs. (1)-(8); transformation strain tensor bounded by e_L and temperature-dependent transformation stress; implemented by UMAT.",
+      "supports_nonlinear_NiTi": "DIRECTLY_APPLICABLE at material/contact FE architecture level",
+      "supports_history": "DIRECTLY_APPLICABLE for transformation internal variable; friction contact history requires solver state verification",
+      "supports_pressure_boundary": "APPLICABLE_WITH_BOUNDED_EXTENSION by adding pressurized membrane and external traction",
+      "supports_wire_slip": "APPLICABLE_WITH_PARAMETERIZATION via frictional surface contact, subject to contact-law verification",
+      "supports_bending": "APPLICABLE_WITH_BOUNDED_EXTENSION in 3D FE; paper demonstrates tensile response only",
+      "supports_local_observables": "3D wire stress and transformation fields; contact gap/slip/traction outputs require explicit extraction and verification",
+      "geometry_assumptions": [
+        "helical 1x27 and 7x7 ropes",
+        "end-reference-point kinematic coupling",
+        "length chosen to reduce clamp effects",
+        "reported loading primarily tensile"
+      ],
+      "known_limitations": [
+        "no pressure sleeve or active confinement",
+        "no published MP1 bending forward benchmark",
+        "material parameters adopted from available experiments, not independent MP1 calibration",
+        "tension/compression asymmetry neglected in the model"
+      ],
+      "required_adaptation": [
+        "actual straight bundle geometry and packing",
+        "pressurized deformable membrane",
+        "cyclic bending and end fixtures/prestrain",
+        "independently calibrated friction/pressure transmission",
+        "thermal branch if pilots show non-isothermal behavior"
+      ],
+      "MP1_applicability": "APPLICABLE_WITH_BOUNDED_EXTENSION; best existing NiTi/frictional explicit-wire FE core",
+      "evidence_status": "VERIFIED FULL TEXT",
+      "evidence_pointer": [
+        "data/papers/verification/MP1-V002/A3-2022-Mechanical response of single and double-helix.pdf: title page; Section 2 Eqs. (1)-(8); Section 4 contact/UMAT setup; Section 5 tensile comparisons",
+        "data/evidence/A3-2022-Mechanical response of single and double-helix_53200aa0c6.json"
+      ],
+      "correction_to_worker_record": "W2-04 describes an Auricchio-Petrini UMAT and claims locked independent validation and bending sufficiency; PDF names the Souza model, reports tensile comparisons and says parameters were extracted from available experimental data."
+    }
+  ],
+  "interpretation": "Full-text checks take precedence over W2-04 worker summaries where they conflict. No row establishes empirical adequacy of MP1 H0b."
+}

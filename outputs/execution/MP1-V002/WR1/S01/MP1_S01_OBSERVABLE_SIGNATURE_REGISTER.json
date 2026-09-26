@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S01",
+  "status": "PREDICTIONS_FOR_LATER_S03_ONLY",
+  "experimental_observability": "NOT_ESTABLISHED_UNTIL_S02",
+  "signatures": [
+    {
+      "observable": "slip_onset",
+      "candidate_measure": "contact relative tangential displacement/velocity and first persistent sliding location",
+      "H0b_expected_sensitivity": "increases or shifts with local lambda_n and mu; pressure alone is not the slip threshold",
+      "candidate_channel_and_caveat": "end-slip or local tracking candidate, feasibility unproven",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "transformation_onset",
+      "candidate_measure": "local NiTi strain/stress/phase-sensitive proxy",
+      "H0b_expected_sensitivity": "shifts with strain, temperature and prestrain; may coincide with or precede slip",
+      "candidate_channel_and_caveat": "local strain plus thermometry candidate, phase proxy needs independent validation",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "local_strain",
+      "candidate_measure": "wire-resolved axial strain field",
+      "H0b_expected_sensitivity": "spatial concentration depends on section bending, slip and phase state",
+      "candidate_channel_and_caveat": "DIC/FBG candidate under seal, feasibility unproven",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "curvature",
+      "candidate_measure": "local centerline curvature along span",
+      "H0b_expected_sensitivity": "drives bending strain and changes contact geometry",
+      "candidate_channel_and_caveat": "imaging/shape sensing candidate",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "temperature",
+      "candidate_measure": "wire and membrane local temperature plus ambient",
+      "H0b_expected_sensitivity": "temperature excursions can shift transformation thresholds and apparent hysteresis",
+      "candidate_channel_and_caveat": "thermocouple/IR candidate, internal access unresolved",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "cross_section_shape",
+      "candidate_measure": "ovalization, packing rearrangement and void fraction",
+      "H0b_expected_sensitivity": "can produce softening and change pressure transfer without new constitutive law",
+      "candidate_channel_and_caveat": "section imaging or proxy candidate",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "membrane_deformation",
+      "candidate_measure": "radial/hoop displacement and strain",
+      "H0b_expected_sensitivity": "mediates pressure transfer and adds compliance",
+      "candidate_channel_and_caveat": "outer optical strain/displacement candidate",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "pressure",
+      "candidate_measure": "measured chamber p(t) and pressure lag",
+      "H0b_expected_sensitivity": "external input with rate/history effects, not interwire force",
+      "candidate_channel_and_caveat": "transducer; independently calibrate transmission",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "global_M_kappa",
+      "candidate_measure": "moment-curvature loading/unloading path, tangent stiffness and loop area",
+      "H0b_expected_sensitivity": "aggregate response predicted but not mechanism-identifying alone",
+      "candidate_channel_and_caveat": "load/curvature instrumentation",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    },
+    {
+      "observable": "contact_traction",
+      "candidate_measure": "model contact lambda_n and shear traction map",
+      "H0b_expected_sensitivity": "latent field for sensitivity, constrained by independent pressure-transfer calibration",
+      "candidate_channel_and_caveat": "direct sensor or inverse bound candidate; not presumed observable",
+      "evidence_status": "INFERENCE_FROM_SELECTED_H0B"
+    }
+  ],
+  "composite_signatures": [
+    {
+      "id": "SIG-A",
+      "description": "At fixed temperature and curvature history, pressure changes slip onset with membrane/contact-force response while transformation onset follows local NiTi thermomechanical state; separation must exceed channel uncertainty."
+    },
+    {
+      "id": "SIG-B",
+      "description": "At fixed calibrated pressure-transfer range, changing curvature drives local transformation and slip patterns whose predicted sequence depends on prestrain and wire position."
+    },
+    {
+      "id": "SIG-C",
+      "description": "Rate/temperature perturbations shift hysteresis through established thermomechanics; similar loop changes from friction, membrane or fixtures require local controls."
+    }
+  ],
+  "warning": "Global M-kappa agreement or disagreement alone cannot identify a missing coupling mechanism."
+}

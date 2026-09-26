@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S01",
+  "gap_07_status": "FORMULATION_LEVEL_TRIAGE_COMPLETE; EMPIRICAL_ADEQUACY_OPEN",
+  "assumptions": [
+    {
+      "id": "A01",
+      "assumption": "Actual MP1 packing replaces helical published geometries",
+      "class": "BOUNDARY_ADAPTATION",
+      "required_check": "Measure as-built wire count, diameters, contact neighbors, clearances and initial curvature; test sensitivity to packing realization.",
+      "evidence_pointer": "Vahidi Section 3; Tjahjanto 3D FE Model",
+      "status": "OPEN"
+    },
+    {
+      "id": "A02",
+      "assumption": "Pressure acts on fluid-wetted membrane as boundary traction, not directly as known interwire normal force",
+      "class": "ESSENTIAL_PHYSICAL",
+      "required_check": "Measure membrane deformation and independently bound p-to-contact transfer; propagate uncertainty.",
+      "evidence_pointer": "Tjahjanto analytical Eq. (6) and radial-pressure FE load case",
+      "status": "OPEN"
+    },
+    {
+      "id": "A03",
+      "assumption": "NiTi law includes transformation state/history and temperature dependence",
+      "class": "ESSENTIAL_PHYSICAL",
+      "required_check": "Calibrate on single wires with load/unload and temperature sweeps; verify update algorithm.",
+      "evidence_pointer": "Vahidi Section 2 Eqs. (1)-(8); Kang Section 1",
+      "status": "OPEN"
+    },
+    {
+      "id": "A04",
+      "assumption": "Contact topology and Coulomb law are an adequate first existing-physics interface description",
+      "class": "TESTABLE_ASSUMPTION",
+      "required_check": "Calibrate friction in direct shear/pull-out across normal loads, temperature and cycling; inspect wear/adhesion effects.",
+      "evidence_pointer": "Tjahjanto contact setup; Vahidi Section 4",
+      "status": "OPEN"
+    },
+    {
+      "id": "A05",
+      "assumption": "Finite bending and local section deformation can be resolved by 3D mesh",
+      "class": "NUMERICAL_FEASIBILITY",
+      "required_check": "Mesh/element and increment convergence; section-shape measurements.",
+      "evidence_pointer": "Tjahjanto geometrically nonlinear FE; Vahidi 3D solids",
+      "status": "OPEN"
+    },
+    {
+      "id": "A06",
+      "assumption": "Vahidi symmetric tensile/compressive response transfers to MP1 bending",
+      "class": "CONDITIONAL_MATERIAL",
+      "required_check": "Check separate wire tension/compression or appropriate bending calibration; select existing asymmetric law before lock if needed.",
+      "evidence_pointer": "Vahidi Section 5 notes symmetry assumption",
+      "status": "OPEN"
+    },
+    {
+      "id": "A07",
+      "assumption": "Isothermal approximation is adequate",
+      "class": "CONDITIONAL_THERMAL",
+      "required_check": "S02 rate/temperature pilot must bound heat effects; else add coupled thermal branch.",
+      "evidence_pointer": "Vahidi temperature-dependent constitutive terms; W02 GAP-06",
+      "status": "OPEN"
+    },
+    {
+      "id": "A08",
+      "assumption": "Friction and pressure transmission are separately identifiable",
+      "class": "CALIBRATION_ASSUMPTION",
+      "required_check": "Use independent shear/pull-out and membrane/section tests; retain covariance/intervals; stop if compensation reverses verdict.",
+      "evidence_pointer": "WR1 GAP-03 and GAP-04 routing",
+      "status": "OPEN"
+    },
+    {
+      "id": "A09",
+      "assumption": "Published rope boundary conditions transfer to specimen clamps/prestrain",
+      "class": "BOUNDARY_ADAPTATION",
+      "required_check": "Measure fixture compliance, end slip and prestrain; include as physical parameters, not adjustment knobs.",
+      "evidence_pointer": "Vahidi Section 4 end coupling; Tjahjanto applied axial strain",
+      "status": "OPEN"
+    },
+    {
+      "id": "A10",
+      "assumption": "Barsi uniform slip-state bounds are usable as consistency checks",
+      "class": "LIMITED_ANALYTICAL",
+      "required_check": "Compare FE limiting states only within Barsi small-deformation, short-rope assumptions; do not use as transition prediction.",
+      "evidence_pointer": "Barsi Section 2 Eqs. (11),(12),(18)",
+      "status": "OPEN"
+    },
+    {
+      "id": "A11",
+      "assumption": "A physically absent new coupling term has been identified",
+      "class": "UNSUPPORTED_CLAIM",
+      "required_check": "No such term has been demonstrated in current repository evidence; leave claim unmade pending later locked forward discrimination.",
+      "evidence_pointer": "W02 K7 and GAP-07",
+      "status": "NOT_ESTABLISHED"
+    }
+  ]
+}

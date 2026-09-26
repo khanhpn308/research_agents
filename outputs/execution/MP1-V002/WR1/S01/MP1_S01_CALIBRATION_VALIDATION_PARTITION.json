@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S01",
+  "state": "DRAFT_FUTURE_PROTOCOL_NOT_CALIBRATION_PERFORMED",
+  "partitions": {
+    "calibration": {
+      "allowed": "Independent material, contact, membrane, geometry, pressure-transfer and fixture tests; S02 feasibility pilot is for operating-domain and sensor feasibility, not held-out bending fitting."
+    },
+    "numerical_verification": {
+      "allowed": "Mesh/time/contact-regularization convergence, constitutive update benchmarks, equilibrium and energy checks; no fitting to experimental bending."
+    },
+    "held_out_validation": {
+      "reserved": "Prespecified pressure-curvature-temperature bending paths/specimens after model/code/parameters/metrics/tolerances are locked.",
+      "use": "One forward evaluation under S06/S07; no physical or numerical parameter adjustment to improve fit."
+    }
+  },
+  "parameters": [
+    {
+      "parameter_group": "NiTi elastic and transformation law",
+      "independent_source_or_check": "single-wire cyclic tension/compression/bending as needed across temperature and rate",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "transformation thresholds and hardening",
+      "independent_source_or_check": "single-wire thermomechanical onset/finish and unloading tests",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "temperature dependence, latent heat and heat transfer if needed",
+      "independent_source_or_check": "single-wire rate/temperature tests and S02 pilot",
+      "class": "physical",
+      "future_stage": "S02/S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "interwire mu and surface state",
+      "independent_source_or_check": "direct shear/crossed-wire or pull-out under independently measured normal load, cycle and temperature",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "membrane thickness and constitutive response",
+      "independent_source_or_check": "coupon plus inflation/pressure-displacement tests",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "pressure-transfer/contact-traction relation",
+      "independent_source_or_check": "independent section compression, membrane inflation and pull-out/contact-pressure proxy with uncertainty",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "wire geometry and surface condition",
+      "independent_source_or_check": "metrology of each wire batch",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "packing/contact topology",
+      "independent_source_or_check": "as-built imaging or equivalent geometric measurement",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "prestrain/prestress",
+      "independent_source_or_check": "assembly and independent axial measurement",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "fixture compliance and clamp slip",
+      "independent_source_or_check": "separate fixture characterization and controls",
+      "class": "physical",
+      "future_stage": "S04",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "normal/tangential penalty and regularization",
+      "independent_source_or_check": "mesh/contact convergence, penetration/slip sensitivity and energy checks only",
+      "class": "numerical",
+      "future_stage": "S05",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    },
+    {
+      "parameter_group": "mesh, element, increments, solver tolerances",
+      "independent_source_or_check": "numerical convergence and benchmark checks only",
+      "class": "numerical",
+      "future_stage": "S05",
+      "current_value": "NOT_CALIBRATED",
+      "uncertainty": "TO_BE_MEASURED_OR_BOUNDED"
+    }
+  ],
+  "freeze_rule": "S05 must version and timestamp code, physical parameter estimates/covariance or ranges, numerical convergence settings, predictions, held-out paths, metrics and tolerances before S06 data acquisition/unblinding.",
+  "failure_rule": "A fit/refit using held-out data fails that locked model version and requires a new version and a new untouched validation set.",
+  "compensation_checks": [
+    "joint mu versus pressure-transfer sensitivity",
+    "NiTi transformation parameters versus geometry/prestrain",
+    "membrane/fixture compliance versus bundle bending stiffness",
+    "contact regularization versus physical traction predictions"
+  ]
+}

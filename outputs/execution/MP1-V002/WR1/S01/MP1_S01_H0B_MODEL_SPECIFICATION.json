@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S01",
+  "selection": "EXPLICIT_WIRE_3D_THERMOMECHANICAL_FE_CONTACT_WITH_DEFORMABLE_PRESSURIZED_MEMBRANE",
+  "scientific_status": {
+    "H0a": "REFUTED_IN_TRANSFORMATION_REGIME",
+    "H0b": "NOT_FALSIFIED_LIVE_COMPETITOR",
+    "H1": "INSUFFICIENT_EVIDENCE",
+    "empirical_H0b_adequacy": "NOT_TESTED",
+    "novelty_adjudication": "NOT_PERFORMED"
+  },
+  "gap_07_kill_test": "EXISTING_FORMULATION_SUFFICIENT_IN_PRINCIPLE",
+  "gap_07_meaning": "A 3D explicit-wire frictional-contact FE system can combine established transformation-aware NiTi updates with membrane traction and actual packing without a presently identified missing field equation. This is a formulation-level verdict only; numerical implementation and locked forward adequacy remain open.",
+  "primary_precedents": [
+    {
+      "paper_id": "53200aa0c6",
+      "contribution": "Explicit-wire 3D solid FE, Souza transformation-aware UMAT, interwire friction under tension",
+      "boundary": "helical tensile examples only; no pressurized membrane or bending test"
+    },
+    {
+      "paper_id": "ccdc1bb980",
+      "contribution": "3D geometrically nonlinear bending, sheaths, radial outer pressure, normal penalty and Coulomb component contact",
+      "boundary": "elastic cable constituents, component-scale FE rather than resolved MP1 wires"
+    },
+    {
+      "paper_id": "56793dea9b",
+      "contribution": "Incremental 3D NiTi material UMAT precedent",
+      "boundary": "published contact smooth/frictionless and load tensile"
+    },
+    {
+      "paper_id": "9f4295be23",
+      "contribution": "Short-rope beam stick/slip stiffness bounds as reduced consistency comparator",
+      "boundary": "not pressure-dependent Coulomb evolution"
+    }
+  ],
+  "mechanical_domain": {
+    "specimen": "actual straight or manufactured MP1 wire packing, wire count and dimensions, not copied helical lay",
+    "loads": [
+      "prescribed pressure history p(t) on fluid-wetted membrane surface",
+      "prescribed cyclic bending/curvature history",
+      "measured axial prestrain/prestress",
+      "measured fixture constraints"
+    ],
+    "outputs": [
+      "M-kappa path",
+      "tangent and secant bending stiffness under stated definitions",
+      "hysteresis energy",
+      "contact slip onset and distribution",
+      "transformation onset and local strain",
+      "membrane/section deformation",
+      "temperature where modeled"
+    ]
+  },
+  "field_and_interface_specification": [
+    {
+      "name": "wire_balance",
+      "equation": "div(sigma_i)+b_i=0 in each wire i, with finite-deformation form and consistent work conjugacy selected at implementation",
+      "status": "INFERENCE: standard FE balance; implementation choice must be verified"
+    },
+    {
+      "name": "NiTi_constitutive",
+      "equation": "sigma_i=F(epsilon_i,z_i,T_i;theta_NiTi), z_i advanced by an established transformation evolution/update with unloading and cycle history",
+      "status": "VERIFIED FULL TEXT precedent: Vahidi 2021/2022 Souza Eqs. (1)-(8); exact MP1 parameter set absent"
+    },
+    {
+      "name": "normal_contact",
+      "equation": "g_n>=0, lambda_n>=0, g_n*lambda_n=0, or convergence-equivalent regularized enforcement",
+      "status": "INFERENCE: standard contact form; Tjahjanto reports nonlinear normal penalty"
+    },
+    {
+      "name": "tangential_contact",
+      "equation": "|t_t|<=mu*lambda_n in stick; sliding traction opposes tangential relative velocity at the bound",
+      "status": "INFERENCE: Coulomb form; Tjahjanto states Coulomb tangential law and Vahidi uses frictional interwire contact"
+    },
+    {
+      "name": "fluid_boundary",
+      "equation": "sigma_mem*n=-p(t)*n on the actual fluid-wetted membrane surface, subject to chosen traction sign convention",
+      "status": "INFERENCE: traction boundary; Tjahjanto applies radial pressure to outer sheath"
+    },
+    {
+      "name": "transmission",
+      "equation": "lambda_n(x,t)=G[p(t), membrane deformation, packing, prestrain, curvature, contact history;theta_phys] as an FE prediction or independently calibrated bounded map",
+      "status": "INFERENCE: p is not equal to lambda_n or a single interwire normal force"
+    }
+  ],
+  "constitutive_branch": {
+    "baseline": "An established 3D transformation-aware NiTi law with internal transformation strain and temperature dependence, provisionally Souza per Vahidi; compare accepted alternatives only before model lock using calibration/verification, never held-out bending.",
+    "history": "Transformation loading/unloading state and contact stick/slip memory retained.",
+    "thermal_rule": "Isothermal approximation only after S02 thermal/rate pilots bound temperature effects relative to the discrimination margin; otherwise coupled heat balance and transformation latent heat are required before S05 lock.",
+    "tension_compression": "Vahidi assumes symmetry; MP1 bending may require an independently characterized established asymmetric NiTi option if single-wire tests show material asymmetry."
+  },
+  "physical_parameters": [
+    "NiTi moduli, transformation thresholds/hardening and temperature coefficients",
+    "wire surface friction coefficient(s) and independently justified rate/state dependence if needed",
+    "membrane elastic/viscoelastic properties and thickness",
+    "wire radii, length, initial curvature and surface condition",
+    "packing/contact topology and assembly prestrain",
+    "fixture stiffness and clamp friction",
+    "pressure-transfer/contact-traction physical uncertainty"
+  ],
+  "numerical_parameters": [
+    "normal/tangential penalty stiffness or Lagrange-multiplier tolerances",
+    "contact smoothing/elastic slip regularization",
+    "mesh size and element order",
+    "time/load increment and Newton tolerances",
+    "stabilization/damping used solely for solver convergence"
+  ],
+  "parameter_rule": "Numerical parameters must pass convergence and work/energy checks and may not be freely tuned to fit bending data. Physical parameters must be independently calibrated or bounded from non-validation tests.",
+  "adaptations": [
+    "Replace helix with actual MP1 packing; no assumed helical topology",
+    "model membrane and correct wetted traction boundary",
+    "include NiTi transformation and friction simultaneously",
+    "represent measured prestrain, axial load, clamps, finite bending and section ovalization",
+    "calibrate p-to-contact transmission independently",
+    "verify local output extraction and thermal branch"
+  ],
+  "not_yet_shown": [
+    "actual coexistence of slip and transformation in a durable sealed specimen",
+    "identifiability or measurability of local state",
+    "parameter identifiability and pressure transfer",
+    "converged implementation",
+    "locked forward predictive adequacy",
+    "need for any new constitutive-contact coupling term"
+  ],
+  "evidence_pointers": [
+    "outputs/execution/MP1-V002/WR1/S01/MP1_S01_FORMULATION_CROSSWALK.json",
+    "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json:K2,K3,K6,K7,K8,K9",
+    "outputs/execution/MP1-V002/WR1/MP1_WR1_STAGE_GATE_REGISTER.json:WR1-S01"
+  ]
+}
