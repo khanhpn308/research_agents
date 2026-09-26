@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "SEARCH_REOPENED": false,
+  "BROAD_SEARCH_PERFORMED": false,
+  "TARGETED_RETRIEVAL_PERFORMED": false,
+  "trigger_state": "NAMED_CONDITIONAL_REQUIREMENTS_RECORDED_NOT_EXECUTED",
+  "triggers": [
+    {
+      "id": "TR-S02-01",
+      "exact_missing_quantity": "Selected NiTi wire lot allowable cyclic bending strain/stress and damage/fatigue envelope at selected diameter, temperature, prestrain and planned pilot cycles",
+      "why_required": "Cannot set safe curvature/cycle hard stop or interpret STOP-1 without a specimen-specific integrity limit. W02 approximate transformation strain is not a fatigue limit.",
+      "target_source_or_type": "Exact selected wire lot manufacturer technical data and certificate, supplemented by batch-matched single-wire bending/fatigue test if absent",
+      "what_closes_trigger": "Documented lot-specific safe limit and uncertainty over the pilot rate/T/cycle domain, reviewed before loading.",
+      "activation": "AFTER_HUMAN_SELECTS_WIRE_LOT_BEFORE_CURVATURE_STAIRCASE",
+      "status": "PENDING_SELECTION_NO_RETRIEVAL"
+    },
+    {
+      "id": "TR-S02-02",
+      "exact_missing_quantity": "Certified working/proof/burst pressure, cyclic bend compatibility, permeability and seal/feedthrough rating of the exact annular cuff, membrane, tubing, fittings and optical window",
+      "why_required": "Cannot set pressure hard limit or claim repeatable sealed operation from generic pressure literature.",
+      "target_source_or_type": "Exact selected component manufacturer ratings/design drawings and lab proof/leak test records",
+      "what_closes_trigger": "Identified assembly-level limiting component and signed proof/leak/pressure protocol with uncertainty and safety margin before pressurization.",
+      "activation": "AFTER_HUMAN_SELECTS_CUFF_COMPONENTS_BEFORE_PRESSURIZATION",
+      "status": "PENDING_SELECTION_NO_RETRIEVAL"
+    },
+    {
+      "id": "TR-S02-03",
+      "exact_missing_quantity": "Optical transmission/distortion or sealed feedthrough compatibility of the exact selected sleeve/window/sensor method under pressure and bending",
+      "why_required": "A local slip or transformation proxy cannot be treated as feasible while its sealed channel and packing perturbation are unverified.",
+      "target_source_or_type": "Selected component technical specification and direct instrumented leak/visibility/perturbation bench test",
+      "what_closes_trigger": "Measured under-pressure visibility, calibration drift, leak rate and marked-versus-unmarked mechanical perturbation inside approved limits.",
+      "activation": "AFTER_HUMAN_SELECTS_CHANNEL_METHOD_BEFORE_MECHANISM_RUN",
+      "status": "PENDING_SELECTION_NO_RETRIEVAL"
+    }
+  ],
+  "policy": "These are exact component/lot requirements, not authorization for broad literature search. Direct local calibration/proof is preferred where supplier data are absent. No source was fetched during preparation."
+}

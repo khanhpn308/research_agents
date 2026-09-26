@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "dataset_role": "S02_PILOT_ONLY_NEVER_S06_HELD_OUT",
+  "physical_data_present": false,
+  "storage_convention": {
+    "raw": "append-only original instrument streams and camera files; record SHA-256 on ingestion",
+    "processed": "versioned derived tables with processing code hash and parent raw hashes",
+    "calibration": "separate referenced records with validity intervals",
+    "metadata": "specimen build, wire lot, sleeve lot, operator-approved limits and design-value classification"
+  },
+  "common_required_fields": [
+    {
+      "field": "specimen_id",
+      "unit": "identifier",
+      "meaning": "Unique pilot specimen, assembly and wire-lot linkage"
+    },
+    {
+      "field": "run_id",
+      "unit": "identifier",
+      "meaning": "Unique continuous recording, controls and sensor configuration"
+    },
+    {
+      "field": "event_id",
+      "unit": "identifier",
+      "meaning": "Pressure/curvature step, dwell, stop or anomaly"
+    },
+    {
+      "field": "timestamp_utc",
+      "unit": "ns or instrument-native resolution",
+      "meaning": "Common synchronized time base and original instrument time retained"
+    },
+    {
+      "field": "clock_offset_uncertainty",
+      "unit": "s",
+      "meaning": "Estimated channel-to-master offset and uncertainty"
+    },
+    {
+      "field": "cycle_number",
+      "unit": "count",
+      "meaning": "Includes training and abandoned cycles"
+    },
+    {
+      "field": "pressure",
+      "unit": "Pa",
+      "meaning": "Measured active-cuff chamber pressure; no implied internal force"
+    },
+    {
+      "field": "curvature",
+      "unit": "mm^-1",
+      "meaning": "Measured local active-span curvature"
+    },
+    {
+      "field": "temperature",
+      "unit": "K",
+      "meaning": "Local or bundle-adjacent and ambient channel separately identified"
+    },
+    {
+      "field": "loading_rate",
+      "unit": "s^-1 or mm/s",
+      "meaning": "Actual local strain/curvature rate and actuator rate separately"
+    },
+    {
+      "field": "calibration_record_id",
+      "unit": "identifier",
+      "meaning": "Traceable calibration valid for the channel/time"
+    },
+    {
+      "field": "uncertainty_standard",
+      "unit": "channel unit",
+      "meaning": "Standard uncertainty with method and covariance linkage"
+    },
+    {
+      "field": "processing_state",
+      "unit": "RAW or PROCESSED",
+      "meaning": "Raw never replaced by processed"
+    },
+    {
+      "field": "source_hash",
+      "unit": "SHA-256",
+      "meaning": "Provenance of raw file or derived parent"
+    },
+    {
+      "field": "sensor_configuration_id",
+      "unit": "identifier",
+      "meaning": "Marker/probe/feedthrough placement, intrusion and seal status"
+    },
+    {
+      "field": "sampling_frequency_Hz",
+      "unit": "Hz",
+      "meaning": "Actual per-channel acquisition frequency with anti-alias filter and drop-frame record; selected after bandwidth check."
+    },
+    {
+      "field": "channel_id",
+      "unit": "identifier",
+      "meaning": "Links each raw/processed stream to measurement channel matrix."
+    }
+  ],
+  "channel_records": [
+    {
+      "channel_id": "MOMENT",
+      "fields": [
+        "load_N",
+        "moment_arm_mm",
+        "moment_Nmm",
+        "load_cell_id"
+      ]
+    },
+    {
+      "channel_id": "CURVATURE",
+      "fields": [
+        "centerline_marker_coordinates_mm",
+        "local_curvature_mm_inv",
+        "bend_plane_orientation_rad"
+      ]
+    },
+    {
+      "channel_id": "PRESSURE",
+      "fields": [
+        "cuff_pressure_Pa",
+        "pump_pressure_Pa_if_available",
+        "pressure_lag_s"
+      ]
+    },
+    {
+      "channel_id": "SLIP",
+      "fields": [
+        "wire_A_marker_position_mm",
+        "wire_B_marker_position_mm",
+        "rigid_body_corrected_relative_mm",
+        "elastic_extension_correction_mm",
+        "slip_proxy_mm",
+        "slip_detection_status"
+      ]
+    },
+    {
+      "channel_id": "TRANSFORMATION_PROXY",
+      "fields": [
+        "wire_local_strain",
+        "calibrated_proxy",
+        "single_wire_reference_id",
+        "transformation_evidence_level",
+        "control_exclusion_status"
+      ]
+    },
+    {
+      "channel_id": "TEMPERATURE_RATE",
+      "fields": [
+        "wire_adjacent_temperature_K",
+        "ambient_temperature_K",
+        "local_strain_rate_s_inv",
+        "dwell_duration_s"
+      ]
+    },
+    {
+      "channel_id": "MEMBRANE_SHAPE",
+      "fields": [
+        "outer_contour_mm",
+        "hoop_strain",
+        "cross_section_shape_proxy"
+      ]
+    },
+    {
+      "channel_id": "FIXTURE",
+      "fields": [
+        "clamp_A_motion_mm",
+        "clamp_B_motion_mm",
+        "wire_tail_motion_mm",
+        "fixture_compliance_correction_mm"
+      ]
+    }
+  ],
+  "event_table_fields": [
+    "planned_step_id",
+    "actual_start_utc",
+    "actual_end_utc",
+    "pressure_setpoint_Pa",
+    "pressure_measured_Pa",
+    "curvature_command_mm_inv",
+    "curvature_measured_mm_inv",
+    "rate_condition",
+    "dwell_flag",
+    "safety_limit_state",
+    "operator_action"
+  ],
+  "calibration_table_fields": [
+    "calibration_record_id",
+    "sensor_serial",
+    "method",
+    "date",
+    "range",
+    "unit",
+    "fit_parameters",
+    "standard_uncertainty",
+    "drift_check",
+    "validity_interval",
+    "raw_reference_hash"
+  ],
+  "synchronization_rule": "One master acquisition clock or measured common trigger. Store per-stream offset, drift and expanded timing uncertainty; event overlap is undecidable when timing intervals cannot be separated.",
+  "segregation_rule": "S02 specimen IDs, raw streams and processed pilot results receive permanent PILOT_ONLY tag. They may inform design and future calibration protocol but never count as untouched S06 validation. S06 uses separately registered specimens/paths after S05 lock."
+}

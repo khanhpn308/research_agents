@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "gap_status": {
+    "GAP-05": "OPEN",
+    "GAP-06": "OPEN",
+    "GAP-08": "OPEN"
+  },
+  "stop_rules": [
+    {
+      "id": "STOP-1",
+      "observation": "No safe durable transformation-active curvature reached before approved NiTi, sleeve, fixture or temperature limit",
+      "scientific_interpretation": "The selected apparatus cannot access the phase-active domain under current bounds",
+      "primary_next_route": "NARROW",
+      "route_condition_or_action": "STOP_MP1_COUPLING_CORE only if tested safe envelope demonstrably covers the intended MP1 configuration; otherwise select larger wire/prestrain or different fixture only after new safety review.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-2",
+      "observation": "Transformation-supported interval exists but corrected interwire slip is absent or below detectability throughout the safe pressure-curvature domain",
+      "scientific_interpretation": "Coexistence not demonstrated; distinguish physical no-slip from insufficient slip resolution",
+      "primary_next_route": "REDESIGN",
+      "route_condition_or_action": "Improve slip channel or change a prespecified pressure level/packing within approved bounds; stop core if coverage and observability are established and no coexistence remains.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-3",
+      "observation": "Validated slip exists but batch-calibrated transformation signature cannot be activated in the same safe domain",
+      "scientific_interpretation": "The selected wire/curvature/prestrain state supports slip only",
+      "primary_next_route": "NARROW",
+      "route_condition_or_action": "If strain/thermal access covers the intended configuration, stop coupling core; otherwise change approved specimen geometry and repeat as a new pilot.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-4",
+      "observation": "Sealed channels cannot independently separate slip from transformation after controls and uncertainty propagation",
+      "scientific_interpretation": "Mechanism attribution is not feasible from this apparatus; global loops are non-identifying",
+      "primary_next_route": "REDESIGN",
+      "route_condition_or_action": "Change channel/optical path or narrow objective to predictive H0b validity; do not claim coexistence.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-5",
+      "observation": "Markers, sensors, leads or feedthrough change packing/contact/slip threshold beyond the predeclared perturbation budget or cause leakage",
+      "scientific_interpretation": "Observed behavior belongs to the instrumented specimen, not the intended baseline",
+      "primary_next_route": "REDESIGN",
+      "route_condition_or_action": "Use lower-intrusion channel and rerun marked/unmarked comparison; unquantified perturbation prevents passage.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-6",
+      "observation": "Slow/fast or dwell comparison shows temperature/rate/history effects could account for putative mechanism separation",
+      "scientific_interpretation": "Isothermal mechanics discrimination is confounded",
+      "primary_next_route": "NARROW",
+      "route_condition_or_action": "Require THERMOMECHANICAL_H0b_REQUIRED before later model lock, or restrict rate/temperature domain if independently justified.",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "STOP-7",
+      "observation": "Leak, pressure overshoot, membrane damage, NiTi wire damage/residual set, uncontrolled fixture slip, or other approved safety limit",
+      "scientific_interpretation": "Specimen integrity or operator safety fails; data after event invalid",
+      "primary_next_route": "REDESIGN",
+      "route_condition_or_action": "Stop loading immediately per lab procedure; human safety review and new specimen/limits required before restart.",
+      "status": "NOT_YET_TESTED"
+    }
+  ],
+  "pass_criteria": [
+    {
+      "id": "PASS-1",
+      "criterion": "Repeatable sealed operation across selected pressure-curvature path; leak and pressure records accepted",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-2",
+      "criterion": "Accessible and durable p-kappa-T operating domain within predeclared wire, membrane, fixture and cycle-integrity limits",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-3",
+      "criterion": "Corrected direct or independently validated proxy evidence of relative interwire slip, separated from clamp, membrane, rigid-body and elastic extension",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-4",
+      "criterion": "Independent, batch-calibrated evidence supporting stress-induced NiTi transformation, with thermal and elastic/friction-only controls; evidence level declared direct or indirect",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-5",
+      "criterion": "PASS-3 and PASS-4 occupy the same local operating/time interval after synchronization uncertainty, and recur in confirmation cycles",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-6",
+      "criterion": "Each necessary channel has calibration, noise, synchronization, resolution and marker/feedthrough perturbation quantified",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-7",
+      "criterion": "Temperature, rate and history are bounded relative to future discrimination margin or explicitly route to thermomechanical H0b",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "id": "PASS-8",
+      "criterion": "Post-pilot specimen integrity is acceptable for future independently designed validation; no puncture, damage or uncontrolled drift",
+      "status": "NOT_YET_TESTED"
+    }
+  ],
+  "overall_pilot_verdict": "NOT_YET_TESTED",
+  "logical_gate": "All eight pass criteria require real physical data and human review. Analytical overlap estimates, sensor plans, or global hysteresis cannot satisfy them.",
+  "allowed_decisions": [
+    "STOP_MP1_COUPLING_CORE",
+    "NARROW",
+    "REDESIGN",
+    "PROCEED"
+  ],
+  "coverage_rule": "A negative small-bundle result may stop the general MP1 coupling core only if the tested safe strain, pressure/contact, temperature, packing and boundary envelope is documented to bracket the intended actual bundle; otherwise NARROW or REDESIGN."
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "architecture": "Short straight triangular three-wire NiTi bundle inside a flexible positive-pressure annular cuff: an outer pressure-reacting restraint and an inner compliant membrane press inward on a dry wire lumen. The pressure supply communicates with the annulus, not directly with interwire contacts.",
+  "design_values": [
+    {
+      "item": "wire_count",
+      "candidate": 3,
+      "unit": "wires",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Smallest triangular contact network with visible outer wires; do not generalize a negative result to a different intended packing without a coverage argument."
+    },
+    {
+      "item": "wire_diameter_primary",
+      "candidate": 0.5,
+      "unit": "mm",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Inventory-dependent example; choose the available characterized NiTi lot and measure actual diameter."
+    },
+    {
+      "item": "wire_diameter_alternate",
+      "candidate": 0.25,
+      "unit": "mm",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Optional thinner stock to expose force/curvature tradeoff if primary is unsafe or exceeds load-cell capacity."
+    },
+    {
+      "item": "active_length",
+      "candidate": 50,
+      "unit": "mm",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Short optical/mechanical gauge candidate; finalize from bend-fixture clearance, curvature uniformity, sensor field of view and sleeve rating."
+    },
+    {
+      "item": "repeat_confirmation_cycles",
+      "candidate": 3,
+      "unit": "cycles",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "A minimum repeatability screen only; later validation cycle-life requirement must be separately specified."
+    },
+    {
+      "item": "minimum_rate_conditions",
+      "candidate": 2,
+      "unit": "distinct local-rate or rate/dwell conditions",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Minimum perturbation count required by the S02 work order; actual rates TO_BE_SELECTED_BY_HUMAN from calibrated actuator and thermal response."
+    },
+    {
+      "item": "pressure_screen_levels",
+      "candidate": 3,
+      "unit": "ambient differential, low nonzero, higher approved",
+      "classification": "ENGINEERING_STARTING_POINT",
+      "selection_logic": "Adaptive screen rather than full DOE; actual pressure levels TO_BE_SELECTED_BY_HUMAN from rated assembly and leak proof."
+    }
+  ],
+  "geometry_and_material_state": {
+    "packing": "Nominal straight close-packed triangular centers, no intentional helical lay; actual contacts and orientation must be imaged/metrologized.",
+    "curvature_orientation": "Record bend plane relative to triangle so actual tensile-side y_max is measured.",
+    "straight_vs_precurved": "Start straight, ENGINEERING_STARTING_POINT; record initial curvature and do not straighten a preformed wire by unmeasured force.",
+    "NiTi_lot_and_phase": "TO_BE_MEASURED: heat/lot, transformation temperatures, surface finish, training state and single-wire cyclic response at pilot temperature.",
+    "axial_prestrain": "No deliberate prestrain initially, ENGINEERING_STARTING_POINT; unavoidable assembly strain measured. Additional preset only after a separate single-wire safety check and explicit record.",
+    "end_constraints": "One common reference end; distal wire ends individually guided and instrumented outside the pressurized active section to permit and measure relative axial movement. A matched all-fixed control checks boundary-condition effects. Clamp motion is independently tracked.",
+    "pressure_envelope": "Flexible annular bladder/cuff with separate inner membrane and outer pressure-reacting layer; component model, rated pressure, seal and feedthrough design TO_BE_SELECTED_BY_HUMAN and documented before energizing.",
+    "optical_access": "Transparent optical path through both pressure layers is a feasibility hypothesis, not assumed. Markers on adjacent wires and membrane are tested under actual pressure; if visibility fails, a validated alternate channel is required."
+  },
+  "load_plan": {
+    "pressure": "Ambient differential baseline, then one low and one higher nonzero pressure level selected by human from certified component ratings, proof/leak tests and an independently observed response; no final pressure value specified. Chamber p is not interwire normal force.",
+    "bending": "Displacement-controlled symmetric pure-bending or four-point-bending fixture where feasible, with actual local curvature measured rather than inferred from actuator displacement.",
+    "curvature": "Adaptive staircase from below the batch-specific single-wire transformation estimate to the lesser of independently established NiTi integrity and membrane/fixture limits; no final maximum until safety evidence exists.",
+    "rates": "At least a slow and a faster attainable rate or a load-hold dwell comparison, both logged as actual local strain-rate histories; values selected after equipment and thermal pilot characterization.",
+    "cycle_history": "Record every assembly, preconditioning, loading, unloading and dwell event. Do not erase early-cycle training as a nuisance.",
+    "temperature": "Measure ambient and at least one bundle-adjacent or wire-surface thermal channel; verify its lag against a single-wire reference."
+  },
+  "safety_and_stop_limits": {
+    "hard_pressure_limit": "TO_BE_SELECTED_BY_HUMAN from exact cuff/tubing/fitting ratings and proof test; no literature cable pressure may be transferred as a rating.",
+    "hard_wire_limit": "TO_BE_SELECTED_BY_HUMAN from selected NiTi lot safe-strain/fatigue information and single-wire tests.",
+    "hard_membrane_limit": "TO_BE_SELECTED_BY_HUMAN from pressure, strain, leak and optical-window characterization.",
+    "other_abort_signals": [
+      "leak or seal loss",
+      "wire fracture/kink or residual set",
+      "visible membrane thinning/puncture",
+      "pressure overshoot",
+      "uncontrolled clamp motion",
+      "sensor short/failure that defeats safety monitoring",
+      "temperature excursion beyond approved lot envelope"
+    ],
+    "physical_execution": "NOT_PERFORMED"
+  },
+  "coverage_limit": "A three-wire positive result establishes feasibility only for the tested configuration. A negative result can kill the intended MP1 coupling core only after the human owner documents that the tested strain, pressure/contact, temperature and boundary envelope brackets the proposed actual bundle; otherwise route to NARROW or REDESIGN.",
+  "evidence_pointers": [
+    "outputs/execution/MP1-V002/WR1/S01/MP1_S01_H0B_MODEL_SPECIFICATION.md",
+    "outputs/execution/MP1-V002/W2/MP1_W02_K1_K9_RECONCILED_MATRIX.json:K1,K3,K9",
+    "data/papers/verification/MP1-V002/2013-Superelastic shape memory alloy cables Part I – Isothermal tension experiments.pdf:methods for DIC and thermal measurement"
+  ]
+}

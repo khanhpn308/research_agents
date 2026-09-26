@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "design": "Adaptive sequential kill screen, not a factorial DOE",
+  "states": [
+    {
+      "cell_id": "C0",
+      "purpose": "Sham/controls",
+      "pressure_level": "ambient differential",
+      "curvature_path": "sub-threshold only",
+      "rate_condition": "slow",
+      "history_state": "fresh",
+      "decision_observation": "fixture-only and sleeve-only load/compliance/leak, marker visibility and zero drift",
+      "possible_regime": "ARTIFACT_BASELINE",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "cell_id": "C1",
+      "purpose": "Bundle baseline",
+      "pressure_level": "ambient differential",
+      "curvature_path": "sub-threshold then adaptive up to safe pre-onset",
+      "rate_condition": "slow",
+      "history_state": "fresh",
+      "decision_observation": "seek slip-only while checking no transformation signature",
+      "possible_regime": "SLIP_ONLY_OR_NO_SLIP",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "cell_id": "C2",
+      "purpose": "Pressure suppression screen",
+      "pressure_level": "low nonzero pressure",
+      "curvature_path": "same safe curvature path as C1",
+      "rate_condition": "slow",
+      "history_state": "matched cycle",
+      "decision_observation": "test whether contact restraint shifts slip onset without inferring f_n=p",
+      "possible_regime": "NO_SLIP_NO_TRANSFORMATION_OR_SLIP_ONLY",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "cell_id": "C3",
+      "purpose": "Coexistence search",
+      "pressure_level": "low nonzero pressure",
+      "curvature_path": "adaptive steps toward independently estimated transformation onset",
+      "rate_condition": "slow",
+      "history_state": "matched cycle",
+      "decision_observation": "look for simultaneous validated slip and transformation-sensitive signals",
+      "possible_regime": "COEXISTENCE_OR_SINGLE_MECHANISM",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "cell_id": "C4",
+      "purpose": "Transformation-without-slip attempt",
+      "pressure_level": "higher approved pressure",
+      "curvature_path": "only safe curvature states from C3",
+      "rate_condition": "slow",
+      "history_state": "matched cycle",
+      "decision_observation": "test whether pressure suppresses slip while transformation remains; optional regime",
+      "possible_regime": "TRANSFORMATION_ONLY_IF_ACCESSIBLE",
+      "status": "NOT_YET_TESTED"
+    },
+    {
+      "cell_id": "C5",
+      "purpose": "Rate/history confirmation",
+      "pressure_level": "one selected pressure and safe curvature that was most informative",
+      "curvature_path": "repeat chosen range",
+      "rate_condition": "faster versus slow or dwell",
+      "history_state": "repeat confirmation cycles",
+      "decision_observation": "test temperature/rate dependence, channel noise, temporal overlap, training/wear and integrity",
+      "possible_regime": "THERMAL_BRANCH_AND_REPEATABILITY",
+      "status": "NOT_YET_TESTED"
+    }
+  ],
+  "pressure_levels": "Ambient differential baseline plus low and higher approved nonzero pressure; actual numeric values TO_BE_SELECTED_BY_HUMAN after certified rating/leak checks.",
+  "curvature_levels": "Measured below and toward batch-specific onset, always inside selected safe limits; numeric values TO_BE_MEASURED/TO_BE_SELECTED_BY_HUMAN.",
+  "rates": "At least two distinguishable actual local rates or a slow/dwell contrast; numeric rates TO_BE_SELECTED_BY_HUMAN after thermal calibration.",
+  "classification_rule": "Assign no-slip/no-transformation, slip-only, transformation-only or coexistence only from corrected local channels with uncertainty and matched time windows; unresolvable states remain INDETERMINATE.",
+  "optional_cell_rule": "C4 transformation-only is attempted only if C3 or calibration demonstrates a safe transformation-active path; inability to realize it does not alone fail coexistence."
+}

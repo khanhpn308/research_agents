@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MP1-V002/WR1-S02",
+  "execution_scope": "PREPARATION_ONLY",
+  "stage_status": "PREPARATION_COMPLETE_PHYSICAL_PILOT_PENDING",
+  "state": "PLAN_NOT_ESTIMATES",
+  "measurement_budget": [
+    {
+      "quantity": "slip displacement and onset",
+      "contributors": [
+        "pixel/marker localization",
+        "window distortion under pressure",
+        "camera calibration",
+        "wire elastic-extension subtraction",
+        "membrane and rigid-body registration",
+        "clamp motion",
+        "clock offset"
+      ],
+      "planned_method": "Repeat zero and known-offset controls at each pressure; propagate correlated errors and onset-time intervals; no slip claim below combined detection bound."
+    },
+    {
+      "quantity": "transformation-supported onset",
+      "contributors": [
+        "single-wire threshold variability",
+        "wire local strain measurement",
+        "temperature sensor lag/transmission",
+        "rate and training history",
+        "stress inference",
+        "frictional heating",
+        "electrical shunt if resistance used"
+      ],
+      "planned_method": "Calibrate same NiTi lot at matched T/rate/history; use elastic and friction-only controls; classify direct vs indirect support and retain alternative explanations."
+    },
+    {
+      "quantity": "curvature and moment",
+      "contributors": [
+        "marker geometry and optical distortion",
+        "out-of-plane bend",
+        "load-cell calibration",
+        "moment arm and fixture compliance",
+        "membrane-only force"
+      ],
+      "planned_method": "Independent geometric reference and sleeve/fixture sham subtraction with covariance."
+    },
+    {
+      "quantity": "chamber pressure and contact inference",
+      "contributors": [
+        "transducer calibration",
+        "line/cuff pressure lag",
+        "membrane thickness/strain",
+        "packing and voids",
+        "prestrain",
+        "curvature-dependent transmission"
+      ],
+      "planned_method": "Measure chamber p only as boundary input; do not estimate local f_n from p alone in S02; pass transmission to S04 calibration."
+    },
+    {
+      "quantity": "thermal branch",
+      "contributors": [
+        "wire versus outer-sleeve temperature offset",
+        "sensor thermal time constant",
+        "emissivity/transmittance",
+        "ambient drift",
+        "rate and cycle training"
+      ],
+      "planned_method": "Matched slow/fast or dwell comparison; propagate temperature uncertainty through independently measured NiTi transformation-stress temperature sensitivity and compare to predeclared future discrimination margin."
+    },
+    {
+      "quantity": "sensor perturbation and seal",
+      "contributors": [
+        "marked versus unmarked stiffness/slip onset",
+        "lead/thermocouple packing change",
+        "leak rate",
+        "window bulge",
+        "contact topology change"
+      ],
+      "planned_method": "Paired controls with identical build except sensor; declare allowed perturbation budget before interpreting mechanism data."
+    }
+  ],
+  "combination_rule": "Use a declared uncertainty model with covariance for shared cameras, clocks, temperature and calibration sources; report standard and expanded intervals, not only point estimates. Do not use a universal fixed percentage.",
+  "event_rule": "Define onset as the first sustained departure beyond predeclared noise/control envelope with persistence chosen before examining the target run. Report interval bounds for slip and transformation onset; coexistence requires interval overlap beyond combined timing ambiguity on the same specimen region and cycle.",
+  "resolution_rule": "For every required channel, choose sensor resolution and sampling so the predeclared minimum meaningful mechanism change exceeds calibration+noise+drift uncertainty and the fastest expected event is temporally resolved; numeric settings remain human selections after bench characterization.",
+  "thermal_decision": {
+    "ISOTHERMAL_H0b_ALLOWED": "Only if measured wire-relevant temperature excursion, rate response and uncertainty imply effects smaller than the predeclared model-discrimination margin across the declared domain, with no systematic rate/history dependence left unexplained.",
+    "THERMOMECHANICAL_H0b_REQUIRED": "If thermal/rate shifts may explain the signature or exceed the margin; include heat/latent-heat and measured boundary conditions in H0b before S05 lock.",
+    "INDETERMINATE": "If thermal channel does not resolve wire temperature, improve sensing or narrow domain; never default to isothermal."
+  },
+  "no_numeric_threshold": "No absolute temperature, rate, fatigue, pressure, leak, optical or uncertainty threshold is frozen in this preparation. Human selection must precede energized testing and be traceable to exact hardware/lot calibration and intended discrimination margin."
+}
