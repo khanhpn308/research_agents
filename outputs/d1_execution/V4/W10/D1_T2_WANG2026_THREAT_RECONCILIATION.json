@@ -1,0 +1,59 @@
+{
+  "task_id": "D1-T2-P1",
+  "artifact_id": "D1_T2_WANG2026_THREAT_RECONCILIATION",
+  "artifact_type": "W10_APPEND_ONLY_RECONCILIATION",
+  "created_at": "2026-09-26",
+  "source_id": "EXT-T2-WANG2026-MLJ",
+  "source_DOI": "10.1016/j.matdes.2026.116573",
+  "source_SHA256": "f77bc7b7d605e57e4bb7e11e468223ce7f670dc4e06072fd1ed99bb27062c5ca",
+  "historical_threat": {
+    "classification": "REPOSITORY_CANONICAL_STATE",
+    "threat_id": "D1-UT-001",
+    "status": "OPEN_FULLTEXT_REQUIRED",
+    "evidence_status": "METADATA_ABSTRACT_ONLY_UNRESOLVED",
+    "blocking": true,
+    "linked_threat_id": "D1-TH-015",
+    "linked_search_id": "D1-SEARCH-W10-002"
+  },
+  "resolution_event": {
+    "classification": "FACT_FROM_FULL_TEXT",
+    "event": "FULL_TEXT_OBTAINED_AND_AUDITED",
+    "packet": "outputs/d1_execution/V4/W10/D1_T2_WANG2026_FULLTEXT_AUDIT.json",
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "new_evidence_status": "VERIFIED_FULL_TEXT",
+  "new_threat_status": "RESOLVED_AS_PARTIAL_OVERLAP",
+  "blocking_for_full_text_access": false,
+  "blocking_for_final_K_adjudication": "DEFERRED_TO_W12_IF_MATERIAL",
+  "successor_disposition": "PARTIAL_OVERLAP",
+  "historical_records_preserved": [
+    "outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json#D1-TH-015",
+    "outputs/d1_execution/V4/W10/D1_UNRESOLVED_THREAT_REGISTER.json#D1-UT-001",
+    "outputs/d1_execution/V4/W10/D1_SEARCH_DECISION_LOG.json#D1-SEARCH-W10-002"
+  ],
+  "historical_record_preserved": true,
+  "final_K_verdict_assigned": false,
+  "final_novelty_adjudication": "NOT_PERFORMED",
+  "W12_authorized": false,
+  "next_route": "W11 source/locator provenance check, then human review 003 routing; HG-06 and HG-09 remain blocked.",
+  "requested_model": "GPT-6 Sol High",
+  "actual_runtime_model_identity": "NOT_EXPOSED_TO_AUDIT"
+}
