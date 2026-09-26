@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D1-HG06-U1",
+  "task_name": "Exact Comparator Lock and Uncertainty-Basis Reconstruction",
+  "created_date_asia_bangkok": "2026-09-26",
+  "scope": "S11/HG-06 re-entry analysis only; no W12, K verdict, novelty adjudication, broad search, or final error-map inspection",
+  "requested_model_role": "GPT-6 Sol High",
+  "runtime_model_attested": false,
+  "evidence_labels": [
+    "VERIFIED FULL TEXT",
+    "REPOSITORY-CANONICAL STATE",
+    "SCIENTIFIC INFERENCE",
+    "PROPOSED DESIGN DECISION",
+    "UNRESOLVED INPUT",
+    "USER-REPORTED FULL-TEXT AUDIT"
+  ],
+  "reduced_model_lock": {
+    "status": "PAPER_AND_FORMULATION_IDENTIFIED_IMPLEMENTATION_NOT_FROZEN",
+    "paper_id": "95646b2cfc",
+    "title": "A continuum-based model for a layer jamming beam",
+    "authors_primary_pdf": ["Shuai Zhang", "Jiantao Yao", "Wumian Zhao", "Chunjie Wei"],
+    "year": 2025,
+    "doi": "10.5194/ms-16-821-2025",
+    "selected_formulation": "Published continuum-based layer-jamming beam model (CLJM): piecewise full-jamming, half-slipping and full-slipping section laws; continuous slip boundary y_s(s); N-Q-M beam equilibrium; jammed-section bending inertia I_J(y_s); incremental geometrically updated deformation algorithm; no modified or fitted variant",
+    "modeling_level": "structural continuum beam, not RVE constitutive model",
+    "governing_state_variables": ["theta(s)", "N(s)", "Q(s)", "M_b(s)", "tau(s,y)", "sigma(s,y)", "y_s(s)", "N_J(s)", "M_J(s)", "I_J(s)", "incremental load/history state"],
+    "required_inputs": ["L", "b", "h", "delta", "physical n and h=n*delta convention", "E", "mu", "nominal confining pressure p(s)/history", "initial geometry theta0(s)", "load magnitude/distribution/path", "support conditions", "load step and integration controls"],
+    "local_section_first_yield_relation": "Q_slip_section=(2/3)*mu*p*b*h; valid under the source's fully jammed parabolic shear idealization; it is not directly external P_onset",
+    "main_assumptions": ["delta/h much less than one", "continuous through-height fields", "plane-stress/Euler-Bernoulli-type beam kinematics", "interlaminar normal strain neglected", "constant Coulomb mu", "nominal pressure sets friction limit mu*p", "deformation-generated interlaminar normal pressure omitted", "radius of curvature much larger than h for straight-beam shear approximation", "small change per incremental step"],
+    "omitted_or_homogenized": ["finite interface-by-interface slip sequence", "local normal-pressure redistribution", "interface opening/lift-off", "boundary/end corrections", "possible full-slip curved-section shear effects"],
+    "documented_limitations": ["larger discrepancy near cantilever ends", "slip zone wider than source FEA", "stress discrepancy in full slipping/curved regions", "published n approximately 10 statement does not define a project error tolerance"],
+    "formal_lock_blockers": ["versioned implementation", "source algorithm/notation reconstruction", "published-case reproduction", "specimen and loading/support protocol", "independent parameter calibration rule"],
+    "source": "data/papers/verification/D1-V002/2025-A continuum-based model for a layer jamming beam.pdf; PDF pp. 1-9, especially Eqs. (1)-(20); paper_id=95646b2cfc"
+  },
+  "reference_model_lock": {
+    "status": "BLOCKED_SPECIFICATION_AND_VERIFICATION",
+    "role": "higher-fidelity finite-layer interface-resolving numerical comparator, not physical ground truth",
+    "proposed_architecture": "same planar beam test family as M; every finite physical layer and interface explicit; unilateral normal contact; Coulomb tangential friction; local pressure redistribution and stick/slip evolution; finite-rotation capability for intended bending-severity domain",
+    "feature_classification": [
+      {"feature": "every physical layer explicit", "class": "REQUIRED", "reason": "restores discreteness"},
+      {"feature": "explicit layer-layer interfaces", "class": "REQUIRED", "reason": "resolves local contact/slip"},
+      {"feature": "finite layer count", "class": "REQUIRED", "reason": "n is a proposed breakdown axis"},
+      {"feature": "unilateral normal contact", "class": "REQUIRED", "reason": "normal traction controls friction"},
+      {"feature": "Coulomb friction", "class": "REQUIRED", "reason": "minimum shared law with M; regularization must be disclosed"},
+      {"feature": "stick/slip evolution", "class": "REQUIRED", "reason": "needed for onset and mechanism"},
+      {"feature": "local contact-pressure redistribution", "class": "REQUIRED", "reason": "must emerge from contact equilibrium to test M omission"},
+      {"feature": "separation/lift-off", "class": "CONDITIONAL", "reason": "permit if physical envelope and loading allow; otherwise justify exclusion"},
+      {"feature": "geometric nonlinearity", "class": "REQUIRED", "reason": "required for intended finite-rotation bending domain; restricted small-rotation study must be separately declared"},
+      {"feature": "same geometry", "class": "REQUIRED", "reason": "paired physical input"},
+      {"feature": "same support conditions", "class": "REQUIRED", "reason": "support compliance alters w and slip"},
+      {"feature": "same material parameters", "class": "REQUIRED", "reason": "separate parameter discrepancy from model discrepancy"},
+      {"feature": "same pressure definition", "class": "REQUIRED", "reason": "nominal applied vacuum input must match; local R traction is solved output"},
+      {"feature": "same load path", "class": "REQUIRED", "reason": "slip is path-dependent"},
+      {"feature": "3D widthwise resolution", "class": "CONDITIONAL", "reason": "required if edge/membrane/widthwise effects influence outputs"},
+      {"feature": "rate-dependent friction or viscoelasticity", "class": "CONDITIONAL", "reason": "add when pilot/specimen evidence indicates a confound"},
+      {"feature": "paper Abaqus settings as final R", "class": "NOT REQUIRED", "reason": "published examples do not fix project solver or verification"}
+    ],
+    "formal_lock_blockers": ["specimen and geometry", "solver and version", "2D/3D justification", "element family", "sheath/vacuum pressure transfer", "contact enforcement and friction regularization", "fixtures and applied load", "slip observation domain", "mesh/contact/increment convergence protocol", "quantified residual reference uncertainty"],
+    "numerical_uncertainty_sources": ["mesh/element", "contact discretization", "penalty/contact formulation", "contact stabilization/regularization", "solver convergence", "load increment size", "geometric nonlinearity", "material and geometry parameters", "friction coefficient", "vacuum/contact-pressure representation", "boundary condition representation", "2D/3D approximation"]
+  },
+  "comparability_contract": {
+    "status": "PROPOSED_NOT_FROZEN",
+    "rule": "all applicable checks must pass for a paired M-R state; failed rows are NOT_COMPARABLE rather than model-form errors",
+    "checklist": ["same L,b,h,n,delta and initial geometry", "same independently calibrated material and friction parameters", "same nominal pressure sign/gauge/spatial/time definition and evacuation sequence", "same external force vector, location, control and ramp", "same support/fixture compliance and constraints", "same preconditioning and first-loading history", "same material station and local/global axis/sign", "same pressure-only baseline", "same w(P) extraction and P grid", "same K chord interval/regime", "defensible common slip-event correspondence", "predeclared domain and numerical/experimental uncertainty"],
+    "calibration_rule": "do not fit M parameters to final R/E validation responses",
+    "model_discrepancy_caveat": "M-R combines finite-layer and other omitted physics unless matched-physics ablations distinguish them"
+  },
+  "outputs": {
+    "w": {
+      "status": "PRECISE_PROPOSAL_NOT_FORMALLY_FROZEN",
+      "physical_definition": "transverse free-end initial-material-section centerline displacement relative to equilibrated vacuum-only state, along fixed laboratory load axis, on first monotonic loading branch; response function w(P;p,n)",
+      "units": "m",
+      "evaluation_location": "initial cantilever free-end material section s=L",
+      "loading_state": "predeclared external force P after pressure equilibrium on first monotonic branch",
+      "M_extraction": "incremental CLJM centerline tip position minus vacuum-only baseline",
+      "R_extraction": "predeclared thickness-weighted mean of corresponding layer-end material-point transverse displacements minus baseline; validate experimental mapping",
+      "future_E_extraction": "calibrated tip marker/optical centroid in same axis, pressure-only baseline and fixture motion removed",
+      "normalization_rule": "absolute difference in m for gate, or divide by positive predeclared engineering deflection scale W_use; historical relative ratio only if denominator resolved",
+      "near_zero_rule": "no division by w_R near zero; use absolute/fixed-scale metric",
+      "ambiguity_risks": ["tip average when ends separate", "load grid", "fixture compliance", "pressure-only offset", "cantilever test family not human-approved"]
+    },
+    "K": {
+      "status": "DEFINITION_CLASS_PROPOSED_INTERVAL_UNRESOLVED",
+      "physical_definition": "structural chord stiffness K=(P_b-P_a)/(w(P_b)-w(P_a)) on a predeclared first-loading interval; not tangent stiffness or effective EI",
+      "units": "N/m",
+      "evaluation_location": "same free-end w signal at two specified external loads",
+      "loading_state": "P_a<P_b, pressure and branch fixed; interval/regime not yet selected",
+      "M_extraction": "evaluate M w at fixed endpoints then chord",
+      "R_extraction": "evaluate R w at same endpoints with frozen interpolation then chord",
+      "future_E_extraction": "replicate mean deflections at same force targets, correct fixture compliance, propagate endpoint covariance",
+      "normalization_rule": "absolute difference in N/m or positive predeclared K_use; relative ratio only if K_R resolved",
+      "near_zero_rule": "if delta_w is below its uncertainty, mark K NOT_ESTIMABLE",
+      "ambiguity_risks": ["P_a/P_b missing", "regime choice missing", "interval crossing slip", "noise amplification", "EI conversion would change estimand"]
+    },
+    "Q_slip": {
+      "status": "CORRESPONDENCE_BLOCKED",
+      "physical_definition": "candidate physical first sustained relative tangential motion of adjacent layers in a predeclared observation domain; common external event load P_onset preferred; source Q_slip is local analytical section yield capacity",
+      "units": "N for internal Q or external P; they are distinct quantities",
+      "evaluation_location": "first eligible interface/station in frozen observation domain",
+      "loading_state": "first monotonic transverse loading after fixed pressure/preconditioning",
+      "M_extraction": "earliest eligible M section reaching abs(Q(s)) >= (2/3)*mu*p*b*h, then record internal Q and corresponding external P",
+      "R_extraction": "bracket first sustained local relative motion/contact slip between last no-slip and first-slip steps, with spatial/contact convergence",
+      "future_E_extraction": "direct interface markers or DIC plus synchronized load; global force-deflection kink named P_apparent, not silently equated to first slip",
+      "normalization_rule": "absolute event-load difference in N or fixed positive P_use; internal-Q metric only with locked equilibrium mapping",
+      "near_zero_rule": "near p=0 use absolute/event-interval comparison; left-censor undetectable onset",
+      "ambiguity_risks": ["analytical yield differs from contact motion", "local event differs from global kink", "boundary slip", "contact chatter", "hidden interface", "P-to-Q mapping under finite curvature"]
+    }
+  },
+  "uncertainty_budget": {
+    "status": "ARCHITECTURE_ONLY_NO_NUMERICAL_VALUES",
+    "shared_rule": "for D_Y=Y_M-Y_R, u^2(D_Y)=u^2(Y_M)+u^2(Y_R)-2cov(Y_M,Y_R); shared physical inputs need correlated propagation and independent parameter calibration",
+    "w": {"reference_numerical": ["mesh", "contact quadrature/stiffness", "friction regularization", "solver", "load steps", "finite rotation", "pressure transfer", "boundary/fixture"], "experimental": ["displacement sensor/DIC", "load cell", "pressure control", "geometry", "material and friction variation", "repeatability", "support compliance", "alignment", "baseline drift"]},
+    "K": {"reference_numerical": ["all w/P endpoint errors", "endpoint interpolation", "path hysteresis", "contact switching", "mesh/increment convergence"], "experimental": ["endpoint force/displacement covariance", "repeatability", "support compliance", "pressure drift", "branch alignment"], "derived_output": "for K=delta_P/delta_w, u_K^2≈u_delta_P^2/delta_w^2+delta_P^2*u_delta_w^2/delta_w^4-2*delta_P*cov(delta_P,delta_w)/delta_w^3; small delta_w amplifies noise"},
+    "Q_slip": {"reference_numerical": ["load-step bracket width", "contact discretization", "slip regularization", "solver path switching", "mesh convergence", "friction and pressure uncertainty", "boundary singularity"], "experimental": ["direct slip marker/DIC resolution", "load-cell sampling", "pressure", "synchronization", "repeatability", "visibility and alignment"], "event_detection_separate": "false-event rate, first-detectable displacement, and interval censoring must be characterized separately from ordinary load measurement uncertainty"},
+    "missing_studies": ["per-output mesh/contact/step convergence", "independent E and mu calibration", "contact-pressure/pressure-transfer characterization", "sensor and fixture calibration", "specimen repeatability", "direct onset detector resolution and false-event study"]
+  },
+  "engineering_relevance": {
+    "status": "INTENDED_USE_CASE_NOT_DECISION_READY",
+    "w": "need service load, allowable deflection/positioning or clearance decision and margin",
+    "K": "need pressure-selection or jammed/slipping stiffness requirement at specified load interval and decision margin",
+    "Q_slip": "need operating-load/safety or trigger margin relative to first slip and required detection resolution",
+    "derivation_architecture": "derive an output-specific engineering allowance and independent uncertainty floor under a predeclared coverage convention; if uncertainty is comparable to/exceeds decision margin, classification is unresolved; no number is inferred here"
+  },
+  "threshold_readiness": {
+    "epsilon_w": "NOT_READY_REFERENCE_NOT_FROZEN",
+    "epsilon_K": "NOT_READY_OUTPUT_DEFINITION_AMBIGUOUS",
+    "epsilon_Q": "NOT_READY_OUTPUT_DEFINITION_AMBIGUOUS"
+  },
+  "threshold_secondary_blockers": {
+    "epsilon_w": ["missing quantified uncertainty", "missing engineering criterion", "metric scale not frozen"],
+    "epsilon_K": ["R not frozen", "missing quantified uncertainty", "missing engineering criterion"],
+    "epsilon_Q": ["R not frozen", "missing event-detection uncertainty", "missing engineering criterion"]
+  },
+  "threshold_values": {"epsilon_w": null, "epsilon_K": null, "epsilon_Q": null},
+  "human_review_routing": {
+    "D1-REVIEW-001": {"state": "READY_FOR_HUMAN_REVIEW", "decision": "accept narrowed NC-04 attack object and exclusion of generic novelty"},
+    "D1-REVIEW-002": {"state": "READY_FOR_HUMAN_REVIEW", "decision": "distinguish T1 physical slip regimes from model validity"},
+    "D1-REVIEW-003": {"state": "BLOCKED_BY_CURRENT_TASK", "decision": "register supplied Wang full-text PDF/audit with locators and provenance before human threat disposition"},
+    "D1-REVIEW-004": {"state": "BLOCKED_BY_CURRENT_TASK", "decision": "choose use case, exact outputs/reference, uncertainty basis and actual tolerances before threshold review"},
+    "D1-REVIEW-005": {"state": "BLOCKED_BY_W12", "decision": "review strongest same-act threat after frozen K evaluation"},
+    "D1-REVIEW-006": {"state": "BLOCKED_BY_FINAL_SYNTHESIS", "decision": "review final evidence map/K/red-team package when it exists"}
+  },
+  "named_threat_T2": {
+    "doi": "10.1016/j.matdes.2026.116573",
+    "canonical_W10_at_time": "METADATA_ONLY_UNRESOLVED",
+    "new_user_report": "human/ChatGPT full-text audit reports material PARTIAL_OVERLAP without equivalent M-R-E validity/breakdown workflow",
+    "new_report_evidence_status_here": "USER-REPORTED FULL-TEXT AUDIT; source PDF/audit locators not supplied to this run",
+    "K_verdict_assigned": false,
+    "canonical_W10_modified": false
+  },
+  "HG06_status": "BLOCKED",
+  "HG09_status": "BLOCKED",
+  "W12_authorized": false,
+  "final_D1_novelty_adjudication": "NOT_PERFORMED",
+  "canonical_threshold_register_modified": false,
+  "canonical_human_clearance_modified": false,
+  "final_project_validation_error_maps_inspected": false,
+  "report_path": "outputs/d1_execution/V4/W11/D1_HG06_U1_ANALYSIS.md",
+  "provenance": [
+    "docs/project/CURRENT_EXECUTION_SNAPSHOT.md",
+    "docs/project/research_state.json",
+    "outputs/plans/D1_M1_NOVELTY_RECONSTRUCTION_PLAN_V6.md",
+    "outputs/plans/D1_HARD_GATE_MATRIX_V6.json#HG-06",
+    "outputs/plans/D1_REVISION_ROUTING_MATRIX_V6.json#RR-T",
+    "docs/research_design/EXACT_MODEL_SELECTION.md",
+    "docs/research_design/M1_RESEARCH_ARCHITECTURE.md",
+    "docs/research_design/M1_RESEARCH_ARCHITECTURE_VI.md",
+    "outputs/d1_execution/V4/W11/D1_THRESHOLD_FREEZE_REGISTER.json",
+    "outputs/d1_execution/V4/W11/D1_HUMAN_REVIEW_CLEARANCE.json",
+    "outputs/d1_execution/V4/W10/D1_UNRESOLVED_THREAT_REGISTER.json",
+    "outputs/d1_execution/V4/W10/D1_PRIOR_ART_THREAT_MATRIX.json",
+    "data/papers/verification/D1-V002/2025-A continuum-based model for a layer jamming beam.pdf",
+    "docs/literature/paper_cards/zhang_2025_continuum_beam/source_bundle.json"
+  ]
+}
