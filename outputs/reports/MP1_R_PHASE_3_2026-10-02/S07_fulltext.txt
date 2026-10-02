@@ -1,0 +1,453 @@
+  第 56 卷第 14 期                                机       械       工       程       学 报                                 Vol.56     No.14
+  2020 年 7 月                       JOURNAL OF MECHANICAL ENGINEERING                                              Jul.       2020
+
+
+
+DOI：10.3901/JME.2020.14.065
+
+
+ 形状记忆合金超弹性缆索力学行为的有限单元法*
+                                      康泽天            王志勇             周 博             薛世峰
+                              (中国石油大学(华东)储运与建筑工程学院                                   青岛       266580)
+
+摘要：由于涉及材料和接触双重非线性问题，很难建立描述形状记忆合金(Shape memory alloy，SMA)超弹性缆索力学行为的
+理论模型，为了克服试验成本高和易受环境因素影响的缺点，基于形状记忆因子概念和 SMA 本构模型，推导了适于有限单
+元法的增量型 SMA 本构模型。利用 ABAQUS 二次开发功能，考虑相变过程中 SMA 弹性模量的变化，编写了 SMA 用户材
+料子程序，实现了 SMA 超弹性缆索力学行为的有限元单元法。利用建立的有限单元法对 SMA 超弹性缆索的相变和力学行为
+进行数值模拟，并将数值结果与文献中试验结果进行了对比验证，在此基础上，分析了 SMA 超弹性缆索外线股螺距对缆索
+整体力学行为的影响。计算结果及其与试验结果的对比表明，提出的有限单元法能有效描述和预测 SMA 超弹性缆索在拉伸
+过程中的相变和力学行为，SMA 超弹性缆索外线股轴线螺距对缆索整体相变和力学行为有明显影响，研究工作可为 SMA 超
+弹性缆索设计及工程应用提供计算方法与技术指导。
+关键词：形状记忆合金；超弹性缆索；有限单元法；ABAQUS；用户材料子程序
+中图分类号：TG139
+
+
+     Finite Element Method for Mechanical Behavior of Shape Memory Alloy
+                              Superelastic Cables
+                         KANG Zetian WANG Zhiyong ZHOU Bo XUE Shifeng
+            (College of Pipeline and Civil Engineering, China University of Petroleum, Qingdao 266580)
+
+Abstract：It is difficult to establish a theoretical model to describe the mechanical behavior of the shape memory alloy (SMA)
+superelastic cable because of the nonlinear material and contact problems. In order to overcome the disadvantages of high cost and
+susceptibility to environmental factors of experiment, an incremental SMA constitutive model suitable for finite element method is
+derived based on the concept of shape memory factor and SMA constitutive model. The ABAQUS user material subroutine is written
+to realize the finite element method for the mechanical behavior of the SMA superelastic cable with considering the change of elastic
+modulus during the transformation process by employing the secondary development function of ABAQUS software. The phase
+transition and mechanical behavior of the SMA superelastic cable is carried out numerically by using the established finite element
+method, and the numerical results are compared with the experimental results. Then the influence of the pitch of the outside strands on
+the mechanical behavior of the SMA superelastic cable is analyzed. The numerical result and its comparison with the experimental
+results show that the proposed finite element method can effectively describe and predict the phase transition and mechanical behavior
+of SMA superelastic cables during the tension process. The pitch of the outside strands has obvious influence on the phase transition
+and mechanical behavior of the SMA superelastic cable. The research work can provide calculation methods and technical guidance
+for the design and engineering application of SMA superelastic cables.
+Key words：shape memory alloy；superelastic cable；finite element method；ABAQUS；user material subroutine
+
+
+                                                                      世纪 60 年代被发现以来，被广泛应用于机械、医疗、
+             *
+0 前言                                                                  土木工程和航空航天等领域[1-3]。不同于传统金属材
+                                                                      料，SMA 在热力学加卸载过程中，由于亚稳态的母
+     形状记忆合金(Shape memory alloy，SMA)自 20                               相奥氏体发生马氏体相变与逆相变，从而表现出独
+                                                                      特的超弹性和形状记忆效应[4-5]。除此之外，SMA
+∗ 国 家 科 技 重 大 专 项 (2017ZX05009-003) 、 国 家 重 点 研 发 计 划                 在力学加卸载过程中，机械能与热能之间的相互转
+  (2017YFC0307604)、中央高校基本科研业务费专项(16CX02002A)和山                        化效应明显，具有良好的阻尼特性。相较于大直径
+  东省中青年科学家科研奖励基金(ZR2016EEB34)资助项目。20190817
+                                                                      超弹性 SMA 棒[6-7]，将小直径的超弹性 SMA 丝按
+  收到初稿，20200320 收到修改稿
+ 66                           机   械   工   程   学   报                                    第 56 卷第 14 期期
+
+照一定的截面排列构形缠绕成缆索应用到实际工程                    户材料子程序，对 SMA 管接系统的装配过程进行
+中，既增加了结构的强度、稳定性以及抗振性能[8]，                 数值模拟。周博等 [23] 通过定义形状记忆因子的概
+同时又可以增大与周围介质接触面积，保证 SMA                   念，将 SMA 超弹性和形状记忆效应统一归结为形
+缆索在发生相变的过程中温度保持稳定，且由于截                    状记忆效应，建立了全面描述 SMA 形状记忆效应
+面尺寸较小，SMA 丝在制造过程中材料性能更加容                  的宏观力学本构方程。
+易保证，因此，SMA 缆索在智能机构和机械工程中                    本文根据周博等[23]提出的 SMA 本构模型，利
+应用愈发广泛[9]。                                用全量型本构方程推导适用于有限元编程计算的增
+    近年来，许多专家学者对 SMA 缆索的力学行                量型本构方程，并借助于有限元软件 ABAQUS 二
+为进行了试验和理论分析研究，并对其在复杂应力                    次开发功能，编写相应的 ABAQUS 用户材料子程
+条件下的加载行为进行本构建模。BELTRAN 等[10]              序。通过简化 SMA 超弹性缆索截面构形，对其在
+通过单轴拉伸试验研究了 CuAlBe-SMA 缆索在循环              单轴拉伸卸载过程中的形状记忆过程和力学行为进
+载荷作用下的力学特性，并在此基础上提出了一种                    行数值模拟，并将数值模拟结果与文献中已有试验
+二维模型对其最大应力、残余应变、等效弹性模量                    结果进行对比，考察本文模型和有限元程序的准确
+和等效粘性阻尼等进行预测。REEDLUNN 等[11-12]            性和适用性。通过对 SMA 超弹性缆索在单轴拉伸
+通过一系列单轴拉伸试验研究了 7×7 和 1×27 两种              过程中的应力应变状态和相变行为进行分析研究，
+不同缠绕方式的 NiTi-SMA 缆索在室温下的超弹性               得到缆索外线股螺距对缆索整体力学和相变行为的
+行为，并与 NiTi-SMA 丝的拉伸力学行为进行对比               影响规律，为 SMA 超弹性缆索的设计和应用提供
+表明，7×7 结构的 NiTi-SMA 缆索在应力诱发相变             指导意义。
+过程中具有明显的相变峰值及相变平台特征，且相
+较于 1×7 芯股，7×7 缆索的相变应力平台有所降低。              1 形状记忆演化方程
+OZBULUT 等[13]和 SHERIF 等[14]通过单轴拉伸和循
+环加载试验研究了加载率和应变幅值对 NiTi-SMA                        周博等[23]引入形状记忆因子的概念，且将 SMA
+超弹性缆索在变形过程中应力-应变场和温度场的                    的马氏体相变或马氏体择优取向过程定义为形状记
+影响及其低周疲劳特性。MAS 等[15]通过试验研究了               忆因子的产生过程，将马氏体的逆相变过程定义为
+NiTi-SMA 缆索在不同温度和不同加载率下的超弹                形状记忆因子的消退过程。形状记忆因子和马氏体
+性响应以及循环疲劳特性，通过粘结试验研究了                     体积分数之间的关系为
+NiTi-SMA 缆 索 与 混 凝 土 之 间 的 粘 结 效 应 ， 为
+                                                              ξ = ξ0 + (1 − ξ0 )η                 (1)
+NiTi-SMA 缆索增强混凝土的实际应用提供了试验
+基础。CARBONI 等[16]通过理论分析建立了 SMA 缆           式中，ξ 为马氏体体积分数；ξ0 为马氏体体积分数
+索的现象学模型并与试验结果进行了对比验证。                     初始值；η 为形状记忆因子。
+ZHENG 等[17]将 SMA 缆索用于一种智能桥梁的轴承              同时，在相变过程中，SMA 发生相变的临界
+设计中，并提出一种针对其弹性恢复和循环加载疲                    应力随温度而发生变化，采用 BRISON 相变临界
+劳寿命的评价方法。                                 应力-温度变化关系进行描述。当温度 T 满足 T>Ms
+    在实际工程中，由于试验受外界因素影响较大，                 状态，假设 SMA 初始状态完全处于奥氏体相，对
+成本较高，且由于涉及材料和接触双重非线性问题，                   于正相变
+                                                   (σ MS ≤ σ ≤ σ MF )
+很难建立统一描述 SMA 缆索力学行为的通用理论
+模型，因此根据 SMA 本构模型开发相应的有限元                                 3 ⎡ 2(σ − σ MS ) + σ scr − σ fcr ⎤
+                                                      η= ⎢                                ⎥−
+                                                         4⎣        σ scr + σ fcr          ⎦
+程序对超弹性 SMA 缆索进行数值模拟具有重要的
+                                                                                       3
+工程意义。目前针对 SMA 宏观力学行为，许多专                              1 ⎡ 2(σ − σ MS ) + σ scr − σ fcr ⎤ 1
+                                                        ⎢                              ⎥ +        (2)
+家学者根据热力学原理和试验现象，提出了不同的                                4⎣        σ scr + σ fcr          ⎦ 2
+本构模型以及相应的有限元程序。BOYD 等[18]利用               式中， σ 为等效应力
+自由能函数和耗散势提出一种现象学本构模型。                                                  3
+                                                                σ=       σ ij′ σ ij′              (3)
+QIDWAI 等[19-20]指出应力诱发马氏体相变是 SMA                                        2
+产生宏观变形的原因，通过引入热力学自由能和内                    σ ij′ 为偏应力分量
+变量提出三维本构方程并应用到数值计算。康泽天                                                      1
+等[21]根据 BRISON 本构模型[22]，利用 ABAQUS 用                           σ ij′ = σ ij − σ mm                 (4)
+                                                                            3
+月 2020 年 7 月                          康泽天等：形状记忆合金超弹性缆索力学行为的有限单元法                                                                      67
+
+σ MS 和 σ MF 分别为马氏体相变开始和结束应力。                                                         ⎪⎧ Sijkl = (1 − ξ ) Sijkl + ξ Sijkl
+                                                                                                           A         M
+
+                                                                                      ⎨                                               (12)
+             ⎧ σ MS = σ scr +CM (T − M s )                                            ⎪⎩ Θ ij = (1 − ξ )αA + ξ αM
+             ⎨                             (5)
+             ⎩σ MF = σ fcr + CM (T − M s )
+                                                                        将式(1)代入式(12)，可得
+σ scr 和 σ fcr 分别表示 SMA 中马氏体相变开始和结束
+                                                                           ⎪⎧ Sijkl = Sijkl + [ξ0 + (1 − ξ 0 )η ] ( Sijkl − Sijkl )
+                                                                                        A                             M       A
+应力初始值；CM 为马氏体的应力影响系数；Ms 和                                                   ⎨                                                         (13)
+Mf 分别表示马氏体相变开始和结束温度。                                                        ⎪⎩ Θij = αA + [ξ 0 + (1 − ξ0 )η ] (α M − α A )
+                                                                          A      M
+    在温度 T 满足 T>As 状态下，逆相变过程可以描                                       式中，Sijkl ，Sijkl ，αA 和 αM 分别代表奥氏体和马氏体
+述为                                                                   的柔度张量分量以及奥氏体和马氏体的热膨胀系数。
+                       (σ AF < σ < σ AS )                              对于各向同性的 SMA 材料，在相变过程中发
+                  ⎪⎧ 3 ⎡ σ − σ AF      1⎤                            生相变流动，则相变应变分量增量和形状记忆因子
+          η = η0 ⎨ ⎢                  − ⎥−
+                 ⎩⎪ 4 ⎣ CA ( Af − As ) 2 ⎦                           增量之间关系为
+                                  1 ⎤ 1 ⎫⎪
+                                     3
+               1 ⎡ σ − σ AF                                                     dε ijtr = Η Λij dξ = Η Λij (1 − ξ 0 )dη               (14)
+                 ⎢               − ⎥ + ⎬                       (6)
+               4 ⎣ CA ( Af − As ) 2 ⎦ 2 ⎪                            式中，H 表示 SMA 在单轴拉伸试验中可以产生的
+                                         ⎭
+                   ⎧σ AS = CA (T − As )                              最大相变应变； Λij 表示相变应变方向分量； ε ijtr 为
+                   ⎨                                           (7)
+                   ⎩σ AF = CA (T − Af )                              相变应变分量。类比 Mises 塑性流动法则，SMA 发
+                                                                     生相变过程中，相变应变方向分量可以从“塑性势”
+式中， σ AS 、 σ AF 分别表示马氏体逆相变开始和结
+                                                                     导出，即
+束应力；η0 表示马氏体逆相变初始时刻的形状记忆
+                                                                                              ⎧ 3σ ij′
+因子初始值；CA 为奥氏体的应力影响系数；As 和                                                                     ⎪        正相变
+                                                                                              ⎪ 2σ
+Af 分别表示马氏体逆相变开始和结束温度。                                                                   Λij = ⎨ tr                                    (15)
+                                                                                              ⎪ ε ij 逆相变
+                                                                                              ⎪⎩ ε tr
+2 增量型力学本构方程
+                                                                                                       2 tr tr
+                                                                                            ε tr =       ε ij ε ij                    (16)
+                                                                                                       3
+     根据热力学基本原理，不考虑塑性应变，将内
+                                                                     式中， ε tr 表示等效相变应变。
+变量(形状记忆因子 η)、温度和应力作为自变量，建
+                                                                       将式(13)和(14)代入式(9)，得
+立 SMA 的应变表达式[19-20]
+                                                                          dσ kl = Cijkl [dε ij − ΗΛij (1 − ξ 0 )dη − Θij dT ]         (17)
+          ε ij = ε (η , T ,σ kl ) = ε ijtr + ε ijth + ε ije    (8)
+
+式中，ε ij 表示应变分量；T 和 σ kl 分别表示温度和应                                     式中， Cijkl 表示刚度张量分量。
+力分量； ε ijtr ， ε ijth 和 ε ije 分别表示相变应变，热应变
+以及弹性应变分量。由于传统的全量型本构方程不                                               3 用户子程序流程
+适合本文用到的有限元编程计算，因此对式(8)两端
+进行微分运算，得到应变增量表达式                                                        图 1 为用户材料子程序计算流程图。在计算之
+               dε ij = dε ijtr + dε ijth + dε ije =                  前需定义状态变量并从 ABAQUS 中读入材料参数
+                                                                     和状态变量的初始值。将整个加卸载过程分为若干
+               ∂ε ij
+                       dη + Θij dT + Sijkl dσ kl               (9)   增量步，假设每个增量步内，材料参数保持不变。
+                ∂η
+                                                                     整个加卸载过程中，状态变量满足
+式中，dT 表示温度增量； dσ kl 表示应力分量增量。
+                                                                                         Φ( n+1) = Φ( n ) + dΦ( n )                   (18)
+SMA 的热膨胀张量分量为
+                                    ∂ε ij                            式中，Φ表示状态变量，Φ(n)和 dΦ(n)分别表示状态变
+                          Θij =                               (10)   量在第 n 个增量步的初始值和增量值。
+                                    ∂T
+                                                                       由式(5)和式(7)求得温度 T(n)=T(n−1)+dT 下马氏
+SMA 的柔度张量分量为
+                                                                     体相变开始和结束应力 σ MS( n ) 和 σ MF( n ) 以及马氏体
+                                    ∂ε ij                            逆相变开始和结束应力 σ AS( n ) 和 σ AS( n ) 。假设 SMA
+                          Sijkl =                             (11)
+                                    ∂σ kl                            初始相为奥氏体，初始加载过程为奥氏体线弹性加
+Sijkl 和 Θij 为 SMA 中马氏体体积分数 ξ 的函数，                                    载，不发生马氏体相变，则 ξ0=0，η(n)=0，dη(n)=0，
+BRISON[22]将其表示为                                                      代入式(13)、(17)和(18)得
+ 68                                                                        机    械   工   程   学   报                              第 56 卷第 14 期期
+
+                                                                                          SMA 发生马氏体逆相变过程，η0=1，读取第(n)
+                                                                                        步应力状态，并将结果代入式(3)、(4)、(6)和(18)，得
+                                                                                                    ⎧        3 ⎡ σ ( n ) − σ AF  1⎤
+                                                                                                    ⎪η( n ) = ⎢                 − ⎥−
+                                                                                                    ⎪        4 ⎣ CA ( Af − As ) 2 ⎦
+                                                                                                    ⎪                              3
+                                                                                                    ⎨        1 ⎡ σ ( n ) − σ AF  1⎤ 1    (24)
+                                                                                                    ⎪          ⎢                − ⎥ +
+                                                                                                    ⎪        4 ⎣ CA ( Af − As ) 2 ⎦ 2
+                                                                                                    ⎪dη
+                                                                                                    ⎩ ( n−1) = η( n ) − η( n−1)
+                                                                                          将式(24)中结果代入式(15)、(21)和(22)，并按
+                                                                                        照式(18)更新状态变量，依次迭代循环直至逆相变
+                                                                                        结束，SMA 全部转化为奥氏体，卸载过程为奥氏体
+                                                                                        线弹性卸载。
+
+
+                                                                                        4 模型和材料参数
+
+                                                                                        4.1     模型和边界条件
+                                                                                                SMA 缆索模型长 20 mm，其中包含 49 根 SMA
+                                                                                        丝按照 7×7 的螺旋结构进行排列[15]，截面排列方式
+                                                                                        如图 2 所示，每根 SMA 丝的直径为 0.885 mm。
+             图1        用户材料子程序计算流程图
+
+                 ⎪⎧dσ kl ( n ) = Cijkl (dε ij − α A dT )
+                                    A
+
+                  ⎨                                                             (19)
+                  ⎪⎩σ kl ( n+1) = σ kl ( n ) + dσ kl ( n )
+
+式中，dε ij 和 dT 分别表示每个增量步内给定的应变
+增量分量和温度增量。
+  SMA 发生马氏体相变过程，读取第(n)步应力                                                                              图 2 SMA 缆索截面构形
+
+状态，并将结果代入式(2)～(4)和(18)，得                                                                  针对 SMA 缆索的生产过程和几何结构，为了
+      ⎧        3 ⎡ 2(σ ( n ) − σ MS( n ) ) + σ scr − σ fcr ⎤                            方便建模并保证数值计算过程中良好的收敛性，经
+      ⎪η( n ) = ⎢                                          ⎥−
+      ⎪        4⎣              σ scr + σ fcr               ⎦                            过试算，本文通过将模型截面构形进行简化，如图 3
+      ⎪                                                      3                          所示，建立了两种有限元离散模型。
+      ⎨        1 ⎡ 2(σ ( n ) − σ MS( n ) ) + σ scr − σ fcr ⎤ 1                  (20)
+      ⎪          ⎢                                         ⎥ +
+      ⎪        4⎣              σ scr + σ fcr               ⎦ 2
+      ⎪ dη
+      ⎩ ( n−1) = η( n ) − η( n−1)
+并将式(20)中结果代入式(13)～(17)得
+                   dε ijtr( n−1) = Η Λij ( n−1) dη( n−1)                        (21)
+        dσ ij ( n ) = Cijkl ( n ) (dε ij − dε    tr
+                                                ij ( n −1) −   Θij ( n ) dT )   (22)
+
+按照式(18)更新状态变量，依次迭代循环直至相变                                                                             图 3 SMA 缆索截面简化构形
+结束，SMA 全部转化为马氏体，加载过程为马氏体                                                                        考虑到实际加载状态，为保证在拉伸过程中，
+线弹性加载。                                                                                  SMA 缆索不发生旋转，在其一端施加全位移约束，
+    卸载过程中，同样使用迭代法，SMA 初始相为                                                              另一端仅放开轴向的位移自由度。以截面构形图 3b
+马氏体，初始卸载过程为马氏体线弹性卸载，不发
+                                                                                        为例，SMA 缆索模型两端以直径为 7.965 mm 的长
+生马氏体逆相变，则 ξ0=1 ， η(n)=1 ，dη(n)=0 ，代入
+                                                                                        5 mm 的圆柱体作为施加载荷约束的刚体，其中圆
+式 (13)、(17)和(18)得
+                                                                                        柱体底面与对应接触的缆索截面之间施加绑定约
+                 ⎪⎧dσ kl ( n ) = Cijkl (dε ij − α M dT )
+                                    M
+                                                                                (23)    束，SMA 丝股之间保持光滑接触，SMA 缆索采用
+                  ⎨
+                  ⎪⎩σ kl ( n+1) = σ kl ( n ) + dσ kl ( n )                              C3D4 单元，刚体圆柱底座采用 C3D8R 单元，且
+月 2020 年 7 月                 康泽天等：形状记忆合金超弹性缆索力学行为的有限单元法                      69
+
+SMA 缆索六根外线股螺距设为 l0，如图 4 所示。
+
+
+
+
+                   图4   有限元模型
+
+4.2材料参数
+   形状记忆合金缆索材料选取 NiTi 合金，其材料                          图 5 SMA 芯股单轴拉伸应力应变曲线
+参数如表 1 所示[15, 21]。其中，EA、EM 分别为奥氏体
+                                             和结束应力 534.1 MPa 的误差分别为 4.1%和 2.8%，
+和马氏体的弹性模量，αA、αM 分别为奥氏体和马氏
+                                             马氏体逆相变开始和结束应力的有限元模拟结果分
+体的热膨胀系数。泊松比 μ 在相变过程中保持不变，
+                                             别为 255.9 MPa 和 230.6 MPa，与拉伸试验测得的
+CA、CM 分别为奥氏体和马氏体的应力影响系数。H
+                                             结果 266.7 MPa 和 255.9 MPa 的误差分别为 4.0%
+表示该 NiTi 合金材料的最大相变应变，可由单轴拉
+                                             和 9.9%。截面构形 b 的 SMA 芯股的马氏体相变开
+伸-卸载试验测得。
+                                             始和结束应力分别为 493.7 MPa 和 526.1 MPa，与拉
+         表1       NiTi 形状记忆合金材料参数            伸试验测得结果的误差分别为 2.7%和 1.5%，马氏
+                  参数                数值       体逆相变开始和结束应力的有限元模拟结果分别为
+ 马氏体弹性模量 EM/GPa                      17.2    263.1 MPa 和 223.4 MPa，与拉伸试验测得结果的
+ 奥氏体弹性模量 EA/GPa                      28.8    误差分别为 1.3%和 12.7%。因此，本文提出的两种
+ 马氏体开始温度 Ms /℃                      -41.0    不同简化截面构形的 SMA 芯股模型的单轴拉伸有
+ 马氏体结束温度 Mf /℃                      −148.0   限元数值模拟计算结果均与文献中的试验结果吻合
+ 奥氏体开始温度 As /℃                      −13.1
+                                             较好。
+ 奥氏体结束温度 Af /℃                      −11.6
+                                                  图 6～9 所示为在 25.0 ℃温度下，拉应力为
+ 马氏体温度影响系数 CM/(MPa·℃−1)              7.0
+                                             390.0 MPa，缆索外线股轴线螺距 l0 为 50 mm 时，
+ 奥氏体温度影响系数 CA/(MPa·℃−1)              7.0
+                   −6
+ 马氏体热膨胀系数 αA/(10 ·℃ )   −1
+                                     6.6
+                                             图 3 所示两种不同截面构形的 SMA 缆索和芯股的
+ 奥氏体热膨胀系数 αA/(10−6·℃−1)              11.0    等效应力以及形状记忆因子的数值模拟结果分布云
+ 泊松比 μ                               0.25    图。图中结果表示，由于在拉伸过程中，SMA 缆索
+ 相变应变 H/10   −2
+                                     4.8     外圈线股与芯股之间产生挤压作用，导致芯股与外
+ 相变开始应力初始值 σscr/MPa                  45.6    圈线股接触部位等效应力最大，且首先发生形状记
+ 相变结束应力初始值 σfcr/MPa                  72.1    忆产生过程，外圈线股两端由于受到刚体绑定约束
+                                             且外线股相互之间接触挤压，因此外线股在远离缆
+5 数值算例结果与分析                                  索中心轴线的区域以及相邻两外线股接触区域应力
+                                             较大，也最先发生形状记忆产生过程。由图 5 中结
+  为研究不同简化截面构形对 SMA 超弹性缆索                     果可以看出，两种简化截面构形的有限元模型均具
+和芯股在拉伸过程中力学和形状记忆过程行为的影                       有良好的准确性，因此为了保持较好的收敛性，后
+响，通过对超弹性 SMA 芯股的拉伸-卸载过程进行                    续工作均采用图 3b 所示构形对 SMA 缆索模型截面
+有限元数值模拟，得到温度为 25.0 ℃，截面构形分                   进行简化计算。
+别为图 3a 和图 3b 的 SMA 芯股的名义应力-应变曲
+线，并与 MAS 等[15]对 NiTi-SMA 芯线的拉伸试验
+结果进行对比研究，如图 5 所示。
+  由图 5 中曲线可以看出，本文有限元数值模拟结
+果中，截面构形 a 的 SMA 芯股的马氏体相变开始和
+结束应力分别为 486.5 MPa 和 518.9 MPa，与拉伸试
+                                                图6    截面构形 a 缆索和芯股等效应力分布云图
+验测得该芯股的马氏体相变开始应力 507.4 MPa
+ 70                          机     械   工   程   学   报                   第 56 卷第 14 期期
+
+                                           始和结束应力为 459.1 MPa 和 492.8 MPa，与芯股
+                                           的马氏体相变开始应力 507.4 MPa 和结束应力
+                                           534.1 MPa 相比，分别降低了 9.5%和 7.7%，而缆索
+                                           的马氏体逆相变开始和结束应力为 243.0 MPa 和
+                                           216.0 MPa ， 与 芯 股 的 马 氏 体 逆 相 变 开 始 应 力
+                                           266.7 MPa 和结束应力 255.9 MPa 相比，分别降低
+      图7    截面构形 b 缆索和芯股等效应力分布云图
+                                           了 8.9%和 15.6%。在温度为 25.0 ℃的数值模拟单
+                                           轴拉伸试验中，SMA 缆索的马氏体相变开始和结束
+                                           应力为 404.6 MPa 和 445.9 MPa，与芯股的马氏体
+                                           相变开始应力 493.7 MPa 和结束应力 526.1 MPa 相
+                                           比，分别降低了 18.0%和 15.2%，而缆索的马氏体逆
+                                           相变开始和结束应力为 225.4 MPa 和 162.6 MPa，
+ 图8        截面构形 a 缆索和芯股形状记忆因子分布云图          与芯股的马氏体逆相变开始应力 263.1 MPa 和结束
+                                           应力 223.4 MPa 相比，分别降低了 14.3%和 27.2%。
+                                           除此之外，相同应变条件下，缆索整体名义应力的数
+                                           值模拟结果与试验结果相比有明显降低，这是由于为
+                                           了保证数值计算过程的收敛性，本文建立的有限元离
+                                           散模型没有考虑线股相互之间的摩擦效应导致的。
+                                                保持温度不变，仅改变图 3b 所示截面构形 SMA
+ 图9    截面构形 b 缆索和芯股形状记忆因子分布云图
+                                           缆索外线股轴线螺距 l0，模拟缆索外线股的螺距对
+      从图 2 可以看出，SMA 缆索芯股在拉伸过程中             其在整个拉伸过程中的应力应变行为的影响。温度
+保持伸直状态，除此之外，其他 SMA 线股由于具有                  为 25.0 ℃，当外线股螺距 l0 为 40 mm，50 mm 和
+螺旋形状，在拉伸过程中受到拉伸，扭转和弯曲等混                    60 mm 时，计算模拟得到 SMA 缆索的拉伸应力应
+合加载，因此有必要对该芯股在拉伸过程中的力学响                    变曲线如图 11 所示。由图中曲线可以看出，相同应
+应进行研究并与整个缆索的力学响应进行对比分析。                    变情况下，随着外线股螺距的增大，对应的 SMA
+     图 10 表示温度为 25.0 ℃，缆索外线股轴线螺            缆索整体的拉伸应力水平降低，且 SMA 缆索整体
+距 l0 为 50 mm 时，截面构形为图 3b 的 SMA 芯股          的马氏体相变开始和结束应力以及马氏体逆相变开
+与缆索单轴拉伸的数值模拟结果，与文献 [15] 中                  始和结束应力均随着外线股螺距的增大而降低，初
+SMA 芯股与缆索的拉伸试验结果进行对比研究。由                   始加载段以及相变后的初始卸载段的弹性模量均随
+图中曲线可以看出，本文有限元数值模拟结果中，                     着外线股螺距的增大而减小。
+相较于 SMA 芯股，缆索整体初始加载阶段的弹性
+模量，马氏体开始和结束应力以及奥氏体开始和结
+束应力均较小，与文献中的单轴拉伸试验结果相符。
+其中在单轴拉伸试验中，SMA 缆索的马氏体相变开
+
+
+
+
+                                                   图 11   不同螺距 SMA 缆索拉伸应力应变曲线
+
+
+
+                                           6 结论
+       图 10 SMA 芯股和缆索拉伸应力应变曲线                      本文根据周博等[23]提出的形状记忆合金(SMA)
+月 2020 年 7 月                   康泽天等：形状记忆合金超弹性缆索力学行为的有限单元法                                                                71
+
+本构模型，借助形状记忆因子能够描述形状记忆合                                             posite laminated shells with embedded SMA wires under
+金的马氏体择优取向过程的优点，考虑相变过程中                                             supersonic flow[J]. Aerospace Science and Technology，
+材料弹性模量随形状记忆因子的变化情况，利用全                                             2016，52：157-166.
+量型本构方程推导适用于有限元编程计算的增量型                                         [3] 康泽天，周博，薛世峰. 功能梯度形状记忆合金复合梁
+本构方程，得到 SMA 在相变过程中应力张量增量                                           的力学行为[J]. 复合材料学报，2019，36(8)：1901-1910.
+与形状记忆因子增量之间的关系。借助于有限元软                                             KANG Zetian，ZHOU Bo，XUE Shifeng. Mechanical
+件 ABAQUS 二次开发功能，编写了 ABAQUS 用户                                      behaviors of functionally graded shape memory alloy
+材料子程序。通过将 SMA 超弹性缆索截面构形进                                           composite beam[J]. Acta Materiae Composite Sinica，
+行简化，并考虑到材料非线性和接触非线性，合理                                             2019，36(8)：1901-1910.
+采用刚体约束和接触算法，对 25.0 ℃温度下，不同                                     [4] ZHOU Bo. A macroscopic constitutive model of shape
+截面构形和不同缆索外线股螺距情况下，缆索和芯                                             memory alloy considering plasticity[J]. Mechanics of
+股的单轴拉伸力学和相变行为进行数值模拟，得到                                             Materials，2012，48：71-81.
+以下几个结论。                                                        [5] CISSE C，ZAKI W，ZINED T B. A review of constitutive
+  (1) 通过截面构形简化的 SMA 超弹性缆索进                                         models and modeling techniques for shape memory
+行数值模拟，得到了 SMA 芯股的单轴拉伸应力应                                           alloys[J]. International Journal of Plasticy，2016，76：
+变曲线，并与文献中的试验结果进行对比验证，结                                             244-284.
+果表明，本文所提出的简化模型以及有限元程序均                                         [6] XU R，BOUBY C，ZAHROUNI H，et al. 3D modeling of
+适用于该缆索的数值模拟。                                                       shape memory alloy fiber reinforced composites by
+   (2) 通过对拉应力为 390.0 MPa 时，SMA 超弹                                  multiscale finite element method[J]. Composite Structures，
+性缆索和芯股的应力分布以及形状记忆因子云图的                                             2018，200：408-419.
+分析研究表明，在单轴拉伸过程中，SMA 芯股与外                                       [7] VIET N V，ZAKI W. Analytical investigation of the
+圈线股接触部位以及外圈线股之间相互接触部位应                                             behavior of concrete beams reinforced with multiple circular
+力最大，并首先产生马氏体相变过程。                                                  superelastic shape memory alloy bars[J]. Composite
+   (3) 通过对 SMA 超弹性缆索和芯股的拉伸应                                        Structures，2019，210：958-970.
+力-应变行为的数值结果进行对比研究发现，相较于                                        [8] MAJI A K. Smart prestressing with shape-memory
+芯股，缆索整体初始加载阶段的弹性模量，马氏体                                             alloy[J]. Journal of Engineering Mechanics ， 1998 ，
+相变开始和结束应力以及马氏体逆相变开始和结束                                             124(10)：1121-1128.
+应力均较小，与文献中试验结果相符。但由于缆索                                         [9] FANG Cheng ， ZHENG Yue ， CHEN Junbai， et al.
+有限元离散模型没有考虑线股相互之间的摩擦效                                              Superelastic NiTi SMA cables ： Thermal-mechanical
+应，导致在相同应变条件下，缆索整体应力的数值                                             behavior，hysteretic modelling and seismic application[J].
+模拟结果与试验结果相比有明显降低。                                                  Engineering Structures，2019，183：533-549.
+   (4) 通过对 SMA 超弹性缆索外线股轴线螺距                                    [10] BELTRAN J F，CRUZ C，HERRERA R，et al. Shape
+对该缆索整体力学和相变行为影响的数值分析研究                                             memory alloy CuAlBe strands subjected to cyclic axial
+发现，随着缆索外线股轴线螺距增大，相同应变条                                             loads[J]. Engineering Structures，2011，33(10)：2910-2918.
+件下，缆索整体的拉伸应力水平逐渐降低，且缆索                                         [11] REEDLUNN B，DALY S，SHAW J. Superelastic shape
+整体的马氏体相变开始和结束应力以及马氏体逆相                                             memory alloy cables：Part I - Isothermal tension experi-
+变开始和结束应力均逐渐降低，初始加载段以及完                                             ments[J]. International Journal of Solids and Structures，
+全相变后的初始卸载段的弹性模量也逐渐减小。                                              2013，50(20-21)：3009-3026.
+                                                               [12] REEDLUNN B，DALY S，SHAW J. Superelastic shape
+                   参    考     文     献
+                                                                   memory alloy cables：Part II - Subcomponent isothermal
+[1] KONH B ， HONARVAR M ， HUTAPEA P. Design                        responses[J]. International Journal of Solids and Str-
+    optimization study of a shape memory alloy active needle       uctures，2013，50(20-21)：3027-3044.
+    for biomedical applications[J]. Medical Engineering and    [13] OZBULUT O ， DAGHASH S ， SHERIF M. Shape
+    Physics，2015，37(5)：469-477.                                    memory alloy cables for structural applications[J]. Journal
+[2] DONADON M，FARIA A. Aeroelastic behavior of com-                of Materials in Civil Engineering，2016，28(4)：04015176.
+  72                                                  机    械    工    程   学    报                                  第 56 卷第 14 期期
+
+[14] SHERIF M ， OZBULUT O. Tensile and superelastic                          Materials and Structures，2013，22(9)：223-236.
+       fatigue characterization of NiTi shape memory cables[J].      [21] 康泽天，周博，薛世峰. 形状记忆合金管接头热机耦合
+       Smart Materials and Structures，2018，27(1)：015007.                     行为的有限元数值模拟[J]. 机械工程学报，2018，
+[15] MAS B，BIGGS D，VIEITO I，et al. Superelastic shape                        54(18)：68-75.
+       memory alloy cables for reinforced concrete appli-                    KANG Zetian ， ZHOU Bo ， XUE Shifeng. Finite
+       cations[J]. Construction and Building Materials，2017，                 element numerical simulation on thermo-mechanical
+       148：307-320.                                                          coupling behavior in shape memory alloy pipe connec-
+[16] CARBONI B，LACARBONARA W，AURICCHIO F.                                    tion[J]. Journal of Mechanical Engineering，2018，
+       Hysteresis of multiconfiguration assemblies of nitinol and            54(18)：68-75.
+       steel strands：Experiments and phenomenological identi-        [22] BRINSON L C. One-dimension constitutive behavior of
+       fication[J]. Journal of Engineering Mechanics，2014，                   shape memory alloys：Thermomechanical derivation with
+       141(3)：04014135.                                                      non-constant material functions and martensite internal
+[17] ZHENG Yue，DONG You，LI Yaohan. Resilience and                            variable[J]. Journal of Intelligent Material Systems and
+       life-cycle performance of smart bridges with shape                    Structures，1993，4：229-242.
+       memory alloy (SMA)-cable-based bearings[J]. Cons-             [23] 周博，刘彦菊，冷劲松，等. 形状记忆合金的宏观力学
+       truction and Building Materials，2018，158：389-400.                     本构模型[J]. 中国科学，2009，39(7)：998-1006.
+[18] BOYD       J ， LAGOUDAS           D.   A thermodynamical                ZHOU Bo，LIU Yanju，LENG Jinsong，et al. A macro-
+       constitutive model for shape memory materials. Part I.                mechanical constitutive model of shape memory alloys[J].
+       The monolithic shape memory alloy[J]. International Journal           Science in China，2009，39(7)：998-1006.
+       of Plasticy，1996，12(6)：805-842.
+                                                                     作者简介：康泽天，男，1992 年出生，博士研究生。主要研究方向为智
+[19] QIDWAI M，LAGOUDAS D. Numerical implementation
+                                                                     能材料与结构力学。
+       of a shape memory alloy thermomechanical constitutive         E-mail：kangzt_upc@163.com
+                                                                     王志勇，男，1992 年出生。主要研究方向为智能材料与结构力学。
+       model using return mapping algorithms[J]. International
+                                                                     E-mail：wangzy319@foxmail.com
+       Journal for Numerical Methods in Engineering，2000，47：         周博(通信作者)，男，1972 年出生，博士，教授，博士研究生导师。
+                                                                     主要研究方向为智能材料与结构力学，微尺度材料力学，油气井工程
+       1123-1168.
+                                                                     力学等。
+[20] TABESH M，LIU B，BOYD J，et al. Analytical solution                E-mail：zhoubo@upc.edu.cn
+                                                                     薛世峰，男，1963 年出生，博士，教授，博士研究生导师。主要研究方
+       for the pseudoelastic response of a shape memory alloy
+                                                                     向为断裂力学，油气田地下工程力学等。
+       thick-walled cylinder under internal pressure[J]. Smart       E-mail：sfeng@upc.edu.cn
+

@@ -1,0 +1,799 @@
+                                                       Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+                                                          Contents lists available at ScienceDirect
+
+
+                                             Biomimetic Intelligence and Robotics
+                                                    journal homepage: www.elsevier.com/locate/birob
+
+
+Review
+
+Variable stiffness methods of flexible robots for minimally invasive
+surgery: A review
+                                                              ∗
+Botao Lin, Shuang Song 1 , Jiaole Wang 1 ,
+Harbin Institute of Technology (Shenzhen), Shenzhen 518055, China
+
+
+
+article             info                           a b s t r a c t
+
+Article history:                                   With high flexibility and slim body, flexible robots have been widely used in minimally invasive
+Received 26 February 2024                          surgery because they can safely reach the lesion deep inside the human body through small incisions
+Revised 30 April 2024                              or natural orifices. However, high stiffness of robot body is also required for transferring force and
+Accepted 21 May 2024
+                                                   maintaining the motion accuracy. To meet these two contradictory requirements, various methods
+Available online 4 June 2024
+                                                   have been implemented to enable adjustable stiffness for flexible surgical robots. In this review, we first
+Keywords:                                          summarize the anatomic constraints of common natural tracts of human body to provide a guidance
+Minimally invasive surgery                         for the design of variable stiffness flexible robots. And then, the variable stiffness methods have been
+Continuum robot                                    categorized based on their basic principles of varying the stiffness. In the end, two variable stiffness
+Variable stiffness                                 methods with great potential and the moving strategy of variable stiffness flexible robots are discussed.
+                                                     © 2024 The Author(s). Published by Elsevier B.V. on behalf of Shandong University. This is an open access
+                                                                article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+
+
+
+1. Introduction                                                                    like grasping, puncturing, and being tract of other surgical instru-
+                                                                                   ments, etc. Furthermore, robots may face many problems when
+1.1. Flexible surgical robots in minimally invasive surgery                        advancing into human body, like forming undesired twist after
+                                                                                   contacting the organs, which prevents the robot to move forward
+    Minimally invasive surgery (MIS) includes single or multi-                     any more.
+port surgery and natural orifice transluminal endoscopic surgery                       Then two contradictory clinical demands arise: a flexible MIS
+(NOTES), as shown in Fig. 1. MIS offers advantages such as de-                     robot is required to be low-stiff and dexterous in order to safely
+creasing the pain of the patient, reducing the recovery time,                      reach the lesion, but it is also required to be high-stiff when
+enhancing the safety of the surgery, etc. Therefore, it has be-                    performing surgery, aiming to improve its operational stability,
+come prevalent in past decades, and robot-assisted MIS has also                    precision, and the capability of exerting force. Hence, variable
+developed rapidly [1,2].                                                           stiffness has became a desirable ability of flexible MIS robots [5].
+    The surgical instruments are required to have a dexterous and
+slender body, which allows them to access the lesion deep inside                   1.2. Variable stiffness in flexible robots
+the human body and carry out surgeries during MIS. Therefore,
+flexible robots with small outer diameter and plenty of degrees                        Stiffness is an important characteristic of robots, which relates
+of freedom for maneuverability are used widely in MIS [3].                         to their dynamic performance and interaction with environment.
+    However, the high dexterity of flexible robot can also be                          Four commonly used stiffness calculation methodologies of
+drawbacks in some situations. During the surgery, robot’s body                     flexible robots have been summarized from previous studies, as
+may be too flexible to withstand the external force generated by                   shown in Fig. 2.
+the human body, resulting in low working accuracy and stability                        First, the robot’s stiffness can be calculated as the proportion
+of the robot. And low stiffness also limits the robots’ performance                of the deviation of robot’s end-effector from the corresponding
+in force transmitting and some motions that need higher force [4],                 external force [8,9]. When an external force is applied to the
+                                                                                   robot’s distal end, as shown in Fig. 2(a), the stiffness K can be
+ ∗ Corresponding author.                                                           expressed as
+     E-mail address: wangjiaole@hit.edu.cn (J. Wang).                                    d
+  1 Given Shuang Song’s role as Guest Editor and Jiaole Wang’s role as             K =                                                                      (1)
+                                                                                         F
+Managing Guest Editor of this journal, Shuang Song and Jiaole Wang had no
+involvement in the peer-review of this article and had no access to information    where d and F are the magnitude of deviation and external force,
+regarding its peer-review. The article was handled by Prof. Yangming Lee.          respectively.
+
+https://doi.org/10.1016/j.birob.2024.100168
+2667-3797/© 2024 The Author(s). Published by Elsevier B.V. on behalf of Shandong University. This is an open access article under the CC BY-NC-ND license
+(http://creativecommons.org/licenses/by-nc-nd/4.0/).
+B. Lin, S. Song and J. Wang                                                                                         Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+
+              Fig. 1. Minimally invasive surgery. (a) Multi-port minimally invasive surgery [6]. (b) Natural orifice transluminal endoscopic surgery [7].
+
+
+
+
+                                                       Fig. 2. Calculation methods of flexible robot’s stiffness.
+
+
+   When an external torque is applied to the robot, as shown in                        can be calculated as
+Fig. 2(b), the stiffness K can be expressed as
+                                                                                                     FL3
+    θ                                                                                  K = EI =                                                                     (4)
+K =                                                                          (2)                    3∆w
+    τ                                                                                  where E is the flexural module, I is the moment of inertia, L is
+where θ and τ are the magnitude of rotation angle of robot and                         the length of robot, F is the magnitude of external force, and the
+the external torque, respectively [10].                                                ∆w is the deviation of robot’s end, as shown in Fig. 2(d).
+    Additionally, the stiffness of robot can also be calculated by                         Since there are multiple stiffness calculation methods, readers
+elastic beam theory. By setting the robot as a beam with two                           should be aware that stiffness values in different works may have
+support and applying an external force on the middle [11,12], the
+                                                                                       different dimensions. Additionally, we have introduced the con-
+stiffness K can be calculated as
+                                                                                       cept of stiffness adjusting ratio to intuitively show the stiffness
+               FL3                                                                     improvement that each variable stiffness method can achieve.
+K = EI =                                                                     (3)
+             48∆w                                                                      The stiffness adjusting ratio is calculated as the proportion of
+where E is the flexural module, I is the moment of inertia, L is                       maximum to minimum stiffness of the variable stiffness flexible
+the length of robot, F is the magnitude of external force, and the                     robot [15,16], which is a dimensionless parameter.
+∆w is the deviation of robot’s middle, as shown in Fig. 2(c).                              By adjusting the stiffness, robots can enable many valuable
+   By setting the robot as a cantilever beam and applying an                           functions like safe human–robot interaction, force sensing, effi-
+external force on the distal end [13,14], the stiffness K of robot                     cient energy harvesting, programmable force output, etc [17,18].
+                                                                                   2
+B. Lin, S. Song and J. Wang                                                                              Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+Table 1
+Classification of common variable stiffness methods.
+ Classification                                                            Description                                                     Reference
+ Antagonism of internal force                                              Adjusting the antagonism between internal forces to             [9,23–37]
+                                                                           vary the robot’s stiffness.
+                                         Friction-based constraint         Adjusting the friction between the movable structures,          [8,38–54]
+ Constraint of relative motion
+                                                                           the motion of which is coupled with the robot’s
+                                                                           deformation, to vary the robot’s stiffness.
+                                         Mechanical engagement (Locking)   Using engageable structures on the movable                      [30,55–59]
+                                                                           mechanisms, motion of which is coupled with the robot
+                                                                           bending, to lock the robot’s shape.
+                                         Phase transition material         Using materials that can change their stiffness with            [11,12,14,60–75]
+ Use of variable stiffness material
+                                                                           different energy input to vary the stiffness of robot.
+                                         Rheological fluid                 Using rheological fluid, whose viscosity is changeable, to      [76–80]
+                                                                           vary the robot’s stiffness.
+
+
+
+
+Many variable stiffness mechanisms have been applied on large-                 2.1. Antagonism of internal force
+scale robots to change performance. For example, prostheses en-
+hance their adaptability in different working scenarios by equip-                  Changing antagonism of the actuators is the most common
+ping with spring-based variable stiffness mechanisms [19], robot               way to change stiffness of the structure in nature. For example,
+maintains precise force sensing ability by real-time controlling               human muscles on the both sides control the joint to rotate
+the joint motor [20], continuum robot output programmable force                oppositely. When the two groups of muscles contract at the same
+by using pneumatic based variable stiffness outer sheath [21], etc.            time, the overall external stiffness of the joint will increase sig-
+   However, since flexible robots are constructed with consecu-                nificantly. With the same principle, to adjust the flexible robot’s
+tive joints or continuum elastomers, which featuring slim bod-                 stiffness, researchers can enhance the internal force, like increas-
+ies and small cross sections, common variable stiffness mecha-                 ing the actuation forces simultaneously, to mitigate the influence
+nisms with large scales cannot be applied to the robot. There-                 caused by external disturbance forces, as shown in Fig. 3(a).
+fore, novel variable stiffness methods for flexible robots have                    Many proposed flexible surgical robots have used this princi-
+been proposed [22], including implanting low-melting-point ma-                 ple to vary stiffness. Falco et al. [23] designed a variable stiffness
+terial (LMPM) or shape-memory material (SMM), using jamming                    percutaneous needle for minimally invasive surgery, as shown
+or lockable mechanisms, etc. In the following sections, these                  in Fig. 4(a). The variation of tendons tension can adjust the
+commonly used variable stiffness methods for flexible robots                   stiffness of robot, which is suitable for puncturing different tissue.
+have been categorized and elaborately introduced, along with                   Kim et al. [9] designed a hyper-redundant tubular manipulator
+                                                                               composed of special shape links, which can achieve variable
+interesting applications.
+                                                                               neutral-line during moving, as shown in Fig. 4(b). With these
+                                                                               links, the robot can achieve continuously changed stiffness by
+1.3. Scope of article                                                          varying the tension of tendons even during moving. Wakimoto
+                                                                               et al. [29] designed an intestine endoscope like continuum robot
+    In this paper, we focus on development, challenges, and fu-                with fiber-reinforced rubber tubes inside, as shown in Fig. 4(d).
+ture of the variable stiffness methods for flexible MIS robots.                As air is pumped in, the pressure of the tube increases to resist
+Common variable stiffness methods are categorized based on                     bending, and the robot’s body is stiffened. Huh et al. [24] designed
+their fundamental principle of altering robot’s stiffness, and the             a compressible tendon driven continuum manipulator, as shown
+characteristics of each method are elucidated, which can help                  in Fig. 4(f). With the Increase in internal force and the compres-
+readers understand how to select the suitable methods. After                   sion of consecutive soft joints, the variation in stiffness of robot
+summarizing the challenges and requirements of current variable                body can reach up to approximately fifty times. The antagonism
+stiffness methods, we introduced two potential methods with                    of hybrid actuation forces is also utilized. Maghooa et al. [28] and
+great properties, which may aid users in exploring the ideal                   Stilli et al. [27] proposed continuum manipulators with hybrid
+method.                                                                        actuation which incorporates tendons and pneumatics, as shown
+    Furthermore, we have discussed the ability of avoiding ob-                 in Fig. 4(c) and (e). Stiffness of the manipulators can be changed
+stacles and following predetermined path for variable stiffness                continuously under the antagonism of actuation forces containing
+flexible robot, with the intention of uncovering their potential               the tension of tendons and the inside air pressure.
+applications in other domains, such as manufacturing, rescuing,                    In addition to regulating the antagonistic actuation, antago-
+aerospace operating, etc.                                                      nism of robot’s internal forces can also be adjusted by inserting
+                                                                               external components with high elastic modulus. For example,
+                                                                               when a flexible robot exhibits low stiffness, inserting an inner
+2. Variable stiffness method                                                   tube with a high elastic modulus can enhance robot’s stiffness
+                                                                               directly. The pulling force of the driving tendons and the elastic
+    Common methods of varying flexible robots’ stiffness can be                force of the inner tube antagonize each other when the robot
+categorized into three types, by using antagonism of internal                  bends, resulting in a high overall stiffness of the robot. Many
+force, constraint of relative motion, and variable stiffness materi-           methods of enhancing the stiffness of robot by inserting high
+als, respectively.                                                             elastic modulus components have been practiced. Lloyd et al. [33]
+    More detailed classification and examples of applications are              designed a magnetic-actuated robot with variable stiffness, as
+shown in Table 1 and Fig. 3. A collection of variable stiffness                shown in Fig. 4(g). The backbone of the robot is a sliding Nitinol
+flexible robots are shown in Table 3, including the each robot’s               rod. With the cooperation of different insertion length of the
+variable stiffness principles, outer diameter, stiffness adjusting             backbone and the application of magnetic field, stiffness of the
+ratio, response time, and brief description.                                   robot can be varied. Li et al. [37] proposed a novel concentric
+                                                                           3
+B. Lin, S. Song and J. Wang                                                                                           Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+
+Fig. 3. Fundamental principles of varying stiffness of flexible robot. (a) Varying robot’s stiffness by enhancing antagonism of internal force. (b) Varying robot’s stiffness
+with constraint of relative motion, including friction-based method and mechanical-engagement-based method. (c) Varying robot’s stiffness by using variable stiffness
+materials, including using phase transition materials and rheological fluids.
+
+
+magnetic continuum robot with variable stiffness, as shown in                            2.2. Constraint of relative motion
+Fig. 4(h). With changeable relative position of the inner and
+outer elastic tubes and the magnets, robot gains substantial stiff-                         In many designs of flexible robots, movable structures such as
+                                                                                         hinges and sliders are used, and the relative motion between the
+ness variation which leads to different curvature bending. Wang
+                                                                                         movable structures are strongly coupled with the robots’ bending
+et al. [36] designed a continuum robot with a sliding variable stiff-                    motions. Researchers have employed diverse methods to impede
+ness spine which bases on particle jamming, as shown in Fig. 4(i).                       the deformation of robot and enhance stiffness by constraining
+After combining the particle jamming and spine growth, the robot                         the relative motion generated inside the movable structures, as
+enables reconfiguration of variable curvature and continuously                           shown in Fig. 3(b). And these motion constraint methods can
+changed stiffness.                                                                       be categorized into two groups based on increasing friction and
+                                                                                         mechanical engagement, respectively.
+    Utilizing antagonism of internal force can enhance the stiffness
+of robot body simply, rapidly and continuously, without the need
+                                                                                         2.2.1. Friction-based constraint
+for complex structural design. However, this method still has                                Due to the couple between the relative motions of movable
+some drawbacks. Firstly, it necessitates continuous energy input                         structures and the deformation of the robot, increasing the fric-
+to sustain the high stiffness state of the robot, thereby increasing                     tion between these structures can enhance the robot’s stiffness.
+the control complexity of the robot. Additionally, antagonistic                          Small objects like granular, fiber and layer are widely used to
+forces generated by different actuators or internal components                           help enhance robot’s stiffness, since there are numerous rel-
+                                                                                         ative motions among these objects while robot deforming. A
+exhibit strong coupling, amplifying the challenge of precise con-
+                                                                                         contractible enclosed membrane is placed outside the objects.
+trol. Furthermore, it lacks an ability to independently adjust the                       When the membrane is relaxed, small objects inside can move
+stiffness of partial robot sections, which limits its applicability in                   freely along with the robot bending. After using pump extracting
+certain surgical scenarios.                                                              air inside the membrane, it contracts and all the objects would
+                                                                                     4
+B. Lin, S. Song and J. Wang                                                                                      Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+
+Fig. 4. Flexible surgical robot prototypes that vary stiffness by antagonism of internal forces. (a) Needle with variable stiffness that generated by different tendon
+tension [23]. (b) Flexible robot that can change stiffness continuously by varying tension of tendons with asymmetric links [9]. (c) Variable continuum robot with
+hybrid actuation [28]. (d) Intestine endoscope-like robot that vary stiffness with air chambers [29]. (e) Hybrid actuated surgical continuum robot with trocar [27].
+(f) Continuum robot with compressible soft joints that adjust stiffness by tendon driving [24]. (g) Magnetic actuated continuum robot with insertable backbone [33].
+(h) Magnetic actuated continuum robot with adjustable concentric structure [37]. (i) Continuum robot with variable stiffness insertable backbone, which changes
+stiffness by granular jamming [36].
+
+
+
+
+Fig. 5. Robot prototypes that vary stiffness based on constraining relative motion of internal movable structures. (a) Gastrointestinal endoscopy robot with rubber
+tubes inside to adjust its stiffness [38]. (b) Manipulator with variable stiffness based on fiber-jamming [41]. (c) One module of STIFF-FLOP robot, which stiffens the
+body by granular jamming [54]. (d) Manipulator with variable stiffness outer sheath based on layer-jamming [44]. (e) Continuum robot has engageable structures
+placed along the robot body [55]. (f) Modular lockable joint for flexible surgical robots, which can be (un)locked independently [59]. (g) Continuum robot with
+magnetic-actuated lockable mechanism [58]. (h) Continuum robot with lockable mechanism based on worm gears [81].
+
+
+jam together under the atmospheric pressure. Friction between                         jamming, as shown in Fig. 5(b). Through fiber jamming, the robot
+jamming objects would be significantly amplified, resulting in an                     exhibits a large variation of stiffness along the radial direction
+overall increase in stiffness for the robot.                                          while consistently maintaining high stiffness in the axial direc-
+   There are many examples of using friction-based methods                            tion, which is well-suited for various endoscopic applications.
+to adjust robots’ stiffness. Luo et al. [38] designed a flexible                      Ranzani et al. [54] designed a pneumatic actuated soft flexible
+gastrointestinal endoscopy robot with tendon-driving and pneu-                        surgical robot with a stiffening chamber inside, as shown in
+matic hybrid actuation, as shown in Fig. 5(a). Four rubber tubes                      Fig. 5(c). After air withdrawing from the stiffening chamber, small
+are placed symmetrically around the central axis of robot, which                      granules filled inside would jam together under the atmospheric
+have relative slide motion respect to the robot body when robot                       pressure, and friction between the granules increases signifi-
+bending. By injecting the air into tubes, the tubes expand and jam                    cantly, impeding the shape-changing of the robot body. Langer
+with the robot body to prevent it from changing shape, thereby                        et al. [44] proposed a new type of outer sheath for flexible surgical
+achieving the shape locking of robot. Brancadoro et al. [41] pro-                     robot which can be stiffened, as shown in Fig. 5(d). The layers on
+posed a manipulator prototype with variable stiffness by fiber                        the outer sheath overlap with adjacent ones. When a vacuum is
+                                                                                  5
+B. Lin, S. Song and J. Wang                                                                       Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+applied around the layers, high friction is generated due to the          melting point. Therefore, many researchers change the stiffness
+jamming of the overlapped parts, thereby reinforcing the robot’s          of flexible robots by implanting these materials into robot body
+stiffness.                                                                and altering their physical properties through applying external
+    By amplifying the friction between internal movable struc-            stimuli, as shown in Fig. 3(c). Commonly used variable stiffness
+tures, continuously adjustable stiffness of robot can be achieved,        materials can be categorized into two groups as phase-transition
+while the user should consider the continuous energy input of             material and rheological material.
+maintaining the high-stiffness state. What is more, many designs
+incorporate the creation of a vacuum around the movable struc-            2.3.1. Phase transition materials
+ture, necessitating the use of a enclosed membrane and an air                 Phase transition materials, such as low-melting-point alloy
+pump, which would increase the outer diameter of the robot                (LMPA) and shape-memory-alloy (SMA), can change its stiffness
+and diminish the system’s potential as being portable for more            with joule heat input, which are widely integrated into the robot
+working scenarios.                                                        to enable stiffness adjustment. There are many low-cost phase
+                                                                          transition materials with different properties, such as wax and
+2.2.2. Mechanical engagement (locking)                                    shape memory nickel titanium alloy, on the market, which pro-
+    In addition to jam of small objects, engageable mechanisms            vide researchers diverse choice. Since these materials can provide
+are also used to lock robot’s shape for varying stiffness. Rela-          considerable stiffness variation, they can be applied to flexi-
+tive movement occurs between the internal moveable parts of               ble surgical robots with small outer diameters, such as catheter
+engageable mechanisms which is coupled with the deforma-                  robots.
+tion of robot body. Then the actuator drives the mechanism to                 Kim et al. [75] designed a novel flexible robot for MRI-guided
+engage, locking the shape of robot and increasing the overall             neurosurgery, as shown in Fig. 6(a). The robot’s body is composed
+stiffness. Comparing with other variable stiffness methods, en-           of consecutive SMA springs. The SMA spring exists in austenite
+gageable mechanisms can provide a more reliable shape locking,            phase in high temperature, leading to a low stiffness of robot
+which depends on the utilized material.                                   body. When heat dissipates and temperature of SMA springs
+    Liu et al. [55] designed a reversible shape-locking mecha-            drops, they transform to martensite phase and become harder, re-
+nism which can be placed along the flexible robot, as shown in            sulting in a high stiffness of robot body. Wang et al. [61] proposed
+Fig. 5(e). The mechanism comprises buckles and bellows, which             a controllable stiffness manipulation arm with phase-change ma-
+can engage together and lock the robot’s shape under pneumatic            terial filling inside the gap of joints, as shown in Fig. 6(b). With a
+actuation. Lin et al. [59] designed a modular lockable joint for
+                                                                          large area rolling electric heating film and water cooling system,
+flexible surgical robots, as shown in Fig. 5(f). With remote actu-
+                                                                          the phase-change material can switching between liquid and
+ation by tendon driving, each joint can be locked and unlocked
+                                                                          solid phases to meet different stiffness needs. Piskarev et al. [72]
+independently, and the joint’s state can be maintained with-
+                                                                          proposed a magnetic catheter with a variable stiffness outer tube
+out continuous energy input, which provide robot more possible
+                                                                          made of shape memory polymer PTFE(polytetrafluoroethylene),
+movements. Pogue et al. [58] proposed a novel magnetic lock-
+                                                                          as shown in Fig. 6(c). The fabrication process of PTFE tube con-
+ing mechanism for tendon-driven continuum robot, as shown in
+                                                                          tains repeat dipping and curing, which allows the tube to be thin
+Fig. 5(g). Under the actuation of external magnetic field, a rotary
+                                                                          for the neurosurgery. Internal helical copper electrode can heat
+plate inside the mechanism would rotate and engage with beads
+                                                                          the tube, causing it to soften and allowing the robot to be flexible.
+on the rope that pass through the mechanism, then the robot’s
+                                                                          Meanwhile, the hollow backbone can serve as a cooling channel
+shape is locked. Wang et al. [81] proposed a tendon-driven robot
+                                                                          to dissipate heat from the tube, thereby stiffening the robot. Le
+with lockable mechanism based on worm gear. Each joint has an
+                                                                          et al. [12] designed a continuum robot with four PET tubes inside,
+individual SMA trigger to actuate locking motion, and robot can
+                                                                          as shown in Fig. 6(d). Each tube has a flexible stainless steel
+go inside human body to carry out surgeries with only one motor.
+    In addition to stable shape locking and a wider range of stiff-       sheath embedded in it to work as a heating element, which help
+ness change, engageable mechanisms also have other advantages.            the tube transform from stiff glass state to soft rubbery state to
+Many mechanisms can maintain the engagement individually,                 vary robot’s stiffness. And cooling air goes through the channel of
+which reduces the coupling between stiffness adjustment and               PET tube to actively and safely remove the heat for making robot
+robot actuation, allowing for a wider range of robot movements            stiff again. Farshid et al. [66] designed a two-segment continuum
+and expanding the workspace. Clark et al. [82] researched the             robot with spring embedded as elastic backbone, as shown in
+working modes of a flexible robot with shape-locking mecha-               Fig. 6(e). The spring has been coated with PTFE, and multiple
+nism, showed that the proposed robot can not only mimic the               sets of electrical wires are placed inside to control the location
+working modes of typical robot arms, such as PUMA, SCARA, and             of being soft.
+SPHERICAL, but also work as a general articulated one. Wock-                  However, some factors of using these materials should be
+enfußet al. [83] designed a continuum robot with pneumatic                considered. Heat is needed for these materials when changing
+shape-locking mechanism, and used only two motors to drive it             their stiffness, and the temperature of material may be higher
+bending in complex shapes with large workspace.                           than 41 ◦ C, which is the threshold of scald of human body. What
+    However, the locking state of engageable mechanism is lim-            is more, the heating and heat dissipation process takes from 10 s
+ited to either locked or unlocked and continuous stiffness ad-            to several hundred seconds, which is not suitable for adjusting the
+justment cannot be achieved. Additionally, many mechanisms                stiffness of robot frequently during surgery. Therefore, in addition
+possess complex structures that are challenging to miniaturize            to the compact heating system, a heat dissipation system is also
+for small scale flexible robots. Moreover, they may require bulky         required, which is critical to improving the working efficiency
+external driving modules, such as motors and air pumps, which             of the robot, while it also increases the complexity of the robot
+increases the complexity and footprint of robot system.                   design and poses a challenge to the miniaturization of the robot
+                                                                          system.
+2.3. Use of variable stiffness materials
+                                                                          2.3.2. Rheological fluids
+   Numerous materials can change phase easily under external                 Rheological fluids can adjust their viscosity in response to
+stimuli. Taking the wax as an example, it is solid at room tem-           corresponding stimuli, exhibiting characteristics including fast re-
+perature and will become liquid after being heated above the              sponse, significant viscosity changes, and great bio-compatibility
+                                                                      6
+B. Lin, S. Song and J. Wang                                                                                   Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+
+Fig. 6. Robot prototypes that vary stiffness by using variable stiffness materials and modifying robot structure directly. (a) A continuum robot that consists of
+consecutive SMA springs [75]. (b) A surgical manipulator arm with LMPA employed inside [61]. (c) A magnetic catheter robot using LMPA to change body’s
+stiffness [72]. (d) A variable stiffness continuum robot composed of four PET tubes [12]. (e) A variable stiffness spring-based continuum robot with PTFE coating
+outside [66]. (f) A soft robot with variable stiffness by integrating with magneto-rheological fluid and layer jamming [76].
+
+
+Table 2                                                                            in a narrow surgical environment. Therefore, how to balance the
+Anatomical constraint of common natural tracts.                                    performance of materials and the volume of robot needs to be
+ Position                     Outer diameter requirement          Reference        considered. Progress of feasible designs and stronger rheological
+ Cochlea                      <2 mm                               [84]             materials will help the development of variable stiffness flexible
+ Nasal middle meatus          <1.69 mm                            [85]
+                                                                                   surgical robots.
+ Nasal inferior meatus        <5–8 mm                             [86]
+ Radial Artery                <1.5–4 mm                           [87]
+ Superior vena cava           <8–15 mm                            [88]             3. Challenges and perspectives
+ Esophagus                    <15 mm                              [89]
+ Urethra                      <3.25 mm                            [90]                In this section, challenges of current variable stiffness methods
+ Choledocho                   <3.1–3.4 mm                         [91]
+ Fallopian                    <5–12 mm                            [92]
+                                                                                   are summarized, and two potential variable stiffness method are
+ Vagina                       <25–35 mm                           [93]             introduced. Moreover, the advantages of variable stiffness flexible
+ Cervix                       <33 mm                              [94]             robots in avoiding obstacles and following predetermined paths
+ Duodenum                     <7.5–12.1 mm                        [91]             are discussed.
+ Colon                        <11–15 mm                           [91]
+
+                                                                                   3.1. Challenges of current variable stiffness methods
+
+[77], which endows rheological fluids with great potential in                          Although methods summarized previously can enable the
+varying stiffness. Inside the fluid there are abundant tiny parti-                 stiffness variation of flexible MIS robots, they still exhibit several
+cles, which can be arranged as chain structures under the external                 inevitable drawbacks. Due to the coupling between actuation
+stimulus field, and then the shear force perpendicular to the chain                forces, utilizing antagonism of internal force to vary stiffness
+is increased owing to the interaction forces between the particles,                increases the complexity of precise control for robotic operations,
+which can be used to impede the deformation of flexible robot.                     which would escalate as the number of controllable section
+    Gaeta et al. [76] designed a soft robot with variable stiffness                increases. Altering the stiffness of a robot by constraining motions
+by combining magneto-rheological fluid and particle jamming, as                    of internal movable structures, the complexity of these structures
+shown in Fig. 6(g). With the application of an external magnetic                   limits their capability of miniaturization. And the engageable
+field, particles in the magneto-rheological fluid align in chains                  mechanisms only have two states, locked and unlocked, resulting
+and cling to the layers inside the robot. The shear force of the fluid             in their inability to provide continuous change stiffness.
+increases, resulting in an enhancement of friction between layers,                     Using variable stiffness materials also encounters problems.
+leading to an improved jamming effect and effectively altering                     Robots vary stiffness basing on thermally phase transition materi-
+the stiffness of the robot.                                                        als cannot alter their stiffness frequently, since the materials need
+    However, the application of rheological fluids to control the                  time to be soften and stiffen. And the phase transition points of
+stiffness of flexible surgical robots is researched little, and there              many materials are higher than the scald threshold of the human
+are many issues should be considered. In order to produce con-                     body, which increases the risk of surgery. For rheological fluids,
+siderable changes in the viscosity of the rheological material                     altering stiffness requires a good balance between the intensity
+inside surgical robots, the intensity of the external excitation                   of external field and the volume of fluids, and how to remotely
+field and the volume of the rheological material are needed to                     activate the rheological effect of these fluids to vary the stiffness
+be enlarged [95]. What is more, a suitable excitation device also                  of a millimeter-level flexible robot deep inside the human body
+needs to be proposed so that the fluids can be well excited even                   remains a challenge.
+                                                                               7
+B. Lin, S. Song and J. Wang                                                                                      Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+
+Table 3
+Characteristics of flexible robots using common variable stiffness methods.
+ Principle                    Outer          Stiffness          Response time                Brief description                                          Reference
+                              diameter       adjusting
+                                             ratio
+ Modifying robot’s            10 mm          –                  Fast                         Plugging a Nitinol backbone into robot                     [33]
+ structure
+ Stiffness variable           15 mm          23.9–25.1          ≈20 s                        A starch-based bio-compatible thermoplastic is             [11]
+ material                                    times                                           used in robot
+ Friction based               18 mm          3.24 times         <3 s                         Jamming of internal chambers and robot body                [38]
+ Friction based               24 mm          11.5 times         Fast                         Using layer jamming                                        [39]
+ Internal force               20 mm          2.19 times         Fast                         Stiffness adjusting by changing tension of tendons         [96]
+ Stiffness variable           2.3 mm         21 times           18 s for heating, 107 s      Conductive phase-change polymer is used in robot           [60]
+ material                                                       for cooling
+ Stiffness variable           16 mm          1.39 times         Fast                         A SMA-based variable stiffness sheath is designed          [14]
+ material
+ Stiffness variable           12.6 mm        –                  80 s for heating, 220 s      Variable stiffness SMA springs are used to                 [75]
+ material                                                       for cooling                  composed robot body
+ Modifying robot’s            –              –                  Fast                         Elastic backbone tunes robot’s stiffness with              [34]
+ structure                                                                                   different insertions
+ Friction based               7 mm           –                  Fast                         Using minimal actuator to impede each joint                [40]
+                                                                                             rotating independently
+ Stiffness variable           8.5 mm         8–9.3 times        25 s for heating, 5 s for    Phase-change material is used in manipulator’s             [61]
+ material                                                       cooling                      joint
+ Stiffness variable           17 mm          1.63 times         17 s for heating, 18 s for   LMPA is used in the endoscopic-like robot                  [62]
+ material                                                       cooling
+ Friction based               16 mm          5.14 times         Fast                         Fiber jamming is used to vary stiffness of                 [41]
+                                                                                             continuum robot
+ Stiffness variable           7 mm           36.28 times        9.2 s for heating, 15.4 s    LMAP is used in manipulator                                [63]
+ material                                                       for cooling
+ Modifying robot’s            8 mm           6.4 times          Fast                         Elastic backbone tunes robot’s stiffness with              [35]
+ structure                                                                                   different insertions
+ Stiffness variable           2.33 mm        –                  15 s for heating, 20 s for   LMPA is used in the magnetic continuum robot               [64]
+ material                                                       cooling
+ Friction based               35 mm          1.36 times         Fast                         Granular jamming is used to vary stiffness of              [42]
+                                                                                             continuum robot
+ Friction based               14.5 mm        3.78 times         Fast                         Fiber jamming is used to vary stiffness of                 [43]
+                                                                                             continuum robot
+ Rheological fluid            13 mm          3.44 times         Fast                         Magneto-rheological fluid is used in the robot to          [12]
+                                                                                             vary its stiffness
+ Stiffness variable           15 mm          22 times           30 s for heating, 11.3 s     Variable stiffness thermoplastic tube is used in           [12]
+ material                                                       for cooling                  the robot
+ Mechanical                   13 mm          3.2 times          Fast                         Hydraulic actuated lockable mechanism is used to           [55]
+ engagement                                                                                  lock robot’s shape
+ Stiffness variable           13 mm          –                  8.2 s for heating, 58 s      Phase-change alloy is used in continuum                    [66]
+ material                                                       for cooling                  manipulator
+ Stiffness variable           43 mm          3.0 times          60 s for heating, 100 s      LMPA is used in flexible manipulator                       [67]
+ material                                                       for cooling
+ Friction based               13 mm          24 times           Fast                         Jamming-based stiffening sheath is used for robot          [44]
+ Stiffness variable           5 mm           5 times            –                            Shape memory polymer tube is sued in the robot             [68]
+ material
+ Internal force               2.3 mm         9 times            Fast                         Varying robot’s stiffness by changing tension of           [23]
+                                                                                             tendons
+ Friction based               5.5 mm         –                  Fast                         Cable jamming actuated by hydraulic system is              [45]
+                                                                                             used to vary robot’s stiffness
+ Variable stiffness           12 mm          1.18 times         8 s for heating, 80–100 s    Thermalplastic is used in the robot to vary                [69]
+ material                                                       for cooling                  stiffness
+ Friction based               20 mm          7.5 times          Fast                         Granular-jamming is implemented to vary robot’s            [46]
+                                                                                             stiffness
+ Variable stiffness           2.5 mm         –                  10 s for heating             LMPA is used in flexible catheter                          [70]
+ material
+ Friction based               15 mm          –                  Fast                         Granular-jamming is used in the robot to vary              [47]
+                                                                                             stiffness
+ Modifying structure          3 mm           –                  Fast                         Rearrange relative positions of inner and outer            [51]
+                                                                                             tube to vary stiffness of robot
+ Mechanical                   16 mm          –                  Fast                         Lockable slider mechanism is used to lock robot’s          [57]
+ engagement                                                                                  shape
+ Mechanical                   10.5 mm        –                  Fast                         Novel magnet-actuated lockable mechanism and               [58]
+ engagement                                                                                  bead rob are used to lock robot
+ Modifying structure          10 mm          2.5 times          Fast                         Granular-jamming based insertable backbone is              [36]
+                                                                                             used to change stiffness of robot
+ Friction based               60 mm          4.85 times         Fast                         Varying stiffness by changing tension of tendons           [32]
+                                                                                             with different patterns
+ Friction based               –              8.5 times          –                            Stiffness variation is induced by the friction             [51]
+                                                                                             change caused by electrostatic adsorption
+                                                                                                                                            (continued on next page)
+
+
+
+
+                                                                                   8
+B. Lin, S. Song and J. Wang                                                                                        Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+Table 3 (continued).
+ Friction based                86 mm              3.13 times             Fast                        Layer-jamming is used to var stiffness of robot      [52]
+ Stiffness variable            1 mm               5.8 times              10 s for heating, 17 s      Phase-change alloy is used in submillimeter          [51]
+ material                                                                for cooling                 catheter for varying stiffness
+
+
+
+                                                                                          by adhering the movable parts and increase the friction [100]. In
+                                                                                          addition, EA only actuated by applying voltage on the electrodes
+                                                                                          rather than tendon driving or air pumping, which can decouple
+                                                                                          the stiffness variation process with actuation of robot bending, as
+                                                                                          shown in the example in Fig. 7(b). And the actuation module of
+                                                                                          EA based mechanism only contains a electric power and relative
+                                                                                          circuit board. Comparing with the common actuation module
+                                                                                          that contains a large amount of motors or bulky fluid pump, the
+                                                                                          actuation module of EA only contains electric power and circuit
+                                                                                          boards, which is small and portable for more possible surgical
+                                                                                          scenarios like outdoor emergency surgery.
+                                                                                              However, some challenges may occurred when applying EA on
+                                                                                          the flexible surgical robots. The magnitude of EA force is relative
+                                                                                          to not only the type and thickness of the material of electrode, but
+                                                                                          also the voltage and contacting area [101]. Therefore, in order to
+                                                                                          achieve excellent stiffness variation capability in millimeter-level
+                                                                                          surgical robots, electrodes with higher dielectric constant should
+                                                                                          be invented, and the effective contacting area of electrodes within
+                                                                                          the robot body should be enlarged.
+
+                                                                                          3.2.2. Non-Newtonian fluid
+                                                                                             Non-Newtonian fluid also has great potential to be used in
+Fig. 7. Principles and examples of varying stiffness by using electrostatic
+                                                                                          the small-scale variable stiffness surgical robots, whose viscosity
+adhesion (EA) and non-Newton fluid (NNF). (a) The concept diagram of Johnsen–
+Rahbek effect [97]. (b) A soft gripper using EA force to adhesive and grab objects,       depends on the stress on it and does not follow the Newton’s law
+proposed by Shintake et al. [98]. (c) The concept diagram of principle of stiffness       of viscosity [102], as shown in Fig. 7(c).
+variation of NNF. (d) A magnetic actuated soft robot with variable stiffness by              Some kinds of NNFs shows the characteristic that their vis-
+using NNF [99].                                                                           cosity has a positive relationship with the shear rate of itself.
+                                                                                          With quickly oscillating external stimuli, these NNFs can rapidly
+                                                                                          transition from fluid to solid states, as the jamming of inner tiny
+   According to the above summary of drawbacks and the work-                              particles, which can be used to vary stiffness of flexible robots.
+ing requirements, characteristics of ideal variable stiffness                             Xu et al. [99] proposed a novel design of magnetic miniature soft
+method can be concluded as below:                                                         robot with variable stiffness that base on the NNF, as shown in
+                                                                                          Fig. 7(d). A rapidly oscillating external magnetic field is applied to
+   • Have good bio-compatibility
+                                                                                          the robot, and the stiffness of NNF-based robot body is changed,
+   • Vary stiffness rapidly and reversely
+                                                                                          as the inner particles are resisting the intense interactions.
+   • Have continuous and large variation in stiffness                                        The exploration of NNF-based variable stiffness mechanisms
+   • Need only small volume                                                               requires further investigation in the future, and the development
+   • Enable localized stiffness variation                                                 of novel NNFs with significant stiffness variation is required.
+   • Decouple stiffness variation process from other robot ac-
+      tions
+                                                                                          3.3. Advantages of variable stiffness flexible robots in motion
+    From the perspective of safety, the size of robot is a crucial pa-
+rameter that should be considered, then a summary of constraint                              With certain stiffness varying methods, flexible robots can
+of common natural tracts is given out in Table 2, which can be a                          independently lock parts of the body and keep moving the free
+reference for designers to determine the maximum size of their                            parts, which can achieve novel motions that differentiate them
+flexible robots. Furthermore, two potential methods that can be                           from previous flexible robots. The control strategy for flexible
+used to vary the stiffness of flexible MIS robots are introduced in                       robots moving in these type motions has not been extensively
+the following section, which are employing electrostatic adhesion                         investigated, which presents the potential for these robots to
+(EA) and non-Newton fluid (NNF), respectively. Variable stiffness                         achieve more precise path-following and enhanced obstacle-
+mechanisms based on these two methods have capability to reach                            avoidance capabilities [83,103]. The follow-the-leader (FTL) is the
+those ideal characteristics mentioned above.                                              best moving strategy for flexible robot to follow a predetermined
+                                                                                          path and avoid obstacles [104]. However, FTL necessitates the
+3.2. Potential variable stiffness methods                                                 robot to independently and simultaneously control each movable
+                                                                                          part, which is hard to be attained for hyper-redundant flexible
+3.2.1. Electrostatic adhesion                                                             surgical robots.
+   EA is a widely used method in robotics for adhesion applica-                              By endowing each section of the robot with independent lock-
+tion [97]. The EA force, generated from the Johnsen–Rahbek (J–R)                          ing capabilities, the flexible robots can follow a predetermined
+effect, exist between a conductor and a semiconductor when they                           path with minimal error by only a small number of actuators,
+are in contact and a voltage is applied across them, as shown in                          as shown in Fig. 8. Considering a scenario that two tendons are
+Fig. 7(a).                                                                                attached to the distal end of a planar flexible robot to control its
+   EA has great potential in varying stiffness of flexible surgical                       bending motion. Without any lockable mechanism, the robot can
+robot, as it can impede the relative motion of robot’s structure                          only attain C-shaped configurations that open on both sides. After
+                                                                                      9
+B. Lin, S. Song and J. Wang                                                                                Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+                                                                              Declaration of competing interest
+
+                                                                                 The authors declare that they have no known competing
+                                                                              financial interests or personal relationships that could have
+                                                                              appeared to influence the work reported in this paper.
+
+                                                                              Acknowledgments
+
+                                                                                 This work was supported in part by Talent Recruitment Project
+                                                                              of Guangdong (2021QN02Y839), and in part by the Science Tech-
+                                                                              nology Innovation Committee of Shenzhen (JCYJ2022081810240
+                                                                              8018 and GXWD20231129103418001).
+
+                                                                              References
+
+                                                                                [1] K.-W. Kwok, H. Wurdemann, A. Arezzo, A. Menciassi, K. Althoefer, Soft
+                                                                                    robot-assisted minimally invasive surgery and interventions: Advances
+                                                                                    and outlook, Proc. IEEE 110 (7) (2022) 871–892.
+                                                                                [2] J. Zhu, L. Lyu, Y. Xu, H. Liang, X. Zhang, H. Ding, Z. Wu, Intelligent soft
+                                                                                    surgical robots for next-generation minimally invasive surgery, Adv. Intell.
+                                                                                    Syst. 3 (5) (2021) 2100011.
+                                                                                [3] L. Blanc, A. Delchambre, P. Lambert, Flexible medical devices: Review of
+                                                                                    controllable stiffness solutions, Actuators 6 (3) (2017).
+                                                                                [4] Y. Kong, J. Wang, N. Zhang, S. Song, B. Li, Dexterity analysis and motion
+                                                                                    optimization of In-Situ torsionally-steerable flexible surgical robots, IEEE
+Fig. 8. A flexible robot with independent lockable joints can follow a              Robot. Autom. Lett. 7 (3) (2022) 8347–8354.
+predetermined path with multiple advancing steps.                               [5] M. Manti, V. Cacucciolo, M. Cianchetti, Stiffening in soft robotics: A review
+                                                                                    of the state of the art, IEEE Robot. Autom. Mag. 23 (3) (2016) 93–106.
+                                                                                [6] Z.A. Azizi A., Sensing the material by minimally invasive surgery grasper,
+                                                                                    Int. Robot. Autom. J. 4 (3) (2018) 171–174.
+                                                                                [7] D. Tyson Mark, R. Humphreys Mitchell, Urological applications of natural
+equipping each joint with an independent lockable mechanism,                        orifice transluminal endoscopic surgery (NOTES), Nat. Rev. Urol. 11 (6)
+                                                                                    (2014) 324–332.
+the robot can be selectively actuated to rotate only a few joints               [8] C. Yang, S. Geng, I. Walker, D.T. Branson, J. Liu, J.S. Dai, R. Kang, Geometric
+while keeping others locked, thereby achieving more complex                         constraint-based modeling and analysis of a novel continuum robot with
+configurations. By unlocking and accurately rotating only one                       shape memory alloy initiated variable stiffness, Int. J. Robot. Res. 39 (14)
+joint in each movement, and incrementally advancing the entire                      (2020) 1620–1634.
+                                                                                [9] Y.-J. Kim, S. Cheng, S. Kim, K. Iagnemma, A stiffness-adjustable hy-
+system forwardly step by step, the robot can follow a predeter-
+                                                                                    perredundant manipulator using a variable neutral-line mechanism for
+mined path with minimal error. The magnitude of path-following                      minimally invasive surgery, IEEE Trans. Robot. 30 (2) (2014) 382–395.
+error depends on the size of each step.                                        [10] A. Firouzeh, S.S. Mirrazavi Salehian, A. Billard, J. Paik, An under actuated
+    With this motion strategy actuated by only few motors, the                      robotic arm with adjustable stiffness shape memory polymer joints, in:
+                                                                                    2015 IEEE International Conference on Robotics and Automation, ICRA,
+robot can perform remarkable flexibility and be in small size si-
+                                                                                    2015, pp. 2536–2543.
+multaneously. It holds great potential for developing applications             [11] Q. Gao, Z. Sun, A novel design of water-activated variable stiffness
+of variable stiffness flexible robots in surgery [105,106], manufac-                endoscopic manipulator with safe thermal insulation, Actuators 10 (6)
+turing [107], rescue operations [108], aerospace tasks [109], and                   (2021).
+etc.                                                                           [12] H.M. Le, P.T. Phan, C. Lin, L. Jiajun, S.J. Phee, A temperature-dependent,
+                                                                                    variable-stiffness endoscopic robotic manipulator with active heating and
+                                                                                    cooling, Ann. Biomed. Eng. 48 (2020) 1837–1849.
+4. Conclusion                                                                  [13] K. Oliver-Butler, J. Till, C. Rucker, Continuum robot stiffness under
+                                                                                    external loads and prescribed tendon displacements, IEEE Trans. Robot.
+                                                                                    35 (2) (2019) 403–419.
+    In this review, variable stiffness methods from relative lit-
+                                                                               [14] S. Jiang, B. Chen, F. Qi, Y. Cao, F. Ju, D. Bai, Y. Wang, A variable-stiffness
+erature have been categorized into three types based on their                       continuum manipulators by an SMA-based sheath in minimally invasive
+fundamental principles: antagonism of internal force, constraint                    surgery, Int. J. Med. Robot. Comput. Assist. Surg. 16 (2) (2020) e2081.
+of relative motion, and using variable stiffness materials. Each               [15] Z. Shang, J. Ma, S. Wang, Review of variable stiffness mechanisms in
+method is elucidated along with applications, its advantages and                    minimally invasive surgical manipulators, J. Mech. Eng. 58 (21) (2022).
+                                                                               [16] Z. Li, x. chu, x. hu, Z. Zhang, n. li, J. Li, Variable stiffness methods for
+drawbacks are summarized. The characteristics of ideal variable                     robots: A review, Smart Mater. Struct. (2023).
+stiffness method are proposed, and two potential methods are                   [17] M.S. Lavate, R. Todkar, Variable stiffness actuators: A general review, Int.
+introduced. Furthermore, the advantages of variable stiffness flex-                 J. Eng. Tech. Res. 4 (7) (2015) 201–205.
+ible robot in motion are discussed, which may lead to expanded                 [18] N. Tsagarakis, M. Van Damme, R. Van Ham, B. Vanderborght, L.C. Visser,
+                                                                                    A. Bicchi, A. Albu-Schäffer, Variable stiffness actuators: Review on design
+exploration of applications of variable stiffness flexible robots
+                                                                                    and components, IEEE/ASME Trans. Mechatronics 21 (5) (2016).
+in rescue, manufacturing, outdoor surgery, aerospace, and other                [19] J. Zhu, Y. Sun, J. Xiong, Y. Liu, J. Zheng, L. Bai, Design and experiment of
+fields.                                                                             a variable stiffness prosthetic knee joint using parallel elastic actuation,
+                                                                                    Robot. Auton. Syst. 171 (2024) 104566.
+                                                                               [20] C.-H. Huang, K.-W. Chiao, C.-P. Yu, Y.-C. Kuo, C.-C. Lan, A variable-stiffness
+CRediT authorship contribution statement                                            robot for force-sensitive applications, IEEE/ASME Trans. Mechatronics 28
+                                                                                    (4) (2023) 1862–1870.
+   Botao Lin: Investigation, Writing – original draft. Shuang                  [21] Z. Zhang, Z. Xu, L.e.a. Emu, Active mechanical haptics with high-fidelity
+Song: Data curation, Project administration, Validation. Jiaole                     perceptions for immersive virtual reality, Nat. Mach. Intell. 5 (2023)
+                                                                                    643–655.
+Wang: Conceptualization, Funding acquisition, Investigation,                   [22] W. Dou, G. Zhong, J. Cao, Z. Shi, B. Peng, L. Jiang, Soft robotic ma-
+Project administration, Supervision, Writing – original draft,                      nipulators: Designs, actuation, stiffness tuning, and sensing, Adv. Mater.
+Writing – review & editing.                                                         Technol. 6 (9) (2021) 2100018.
+
+                                                                         10
+B. Lin, S. Song and J. Wang                                                                                               Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+ [23] I. De Falco, C. Culmone, A. Menciassi, J. Dankelman, J.J. van Den Dobbel-                [47] T. Yanagita, T. Kamagata, T. Nakamura, Development of an endoscopic
+      steen, A variable stiffness mechanism for steerable percutaneous in-                          support device using veering-out tube with stiffening capability by
+      struments: integration in a needle, Med. Biol. Eng. Comput. 56 (2018)                         granular jamming-application to a large intestine of dead swine, Trans.
+      2185–2199.                                                                                    Soc. Instrum. Control Eng. 51 (5) (2015) 290–296.
+ [24] T.M. Huh, Y.-J. Park, K.-J. Cho, Design and analysis of a stiffness adjustable           [48] M.S. Moses, M.D.M. Kutzer, H. Ma, M. Armand, A continuum manipulator
+      structure using an endoskeleton, Int. J. Precis. Eng. Manuf. 13 (2012)                        made of interlocking fibers, in: 2013 IEEE International Conference on
+      1255–1258.                                                                                    Robotics and Automation, 2013, pp. 4008–4015.
+ [25] A. Stilli, H.A. Wurdemann, K. Althoefer, A novel concept for safe,                       [49] A. Jiang, T. Ranzani, G. Gerboni, L. Lekstutyte, K. Althoefer, P. Das-
+      stiffness-controllable robot links, Soft Robot. 4 (1) (2017) 16–22.                           gupta, T. Nanayakkara, Robotic granular jamming: Does the membrane
+ [26] A. Shiva, A. Stilli, Y. Noh, A. Faragasso, I.D. Falco, G. Gerboni, M. Cianchetti,             matter? Soft Robot. 1 (3) (2014) 192–201.
+      A. Menciassi, K. Althoefer, H.A. Wurdemann, Tendon-based stiffening for                  [50] M. Cianchetti, A. Licofonte, M. Follador, F. Rogai, C. Laschi, Bioinspired
+      a pneumatically actuated soft manipulator, IEEE Robot. Autom. Lett. 1 (2)                     soft actuation system using shape memory alloys, Actuators 3 (3) (2014)
+      (2016) 632–637.                                                                               226–244.
+ [27] A. Stilli, H.A. Wurdemann, K. Althoefer, Shrinkable, stiffness-controllable              [51] C. Liu, J.J.C. Busfield, K. Zhang, An electric self-sensing and variable-
+      soft manipulator based on a bio-inspired antagonistic actuation principle,                    stiffness artificial muscle, Adv. Intell. Syst. 5 (9) (2023) 2300131.
+      in: 2014 IEEE/RSJ International Conference on Intelligent Robots and                     [52] B.H. Do, V. Banashek, A.M. Okamura, Dynamically reconfigurable discrete
+      Systems, 2014, pp. 2476–2481.                                                                 distributed stiffness for inflated beam robots, in: 2020 IEEE International
+ [28] F. Maghooa, A. Stilli, Y. Noh, K. Althoefer, H.A. Wurdemann, Tendon                           Conference on Robotics and Automation, ICRA, 2020, pp. 9050–9056.
+      and pressure actuation for a bio-inspired manipulator based on an                        [53] R. Mukaide, M. Watanabe, K. Tadakuma, Y. Ozawa, T. Takahashi, M. Konyo,
+      antagonistic principle, in: 2015 IEEE International Conference on Robotics                    S. Tadokoro, Radial-layer jamming mechanism for string configuration,
+      and Automation, ICRA, 2015, pp. 2556–2561.                                                    IEEE Robot. Autom. Lett. 5 (4) (2020) 5221–5228.
+ [29] S. Wakimoto, I. Kumagai, K. Suzumori, Development of large intestine                     [54] T. Ranzani, M. Cianchetti, G. Gerboni, I.D. Falco, A. Menciassi, A soft
+      endoscope changing its stiffness, in: 2009 IEEE International Conference                      modular manipulator for minimally invasive surgery: Design and char-
+      on Robotics and Biomimetics, ROBIO, 2009, pp. 2320–2325.                                      acterization of a single module, IEEE Trans. Robot. 32 (1) (2016)
+ [30] D.P. Noonan, V. Vitiello, J. Shang, C.J. Payne, G.-Z. Yang, A modular,                        187–200.
+      mechatronic joint design for a flexible access platform for MIS, in: 2011                [55] J. Liu, L. Yin, J.H. Chandler, X. Chen, P. Valdastri, S. Zuo, A dual-
+      IEEE/RSJ International Conference on Intelligent Robots and Systems,                          bending endoscope with shape-lockable hydraulic actuation and water-jet
+      2011, pp. 949–954.                                                                            propulsion for gastrointestinal tract screening, Int. J. Med. Robot. Comput.
+ [31] E. Harsono, J. Yang, S. Bhattacharya, H. Yu, Design and analysis of a                         Assist. Surg. 17 (1) (2021) e2197.
+      novel hybrid-driven continuum robot with variable stiffness, Mech. Mach.                 [56] F. Carpi, G. Frediani, C. Gerboni, J. Gemignani, D. De Rossi, Enabling
+      Theory 177 (2022) 105067.                                                                     variable-stiffness hand rehabilitation orthoses with dielectric elastomer
+ [32] P. Molaei, N.A. Pitts, H.B. Gilbert, Independent tendons increase stiffness                   transducers, Med. Eng. Phys. 36 (2) (2014) 205–211.
+      of continuum robots without actuator coupling, in: 2023 IEEE/ASME                        [57] A. Yagi, K. Matsumiya, K. Masamune, H. Liao, T. Dohi, Rigid-flexible outer
+      International Conference on Advanced Intelligent Mechatronics, AIM,                           sheath model using slider linkage locking mechanism and air pressure for
+      2023, pp. 72–78.                                                                              endoscopic surgery, in: Medical Image Computing and Computer-Assisted
+ [33] P. Lloyd, T.L. Thomas, V.K. Venkiteswaran, G. Pittiglio, J.H. Chandler,                       Intervention – MICCAI 2006, Springer, 2006, pp. 503–510.
+      P. Valdastri, S. Misra, A magnetically-actuated coiling soft robot with                  [58] C. Pogue, P. Rao, Q. Peyron, J. Kim, J. Burgner-Kahrs, E. Diller, Multiple
+      variable stiffness, IEEE Robot. Autom. Lett. 8 (6) (2023) 3262–3269.                          curvatures in a tendon-driven continuum robot using a novel mag-
+ [34] N. Herzig, L. He, P. Maiolino, S.-A. Abad, T. Nanayakkara, Conditioned                        netic locking mechanism, in: 2022 IEEE/RSJ International Conference on
+      haptic perception for 3D localization of nodules in soft tissue palpation                     Intelligent Robots and Systems, IROS, 2022, pp. 472–479.
+      with a variable stiffness probe, PLOS ONE 15 (8) (2020) 1–31.                            [59] B. Lin, J. Wang, S. Song, B. Li, M.Q.-H. Meng, A modular lockable mech-
+ [35] C. Li, X. Gu, X. Xiao, C.M. Lim, H. Ren, Flexible robot with variable stiffness               anism for tendon-driven robots: Design, modeling and characterization,
+      in transoral surgery, IEEE/ASME Trans. Mechatronics 25 (1) (2020) 1–10.                       IEEE Robot. Autom. Lett. 7 (2) (2022) 2023–2030.
+ [36] X. Wang, Q. Lu, D. Lee, Z. Gan, N. Rojas, A soft continuum robot with                    [60] Y. Piskarev, J. Shintake, C. Chautems, J. Lussi, Q. Boehler, B.J. Nelson, D.
+      self-controllable variable curvature, IEEE Robot. Autom. Lett. 9 (3) (2024)                   Floreano, A variable stiffness magnetic catheter made of a conductive
+      2016–2023.                                                                                    phase-change polymer for minimally invasive surgery, Adv. Funct. Mater.
+ [37] N. Li, D. Lin, J. Wu, Q. Gan, X. Hu, N. Jiao, Novel concentric magnetic                       32 (20) (2022) 2107662.
+      continuum robot with multiple stiffness modes for potential delivery of                  [61] J. Wang, S. Wang, J. Li, X. Ren, R.M. Briggs, Development of a novel robotic
+      nanomedicine, Magnetochemistry 9 (5) (2023).                                                  platform with controllable stiffness manipulation arms for laparoendo-
+ [38] X. Luo, D. Song, Z. Zhang, S. Wang, C. Shi, A novel distal hybrid                             scopic single-site surgery (LESS), Int. J. Med. Robot. Comput. Assist. Surg.
+      pneumatic/cable-driven continuum joint with variable stiffness capacity                       14 (1) (2018) e1838.
+      for flexible gastrointestinal endoscopy, Adv. Intell. Syst. 5 (6) (2023)                 [62] R. Zhao, Y. Yao, Y. Luo, Development of a variable stiffness over tube
+      2200403.                                                                                      based on low-melting-point-alloy for endoscopic surgery, J. Med. Devices
+ [39] Y.-J. Kim, S. Cheng, S. Kim, K. Iagnemma, A novel layer jamming mech-                         10 (2) (2016) 021002.
+      anism with tunable stiffness capability for minimally invasive surgery,                  [63] H. Wang, Z. Chen, S. Zuo, Flexible manipulator with low-melting-point
+      IEEE Trans. Robot. 29 (4) (2013) 1031–1042.                                                   alloy actuation and variable stiffness, Soft Robot. 9 (3) (2022) 577–590.
+ [40] Y. Zuo, G. Merritt, X. Wang, Design of a novel surgical robot with rigidity-             [64] C. Chautems, A. Tonazzini, Q. Boehler, S.H. Jeong, D. Floreano, B.J. Nelson,
+      adjustable joints based on time-division multiplexing actuation, in: 2020                     Magnetic continuum device with variable stiffness for minimally invasive
+      8th IEEE RAS/EMBS International Conference for Biomedical Robotics and                        surgery, Adv. Intell. Syst. 2 (6) (2020) 1900086.
+      Biomechatronics (BioRob), 2020, pp. 885–890.                                             [65] N. Cheng, G. Ishigami, S. Hawthorne, H. Chen, M. Hansen, M. Telleria, R.
+ [41] M. Brancadoro, M. Manti, S. Tognarelli, M. Cianchetti, Fiber jamming                          Playter, K. Iagnemma, Design and analysis of a soft mobile robot com-
+      transition as a stiffening mechanism for soft robotics, Soft Robot. 7 (6)                     posed of multiple thermally activated joints driven by a single actuator,
+      (2020) 663–674.                                                                               in: 2010 IEEE International Conference on Robotics and Automation, 2010,
+ [42] M. Cianchetti, T. Ranzani, G. Gerboni, I. De Falco, C. Laschi, A. Menciassi,                  pp. 5207–5212.
+      STIFF-FLOP surgical manipulator: Mechanical design and experimental                      [66] F. Alambeigi, R. Seifabadi, M. Armand, A continuum manipulator with
+      characterization of the single module, in: 2013 IEEE/RSJ International                        phase changing alloy, in: 2016 IEEE International Conference on Robotics
+      Conference on Intelligent Robots and Systems, 2013, pp. 3576–3581.                            and Automation, ICRA, 2016, pp. 758–764.
+ [43] M. Brancadoro, M. Manti, F. Grani, S. Tognarelli, A. Menciassi, M.                       [67] A.S. Huan, W. Xu, H. Ren, Investigation of a stiffness varying mechanism
+      Cianchetti, Toward a variable stiffness surgical manipulator based on fiber                   for flexible robotic system, in: 2016 IEEE International Conference on
+      jamming transition, Front. Robot. AI 6 (2019) 12.                                             Mechatronics and Automation, 2016, pp. 828–833.
+ [44] M. Langer, E. Amanov, J. Burgner-Kahrs, Stiffening sheaths for continuum                 [68] C. He, S. Wang, S. Zuo, A linear stepping endovascular intervention robot
+      robots, Soft Robot. 5 (3) (2018) 291–303.                                                     with variable stiffness and force sensing, Int. J. Comput. Assist. Radiol.
+ [45] A.J. Loeve, D.H. Plettenburg, P. Breedveld, J. Dankelman, Endoscope shaft-                    Surg. 13 (2018) 671–682.
+      rigidity control mechanism: ‘‘FORGUIDE’’, IEEE Trans. Biomed. Eng. 59 (2)                [69] H.M. Le, L. Cao, T.N. Do, S.J. Phee, Design and modelling of a vari-
+      (2012) 542–551.                                                                               able stiffness manipulator for surgical robots, Mechatronics 53 (2018)
+ [46] N.G. Cheng, M.B. Lobovsky, S.J. Keating, A.M. Setapen, K.I. Gero, A.E.                        109–123.
+      Hosoi, K.D. Iagnemma, Design and analysis of a robust, low-cost, highly                  [70] C. Chautems, A. Tonazzini, D. Floreano, B.J. Nelson, A variable stiffness
+      articulated manipulator enabled by jamming of granular media, in: 2012                        catheter controlled with an external magnetic field, in: 2017 IEEE/RSJ
+      IEEE International Conference on Robotics and Automation, 2012, pp.                           International Conference on Intelligent Robots and Systems, IROS, 2017,
+      4328–4333.                                                                                    pp. 181–186.
+
+                                                                                          11
+B. Lin, S. Song and J. Wang                                                                                               Biomimetic Intelligence and Robotics 4 (2024) 100168
+
+
+ [71] J. Lussi, M. Mattmann, S. Sevim, F. Grigis, C. De Marco, C. Chautems, S.                [89] A. Oezcelik, S.R. DeMeester, General anatomy of the esophagus, Thorac.
+      Pané, J. Puigmartí-Luis, Q. Boehler, B.J. Nelson, A submillimeter continuous                 Surg. Clin. 21 (2) (2011) 289—297, x.
+      variable stiffness catheter for compliance control, Adv. Sci. 8 (18) (2021)             [90] M. Bush, P. Papa Petros, B. Barrett-Lennard, On the flow through the
+      2101290.                                                                                     human female urethra, J. Biomech. 30 (9) (1997) 967–969.
+ [72] Y. Piskarev, Y. Sun, M. Righi, Q. Boehler, C. Chautems, C. Fischer, B.J.                [91] S. Varadarajulu, S. Banerjee, B.A. Barth, D.J. Desilets, V. Kaul, S.R. Kethu,
+      Nelson, J. Shintake, D. Floreano, Fast-response variable-stiffness magnetic                  M.C. Pedrosa, P.R. Pfau, J.L. Tokar, A. Wang, L.-M. Wong Kee Song, S.A.
+      catheters for minimally invasive surgery, Advanced science, n/a (n/a)                        Rodriguez, GI endoscopes, Gastrointest. Endosc. 74 (1) (2011) 1–6.e6.
+      2305537.                                                                                [92] M. Grigovich, V.S. Kacharia, N. Bharwani, A. Hemingway, V. Mijatovic, S.K.
+ [73] M. Richter, V.K. Venkiteswaran, S. Misra, Concentric tube-inspired mag-                      Rodgers, Evaluating fallopian tube patency: What the radiologist needs to
+      netic reconfiguration of variable stiffness catheters for needle guidance,                   know, RadioGraphics 41 (6) (2021) 1876–1896.
+      IEEE Robot. Autom. Lett. 8 (10) (2023) 6555–6562.                                       [93] B. Yashaswini, T. Pasha, R. Reddy, T. Naveen, S.R. Palled, U. Krishna,
+ [74] M. Mattmann, Q. Boehler, X.-Z. Chen, S. Pané, B.J. Nelson, Shape memory                      V. Lokesh, P. Sridhar, R. Nikhila, B. Thejaswini, et al., Comparison of
+      polymer variable stiffness magnetic catheters with hybrid stiffness con-                     dosimetric analysis of organs at risk and target volumes for ovoids and
+      trol, in: 2022 IEEE/RSJ International Conference on Intelligent Robots and                   cylinders in endometrial carcinoma, J. Contemp. Brachytherapy 15 (6)
+      Systems, IROS, 2022, pp. 9589–9595.                                                          (2023) 414–421.
+ [75] Y. Kim, S.S. Cheng, J.P. Desai, Active stiffness tuning of a spring-based               [94] M. Harvey, The size of the cervix and its relationship with age and parity,
+      continuum robot for MRI-guided neurosurgery, IEEE Trans. Robot. 34 (1)                       Urogynaecologia 29 (1) (2016).
+      (2018) 18–28.                                                                           [95] P.S. Wellborn, J.E. Mitchell, N.J. Pieper, R.J. Webster, Design and analysis of
+ [76] L.T. Gaeta, K.J. McDonald, L. Kinnicutt, M. Le, S. Wilkinson-Flicker, Y. Jiang,              a small-scale magnetorheological brake, IEEE/ASME Trans. Mechatronics
+      T. Atakuru, E. Samur, T. Ranzani, Magnetically induced stiffening for soft                   27 (5) (2022) 3099–3109.
+      robotics, Soft Matter 19 (14) (2023) 2623–2636.                                         [96] Y.-J. Kim, S. Cheng, S. Kim, K. Iagnemma, A stiffness-adjustable hy-
+ [77] A. Sadeghi, L. Beccai, B. Mazzolai, Innovative soft robots based on                          perredundant manipulator using a variable neutral-line mechanism for
+      electro-rheological fluids, in: 2012 IEEE/RSJ International Conference on                    minimally invasive surgery, IEEE Trans. Robot. 30 (2) (2013) 382–395.
+      Intelligent Robots and Systems, 2012, pp. 4237–4242.                                    [97] J. Guo, J. Leng, J. Rossiter, Electroadhesion technologies for robotics: A
+ [78] K.J. McDonald, L. Kinnicutt, A.M. Moran, T. Ranzani, Modulation of mag-                      comprehensive review, IEEE Trans. Robot. 36 (2) (2020) 313–327.
+      netorheological fluid flow in soft robots using electropermanent magnets,               [98] J. Shintake, S. Rosset, B.E. Schubert, D. Floreano, H. Shea, Versatile soft
+      IEEE Robot. Autom. Lett. 7 (2) (2022) 3914–3921.                                             grippers with intrinsic electroadhesion based on multifunctional polymer
+ [79] X. Yin, J. Yan, S. Wen, J. Zhang, Magnetorheological fluid-filled                            actuators, Adv. Mater. 28 (2) (2016) 231–238.
+      origami joints with variable stiffness characteristics, IEEE/ASME Trans.                [99] Z. Xu, Y. Chen, Q. Xu, Spreadable magnetic soft robots with on-demand
+      Mechatronics 28 (3) (2023) 1546–1557.                                                        hardening, Research 6 (2023) 0262.
+ [80] S. Kitano, T. Komatsuzaki, I. Suzuki, M. Nogawa, H. Naito, S. Tanaka,                  [100] C. Lin, B. Lin, E. Lyu, S. Song, J. Wang, An electrostatic locking mechanism
+      Development of a rigidity tunable flexible joint using magneto-rheological                   for tendon-driven surgical robot, Procedia Comput. Sci. 226 (2023) 43–49,
+      compounds—Toward a multijoint manipulator for laparoscopic surgery,                          Proceedings of International Conference on Biomimetic Intelligence and
+      Front. Robot. AI 7 (2020).                                                                   Robotics.
+ [81] Y. Wang, X. Hu, L. Cui, X. Xiao, K. Yang, Y. Zhu, H. Jin, Bioinspired hand-            [101] D. Wei, Q. Xiong, J. Dong, H. Wang, X. Liang, S. Tang, X.
+      held time-share driven robot with expandable DoFs, Nature Commun. 15                         Xu, H. Wang, H. Wang, Electrostatic adhesion clutch with su-
+      (768) (2024).                                                                                perhigh force density achieved by MXene-Poly(Vinylidene Fluoride–
+ [82] A.B. Clark, N. Rojas, Malleable robots: Reconfigurable robotic arms with                     Trifluoroethylene–Chlorotrifluoroethylene) composites, Soft Robot. 10 (3)
+      continuum links of variable stiffness, IEEE Trans. Robot. 38 (6) (2022)                      (2023) 482–492.
+      3832–3849.                                                                             [102] R.P. Chhabra, Non-Newtonian fluids: an introduction, Rheol. Complex
+ [83] W.R. Wockenfuß, V. Brandt, L. Weisheit, W.-G. Drossel, Design, modeling                      Fluids (2010) 3–34.
+      and validation of a tendon-driven soft continuum robot for planar motion               [103] C. Bishop, M. Russo, X. Dong, D. Axinte, A novel underactuated continuum
+      based on variable stiffness structures, IEEE Robot. Autom. Lett. 7 (2)                       robot with shape memory alloy clutches, IEEE/ASME Trans. Mechatronics
+      (2022) 3985–3991.                                                                            27 (6) (2022) 5339–5350.
+ [84] J. Meng, S. Li, F. Zhang, Q. Li, Z. Qin, Cochlear size and shape variability           [104] H. Xie, C. Wang, S. Li, L. Hu, H. Yang, A geometric approach for follow-
+      and implications in cochlear implantation surgery, Otol. Neurotol. 37 (9)                    the-leader motion of serpentine manipulator, Int. J. Adv. Robot. Syst. 16
+      (2016) 1307–1313.                                                                            (5) (2019).
+ [85] L.N. Butaric, M. Wadle, J. Gascon, Pediatric Imaging, Neurocognition                   [105] Y. Kong, S. Song, N. Zhang, J. Wang, B. Li, Design and kinematic modeling
+      and Genetics Study, Anatomical variation in maxillary sinus ostium                           of In-Situ torsionally-steerable flexible surgical robots, IEEE Robot. Autom.
+      positioning: Implications for nasal-sinus disease, Anat. Rec. 302 (6) (2019)                 Lett. 7 (2) (2022) 1864–1871.
+      917–930.                                                                               [106] T. Liu, T. Zhang, J. Katupitiya, J. Wang, L. Wu, Haptics-enabled forceps with
+ [86] T.N. Marks, S.D. Maddux, L.N. Butaric, R.G. Franciscus, Climatic adaptation                  multimodal force sensing: Toward task-autonomous surgery, IEEE/ASME
+      in human inferior nasal turbinate morphology: Evidence from arctic and                       Trans. Mechatronics (2023) 1–12.
+      equatorial populations, Am. J. Phys. Anthropol. 169 (3) (2019) 498–512.                [107] E. Lyu, T. Liu, J. Wang, S. Song, M.Q.H. Meng, Motion planning of
+ [87] F. Yoshimachi, T. Matsukage, G. Amoroso, D. Fraser, B. Claessen, S. Saito,                   manipulator by points-guided sampling network, IEEE Trans. Autom. Sci.
+      Focus on maximal miniaturisation of transradial coronary access materials                    Eng. 20 (2) (2023) 821–831.
+      and techniques by the slender club Japan and europe: An overview and                   [108] Q. Wu, X. Wang, B. Chen, H. Wu, Z. Shao, Development and hybrid
+      classification, EuroIntervention 10 (2014).                                                  force/position control of a compliant rescue manipulator, Mechatronics
+ [88] J. Rogatinsky, D. Recco, J. Feichtmeier, Y. Kang, N. Kneier, P. Hammer, E.                   46 (2017) 143–153.
+      O’Leary, D. Mah, D. Hoganson, N.V. Vasilyev, T. Ranzani, A multifunctional             [109] J. Blaise, M.C.F. Bazzocchi, Space manipulator collision avoidance using a
+      soft robot for cardiac interventions, Sci. Adv. 9 (43) (2023) eadi5559.                      deep reinforcement learning control, Aerospace 10 (9) (2023).
+
+
+
+
+                                                                                        12
+

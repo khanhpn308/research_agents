@@ -1,0 +1,4251 @@
+                                                     3988
+
+
+  CABLE VIBRATION CONSIDERING INTERNAL FRICTION
+
+
+
+
+A THESIS SUBMITTED TO THE GRADUATE DIVISION OF THE
+   UNIVERSITY OF HAWAI'I IN PARTIAL FULFILLMENT
+      OF THE REQUIREMENTS FOR THE DEGREE OF
+
+
+                MASTER OF SCIENCE
+
+                         IN
+
+            MECHANICAL ENGINEERING
+
+
+
+                    AUGUST 2004
+
+
+
+
+                         By
+                       Xin Liu
+
+
+                  Thesis Committee:
+
+             Ronald H. Knapp, Chairperson
+                      YulingYan
+                   Ian N. Robertson
+•
+                                  ACKNOWLEDGEMENS
+
+
+•
+    I wish to express my gratitude to my director, Professor Ronald H. Knapp, for his
+
+    guidance, encouragement and advice during not only the course of this study, but also my
+
+•   M.S. program at the University of Hawai'i at Manoa.
+
+
+
+
+•   I would also like to thank my committee members, Professor Yuling Yan, and Professor
+
+    Ian Robertson.
+
+
+
+
+•
+
+•
+
+•
+•
+
+•
+
+•
+
+•                                             111
+•
+                                  TABLE OF CONTENTS
+
+•
+     . 0 fF'Igures
+    LIst                                                  ..
+                                                         Vll
+
+
+
+•   List of Tables                                       ix
+
+    Chapter 1.          Introduction                      1
+
+      1.1.       Overview                                 1
+
+•     1.2.       Problem Statement                        4
+
+    Chapter 2.          Equation of Motion                5
+
+
+•     2.1.
+
+      2.2.
+                 Summary
+
+                 Assumptions
+                                                          5
+
+                                                          5
+
+      2.3.       Equation of Motion                       6
+
+•     2.4.       Discussion                               8
+
+    Chapter 3.          Numerical Solution Techniques    10
+
+      3.1.       Summary                                 10
+•     3.2.       Frictional Bending Model                10
+
+         3.2.1        Cable Components                   10
+
+
+•        3.2.2        Bending Behavior of Cable Layers   14
+
+      3.3.       NUlllerical Solution                    19
+
+         3.3.1        Derivation of Element Matrices     19
+
+•        3.3.2        Methods of Direct Integration      25
+
+         3.3.3        Newmark's Scheme                   26
+
+
+•     3.4.
+
+         3.4.1
+                 General Programming
+
+                      Explanation
+                                                         29
+
+                                                         31
+
+
+
+
+•                                                 IV
+•
+      3.5.      Discussion                                                            34
+
+
+•   Chapter 4.         Numerical Results                                              35
+
+      4.1.      Summary                                                               35
+
+      4.2.      Simply-Supported Cable                                                35
+
+•       4.2.1       Model Parameters                                                  35
+
+        4.2.2       Boundary and Initial Conditions                                   35
+
+
+•       4.2.3
+
+      4.3.
+                    Results
+
+                Cantilever Cable
+                                                                                      37
+
+                                                                                      41
+
+        4.3.1       Model Parameters                                                  41
+
+•       4.3.2       Boundary and Initial Conditions                                   42
+
+        4.3.3       Results                                                           44
+
+      4.4.      Discussion                                                            46
+•       4.4.1       Error Analysis                                                    47
+
+    Chapter 5.         Model Verification                                             49
+
+
+•     5.1.      Summary                                                               49
+
+      5.2.      Experimental Data                                                     49
+
+      5.3.      Model Result and Comparison                                           53
+
+•   Chapter 6.         Conclusions                                                    56
+
+      6.1.      Objectives Achieved                                                   56
+
+
+•     6.2.
+
+    Appendix A
+                Future Study
+
+                     Experiment of Intemal Pressure Measurement for Cable Specimens
+                                                                                      57
+
+                                                                                      58
+
+      A.I. Experiment Preparation and Data Collection                                 58
+
+•     A.2. Data Analysis and Computation                                              62
+
+
+
+
+•                                               v
+•
+      A.3. Limitation ofExperiment.                                               66
+
+
+•   Appendix B Approximate Computation for Flexural Rigidity of Cable Specimens   68
+
+    Reference                                                                     70
+
+
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•                                          VI
+•
+                             List of Figures
+•
+    Figure
+
+•   FIGURE 2.1. FREE VIBRATION OF CABLE                   5
+
+    FIGURE 2.2. FREE-BODY DIAGRAM OF CABLE SEGMENT        6
+
+    FIGURE 3.1. CABLE CROSS-SECTION                      11
+•   FIGURE 3.2. HELICAL LAYERS                           12
+
+    FIGURE 3.3. WIRE SLIPS                               14
+
+
+•   FIGURE 3.4. INTERFACE FRICTIONS
+
+    FIGURE 3.5. BENDING MOMENT VS. CURVATURE
+                                                         15
+
+                                                         17
+
+    FIGURE 3.6. EI VS. BENDING CURVATURE                 17
+
+•   FIGURE 3.7. PROGRAM FLOW CHART                       30
+
+    FIGURE 3.8. CABLE SEGMENT EXAMPLE                    31
+
+
+•   FIGURE 3.9. DISPLACEMENT HISTORY EXAMPLE
+
+    FIGURE 4.1. SIMPLY-SUPPORTED CABLE
+                                                         33
+
+                                                         36
+
+    FIGURE 4.2. CABLE DISPLACEMENT HISTORy               38
+
+•   FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)       39
+
+    FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)       39
+
+    FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)       40
+•   FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)       40
+
+    FIGURE 4.3. MID-POINT DISPLACEMENT HISTORy       '   41
+
+
+•   FIGURE 4.4. CANTILEVER CABLE
+
+    FIGURE 4.5. CABLE DISPLACEMENT HISTORy
+                                                         42
+
+                                                         44
+
+
+
+•                                     Vll
+•
+    FIGURE 4.5. CABLE DISPLACEMENT HISTORY (CONT.)        45
+
+
+•   FIGURE 4.5. CABLE DISPLACEMENT HISTORY(CONT.)         45
+
+    FIGURE 4.6. END-POINT DISPLACEMENT HISTORy            46
+
+    TABLE 4.1. SUM OF THE SQUARED ERROR                   48
+
+•   FIGURE 5.1. CABLE FORCED VIBRATION                    50
+
+    FIGURE 5.2. EXPERIMENTAL DISPLACEMENT HISTORy         51
+
+
+•   FIGURE 5.3. EXPERIMENTAL HYSTERESIS CYCLE.
+
+    FIGURE 5.4. MODEL DISPLACEMENT HISTORY OF END-POINT
+                                                          52
+
+                                                          53
+
+    FIGURE 5.5. DISPLACEMENT HISTORY COMPARISON           54
+
+•   FIGURE 5.6. MODEL HYSTERESIS CYCLE                    54
+
+    FIGURE A.1. TEST TABLE                                59
+
+    FIGURE A2. DIMENSIONS OF CABLE SPECIMENS              59
+•   FIGURE A.3. CABLE SPECIMEN 1                          60
+
+    FIGURE A.4. CABLE SPECIMEN 2                          60
+
+
+•   FIGURE A5. INSTRON® TEST MACHINE
+
+    FIGURE A.6. DATA RECORDER
+                                                          60
+
+                                                          61
+
+    FIGURE A7. TESTING CABLE SPECIMEN                     62
+
+•   FIGURE A.8. TEST RESULT 1                             62
+
+    FIGURE A.9. TEST RESULT 2                             64
+
+
+•   FIGURE Al O. CABLE SPECIMEN 1 DETAILED VIEW
+
+    FIGURE All. CABLE SPECIMEN 2 DETAILED VIEW
+                                                          66
+
+                                                          67
+
+    FIGURE R1. DIMENSION FOR CROSS-SECTION OF CABLE       68
+
+•
+
+•                                  V111
+I
+
+
+
+
+                            List of Tables
+I
+
+
+
+
+•   TABLE 3.1. CABLE MODEL PARAMETERS                    13
+
+    TABLE 4.1 SUM OF THE SQUARED ERROR                   47
+
+    TABLE AI. DESCRIPTION OF TEST MACHINE                61
+•   TABLE A2. PRESSURE BETWEEN 2ND LAYER AND 3RD LAYER   63
+
+    TABLE A3. PRESSURE BETWEEN 1ST LAYER AND 2ND LAyER   65
+
+
+•
+
+•
+•
+
+•
+
+•
+
+•
+
+•                                 IX
+•
+                            Chapter 1.              Introduction
+•
+    1.1. Overview
+
+
+•   The cable consists of an assemblage of wires laid helically around a core. The cable is
+
+    widely used as an efficient structure for use in cable-stayed structures, for signal
+
+    transmission and for power transmission. For overhead power transmission cables, both
+•   strength and dynamic characteristics are critical design parameters. Due to the inherently
+
+    low damping characteristics of long span cables, vibration can result in damage to
+
+•   transmission cables and shorten their useful life. Moreover, for cable-stayed structures,
+
+    vibrations can lead to a decrease in the cable load-carrying capacity.       In addition,
+
+    agreement on helical cable designs is difficult.    Cable design choices include jacket
+•   materials, water blocking techniques, and the number of fibers to place within the cable.
+
+    The cable design chosen depends on the cable's intended application. Each different
+
+
+•   application may require a slightly different cable design. The cable must meet minimal
+
+    levels of performance in safety and durability (able to withstand shock, vibration, etc.).
+
+    These current design concerns suggest that the dynamic behavior of cables need to be
+
+•   better understood.
+
+
+
+    Determination of various mechanical characteristics of helical cables has never been an
+•   easy task. Substantial work has been accomplished over the past twenty years to model
+
+    the structural behavior of such cables. The most important dynamical property of cables
+
+
+•   is wire slippage that creates large variations in flexural rigidity.    Various flexural
+
+    rigidities have been predicted by a number of previously developed models. In addition,
+
+
+
+•                                               1
+    the static and dynamic behavior of cables also have been predicted by previously reported
+
+I   models.
+
+
+
+    The main focus of recent research has been the response of the cable under dynamic
+
+•   loading conditions. The primary dynamic response of cables includes free vibration and
+
+    forced vibration.
+
+
+•   Gutzer, Seemann and Hagedorn (1995) applied a MASING model for a steel cable
+
+    damping vibration system, in which the cable was analyzed as a collection of discrete and
+
+•   continuous systems of bonded layers. Each of the different layers consists of one or more
+
+    parallel JENKIN or PRANDTL elements. The stick-slip behavior between the structural
+
+    parts was simulated as a special case of static hysteresis. The slowly varying amplitude
+•   method and the phase method were used in the simulation to identify the damping
+
+    parameters of the physical cable.
+
+
+•   Gatti-Bono and Perkins (2003) conducted an analysis of a two-dimensional towed cable
+
+    in an attempt to cover all aspects of cable under tension, torsion, and two-axis bending.
+
+•   A numerical algorithm based on separate finite differencing in time and in space is
+
+    described.   Seabed contact forces are added by modeling the seabed as an elastic
+
+
+•   foundation with a prescribed profile. In deriving the motion of the cable, the cable was
+
+    treated as a one-dimensional dynamic elastic inextensible continuum.
+
+
+
+
+•
+
+•                                              2
+•
+    An alternative approach of cable analysis was suggested by Zhong (2003). The cable is
+
+
+•   modeled as a one-dimensional continuum with varying flexural rigidity. A simplified
+
+    cable vibration model, the frictional bending model (FBM), was developed to estimate
+
+    cable damping due to internal friction. Her study showed that the numerical solution can
+
+•   be derived by directly integrating the equation of motion of the cable. The results of her
+
+    study showed some agreement with experimental data.
+
+
+•   All of these investigations address the improvements of dynamic analyses of the cable,
+
+    and that the effects of internal dry friction between helical wire layers of a cable playa
+
+•   significant role in the dynamic behavior of the cable. Although these research studies
+
+    illustrate different applications of the cable, the major focus has been the dynamic
+
+    response of these cables to external load and internal frictions. Their results provide
+•   methods for cable dynamic analyses, and are very helpful for the design of cable systems.
+
+
+
+
+•   Some of these analyses have resulted in rather complex stiffness matrixes, while others
+
+    have focused on individual wires of cable layers, which may not be easily applied to
+
+    other types of cables.
+
+•
+    The objective of this study is to develop a mathematical cable model to predict cable
+
+
+•   vibration and the attendant reduction in vibration amplitude due to internal friction
+
+    caused by relative wire slippage, which allows a faster identification of the vibration
+
+    nature of the cable. In addition, a computer program is to be developed to investigate
+
+•
+
+•                                               3
+•
+    cable free vibration cases using the mathematical cable model. Finally, the validity of
+
+
+•   this model is to be verified by experimental data for forced vibration.
+
+
+
+
+    1.2. Problem Statement
+•
+    The flexible cable is complex structure made of multiple layers of helically-served and
+
+
+•   axial components with dissimilar materials. The cable can have a nonlinear structural
+
+    characteristic where deformations are large, materials have nonlinear stress-strain curves
+
+    and frictional sliding of helical wires occrues. Consequently, the governing equation of
+
+•   motion of a cable can be a highly nonlinear. Because the dynamic behavior of cable is
+
+    not fully understood, especially when the loads applied on the cable are a combination of
+
+    tension, torsion and compression, the analytical solution can be impractical to achieve.
+•   Therefore, numerical methods have to be employed.
+
+
+
+
+•   This study uses the flexural rigidity-curvature relationship predicted by CableCAD®
+
+    (2003) into the equation of motion of the cable. In this study, the motion of the cable is
+
+    simulated by applying variational theory and using a fifth-order Hermite interpolation
+
+•   function (Ross, 1998). The numerical solution of the equation of motion of cable is
+
+    achieved by using Newmark's Method (Stein, 2002) with linear acceleration.
+
+
+•
+•
+
+•                                                4
+•
+                         Chapter 2.          Equation of Motion
+•
+    2.1. Summary
+•   In this chapter, the physical model describing the dynamic proprieties of the cable is
+
+    established. The whole cable is modeled as a one-dimensional continuum with variable
+
+•   flexural rigidity.
+
+
+
+
+•   2.2. Assumptions
+
+
+
+
+•
+•
+•
+                              Figure 2.1. Free Vibration of Cable
+
+
+
+•   The system shown in Figure 2.1 is an idealized vibration configuration for a simply-
+
+    supported cable.     Prior to formulating the mathematical model, several assumptions
+
+•   presented below have been made in order to simplify the analysis:
+
+
+
+
+•                                              5
+•
+      1. Plane sections of the cable are allowed to warp due to wires slip;
+
+
+•     2. The cable material is homogeneous, isotropic, and linearly elastic;
+
+      3. The strains are small, and shear deformation and Possion's effects are neglected;
+
+      4. Kinetic friction is neglected;
+
+•     5. Elongation of the cable caused by tension is neglected.
+
+
+
+
+•   2.3. Equation of Motion
+
+
+
+
+•
+                                                  i
+                                                i i _._._._o_._o_o_.-
+                                ·_·_·_·_·_·_·_·I°_·To
+•                          i
+                           j"
+                                      x
+                                             ~i
+                                                id!::i
+                                                  r
+
+
+                                                                              aT
+•                                                                       T +-dx
+                                                                           ax
+
+                                   T
+
+
+•                       0L.....-           ...I..-_ _----I                _
+
+
+
+
+•                   Figure 2.2. Free-Body Diagram of Cable Segment
+
+
+
+
+•
+
+•                                                 6
+•
+    Fig. 2.2 presents a free-body diagram of a cable segment which is undergoing small
+
+
+•   transverse displacements as a result of the distributed loading, I(x,t) (force per unit
+
+    length), and the axial force, T(x,t). Gravitational forces are neglected.
+
+
+
+•   From the vertical force equilibrium of the cable element, the equation of motion is:
+
+
+
+
+•                  I(x,t)dx+ V(x,t) +(T(x,t) + dT(x,t) )sin( B + dB) =
+                                                                 a 2
+
+                   (V(x,t) + dV(x,t)) + T(x,t)sinB+ p(x)A(X)-2 w(x,t)dx
+                                                                 at
+
+•                                                                                          (2.1)
+
+
+    where V(x,t) is the shear force, T(x,t) is the applied tension, p(x) is the mass density of
+
+
+
+•   the cable, and A(x) is the cross-sectional area of the cable. The mass per unit length of
+
+    cable, m(x) ,can be defined as
+
+
+                                         m(x) = p(x)A(x)
+•
+                                                                                           (2.2)
+
+
+
+•   The differential form of V can be written as
+
+
+
+
+•
+                                                                                           (2.3)
+
+
+
+•   where EI(x) is flexural rigidity, and w(x) is vertical displacement of the cable.
+
+
+
+
+•                                                  7
+•
+    In the case of small deflections of a uniform cable, the mass density and cross-sectional
+
+
+•   area are constant. In addition,
+
+
+                                                               8w a2w
+                                  sin (() + d ()) ~ () + d () =- + - 2 dx
+                                                                ax ax
+•
+                                                                                          (2.4)
+
+
+
+•   Therefore, the equation of motion (2.1) yields
+
+      2
+    a (       a
+                2
+                            aJ2
+                                             a
+                                               2
+    -2 EI(x,t)-2 w(x,t) + pA-2 w(x,t) =T(X,t)-2 w(x,t) +
+                                                         aT(x,t) 8w(x,t)
+                                                                         + f(x,t)
+    ax       ax            at               ax             ax      ax
+
+
+•                                                                                         (2.5)
+
+    For small vibrations, the axial tension can be approximated as a constant. If there is no
+
+    external force and axial tension is a constant (small deformation), the equation of motion
+
+•   (2.5) can be simplified as:
+
+                     2         2             2           2
+                              a w(x,t) J+ pA-
+                   a ( EI(x,t)-2
+                   -2                                  a 2 w(x,t) = 0
+                                            a 2 w(x,t)-T-
+                   ax        ax            at          ax
+•                                                                                         (2.6)
+
+    Note that this equation reqUIres four spatial boundary conditions and two initial
+
+•   conditions, one for displacement and one for velocity.
+
+
+
+
+•   2.4. Discussion
+
+
+    In this chapter, the simplified equation of motion of cable vibration has been derived.
+
+•   Because it is a nonlinear partial differential equation with a fourth order derivative with
+
+
+
+
+•                                                   8
+•
+    respect to x and a second order derivative with respect to time, t , a numerical method has
+
+
+•   been used to solve the equation of motion.
+
+
+
+
+•
+
+•
+
+•
+
+•
+•
+
+•
+
+•
+
+•
+
+•                                                9
+•
+               Chapter 3.              Numerical Solution Techniques
+•
+    3.1. Summary
+•
+    In this chapter, the equation of motion is solved by finite element method (FEM) using
+
+    the flexural rigidity-curvature relationship provided by CableCAD® (2003).
+•
+    3.2. Frictional Bending Model
+
+•
+    To solve the nonlinear equation of motion (EI is a discontinuous function of cable
+
+    curvature), a numerical method was applied. Due to wire slippage between adjacent
+
+•   layers, modeling the cable becomes much more difficult.
+
+
+
+
+•      3.2.1 Cable Components
+
+
+    As shown in Figures 3.1 and 3.2, the typical cable comprises several layers, each layer
+
+•   having its own material and geometrical properties. Layer frictional interactions strongly
+
+    affect the properties of the entire cable. The cable used in this research consists of elastic,
+
+    high modulus, high strength steel wires. When tensioned and bent, helical wires can slip
+•   relative to wires in adjacent layers resulting in energy dissipation.
+
+
+
+
+•
+                                                  10
+•
+•
+    Table 3.1 lists the ge<lmetrical detailes of a dissected cable specimen and its material
+
+
+•   properties. This cable was tested by Sauter and Hagedorn (2002) and is used to evaluate
+
+    the numerical model in this study.
+
+
+
+•
+
+•
+
+•
+
+•
+
+•
+                                Figure 3.1. Cable Cross-Section
+
+
+•
+
+•
+•
+                                                 11
+•
+
+•   Layer3
+
+                                Layer2
+
+
+
+•
+
+•
+
+•        Figure 3.2. Helical Layers
+
+
+
+
+•
+
+•
+
+•
+
+•
+
+•
+                    12
+•
+•      •              •              •              •              •                •          •         •               •   •
+
+                                                 Table 3.1. Cable Model Parameters
+
+
+
+                                                Layer 1                  Layer 2             Layer 3         Entire Cable
+    Number of Wires                                1                        6                  12                19
+    Layer Inner Diameter (mm)                      0                      2.12               6.0452             N/A
+    Layer Outer Diameter (mm)                     2.12                    6.12                10.12             N/A
+    Wire Diameter (mm)                            2.12                     2.0                 2.0              N/A
+    Lay Angle (deg)                                0                    -17.52048           15.82493            N/A
+    Lay length (mm)                               N/A                      41                  90               N/A
+    Lay Direction                                 N/A                     Left                Right             N/A
+    Area (mm2)                                  3.24293                 3.16236              3.08281           9.4881
+    Bending Moment of Initial (mm4)            0.836883                 0.795817            0.756281            73.2 1
+    Elastic Modulus (Mpa)                       2E+05                    2E+05               2E+05             2E+05
+    Poisson's Ratio                               0.29                    0.29                0.29              0.29
+    Static Friction Coefficient                  0.742                    0.74                0.74              0.74
+    Kinetic Friction Coefficient                 0.572                    0.57                0.57              0.57
+    Weight (N/m)                             2.49966E+02            1.473 08E+03           2.96397E+03       4.68702E+03
+    1 This is the maximal value, when wire slips, this value will be decreased (see ALl)
+
+    2 Referenced from http://www.visionengineer.com/ref/friction.shtml
+
+
+
+
+                                                                   13
+•
+       3.2.2 Bending Behavior of Cable Layers
+•
+    For a cable with small curvature and suffcient applied tension, the shear forces between
+
+
+•   layers and wires are relatively small in magnitude and can not overcome the friction
+
+    between layers.   Therefore, sliding will not occur, and energy will not be dissipated
+
+    during the bending cycle. In this case, the bending moment-curvature relationship is
+
+•   linear and the assumption of plane-sections remaining plane is observed.
+
+
+
+
+•   If the cable is preformed when manufactured so that large radial pressures are developed
+
+    between layers, internal frictional forces can be developed without the application of
+
+    tension. By controlling the degree of perform as a design parameter, the desired degree
+
+•   of internal frication can be developed to dissipate energy from the vibrating cable.
+
+
+
+
+•
+                                                                                  - -NA(s=O)
+
+
+•
+
+•
+                                     Figure 3.3. Wire Slips
+
+
+
+•
+
+•                                               14
+•
+    Figure 3.3 shows a portion of a helical wire in a bent cable. Point A is located at the
+
+
+•   inside of the cable bend, and point B is at the outside of the bend. The distance from
+
+    point A to point B along the wire is one-half lay length. If the wire was not slipped, the
+
+    region below the neutral axis (NA) is in compression and the upper region is in tension.
+
+•   If wire slip occurs, the compression region of the wire moves toward the tensile region
+
+    until the tension in the wire due to bending is relaxed to zero.
+
+
+•
+                                                                                     1+1
+•
+                                     _ _ _ _ _ _-=--......._-"""   illb+l
+
+
+•                                    Wire i in Layer 1
+                                                                                 _ - I...... (NJl+(d~l
+
+
+
+
+•                                                                                    (1-1)
+
+
+                         •                       d:;
+                                                                            ..   ,
+
+•
+                                 Figure 3.4. Interface Frictions
+
+•
+    The source of resistance to sliding is the interlayer friction developed by the radial
+
+    pressure between layers, Pi. This interlayer radial pressure governs the onset of wire slip
+•   and the attendant dissipated frictional energy. This mechanism is demonstrated in Figure
+
+
+
+
+•                                                      15
+•
+    3.4 where three adjacent layers are shown with interlayer frictional forces. Interlayer slip
+
+
+•   occurs when
+
+
+                                           dN.
+                                           _'>i'_i'
+                                           ds - Ji Ji+1
+
+•                                                                                          (3.1)
+
+    where N i is wire tension, dNi / ds is the differential change of wire tension per length
+
+
+•   along the wire neutral axis, and 1; and 1;+1 are static frictional forces per element length
+
+    on inside and outside face of wire i, respectively.
+
+
+
+•   The bending moment-curvature plot and the EI-bending curvature plot, obtained with
+
+    CableCAD® (2003), are shown in Figure 3.5 and Figure 3.6. To generate these curves,
+
+
+•   frictional forces between wire layers were measured to determine the radial pressures
+
+    acting between layers. With the experimentally determined layer pressures applied to the
+
+    CableCAD® (2003) model, the bend diameters at which each wire layer slips could be
+
+•   obtained. Figure 3.6 shows the entire plot of flexural rigidity, EI, vs. Bending Curvature
+
+    obtained with CableCAD® (2003).         Note that the maximum EI is obtained at zero
+
+    curvature and has a value of almost 6.5 X 107 N-mm2 • This agrees with the theoretical
+•   value ofEI at no-slip as determined in Appendix B.
+
+
+
+
+•
+
+•
+
+•                                                16
+•
+                                                                                MOf'lleflt-Bending Cul'Vaiture
+         0.09.-------r,---......,:.-----'1,- -/---:;7',------,
+
+•        0.08      ------------t------------~ ------------y
+                               I
+                                                           I                                      I                               1,..,./                     I
+
+
+                                                                                                                                           ---------i-I -----------
+         0.07      ------------~ ------------v -----~-------------i- -----------
+                           :         ~;... :
+                                             I~:
+
+
+                                                           I
+                                                                   :               :
+                                                                               ........--         I                               I                           I
+
+
+         0.06 ------------ ~ -. / - -- - - - ~ - - - - -- - ----- ~ ----------- - -:- - - - - - - - - - --
+
+
+•   E
+    Z 0.05 - - - - - - I _!~4 ----------~ ------------~ ------------)------------
+                                                           I                                      I                               I                           I
+
+
+
+
+         0.04      ----1-'-----1- -----------j------------j------------.1- ------------
+                             •                             I                                      I                               I                           I
+
+
+
+
+                   -rl --------1------------j------------1.-----------)-------------
+                      A:                     :            :             :
+•        0.02
+                                                           I
+                                                           I
+
+
+
+
+                                                           I
+                                                                                                  I
+                                                                                                  I
+
+
+
+
+                                                                                                  I
+                                                                                                                                  I
+                                                                                                                                  I
+
+
+
+
+                                                                                                                                  I
+                                                                                                                                                              I
+                                                                                                                                                              I
+
+
+
+
+                                                                                                                                                              I
+                                                                                                                                                               ,
+                                                                                                                                                              ,,
+         0.01 - - - - - - - - - - - - t - - - - - - - - - - - - ~ - - - - - - - - - - - - -; - - - - - - - - - - - - -:- - - - - - - - - - - --
+                                                           I                                      I                               I                           I
+                                                           I                                      I                               I                           I
+                                                           I                                      I                               I                           I
+                                                           I                                      I                               I                           I
+
+              O'------'--------'-------'-----.l-..-----'
+                 o                                 I.L002                                       0.004                     0.006                        o.oas                                  0.01
+
+•                                                                                    Benging Curvature [1/ml
+
+
+
+                                 Figure 3.5. Bending Moment vs. Curvature
+
+
+•
+                                               ,
+                            A                  :,
+                            _.
+                                               ,L                                     ~                           LI                        ~                          .£                     _
+                                               I                                      j'                                                    j                           I
+
+                                               I                                      ill                         I                         ,.                             j
+
+
+
+
+•
+                                               ,                                      It                          I                         1                              I
+                                               ,                                      l                           I                         1                              !
+                                               I                                      III                         I                         1                              I
+                                               I                                      ,;;                         I                         if                             i
+                                               I                                      ii                          I                         "                              ~
+                                               I                                      JI                          I                         if                             I
+                              ~~    ••• wl ••••• w • • • • • lw •••••• _ •• ~, •••• ~.w • • • • l.~~ •• _ •••• _jww • • • • • • • •
+                                               I                                      ~                           I                         1                              I
+                                               I                                      JI,                         ,                         •                              I
+                                                ,                                     1                           ,                         t                              !
+
+
+
+
+                                               r'"' n·t· o'..... to .....uuo t" unon"." f non.
+                                                •                                     "                           •                         "                              j
+
+
+                             \:                                                       .~                      ::                                                           :.
+
+        ~4         n ~\,.n ..
+                        U                                                0'"                0                0.                                                                 0 0   0   0
+
+
+
+        E
+
+•       t:
+        iii :3     . . . . . . . . . '" "",r: ' _- ·.·:t·, _ '"
+                                     \
+                                                                                                               -- i.. - '"' --"" ~ --
+                                                                                                              ::
+                                                                                                             --t                                                       '""'.~                 '"
+                                I,,'
+                   ....... _ _._f-,", '
+                                             ......
+
+
+                                                I
+                                                I
+                                                  ~
+                                                      '.
+                                                                ···il
+                                                                 ~_
+                                                                                      'lI
+                                                                                      ~
+                                                                                      jiI                 I i     ,
+                                                                                                                  I
+
+                                                                                                                  I i
+                                                                                                        , f ----.. -_ .-._.. -_ -f-_ '" _ --
+                                                                                                                  1 *
+                                                                                                                                            .•
+                                                                                                                                            'i
+
+                                                                                                                                            ••
+
+
+                                                                                                                                            ,~
+                                                                                                                                                                           i
+                                                                                                                                                                           I'
+                                                                                                                                                                           ~
+                                                                                                                                                                           ~
+                                                                                                                                                                           ~
+
+
+
+
+                                               :                                      :~;,~L:                                                                              ~
+                                               :                                      :          B                :""~-                     :
+•            1     ... ,",';' _ ,        '"' .. I
+                                                ~          :.. ,.. '"'            ,: ,,..               --        +I -.., ..' '         -::::-:-=:'::'::'h_+....""'=~.:.:d
+                                                                                                                                      _ '"' "', ,' '   ;;.~       '"
+
+
+
+
+                                                                                                                                                                                               (l.12
+
+
+
+•                                         Figure 3.6. EI vs. Bending Curvature
+
+
+
+•                                                                                                            17
+•
+    When the bending curvature, K, over the length of the cable is smaller than the first
+
+•   critical curvature of point A shown in Figure 3.6, there is no interlayer slip at any point
+
+    along the cable, and the cable acts as one entity. The stiffuess of this cable is at its
+
+
+•   maximum value, and the bending moment-curvature relationship is linear (line OA
+
+    shown in Figure 3.5). As soon as the curvature reaches the first critical curvature, which
+
+    means that the shear forces between first layer and the second layer overcome the
+
+•   frictions between these two layers, the first layer begins to slip.     Consequently, the
+
+    stiffuess of this cable decreases gradually. At any point along the cable axis where the
+
+    curvature reaches the second critical curvature of point B in Figure 3.6, interlayer slip
+•   occurs.
+
+
+
+
+•
+    For a two-dimensional curve written in the form ofy = I(x) , the curvature Kis defined
+
+    as:
+•
+
+•
+                                                                                          (3.2)
+
+•   Therefore, the combination of Figure 3.6 and Eq. (3.2) establishes a relationship between
+
+    a deformation curve and the flexural rigidity of cable.
+
+•
+•                                                18
+I
+
+
+    3.3. Numerical Solution
+
+•      3.3.1 Derivation of Element Matrices
+
+
+
+•   Consider a model partial differential equation
+
+                                   t.U   = f in n, U = 0 on an
+
+                                                                                    (3.3)
+
+I   on domain n c.[R2.
+
+
+
+
+    For a domainn c.[Rd , L2(Q) denotes the Lebesgue space of square-integrable functions
+I
+    on Q, which is a Hilbert space with the scalar product and norm
+
+                                         (v, w)Q = fvwdx
+                                                  Q
+I
+
+
+
+
+I                                                                                   (3.4)
+
+    L2 (aQ) denotes the space of square-integrable functions defined on the boundary aQ
+
+    equipped with the inner product and norm
+I
+                                         (v, W)8Q = f vwdx
+                                                   8Q
+
+
+
+•
+                                                                                    (3.5)
+
+
+I
+
+
+
+
+                                                  19
+I
+•
+    The Sobolev space HI (Q) and H 2 (Q) consist of those function v E L (Q) which
+                                                                                         2
+
+
+
+
+•   possess first-order and second-order (distributional) derivatives Vv E L 2 (Qt and
+
+                    xd
+    V 2v E L2 (Qt        •   For functions in these spaces, the semi-norms are
+
+•
+
+•
+                                                                                                (3.6)
+
+
+•   The space HI (Q) is continuously embedded in the space L2 ( aQ), such that for each
+
+    V E HI   (Q), there exists a trace v liJQE L2 (Q).         Further, the functions in the subspace
+
+    H~ (Q) C HI (Q) are characterized by the property v liJQ= 0. The natural solution space
+•   for the boundary value problem Eq. (3.3) is the Sobolev space V = H~ (Q) defined above.
+
+    The variational formulation of Eqn (3.3) seeks U E V, such that (Vu, V q» = (t,q»               ,
+•   where V q> E V (Stein, 2002).
+
+
+
+
+•   Now tum the focus to the simplified equation of the motion of a cable,
+
+                         2               2                 2               2
+                    -2          a w(x,t) J+pA-
+                     a ( EI(x,t)-2          a            a w(x,t)=O
+                    fu         fu           at 2 w(x,t)-r-
+                                                        fu 2
+
+•                                                                                               (3.7)
+
+
+
+
+•   For the case of a simply-supported cable, x E [O,L] andt E [0,00], where L is the distance
+
+    between two support points.
+
+
+
+•                                                     20
+•
+
+•   For the equation of motion of a cable, consideringv(x) E H~(Q), multiple vex) at both
+
+    sides and integrate overQ ,and equation of motion (3.6) becomes
+
+            2                2         2                   2
+•     Q
+          a                a   (     a                   J
+                                                         a
+       fpA-2w(x,t)v(x)dx+ f-2 EI(x,t)-2 w(x,t) v(x)dx- fT-z w(x,t)v(x)dx = 0
+         at              Q ax       ax                Q ax
+
+                                                                                    (3.8)
+
+
+•   Boundary conditions for the simply-supported cable are:
+
+                                      w(O)=w(I)=O
+•
+
+•                                                                                   (3.9)
+
+
+
+    Boundary conditions for the cantilever cable are:
+•                                     w(O) = 8w(0) = 0
+                                                ax
+
+
+•
+                                                                                   (3.10)
+•
+    A cable is divided into small parts to describe the behavior of the cable, and the
+
+
+•   contribution of each small element is summed. The summation gives the entire cable
+
+
+
+
+•                                               21
+•
+    mechanical properties. The cable has the same deflection and slope at common nodal
+
+
+•   points that satisfy the continuity of both the deflection and slope of the cable.
+
+
+
+    Appling Green's function (Ross, 1998), and assuming EI to be constant along each of the
+
+•   cable elements,
+
+          d2                       a2      a2            a      a
+          -2 fPAw(x,t)v(x)dX+ f EI -2w(X,t)-2 v(x)dx+ fT-w(x,t)-v(x)dx = 0
+          dt n                n    ax     ax         n ax      ax
+•                                                                                        (3.11)
+
+
+
+
+•   The fifth-order Hermite integrator uses higher order derivatives that are explicitly
+
+    calculated from the Hermite interpolation formula in order to construct interpolation
+
+    polynomials of the displacements of cable.           This keeps the continuity of the third
+
+•   derivative ofthe deflection.
+
+
+
+
+•   For simplicity, the interpolation functions will be given in terms of dimensionless or
+
+    normalized variables with some dimensional constants.          The displacement, w, of the
+
+    cable section can be given by
+
+•                                                   6
+
+                                          w(S-) = INiQ
+                                                   i~l
+
+
+
+
+                                                                                         (3.12)
+
+•   or
+
+
+
+
+•                                                                                        (3.13)
+
+
+
+
+•                                                22
+•
+
+•   An approximate function is proposed:
+
+
+
+
+                                                                                  (3.14)
+
+•
+    constants.
+•
+    The first-order and second-order derivative of w(s) will be
+
+
+•                                              s   sz + 4a s + 5ass
+                            w'(s) = a j + 2a z + 3a3           4
+                                                                   3          4
+
+
+                            w"(s) = 2a z + 6a S + 12a s + 20a ss
+                                                       z                  3
+                                                3        4
+
+
+                                                                                  (3.15)
+
+•   Substituting S = 0 and S = 1 yields
+
+                                 w(O) = ao
+                                 w(1) = ao + a j + a z + a3 + a4 + as
+•                                w'(O) = a j
+                                 w'(1) = a j + 2a z + 3a3 + 4a 4 + 5a s
+                                 w"(O) = 2a z
+                                 w"(1) = 2a z + 6a3 + 12a4 + 20a s
+•                                                                                 (3.16)
+
+
+
+
+•
+•
+
+•                                                   23
+•
+    Substituting Eq. (3.16) into assumed function, Eq. (3.14), gives
+
+
+•                                 N, = H,(O) (~) = 1-10~3 + 15~4 _6~s
+                                  N z = HiO) (~) = 10~3 -15~4 + 6~s
+                                  N 3 = H?) ( ~) = ~ - 6~3 + 8~4 - 3~s
+
+
+•                                 N 4 = Hi') (~) = _4~3 + 7 ~4 - 3~s
+
+                                  N s =H?)(~)=±(~Z _3~3 +3~4 _~s)
+
+                                  N6 =   H?) (~) =±( ~3 _2~4 +~s)
+•                                                                        (3.17)
+
+
+
+
+•
+
+•
+
+•
+                                                                         (3.18)
+
+    Thus, the part of the integration gives
+•                                        L
+
+                                   mij = fpANiNjdx
+                                         °
+
+•
+
+•                                                                        (3.19)
+
+
+
+
+•                                               24
+•
+    which are the elemental consistent mass matrix, stiffness matrix, and stability matrix,
+
+
+•   respectively.
+
+
+
+    Assembling the elemental stiffness matrix, consistent mass matrix, and stability matrix
+
+•   into global matrices gives the equation of free vibration without damping:
+
+                                   [M]q + ([K] + [S])q = {O}
+
+
+•                                                                                          (3.20)
+
+
+
+
+       3.3.2 Methods of Direct Integration
+•
+    There are many methods for advancing the solution ofEq. (3.20) in time. Essentially, the
+
+
+•   problem has been reduced to solving a set of coupled ordinary differential equations. For
+
+    each time step, the following procedures occur for each element. Given the general nodal
+
+    displacements, velocities, and acting forces in time, T, sum the external forces and use
+
+
+•   the resultant forces acting on the masses at the nodes to predict accelerations at the nodes.
+
+    From the displacements, velocities, and accelerations at time, t, and at a time step, a new
+
+    set of general nodal displacements can be found.
+
+•
+    The algorithms commonly used can be categorized into two types, explicit methods and
+
+
+•   implicit methods.    Explicit methods, which predict the next state using the element
+
+    matrices, do not require a large set of equations to be solved at each time interval. The
+
+    equations for one element only calculate forces at neighboring nodes explicitly connected
+
+•   to a node given a displacement. If in one time step, only these immediate neighbors are
+
+
+
+
+                                                 25
+•
+•
+    affected, then the information in the element matrices is enough to predict the evolution
+
+
+•   of the solution.    The explicit methods cope well with nonlinearities; eg., plastic
+
+    deformation. However, the explicit methods provide unstable solutions if time steps used
+
+    are too large.
+
+•
+    On the other hand, implicit methods permit a much larger time step, but introduce
+
+
+•   artificial damping, and require a pseudo-static problem (including inertia loading) to be
+
+    solved at each time interval. In structural dynamic problems implicit integration schemes
+
+    give acceptable solutions with time steps usually one or two orders of magnitude larger
+
+•   than the stability limit of explicit methods.       If the time step is too large, higher
+
+    frequencies in the response will be filtered out.
+
+
+
+•      3.3.3 Newmark's Scheme
+
+
+
+•   The method used in this study is proposed by Newmark (1967). The time dimension is
+
+    represented by a set of discrete points with each time increment b.t apart. The system is
+
+    solved at each of these points in time using data of the solution at a previous time. The
+
+•   value of a function at time t = nb.t (n is integer) can be denoted by:
+
+                                        J(t) = J(nM) = f
+                                                           n
+                                                               )
+
+
+
+
+•                                                                                          (3.21)
+
+    The first part of the method is to calculate the velocities and accelerations at timet +M .
+
+    Eq. (3.20) then leads to:
+
+•
+
+•                                                26
+•
+                                  [MJ{ qt+at} + ([K] +[SD{qt+at} = {O}
+
+•                                                                               (3.22)
+
+
+
+    The velocity vector at time t +t:>.t can be denoted by:
+•
+                                                                                (3.23)
+
+•   where    {q} is the value of {q} on domain [t,t +L:>.t].
+
+
+•   This quantity can be approximated in the following manner:
+
+                                        {q} = (1- a) { qt }+ a { qt+at }
+
+•   where 0:::; a :::; 1.
+                                                                                (3.24)
+
+
+
+
+•   Thus, Eq. (3.23) becomes
+
+
+
+
+•   Other parameters are defined as:
+                                                                                (3.25)
+
+
+
+
+                                 a =
+                                             1       r    1
+                                                  a =- a =-
+•                                 o    13(M)2' 1 13M' 2 13M
+                                 a = _1_ -1 a =       L-1 a = I1t   (L-    2J
+                                  3    213       '4   13 '5    2     13
+                                 a6 = M (1- y), a7 = yM
+
+•                                                                               (3.26)
+
+
+
+
+•                                                     27
+•
+
+•   Then, the displacement at the time, t +.6.t , can be given by:
+
+
+
+
+•                                                                                           (3.27)
+
+
+
+
+•   The acceleration and velocity at the time t +L:.t can be given by:
+
+                            {iil+AI} = ao({ ql+AI} - {ql })- a2{iII} - a3{iii}
+                            {iIl+AI } = {iII} + a6{iii} + a7{iil+AI }
+•                                                                                           (3.28)
+
+    With given {ql} ,{iII} and {iii}' {ql+AI} ' {iIl+AI} and {iil+AI} can be calculated using Eqns.
+
+•   (3.27) and (3.28). During each time step, nodal positions and velocities first are predicted
+
+    using the known acceleration and the time derivative of the acceleration, and the motion
+
+    then is corrected using the additional derivative information thereby obtained. In other
+•   words, with the initial conditions (velocity is equal to zero at time 0, displacements are
+
+    given by the assumed configuration of cable) and the given parameters, rand f3 , the
+
+
+•   dynamic response history of cable can be obtained.
+
+
+
+    In the linear case as shown above, the initial mechanical equilibrium can be written in the
+•   following form:
+
+                                    [M]{ iil+AI} +[K]{ql+AI} = F;+AI
+
+
+•                                                                                           (3.29)
+
+
+
+
+•                                                    28
+•
+    In the case of nonlinear analyses, the computation of these vectors requires an iterative
+
+
+•   method. The Newton-Raphson method has been used in this study. Thus, Eq. (3.29) has
+
+    to be written in an incremental form:
+
+
+
+•
+                                                                                         (3.30)
+
+
+•
+    3.4. General Programming
+•
+    The numerical solution discussed in the previous chapter has been implemented in a
+
+    computer program with the logic described in the flow chart (Figure 3.7).
+•
+    Numerical values served as a reference for the following discussion of this chart.
+
+
+•
+
+•
+
+•
+
+•
+
+•                                               29
+•
+    2. Applied Tension       1.Cable Proprieties              3. Initial Conditions
+
+•                                                                                       I
+         (if any)
+
+
+            •
+      4. Elemental
+     Stability Matrix
+                              5. Elemental Mass
+                                    Matrix
+                                                                       •
+                                                                   6. Elemental
+                                                                    Curvature ~
+
+
+•                                                7. EI-Curvature
+                                                   Relationship
+                                                                   -----.
+                                                                        ,r
+
+                                     . ...
+                                     ...
+                                             ~                    8. Elemental
+
+•                                                               Stiffuess Matrix
+
+                                       .,ir
+
+                           9. Assembled Matrixes                             I 19. Configuration
+                                                                                           ..
+                                                                                                 I
+•   10. Boundary
+    Conditions
+                                     ... 1
+
+                                     ...-.
+
+                    I
+                         11. Reduced Matrixes            -.     12. Eigenvalue
+                                                              Problem (optional)      ---I
+
+
+                                   •
+                                                                                            I
+                                                                                            I
+                                                                                            I
+                                                                                            I
+
+
+
+•
+                                                                                            I
+                                                                                            I
+                                                                                      ___ JI
+                         13. Newmark's Method                  14. Time Step
+                    I
+                                   •
+                    I 15. Nodal Displacement I
+•                                  •
+                              16. Vertical
+                             Displacement            r------+ 17.Curve
+                                                                  Least Square
+                                                                       Fitting
+
+
+
+•                                  •
+                           18. Result Plotting
+
+
+
+
+                              Figure 3.7. Program Flow Chart
+•
+
+•
+
+•                                                   30
+•
+       3.4.1 Explanation
+
+•   The general idea of this process is to construct the global stiffness, mass, and stability
+
+    matrixes based on given cable properties, initial conditions, and any applied tension, and
+
+•   solve the problem numerically using Newmark's scheme to get the dynamical history of
+
+    free vibration.
+
+
+
+•
+         w
+
+
+•
+
+•            Jr'C=:...------------------------==~-~ X
+
+
+
+                                             l
+             I~                                                               ~I
+•
+                             Figure 3.8. Cable Segment Example
+
+
+•   Figure 3.8 shows a segment of a simply-supported cable with the initial configuration,
+
+    wo(x) (Item 3 in Figure 3.7). A constant tension (Item 2 in Figure 3.7), is applied to this
+
+    cable of span, 1, and the deflections and moments at two pinned ends are zero.
+•
+•
+
+•                                                31
+•
+    If the proprieties, Item 1 in Figure 3.7, of cable are given, the cable element length can be
+
+
+•   determined by the half of the largest lay length, which is denoted by dx in Figure 3.8.
+
+    The numbers of elements will be calculated by i/ dx .
+
+
+
+•   If Wo can be described as a function of x , the curvature of each node can be calculated by
+
+    Eq. (3.2).    Using the EI-curvature relationship predicted by CableCAD® (2003), the
+
+•   flexural rigidity of each node can be found. The EI of each element will be given by the
+
+    average EI values of neighboring nodes. For this particular example, there is no moment
+
+    on the two end points, which means the curvatures of these two points are zero.
+•   Accordingly, EI is set to be constant for the first and last elements. Thus, the elemental
+
+    mass, stiffuess, and stability matrix, shown as Items 3, 4, and 7 in Figure 3.7, can be
+
+
+•   found by using Eq. (3.18). Assembling the elemental matrixes gives the global matrixes,
+
+    shown as Item 8 in Figure 3.7.         Apply the boundary conditions to eliminate the
+
+    singularity of the global matrices and obtain the reduced matrices, shown as Item lOin
+
+•   Figure 3.7.
+
+
+
+    The primary shortcoming of this method is that small time steps must be used for stiffer
+•   systems. Considerable numerical damping will be introduced if larger time steps are used.
+
+    The Newmark's method ameliorates these difficulties. Default values of f3 = 0.25 and
+
+
+•   r = 0.5 can be used. The two parameters, J3 and r, are the two Newmark parameters to
+
+    determine the stability and accuracy of the algorithm and were initially proposed by
+
+    Newmark as f3 = 1/4 and r = 1/2 thus securing the unconditional stability of the method,
+•   which means that the solution, for any set of initial conditions, does not grow without
+
+
+
+
+•                                                32
+•
+    bound regardless of the time step. Unconditional stability itself does not secure accurate
+
+•   and physically sound results.
+
+
+
+    The time step must be reasonably small to maintain numerical stability. There are two
+
+•   options to determine the time step, shown as Item 13 in Figure 3.7. One is to choose a
+
+    random small number. The other way is to solve the eigenvalue problem, Eq. (3.19).
+
+
+•   The range of choices for time steps will be narrowed and the particular choice of a time
+
+    step will be found easily according to the eigenfrequency, shown as Item 12 in Figure 3.7.
+
+    The response gives the generalized displacements at each node. The shape of cable curve
+
+•   will be described by the vertical displacement of cable, wo '
+
+
+
+
+•   For physical and numerical reasons, the resulting curve may not be smooth. Therefore,
+
+    the least square curve fitting technique has to be applied to smooth the curve after each
+
+    time step.   WI   in Figure 3.8 shows the optimized shape of cable after the first time step.
+
+•
+
+•                                                 l~'o
+
+
+
+
+                                                                                      X
+
+
+•                      I~
+                                                  1
+                                                   ,
+                                                                            ~I
+
+
+•                            Figure 3.9. Displacement History Example
+
+
+
+
+•                                                      33
+•
+
+•   In general, a time domain simulation will begin at time zero with current locations and
+
+    velocities. The vertical displacements will be computed every time step until the desired
+
+    total time is reached and the configurations are plotted for each time step.
+
+•
+    3.5. Discussion
+
+•   In this Chapter, the bending behavior of cable layers has been discussed.       Elemental
+
+    matrices for cable have been obtained using fifth-order Hermit interpolation. Numerical
+
+•   solution for dynamic problem was provided. Based on the described procedures, the
+
+    general program has been developed for the computational engine and the graphical user
+
+    interface. The input of the program is the flexible pipe layer configuration and material
+•   properties. Axial force, internal force or pressures can be applied simultaneously. The
+
+    end result of the analysis is displacement histories for specified point of cable or entire
+
+
+•   cable.
+
+
+
+
+•
+
+•
+•
+
+•                                                34
+•
+                             Chapter 4.        Numerical Results
+•
+•   4.1. Summary
+
+    This chapter discusses two examples of cable vibration.        The model developed by
+
+    CableCAD® (2003) has used to predict the nonlinear variation of cable flexural rigidity
+•   with curvature. After numerical simulation as described in Chapter 3, the displacement
+
+    histories are plotted.
+
+
+•
+    4.2. Simply-Supported Cable
+
+
+•       4.2.1 Model Parameters
+
+
+
+
+•   Recall the model created in the previous chapter. The cable model parameters are listed
+
+    in Table 3.1. The helical wires in the cable have been preformed to develop a frictional
+
+    interface between wire layers. A constant of 4000 N is assumed during vibration.
+
+•
+        4.2.2 Boundary and Initial Conditions
+
+
+•   Assume the cable is simply supported at two ends, as shown in Figure 4.1. The length of
+
+    the cable is 1 meter, and at time=O, the cable initial configuration can be expressed as a
+
+•   function of x:
+
+
+
+
+•                                              35
+•
+•
+                                                                                      (4.1)
+
+•   where A, B, C, D, E, and F are arbitrary constants.
+
+
+
+
+•                 'W
+
+
+
+
+                                               It'o
+
+•                   k""------------------~r_-- X
+
+
+
+                                            1=1 ill
+                       I~                                            ..I
+•
+                             Figure 4.1. Simply-Supported Cable
+
+
+•   Obviously, there are no vertical displacements and moments on the two end-points. Thus,
+
+    the boundary conditions are
+
+•                                          wI FO = 0
+                                           wlx=z= 0
+                                           82w
+                                           -
+                                           8x 2I x=O-
+                                                   -0
+
+•                                           A2
+                                               w
+                                            - .' I - 0
+                                            8x2 x=z-
+
+                                                                                     (4.2)
+
+•
+•                                                36
+•
+    If the maximum displacement, which is the displacement at the mid-point, is set to be 0.1
+
+
+•   meter, the initial configuration is assumed to be:
+
+                                   Wo   = 0.1( 3.2x 4 - 6.4x 3 + 3.2x)
+
+
+•
+                                                                                               (4.3)
+
+
+
+    Any polynomial that meets the requirements of the boundary conditions and initial
+
+•   condition can be chosen as the initial configuration.        For simplification, the coefficient
+
+    of the forth order term is selected to be 0.32. Other coefficients can be determined by the
+
+    boundary conditions and initial condition.
+
+•
+    Parameters of Newmark's Method, jJandy, are set to the default values of 0.25 and 0.5,
+
+
+•   respectively. The length of the element is set to be 0.05 meters. The time step is set to be
+
+    1/320 seconds.
+
+
+
+•      4.2.3 Results
+
+
+    Figure 4.2 shows the displacement history of the entire cable. The number represents the
+
+•   displacement of the cable at each time step.              The star-line represents the initial
+
+    configuration.
+
+
+•   Figure 4.3 shows the displacement history of the mid-point of the cable. The entire
+
+    history can be divided into two phases. One is the damped vibration phase, while the
+
+
+•   amplitude of the mid-point continues to decay. The reason of this phenomenon is that the
+
+    curvature of the cable was large enough to cause slipping between layers, and the internal
+
+
+
+•                                                  37
+•
+    friction dissipated energy that resulted in the decreasing amplitude. The other is the
+
+
+•   undamped vibration phase, and the cable will continue to vibrate at constant amplitude
+
+    during this phase. The reason of this occurrence is that the curvature of cable was too
+
+    small to cause the large slipping, and then the constant EI cable vibrates without any
+
+•   damping.
+
+
+
+
+•                       0.1
+
+
+                      0.08
+
+
+                      0.06
+
+
+
+•                     0.04
+
+
+                      0.02
+
+
+
+
+•                     -0.04
+
+
+
+
+                      -0.08
+
+
+
+
+•
+                              Figure 4.2. Cable Displacement History
+
+
+•
+•
+•
+•                                              38
+•
+    0.08
+
+
+
+•   0.06
+
+
+
+    0.04
+
+
+
+
+•
+    0.02
+
+
+
+       0
+
+
+
+    -0.02
+
+
+
+
+•   "0.04
+
+
+
+    -0.06
+            0   0.1   0.2   0.3                0.7   0.8   0.9
+
+
+
+
+•     Figure 4.2. Cable Displacement History (cont.)
+
+
+
+
+•   0.05
+
+
+    0.04
+
+
+    0.03
+
+
+    0.02
+
+
+•   0.01
+
+
+
+
+•   -0.02
+
+
+    -0.03
+
+
+    -0.04 '-------'_----'_--1-_--'-_----'-_--1-_-'-_-'-_---"---_-'.
+         o      0.1  0.2   0.3  0.4   0.5  0.6  0.7   0.8   0.9
+
+
+
+
+•     Figure 4.2. Cable Displacement History (cont.)
+
+
+
+•
+•                                 39
+•
+      0.03
+
+
+
+•     0.Q2
+
+
+
+
+      0.01
+
+
+
+
+•
+     -0.01
+
+
+
+
+•
+     -0.02
+
+
+
+
+     ·0.03
+             0   0.1   0,2   0.3   0.4    0.5   0.6   0.7   0.6   0.9
+
+
+
+
+•      Figure 4.2. Cable Displacement History (cont.)
+
+
+
+    0.015
+
+
+
+
+•    0.01
+
+
+    0.005
+
+
+
+
+•   -0.005
+
+
+     -0.01
+
+
+    -0.015
+
+
+
+
+•
+     '0.02
+
+
+    -0.025
+             0   0.1   0.2   0.3   0.4    0.5   0.6   0.7   0.8   0.9
+
+
+
+
+       Figure 4.2. Cable Displacement History (cont.)
+•
+
+•
+
+•                                        40
+•
+              0.1 . . . - - - - - , - - - - - , - - - - - - - , , - - - - - - - ; r - - - - r - - - - - - ,
+
+•
+
+•
+
+•                                                                              SlIIall constant
+                                                                               alllplitude
+                                                                               uibration
+
+
+
+
+•            -0.1 ' - - - - - ' - - - - - ' - - - - - - - J - - - J - - - - ' r - - - - - ' ' - - - - - - '
+                 o                              40           60           80             100             120
+                                                               I
+
+
+
+•                           Figure 4.3. Mid-point Displacement History
+
+
+
+
+•   4.3. Cantilever Cable
+
+
+
+•      4.3.1 Model Parameters
+
+
+
+    The same cable described in Table 3.1 is used to model a cantilever cable without any
+•   tension. This cable too has been preformed with friction developed between wire layers.
+
+
+
+
+•
+
+•                                                         41
+•
+       4.3.2 Boundary and Initial Conditions
+
+•
+    Assume the cable is fixed at one end and the other end is free, as shown in Figure 4.4, the
+
+    length of the cable is 0.3 meters, and at time=O, the cable initial configuration can be
+•   expressed as a function of x:
+
+
+
+
+•                                                                                         (4.4)
+
+
+
+•   where A, B, C, D, E, and F are arbitrary constants.
+
+
+
+
+•
+                  '0 0
+
+•
+                                                  0.3111
+
+
+
+•                                   Figure 4.4. Cantilever Cable
+
+
+    There is no vertical displacement at the fixed end and no moment and shear force at the
+
+•   free end, and no tension applied to the cable. The governing boundary conditions are:
+
+
+
+
+•
+
+•                                               42
+•
+
+•
+
+•
+                                                                                              (4.5)
+
+
+
+•   If the initial displacement of the free end is set to be 0.03 meters, the initial configuration
+
+    is assumed to be:
+
+
+•
+                                                                                             (4.6)
+
+    Any polynomial that meets the requirements of the boundary conditions and initial
+•   condition can be chosen as the initial configuration.     For simplification, the coefficient
+
+    of the fifth order term is selected to be 0.0015. Other coefficients can be determined by
+
+
+•   the boundary conditions and initial condition.
+
+
+
+    Parameters of Newmark's Method, ,Bandy, are set to the default values of 0.25 and 0.5,
+
+•   respectively. The length of element is set to be 0.015 meters and the time step is set to be
+
+    1/100 seconds.
+
+
+•
+•
+
+•                                                 43
+•
+       4.3.3 Results
+
+•
+    Figure 4.5 shows the displacement history of the entire cable. The number represents the
+
+    displacement of the cable at each time step.             The star-line represents the initial
+•   configuration.
+
+
+
+
+•   Similar to the displacement history of a simply-supported cable, the displacement history
+
+    of the end-point of a cantilever cable showed at the beginning that the curvature of the
+
+    cable was large enough to cause slipping between layers. When the curvature was too
+
+•   small to cause slipping, the cable continues to vibrate.
+
+
+                                CABLE VIBRATION (100/16)
+
+•            0.03...----,...-----,.----,--------r---...-----*l------.
+
+
+
+
+•
+
+•
+
+•            ~0.03   L -_ _--l....-_ _--L      L.-.-_ _....L..._ _---l...    L.-.-_----J
+
+                     o                0.1    0.15                    0.25   0.3      0.35
+                                                     x
+
+•                              Figure 4.5. Cable Displacement History
+
+
+
+
+•                                                   44
+•
+
+•
+                         CABLE VIBRATION (100/16)
+    0.03,-----,-------,-----,-----,-------,-----t-------,
+
+
+
+
+    0.02
+
+
+
+
+•   0.01
+
+
+
+
+•
+    -om
+
+
+                                                                                                         10
+    -0.02
+
+
+
+
+    -0.03 L - - - - - ' - - - - - - - , 1 - - - - - - ' - c - - - - - L - - - - - : , . . L , - - - - - . L . - - - - - '
+
+
+
+•           o         0.05             0.1            0.15             0.2               0.25           03            0.35
+
+
+
+
+                 Figure 4.5. Cable Displacement History (cont.)
+
+
+•                                                   CABLE VIBRATION (100/16)
+    0.03
+
+                                                                                                    "
+                                                                                                "        14
+                                                                                           "
+    0.02                                                                             "
+I                                                                                "                       20
+                                                                                                         21
+                                                                             "                           1~
+    0.01
+
+
+
+
+•   -0.01
+
+
+
+
+    -0.02
+
+
+
+•   '().03
+             0         0.05            0.1            0.15             0.2               0.25           0.3           0.35
+
+
+
+
+•                 Figure 4.5. Cable Displacement History(cont.)
+
+
+
+
+•                                                            45
+•
+                                 DISPL Of END-POINT {Total Tirne=2sec}
+
+
+•               0.02
+
+
+
+
+•
+                0.01
+
+
+
+                   o
+
+
+•              -0.01
+
+
+
+               -0.02
+
+
+
+
+•              -0.03 '---_-'--_...1--_--'--_---'-_--'-_--'--_--'_ _'---_-'------'
+                     o 02 0.4 0.6 0.8              '1
+                                                   t
+                                                        t2L41.6         1iJ3    2
+
+
+
+                         Figure 4.6. End-point Displacement History
+
+•
+    4.4. Discussion
+
+•
+    A simplified cable vibration model has been developed to estimate cable vibration
+
+    considering internal friction. Instead of adding an extra extend damping device, variable
+
+•   flexure rigidity was used in the equation of motion of the cable.           The software
+
+    CableCAD® (2003) was used to derive the relationship between flexural rigidity and
+
+
+•   curvature of the deformed cable configurations.
+
+
+
+
+•
+
+•                                               46
+•
+       4.4.1 Error Analysis
+
+•
+    The solution follows an incremental iterative scheme for physical and numerical reasons.
+
+    In this case, there are three main sources of errors to be estimated.
+•
+    First, the stiffness matrix simulates the cable dynamical propriety, but it might not be the
+
+
+•   same as the actual stiffness matrix of a real cable. For example, the cable's EI curve
+
+    shows as many jumps as the number of wire layers that slip. When the cable passes
+
+    through a jump, its dynamic propriety changes rapidly. In addition, the stiffness matrix
+
+•   in this study focuses on the bending behavior of the cable, and does not cover the
+
+    proprieties of the cable undergoing the torsion and tension.
+
+
+•   Secondly, there are some scratches and dents on the surfaces of cable specimens tested
+
+    for interlayer friction (see Appendix A). They are caused during cable manufacture and
+
+•   result in measurement error.
+
+
+
+    Thirdly, there might be an accumulation of errors during the equation solving process.
+
+•   Because the length of each element must not be smaller than the longest half-lay length,
+
+    which is a relatively large element length, it may cause errors during the finite element
+
+
+•   approach. Before iteration, least square curve fitting technique is applied and forms
+
+    smooth curves for cable configuration. Table 4.1 shows the sum of the squared error
+
+    after the first iteration for the simply supported case. Furthermore, EI of some elements
+
+•   are fixed, for example, in the simply supported case, flexural rigidities of the first and last
+
+
+
+
+•                                                 47
+•
+    element are fixed to be the constant because there no moments at the two end-points,
+
+
+•   which may not reflect the real conditions of the elements. Due to the reasons stated
+
+    above, errors occur in each equation solutions. During the process of time stepping
+
+    iterations, errors accumulate with each time step.    Subsequently, it causes relatively
+
+•   significant errors in the final solutions.
+
+
+
+
+•                              Table 4.1. Sum of the Squared Error
+
+
+             Numbers of Data        Sum of Squared Data      Sum of Squared Error
+
+
+•                    21              0.02334933749353
+                                                              0.00240399001614
+                                                            (after the first iteration)
+
+
+
+
+•
+    It can be concluded that the model established in this study is direct and allows a faster
+
+    identification of vibration nature of cable. It shows that cable without any external
+
+•   damper damps due to internal friction. This model is further verified by the experimental
+
+    data presented in the subsequent chapter.
+
+
+•
+
+•
+
+•
+
+•                                                48
+•
+                         Chapter 5.            Model Verification
+•
+
+•   5.1. Summary
+
+
+
+    This section presents a qualitative companson of the measured and modeled cable
+
+•   vibration. In order to validate the model presented in this study, a comparison will be
+
+    made to the experimental data published in two papers, "Modeling the Dynamic
+
+
+•   Characteristics of Slack Wire Cables in STOCKBRIDGE Dampers" (Sauter, 2003), and
+
+    "On the Hysteresis of Wire Cables in STOCKBRIDGE Dampers" (Sauter and Hagedorn,
+
+    2002).
+
+•
+    5.2. Experimental Data
+
+
+•   The experimental configuration described by Sauter and Hagedorn is shown in Figure 5.1.
+
+    In their experiment, a cyclic transverse force was applied at the free end of cable, and the
+
+•   other end is clamped. The experiment is carried out at low frequencies, so that inertia
+
+    effects could be neglected (Sauter and Hagedorn, 2002).
+
+
+
+•   The length of the cable is 0.3 meters, and at time=O, the cable initial configuration can be
+
+    expressed as a function of x:
+
+
+•
+                                                                                           (5.1)
+
+
+
+•                                               49
+•
+    where L is the length of cable, t; = ~ , and x is the distance from the fixed end.
+                                         L
+•
+                   w
+
+
+
+
+•                                                                            F
+
+                                                                           "1.+'0
+                  :-.."Z'lr---------------------' __ x
+                  ~o
+
+
+•                      I·                          '1.3111
+
+
+                              Figure 5.1. Cable Forced Vibration
+
+•
+    The forcing function is given by:
+
+
+•
+                                                                                         (5.2)
+
+
+•   The period of the forcing function is six seconds and the magnitude is 15 N.
+
+
+
+
+•
+
+•
+
+•
+
+•                                                50
+•
+                    OJ}5 ....-----.----r---..------,----,...--..,.---,----,
+
+•                                                                   ,,
+                    0,04 _. _. --_. ~ _.. ----- ~. ------- ~ -------- f--------f--------f-------- f--------
+                                         I             I              I                 I              ,             ,              ,
+
+
+
+
+                                                                                                                          ----;--------
+                                         I             I              I              •             I                 I              I
+                                         I             I              I              I             I                 I              ,
+
+
+                    0.03 -- -- --- -r-- -- ----r ---- --- -r 7~;----
+              C 0.,02 - - -- - -- - ~ - -- - -- -- ~ - -- - - A--------~ --------~ --------~~- ------~ --------
+              '0                                        /      :                             -,
+
+
+•             ~
+              w 0.01 -- ------ ---       ~- ----~,/.------~
+                                               /.           ------ -- i-- ---- --i --- --- -- i--~m
+                                                                                                 _Lum_
+              o                          :        ./:                 :             :              :             :              :
+              "E        0 - -- - - -- - ~ -- -..,:~ _. - ~ -- - -- - -- ~ - -- --- - - ~ -- -- - -- - ~ - - -- - -- -} - -- - -- - -} - - -~ --
+              E
+              ~ -0.01 -~74--m---rmm
+                                        !/!                          i       ! ! ! ! '"
+                                                                   ..r-..----T-mm;--mm;-----mr..-----
+              5 -(LCf2 ~-------~--------~--------~--------;--------;--------; --------;--------
+                            1
+
+
+
+•                  -O~ 03
+                                         I
+                                         I
+                                         I
+
+
+
+
+                                         I
+                                         I
+                                                       I
+                                                       I
+                                                       I
+
+
+
+
+                                                       ,
+                                                       I
+                                                                      I
+                                                                      I
+                                                                      I
+
+
+
+
+                                                                      I
+                                                                      I
+                                                                                    I
+                                                                                    ,
+                                                                                    ,
+
+
+
+
+                                                                                    I
+                                                                                    I
+                                                                                                   I
+                                                                                                   I
+                                                                                                   I
+
+                                - - -- - -- - r----.---~ -------- ~ .------- t--------t--------t--------t--------
+                                                                                                   I
+                                                                                                   I
+                                                                                                                 I
+                                                                                                                 I
+                                                                                                                 I
+
+
+
+
+                                                                                                                 I
+                                                                                                                 I
+                                                                                                                                I
+                                                                                                                                ,
+                                                                                                                                ,
+
+
+
+
+                                                                                                                                I
+                                                                                                                                ,
+                                         ,             I              I             I              I             I              I
+
+                   -iL04 -------- ~ -------- ~ --- ----- ~ -------- f - - - - - - - - f - - - - - - - - f - - - - - - - - f - - - - - - --
+                                         ,             I              I             I              I             I              I
+                                         I             I              I             I              I             I              I
+
+
+                   -OJ}5 '---_---'-_   i _-'-_
+                                  I _--'-_  I       I
+                                               _..L-_      I   I _--'-_
+                                                       _L-_----'_    I _--l
+
+•                       6        6.5   7   H       :8
+                                               t (sec)
+                                                        l:t5   9   9.5   10
+
+
+
+                                 Figure 5.2. Experimental Displacement History
+
+
+•   From the measured data, shown in Figure 5.2, the maximum displacement of end-point is
+
+    around 0.03 meters.
+
+
+•
+
+•
+
+•
+•
+
+•                                                                              51
+•
+     20r;====::====:::=======::::;T--r---,--~
+              Experiment
+•    15t'--_ _N±"-·.. ""-'!fo=d...,.le""-1-_-_-----'
+
+     10                  :           :       ..
+                         ··          ..
+                         ··           ...
+                         ··           .
+      5                  ,                    .                                              .                      .
+
+•
+                                                                                                     ~       ~
+
+
+
+
+                                                                                      o
+                                                                             ---                    0
+                                                                                                                 _---
+                                                                                      o             0
+                                                                                      o             0
+                                                                                      o             0
+
+
+
+                                                                                      ····
+                                                                                      •
+
+                                                                                                    ....
+                                                                                                    0
+
+
+
+
+     -5                                           .:                                                                .
+                                                    ·                  ~
+
+                                                                       ...           ..
+                                                                                     ~              ~
+
+                                                                                                    ...
+                                                   ···                  .            ..               ..
+
+•   -10                          ... ·:
+
+                                     ··
+                                       ·
+                                     ···
+                                                  .;
+                                                   ..
+                                                   ..
+                                                   ..
+                                                      ··
+                                                     .·
+                                                                       ...
+                                                                         .
+                                                                       ...
+                                                                       ~
+
+
+
+
+                                                                       ..
+                                                                       .
+                                                                                      ...
+                                                                                      .
+                                                                                      ..:
+                                                                                     ..
+                                                                                     ..
+                                                                                                       ...
+                                                                                                      ..
+                                                                                                    ...
+                                                                                                         :
+                                                                                                         .
+                                                                                                                    ..
+
+
+
+
+    -15
+                                                                       •
+
+
+                                                                       ···
+                                                                       •
+
+
+
+
+                                                                         ·
+                                                                                     ..
+                                                                                      0
+                                                                                      0
+
+
+
+
+                                                                                      .
+                                                                                                    ...
+                                                           ................. _--- ... "............•.... _-- ....
+                                                                                                    0
+
+
+
+
+                                                                       o              •             •
+                                                                       o              •             •
+                                                                       o              •             0
+
+
+
+
+•
+                                                                       o             0              0
+
+
+
+
+    --W04 -0.03       -0.02    -0.0~1             o                0.01            0 . 02        0.03              0.04
+                                            17 [m]
+
+
+
+
+•              Figure 5.3. Experimental Hysteresis Cycle
+
+
+
+
+•
+
+•
+
+•
+
+•
+
+•                                           52
+•
+    5.3. Model Result and Comparison
+
+•                                             DISPL. OF END-POINT (Total Time=3.2sec)
+                      0,04
+
+
+                    0,035
+
+
+•                     0,03
+
+
+                    0.025
+
+
+                     0.02
+
+
+•            g
+              .,c: 0.Q15
+              'tl
+
+             :>
+
+                     0.01
+
+
+
+
+•
+                    0.005
+
+
+                         0
+
+
+                    -0.005
+
+
+
+
+•                    -0.01
+                             0        0,5                 1.5
+                                                                t (sec)
+                                                                          2       2,5   3   3.5
+
+
+
+
+                                 Figure 5.4. Model Displacement History of End-point
+
+
+•
+    Figure 5.4 shows the result predicted by the model. The results from the model agreed
+
+
+•   with those from observed data, which is shown in Figure 5.2 within the expected error
+
+    (10%) (shown in Figure 5.5). Besides sources of errors discussed in Chapter 4, modeling
+
+    based on the idealized cable is the main cause of error between the model and the real
+
+•   cable.
+
+
+
+
+•
+
+•                                                               53
+I
+
+
+                                DISPL OF END-POINT (Total Tims=1.5sec)
+          OJJ:35.---------,-----------r---------,
+
+•
+                                            ,
+                                            ,
+                                            ,                               ,
+          OJJ3 -- ---- -oo- -oooo --- ----- ~oo- oo- _oo __ --- -_oo _oo __ :oo -oo_ -_._;.;:-::.,.,.-
+                                                                 :                                             I            ~~...x ---
+                                                                ,                                              :      ,x-
+                                              :                        y
+          (1.02'5 ---------- ---- ---- ---- - ~-- ---- -oo- ------ -~-:oo oo-- ----- ---- --- ----
+                                                                :                          /:
+                                                            ~/   ~
+•   ~
+    S
+      ~
+                                                                i/
+                                                                :       /
+                                                                             j
+           0.02' oo- oo---- ----- -oo-.oo --f-- --- - ;.i<- --oo- oo- -----,f,--- --- oo~oo ---- --- ----
+                                                                                                   -
+                                                                                                   -*
+                                                                                                          N:umericaI Data
+                                                                                                          ExperimentaI Data
+    ::J   0,01:5 -- --- -- --- - -- - --- ---- ,Y-"- --- -- -- ---- -- --- --- --: -- --- ---- ----- --- -----
+                                                       //       :                                          :
+                                                      j(
+                                                                ,:                                         :
+                                                                                                               ,
+           0.01 --------------,--------~-----------------------:----------------------
+                                                  ,,
+I                                                                                     ,,,
+                                                ,,,                                  ,,
+          (Ul05 -- -- -- '- -- -- -- -- ---- -- ~ - --- - -- -- -- --- - -- -- --- - i----- --- -- ---- ---- ----
+                                                                ,,,                                        ,,,
+                                                                  ,,                                         ,,
+                O_-------l.-------...J------------'
+                  o
+                                                                                 t (sec)
+I
+
+
+                       Figure 5.5. Displacement History Comparison
+
+I
+                                                                       Force Hystersis Cycle
+               1:6 r---~--...-----,---__._--_,_--___r--___,
+                                      I                    I                I                 I                       I              I
+
+
+
+
+               14 - - - - - - - - -; - - - - - - - - - -j- ---------f---------; ----------:- ------
+                                      I                    ,                ,                  I                      I        ~
+                                                                                                                                   X~-!::-----
+I                                     I                    I                I                  I                      1.-/           I
+
+
+                                                                                                                    -:-//-=----~:---------
+                                      I                    I                ,                  I                      1./ /          I
+
+               12 - - - - -- - -- ~ - - - - - - - - - -:- - - - - - -- - - ~ - - - - -- - -- ~ - - - - - - - - -
+                                      ::                   ::               ::                :: ,..../..,/'       /y
+               10 ---------: - ------- - -i- -- --- ----: ---------~7-
+                                      I                    ,                ,                 ' /          /
+
+                                                                                                                   ---i- ---------:: ---------
+                                                                                                                      I              I
+
+
+
+
+                            :         I
+                                          :             :~ I     /1
+                                                                    .       I         /"
+                                                                                                                      :I             :,
+          ~      8 - - - - -- - - -: - - - - - - - - - -i- --------~--.,/- -j- -- --- --- -i- ---------i- ---- -----
+          ~
+•         0;
+          U.     6
+                                      :                    :
+                               m+ mm_ -~7 - ~mm---~mm--- -;--- m
+                                      I                    I
+                                                                        ./,/:
+                                                                            ~                  I
+                                                                                                                      :
+                                                                                                                      I
+                                                                                                                                     :
+                                                                                                                                     I
+                                                                                                                                     ~mm--_
+
+
+
+
+                4 ----       -~------!---- u--J----u----f-u u-f---------
+
+•               :~::::r::::::::I::: ::::::::::::::r:::--:-L:--::
+                                      I
+                                      I
+                                                           I
+                                                           I
+                                                                            ,
+                                                                            I
+                                                                                               ,
+                                                                                               ,
+                                                                                                                      I
+                                                                                                                      ,
+                                                                                                                                     I
+                                                                                                                                     I
+
+
+                           I
+                -2 L -_ _.L.-_    i
+                               _-'--_     I
+                                      _...l-_     I
+                                              _...L._      ;
+                                                      _.....L_     i _- . l
+                                                               _---L_
+
+                  o     0.005   0.01   0.015   0.02'   0.02'5   003   0.035
+
+
+
+
+•                                    Figure 5.6. Model Hysteresis Cycle
+
+
+
+
+•                                                                                54
+•
+    Figure 5.6 shows the global force hysteresis curve.     Compared to experimental data
+
+
+•   shown in Figure 5.3, the model hysteresis cycle has the same slope but the enclosed area
+
+    is smaller. Besides the sources of errors discussed in the previous chapter, there are two
+
+    main sources of differences of these two results.     The cable specimens used in two
+
+•   experiments are not exactly the same, which causes some differences in the final results.
+
+    The length of the cable specimen used in the referred experiment is O.3m which is
+
+
+•   slightly larger than three-lay length (see Table 3.1). A shorter cable span also can cause
+
+    some difference in the final results.
+
+
+
+•   Again, comparison of results from the numerical model with results from experimental
+
+    tests agreed.   This model can be applied to any kind of cable if the EI-curvature
+
+    relationship is known.
+•
+•
+I
+
+
+
+
+I
+
+
+
+
+•
+•                                              55
+•
+                             Chapter 6.              Conclusions
+•
+•   6.1. Objectives Achieved
+
+
+
+    In the this study, the cable is considered as a system of helical wires and a core with
+
+•   distributed dry friction forces at their interfaces and modeled as a one-dimensional
+
+    continuum, where the wires are not being modeled individually.
+
+
+•   The simplified equation of motion governing the cable vibration is derived, which is a
+
+    nonlinear, fourth order partial differential equation with respect to the span of the cable
+
+•   and the second order derivative with respect to time. The finite element method (FEM) is
+
+    applied to solve this equation. The partial differential equation was discretized into time
+
+    and space domains.
+•
+    This model also is used to analyze cable vibration. An implicit expression for predicting
+
+
+•   the next state using the elemental matrices is derived. Numerical examples are given to
+
+    show the response history.
+
+
+
+
+•   Since researchers have been studying the cable dynamic behavior, many models have
+
+    been developed with different approaches but there was not a unified model that could be
+
+    used by all manufacturers and engineers. The model established in this study can be
+•
+•                                               56
+•
+    applied to any kind of cable assuming the relationship between cable flexural rigidity and
+
+
+•   cable curvature is known.
+
+
+
+
+•   6.2. Future Study
+
+
+
+    For future studies, an analytical bending model of cable might be extended to include the
+•   effects of torsion, axial elongation, interlayer pressures, and both of material nonlinearity
+
+    and geometric nonlinearity. A new stiffness matrix may be constructed based on those
+
+
+•   effects.
+
+
+
+    The determination of interlayer pressure would require more accurate experimental work.
+
+•   Pressure indicating sensor films could be used to obtain a more accurate measurement of
+
+    the interlayer pressure.
+
+
+•   The effect of internal damping also may be interesting for future studies. Also, in order
+
+    to include the external damping effect, the damped vibration of cable should be
+
+•   formulated.
+
+
+
+    The current model is based on the small deformation assumption. In order to obtain more
+
+•   realistic results, the large motion theory should be applied.
+
+
+
+
+•
+
+•                                                57
+•
+    Appendix A             Experiment of Internal Pressure Measurement
+•                                 for Cable Specimens
+
+
+•   The intemallayer pressures of the cable are required input data for the CableCAD® (2003)
+
+    software to derive a more accurate value of flexural rigidity.           A simple pressure
+
+
+•   experiment that can be used to measure interiayer pressures has been performed as
+
+    described below.
+
+
+
+•   A.I. Experiment Preparation and Data Collection
+
+
+
+•   In this experiment, a two-hole test table was used (Figure A.I). The diameter of one hole
+
+    is slightly larger than the diameter of first layer of the cable specimen, and the other is
+
+
+•   slightly larger than the outside diameter of second layer of the same cable. Figure A.2
+
+    shows the dimensions of two cable specimens. Cable specimen I (Figure A.3) with the
+
+    third and the second layers cut off is used to measure the pressure between the first layer
+
+•   and the second layer. Cable specimen 2 (Figure AA) with the third layer cut off is used
+
+    to measure the pressure between the second layer and the third layer.
+
+
+•   The cable specimens are setup on the test table (Figure A.I). When compressing the
+
+    cable specimen (Figure A.7), slipping occurs between layers.            An INSTRON® test
+
+
+•   machine (Figure A.5) measures the static friction force between adjacent layers, and the
+
+
+
+
+•                                               58
+•
+    recorder (Figure A.6) plots the force curve. Table A.I shows the parameters for test
+
+•   machine used in the experiment.
+
+
+
+
+•
+•
+
+•
+                                      Figure A.I. Test Table
+
+
+•
+                                 I     I 1/4
+
+
+
+
+•                                                       L
+
+•                         6
+                                                                6
+
+
+
+
+•                                              Unit: Inch
+
+
+
+
+•                       Figure A.2. Dimensions of Cable Specimens
+
+
+                                                   59
+•
+•
+•      Figure A.3. Cable Specimen 1
+
+
+
+
+•
+
+•      Figure A.4. Cable Specimen 2
+
+
+
+
+•
+•
+•
+
+•
+
+•   Figure A.5. INSTRON@ Test Machine
+
+
+.                  60
+•
+•
+                   Table A.t. Description of Test Machine
+
+
+•   Model Number of Test Machine                        4206
+
+
+          Load Cell Weight                             500N
+
+•            Test Speed                                1 in/m
+
+
+
+
+•
+
+•
+•
+•                         Figure A.6. Data Recorder
+
+
+
+
+•
+•
+•                                    61
+•
+
+•
+
+•
+•
+                                               "(oj.   •              L   ~
+                                                           - ..:-"
+                                                 4 .....'
+•                                Figure A.7. Testing Cable Specimen
+
+
+
+
+•
+    A.2. Data Analysis and Computation
+
+
+•   30L
+         (loBs)
+
+
+         :t
+                    -l-
+                     II
+                            J
+                            :I
+                                         J_~
+
+                                          II
+                                                                L
+                                                                I
+                                                                               i
+                                                                               I
+                                                                                     ____l
+                                                                                         II
+                                                                                               ~
+
+                                                                                               II
+                                                                                                   __
+
+
+    2OIr.A-----      :                    I-----------~-----                  --r-----:        +_
+•   10        ---           J-------J------J----------L-----l-----+'-
+                             I
+                             I
+                                          I
+                                          I
+                                            r                   I
+                                                                               I
+                                                                               I
+                                                                                         I
+                                                                                         I     I
+         I
+         ~
+                     I
+                     ~
+                            I
+                            ~            ~
+                                          I                     :L             I
+                                                                               L         :
+                                                                                         ~
+                                                                                               :
+                                                                                               ~__      Onon)
+     o              0.1     0.2          0.3                    0.4            0.5       0.8   0.7
+
+
+
+
+•                                     Figure A.8. Test Result 1
+
+
+    Figure A.8 shows the data recorded during the test procedure. The average value of
+
+
+•   extreme values of stress can be approximately treated as the static friction force between
+
+    layers 2 and 3.
+
+
+                                                           62
+•
+•
+                    Table A.2. Pressure between 2nd Layer and 3rd Layer
+
+
+•      Layer 2 Outer Diameter (mm)                                6.12
+
+
+         Length of specimen (mm)                                120.65
+
+•           Contact Area (mm2)                                2319.6829
+
+
+         Static Friction Coefficient                             0.74 1
+
+•          No.
+                        Static Friction   Static Friction    Normal Force         Pressure
+                         Force (Lbs)        Force (N)            (N)              (N/mm2)
+
+            1                26.1            116.928         158.0108108        0.068117418
+
+•           2                25.9            116.032             156.8          0.05002063
+
+
+            3                 25                112          151.3513514       0.048282461
+•           4                26.1            116.928         158.0108108        0.05040689
+
+            5
+                             25.5             114.24         154.3783784       0.049248111
+•       Average
+                                                             155.7102703       0.053215102
+
+
+     1 Referenced from http://www.visionengineer.comlref/friction.shtm1
+
+•
+    If friction force and the friction coefficient are known, the normal force and normal
+
+
+•   pressure easily can be calculated. Table A.2 shows the computation of pressure between
+
+    the second and third layers.
+
+
+
+
+•
+
+•                                               63
+•
+      (LB.}
+
+     60   L
+          I
+                    L__________
+                    I                        I
+                                             1
+                                                           I
+                                                           1
+                                                                     I
+                                                                     1
+                                                                                    I
+                                                                                    1
+                                                                                             I
+                                                                                             1
+
+
+
+•    ro   ~~M"""~! ~~"~"=~t~"~~=~~~~~~~~§~~~=
+     ~O l-----4~--l----------1----------1----------J---------_-L----------L------- --1-__
+          1
+          I
+          I
+               1    1
+                    I
+                    I
+                                  1
+                                  I
+                                  I
+                                             1
+                                             I
+                                             I
+                                                           1
+                                                           I
+                                                           I
+                                                                     I
+                                                                     I
+                                                                     I
+                                                                                I
+                                                                                    1
+                                                                                    I
+                                                                                            I
+                                                                                            I
+                                                                                             ,
+          I         I             I          I             I         I              1       I
+
+
+
+•    50 r-----------~----------t---------
+          I
+          I
+          I
+          I
+                   1
+                   1
+                   I
+                    I
+
+
+                         I
+                          I
+                          I
+                                  I
+
+
+
+
+                                  I
+                                        •
+                                            . . i----------l-----------f----------f----------t---
+                                             I
+                                             I
+                                             I
+                                             I
+                                             I
+                                                           I
+                                                           I
+                                                           I
+                                                           I
+                                                           I
+                                                                     I
+                                                                     I
+                                                                     I
+                                                                     I
+                                                                     I
+                                                                          •   ·1
+                                                                                1
+                                                                                1
+                                                                                    I
+
+
+
+     40 r----------r----------T----------,-----------,-----------r----------r----------r---
+          I         I                                                               I
+                                                                                            1
+                                                                                            I
+                                                                                            I
+                                                                                             I
+
+
+
+
+                                                                                             t
+          I         1             I          I             I         I              1        1
+          I         I             I          I             I         I              1        1
+          I         I             I          I             I    J          I          1
+     30 1"""----------r-----------t----------i----------4-----------r----------i----------t--~
+          I         1             I          1             I         I              I       I
+          i         I             I          1             I         I              I       I
+
+
+
+•
+          I         I             I          1             I         I              I       1
+     ~O r-----------f-~~-------t----------i----------l---------~-f----------t_----------t---
+          I         I             I          1             I         I           I          I
+          I         I             I          1             I         I           I          1
+          I         I             I          1             I         I           I          1
+     10   ~----------~----------+----------+----------~-----------~----------~----------t-,.,.
+          I         I             I          1            I       I            I            I
+          I         I             I          1            I       i           i             I
+          I         I             I          I             I         I           I          I
+          L.        L             l         l        - __ J          L.         L           L___    (i.n~h)
+
+                   0.1                      0.3           0.4       0.5         0.6        0.7
+
+
+
+•                                     Figure A.9. Test Result 2
+
+
+
+
+•   Figure A.9 shows the data recorded during the test procedure. The average value of
+
+    extreme values of stress can be approximately treated as the static friction force between
+
+    the first and second layers.
+
+•
+
+•
+
+•
+
+•
+
+•                                                    64
+•
+
+•                  Table A.3. Pressure between 1st Layer and 2nd Layer
+
+
+      Layer 1 Outer Diameter (mm)                              2.12
+
+
+•       Length of specimen (mm)                               120.65
+
+
+           Contact Area (mm2)                                 803.55
+
+
+•       Static Friction Coefficient                           0.74 1
+
+
+                       Static Friction   Static Friction   Normal Force       Pressure
+          No.                                                                        2
+                        Force (Lbs)        Force (N)           (N)            (N/mm )
+•           1               74.7            334.656        452.2378378      0.562799673
+
+
+            2               78.5            351.68         475.2432432      0.437657737
+
+•           3                76             340.48         460.1081081      0.423719593
+
+        Average
+                                                           462.5297297      0.474725668
+
+•    1 Referenced from http://www.visionengineer.com/ref/friction.shtml
+
+
+
+
+•   Table A.3 shows the computation of pressure between the second and third layers.
+
+
+
+
+•
+
+•
+
+•                                              65
+•
+    A.3. Limitation of Experiment
+
+•
+    There are some scratches and dents on the surface of cable specimens (shown in Figure
+
+    A.IO and A.II).      These scratches and dents were produced when the cable was
+•   manufactured and they cause some errors in the interlayer pressure measurements. The
+
+    combination of these scratches and dents and the different lay lengths of each layer gives
+
+•   the wave-like frictional force history and the sudden change on the curves, which also
+
+    cause some difficulties in the determination of interlayer pressure. Taking the production
+
+    of outside diameter and the length of cable specimen as the contact area for interlayer
+•   pressure computation also is a source of error.
+
+
+
+
+•
+
+•
+
+•
+
+•
+                         Figure A.10. Cable Specimen 1 Detailed View
+
+•
+                                                66
+•
+
+•
+
+•
+
+•
+
+•   Figure A.ll. Cable Specimen 2 Detailed View
+
+
+
+
+•
+
+•
+
+•
+
+•
+
+•
+                        67
+•
+•
+    Appendix B Approximate Computation for Flexural Rigidity
+•                    of Cable Specimens
+
+    The flexural rigidity changes with the bending curvature of the cable. If it is assumed
+
+•   that there is no slip between wires or layers, the maximum value of flexural rigidity can
+
+    be computed analytically.
+
+
+
+•
+                                                                                      02.12 (nun)
+    0.5439 (mm)
+
+
+•   1.4861 (mm)
+                                                                                      02(mm)
+
+                                                                                      02 (mm)
+
+       2.03 (mm)
+
+
+•    1.784 (mm)
+
+
+
+
+•                                                                                      08.12 (mm)
+
+                                                                                       04.12 (mm)
+
+
+
+
+•                       Figure B.t. Dimension for cross-section of cable
+
+
+
+
+•   Lanteigne, J. (1985) gave an equation for the computation of the upper limit of the
+
+    flexural rigidity, Elmax ' of the helical cable. The equation can be written as
+
+
+•
+
+•                                                68
+•
+
+•                                                                                                   (B.1)
+
+    where
+
+
+•                        In
+                                      3
+                        B. = R: cos an [Sin (_4Jr_i) _sin (_4Jr_i + _2_1t_a_n_a-,,-n)]
+                              !tan an         Kn            Kn           Rn
+
+                                                                                                    (B.2)
+
+•
+    K n is the number of wires of the n-th layer, An' rn , and En are the cross
+
+
+
+•   section, radius, and Young's modulus of wires in layer n. Rn and an are the
+
+    radius and lay angle of layer n. Ie and Ee are the wire core polar moments of
+
+    inertia and Young's modulus. The conductor length 1 can be treated as a unit
+•   length.
+
+
+
+
+•   The lay angle of layer n can also written as
+
+
+
+
+•                                                                                                   (B.3)
+
+    where An is the lay length of layer n.
+
+
+
+•   For the steel cable, the Young's modulus is given as E = 20, OOOOMpa. For the
+
+    cable used in this study (see Table 3.1 and the cross-sectional dimension is
+
+    shown     in   Figure   B.1),    the    maximum         bending      stiffness       obtained
+
+•   isEImax = 64.971(Nm 2 ).
+
+
+
+
+•                                                    69
+•
+                                         Reference
+
+•
+    Babitsky, VI, Krupenin, VL (2001).      Vibration of Strongly Nonlinear Discontinuous
+
+
+•        Systems, Springer, New York.
+
+    CableCAD® User Manual (2003), Copyright by Structural Solutions, 98-030 Hekaha
+
+         Street, Suite 20, Aiea, Hawaii 96701.
+
+•   Chen, W., Atsuta, T. (1976).        Theory of Beam-Columns, Volume 1: IN-PLANE
+
+         BEHAVIOR AND DESIGN, McGraw-Hill Book Company, New York.
+
+
+•   Cook, RD, Malkus, DS, Plesha, ME, Witt, RJ (2002). Concepts and Applications of
+
+         Finite Element Analysis, Fourth Edition, John Wiley & Sons, INC., New York.
+
+    Gatti-Bono,   c., Perkins, NC (2003).        "Numerical Simulations of Cable/Seabed
+
+•        Interaction", Proc. International Society ofOffshore and Polar Engineering, pp.120.
+
+    Grandin, H JR (1986). Fundamentals ofthe Finite Element Method, Waveland Press, Inc,
+
+         New York.
+•   Griebel, M., Keyes, DE, Nieminen, RM, Roose, D., Schlick, T. (1999). Lecture Notes in
+
+         Computational Science and Engineering: Computational Partial Differential
+
+
+•        Equations Numerical Methods and Diffpack Programming, Springer, New York
+
+    Gutzer, u., Seemann, W. & Hagedorn, P. (1995).         "Nonlinear Structural Damping
+
+         Described by the Masing Model and the Method of Slowly Varying Amplitude and
+
+•        Phase" Proc. 15th Biennial ASME Conference on Vibration and Noise, Vol. 3A,
+
+         Boston, Sept. 17-21, 1995, pp. 773-779.
+
+
+•   Kikuchi, N. (1986). Finite Element Methods in Mechanics, Cambridge University Press,
+
+         New York.
+
+
+
+
+•                                                70
+•
+    Lanteigne, 1. (1985). "Theoretical Estimation of the Response of Helically Armored
+
+
+•        Cables to Tension, Torsion, and Bending" TRANS. ASME, Journal of Applied
+
+         Mechanics, Vol. 52, pp. 423-432.
+
+    Martin, HC, Carey, GF, (1973). Introduction to Finite Element Analysis Theory and
+
+•        Application, McGraw-Hill Book Company, New York.
+
+    Moretti, PM (2000). Modern Vibrations Primer, CRC Press, Boca Raton, Florida.
+
+
+•   Pilkey, WD (2002). Analysis and Design ofElastic Beams Computational Methods, John
+
+         Wiley & Sons, Inc., New York.
+
+    Przemieniecki, JS (1985).   Theory of Matrix Structural Analysis, McGraw-Hill Book
+
+•        Company, New York.
+
+    Ross, CTF (1998). Advanced Applied Finite Element Methods, Horwood Pubulishing
+
+         Limited, ColI House, Westergate, Chichester, West Sussex, England
+•   Rubinstein, MF (1970). Structural Systems - Statics, Dynamics and Stability, Prentice-
+
+         Hall, Inc., Englewood Cliffs, NJ
+
+
+•   Sauter, D (2003).   "Modeling the Dynamic Characteristics of Slack Wire Cables in
+
+         STOCKBRIDGE Dampers", Dissertation, Department of Applied Mechanics, TU
+
+         Darmstadt.
+
+•   Sauter, D., Hagedorn, P. (2002). "On the Hysteresis of Wire Cables in STOCKBRIDGE
+
+         Dampers", International Journal of Non-Linear Mechanics, Volume 37, Issue 8 ,
+
+
+•        December 2002, Pages 1453-1459
+
+    Soler, AI (1969). "Dynamic Response of Single Cables with Initial Sag", Technical
+
+         Report, Under Grant NO. 46-ME24-21, University of Pennsylvania
+
+•
+•                                            71
+•
+    Stein E. (Editor) (2002). Error-controlled Adaptive Finite Elements in Solid Mechanics,
+
+
+•        John Wiley & Sons Ltd, New York.
+
+    Tagel-Din, H., Meguro, K. (2000).       "Applied Element Method for Dynamic Large
+
+         Deformation Analysis of Structures" Structural Eng./Earthquake Eng., JSCE, Vol.
+
+•        17, No.2, pp. 215-224.
+
+    Thomson, WT (1965).           Vibration Theory and Applications, Prentice-Hall, Inc.,
+
+
+•        Englewood Cliffs, NJ
+
+    Vinogradov, OG, Atatekin, IS (1986). "Internal Friction Due to Wire Twist in Bent
+
+         Cable", Journal ofEngineering Mechanics, Vol. 112, No.9.
+
+•   Zhong, M (2003). "Dynamic Analysis of Cables with Variable Flexural Rigidity", M.S.
+
+         Thesis, University of Hawaii.
+
+    Zhou, N., Clark, JV, Pister, KSJ (1998). "Nodal Analysis for MEMS Design Using
+•        SUGAR vO.5", Technical Proceedings of the 1998 International Conference on
+
+         Modeling and Simulation ofMicrosystems, pp.398-313.
+
+
+•
+•
+•
+•
+•                                              72
+

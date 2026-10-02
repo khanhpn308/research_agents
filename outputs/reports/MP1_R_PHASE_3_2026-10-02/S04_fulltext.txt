@@ -1,0 +1,554 @@
+6582                                                                                    IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 3, JULY 2022
+
+
+
+
+  Towards a Snake-Like Flexible Robot With Variable
+        Stiffness Using an SMA Spring-Based
+              Friction Change Mechanism
+                      Hyerim Jeon , Quang Ngoc Le , Sanghun Jeong , Sujin Jang, Hoeryong Jung ,
+                         Handdeut Chang , Member, IEEE, Hardik J Pandya , and Yeongjin Kim
+
+
+   Abstract—A flexible surgical robot that can adjust its stiffness               can perform various surgical procedures, including access to
+guarantees safe operation by satisfying both the high flexibility                 a lesion, incision, and suturing, within a limited operating space
+required when the robot approaches a surgical target and the                      because it can be bent inside the human body, unlike long and
+more stiffness necessary for the end effector to perform surgical                 rigid surgical tools. SPL using a flexible surgical robot has the
+procedures. Therefore, this paper proposes a flexible surgical robot              advantage of providing patients with a small scar, little pain, and
+that consists of a central backbone, eight super-elastic wires as
+peripheral backbones, SMA springs, rubber tubes, and several
+                                                                                  short-term recovery, although SPL still has some drawbacks,
+disks. The inner diameter of the SMA springs that can be changed                  such as the cost of the instruments, the length of the operation,
+via their temperature creates a tightening force change to apply                  and the surgeon’s operational complexity. Considering the re-
+onto the eight backbone wires of the robot to adjust the overall                  quired diameter, length, and end effector force for each surgical
+stiffness of the robot. The simple structure is favorable for robot               field, flexible surgical robots have been researched in vari-
+miniaturization. Frictional force and stiffness modulation experi-                ous surgical fields, including otolaryngology surgery [1], brain
+ments of the robot are performed. The results confirmed that the                  surgery [2], [3], cardiovascular surgery [4]–[6], gastrointestinal
+robot’s stiffness was increased approximately 1.4 times between                   surgery [7], [8], and natural orifice transluminal endoscopic
+the martensite state and the austenite state of the SMA spring. The               surgery [9]–[12]. To perform robotic surgery with a flexible
+relationship model between the flexural rigidity of the robot and                 robot in a limited field of view, it is necessary to sense the
+the frictional force between the SMA spring with the peripheral
+backbones is established. We compared the flexural rigidity values
+                                                                                  robot shape and track the position of the robot’s tip. However,
+obtained from our model with those of the experimental result and                 the greater DOF in a flexible robot, the more difficult it is to
+confirmed that the model was valid.                                               sense the robot shape and precise control. Therefore, to improve
+                                                                                  the control stability of a flexible robot, medical imaging sys-
+   Index Terms—Laparoscopy, soft robot materials and design,                      tems such as computed tomography (CT), magnetic resonance
+tendon/wire, variable stiffness.                                                  imaging (MRI), and ultrasound (US) have been used for robotic
+                                                                                  surgery. In particular, MRI has a high resolution and ensures
+                            I. INTRODUCTION                                       patient safety, while US has a low resolution, and CT has a
+                                                                                  problem of allergic reactions and organ damage in patients
+      FLEXIBLE surgical robot is an advanced surgical robot
+A     used in single-port laparoscopy (SPL) that operates
+through a small single entry point. A flexible surgical robot
+                                                                                  because of contrast agents and radiation. In an MRI environment,
+                                                                                  the materials of a flexible surgical robot must be compatible with
+                                                                                  an electromagnetic field. However, most metals cause noise in
+                                                                                  MRI and are not suitable for flexible surgical robot materials.
+   Manuscript received November 8, 2021; accepted April 28, 2022. Date of pub-    Some materials with MRI compatibility, such as brass [13],
+lication May 11, 2022; date of current version May 25, 2022. This work was sup-   shape memory alloys (SMAs) [14]–[17], silicone rubber [18],
+ported in part by the Korea Medical Device Development Fund grant funded by
+the Korea Government (the Ministry of Science and ICT, the Ministry of Trade,
+                                                                                  and plastics [15], have been used for flexible surgical robots
+Industry and Energy, the Ministry of Health & Welfare, the Ministry of Food and   with MRI guidance. Among them, SMA is a biocompatible
+Drug Safety) under Projects 1711138422 and KMDF_PR_20200901_0195, and             material used in many surgical robots in MRI environments. An
+in part by Korea Electric Power Corporation under Grant R19XO01-27. This let-     SMA also has a high-power density. Thus, it is used to create
+ter was recommended for publication by Associate Editor B. Terry and Editor P.    compact actuators for miniaturization and weight reduction
+Valdastri upon evaluation of the reviewers’ comments. (Hyerim Jeon and Quang
+Ngoc Le are co-first authors). (Corresponding authors: Handdeut Chang;            in surgical robots or grippers. Kim et al. developed an SMA
+Hardik J Pandya; Y. Kim.)                                                         spring-based active stiffness continuum robot for neurosurgery
+   Hyerim Jeon, Quang Ngoc Le, Sanghun Jeong, Sujin Jang, Handdeut                and confirmed its MRI compatibility [14]. The high flexibility
+Chang, and Yeongjin Kim are with the Department of Mechanical Engi-               of the robot allows it to move smoothly without any injury to
+neering, Incheon National University, Incheon 406-772, South Korea (e-mail:
+hyerim@inu.ac.kr; lqngoc@inu.ac.kr; jeongsh@inu.ac.kr; jangsujin98@naver.
+                                                                                  a lesion. However, its stability might be reduced because low
+com; onemean@inu.ac.kr; ykim@inu.ac.kr).                                          stiffness could bring about undesirable deformation or bending.
+   Hoeryong Jung is with the Department of Mechanical Engineering, Konkuk         In addition, the insufficient stiffness of the robot limits the end
+University, Seoul 05029, South Korea (e-mail: junghl80@konkuk.ac.kr).             effector force, which is required when the robot performs various
+   Hardik J Pandya is with the Department of Electronic Systems Engineering,      operations, such as incision and suturing. As a result, it is nec-
+Division of EECS, Indian Institute of Science, Bangalore 560012, India (e-mail:
+hjpandya@umd.edu).                                                                essary to control the stiffness of the robot based on the specific
+   Digital Object Identifier 10.1109/LRA.2022.3174363                             scenario.
+
+                         2377-3766 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+                                       See https://www.ieee.org/publications/rights/index.html for more information.
+
+
+
+
+           Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+JEON et al.: TOWARDS A SNAKE-LIKE FLEXIBLE ROBOT WITH VARIABLE STIFFNESS                                                                                 6583
+
+
+
+   Many studies have been conducted to realize stiffness con-
+trol. Cianchetti et al. proposed a manipulator for minimal ac-
+cess surgery that can implement selective stiffness changes by
+combining a fluid actuator to enable omnidirectional bending,
+elongation functionality, and jamming [18], [19]. Jiang et al.
+proposed a high DOF variable stiffness mechanism that can be
+highly refracted. The rigidity of each joint can be independently
+controlled using the jamming principle through vacuum gener-
+ation, and the effect of vacuum pressure and particle type on
+stiffness adjustment can be studied [20]. Kim et al. proposed a
+stiffness conversion mechanism layer jamming through friction
+between the layers of a snake-shaped hollow manipulator com-
+posed of several layers of thin mylar film and tested the stiffness
+and fracture strength of the layer jamming [21], [22]. Moses et al.
+[23] proposed a stiffness control manipulator whose main body
+includes thirty interlocking fibers and a flexible sheath around
+the manipulator. The fibers are free to slide along the flexible
+sheath that may be evacuated to increase its stiffness. Although
+granular and layer jamming approaches achieve significant stiff-
+ness, the system still requires a large volume or layered structure
+to achieve adequate stiffness. Kim et al. proposed a mechanism                 Fig. 1. (a) A schematic of the robot design. (b) A schematic of the robot disk.
+to adjust the joint stiffness of a robot with a thin tubular structure         (c) Principle to heat the SMA spring. (d) Diameter of the SMA spring at
+through a unique asymmetric arrangement between the tendons                    martensite state is equal to the diameter of the rubber tube. (e) SMA spring
+and the links and combined this with a change in wire tension                  at austenite state has diameter smaller than the diameter of rubber tube to
+                                                                               generates a tightening force. (f) A Schematic of the force acting on the robot.
+[24]. This structure approaches have the advantage of being able               (g) Multi-backbone snake-like robot prototype.
+to switch between flexible and stiff modes quickly. However,
+the tendons’ tension must be high, and the links must be strong
+enough to ensure enough friction to keep the rigidity. Kim et al.              stiffness experiments performed to compare the theoretical and
+proposed a mechanism to control the stiffness by overlapping                   experimental flexural stiffness using modeling are analyzed with
+the segment of the inner tube and the segment of the outer tube                three different diameters of the peripheral backbones. Finally,
+through relative translational and rotational movements between                conclusions and future work are described in Section V.
+patterned coaxial tubes [25]. Even though its stiffness can be
+changed quickly, the robot may be twisted when the tubes are
+rotated to change their stiffness. Le et al. proposed a manipulator             II. DESIGN AND WORKING PRINCIPLE OF A SURGICAL ROBOT
+consisting of PET and stainless-steel sheaths that controlled the
+rigidity through heating, and the rigidity increased by at least               A. Design and Working Principle
+nine times [26]. When heated to 70 °C or higher, the PET will                     Our surgical robot was designed based on the multi-backbone
+produce toxic pyrolysis products. Jiang et al. [27] presented a                snake-like robot [28] proposed by Simaan et al. The surgical
+variable stiffness for continuum manipulator using an SMA-                     robot consists of three segments, including four disks, a central
+based sheath. However, the restoring force of the SMA-based                    backbone, four tendons, and several wires as peripheral back-
+sheath will be disturbed the bending motion of the robot, and                  bones, as shown in Fig. 1(a). The central backbone is attached
+the mesh surface of the sheath will not be arranged regularly and              to the center of all disks to keep a constant distance between the
+uniformly on the mesh surface when this structure is bent.                     disks and prevent rotation of disks. The wires at the peripheral
+   As a result, this paper proposes a stiffness control mecha-                 backbones are only linked to the base disk so that they can
+nism for a multi-backbone snake-like robot based on an SMA                     slide freely through the other disks when the robot is bent.
+spring to address these limitations. The proposed robot has                    In Fig. 1(b), each disk has four tendon holes, one hole for the
+three characteristics. First, the robot has a relatively simple                central backbone and several holes for the peripheral backbone
+structure compared to previous studies, which includes an SMA                  wires. A rubber tube covers the center segment of the peripheral
+spring inserted into a robot composed of several disks, a cen-                 backbones and the SMA spring is wound on the outside of the
+tral backbone, a rubber tube, and eight super-elastic wires as                 rubber tube. A current is applied to the SMA spring through
+peripheral backbones. Second, the SMA spring is used as an                     conductive threads attached to both ends to raise its temperature,
+actuator that applies a strong tightening force to the peripheral              as shown in Fig. 1(c).
+backbones when a current is applied. Third, the core principle                    An SMA has different lattice structures and phases depending
+of this stiffness control system is the frictional force between               on its temperature. It includes a martensite phase with a face-
+the rubber layer and the peripheral backbones generated by                     centered cubic crystal structure at a low temperature and an
+the tightening force of the SMA spring. The stiffness control                  austenite phase with a body-centered cubic crystal structure at a
+mechanism produces sufficient stiffness and stiffness range                    high temperature. When the SMA is deformed in the martensite
+within a simple structure. The stiffness of the robot will be                  phase, the structure of the crystal lattice is deformed, but the
+modeled using the energy equation containing frictional work,                  bonds between atoms are not broken. The structure of the crystal
+stored spring energy, and work of an external force applied to                 lattice is transformed from twinned martensite to detwinned
+the robot. In Section II, we discuss the design of the proposed                martensite. After that, as the temperature of the SMA increases,
+robot. We present the stiffness modeling to verify the effect of               the detwinned martensite changes to austenite lattice structure.
+friction on the stiffness in Section III. In Section IV, friction and          As a result, the SMA is restored to its original shape. As the
+
+           Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+6584                                                                                   IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 3, JULY 2022
+
+
+
+temperature of the SMA decreases, the lattice structure changes
+to the twinned martensite, and the restoring force is removed. In
+other words, the SMA can restore its memorized shape through
+phase change based on temperature. In our mechanism, the inner
+diameter (D0 ) of the SMA spring, which is determined when it
+is trained for its memorized shape, is smaller than the diameter
+of the rubber tube (Drb ) covering the peripheral backbones, so
+that the SMA spring applies a tightening force to the rubber tube
+and peripheral backbones. The SMA spring in a fully martensite
+phase is expanded in the radial direction by the robot body having
+a relatively large diameter (Df ), as shown in Fig. 1(d). When the
+phase of the SMA changes to the full austenite phase through
+heating, it generates a tightening force on the rubber tube in the
+radial direction to restore the original smaller diameter (D0 <
+Df = Drb ), as shown in Fig. 1(e). This force (FT ) will tighten
+the rubber tube to increase the frictional force (Ff ) between the
+rubber tube and peripheral backbones. This tightening force
+can be changed depending on the phase of the SMA spring.                        Fig. 2. (a) Experiments for two robots’ peripheral backbone configuration with
+                                                                                four wires (N = 4), eight wires (N = 8) and a load of 500 g at the martensite
+When the phase of the SMA spring changes into martensite                        (M) and austenite (A) states. (b) Demonstration of the 90° bending capability
+through natural cooling, the force starts to decrease, and the                  of robot in two directions via tendons.
+SMA spring has a relatively weak tightening force on the rubber
+tube to reduce the frictional force. The core of the proposed
+stiffness control mechanism is the frictional force generated                   The distance from the base disk to the end disk of the prototype
+through the tightening force between the SMA spring and the                     robot is 30 mm.
+rubber tube. The frictional force increases the robot stiffness                    In Fig. 2(a), two robots with four and eight peripheral back-
+by restraining the movement of the peripheral backbones that                    bones were used for the stiffness experiment with a load of
+could relatively freely slide with the rubber and disks as the                  500 g at both martensite and austenite states to determine the
+robot bends, as shown in Fig. 1(f). The diameter of the rubber                  proper number of backbones. As a result, we selected the robot
+tube (the outer diameter of the peripheral backbones) is also an                with eight backbones that showed more stiffness conversion
+important variable affecting the tightening force. As mentioned,                capability than the robot with four backbones. In addition, the
+the tightening force can be adjusted based on the phase change                  number of coils of the SMA spring is an important variable that
+of the SMA spring. Therefore, the stiffness of the robot can be                 affects the stiffness control capability of the robot. However,
+controlled based on the phase of the SMA spring.                                an SMA spring with many turns complicates the modeling by
+   Two pairs of opposing tendons embedded in the disks of the                   causing undesired deformation in the peripheral backbones.
+flexible surgical robot can control its bending in two directions.              Therefore, in this paper, experiments and analysis were per-
+The tendons are fixed to only the end disk, and they can move                   formed using an SMA spring with 1.5 turns to exclude modeling
+freely on the other disks. When one of the tendon pairs is                      errors caused by the deformation of the peripheral backbones.
+pulled, the space between the disks along that tendon decreases,                Finally, we performed a preliminary test of the bending capacity
+while the distance between the disks along the opposing tendon                  of the robot. In Fig. 2(b), driving the robot using the polyethylene
+increases. As a result, the flexible surgical robot is bent in this             thread as a tendon proved that the robot can be bent up to 90° in
+direction, as shown in Fig. 1(f). Similarly, the flexible surgical              the vertical, left, and right directions.
+robot is bent in the second direction perpendicular to the first                   As mentioned before, the outer diameter of the peripheral
+via another pair of tendons.                                                    backbones affects the tightening force of the SMA spring. There-
+                                                                                fore, this study will investigate the stiffness of a flexible surgical
+                                                                                robot with three different outer diameters of the peripheral
+B. Dimension Choice for Prototype Robot                                         backbones (Dt ) of 5.5, 5.75, and 6 mm in Section IV.
+
+   The SMA spring used as the stiffness control actuator of
+                                                                                                        III. STIFFNESS MODEL
+the robot has an austenite phase at a temperature of 45 °C or
+higher. (NITINOL 1-WAY MEMORY COIL SPRING W0.75                                    We analyzed how the robot’s stiffness changed due to the
+X D6.5 X C16; AF 45, USA. The phase of the SMA spring                           frictional force between the rubber tube and the peripheral
+becomes austenite through Joule heating, and it becomes marten-                 backbones using the work-energy equation. It was used by Allen
+site through natural air cooling when an electric current is not                Jiang et al. for simulation in the jamming mechanism, one of
+applied. In addition, the inner diameter, wire diameter, and the                the variable stiffness mechanisms [20]. The work done by the
+number of coils of the SMA spring are 5.5 mm, 0.75 mm, and                      external force in a cantilever beam would be the sum of the
+1.5 turns, respectively. Thermoplastic polyurethane (TPU), a                    stiffness element’s stored spring energy (U) and friction energy
+flexible filament material for 3D printing, is used to make the                 loss caused by the frictional force between the internal particles.
+central backbone of the robot with a diameter of 2 mm and a                     As a result, we assumed a multi-backbone snake-like robot as
+length of 30 mm. A super-elastic wire with a 0.5 mm diameter is                 a cantilever beam and applied the work-energy equation. In
+used as the peripheral backbones of the robot. A rubber tube with               Fig. 3(a), the deformation of the robot due to an external force
+a thickness of 0.25 mm is inserted between the SMA spring and                   Fext is δ in the x-direction. The work done by the external force
+the peripheral backbones to increase the frictional force. Acrylic              on the cantilever beam is equal to the sum of the elastic element’s
+material with a thickness of 2 mm is used for the robot’s disks.                stored spring energy (U) and energy loss (Wf ) caused by the
+
+          Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+JEON et al.: TOWARDS A SNAKE-LIKE FLEXIBLE ROBOT WITH VARIABLE STIFFNESS                                                                                 6585
+
+
+
+
+                                                                                     length of the arc AB is equal to L. The radius (R) of the arc      AB
+                                                                                     is AO with dimensions of L/θ. The length of each wire of the
+                                                                                     peripheral backbones after bending the robot can be calculated
+                                                                                     through the arc length of the circular sector OAB. The 4th and 5th
+                                                                                     wires of the peripheral backbones do not slide because they are
+                                                                                     parallel to the neutral axis of the robot in this bending direction.
+                                                                                     In Fig. 3(c), the length of the 1st wire is the arc length of the
+                                                                                     radius (L/θ + a2 ), the length of the 2nd and 3rd wires is the arc
+                                                                                     length of the radius (L/θ + a1 ), the length of the 6th and 7th wires
+                                                                                     is the arc length of the radius (L/θ – a1 ), and the length of the 8th
+                                                                                     wire is the arc length of the radius (L/θ−a2 ). a1 is the distance
+                                                                                     between the arcs of the 1st (or 8th ) wire and the central backbone,
+                                                                                     and a2 is the distance between arcs of the 2nd (or 3rd , 6th , 7th ) wire
+                                                                                     and the central backbone. All these arcs have the same center
+                                                                                     point at O with angle θ. Thus, the lengths of these wires after
+                                                                                     bending the robot are the values of each radius multiplied by
+                                                                                     θ. Δlb,i are calculated using the length L as follows:
+                                                                                                                    
+                                                                                                             L
+                                                                                                 Δlb,1 =        + a2 θ − L = a2 θ                        (4.1)
+Fig. 3. (a) Demonstration of the bending of robot with deformation δ via an                                  θ
+external force Fext , (b) Cross-section of disk and backbone routing, (c) Analysis                                            
+of wire length for peripheral backbones with deformation δ.                                                           L
+                                                                                                 Δlb,2 = Δlb,3 =         + a1 θ − L = a1 θ               (4.2)
+                                                                                                                      θ
+frictional force (Ff ) between the peripheral backbones and the                                 Δlb,4 = Δlb,5 = 0                                       (4.3)
+rubber tube (Wf = Ff .s).                                                                                                           
+                      δ                                                                                             L
+                                                                                                Δlb,6 = Δlb,7 = L −    − a1 θ = a1 θ                    (4.4)
+                          Fext dx = U + Ff s                (1)                                                      θ
+                          0                                                                                        
+                                                                                                              L
+where U is the stored spring energy in the multi-backbone robot                                 Δlb,8 = L −     − a2 θ = a2 θ                           (4.5)
+                                                                                                              θ
+without the frictional force between the backbone and the rubber
+tube and s is the total sliding length of the wires as the robot is
+                                                                                        Substituting Δlb,i in (4) into (3), we obtain: s = (4a1 + 2a2 )θ.
+bent by the external force. When the robot is deformed δ and a                       In the cross-section of the disk,
+bending angle of θ/2 by an external force applied on the end disk,                                                √ as shown√in Fig. 3(b), a1 and a2
+from (1), both the work energies of the robot at the martensite                      have the relation a1 = a2 / 2 a1 = a2 / 2. Therefore, the total
+and austenite phases can be determined as:                                           sliding length (s) can be calculated by:
+               δ                                                                                                       √ 
+                                                                                                            s = 2 + 2 2 a2 θ                         (5)
+                   Fext,m dx = U + Ff,m s = Um                (2.1)
+                  0
+                  δ                                                                    As shown in Fig 3(c), δ is obtained through the trigonometric
+                                                                                     function in triangle ABC: δ = AB sin (θ/2). The chord AB can
+                       Fext,a dx = U + Ff,a s = Ua                         (2.2)
+                   0                                                                 be calculated from the geometrical relationship: AB = 2R sin
+where Fext,m and Fext,a are external forces exerted on the robot                     (θ/2), where R = L/ θ. Therefore, δ can be determined as follows:
+                                                                                                                           
+by the SMA springs at the martensite phase and austenite phases,                                                  2L 2 θ
+respectively; Ff,m and Ff,a are the frictional forces between the                                           δ=       sin                           (6)
+                                                                                                                   θ        2
+rubber tube and the peripheral backbones that occur due to the
+tightening force of the SMA spring in the martensite phase and                          Using Newton’s method, the bending angle θ can solve from
+austenite phases, respectively. Note that Ff,a is larger than Ff,m                   δ and L.
+because the tightening force increases when the full martensite                         Equations (2.1) and (2.2) are combined to express Ua from
+phase of the SMA spring transitions to the austenite phase. The                      Um and the energy loss due to friction Ff,m and Ff,a :
+total sliding length (s) is also the sum of the length change of
+the wires of the peripheral backbones, and is defined as:                                              Ua = Um + (Ff,a − Ff,m ) s                         (7)
+                                     8
+                                                                                      The robot is assumed to be a cantilever beam in the martensite
+                                s=          Δlb,i                             (3)    and austenite phases. Thus, the stiffness element’s stored spring
+                                      i=1                                            energy (U) is given by:
+where Δlb,i is the sliding length of each wire of the ith peripheral                                             L 2 2
+                                                                                                                      Fext .l
+backbone. The numbered wires are shown in the cross-section                                                U=                 dl                   (8)
+                                                                                                                  0    2EI
+of the disk, in Fig. 3(b). When the robot bends at a minor angle,
+we assumed that the peripheral backbone lies along an arc of a                       where EI is the flexural rigidity of the robot, L is the robot’s total
+circle. Therefore, the bending angle of the robot is half of the                     length, and l is a length along the robot. From (7) and (8), the
+angle θ between the base disk and the end disk plane, and the                        flexural rigidity of the robot as an SMA spring in the austenite
+
+
+
+             Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+6586                                                                                          IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 3, JULY 2022
+
+
+
+
+                                                                                       Fig. 5. (a) Experimental setup for the measurement of the stiffness of the robot
+                                                                                       when the SMA spring is in the martensite and austenite states. (b) Pictures of
+Fig. 4. (a) Experimental setup measures the frictional force for one wire of the       the robot’s bending before and after pulling the end disk to a displacement of
+peripheral backbone with the rubber tube when the SMA spring at martensite and         5 mm. (c) Measured resistive force-displacement graph when the end disk moves
+austenite state, (b) Procedures for measuring the friction force, (c) Friction force   to a displacement of 5 mm with the backbone diameter of 5.5 mm, d) 5.75 mm,
+when one wire moves by a displacement of 5 mm with the backbone diameter               e) and 6 mm when the SMA spring at martensite and austenite state.
+5.5 mm, (d) 5.75 mm, (e) and 6 mm when the SMA spring at martensite and
+austenite state.
+                                                                                       RATTM motors, China), and then it is connected to the disk by
+                                                                                       polyethylene (PE) thread. The SMA spring is supplied with an
+state is obtained as follows:                                                          electric current to heat it. Its temperature was regulated manually
+                                       2
+                                     Fext,a L3                                         between 50 °C and 60 °C via an infrared camera (FLIR E5XT,
+                 (EI)a =                                                        (9)    USA) monitoring to keep it in fully austenite state, shown in
+                              6 (Um + (Ff,a − Ff,m ) s)
+                                                                                       Fig. 6(a). At ambient temperature (around 23 °C), the SMA
+                                                                                       spring is in fully martensite state.
+                IV. EXPERIMENT SETUP AND RESULT
+   The stiffness of the robot should be changed depending on
+the application scenario, and the range and maximum value of                           A. Friction Force Characterization
+the stiffness of the robot are important parameters that need                             The friction force between the rubber tube and the eight
+to be studied. In this paper, the stiffness is controlled by the                       wires relates to the clamping force of the SMA spring. The
+friction force between the rubber tube and the eight peripheral                        clamping force of the SMA spring at the austenite temperature
+backbones based on (9). This friction force can be adjusted                            is higher than that at the martensite temperature. The friction
+using the clamping force of the SMA spring, which covers the                           force between one wire and the rubber layer will be investigated
+outside of the rubber tube. The range and maximum values of                            when the SMA spring is in a fully martensite and fully austenite
+the friction force are determined by the outer backbone diameter                       phase. In the experimental setup shown in Fig. 4(a), the rubber
+(Dt ) and the inner diameter of the SMA spring (D0 ), as shown                         tube wraps around the eight wires of the robot. A single wire
+in Fig. 1(b) and (e). Therefore, in this section, the friction force                   is attached to the moving disk and can move through the fixing
+and the stiffness are determined and evaluated with robots in                          disk and the rest of the (seven) wires are fixed to the fixing
+three different configurations with outer peripheral backbone                          disk and not attached to the moving disk. When the micro-linear
+diameters of 5.5 mm, 5.75 mm, and 6 mm. The flexural rigidity                          actuator moves, the force sensor will pull the moving disk with
+is calculated using (9) and the friction force measured in the                         the PE thread. The single wire will move with the moving disk
+experiments. Then, this calculated flexural rigidity is compared                       and slide on the rubber layer that is held by the other seven
+with the flexural rigidity that is measured from the stiffness                         wires, as shown in Fig. 4(b). Thus, we measured the friction
+experiment. This section contains the thermo-mechanical behav-                         force via the force sensor. The micro-linear actuator moves the
+iors of the SMA spring in the robot. The experimental setups for                       sensor to pull the moving disk with a displacement of 5 mm at
+measuring the friction force and the robot’s stiffness are shown in                    a speed of 10 mm/min. The friction force tests were repeated
+Figs. 4(a) and 5(a). The force sensor (Model 333ALB – KTOYO,                           ten times for each peripheral backbone diameter as the SMA
+Japan) is mounted on a micro-linear actuator (EBX1605–400,                             spring in martensite and austenite states. The friction force vs.
+
+
+
+            Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+JEON et al.: TOWARDS A SNAKE-LIKE FLEXIBLE ROBOT WITH VARIABLE STIFFNESS                                                                               6587
+
+
+
+                                                                                                               TABLE II
+                                                                                                    WORK DONE TO BEND THE ROBOT 5 MM
+
+
+
+
+                                                                                 pulled and moved at 10 mm/min to measure the resistive force
+                                                                                 and displacement of the robot. The robot’s end disk has only
+                                                                                 moved a maximum of 5 mm so that the PE thread is not cut off.
+                                                                                 We assumed that the force at the end disk of the robot when
+                                                                                 the robot is bent at a small angle is approximately equal to
+                                                                                 the force when the PE thread is parallel to the force sensor.
+                                                                                 Fig. 5(b) shows a description of the robot’s bending before
+                                                                                 and after the force sensor has pulled the end disk to a 5 mm
+Fig. 6. (a) Experiment setup for temperature monitoring. (b) Average heating
+time of the SMA spring for various currents. (c) the cooling time of the SMA
+                                                                                 displacement. Each experimental case will be performed ten
+spring. (d) Thermal images of the SMA spring’s heating and cooling process are   times. The experimental results are shown in Fig. 5(c)–(e) for
+demonstrated in a time-lapse sequence. (e) Compare the thermal images of the     the three different backbone diameters when the SMA spring
+robot when SMA springs at 37.4 °C and when it maintained around 71.4 °C for      is in the martensite and austenite states. The stiffness is the
+5 minutes.                                                                       slope of the resistive force vs. displacement graph measured
+                                                                                 with the force sensor when the robot is bent as the force sensor
+                           TABLE I
+ MAXIMUM AND MEAN FRICTION FORCE ON THE ONE SUPER-ELASTIC WIRE
+                                                                                 moves. These results show that the robot in the austenite state
+                                                                                 has more stiffness than that in the martensite state. The mean
+                                                                                 stiffness of the robot in the martensite state was 0.21, 0.22, and
+                                                                                 0.29 N/mm for backbone diameters of 5.5, 5.75, and 6 mm,
+                                                                                 respectively. Similarly, in the austenite state, the robot’s stiffness
+                                                                                 was 0.31, 0.34, and 0.41 N/mm, respectively. The stiffness ratio
+                                                                                 between the austenite state and martensite state was 1.45, 1.50,
+                                                                                 and 1.41 times for backbone diameters of 5.5, 5.75, and 6 mm,
+                                                                                 respectively. When the robot’s tip is displaced to 5 mm, the
+                                                                                 sliding length of all peripheral backbone wires is determined
+                                                                                 using (5) with bending angle θ, which is solved using (6).
+the actuator displacement graphs of the wire fixed to the moving                 Assuming that the friction force of all peripheral backbone wires
+disk are shown in Fig. 4(c)–(e) for the three configurations (the                remained around the mean value, which was determined in the
+three peripheral backbone outer diameters). The results show                     friction experiment, the work done by friction was calculated
+that the friction force of the SMA spring in the austenite state                 using the equation Wf = Ff .s. Table II summarizes the total
+is higher than that in the martensite state. The ratio between the               sliding length of all wires when bending the robot 5 mm, and
+maximum friction forces in the austenite and martensite state                    the work done by friction for backbone diameters of 5.5, 5.75,
+was 1.54, 1.48, and 1.39 times for diameters of 5.5, 5.75, and                   and 6 mm. The work done by an external force to bend the
+6 mm, respectively. The maximum and mean values of friction                      robot is determined using (2.1) and (2.2) in the martensite and
+forces are summarized with the backbone diameter in Table I.                     austenite states. Based on the resistive force and displacement in
+As the backbone diameter increases, the friction increases. This                 this experiment, the work done to bend the robot for the different
+tendency is because of the larger backbone diameter, which                       backbone diameters is calculated and shown in Table II. As the
+results in a greater tightening force when an identical SMA                      backbone diameter increases, the work done by the bending
+spring was used. As a result, it can be predicted that the robot                 force tends to increase, which is similar to the work done by
+stiffness will increase as the backbone diameter increases. In                   friction as the backbone diameter increases. This is because
+addition, the friction can be adjusted by setting variables related              friction interferes with the movement of the backbone of the
+to the tightening force, such as the SMA spring variable (wire                   robot, which affects the stiffness of the robot. The experimental
+diameter, outer diameter, pitch angle, number of coils) and the                  flexural rigidity (EI) of the three different backbone diameters
+size of the backbone diameter.                                                   are calculated from these experimental results by using the
+                                                                                 following equation:
+B. Stiffness Characterization of the Robot                                                                                  Fext .L3
+                                                                                                          EIexperiment =                               (10)
+  The experiment was conducted as shown in Fig. 5(a) to                                                                       3δ
+measure the range and maximum value of the stiffness of the
+robot for the different backbone diameters. The end disk of the                     The modeled flexural rigidity of the three different backbone
+robot, which is connected to the force sensor via a PE thread, is                diameters is also calculated using (9), with the Um and the
+
+
+
+             Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+6588                                                                                   IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 3, JULY 2022
+
+
+
+                            TABLE III                                              In this paper, friction and stiffness characterization experi-
+  COMPARISON OF THE EXPERIMENTAL FLEXURAL RIGIDITY AND MODELED                  ments were performed for SMA springs at two states: martensite
+   FLEXURAL RIGIDITY WITH THE SMA SPRING IN THE AUSTENITE PHASE
+                                                                                and austenite. To verify the effect of the backbone diameter
+                                                                                on the tightening force, we also conducted experiments with
+                                                                                peripheral backbone diameters of 5.5, 5.75, and 6 mm. The SMA
+                                                                                spring that we use for the experiment is 5.5 mm inner diameter
+                                                                                with a coil of 1.5 turns. The experimental results show that the
+                                                                                robot in the austenite state has a stiffness equal to 1.45, 1.50, and
+                                                                                1.41 times that in the martensite state for backbone diameters
+                                                                                of 5.5 mm, 5.75 mm, and 6 mm, respectively. Compared to
+work done by the friction in the martensite and austenite states                jamming and other methods [22], [29], our mechanism does
+in Table II. The modeled flexural rigidity (EI modeling ) and                   not show a significant stiffness ratio. However, our proposed
+experimental flexural rigidity (EI experiment ) of the robot in                 robot has achieved a 150% range in stiffness ratio within a
+the austenite state were compared to confirm the validity of the                small structure. The friction and stiffness of the robot tended
+modeling showing the relationship between the friction work and                 to increase as the peripheral backbone diameter increased. In
+stiffness. The error between the experimental flexural rigidity                 Figs. 4 and 5, there is more noise in the friction force and force to
+and the modeled flexural rigidity was 3.5%, 3.1%, and 5.4%                      bend the robot in the austenite state of the SMA spring because of
+for backbone diameters of 5.5, 5.75, and 6 mm, respectively, as                 increased tightening force and the effect of the dynamic friction
+shown in Table III. The results show that the modeled flexural                  state. However, the noise does not affect the stiffness of the robot.
+rigidity was determined using the work done by friction and                     We also derived the modeled flexural rigidity through the energy
+was valid. Therefore, the stiffness of the robot can be changed                 equation for work done by the friction and external force. The
+by tightening the connection between the SMA spring and the                     modeled flexural rigidity and the experimental flexural rigidity
+wires of the peripheral backbones.                                              were compared to evaluate the validity of the modeling. Since
+                                                                                the errors between the modeled value and the experimental value
+                                                                                were 3.5%, 3.1%, and 5.4%, the modeled flexural rigidity that
+C. SMA Spring Thermo-Mechanical Behaviors                                       we propose was reliable.
+   The thermal behaviors of the SMA spring are investigated in                     This study has the following limitations: (1) the SMA spring
+terms of heating and cooling time. As shown in Fig. 6(a), an                    is cooled ambiently, so the cooling time to change from the
+infrared (thermal) camera monitors temperature changes during                   austenite to martensite state is long (approximately 60 s); (2)
+heating and cooling processes at the SMA spring, while a video                  the robot does not have a temperature control system to maintain
+camera records the temperature indicator on the thermal camera.                 the stiffness in real-time; (3) the stiffness ratio between the rigid
+The heating process of the SMA spring is repeated three times for               and flexible states is still small; and (4) the difference in flexural
+the three different electric current values. The average heating                stiffness between the model and the experimental result was sig-
+rates are shown in Fig. 6(b). Using 0.5 A, 0.4 A and 0.3 A, the                 nificant (5.4%). Moreover, we assumed the bending of the wires
+SMA spring was heated from 25 °C to 60 °C in about 18, 21 and                   of the peripheral backbone was the arc of a circle. As a result,
+115 seconds, respectively. The ambient cooling process of the                   the total sliding length of wires of the peripheral backbone cal-
+SMA spring is also performed three times as shown in Fig. 6(c).                 culated using (5) may have a larger error as the robot bend more.
+The results show that the cooling time took approximately 60 s.                 In addition, the work done by friction in the friction experiment
+It is noted that the thermal behaviors of the SMA springs with                  is used to calculate the modeled flexural stiffness. In reality, this
+three backbone diameters are almost identical. Fig. 6(d) shows                  friction will have a minor change in the experiments in the same
+time-lapse thermal images of the heating and cooling processes                  the SMA spring state (martensite or austenite). In future work,
+occurring on the SMA spring. Although the SMA spring was                        a temperature control system can be embedded in the robot. We
+maintained around 70 °C for 5 minutes, the temperature on the                   will increase the number of segments and the number of SMA
+robot’s surface does not exceed 37.5 °C as Fig. 6(e). The thermal               springs on the peripheral backbone and combine it with a fluidics
+image of the robot at 71.4 °C and 37.4 °C were compared to                      system to increase the friction range to improve the stiffness
+demonstrate that the high temperature of the SMA spring does                    ratio. The fluidic system will be used to cool the SMA spring
+not affect the human body.                                                      quickly.
+
+               V. DISCUSSION AND CONCLUSION
+   In this study, we developed a flexible surgical robot whose                                                     REFERENCES
+stiffness can be controlled to prevent a lack of stability due                   [1] N. Simaan, R. Taylor, and P. Flint, “High dexterity snake-like robotic slaves
+to insufficient stiffness of the robot when used in single-port                      for minimally invasive telesurgery of the upper airway,” in Medical Image
+laparoscopy. The simple structure of the robot includes a central                    Computing and Computer-Assisted Intervention – MICCAI, C. Barillot, D.
+                                                                                     R. Haynor, and P. Hellier, Eds., vol. 3217. Berlin/Heidelberg, Germany:
+backbone, several acrylic disks, eight super-elastic wires, SMA                      Springer, 2004, pp. 17–24. doi: 10.1007/978-3-540-30136-3_3.
+springs, and a rubber tube. The SMA spring that wraps the rubber                 [2] L. Frasson et al., “Biologically inspired microtexturing: Investigation into
+tube generates a tightening force on the rubber to increase the                      the surface topography of next-generation neurosurgical probes,” in Proc.
+frictional force. This frictional force restrains the movement of                    30th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc., Vancouver, BC, 2008,
+                                                                                     pp. 5611–5614. doi: 10.1109/IEMBS.2008.4650486.
+the super-elastic wires to increase the stiffness of the robot. The              [3] T. Parittotokkaporn et al., “Soft tissue traversal with zero net force:
+tightening force of the SMA spring can be changed with the                           Feasibility study of a biologically inspired design based on reciprocal
+change phase effect caused by a temperature change (martensite                       motion,” in Proc. IEEE Int. Conf. Robot. Biomimetics, Bangkok, Thailand,
+and austenite states).                                                               2009, pp. 80–85. doi: 10.1109/ROBIO.2009.4912983.
+
+
+
+
+          Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+JEON et al.: TOWARDS A SNAKE-LIKE FLEXIBLE ROBOT WITH VARIABLE STIFFNESS                                                                                   6589
+
+
+
+ [4] R. J. Webster, J. M. Romano, and N. J. Cowan, “Kinematics and calibration    [18] “STIFF-FLOP surgical manipulator: Mechanical design and experi-
+     of active cannulas,” in Proc. IEEE Int. Conf. Robot. Automat., Pasadena,          mental characterization of the single module,” in Proc. IEEE/RSJ
+     CA, USA, 2008, pp. 3888–3895. doi: 10.1109/ROBOT.2008.4543808.                    Int. Conf. Intell. Robots Syst., Tokyo, Japan, 2013, pp. 3576–3581.
+ [5] R. J. Webster, J. M. Romano, and N. J. Cowan, “Mechanics of precurved-            doi: 10.1109/IROS.2013.6696866.
+     tube continuum robots,” IEEE Trans. Robot., vol. 25, no. 1, pp. 67–78,       [19] M. Cianchetti et al., “Soft robotics technologies to address short-
+     Feb. 2009, doi: 10.1109/TRO.2008.2006868.                                         comings in today’s minimally invasive surgery: The STIFF-FLOP
+ [6] A. Ataollahi et al., “Three-degree-of-freedom MR-compatible                       approach,” Soft Robot., vol. 1, no. 2, pp. 122–131, Jun. 2014,
+     multisegment cardiac catheter steering mechanism,” IEEE Trans.                    doi: 10.1089/soro.2014.0001.
+     Biomed. Eng., vol. 63, no. 11, pp. 2425–2435, Nov. 2016,                     [20] A. Jiang, A. Ataollahi, K. Althoefer, P. Dasgupta, and T. Nanayakkara,
+     doi: 10.1109/TBME.2013.2276739.                                                   “A variable stiffness joint granular jamming,” in Proc. 36th Mecha-
+ [7] J. Zuo, G. Yan, and Z. Gao, “A micro creeping robot for colonoscopy               nisms Robot. Conf., Parts A & B, vol. 4, Chicago, Illinois, USA, 2012,
+     based on the earthworm,” J. Med. Eng. Technol., vol. 29, no. 1, pp. 1–7,          pp. 267–275. doi: 10.1115/DETC2012-70670.
+     Jan. 2005, doi: 10.1080/03091900410001662341.                                [21] Y.-J. Kim, S. Cheng, S. Kim, and K. Iagnemma, “Design of a tubular snake-
+ [8] K. Wang, G. Yan, P. Jiang, and D. Ye, “A wireless robotic endoscope               like manipulator with stiffening capability by layer jamming,” in Proc.
+     for gastrointestine,” IEEE Trans. Robot., vol. 24, no. 1, pp. 206–210,            IEEE/RSJ Int. Conf. Intell. Robots Syst., Vilamoura-Algarve, Portugal,
+     Feb. 2008, doi: 10.1109/TRO.2008.915418.                                          2012, pp. 4251–4256. doi: 10.1109/IROS.2012.6385574.
+ [9] B. Dallemagne and J. Marescaux, “The ANUBISTM project,” Minimally            [22] Y.-J. Kim, S. Cheng, S. Kim, and K. Iagnemma, “A novel layer jam-
+     Invasive Ther. Allied Technol., vol. 19, no. 5, pp. 257–261, Oct. 2010,           ming mechanism with tunable stiffness capability for minimally invasive
+     doi: 10.3109/13645706.2010.514741.                                                surgery,” IEEE Trans. Robot., vol. 29, no. 4, pp. 1031–1042, Aug. 2013,
+[10] A. D. Pryor, J. R. Tushar, and L. R. DiBernardo, “Single-port cholecystec-        doi: 10.1109/TRO.2013.2256313.
+     tomy with the TransEnterix SPIDER: Simple and safe,” Surg. Endoscopy,        [23] M. S. Moses, M. D. M. Kutzer, Hans Ma, and M. Armand, “A
+     vol. 24, no. 4, pp. 917–923, Apr. 2010, doi: 10.1007/s00464-009-0695-9.           continuum manipulator made of interlocking fibers,” in Proc. IEEE
+[11] R. J. Leveillee, S. M. Castle, M. A. Gorin, N. Salas, and V. Gorbatiy,            Int. Conf. Robot. Automat., Karlsruhe, Germany, 2013, pp. 4008–4015.
+     “Initial experience with laparoendoscopic single-site simple nephrectomy          doi: 10.1109/ICRA.2013.6631142.
+     using the TransEnterix SPIDER surgical system: Assessing feasibility         [24] Y.-J. Kim, S. Cheng, S. Kim, and K. Iagnemma, “A stiffness-adjustable
+     and safety,” J. Endourology, vol. 25, no. 6, pp. 923–925, Jun. 2011,              hyperredundant manipulator using a variable neutral-line mechanism
+     doi: 10.1089/end.2010.0730.                                                       for minimally invasive surgery,” IEEE Trans. Robot., vol. 30, no. 2,
+[12] N. Salas, M. A. Gorin, V. Gorbatiy, S. M. Castle, V. G. Bird, and                 pp. 382–395, Apr. 2014, doi: 10.1109/TRO.2013.2287975.
+     R. J. Leveillee, “Laparoendoscopic single site nephrectomy with the          [25] J. Kim, W.-Y. Choi, S. Kang, C. Kim, and K.-J. Cho, “Continuously
+     SPIDER surgical system: Engineering advancements tested in a Porcine              variable stiffness mechanism using nonuniform patterns on coaxial tubes
+     model,” J. Endourology, vol. 25, no. 5, pp. 739–742, May 2011,                    for continuum microsurgical robot,” IEEE Trans. Robot., vol. 35, no. 6,
+     doi: 10.1089/end.2010.0608.                                                       pp. 1475–1487, Dec. 2019, doi: 10.1109/TRO.2019.2931480.
+[13] M. Ho, Y. Kim, S. S. Cheng, R. Gullapalli, and J. P. Desai, “Design,         [26] H. M. Le, T. N. Do, L. Cao, and S. J. Phee, “Towards active vari-
+     development, and evaluation of an MRI-guided SMA spring-actuated                  able stiffness manipulators for surgical robots,” in Proc. IEEE Int.
+     neurosurgical robot,” Int. J. Robot. Res., vol. 34, no. 8, pp. 1147–1163,         Conf. Robot. Automat., Singapore, Singapore, 2017, pp. 1766–1771.
+     Jul. 2015, doi: 10.1177/0278364915579069.                                         doi: 10.1109/ICRA.2017.7989209.
+[14] Y. Kim, S. S. Cheng, and J. P. Desai, “Active stiffness tun-                 [27] S. Jiang et al., “A variable-stiffness continuum manipulators by an
+     ing of a spring-based continuum robot for MRI-guided Neuro-                       SMA-based sheath in minimally invasive surgery,” Int. J. Med. Robot.
+     surgery,” IEEE Trans. Robot., vol. 34, no. 1, pp. 18–28, Feb. 2018,               Comput. Assist. Surg., vol. 16, no. 2, Apr. 2020, Art. no. e2081,
+     doi: 10.1109/TRO.2017.2750692.                                                    doi: 10.1002/rcs.2081.
+[15] Y. Kim, S. S. Cheng, M. Diakite, R. P. Gullapalli, J. M. Simard, and J. P.   [28] N. Simaan, R. Taylor, and P. Flint, “A dexterous system for laryngeal
+     Desai, “Toward the development of a flexible mesoscale MRI-compatible             surgery,” in Proc. IEEE Int. Conf. Robot. Automat., vol. 1, New Orleans,
+     neurosurgical continuum robot,” IEEE Trans. Robot., vol. 33, no. 6,               LA, USA, 2004, pp. 351–357. doi: 10.1109/ROBOT.2004.1307175.
+     pp. 1386–1397, Dec. 2017, doi: 10.1109/TRO.2017.2719035.                     [29] T. Ranzani, G. Gerboni, M. Cianchetti, and A. Menciassi, “A bioin-
+[16] S. S. Cheng, Y. Kim, and J. P. Desai, “New actuation mecha-                       spired soft manipulator for minimally invasive surgery,” Bioinspi-
+     nism for actively cooled SMA springs in a neurosurgical robot,”                   ration Biomimetics, vol. 10, no. 3, May 2015, Art. no. 035008,
+     IEEE Trans. Robot., vol. 33, no. 4, pp. 986–993, Aug. 2017,                       doi: 10.1088/1748-3190/10/3/035008.
+     doi: 10.1109/TRO.2017.2679199.
+[17] Y. Kim and J. P. Desai, “Design and kinematic analysis of a neuro-
+     surgical spring-based continuum robot using SMA spring actuators,” in
+     Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., Hamburg, Germany, 2015,
+     pp. 1428–1433. doi: 10.1109/IROS.2015.7353555.
+
+
+
+
+             Authorized licensed use limited to: Univ Of Incheon. Downloaded on August 30,2022 at 07:01:26 UTC from IEEE Xplore. Restrictions apply.
+

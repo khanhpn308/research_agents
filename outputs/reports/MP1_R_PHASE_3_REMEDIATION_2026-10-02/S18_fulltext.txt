@@ -1,0 +1,654 @@
+Mech. Sci., 16, 821–830, 2025
+https://doi.org/10.5194/ms-16-821-2025
+© Author(s) 2025. This work is distributed under
+the Creative Commons Attribution 4.0 License.
+
+
+
+
+            A continuum-based model for a layer jamming beam
+                                 Shuai Zhang, Jiantao Yao, Wumian Zhao, and Chunjie Wei
+                     School of Mechanical Engineering, Yanshan University, Qinhuangdao, 066000, China
+                                       Correspondence: Jiantao Yao (jtyao@ysu.edu.cn)
+
+          Received: 13 August 2025 – Revised: 12 October 2025 – Accepted: 25 October 2025 – Published: 18 November 2025
+
+       Abstract. Layer jamming structures (LJSs) are widely used as variable-stiffness components in collaborative
+       robots to ensure safe human–robot interaction. However, existing analytical models often fail to adequately de-
+       scribe the mechanical behavior of LJSs with a large number of layers, particularly in capturing detailed stress
+       distributions and deformations. This paper introduces a continuum-based layer jamming model (CLJM), which
+       treats the LJS as a continuous medium under the assumption of infinitely many thin layers. The CLJM com-
+       prehensively analyzes internal stress distribution – including both shear and normal stresses – and deformation
+       across different mechanical states (full jamming, half slipping, and full slipping). The model is validated through
+       finite-element analysis (FEA) and experimental tests, showing strong agreement in both deformation response
+       and stress profiles. The results demonstrate that the CLJM provides an effective and accurate theoretical tool for
+       designing LJSs in variable-stiffness applications.
+
+
+
+1   Introduction                                                    and have been applied in numerous fields (Blanc et al., 2017;
+                                                                    Caruso et al., 2022a).
+                                                                       Jamming refers to the physical process in which dis-
+                                                                    crete particles, layers, or fibers confined within a limited
+For many structures, stiffness – an essential mechanical char-      volume transition from liquid-like to solid-like behavior
+acteristic – remains constant during operation. However,            under increased stress (Brancadoro et al., 2020; Liu and
+as machines increasingly operate in unstructured environ-           Nagel, 1998). As a variable-stiffness technique, layer jam-
+ments, variable-stiffness structures are more effective than        ming beams offer features such as rapid and reversible tran-
+constant-stiffness ones in interacting with non-cooperative         sitions between different stiffness states and ease of fabri-
+targets (Morrison and Su, 2020). The pursuit of variable            cation (Blanc et al., 2017; Caruso et al., 2022a). Kawamura
+stiffness is a pervasive theme in modern mechanical and             et al. (2002, 2003) and Tabata et al. (2000) were the first to
+robotic design, extending beyond layer jamming to include           introduce layer jamming structures (LJSs) into the engineer-
+innovative mechanisms in various applications. For instance,        ing field as a variable impedance mechanism for wearable
+in vehicle suspension systems, Anubi et al. (2013) demon-           devices. Subsequently, LJSs have been employed in diverse
+strated a passive variable-stiffness suspension that outper-        applications, including medical endoscopic robots (Kim et
+forms constant-stiffness designs by optimally controlling en-       al., 2012, 2013), soft actuators (Wall et al., 2015), grippers
+ergy dissipation, highlighting the broad performance bene-          (Elgeneidy et al., 2019; Hou et al., 2019; Zhu et al., 2019),
+fits of adaptive stiffness. In the realm of robotic joints, Yigit   and cooperative robot arms (Zhou et al., 2020).
+and Boyraz (2017) designed a cable-driven parallel-series              To further expand the engineering applications of LJSs,
+hybrid variable-stiffness joint, addressing critical needs for      their mechanical behavior must be well understood to guide
+compliance and workspace adaptability in humanoid robotics          the design process. This area has been the focus of several
+through a sophisticated mechanism incorporating elastic el-         studies. However, due to the complex interactions within
+ements. These diverse approaches underscore the field’s ac-         jamming structures, effective numerical or analytical meth-
+tive exploration of variable-stiffness principles. Among var-       ods for modeling these structures are still needed. Specifi-
+ious variable-stiffness techniques, jamming structures have         cally for LJSs, a widely accepted model focuses on the sec-
+garnered significant attention from researchers and engineers
+
+
+Published by Copernicus Publications.
+822                                                          S. Zhang et al.: A continuum-based model for a layer jamming beam
+
+                                                                       uum assumption is rigorously justified when the number of
+                                                                       layers is sufficiently large, rendering the discrete effects neg-
+                                                                       ligible. This approach is analogous to methods employed in
+                                                                       modeling laminated composites or granular materials, where
+                                                                       the macroscopic behavior emerges from the collective inter-
+                                                                       action of a large number of constituents. In this work, we
+                                                                       focus on the regime where the layer thickness δ is much
+                                                                       smaller than the beam height h (i.e., δ/ h  1), which means
+                                                                       the number of layers n is large, ensuring the validity of treat-
+                                                                       ing stress and strain as continuous fields across the beam’s
+                                                                       height.
+                                                                          This paper is organized as follows. Section 2 introduces
+                                                                       the basic concept and properties of the continuum-based
+                                                                       layer jamming model (CLJM). Section 3 provides a detailed
+                                                                       analysis of the internal forces and stresses in LJSs. Section 4
+                                                                       describes the deformation behavior of LJSs. Section 5 com-
+                                                                       pares the CLJM results with experimental and FEA data. Fi-
+                                                                       nally, Sect. 6 presents the conclusions.
+Figure 1. Continuum-based layer jamming model. (a) LJM based
+on continuum assumption. (b) The stress state and its deforming
+path in the τ –σ stress space of the CLJM. (c) The elastoplastic de-
+                                                                       2   Continuum-based layer jamming model
+formation process of the LJM.
+
+                                                                       The transition from a discrete layered system to a contin-
+                                                                       uum is grounded in the limit where the layer thickness δ
+ond moment of the cross-section, yielding I = b(nδ)3/12                approaches zero, while the total height h remains constant,
+for a solid-like state and I = bnδ3/12 for a liquid-like state         equivalent to an infinite number of layers. Under this assump-
+(Henke and Gerlach, 2014; Ibrahimi et al., 2021; Kawa-                 tion, which holds effectively for n >∼ 10 layers in practical
+mura et al., 2002), where n is the number of layers, δ is              applications, as shown in the FEA comparison (Sect. 5), me-
+the thickness of the layers, and b is the width of the layers.         chanical quantities such as stress and strain become contin-
+Narang and colleagues (Narang, 2018; Narang et al., 2018a,             uous functions of the spatial coordinate y. When the sheet
+b, 2020) were the first to present a comprehensive model of            is exceptionally thin, the layer jamming structure (LJS) can
+two-layer jamming cantilevers using Euler–Bernoulli beam               be considered to be a beam composed of a special type of
+theory. Their model not only predicts the stiffness of LJSs            continuous medium, based on the assumption that the layer
+but also provides transition criteria, and it has been extended        thickness approaches zero, while the number of layers be-
+to multi-layer beams using finite-element methods. Further-            comes infinite. In this case, all physical quantities can be
+more, Caruso et al. (2022b) developed a model for multi-               treated as continuous functions along the beam height, en-
+layer jamming cantilevers based on stress analysis, result-            abling the use of continuum mechanics in the modeling pro-
+ing in a summation form. They also introduced an analyti-              cess. The mechanical behavior of the LJS is described in
+cal model to describe the three-point bending of multi-layer           this section using fundamental concepts from continuum me-
+jamming beams (Caruso et al., 2022a, 2023). LJS beams bear             chanics.
+similarity to composite beams with interlayer slip. Newmark               From a continuous media perspective, the LJS may be
+(1951) studied composite beams with incomplete interaction,            modeled as a curved beam with a rectangular cross-section.
+while Schnabl et al. (2007) provided an analytical solution            To facilitate the description, the coordinate system in Fig. 1a
+for two-layer beams with interlayer slip and shear deforma-            is introduced: the s axis represents the central surface of the
+tion. Tarsi and Afshin (2022) studied the delamination prop-           beam, the y axis represents the beam height, and θ is the an-
+agation in composite beams. However, these studies cannot              gle between the y axis at s and at s = 0. The radius of the
+adequately describe the deformation behavior of LJSs with              curvature at s is r = ds/dθ . To illustrate the relationship be-
+significant slip.                                                      tween the LJS and continuum mechanics, the stress state of
+   The analytical models of LJSs proposed in previous re-              the differential volume element at (s, y) in Fig. 1a is ana-
+search often lack sufficient detail in stress distribution and         lyzed.
+model multi-layer mechanical behavior on a layer-by-layer                 Similarly, Euler–Bernoulli beam theory assumes that all
+basis. This approach becomes impractical when the number               material points in the beam are in a plane stress state, ne-
+of layers is large. When a sufficient number of thin layers is         glecting interlaminar normal strain. Under this assumption,
+present, it is unnecessary to distinguish between individual           the stress state at (s, y) can be fully described by σ and τ ,
+layers, and LJSs can be treated as a continuum. The contin-            where σ represents the tensile force within a sheet, and τ
+
+
+Mech. Sci., 16, 821–830, 2025                                                              https://doi.org/10.5194/ms-16-821-2025
+S. Zhang et al.: A continuum-based model for a layer jamming beam                                                                 823
+
+represents the friction between sheets. The complete stress
+state can be represented as a point in the τ –σ diagram, as
+shown in Fig. 1b. Under an applied load, the differential vol-
+ume element at (s, y) deforms, as illustrated in Fig. 1a. This
+deformation is characterized by normal strain εs and shear
+strain γsy . It should be noted that εs arises from the extension
+of sheets, while γsy is caused by both the extension of sheets
+and the slippage between them.
+   From the perspective of continuous media, LJSs can be
+viewed as curved beams made of specific elastoplastic ma-
+terials, and their similarities are discussed later. Since in-      Figure 2. The internal forces of a differential segment of a curved
+terlayer normal strain is neglected, no elastic deformation-        beam.
+induced pressure exists between sheets. Consequently, the
+maximum static friction per unit area between sheets is given
+by µp, where p is the vacuum pressure acting on the LJS, and        of the axis s is r. N and N+ dN are the axial forces on
+µ is the friction coefficient between layers. When |τ | < µp,       the left- and right-end sections, Q and Q+ dQ are the shear
+there is no slipping between sheets, only extension, and this       forces on the left- and right-end sections, and M and M+
+stress state is referred to as the jamming state. Conversely,       dM are the bending moments on the left- and right-end sec-
+when |τ | ≥ µp, slip occurs, and the stress state is referred       tions of the differential beam segment, respectively. q is the
+to as the slipping state. In the τ –σ diagram, the jamming          distributed load on the curved beam. The arrows in Fig. 2 in-
+state region appears as a gray strip around the σ axis, while       dicate the positive direction of each mechanical quantity. By
+the slipping state region is represented by two yellow strips       ignoring the second-order small quantities and considering
+above and below. Deformation in the jamming state is en-            the approximation of cos dθ ≈ 1 and sin dθ ≈ dθ , the force
+tirely reversible upon unloading, indicating elastic behavior.      and moment balance equations on the left-end section can be
+However, sliding in the slipping state is irreversible and can      expressed as follows:
+be regarded as plastic deformation. The stress state (σ , τ ) ex-    dN                 dN      Q
+ists only on the boundary or within the jamming state region.        ds = −Qθ 0 − qs    ds = − r − qs
+                                                                      dQ      0           dQ    N
+   The elastoplastic deformation behavior of the LJS medium           ds = N θ + qy
+                                                                                      ⇔   ds = r + qy
+                                                                                                        ,                          (1)
+                                                                     dM                 dM
+is illustrated in Fig. 1c and can be divided into three stages:        ds = Q              ds = Q
+loading, yielding, and unloading. Each stage follows distinct
+principles, necessitating clear criteria for stage differentia-     where qs and qy represent the components of q along the s
+tion. These criteria, as illustrated in Fig. 1b, are as follows:    and y axes, respectively. The first two equations of Eq. (1)
+                                                                   can give the solution written as
+ Loading stage : τ < µp and τ dτ > 0                                                                      
+    Yielding stage : τ = µp and τ dτ ≥ 0                                N           cos θ − sin θ            N0
+                                                                             =
+    Unloading stage : τ ≤ µp and τ dτ < 0.                              Q           sin θ     cos θ          Q0 !
+
+                                                                        s
+                                                                                                                         (2)
+It is important to note that shear strain is independent of shear
+                                                                       R     cos θ      sin θ       −qs (ξ )
+                                                                     +                                         dξ ,
+stress and can take any value in the yielding stage. Aside             s0    − sin θ cos θ          qy (ξ )
+from that, there is no one–one mapping between shear strain
+and shear stress. All of this suggests that the deformation of      where N0 and Q0 are the internal forces at s0 that can be
+the LJS medium must be solved incrementally.                        obtained by solving the LJS beams’ reaction force. Following
+                                                                    that, M(s) can be calculated by integrating from Q(s).
+                                                                       It should be noted that the conclusion of this section holds
+3     Internal force and stress analysis
+                                                                    for the region of both jamming and slipping LJS beams since
+                                                                    its deduction depends only on the continuum assumption.
+3.1    Internal force analysis
+From the perspective of the continuum, the mechanical be-           3.2     Stress analysis
+havior of LJS beams can be studied by utilizing the equiva-
+lent concentrated internal force on a section, that is, the axial   Next, we focus on the shear stress in LJS beams. It is evident
+force N, shear force Q, and bending moment M, as in Euler–          that when the shear force Q on a section is sufficiently small,
+Bernoulli beam theory.                                              there will be no sliding region, and the section is considered
+   By concentrating on the differential beam segment ds in          to be in the full-jamming state, which is shown in Fig. 3a. For
+Fig. 2, the relationship between internal force and the loads       a section in the full-jamming state, the shear stress distribu-
+on LJM beams is explored. As shown in Fig. 2, the center            tion of a rectangular straight beam can approximate that of a
+angle corresponding to ds is dθ , and the radius of curvature       curved beam because the radius of curvature r of LJS beams
+
+
+https://doi.org/10.5194/ms-16-821-2025                                                             Mech. Sci., 16, 821–830, 2025
+824                                                          S. Zhang et al.: A continuum-based model for a layer jamming beam
+
+
+
+
+Figure 3. The section deformation state of the LJM beam. (a) Full-jamming state. (b) Half-slipping state. (c) Full-slipping state.
+
+
+is much larger than their height h. This implies that for a sec-         Qmax :
+tion with a free surface, the following equation holds:
+                                                                                2
+                                                                         Qslip = µpbh,                                                              (5)
+                                                                                3
+                   4y 2                                                             3h2 − 6δh + 4δ 2
+                       
+             3Q
+τ (y, Q) =       1− 2 ,                                         (3)      Qmax = µpb                  .                                              (6)
+             2A     h                                                                   3 (h − δ)
+                                                                         These expressions are derived based on the fact that τ equals
+                                                                         sign(Q)µp in the sliding region |y| ≤ ys .
+where A is the area of the rectangular cross-section, A = bh,
+                                                                            To summarize, the shear stress τ (y, s) in an LJS beam can
+and b is the width of the beam.
+                                                                         be expressed as follows:
+   As Q on a section increases, the central region of the sec-
+                                                                                                      
+tion transitions from the jamming state to the slipping state                       
+                                                                                     3 Q 1 − 4y 2 ,             |Q| ≤ Qslip
+                                                                                    
+                                                                                     2 A          h2
+because τ follows a quadratic distribution along the y axis.                        
+                                                                                    
+                                                                                     sign (Q) µp,               |y| ≤ ys and Qslip ≤ |Q| ≤ Qmax
+Such a section is referred to as being in the half-slipping              τ (y, s) =                      2 2                                        (7)
+                                                                                     sign (Q) µp 1−4y /h ,
+                                                                                                                |y| > ys and Qslip ≤ |Q| ≤ Qmax
+                                                                                    
+                                                                                                    1−4y 2 /h2
+state, as shown in Fig. 3b. However, in general, sections with                                           s
+                                                                                    
+                                                                                    
+                                                                                      c2 y 2 ± c1 y + c0 ,
+                                                                                    
+                                                                                                                 |y| > ys and |Q| > Qmax .
+a free surface in an LJS beam cannot transition entirely into
+the slipping state. This is because the outermost layers will            Here, the coefficients c0 , c1 , and c2 can be determined by the
+always remain in the elastic (jamming) state. As Q continues             following
+                                                                              R h/2 conditions: τ (h/2, s) = 0, τ (ys , s) = sign(Q)µp,
+to increase, the limiting case is reached when no jamming re-            and −h/2 τ dy = Q. The resulting expressions for c0 , c1 , and
+gion remains for |y| ≤ h/2 – δ, where δ is the thickness of a            c2 are as follows:
+single layer. This state is referred to as the full-slipping state,
+                                                                              c = − 12(µpbh+2µpby3 s −2Q)
+                                                                          
+                                                                           2
+                                                                          
+as depicted in Fig. 3c.                                                                    b(h−2ys )
+                                                                                    4 3Qh+6Qys −2µpbh2 −4µpbhys −8µpbys2
+                                                                                                                           
+   The distribution of τsy on a section in the half-slipping                  c1 =                                                    (8)
+                                                                                                   b(h−2ys )3
+state can then be derived. Within the jamming region, τ fol-              
+                                                                                   h µpbh2 +2µpbhy +16µpby 2 −12Qy
+                                                                                                      s        s      s
+                                                                                                                        
+                                                                           c0 =
+                                                                          
+                                                                                                                          .
+lows a form similar to Eq. (3), but Q is replaced by Qeq ,                                                 3
+                                                                                                        b(h−2ys )
+which is determined by solving τ (ys , Qeq ) = µp, where ys is
+                                                                         Finally, Rthe most critical parameter, ys , can be obtained by
+the boundary between the jamming and sliding regions. The                            h/2
+                                                                         solving −h/2 τ dy = Q. Setting ys = 0 in the full-jamming
+result is
+                                                                         state and ys = h/2 − δ in the full-slipping state, ys can then
+                                                                         be expressed as
+               2    µpA
+Qeq = sin gQ                  .                                 (4)               0,
+                                                                                           √
+                                                                                                                               |Q| < Qslip
+               3 1 − 4ys2 /h2
+                                                                                 
+                                                                                  3Q−2µpA+ 3(3Q−2µpA)(Q+2µpA) ,
+                                                                                 
+                                                                                 
+                                                                                                                               Qslip ≤ Q < Qmax
+                                                                          ys =                   √ 8µpb
+                                                                                   −3Q+2µpA+ 3(3Q−2µpA)(Q+2µpA)
+                                                                                 
+                                                                                 
+                                                                                             8µpb              ,              −Qmax < Q ≤ −Qslip
+                                                                                 
+                                                                                   h/2 − δ,                                    |Q| ≥ Qmax .
+The distribution of τ in the jamming region can then be ob-                                                                                         (9)
+tained by substituting Q in Eq. (3) with Qeq as given in
+Eq. (4).                                                                 Next, we turn to the distribution of normal stress in LJS
+    The critical shear force Qslip , which represents the thresh-        beams. The distribution of normal stress σ varies depending
+old between the full-jamming and half-slipping states, can be            on the deformation state. For the full-jamming state, σ dis-
+determined by solving maxy [τ (y, Q)] = µp. From Eq. (3),                tribution is equivalent to that of an elastic beam. In the jam-
+it is evident that τ reaches its maximum value at y = 0. When            ming regions of the half-slipping and full-slipping states, the
+the section transitions from the half-slipping state to the full-        normal stress follows a linear distribution for reasons previ-
+slipping state, the boundary ys satisfies ys = h/2 − δ. In this          ously discussed. Considering an LJS beam subject to a bend-
+case, substituting Q in Eq. (3) with Qeq in Eq. (4) and inte-            ing moment only, each layer can be treated as a beam. Con-
+grating τ across the section yield another critical shear force,         sequently, the function σ (s, y) in the sliding region can be
+
+
+Mech. Sci., 16, 821–830, 2025                                                                       https://doi.org/10.5194/ms-16-821-2025
+S. Zhang et al.: A continuum-based model for a layer jamming beam                                                                            825
+
+
+
+
+Figure 4. The normal stress analysis in the jamming region.
+
+
+represented as a series of polylines, as shown in Fig. 4. The
+amplitude of these polylines decreases to zero as the layer
+thickness approaches zero, indicating an infinite number of
+layers. Combining these observations, the normal stress dis-
+tribution can be expressed as
+     
+        NJ /AJ + KJ (y ∓ ys ) , |y| > ys                             Figure 5. The normal stress analysis in the sliding region. (a) The
+σ=                                                        (10)       normal stress distribution in the sliding region. (b) Neither of the
+        σS (y) ,                  |y| < ys .
+                                                                     sliding region’s end sections is in the half-slipping state. (c) At least
+Here, the subscript J denotes quantities defined in the jam-         one of the end sections is in the half-slipping state.
+ming region; that is, NJ represents the axial force in the jam-
+ming region, AJ is the cross-sectional area of the jamming
+region (AJ = b(h − 2ys )), and KJ is a proportional coeffi-          all points on the red line in Fig. 5a). Consequently, σS (y)
+cient. In addition, the symbol ∓ in Eq. (10) takes the minus         dy = σS (ys) dys and σS (y)y dy = σS (ys )ys dys .
+sign when y ≥ ys and the plus when y ≤ −ys . σS denotes                 Using this property and the relation dys = ys 0 ds, the inte-
+the normal stress distributing on the sliding regions, which is      grals over y in Eq. (11) can be transformed to integrals over s
+discussed in detail later.                                           for sections in the half-slipping state. There are two cases. (1)
+   The relationships between N J , MJ (for momentum on               Neither end of the sliding region is in the half-slipping state,
+the jamming region) and N, M are                                     as shown in Fig. 5b. (2) At least one end of the sliding re-
+                                                                     gion is in the half-slipping state, as shown in Fig. 5c. For the
+            R                R
+                                                                     first case, the original integral over y (domain indicated by
+ N=
+                σJ bdy +          σS bdy
+         Jamming
+             R             Sliding
+                                R               ⇒                    the red line in Fig. 5b) can be divided into two integrals over
+ M=
+                σJ ybdy +            σS ybdy                        s (domain indicated by the blue curves), as mathematically
+          Jamming            Sliding                                 described:
+                                    ys
+                  
+                                                                      Rys             Rs0                    Rs
+                   N = NJ + R σS bdy
+                  
+                                                                    
+                                                                          σS bdy     = σS (−ys ) bys 0 (ds) + σS (ys ) bys 0 ds
+                                                                    
+                                  −ys                                  −ys                s                           s0
+                                                                     
+                                                                     
+                                     Rys                    (11)     
+                                                                     
+                                                                                         Rs 
+                                                                                                 σS (ys ) + σS (−ys ) bys 0 ds
+                                                                                                                    
+                                                                                    =
+                     M  =  M    +        σ  ybdy,
+                                                                    
+                                                                     
+                  
+                             J           S                                               s0
+                                                                                                                                             (14)
+                                 −ys                                    Rys               Rs0                        Rs
+                                                                                      = σS (−ys ) (−ys ) bys 0 (ds) + σS (ys ) ys bys 0 ds
+                                                                     
+                                                                     
+                                                                     
+                                                                           σS ybdy
+                                                                     
+                                                                      −y s               s                                  s0
+where σS denotes the normal stress in sliding regions. And
+                                                                     
+                                                                     
+                                                                                         Rs 
+                                                                                                 σS (ys ) + σS (−ys ) ys bys 0 ds,
+                                                                                                                     
+                                                                                      =
+                                                                     
+                                                                     
+                                                                     
+MJ can be determined by integrating Eq. (10) over the jam-                                s0
+
+ming region:
+                                                                     where s0 is one end of the half-slipping state segment. Based
+     b                                                               on the continuum assumption, the normal stress should re-
+MJ =    (h + ys ) (h − 2ys )2 KJ .                            (12)   main continuous across the boundary, which means that
+     12
+                                                                     there are σS (ys ) = σJ (ys ) and σS (−ys ) = σJ (−ys ). Substitut-
+                                                                     ing Eqs. (14) and (10) into Eq. (11) and noticing σJ (ys ) −
+  To determine the distribution of σS in the sliding region,
+                                                                     σJ (−ys ) = 0 can give
+we apply the differential equation of stress balance:
+                                                                                     Rs J
+                                                                     
+∂σS ∂τS                                                                  N = NJ + 2 N           0
+                                                                                         AJ bys dξ
+                                                                     
+    +    = 0.                                                 (13)                   s                                             (15)
+ ∂s   ∂y
+                                                                         M = MJ .
+                                                                     
+Since τS in the sliding region is a constant sign (Q)µp, we
+                                                                     The derivative of Eq. (15) gives the differential equation
+have ∂τS /∂y = 0. Solving Eq. (13) yields σS = f (y), where
+                                                                     about NJ :
+f is an unknown function, indicating that σS depends only on
+s in the sliding regions. This implies that σS takes the same                                ys 0
+value at all points with the same y in the sliding region (e.g.,     N 0 = NJ 0 + NJ                = −Qθ 0 .                                (16)
+                                                                                           h/2 − ys
+
+https://doi.org/10.5194/ms-16-821-2025                                                                          Mech. Sci., 16, 821–830, 2025
+826                                                                     S. Zhang et al.: A continuum-based model for a layer jamming beam
+
+
+
+
+Considering that at s0 there is NJ = N, the solution of                             be obtained from Eq. (2). Notably, the deformation of an LJS
+Eq. (16) is                                                                         beam derived from the jamming region and sliding region
+                    s                                                 
+                                                                                    is consistent. This consistency allows the deformation of an
+                    Z
+                            Qθ 0                                                    LJS beam to be calculated solely based on the internal mo-
+NJ = (2ys / h − 1)  −               dξ + N (s0 ) / (2ys (s0 ) / h − 1) .          ment within the jamming region.
+                         2ys / h − 1
+                  s
+                                                                                       For small deformations of an LJS beam, the following
+                                                                             (17)   relationship holds in the jamming region, based on Euler–
+                                                                                    Bernoulli beam theory:
+For the second case, the original integral over y, whose do-
+main is indicated by the red line in Fig. 5c, can be divided                               Zs
+into three parts: two integrals over s, whose domain is in-                                     M
+                                                                                    1θ =            dξ,                                     (19)
+dicated by the blue curves, and an integral over y, whose                                       EIJ
+                                                                                           0
+domain is indicated by the purple line. Applying the same
+transformation technique used in Eq. (14), we can obtain a                          where IJ represents the moment of inertia of the jamming
+differential equation that is the same as Eq. (15), and it can                      region in LJS beams. Its value can be calculated as follows:
+also give a similar solution to the first case, but the values                           ( 3
+                                                                                             bh
+of NJ at s0 should correspond to the distribution of σJ at s0 .
+                                                                                    IJ =      12h ,        i ys = 0                         (20)
+Supposing that the axial force at s0 is evenly distributed on                                2     h 3    3
+                                                                                             3     2   − ys , ys 6 = 0.
+the section gives the normal stress distribution at s0 :
+                                                                                   The mechanical response of the LJS beam under a large load
+                N (s0 )
+ σJ (s0 ) = A + KJ (s0 ) (y ∓ ys )
+                                                                                   q must be solved incrementally, based on the small deforma-
+                  (s0 )       12M(s0 )
+              = NA      +                   (y ∓ ys )     (18)                      tion assumption. A detailed algorithm for this step-by-step
+                          b(h+ys )(h−2ys )2
+                                                                                    procedure is presented in the Algorithm.
+
+    σS (s0 ) = N (s0 ) /A,
+
+
+where KJ is solved by combining Eqs. (12) and (15). It is                           5   Results
+then easy to compute that NJ (s0 ) = N(s0 )2ys (s0 )/ h.
+                                                                                    To further validate the mechanical behavior predicted by the
+4   Deformation analysis                                                            proposed method, stress distributions obtained using finite-
+                                                                                    element analysis (FEA) provide a more detailed compari-
+The goal of the deformation analysis is to obtain 1θ (s) un-                        son. The LJS cantilevers analyzed in FEA measure 40 mm
+der a given load q. Using q and θ(s), the internal forces can                       in length, 20 mm in thickness, and 5 mm in height. These
+
+
+Mech. Sci., 16, 821–830, 2025                                                                             https://doi.org/10.5194/ms-16-821-2025
+S. Zhang et al.: A continuum-based model for a layer jamming beam                                                                       827
+
+
+
+
+Figure 6. FEA analysis of straight LJM cantilever’s stress distribution. (a) Distribution of σ and τ under 3N load. (b) Distribution of σ and
+τ under 4N load. (c) Distribution of σ and τ under 5.5N load.
+
+
+
+https://doi.org/10.5194/ms-16-821-2025                                                                  Mech. Sci., 16, 821–830, 2025
+828                                                          S. Zhang et al.: A continuum-based model for a layer jamming beam
+
+                                                                       gion obtained by FEA fluctuates around the values predicted
+                                                                       by CLJM. However, a significant discrepancy exists in the
+                                                                       jamming region’s shear stress between FEA and CLJM. This
+                                                                       error likely occurs because LJS beam segments in the full-
+                                                                       slipping state behave more like curved beams, while CLJM
+                                                                       assumes that the shear stress distribution in the jamming re-
+                                                                       gion follows the pattern of elastic straight beams, introducing
+                                                                       notable inaccuracies.
+                                                                          The relationship between load and deflection in a straight
+                                                                       LJS cantilever can be easily measured using a tensile ma-
+                                                                       chine. The experimental setup used in this study is shown in
+                                                                       Fig. 7a. In this setup, the straight LJS cantilever is fixed to a
+                                                                       frame that slides freely along a rail to eliminate horizontal re-
+Figure 7. Experimental analysis of straight LJM cantilever’s defor-
+                                                                       straints. A flexible PVC membrane encasing 20 PVC sheets
+mation. (a) The measuring device. (b) Experimental result.
+                                                                       forms the test specimen, which measures 100 mm in length,
+                                                                       20 mm in thickness, and 5 mm in height.
+                                                                          The load-deflection results under 60 kPa pressure are rep-
+cantilevers consist of 10 and 25 layers, with assumed mate-            resented as gray dots in Fig. 7b. The orange curve denotes the
+rial parameters of a friction coefficient µ = 0.5 and Young’s          experimental mean, while the error bars spanning ±1 stan-
+modulus E = 0.3 GPa. The finite-element models were con-               dard deviation are shown as the yellow-shaded area. The an-
+structed in Abaqus, utilizing CPS4R elements with a side               alytical results, depicted by the red curve in Fig. 7b, were ob-
+length of 0.1 mm. A pressure of 0.1 MPa was applied on                 tained using the previously discussed algorithm and the ma-
+the upper and lower surfaces, and a concentrated force was             terial parameters: Young’s modulus E = 755 MPa and fric-
+evenly distributed along the free ends of each layer to facili-        tion coefficient µ = 0.55. The analytical curve lies entirely
+tate convergence.                                                      within the 1σ interval, demonstrating the validity of the pro-
+   The shear and normal stress distributions predicted by the          posed analysis method for describing the mechanical behav-
+continuum-based model and FEA are shown in Fig. 6. For                 ior of the LJS cantilever.
+full-jamming sections, Fig. 6a illustrates the stress distribu-           These discrepancies, particularly near the boundaries and
+tion at s = 30 mm under a 3N load. Here, the stress distri-            in the full-slipping state, highlight the inherent limitations of
+butions predicted by FEA and the continuum-based model                 the current continuum assumption, which does not explicitly
+align closely, supporting the assumption that the jamming re-          account for end effects or the curved beam behavior under
+gion behaves like an elastic material. However, near the ends          large slip. Nevertheless, the proposed CLJM demonstrates
+of the cantilever, such as at s = 1 mm under a 3N load, the            high accuracy in predicting global deformation and stress
+shear stress distribution changes significantly depending on           distribution in the central regions of the beam under small-
+the number of layers. As the number of layers increases, the           to-moderate slip conditions, which are of primary interest in
+amplitude of τ (y) predicted by FEA decreases and becomes              most practical applications. Future refinements could incor-
+more continuous, though it deviates from the parabolic shape           porate boundary correction factors or a more detailed treat-
+due to boundary effects.                                               ment of curvature in the jamming region.
+   For half-slipping sections, Fig. 6b shows the stress dis-
+tribution at s = 10, s = 10, and s = 30 mm. In the middle
+segments of the cantilever, the stress distributions predicted         6   Conclusions
+by FEA and the continuum-based model show minimal dif-
+ferences. However, the sliding region predicted by FEA is              In this study, an analytical model based on continuum me-
+narrower than that predicted by the continuum-based layer              chanics is presented to describe the mechanical behavior of
+jamming model (CLJM). This discrepancy arises from the                 LJS beams. Previous works typically treated each layer in the
+CLJM’s neglect of normal stress along the y axis. Ignoring             LJS beam as an independent beam, which is inadequate for
+this stress leads to an overestimation of the sliding region, as       handling LJSs with numerous layers and describing stress
+the normal stress along the y axis can raise the critical shear        distribution in detail. In contrast, the continuum layer jam-
+stress, reducing the extent of sliding. Consequently, the slope        ming model presented here treats the LJS as a continuous
+of the normal stress in the jamming region predicted by FEA            medium, assuming that all mechanical quantities are continu-
+is smaller than that predicted by CLJM.                                ous across the material. This model enables the description of
+   For full-slipping sections, Fig. 6c highlights the differ-          various mechanical behaviors of the LJS beam, such as stress
+ences in stress distributions. Similar to the half-slipping sec-       distribution, deformation, and other related phenomena. The
+tions, the sliding region predicted by FEA is narrower than            effectiveness of CLJM is validated through experiments and
+that predicted by CLJM, and the shear stress in the sliding re-        FEA. The deformation predicted by CLJM aligns well with
+
+
+Mech. Sci., 16, 821–830, 2025                                                              https://doi.org/10.5194/ms-16-821-2025
+S. Zhang et al.: A continuum-based model for a layer jamming beam                                                                       829
+
+experimental measurements, and the stress distribution pre-               References
+dicted by CLJM closely matches the results obtained from
+FEA. Ultimately, it can be concluded that the assumption of
+treating LJSs as a continuum is reasonable, providing engi-               Anubi, O. M., Patel, D. R., and Crane III, C. D.: A new variable
+                                                                             stiffness suspension system: passive case, Mech. Sci., 4, 139–
+neers with a valuable tool for designing materials to meet the
+                                                                             151, https://doi.org/10.5194/ms-4-139-2013, 2013.
+specific demands of various engineering applications.                     Blanc, L., Delchambre, A., and Lambert, P.: Flexible Medical De-
+   The CLJM provides a robust analytical foundation for de-                  vices: Review of Controllable Stiffness Solutions, Actuators, 6,
+signing LJSs with a large number of layers. It is most ac-                   23, https://doi.org/10.3390/act6030023, 2017.
+curate for predicting global mechanical behavior away from                Brancadoro, M., Manti, M., Tognarelli, S., and Cianchetti,
+constraint boundaries and under partial-slip conditions. The                 M.: Fiber Jamming Transition as a Stiffening Mech-
+model’s simplicity and computational efficiency make it par-                 anism for Soft Robotics, Soft Robotics, 7, 663–74,
+ticularly suitable for preliminary design and optimization,                  https://doi.org/10.1089/soro.2019.0034, 2020.
+while FEA remains recommended for final verification, es-                 Caruso, F., Mantriota, G., Afferrante, L., and Reina,
+pecially near free ends or under extreme loading leading to                  G.: A theoretical model for multi-layer jamming sys-
+full slipping.                                                               tems, Mechanism and Machine Theory, 172, 104788,
+                                                                             https://doi.org/10.1016/j.mechmachtheory.2022.104788, 2022a.
+                                                                          Caruso, F., Mantriota, G., and Reina, G.: An Analytical
+                                                                             Model for Cantilever Layer-Jamming Structures, in: Ad-
+Data availability. No data were generated or used in the prepara-
+                                                                             vances in Italian Mechanism Science, Cham, 193–200,
+tion of this paper.
+                                                                             https://doi.org/10.1007/978-3-031-10776-4_23, 2022b.
+                                                                          Caruso, F., Mantriota, G., Moramarco, V., and Reina, G.:
+                                                                             Layer jamming: Modeling and experimental validation, In-
+Author contributions. SZ and JY conceived and supervised the                 ternational Journal of Mechanical Sciences, 251, 108325,
+study. WZ carried out the numerical analysis, and CW conducted               https://doi.org/10.1016/j.ijmecsci.2023.108325, 2023.
+the experimental investigation. SZ performed the formal analysis          Elgeneidy, K., Lightbody, P., Pearson, S., and Neumann, G.: Char-
+and wrote the paper draft, and JY reviewed and edited the paper.             acterising 3D-printed Soft Fin Ray Robotic Fingers with Layer
+                                                                             Jamming Capability for Delicate Grasping, in: 2019 2nd IEEE
+                                                                             International Conference on Soft Robotics (RoboSoft), 2019 2nd
+Competing interests. The contact author has declared that none               IEEE International Conference on Soft Robotics (RoboSoft),
+of the authors has any competing interests.                                  143–148, https://doi.org/10.1109/ROBOSOFT.2019.8722715,
+                                                                             2019.
+                                                                          Henke, M. and Gerlach, G.: On a high-potential variable-
+Disclaimer. Publisher’s note: Copernicus Publications remains                stiffness device, Microsyst. Technol., 20, 599–606,
+neutral with regard to jurisdictional claims made in the text, pub-          https://doi.org/10.1007/s00542-013-1995-5, 2014.
+lished maps, institutional affiliations, or any other geographical rep-   Hou, T., Yang, X., Aiyama, Y., Liu, K., Wang, Z., Wang, T.,
+resentation in this paper. While Copernicus Publications makes ev-           Liang, J., and Fan, Y.: Design and experiment of a uni-
+ery effort to include appropriate place names, the final responsibil-        versal two-fingered hand with soft fingertips based on jam-
+ity lies with the authors. Views expressed in the text are those of the      ming effect, Mechanism and Machine Theory, 133, 706–719,
+authors and do not necessarily reflect the views of the publisher.           https://doi.org/10.1016/j.mechmachtheory.2018.12.013, 2019.
+                                                                          Ibrahimi, M., Paternò, L., Ricotti, L., and Menciassi,
+                                                                             A.: A Layer Jamming Actuator for Tunable Stiffness
+Acknowledgements. The authors thank the reviewers for their                  and Shape-Changing Devices, Soft Robotics, 8, 85–96,
+critical and constructive review of the paper.                               https://doi.org/10.1089/soro.2019.0182, 2021.
+                                                                          Kawamura, S., Yamamoto, T., Ishida, D., Ogata, T., Nakayama,
+                                                                             Y., Tabata, O., and Sugiyama, S.: Development of passive
+                                                                             elements with variable mechanical impedance for wearable
+Financial support. This research has been supported by the Na-
+                                                                             robots, in: Proceedings of IEEE International Conference on
+tional Natural Science Foundation of China (grant no. 52375030)
+                                                                             Robotics and Automation, IEEE International Conference on
+and the Natural Science Foundation of Hebei Province (grant no.
+                                                                             Robotics and Automation, Washington, DC, USA, 248–253,
+E2024203254).
+                                                                             https://doi.org/10.1109/ROBOT.2002.1013369, 2002.
+                                                                          Kawamura, S., Kanaoka, K., Nakayama, Y., Jinwoo Jeon,
+                                                                             and Fujimoto, D.: Improvement of passive elements for
+Review statement. This paper was edited by Pengyuan Zhao and                 wearable haptic displays, in: 2003 IEEE International Confer-
+reviewed by Qasim Atiyah and two anonymous referees.                         ence on Robotics and Automation (Cat. No.03CH37422),
+                                                                             IEEE International Conference on Robotics and Au-
+                                                                             tomation, IEEE ICRA 2003, Taipei, Taiwan, 816–821,
+                                                                             https://doi.org/10.1109/ROBOT.2003.1241694, 2003.
+                                                                          Kim, Y.-J., Cheng, S., Kim, S., and Iagnemma, K.: Design
+                                                                             of a tubular snake-like manipulator with stiffening capabil-
+
+
+https://doi.org/10.5194/ms-16-821-2025                                                                   Mech. Sci., 16, 821–830, 2025
+830                                                           S. Zhang et al.: A continuum-based model for a layer jamming beam
+
+  ity by layer jamming, in: 2012 IEEE/RSJ International Con-             Tabata, O., Konishi, S., Cusin, P., Ito, Y., Kawai, F., Hirai,
+  ference on Intelligent Robots and Systems, 2012 IEEE/RSJ                 S., and Kawamura, S.: Microfabricated tunable bending stiff-
+  International Conference on Intelligent Robots and Sys-                  ness device, in: Proceedings IEEE Thirteenth Annual Interna-
+  tems (IROS 2012), Vilamoura-Algarve, Portugal, 4251–4256,                tional Conference on Micro Electro Mechanical Systems (Cat.
+  https://doi.org/10.1109/IROS.2012.6385574, 2012.                         No.00CH36308), IEEE Thirteenth Annual International Confer-
+Kim, Y.-J., Cheng, S., Kim, S., and Iagnemma, K.: A Novel Layer            ence on Micro Electro Mechanical Systems, Miyazaki, Japan,
+  Jamming Mechanism With Tunable Stiffness Capability for Min-             23–27, https://doi.org/10.1109/MEMSYS.2000.838484, 2000.
+  imally Invasive Surgery, IEEE Trans. Robot., 29, 1031–1042,            Tarsi, S. A. M. and Afshin, M.: Delamination Propagation and
+  https://doi.org/10.1109/TRO.2013.2256313, 2013.                          Crack Growth Analysis of Composite Beams Using a Layer
+Liu, A. J. and Nagel, S. R.: Jamming is not just cool any more,            Wised Virtual Crack Closure Technique, Mech. Solids, 57, 1561–
+  Nature, 396, 21–22, https://doi.org/10.1038/23819, 1998.                 1576, https://doi.org/10.3103/S0025654422060280, 2022.
+Morrison, T. and Su, H.-J.: Stiffness modeling of a variable stiffness   Wall, V., Deimel, R., and Brock, O.: Selective stiffening of soft actu-
+  compliant link, Mechanism and Machine Theory, 153, 104021,               ators based on jamming, in: 2015 IEEE International Conference
+  https://doi.org/10.1016/j.mechmachtheory.2020.104021, 2020.              on Robotics and Automation (ICRA), 2015 IEEE International
+Narang, Y. S.: Achieving mechanical versatility in robots and struc-       Conference on Robotics and Automation (ICRA), Seattle, WA,
+  tures through laminar jamming, PhD thesis, Harvard University,           USA, 252–257, https://doi.org/10.1109/ICRA.2015.7139008,
+  2018.                                                                    2015.
+Narang, Y. S., Vlassak, J. J., and Howe, R. D.: Mechanically Ver-        Yigit, C. B. and Boyraz, P.: Design and Modelling of a Cable-Driven
+  satile Soft Machines through Laminar Jamming, Adv. Funct.                Parallel-Series Hybrid Variable Stiffness Joint Mechanism for
+  Mater., 28, 1707136, https://doi.org/10.1002/adfm.201707136,             Robotics, Mech. Sci., 8, 65–77, https://doi.org/10.5194/ms-8-65-
+  2018a.                                                                   2017, 2017.
+Narang, Y. S., Degirmenci, A., Vlassak, J. J., and Howe,                 Zhou, Y., Headings, L. M., and Dapino, M. J.: Discrete Layer
+  R. D.: Transforming the Dynamic Response of Robotic                      Jamming for Variable Stiffness Co-Robot Arms, J. Mechanisms
+  Structures and Systems Through Laminar Jamming,                          Robotics, 12, https://doi.org/10.1115/1.4044537, 2020.
+  IEEE Robotics and Automation Letters, 3, 688–695,                      Zhu, M., Mori, Y., Wakayama, T., Wada, A., and Kawamura, S.:
+  https://doi.org/10.1109/LRA.2017.2779802, 2018b.                         A Fully Multi-Material Three-Dimensional Printed Soft Gripper
+Narang, Y. S., Aktaş, B., Ornellas, S., Vlassak, J.                       with Variable Stiffness for Robust Grasping, Soft Robotics, 6,
+  J., and Howe, R. D.: Lightweight Highly Tunable                          507–519, https://doi.org/10.1089/soro.2018.0112, 2019.
+  Jamming-Based Composites, Soft Robotics, 7, 724–735,
+  https://doi.org/10.1089/soro.2019.0053, 2020.
+Newmark, N.: Test and analysis of composite beams with incom-
+  plete interaction, Proceedings of society for experimental stress
+  analysis, 75–92, 1951.
+Schnabl, S., Saje, M., Turk, G., and Planinc, I.: Analytical So-
+  lution of Two-Layer Beam Taking into account Interlayer
+  Slip and Shear Deformation, J. Struct. Eng., 133, 886–894,
+  https://doi.org/10.1061/(ASCE)0733-9445(2007)133:6(886),
+  2007.
+
+
+
+
+Mech. Sci., 16, 821–830, 2025                                                                  https://doi.org/10.5194/ms-16-821-2025
+

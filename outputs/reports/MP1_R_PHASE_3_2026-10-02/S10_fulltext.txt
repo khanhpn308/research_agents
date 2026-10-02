@@ -1,0 +1,741 @@
+                                                                Sensors & Actuators: A. Physical 338 (2022) 113449
+
+
+                                                                      Contents lists available at ScienceDirect
+
+
+                                                        Sensors and Actuators: A. Physical
+                                        journal homepage: www.journals.elsevier.com/sensors-and-actuators-a-physical
+
+
+
+
+Soft actuator with switchable stiffness using a micropump-activated
+jamming system
+Huy Hoang Huynh a, Dong Han b, Kazuhiro Yoshida c, Michael De Volder d, Joon-wan Kim c, *
+a
+  Department of Mechanical Engineering, School of Engineering, Tokyo Institute of Technology, 2-12-1 Ookayama, Meguro-ku, Tokyo 152-8552 Japan
+b
+  State Key Laboratory of Fluid Power and Mechatronic System, Zhejiang University, Hangzhou 310027, China
+c
+  Laboratory for Future Interdisciplinary Research of Science and Technology (FIRST), Institute of Innovative Research (IIR), Tokyo Institute of Technology, 4259
+Nagatsuta-cho, Midori-ku, Yokohama 226-8503, Japan
+d
+  Institute for Manufacturing - Department of Engineering, University of Cambridge, 17 Charles Babbage Road, Cambridge CB3 0FS, United Kingdom
+
+
+
+
+A R T I C L E I N F O                                       A B S T R A C T
+
+Keywords:                                                   In the past decades, the robotics community has made great progress in the development of soft robots that are
+Soft robotics                                               inherently safe in their interaction with their environment. However, the compliance of these robots also comes
+Granular jamming                                            with drawbacks, such as the fact that soft structures cannot easily exert high forces on their environment. In this
+Electro-conjugate fluid (ECF)
+                                                            work, we propose a new soft actuator where part of the structure can actively switch from being compliant to
+ECF micropump
+                                                            rigid by using particle jamming in some sections. A challenge with jamming particle designs is that it requires a
+Micro hydraulic power source
+                                                            vacuum pump which tends to be bulky, which we have addressed here by directly embedding a flexible electro-
+                                                            conjugated fluid (ECF) micropump in the actuator. This bidirectional pump does not affect the flexibility of the
+                                                            soft actuator, but when it is switched on, pressures up to ± 55 kPa are achieved. We demonstrate that these
+                                                            embedded pumps can be used both to increase the stiffness of the actuator with a factor of 5.5 by an ECF pressure
+                                                            of − 55 kPa as well as to inflate the actuator and achieve hydraulic actuation with a bending angle of 16◦ by + 55
+                                                            kPa. We believe that the proposed soft actuator that can actively switch stiffness and produce deformation is an
+                                                            important tool for the development of more practical soft robots.
+
+
+
+
+1. Introduction                                                                                    have been developed separately, but the above observations in biolog­
+                                                                                                   ical systems suggest that the ability to switch between soft and stiff ro­
+    Interaction with the surrounding environment is essential for living                           bots is important to mimic biological systems [6].
+creatures to survive [1]. Interestingly, living creatures require both                                 Conventional robot arms, which are the first imitations of biological
+gentle interaction with their surroundings when they are, for instance,                            manipulators, consist of the rigid body frame and rotary or linear joints
+feeding youngsters or playing instruments, while at the same time, high                            [7]. These robots mainly work in industrial fields in which high
+force interactions are needed when building nests or hunting [2]. The                              load-bearing, high precision, high speed, and high reliability are crucial
+marvel of both the dexterity and adaptability of our bodies’ stiffness to                          [8]. However, their rigid body limits the ability to deform and adapt to
+carry out various tasks is the result of many factors, including the bone                          target objects [9]. Importantly, these rigid robots are not safe to interact
+and joint structure combined with antagonistic muscle pairs, which                                 with humans, so we need to separate the workplace of robots and
+allow to firm up parts of our bodies or relax them [3]. The ability to                             humans [10]. The absence of compliance in conventional robots has
+control the stiffness of bodies is even observed in invertebrates such as                          inspired scientists to develop soft robots [11], which are often actuated
+octopuses that can vary the stiffness of their arms, allowing them to                              by flexible actuators such as electroactive polymers and inflatable elastic
+interact with the surrounding water dynamically [4]. This also allows                              structures [12,13]. While conventional robots excel at executing repet­
+them to create virtual joints leading to a virtually unlimited number of                           itive tasks in well-defined environments, they require sensors and
+degrees of freedom in their arm movements [5]. So far, the fields of                               advanced control systems to operate in undefined or changing envi­
+conventional stiff robotics and the upcoming soft robotics community                               ronments [14]. On the other hand, soft robots have shown to be able to
+
+
+
+ * Correspondence to: Laboratory for Future Interdisciplinary Research of Science and Technology (FIRST), Institute of Innovative Research (IIR), Tokyo Institute of
+Technology, J3-12, 4259 Nagatsuta-cho, Midori-ku, Yokohama 226-8503, Japan.
+   E-mail address: woodjoon@pi.titech.ac.jp (J.-w. Kim).
+
+https://doi.org/10.1016/j.sna.2022.113449
+Received 10 November 2021; Received in revised form 12 January 2022; Accepted 10 February 2022
+Available online 17 February 2022
+0924-4247/© 2022 Elsevier B.V. All rights reserved.
+H.H. Huynh et al.                                                                                                Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+adapt themselves to their surroundings as illustrated for example by               whole system was large and bulky, since it required an external air
+Wang et al. [15] who introduced a soft robot that can handle many                  compressor, a vacuum pump, and many control units such as valves with
+different objects of different shapes without the need for sensors or              clunky tubing for its manipulation. To overcome these limitations, we
+re-programming of the robot. Many efforts have been made to improve                focus on a functional fluid, electro-conjugate fluid (ECF). By using the
+the performance of soft robots, especially in terms of understanding the           dynamic pumping mechanism of the ECF (a kind of dielectric fluid)
+motion behavior, which helps researchers predict the response and                  converting electric energy directly into kinetic energy [45–47], we can
+optimize soft actuator designs. Xavier Fleming et al. [16] summarized              realize an ECF micropump composed of the triangular prism and slit
+the analytical methods for modelling soft robotic structures that provide          electrode pairs (TPSEs), as shown in Fig. 1, which can be embedded in
+excellent tools to explain motion and enhance the performance of soft              the miniaturized robot as a micro hydraulic power source [48–50]. Since
+actuators. Despite the mentioned advantages and achievements [17],                 its components such as the TPSEs and the microchannels are fabricated
+soft robots also suffer from a number of inherent limitations, in partic­          by photolithography-based MEMS (micro-electro-mechanical systems)
+ular, soft and compliant systems are inherently sub-optimal for exerting           technology [51,52], this micropump is superior in integrability with
+high forces on their environments, which limits the range of tasks these           other microfluidic device elements[53–55]. By taking advantage of high
+robots can carry out [18]. One particularly interesting approach to                output power density [56,57], we have applied the ECF micropumps to
+overcome this limitation and to combine the best of both classic and soft          various soft robots [58,59]. In addition, the soft actuator driven by ECF
+robots is to create variable stiffness robots [19].                                flow has good repeatability and reliability, as demonstrated in a robot
+     Variable stiffness robots have the on-demand ability to change their          hand [60], in which five independent robot fingers (soft actuators) have
+stiffness between rigid state and compliant state depending on the task            almost identical performance at room temperature. We also demon­
+they are carrying out [20,21], in essence, this mimics strategies used by          strated that our ECF micropumps could activate the jamming transition
+living creatures such as octopuses’ tentacles and elephants’ trunks [22].          in the jamming gripper if we adopt proper particles [61,62].
+Different strategies have been developed to create materials that mimic                Based on the background mentioned above, this paper proposes a
+these properties [23] which can be categorized in semi-active materials            new miniaturized soft actuator with switchable stiffness using a granular
+and active materials [24]. Semi-active materials, including shape                  jamming system activated by an embedded ECF micropump as a micro
+memory alloys (SMAs) [25], shape memory polymers (SMPs) [26],                      hydraulic power source. In addition to the advanced feature of the in­
+low-melting-point alloys (LMPAs) [27], granular materials [28], change             ternal pressure source, the proposed soft actuator has the advantage of
+their microscopic structure upon the stimulation of external energy,               two functions in the same body: (1) changing its stiffness based on
+affecting their mechanical properties. In contrast, active materials such          granular jamming by negative pressure of ECF jet flow and (2) actuating
+as piezoelectric polymers (PZPs) [29], ferromagnetic shape memory                  (bending motion) by its positive pressure, as shown in Fig. 2. This paper
+alloys (FSMAs) [30] convert the energy form and use this energy to                 is organized as follows: the concept and working principle of the pro­
+modulate the mechanical properties.                                                posed soft actuator are described in Section 2. The fabrication and the
+     Although the robotic community has developed many variable                    characteristic evaluation are covered in Section 3 and Section 4,
+stiffness robots based on these materials, many remaining limitations              respectively. Finally, the conclusions of the research are given in Section
+prevent these robots from being applied to practical situations. For               5.
+example, thermoplastic materials like SMPs, non-SMPs, and LMPAs
+demonstrate a wide range of working stiffness (0.1 ~ 10 MPa), but the              2. Concept and working principle of the soft actuator with
+response time is slow (approximately 100 s) [31–36]. In contrast,                  switchable stiffness
+granular materials have a faster response time (about 1 s) with a similar
+range of working stiffness (2 ~ 100 MPa) [37–39], so that it will be a                 The proposed soft actuator consists of two main parts: (1) the soft
+promising solution for the current issue of robotics.                              actuator filled with jamming particles (aluminium oxide, 20 µm in
+     Among many technologies for stiffness control in robotics, the                diameter) and (2) the bidirectional flexible ECF micropump. Fig. 3 de­
+granular jamming transition has been attractive because it is simple,              scribes the schematics and dimensions of the soft actuator. We adopt a
+versatile, reversible, and customizable for specific applications [40].            Pneu-Nets soft actuator as the structure of our device [64]. The Pneu-Net
+Granular materials change the stiffness based on the jamming phe­                  soft actuator contains a series of channels and chambers made of a soft
+nomenon in which the stiffness of the materials varies according to the            material (SYLGARD™ 184, Dow Inc.). Inside the channels and the
+vacuum pressure applied to them. A granular jamming actuator con­                  chambers, we fill the aluminium oxide particles with a diameter of
+sisted of an elastic envelope filled with granular material [41]. At at­           20 µm to serve the two-functional purpose of the device. Below this soft
+mospheric pressure, the particles within the envelope are at a fluid-liked         actuator, we integrate the bidirectional ECF micropump. The ECF
+state. However, when the air evacuates from the envelope, the particles            micropump here contains tiny triangular prism and slit electrode pairs
+change from the fluid-liked state to the rigid-liked state, increasing the         (TPSEs) on a thin polyimide substrate so that the micropump is not
+stiffness of the system [42]. Employing this phenomenon, Brown et al.              stretchable but flexible. This flexible micropump can work as a
+[43] introduced a universal gripper attached to a conventional robot               displacement constraint element and bend upon the actuation of the
+arm as an end-effector. The gripper consisted of an elastic sphere bag             upper part. The micropump and the soft actuator connect through the
+filled with ground coffee. At a fluid-liked state, the gripper pressed the         small port covered by the filter made of a metallic mesh. The filter
+target object and adapted to the shape and the object. When vacuum                 prevents the particles inside the soft actuator from flowing into the
+pressure was applied, the gripper changed to a rigid-like state and                channel of the micropump, protecting the micropump when it works at
+maintained adequate force to grasp the object. Pei Jiang et al. [44]               high voltage. We describe details of the dimensions in Fig. 3. We sub­
+introduced a soft actuator integrated with the granular jamming module             stitute the rhombic prism for the triangular prism of the TPSEs to pro­
+in another application of various stiffness actuation. The device con­             vide the flow in two directions for the micropump, ensuring the
+sisted of a fibre reinforcement soft actuator at the upper part and a bag of       micropump can replace the air compressor and the vacuum pump. The
+granular materials at the lower part. The authors pressurized the two              essential dimensions of the electrodes are based on the optimal TPSE
+chambers separately, and the differential pressure between the two                 dimensions reported in our previous study [57]: (a) Electrode gap
+chambers determined the bending motion and the stiffness of the                    (distance between the sharp tip of the rhombic prism to the slit elec­
+actuator.                                                                          trode) is 0.2 mm; (b) Slit width (distance between two rectangular
+     Although robotic scientists demonstrated the potential of granular            prisms in the slit electrode) is 0.2 mm; and Slit depth (thickness of the
+materials through many robot applications, there are many drawbacks                split electrodes) is 0.3 mm. Concerning the wiring, the red electrodes
+of the current structure of the devices, especially in miniaturization. The        connect to the high voltage and the blue electrodes connect to the
+
+                                                                               2
+H.H. Huynh et al.                                                                                                   Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+                           (a) TPSE and ECF jet                       (b) Serialization                  (c) Parallelization
+                                             Fig. 1. ECF jet flow generated by a TPSE and the modular design of TPSEs.
+
+
+
+                                                          Soft actuator
+
+
+
+
+                               Flexible
+                               ECF micropump                                         Function1: Changing stiffness
+                                                          Jamming
+                                                                                       (Negative ECF pressure)
+                                                          particles
+
+
+
+
+                                                                                                               Connection port
+                                                      Connection port
+                                                      with a filter                      Function 2: Bending
+                                                                                       (Positive ECF pressure)
+Fig. 2. Schematics and working principle of the proposed soft actuator having both tunable stiffnessby granular jamming (negative ECF pressure) and active bending
+(positive ECF pressure) by embedding a flexible ECF micropump as a micro hydraulic pressure source.
+
+
+
+
+                           Soft actuator                                                      Unit: mm
+                              filled with
+                          jamming particle
+
+                          PDMS sheet
+
+
+                            Stainless
+                            mesh                                                       0.2
+                                                                                 0.3
+                            (a filter)
+
+                            PDMS
+                                                                            0.3
+                            channel                                           0.2
+                                                                                     0.68
+                             Bidirectional flexible
+                            micropump
+
+                                     Fig. 3. Schematics and dimensions of the proposed soft actuator with switchable stiffness.
+
+
+ground in Fig. 3. We can switch the flow direction of the micropump by                   At the initial state, the two-functional device keeps a straight shape,
+switching the applied voltage to the rhombic prism electrodes. With the              and the stiffness depends on the natural mechanical properties of the
+advantage of the ECF technology and the MEMS fabrication technique,                  structures. When we apply high voltage to the micropump, the micro­
+we can embed a micro hydraulic power source in the soft actuator and                 pump generates the flow actuating the soft upper actuator. We can
+miniaturize our device to a compact size.                                            switch between the two functions of the device by controlling the
+
+                                                                                 3
+H.H. Huynh et al.                                                                                                  Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+applied voltage. In Fig. 2 (bottom right), when we apply voltage to the             particles inside the chambers and used a PDMS sheet to seal the cham­
+micropump to generate the flow from the left to the right, the ECF flows            bers. Next, we coated a thin layer of the elastic adhesive to the wall of
+into the chamber of the soft actuator, applying positive pressure to it,            the soft actuator and attached the PDMS sheet to the bonding area. Then
+leading to the inflation of these chambers. Upon inflation, the chambers            we place the soft actuator at room temperature for 24 h to ensure the
+push each other to produce bending motion of the entire device. In Fig. 2           curing of the adhesive. After that, we use a punch to cut the connecting
+(top right), when we apply voltage to the micropump to generate the                 port on the PDMS sheet. Fig. 5c shows the image of the fabricated soft
+flow from the right to the left, negative pressure is applied to the upper          actuator filled with jamming particles. Temporarily, we connected the
+chamber, triggering the stiffness control function of the device through            port with a metal pipe for leakage testing of the soft actuator. However,
+the granular jamming effect. In addition, when we change the value of               this pipe was unnecessary for the final device since the connecting port
+the applied voltage, the negative pressure inside the chambers of the soft          directly linked to the micropump.
+actuator varies, changing the stiffness at the system level of the device.
+                                                                                    3.2. Fabrication of the bidirectional flexible ECF micropump
+3. Fabrication of the soft actuator with switchable stiffness
+                                                                                        We basically have utilized glass substrates to fabricate bidirectional
+3.1. Fabrication of the soft actuator                                               ECF micropumps [63]. However, in the proposed soft actuator with
+                                                                                    switchable stiffness, we need the flexibility of the micropump. There­
+     Fig. 4 describes the details of the casting process of the soft actuator       fore, we fabricate the micropump on a commercial polyimide flexible
+filled with jamming particles. We used the casting method to fabricate              printed circuit board, called as FPCB (NZ-M1K, Sunhayato Co. Ltd.). The
+the soft actuator. In the first step, we prepared the casting moulds by             FPCB consists of five layers: reinforcing plate (thickness: 1 mm), adhe­
+machining the polyetherimide into the mould shapes. The moulds had                  sive layer (thickness: 20 µm), polyimide (PI) layer (thickness: 50 µm),
+two parts inserted into each other to form the shape of the Pneu-Nets               copper layer (thickness: 35 µm) and positive photoresist layer (thick­
+actuator. Fig. 5a shows the optical image of the moulds used to cast                ness: several µm). The reinforcing plate bind to the polyimide layer due
+the soft actuator. In casting steps, we first mixed silicone elastomer              to the function of the mediate adhesive layer. The reinforcing plate
+(SYLGARD™ 184, Dow Inc.) with its curing agent in the ratio of 10:1.                provides a robust substrate to ensure ease in handling the thin and soft PI
+Next, we removed air bubbles from the silicone elastomer mixture in the             film during fabricating steps. After fabrication, the reinforcing plate is
+vacuum mixer, reducing the harmful effect on the final product. Next,               detached from the PI layer by dipping the whole FPCB inside the ethanol
+we poured an adequate amount of the silicone elastomer mixture into                 for an adequate time.
+the container part of the mould and placed the mould inside the vacuum                  We modified our UV-LIGA process [51] to fabricate the flexible
+chamber to remove any air bubbles formed during the process. After                  two-directional ECF micropumps, as shown in Fig. 6. First, we patterned
+taking the container out of the vacuum chamber, we inserted the upper               the copper layer of the FPCB into the shape of the seed layer. Next, we
+part of the mould into the container part and used the gripper to fix the           coated OMR-83 (Tokyo Oka Co.) polymer to serve as the protecting layer
+two parts. Then, we placed the mould containing the silicone elastomer              for the polyimide layer because the polyimide dissolves in the KMPR
+in the oven at 100 ◦ C for one hour. After taking the mould out of the              remover (Kayaku Advanced Materials, Inc.) used in a later step. We
+oven, we kept the mould at room temperature for two hours to ensure                 spin-coated the OMR-83 on the patterned seed layer at 3000 rpm for
+that the completed curing of the silicone elastomer. After two hours, we            20 s. Then, we placed the substrate on the heater at 110 ◦ C for 90 s,
+opened the gripper and removed the upper part from the container part.              UV-exposed it and implemented post-baking at 145 ◦ C for 5 mins. After
+We took the soft actuator out of the container. Fig. 5b shows the image of          coating a protecting layer, we implemented a micro moulding process of
+the fabricated Pneu-Nets chamber of the soft actuator. After casting the            negative photoresist (KMPR, Kayaku Advanced Materials, Inc.). For one
+Pneu-Nets chamber of the soft actuator, we filled aluminium oxide                   substrate, we spin-coated three layers of the KMPR, forming 0.5 mm in
+
+
+
+
+                                                       (a) Mix elastomer and
+                                                           pour it into the moulds.
+
+
+                                                                                                      (e) Using the uncured
+                                                                                                          elastomer as glue,
+                                                                                                          bond the main body
+                                                       (b) Cure both parts                                piece to the base.
+                                                           and demould
+                                                           the main body.
+
+
+
+                                                       (c) Fill the remaining half
+                                                          of the base mould
+                                                          with uncured elastomer.
+
+                                                                                                (f) Cure the two pieces together.
+                                                                                                    Demould the final actuator.
+                                                       (d) Put the jamming
+                                                           particles inside.
+
+                                         Fig. 4. Fabrication process of the soft actuator filled with jamming particles.
+
+                                                                                4
+H.H. Huynh et al.                                                                                                    Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+Fig. 5. Fabricate results: (a) cast mould for a soft actuator, (b) Pneu-Nets chamber of the soft actuator, (c) Assembled soft actuator filled with jamming particles.
+
+
+
+
+                         (a) Patterning photoresist                   (b) Etching copper                     (c) Coating OMR-83
+
+
+
+
+                          (d) Patterning KMPR                 (e) Etching OMR by O2 plasma               (f) Electroforming Nickel
+
+                                                                                                                  Photoresist
+                                                                                                                  Copper
+                                                                                                                  OMR-83
+                                                                                                                  KMPR
+                                                                                                                  Nickel
+                                                                  (h) Releasing polyimide                         Flexible substrate
+                                                                      substrate                                   Adhesive
+                          (g) Removing KMPR                                                                       Rigid substrate
+
+                                Fig. 6. Fabrication process of the bidirectional flexible ECF micropumps on the polyimide FPCB.
+
+
+thickness. After each time we spin-coated KMPR, we placed the sub­                    contact the electroforming solution. After the O2 plasma treatment of the
+strate on a heater at 100 ◦ C for soft-baking. After forming a                        substrate, we conducted the electroforming process to grow the nickel
+three-layer-thicked KMPR layer, we exposed it under UV light and the                  microelectrodes inside the KMPR micro moulds. After that, we removed
+photomask. We estimated the necessary UV dose based on the manu­                      the KMPR mould from the substrate in two steps. First, we used a CO2
+facturer’s manual of KMPR and our previous experimental data. In our                  laser to engraved most of KMPR. Second, we dipped the substrate into
+fabrication, the UV dose was 1960 mK/cm2. After the exposure, we                      KMPR remover to dissolve the remaining KMPR on the substrate. Then,
+placed the substrate on the hotplate at 100 ◦ C for 10 min to implement               we diced the substrate into the chip-sized devices and released the
+the post-baking process.                                                              reinforcing plate by dipping the diced devices into ethanol for 20 min.
+    Next step, we dipped the substrate into the developer PGMEA (pro­                 After this step, we successfully fabricated the bidirectional flexible ECF
+pylene-glycol-mono ether-acetate) to selectively dissolve the uncros­                 micropump. We demonstrated the flexibility of the fabricated micro­
+slinked KMPR, forming the micro mould for TPSEs. We aligned and                       pump by an external force, as shown in Fig. 7. The side view (Fig. 7c)
+patterned the micro mould on top of the seed layer for the electro­                   shows we can bend the micropump to the large curvation without lifting
+forming process. We etched the OMR-83 polymer covering the seed                       the electrodes (TPSEs) off the flexible PI substrate. The SEM image of a
+layer by using O2 plasma to make the conductive seed layer be able to                 TPSE (Fig. 7d) proves the electrodes gap can maintain thanks to the tiny
+
+
+                                                                                  5
+H.H. Huynh et al.                                                                                            Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+                            (a) Flexible ECF micropump                         (b) SEM image of electrodes
+
+
+
+
+                             (c) Side view                                     (d) Magnified side view
+                                 at the large bending                              at the large bending
+                                                      Fig. 7. Fabricated flexible ECF micropump.
+
+
+structures and our flexible micropump can have the same performance             4. Performance evaluations of the soft actuator with switchable
+at the large deformation.                                                       stiffness
+
+                                                                                4.1. Characterization of the bidirectional flexible ECF micropump
+3.3. Assembly of the soft actuator and the ECF micropump
+
+                                                                                    We cannot measure the output pressure and flow rate of the fabri­
+    We showed all the components of the soft actuator in Fig. 8a,
+                                                                                cated micropump in our assembled soft actuator due to the integrated
+including the flexible ECF micropump, the PDMS channel of the
+                                                                                design of the device, although understanding the pressure and flow rate
+micropump, the metal sheet working as the filter, the PDMS sheet, and
+                                                                                according to the applied voltage is essential to evaluate the performance
+the soft actuator body and the aluminium oxide particles. When all the
+                                                                                of the proposed soft actuator. Therefore, we measured the output pres­
+components were ready, we assembled the soft actuator.
+                                                                                sure under the no-flow condition and the flow rate under the no-load
+    We then sealed the micropump by the PDMS channel. First, we cast
+                                                                                condition by the experimental setup shown in Fig. 9. First, we con­
+the PDMS (SYLGARD™ 184, Dow Inc.) channel using mechanically-
+                                                                                nected the device to the pressure sensor and applied high voltage to the
+machined mould of polyetherimide, PEI (ULTEM U1000, the Mitsu­
+                                                                                micropump to measure the pressure. Next, we measured the mass of a
+bishi Chemical Advanced Materials). Then we coated the elastic adhe­
+                                                                                breaker below the output port and time to calculate the flow rate of the
+sive (EP001N, Cemedine MicroChem Corp.) on the top surface of the
+                                                                                ECF micropump. In both experiments, we applied the voltage to the
+PDMS channel and the TPSEs. Finally, we assembled the micropump
+                                                                                micropump from 0 to 2.5 kV with an increment of 0.5 kV.
+substrate to the PDMS channel and placed the device at room temper­
+                                                                                    The sealed micropump consisted of TPSEs on the flexible substrate
+ature for 24 h to ensure the bonding between the channel and the
+                                                                                and the PDMS channel (3 mm in thickness), which was utilized for the
+micropump substrate. Next, we connected two pipes to the sealed
+                                                                                only evaluation of the micropump. The size of the micropump was 24
+micropump for testing the sealing and measuring its essential charac­
+                                                                                (length) × 8 (width) × 3 (height) mm in total. In one flow direction, the
+teristics (Fig. 8b). When assembling the proposed soft actuator, we de­
+                                                                                micropump contained three electrode pairs in parallel and 27 electrodes
+tached these two pipes from the micropump and integrated them with
+                                                                                pairs in series. Because the micropump worked based on the ECF effect,
+the soft actuator.
+                                                                                we could control the flow rate or the pressure by changing the voltage
+    After fabricating the upper soft actuator and the lower flexible ECF
+                                                                                applied to the micropump. As shown in Fig. 10, the output pressure and
+micropump, we combined these two components to realize the proposed
+                                                                                the flow rate increased according to the increase of the applied voltage.
+soft actuator with switchable stiffness using a micropump-activated
+                                                                                We recorded the maximum pressure of 55 kPa flow rate of 140 mm3/s at
+jamming system. First, we used a punch to make the port to the bot­
+                                                                                the applied voltage of 2.5 kV. The result proves that we can use our
+tom sheet of the soft actuator and the upper cover of the sealed micro­
+                                                                                micropump in soft robot applications where space is limited. The other
+pump. Second, we covered the port on the micropump with the metal
+                                                                                advantage of our micropump is that it can generate the flow in two di­
+sheet to serve as a filter to prevent the aluminium oxide particles from
+                                                                                rections. We found that the flow generated from left to right was higher
+flowing into the micropump channel during operation. Third, we
+                                                                                than one in the opposite direction. However, the difference was not
+created a thin layer of the elastomer adhesive (EP001N, Cemedine
+                                                                                noticeable, 11% for the static pressure and 3% for the flow rate. We
+MicroChem Corp.) to the bonding area of the two main parts. Finally, we
+                                                                                believed that the difference in the pressure was higher than the differ­
+assembled the two components and placed the device at room temper­
+                                                                                ence in the flow rate, which resulted from the expansion of the PDMS
+ature for 24 h to confirm the curing of the adhesive. The assembled soft
+                                                                                channel due to fabrication error. During the characterization of the
+actuator was shown in Fig. 8c.
+
+                                                                           6
+H.H. Huynh et al.                                                                                                  Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+                           (a) Components of the soft actuator (from left to right): an ECF
+                           micropump, a PDMS channel, a metal sheet, a PDMS sheet, a soft
+                           actuator body, and the particles
+
+
+
+                                                                                        Soft actuator filled with jamming
+                                                                                                                  particles
+
+
+                                                                                                         24 x 8 x 6 mm
+
+
+
+
+                                                                             ECF flexible micropump
+                           (b) Sealed ECF                                               (c) Assembled soft robot
+                           micropump (top view)                                         with the pump (side view)
+                                 Fig. 8. Fabricated flexible ECF micropump and assembled soft actuator with jamming particles.
+
+
+                                                                                      pressure under the no-load condition, the micropump itself applied the
+                                                                                      positive pressure to its own PDMS channel, forcing the channel to
+                                                                                      expand. When the expansion was not the same in the two flow di­
+                                                                                      rections, the measured data of the pressure would be different. In
+                                                                                      contrast, when we measured the flow rate under the no-load constrain,
+                                                                                      there was no pressure applied to the channel of the micropump.
+                                                                                      Therefore, the flow rate data recorded from the two flow directions of
+                                                                                      the pump was nearly identical. In the future, we could solve this problem
+       (a) Experimental setup for output pressure                                     by improving the bonding technique to make the performance of the
+                                                                                      micropump in two flow directions indistinguishable.
+
+
+                                                                                      4.2. Switchable stiffness using a micropump-activated jamming system
+
+                                                                                          To characterize the switchable stiffness of the assembled soft actu­
+                                                                                      ator, we built the experimental setup as shown in Fig. 11a. We measured
+                                                                                      the stiffness based on the bending force applied to the soft actuator and
+                                                                                      its displacement at the tip. In this measurement, we fixed one end of the
+                                                                                      soft actuator, and we moved the force gauge toward the other end to
+                                                                                      generate the displacement. We used the linear stage to move the force
+       (b) Experimental setup for output flow rate                                    gauge toward the sample at the speed of 0.5 mm/s, and the total
+                                                                                      movement distance was 3 mm. When the linear stage moved, the
+Fig. 9. Experimental setup to investigate the characteristics of the fabricated
+                                                                                      bending force changed according to the moving distance. We applied
+ECF micropump.
+                                                                                      negative pressure to the soft actuator by applying the voltage to generate
+
+                                                                                  7
+H.H. Huynh et al.                                                                                                                 Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+                                                 Fig. 10. Static pressure and flow rate generated by the bidirectional flexible ECF micropump.
+
+
+                                                                                                   kPa, 2.2 kV to get − 40 kPa, and 2.45 kV to get − 50 kPa. We recorded
+   (a)                                                                                             the bending force and the moving distance by a data acquisition system
+                                                                                                   using the computer.
+                                                                                                       We showed the experimental results of the changing stiffness ex­
+                                                                                                   periments in Fig. 11b. When we did not apply voltage to the ECF
+                                                                                                   micropump, the soft actuator was at its initial state. When we applied
+                                                                                                   the negative pressure to the soft actuator, the jamming phenomenon
+                                                                                                   affected its stiffness. When the negative pressure increased, the bending
+                                                                                                   force increased. Initially, the bending force of the soft actuator at 3 mm
+                                                                                                   was 0.134 N. When we applied − 50 kPa to the soft actuator, the
+                                                                                                   bending force at 3 mm was 0.743 N, showing an increment of 5.5 times
+                                                                                                   compared to its initial state. This proved that our ECF micropump could
+                                                                                                   actuate the jamming effect and switch the stiffness of the device as
+                                                                                                   needed.
+                                                                                                       We also demonstrated that our actuator could carry the load 5.2
+                                                                                                   times larger than its weight (Fig. 12). In this experiment, we first applied
+                                                                                                   2.5 kV to the micropump to generate a negative pressure inside the
+                                                                                                   actuator. Then we placed a mass of 130 g on the tip of the soft actuator
+   (b)                                Bending force of ECF pressure                                whose weight is 25 g. The actuator could carry the mass as long as the
+                                                                                                   applied voltage remained. When we turned the applied voltage off, the
+                          0.8                                    5.5 times
+                                                                                                   mass felt from the tip of the soft actuator.
+                          0.7          0 kPa           -10 kPa                                         In this experiment, the stiffness of our soft actuator was increased
+                                       -20 kPa         -30 kPa                                     when negative pressure was generated for the granular jamming by
+          Bending Force [N]
+
+
+
+
+                          0.6
+                                       -40 kPa         -50 kPa                                     applying the voltage to the flexible ECF micropump. Therefore, the
+                          0.5                                                                      stiffened soft actuator could carry the load much larger than its weight.
+                                                                                                   However, the stiffness of the soft actuator returned to its initial softness
+                          0.4
+                                                                                                   by turning off the voltage supply, causing the mass to fall off from its tip.
+                          0.3                                                                      This result showed that the original stiffness of the soft actuator was not
+                                                                                                   strong enough to tolerate a similar load. In other words, the switchable
+                          0.2                                                                      stiffness function of our device improved the load-bearing of the soft
+                          0.1                                                                      actuator.
+
+                              0
+                                  0    0.5       1      1.5       2      2.5      3                4.3. Characterization of the bending motion
+                                               Displacement [mm]
+                                                                                                       To demonstrate the bending performance of our soft actuator, we
+Fig. 11. Stiffness characteristics: (a) experimental setup, (b) bending force and                  implemented the experiment shown in Fig. 13a. In this experiment, we
+displacement of the soft actuator at different applied voltages.                                   connected our soft actuator to the external ECF tank, and the DC voltage
+                                                                                                   supplier. They are the only connections needed to operate our device as
+the flow from the soft actuator toward the tank. Due to the compact                                the conventional soft actuator, showing the advantages of the integrated
+design of the integrated system, we cannot measure the negative pres­                              system. We applied voltage to the micropump to generate the positive
+sure applied to the soft actuator directly. Therefore, we used the result of                       pressure of the soft actuator. The applied voltage we used in this
+the characterized experiment to determine the necessary voltage, since                             experiment was 1.1 kV for + 10 kPa, 1.6 kV for + 20 kPa, 2.0 kV for
+the pressure measured in Fig. 9 were at the same no-flow condition. We                             + 30 kPa, 2.2 kV for + 40 kPa and 2.45 kV for + 50 kPa.
+applied 1.1 kV to get − 10 kPa, 1.6 kV to get − 20 kPa, 2 kV to get − 30                               We captured the bending angle of the actuator with a high-resolution
+                                                                                                   camera. The bending angle is defined as the tip angle difference from the
+
+                                                                                               8
+H.H. Huynh et al.                                                                                                     Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+
+
+Fig. 12. Load-bearing experiment of the soft actuator when controlling the stiffness. (1) Applied 2.5 kV: soft actuator carried the mass 5.2 times its weight. (2)-(4)
+Turned off the voltage: the mass felt from the actuator because the stiffness returned to the initial compliant state.
+
+
+
+
+Fig. 13. Bending motion driven by the positive pressure of the embedded micropump. (a) experimental setup; (b) optical images of its actual bending motion; c)
+bending angle vs ECF positive pressure; c) vertical displacement of the tip vs ECF positive pressure.
+
+
+initial angle defined in Fig. 13a. We also measured the verticle                      that the applied voltage of + 50 kPa realized the largest bending angle of
+displacement of the actuator by the verticle scale, as shown in Fig. 13a.             16◦ . When we increased the voltage from 1.1 kV to 2.45 kV, the bending
+    We showed the photos of the bending in Fig. 13b-d, in which we saw                angle of the soft actuator increased from 9◦ to 16◦ , demonstrating the
+
+
+                                                                                  9
+H.H. Huynh et al.                                                                                                                     Sensors and Actuators: A. Physical 338 (2022) 113449
+
+
+simple control of the bending movement. In the conventional soft robot,                           [7] S.Y. Nof, Handbook of industrial robotics, p. 1348, 1999.
+                                                                                                  [8] L. Birglen, T. Schlicht, A statistical review of industrial robotic grippers, Robot.
+we need a complex system including an air compressor, pneumatic
+                                                                                                      Comput. Integr. Manuf. 49 (2017) (2018) 88–97.
+valves, the pressure regulator, pressure sensor and connection tubes to                           [9] L. Zhou, L. Ren, Y. Chen, S. Niu, Z. Han, L. Ren, Bio-inspired soft grippers based on
+control the pressure of the soft actuator. Our device showed the ad­                                  impactive gripping, Adv. Sci. 8 (9) (2021), 2002017.
+vantages of compactness compared with those systems. In addition, the                            [10] S. Robla-Gomez, V.M. Becerra, J.R. Llata, E. Gonzalez-Sarabia, C. Torre-Ferrero,
+                                                                                                      J. Perez-Oria, Working together: a review on safe human-robot collaboration in
+maximum displacement of the tip was 7 mm, about one third of its                                      industrial environments, IEEE Access 5 (2017) 26754–26773.
+length, demonstrating the reachability of our soft actuator. By making                           [11] D. Rus, M.T. Tolley, Design, fabrication and control of soft robots, Nature 521
+our actuators of softer material such as Ecoflex ™ rubbers (Smooth-On,                                (7553) (2015) 467–475, 2015 5217553.
+                                                                                                 [12] K. S, L. C, T. B, Soft robotics: a bioinspired evolution in robotics, Trends Biotechnol.
+Inc.), we expect to have more significant deformation in the future.                                  31 (5) (2013) 287–294.
+                                                                                                 [13] J. Walker, et al., Soft robotics: a review of recent developments of pneumatic soft
+5. Conclusion                                                                                         actuators, Actuators 9 (1) (2020).
+                                                                                                 [14] A. Shiva, et al., Tendon-based stiffening for a pneumatically actuated soft
+                                                                                                      manipulator, IEEE Robot. Autom. Lett. 1 (2) (2016) 632–637.
+    In this article, we introduced a novel soft actuator that can actively                       [15] T. Wang, L. Ge, G. Gu, Programmable design of soft pneu-net actuators with
+adjust the stiffness by controlling the voltage applied to its internal                               oblique chambers can generate coupled bending and twisting motions, Sens.
+                                                                                                      Actuators A Phys. 271 (2018) 131–138.
+micropump to induce a jammed state of granular materials in the soft                             [16] M.S. Xavier, A.J. Fleming, Y.K. Yong, Finite element modeling of soft fluidic
+actuator. We also solved the long-standing challenge of the jamming                                   actuators: overview and recent developments, Adv. Intell. Syst. 3 (2) (2021),
+particle designs and the soft robots, which are the bulky vacuum pump                                 2000187.
+                                                                                                 [17] N. El-Atab, et al., Soft actuators for soft robotic applications: a review, Adv. Intell.
+and air compressor. We directly integrated a flexible electro-conjugated
+                                                                                                      Syst. (2020), 2000128.
+fluid (ECF) micropump in the soft actuator. This bidirectional pump had                          [18] H. Jeong, J. Kim, Echinoderm inspired variable stiffness soft actuator with
+the function of the vacuum pump and applied up to − 50 kPa to the soft                                connected ossicle structure, Proc. IEEE Int. Conf. Robot. Autom. (2019)
+                                                                                                      7389–7394.
+actuator for an increase of 5.5 times in stiffness. Moreover, when we
+                                                                                                 [19] Y. Yang, Y. Li, Y. Chen, Principles and methods for stiffness modulation in soft
+switched the flow of this bidirectional pump, it had the same function as                             robot design and development, Bio Des. Manuf. 1 (1) (2018) 14–25.
+the air compressor and applied up to + 50 kPa to the soft actuator to                            [20] L. Zhou, L. Ren, Y. Chen, S. Niu, Z. Han, L. Ren, Bio-inspired soft grippers based on
+realize the bending movement of 16◦ . We believe that the reported soft                               impactive gripping, Adv. Sci. 8 (9) (2021).
+                                                                                                 [21] L. Wang, et al., Controllable and reversible tuning of material rigidity for robot
+actuator that can actively switch stiffness and actuation is a promising                              applications, Mater. Today 21 (5) (2018) 563–576.
+solution for developing more practical soft robots.                                              [22] M. Manti, V. Cacucciolo, M. Cianchetti, Stiffening in soft robotics: a review of the
+                                                                                                      state of the art, IEEE Robot. Autom. Mag. 23 (2016) 93–106.
+                                                                                                 [23] R.D. Kornbluh, H. Prahlad, R. Pelrine, S. Stanford, M.A. Rosenthal, and P.A. von
+CRediT authorship contribution statement                                                              Guggenberg, 2004. Rubber to rigid, clamped to undamped: toward composite
+                                                                                                      materials with wide-range controllable stiffness and damping, Smart Struct. Mater.
+    Huy Hoang Huynh: Writing – original draft preparation, Method­                                    Ind. Commer. Appl. Smart Struct. Technol., vol. 5388, pp. 372–386, Jul. 2004.
+                                                                                                 [24] I.K. Kuder, A.F. Arrieta, W.E. Raither, P. Ermanni, Variable stiffness material and
+ology, Software, Data acquisition, Visualization, Experiment. Dong                                    structural concepts for morphing applications, Prog. Aerosp. Sci. 63 (2013) 33–55.
+Han: Methodology, Software, Experiment. Kazuhiro Yoshida: Meth­                                  [25] M. Sreekumar, T. Nagarajan, M. Singaperumal, M. Zoppi, R. Molfino, Critical
+odology, Writing – review & editing. Michael De Volder: Methodology,                                  review of current trends in shape memory alloy actuators for intelligent robots,
+                                                                                                      Ind. Robot Int. J. 34 (4) (2007) 285–294.
+Writing – review & editing. Joon-wan Kim: Conceptualization, Writing
+                                                                                                 [26] Y. Yang, Y. Chen, Y. Wei, Y. Li, Novel design and three-dimensional printing of
+– review & editing, Supervision.                                                                      variable stiffness robotic grippers, J. Mech. Robot. 8 (6) (2016).
+                                                                                                 [27] J. Shintake, B. Schubert, S. Rosset, H. Shea, D. Floreano, Variable stiffness actuator
+                                                                                                      for soft robotics using dielectric elastomer and low-melting-point alloy, IEEE Int.
+Declaration of Competing Interest                                                                     Conf. Intell. Robot. Syst. (2015) 1097–1102.
+                                                                                                 [28] I. De Falco, M. Cianchetti, A. Menciassi, A soft multi-module manipulator with
+    The authors declare that they have no known competing financial                                   variable stiffness for minimally invasive surgery, Bioinspir. Biomim. 12 (5) (2017).
+                                                                                                 [29] U.A. Korde, M.A. Wickersham, S. Carr, and C.H. M., 2006 Jenkins, Active control of
+interests or personal relationships that could have appeared to influence
+                                                                                                      stiffness and damping of piezoelectric polymer films, Smart Struct. Mater.
+the work reported in this paper.                                                                      Electroact. Polym. Actuators Devices, vol. 6168, p. 61681R, Mar. 2006.
+                                                                                                 [30] R. Techapiesancharoenkij, J. Kostamo, S.M. Allen, R.C. Ohandley, The effect of
+                                                                                                      magnetic stress and stiffness modulus on resonant characteristics of Ni–Mn–Ga
+Acknowledgments
+                                                                                                      ferromagnetic shape memory alloy actuators, J. Magn. Magn. Mater. 323 (23)
+                                                                                                      (2011) 3109–3116.
+   A part of this work was supported by a JSPS KAKENHI, Fund for the                             [31] W. Shan, T. Lu, C. Majidi, Soft-matter composites with electrically tunable elastic
+Promotion of Joint International Research (Fostering Joint International                              rigidity, Smart Mater. Struct. 22 (8) (2013), 085005.
+                                                                                                 [32] B.E. Schubert, D. Floreano, Variable stiffness material based on rigid low-melting-
+Research (A)), Japan (Grant Number 19KK0375). A part of this work                                     point-alloy microstructures embedded in soft poly(dimethylsiloxane) (PDMS), RSC
+was supported by Tokyo Tech World Research Hub Initiative (WRHI),                                     Adv. 3 (46) (2013) 24671–24679.
+Program of Institute of Innovative Research, Tokyo Institute of Tech­                            [33] Y. Yang, Y. Chen, Y. Li, M. Zhiqiang Chen, 3D printing of variable stiffness hyper-
+                                                                                                      redundant robotic arm, Proc. IEEE Int. Conf. Robot. Autom. (2016) 3871–3877.
+nology, Japan. The authors thank Kazuya Edamura (New Technology                                  [34] K. Takashima, K. Sugitani, N. Morimoto, S. Sakaguchi, T. Noritsugu, T. Mukai,
+Management Co., Ltd., Japan, 2-9-1-306 Higashishinkoiwa, Katsushika-                                  Pneumatic artificial rubber muscle using shape-memory polymer sheet with
+ku, Tokyo 124-0023) for his support in providing the information con­                                 embedded electrical heating wire, Smart Mater. Struct. (2014).
+                                                                                                 [35] C. Liu, H. Qin, P.T. Mather, Review of progress in shape-memory polymers,
+cerning ECFs.                                                                                         J. Mater. Chem. 17 (16) (2007) 1543–1558.
+                                                                                                 [36] L. Wang, F. Iida, Physical connection and disconnection control based on hot melt
+References                                                                                            adhesives, IEEE/ASME Trans. Mechatron. 18 (4) (2013) 1397–1409.
+                                                                                                 [37] J.R. Amend, E. Brown, N. Rodenberg, H.M. Jaeger, H. Lipson, A positive pressure
+                                                                                                      universal gripper based on the jamming of granular material, IEEE Trans. Robot. 28
+ [1] J. Hughes, U. Culha, F. Giardina, F. Guenther, A. Rosendo, F. Iida, Soft
+                                                                                                      (2) (2012) 341–350.
+     manipulators and grippers: a review, Front. Robot. AI 3 (2016) 1–12.
+                                                                                                 [38] E. Steltz, A. Mozeika, J. Rembisz, N. Corson, H.M. Jaeger, Jamming as an enabling
+ [2] S. Almécija, J.B. Smaers, W.L. Jungers, The evolution of human and ape hand
+                                                                                                      technology for soft robotics, Electroact. Polym. Actuators Devices 7642 (2010),
+     proportions, Nat. Commun. 6 (2015).
+                                                                                                      764225.
+ [3] P.E. Klopsteg et al., Artificial Limbs Advisory committee on artificial limbs
+                                                                                                 [39] A.G. Athanassiadis, et al., Particle shape effects on the stress response of granular
+     executive secretary, 1955.
+                                                                                                      packings, Soft Matter 10 (1) (2013) 48–59.
+ [4] K. WM, S. MP, The arrangement and function of octopus arm musculature and
+                                                                                                 [40] M. Brancadoro, M. Manti, F. Grani, S. Tognarelli, A. Menciassi, M. Cianchetti,
+     connective tissue, J. Morphol. 268 (10) (2007) 831–843.
+                                                                                                      Toward a variable stiffness surgical manipulator based on fiber jamming transition,
+ [5] Y. Gutfreund, T. Flash, Y. Yarom, G. Fiorito, I. Segev, B. Hochner, Organization of
+                                                                                                      Front. Robot. AI 6 (2019) 12.
+     octopus arm movements: a model system for studying the control of flexible arms,
+                                                                                                 [41] I. Schmidt, Flexible moulding jaws for grippers, Ind. Robot Int. J. 5 (1) (1978)
+     J. Neurosci. 16 (22) (1996) 7297–7307.
+                                                                                                      24–26.
+ [6] D.A. Dhanawade, N.V. Sabnis, A review: state of the art of robotic grippers, Int. J.
+     Eng. Technol. (October) (2018) 371–375.
+
+
+                                                                                            10
+H.H. Huynh et al.                                                                                                                    Sensors and Actuators: A. Physical 338 (2022) 113449
+
+[42] A. Jiang, et al., Robotic granular jamming: does the membrane matter? Soft Robot.          [62] Joon-wan Kim, Yoshiaki Saga, Zebing Mao, Kazuhiro Yoshida, Proposition of a
+     1 (3) (2014) 192–201.                                                                           jamming gripper by using an ECF micropump, Proc. Spring Conf. Jpn. Fluid Power
+[43] E. Brown, et al., Universal robotic gripper based on the jamming of granular                    Syst. Soc. 2018 (2018) 41–43.
+     material, Proc. Natl. Acad. Sci. U.S.A. 107 (44) (2010) 18809–18814.                       [63] T. Matsubara, H.H. Huynh, K. Yoshida, J. wan Kim, Development of MEMS-
+[44] P. Jiang, Y. Yang, M.Z.Q. Chen and Y. Chen, A variable stiffness gripper based on               fabricated bidirectional ECF (electro-conjugate fluid) micropumps, Sens. Actuators
+     differential drive particle jamming, Bioinspir. Biomim. Vol. 14, No. 3, pp. 036009,             A Phys. 295 (2019) 317–323.
+[45] S. Yokota, Y. Otsubo, K. Edamura, US6030544A, 2000.                                        [64] B. Mosadegh, et al., Pneumatic networks for soft robotics that actuate rapidly, Adv.
+[46] Joon-wan Kim, Yusuke Tanabe, Shinichi Yokota, Comprehending electro-conjugate                   Funct. Mater. 24 (15) (2014) 2163–2170.
+     fluid (ECF) jets by using the onsager effect, Sens. Actuators A Phys. 295 (N15)
+     (2019) 266–273.
+                                                                                                Huy Hoang Huynh received the bachelor degree in Mechatronics from Ho Chi Minh City
+[47] W.S. Seo, K. Yoshida, S. Yokota, K. Edamura, A high performance planar pump
+                                                                                                University of Technology, Vietnam in 2016 and received the degree of Master of Engi­
+     using electro-conjugate fluid with improved electrode patterns, Sens. Actuators A
+                                                                                                neering in Mechanical Engineering from Tokyo Institute of Technology in 2018. He is
+     Phys. 134 (2) (2007) 606–614.
+                                                                                                currently a Ph.D. candidate in Mechanical Engineering at Tokyo Institute of Technology
+[48] J.-w Kim, T. Suzuki, S. Yokota, K. Edamura, Tube-type micropump by using
+                                                                                                from September 2018. Since he joined Tokyo Institute of Technology, he has developed
+     electro-conjugated fluid (ECF), Sens. Actuators A 174 (2012) 155–161.
+                                                                                                technical expertise in Micro-Electro-Mechanical Systems (MEMS). His research includes
+[49] Joon-Wan Kim, Thanh V.X. Nguyen, Kazuya Edamura, Shinichi Yokota, Triangular
+                                                                                                the development of micropumps and its applications to cooling systems and soft robotics.
+     prism and slit electrode pair for ECF jetting fabricated by thick micromold and
+     electroforming as micro hydraulic pressure source for soft microrobots, Int. J.
+     Autom. Technol. 10 (4) (2016) 470–478.                                                     Dong Han received the B.E. from Xi’an Jiaotong University (XJTU), China, in 2011, and
+[50] Dong Han, Yong Xia, Shinichi Yokota, Joon-wan Kim, UV-LIGA technique by back               the M.E. degree from Zhejiang University (ZJU), China, in 2014. Then he received the M.E.
+     UV exposure with self-alignment for ECF (electro-conjugate fluid) micropumps,              and Dr. Eng. Degrees from Tokyo Institute of Technology (Tokyo Tech), Japan, in 2016,
+     J. Micromech. Microeng. 27 (12) (2017), 125008.                                            and 2018, respectively. From 2018–2020, he worked as an Assistant Professor at the
+[51] Dong Han, Kazuhiro Yoshida, Joon-Wan Kim, A novel hybrid removal technology                Laboratory for Future Interdisciplinary Research of Science and Technology (FIRST),
+     for high-aspect-ratio SU-8 micromolds in ECF (Electro-Conjugate Fluid)                     Tokyo Tech. He has been a doctoral supervisor at State Key Laboratory of Fluid Power and
+     micropumps fabrication by UV-LIGA, J. Micro Syst. 27 (5) (2018) 818–826.                   Mechatronic Systems and School of Mechanical Engineering, Zhejiang University. His
+[52] Joon-wan Kim, Yoshiho Yamada, Shinichi Yokota, Micro ECF (electro-conjugate                current research interests include microfluidics, microrobots, electromagnetic actuators
+     fluid) hydraulic power sources based on the modular design of TPSEs (triangular            and sensors, energy harvesters, micro motors.
+     prism and slit electrode pairs), Int. J. Adv. Manuf. Technol. 106 (2019) 627–639.
+[53] Zebing Mao, Kazuhiro Yoshida, Joon-wan Kim, A droplet-generator-on-a-chip
+                                                                                                Kazuhiro Yoshida received the B.E. degree in electrical engineering from Yokohama
+     actuated by ECF (electro-conjugate fluid) micropumps, Microfluidics and
+                                                                                                National University, Japan in 1984 and the M.E. and Ph.D. degrees in control engineering
+     Nanofluidics 23, Springer Berlin Heidelberg, 2019, p. 130.
+                                                                                                from Tokyo Institute of Technology, Japan in 1986 and 1989, respectively. After working
+[54] Zebing Mao, Kazuhiro Yoshida, Joon-wan Kim, Active sorting of droplets by using
+                                                                                                as a research associate, an associate professor, and a professor at Precision and Intelligence
+     an ECF (Electro-conjugate Fluid) micropump, Sens. Actuators A Phys. 303 (2020),
+                                                                                                Laboratory, he is now a professor at FIRST, IIR, Tokyo Institute of Technology, Japan. His
+     111702.
+                                                                                                research interests include microactuators, power microrobots, and functional fluids ap­
+[55] Tatsuya Matsubara, Kazuhiro Yoshida, Joon-wan Kim, Active microvalve driven by
+                                                                                                plications. He is a member of the Japan Society of Mechanical Engineers, the Japan Fluid
+     electro-conjugate fluid jet flow with a hydraulic power source on a chip,
+                                                                                                Power System Society, IEEE, and similar associations.
+     J. Micromech. Microeng. 30 (2020) 11, 105013.
+[56] Dong Han, Yoshiho Yamada, Shinichi Yokota, Joon-wan Kim, Multilayer
+     fabrication of micromolding and electroforming with the planarization of grinding          Michael De Volder performed his Ph.D. research on MEMS actuators at the KU Leuven in
+     for high-aspect-ratio microelectrodes in electro-conjugate fluid (ECF) micropumps,         Belgium and in part at the Tokyo Institute of Technology in Japan. During his postdoc, he
+     Int. J. Precis. Eng. Manuf. 21 (5) (2020) 927–936.                                         worked on nanotechnology at the Massachusetts Institute of Technology, the University of
+[57] Dong Han, Haibo Wang, Shinichi Yokota, Joon-Wan Kim, Configurations of                     Michigan, Harvard University, KU Leuven, and Imec. In 2013, he joined the Department of
+     triangular prism and slit electrode pairs to enhance the performance of electro-           Engineering at the University of Cambridge where he holds a professorship in Advanced
+     conjugate fluid micropumps, J. Micromech. Microeng. 30 (2) (2020), 025007.                 Materials Engineering. His work currently focuses on energy storage devices and nano­
+[58] Dong Han, Hongri Gu, Joon-wan Kim, Shinichi Yokota, A bio-inspired 3D-printed              technology scale-up.
+     hybrid finger with integrated ECF (electro-conjugate fluid) micropumps, Sens.
+     Actuators A Phys. 257 (15) (2017) 47–57.                                                   Joon-Wan Kim received his degree of Bachelor of Science from the department of Me­
+[59] Zebing Mao, Tomonobu Nagaoka, Shinichi Yokota, Joon-wan Kim, Soft fiber-                   chanical Engineering at the POSTECH in 1999. He received his degree of Master of Science
+     reinforced bending finger with three chambers actuated by ECF (electro-conjugate           and Ph.D. at the Department of Precision Engineering, Graduate School of Engineering, the
+     fluid) pumps, Sens. Actuators A Phys. 310 (1) (2020), 112034.                              University of Tokyo in 2005. From 2002–2005, he was also a Junior Research Associate at
+[60] Yamaguchi, Akihiro, Takemura, Kenjiro, Yokota, Shinichi, Edamura, Kazuya,                  Materials Fabrication Laboratory, RIKEN. He was an assistant professor from 2005 to 2013
+     A robot hand using electro-conjugate fluid, Sens. Actuators A Phys. 170 (2011)             in Tokyo Institute of Technology. He has been an Associate Professor in the Institute of
+     139–146, https://doi.org/10.1016/j.sna.2011.06.002.                                        Innovative Research (IIR), Tokyo Institute of Technology. His current interests are
+[61] Kim, Joon-wan, Hamano, Mai, Yoshida, Kazuhiro, Study on micro jamming                      micromachining and MEMS for functional fluid devices.
+     grippers by using an ECF hydraulic pressure source, Proc. Mech. Eng. Congr. Jpn.
+     (2019), J11113, https://doi.org/10.1299/jsmemecj.2019.J11113.
+
+
+
+
+                                                                                           11
+

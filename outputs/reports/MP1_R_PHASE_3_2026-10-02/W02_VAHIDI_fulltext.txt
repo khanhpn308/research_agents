@@ -1,0 +1,713 @@
+      Mechanics of Advanced Materials and Structures
+
+
+
+
+      ISSN: (Print) (Online) Journal homepage: https://www.tandfonline.com/loi/umcm20
+
+
+
+
+Mechanical response of single and double-helix
+SMA wire ropes
+
+Saeed Vahidi, Jamal Arghavani, Eunsoo Choi & Alireza Ostadrahimi
+
+To cite this article: Saeed Vahidi, Jamal Arghavani, Eunsoo Choi & Alireza Ostadrahimi (2021):
+Mechanical response of single and double-helix SMA wire ropes, Mechanics of Advanced Materials
+and Structures, DOI: 10.1080/15376494.2021.1955313
+
+To link to this article: https://doi.org/10.1080/15376494.2021.1955313
+
+
+
+
+       Published online: 03 Aug 2021.
+
+
+
+       Submit your article to this journal
+
+
+
+       Article views: 28
+
+
+
+       View related articles
+
+
+
+       View Crossmark data
+
+
+
+
+                     Full Terms & Conditions of access and use can be found at
+           https://www.tandfonline.com/action/journalInformation?journalCode=umcm20
+MECHANICS OF ADVANCED MATERIALS AND STRUCTURES
+https://doi.org/10.1080/15376494.2021.1955313
+
+
+ORIGINAL ARTICLE
+
+Mechanical response of single and double-helix SMA wire ropes
+Saeed Vahidia, Jamal Arghavanib, Eunsoo Choia, and Alireza Ostadrahimia
+a
+ Department of Civil Engineering, Hongik University, Seoul, Korea; bDepartment of Mechanical Engineering, Sharif University of Technology,
+Tehran, Iran
+
+
+    ABSTRACT                                                                                                           ARTICLE HISTORY
+    In this paper, based on three-dimensional phenomenological model and using a user-defined                          Received 28 April 2021
+    material subroutine mechanical behavior of shape memory alloy (SMA) wire ropes (or cables) and                     Accepted 10 July 2021
+    their components have been studied through implicit solution method in Abaqus software.
+                                                                                                                       KEYWORDS
+    Material parameters have been extracted using available experimental data and numerical simula-
+                                                                                                                       Shape memory alloy;
+    tions. Due to the convoluted geometry and interwire contact status within a cable, a finite elem-                  superelasticity; shape
+    ent analysis is firstly performed for a 1  37 steel wire rope to validate modeling and mechanical                 memory effect; wire rope;
+    interactions of a wire rope. Afterwards, superelastic and shape memory effect cables with different                optimization;
+    constructions (7  7 and 1  27) are studied and their mechanical behavior including normal stress,                cable components
+    shear stress, strain, and temperature diagrams as well as the relationship between axial force and
+    displacement for a full cable and each component are extracted. Furthermore, the SMA wire ropes
+    have been optimized in terms of achieving maximum specific energy through experimental design
+    method. Comparison of numerical results with experimental data indicates the acceptable
+    accuracy of this study.
+
+
+
+
+1. Introduction                                                                  becomes permanently deformed (bird cage phenomenon)
+                                                                                 [2]. In order to incur such defects and improve the perform-
+Applications of wire ropes are widely increased due to their
+                                                                                 ance of wire ropes, the use of shape memory alloy (SMA)
+significant flexibility in torsional and bending purposes com-
+                                                                                 cables has widely received a great attention. Due to their
+pared to solid bars at equal overall cross-sectional area.                       unique characteristics including superelasticity, shape mem-
+They are one of the most important means of lifting, hoist-                      ory effect, high energy absorption, adequate tensile strength,
+ing and transmission of mechanical power. Towing, main-                          high corrosion resistance, and the ability to recover large
+tenance of suspension bridges, vessel mooring, and oil                           strains, these cables are resistant to twisting and impact
+platforms are also among the most important usage of                             loads [7]. In contrast to other conventional cables, SMA
+cables [1]. Despite failure of one or several wires, cable can                   wire ropes owing to their high energy density, can provide a
+provide higher safety when compared with monolithic bars                         design with the higher power but the lower volume [1, 7].
+so that they are more likely to incur high potential applica-                    Shape memory effect structures (SME) can be act as a ther-
+tions of these tools in several engineering fields. Their vari-                  mal lock or thermal actuator due to the detwinning process
+ous wire arrangements within a cross section creates                             [8–15]. Large-load capacity and high impact energy absorp-
+different mechanical properties in terms of flexibility, abra-                   tion can be considered as an inherit characterization of these
+sion resistance, and significant corrosion resistance [2].                       cables [1]. The use of superelastic (SE) cables may be also
+    To date, several works have studied the mechanical                           common in dentistry [7], relieving congestion [16], cellular
+behavior of conventional cables for different loads and cross                    phone antenna [17], and vibration alleviation of earthquakes
+sections [2–6]. Under torsional and axial loadings, theory of                    [18]. Several researches explore mechanical properties of SE
+conventional cables and wire interactions are investigated                       wire ropes [19–23]. An analytical, numerical and experimen-
+[2]. Equilibrium equations of a 1  7 steel cable under ten-                     tal study of SE coil spring under axial loading is performed
+sile force are derived and compared with experimental data                       using three-dimensional model [19]. Mechanical response of
+[3]. Modeling and simulation of steel wires as well as 1  37                    a set of SE wire ropes with two constructions of 7  7 and
+and double-helix wire rope are performed by Stanova et al.                       1  27 under tensile stress is investigated experimentally [1,
+[4, 5]. Moreover, the simulation of a steel cable with con-                      7]. Mas et al. [20] explored the performance of Ni-Ti SMA
+struction of 19  6 has been studied considering the elasto-                     cable in reinforced concrete application and its bond proper-
+plastic material properties [6]. In cables under torsional                       ties. Cyclic uniaxial tests are conducted by Ozbulute and
+and/or axial loads, with a sudden decrease in load, each wire                    Sherif [21, 22] to investigate its potential application under
+may separate from the core wire and consequently, the cable                      fatigue behavior. In civil engineering, several studied are
+
+CONTACT Alireza Ostadrahimi          alireza_ostadrahimi@hongik.ac.kr; Eunsoo Choi    eunsoochoi@hongik.ac.kr   Department of Civil Engineering, Hongik
+University, Seoul 04066, Korea.
+ß 2021 Taylor & Francis Group, LLC
+2       S. VAHIDI ET AL.
+
+
+                                                                                    cables with similar configurations to SE wire ropes
+                                                                                    and under tensile load are addressed and then normal- and
+                                                                                    shear-stress-strain-temperature diagrams for full cables and
+                                                                                    their components are depicted in this section. Then the opti-
+                                                                                    mization of SME cable with the configuration of 1  7 is
+                                                                                    performed in Section 6. Finally, in Section 7 summary and
+                                                                                    conclusions are drawn.
+
+
+                                                                                    2. Souza’s constitutive model
+                                                                                    Based on theory of plasticity and irreversible thermodynam-
+                                                                                    ics, Souza et al. [32] proposed a three-dimensional model
+                                                                                    that can describe both behavior of SE and SME. In this
+                                                                                    model, strain e and absolute temperature T are considered
+                                                                                    as control variables and second-order transformation strain
+                                                                                    tensor etr is considered as an internal variable. etr denotes
+                                                                                    phase transformation stress tensor between the two austenite
+                                                                                    and martensite variant states and bounded as
+Figure 1. Cross section of a wire rope consisting of different strands and wires.
+                                                                                                              ketr k  eL                       (1)
+focused on employing SE cables to boost the seismic resili-
+                                                                                    where k:k is the Euclidean norm and eL denotes the max-
+ence as well as life-cycle performance of bridge structures
+                                                                                    imum strain of phase transformation. Constitutive equations
+[18, 23–28]. Recently, multiscale techniques, in particular,
+                                                                                    may be derived as
+multi-field homogenization is applied to thermo-piezo-elec-
+tric materials for modeling the influence of microscopic                                                       p ¼ Kh                           (2)
+phases on material properties [29, 30].                                                                    s ¼ 2Gðe  etr Þ                     (3)
+    Considering the above efforts, a detail study on the
+behavior of SME cables has received less attention. The                                                       X ¼ sa                           (4)
+main motivation of this paper is to explore the mechanical                                                              
+                                                                                                 a ¼ sM ðTÞ þ Hketr k þ c etr =ketr k           (5)
+properties of SMA cables with 1  27 and 7  7 construc-
+tions and their components for both SME as well as SE fea-                          where s and p represent the deviatoric and volumetric parts
+tures. Furthermore, SMA cable is optimized with the aim of                          of stress, while e and h are deviatoric and volumetric parts
+accomplishing maximum specific energy. Among proposed                               of strain, respectively. Transformation stress tensor and
+SMA phenomenological models [31–38], we employ the one                              phase transformation hardening are denoted by X and H,
+known as Souza model owing to its simplicity and appropri-                          respectively. G and K are the shear and bulk moduli,
+ate agreements with the experimental data. To simulate                              respectively, and the tensor a has a similar role to the back-
+material properties of SMA cables, this model has been                              stress in the theory of plasticity. Furthermore, sM and c can
+implemented through UMAT subroutine in Abaqus envir-                                be defined as
+onment. Comparing finite element analysis (FEA) of 1  37                                               
+                                                                                                          bðT  T0 Þ if T > T0
+steel cable with the available numerical results [5] confirms                                     sM ¼                                         (6)
+                                                                                                               0            otherwise
+the veracity of modeling as well as mechanical interactions                                            (
+between wires and strands. We also investigate mechanical                                                c ¼ 0 if ketr k < eL
+behavior of SE cables with the 7  7 and 1  27 construc-                                                                                      (7)
+                                                                                                         c  0 if ketr k ¼ eL
+tions, and then their components for normal stress-strain-
+temperature and shear stress-strain-temperature diagrams                            where T0 and b represent reference temperature and mater-
+are extracted. Optimization of SMA wire ropes is also car-                          ial parameter, respectively. The limit function of F is defined
+ried out to achieve the maximum specific energy using the                           as follow for describing etr
+design of experiment method [36].
+                                                                                                            F ¼ kXk  R                         (8)
+    After this introduction, the constitutive model proposed
+by Souza [32] is described in Section 2. Section 3 discusses                        where R represents the radius of the elastic region.
+cable definition and its geometric parameters as well as                            Moreover, the function of F may be zero during phase
+modeling a single- and double helix wire rope. FEA of a                             transformation, otherwise it takes negative values.
+1  37 steel cable as well as simulation of SMA wire ropes
+with the configuration of 1  27, and 7  7 may be con-
+                                                                                    3. Definition and modeling of wire rope
+ducted in Section 4. In Section 5, the results obtained from
+the simulation of a SE cable for both 1  27 and 7  7 are                          A set of wires that are wound together in various diameters
+presented and compared with the available experimental                              is called strand (Figure 1). Each strand is twisted around a
+data [7]. Furthermore, after validation of this analysis, SME                       core strand in different geometric arrangements to form a
+                                                                                        MECHANICS OF ADVANCED MATERIALS AND STRUCTURES       3
+
+
+
+
+Figure 2. Labeling cables with different number of wires and strands.
+
+
+                                                                               denotes the direction strands laid around the core, defined
+                                                                               as þ1 for the right hand lay and 1 for the left-hand lay
+                                                                               strands, and p also indicates the direction of wires with dou-
+                                                                               ble-helix configurations twist around the core, having same
+                                                                               direction with q, it takes þ1, otherwise 1. Moreover, w is
+                                                                               the angle of rotation around the axis of strand and can be
+                                                                               found as
+                                                                                                               Rs tan aj
+                                                                                                      w¼u                                (12)
+                                                                                                               rj sin b
+Figure 3. Geometry of the cables cross section.                                where in the layer j, a wire is helically wrapped around the
+                                                                               strand with the lay angle of aj : In a strand (Figure 4), cj is
+cable. The wires wrapped around the core strand are single-                    the rotation angle between the centerline of the first wire
+helix, and strands around core wire and/or strand may be                       and the x-axis of the strand. Assuming the number of wires
+configured as double-helix (Figure 1)                                          in layer j is nj ; thus, the parameter 1ji in Eqs. (10)–(12)
+    The structural parameters of a wire rope consist of three
+                                                                               denotes the angle that the center of the wire i of the layer j
+characteristics of lay, texture, and pitch (or lay length) defining
+                                                                               forms with the x-axis, defined as
+as the direction of wires and/or strands wrapped around core,
+the state of wires placement within a strand, and distance of a                                                       2p
+                                                                                                      1ji ¼ ði  1Þ                      (13)
+single revolution around core, respectively. Based on the cross                                                       nj
+section, labeling wire rope can be determined through multi-
+plying the number of strands by the number of wires within a
+strand (Figure 2). In this study, cables with 1  27 and 7  7                 4. Simulation of steel and SMA wire ropes
+constructions involve one strand with 27 wires, and 7 strands                  In this section, to validate the process of modeling and
+with 7 wires so that the diameter of a wire and outer diameter                 interwire contact status, a steel cable with cross section of
+of the cables are denoted by d and D, respectively (Figure 3).                 1  37 in the elastic range is analyzed using finite element
+    For modeling of helical SMA cable geometry, we employ                      method and then we simulate the SE wire ropes for both
+parametric equations represented by Stanova et al. [4] in                      single-helix 1  27, and double-helix 7  7 configurations.
+which the geometric models of both single-helix and dou-                       The results of steel and SE cables are compared with avail-
+ble-helix wire ropes have been considered. In the cartesian                    able numerical [5] and experimental data [7]. Based on this
+coordinate system (X, Y, Z), each point on a helical curve                     validation, the SMA wire rope under SME feature is studied,
+for double-helix configurations is a function of helix angle                   and both single- and double-helix cables are modeled, and
+ðuÞ and can be obtained as                                                     their mechanical behavior are simulated in detail for the first
+ XðuÞ ¼ rj ð cos ðcj þ 1ji þ pqwÞ cos u                                        time. In this FEA, the implicit solution method may be
+                                                                               employed; however, this method seems complex and time-
+             q cos b sin ð cos ðcj þ 1ji þ pqwÞ sin uÞ þ Rs cos u
+                                                                               consumer comparing with explicit solution, it offers more
+                                                                         (9)   accuracy of the results in dynamic mode.
+ YðuÞ ¼ qrj ð cos ðcj þ 1ji þ pqwÞ sin u
+           þ q cos b sin ð cos ðcj þ 1ji þ pqwÞ cos uÞ þ qRs sin u             4.1. Steel wire rope (1 3 37)
+                                                                        (10)   For modeling of steel cable, the interwire frictional coeffi-
+                                                                               cient is 0.2 and geometric and material parameters are rep-
+                                                             Rs
+     ZðuÞ ¼ qrj sin b sin ðcj þ 1ji þ pqwÞ þ u                         (11)   resented in Table 3. The wires interactions are defined in
+                                                            tan b
+                                                                               both tangential and vertical directions to wire surface as well
+where rj is radius of wires in layer j of a strand and let b be                as true surface-to-surface formulation. To couple nodes of
+twist angle and Rs be lay radius of a strand in a wire rope. q                 the cross-sections, two reference points 1 and 2 are
+4       S. VAHIDI ET AL.
+
+
+                                                                           the effects of nonlinearity in geometry during loading and
+                                                                           unloading, wires interactions and contact modeling are consid-
+                                                                           ered both vertically and tangentially. Regarding Figure 3, the
+                                                                           number of interactions for single- (Ns) and double-helix
+                                                                           strands (Nd) can be determined as
+                                                                                               X
+                                                                                               m                 X
+                                                                                                                 m1
+                                                                                        Ns ¼         ni þ n1 þ       ðni  niþ1 Þ   (14)
+                                                                                               i¼1               i¼1
+                                                                                                                                 
+                                                                             Nd ¼ ðNs Þc þ nd  ðNs Þo þ ðnc  nd  no Þ þ nd  n2o
+                                                                                                                                    (15)
+                                                                                                                        th
+                                                                           where ni is the number of wires in the i layer and m repre-
+                                                                           sents the number of whole layers. Let nd be the number of
+Figure 4. Strand cross-section along with the definition of cj and 1ji :   outer strands (double-helix strands), nc and no be the num-
+                                                                           ber of wires for the last layer of core and outer strands,
+established at the strand centerline with a distance from                  respectively. ðNs Þc and ðNs Þo denote the number of interac-
+both ends of the cable (Figure 5a). This kinematic coupling                tions in core and outer strands, respectively.
+provides the strands with achieving the same displacement                     In this finite element analysis, SMA constitutive equa-
+between the reference points and prevents from relative                    tions are introduced using the Souza model [23] through a
+movement of wires cross sections but allows the relative                   user-defined material subroutine (UMAT) into ABAQUS
+deformation between the coupled surfaces. Length of the                    software. The material parameters (Figure 6) of SMA in the
+wire rope is assumed sufficiently long to provide negligible               experimental work [7] are adopted and represented in Table
+clamping conditions, and the degrees of freedom may be                     3 and then frictional coefficient between the wires is consid-
+completely restrained at reference point 2. The rope at the                ered about 0.115. Figure 7(a) and 7(b) shows the cable layers
+reference point 1 can only move along the longitudinal                     name as well as meshed model of the 1  27 and 7  7 SMA
+direction via tensile force changing linearly over time. To                cables, which consist of 185,300 and 84,000 elements with
+mesh the cable, C3D8R elements with dimensions of                          the dimensions of 0.05  0.03 and 0.2  0.06, respectively.
+0.6  0.16 mm are employed. In Table 1, L is the length of                 Due to the complexity of the model and large number of
+the wire, E, , and q denote modulus of elasticity, Poisson’s              interactions, we use quadratic elements for better accuracy.
+ratio, and rope density, respectively. For a 10 kN force                      In order to study the mechanical behavior of wire ropes
+imposing on 1  37 steel rope, the elongation value of com-                employed by Reedlunn et al. [7] and to extract correspond-
+ponents is shown in Figure 5(b), and the finite element                    ing normal- and shear stresses diagrams, the wires of each
+results for different forces of 10, 20, 30 and 35 kN are com-              layer are named A, B, C, and D (Figure 7a and 7b) and geo-
+pared with the available work [5] represented in Table 2. As               metric parameters of wire ropes are represented in Tables 4
+it is clear, there is a good agreement between them proving                and 5 for 1  27 and 7  7, respectively. The parameter A0 is
+the accurate method of modeling.                                           total cross-sectional area of the wires and total polar
+                                                                           moment of inertia (J0) can be determined as
+4.2. Single- and double-helix SMA wire ropes (1 3 27                                                    pd4 X z
+                                                                                                                 pd2 2
+                                                                                               J0 ¼ z      þ        r               (16)
+     and 7 3 7)                                                                                         32        4 j
+                                                                                                             j¼1
+Modeling of SMA cables under the configurations of 1  27
+is investigated similar to previous section and then by
+employing Eqs. (10)–(14), a double-helix cable with the                    5. Results and discussion
+cross section of 7  7 may be simulated. To model the
+                                                                           5.1. SE wire rope with the configuration of 7 3 7
+mechanical behavior of SMA cable correctly, lay length of
+cables should be long enough in such a way that all strands                The SE feature can occur at temperature above austenite fin-
+are twisted at least one turn around the core. Thus, consid-               ish temperature (Af) when stress induces phase transform-
+ering the maximum pitch of each wire, the length of 1  27                 ation leading to generation of strain during loading and
+and 7  7 cables are 4 and 10 mm, respectively.                            subsequent recovery of strain upon unloading [29–31].
+   In experimental study conducted by Reedlunn et al. [7]                  Regarding this feature as well as considering a SME double-
+both ends of rope are held between the steel plates with pneu-             helix wire rope, the results of FEM for normal and shear
+matic clamps, so that one end can move along the length of                 stress-strain are depicted and compared with the experimen-
+the cable. Moreover, temperature is controlled simultaneously              tal data [7] in Figure 8(a) and 8(b), respectively, averagely
+by several thermocouples to study phase transformation tem-                about 20% and 25% difference can be seen between the
+perature in cable and its components. To apply similar bound-              results. Figure 9 compares the stress-strain behavior of
+ary conditions similar to the experiments, the model is                    the core, strand with the configuration of 1  7 as well as
+considered cantilever and reference points 1 and 2 are used for            the double-helix wire rope (7  7), there is a good agree-
+imposing deformation as well as axially tensile force. Due to              ment between the results. By applying external force on the
+                                                                                           MECHANICS OF ADVANCED MATERIALS AND STRUCTURES                  5
+
+
+
+
+Figure 5. Modeling and FEA of 1  37 steel wire rope.
+
+
+Table 1. Geometric and material parameters for 1  37 steel cable and its     Table 2. Comparison of the cable elongation between available numerical
+components [5].                                                               study and present work.
+Specimens              d (mm)              / (deg)           L (mm)                             Numerical result [5]        Present work
+Core wire               1.09                  –               67.00           Force (kN)              (mm)                      (mm)             Error (%)
+First layer             1.00                10.77             68.19           10                      0.1505                   0.1477              1.86
+Second layer            1.00                10.77             68.19           20                      0.2749                   0.2339              0.36
+Third layer             1.00                10.77             68.19           30                      0.4080                   0.4019              1.049
+                               Material parameters                            35                      0.4728                   0.4707              0.44
+Parameters                               Unit                         Value
+E                                        GPa                          190     Table 3. Material parameters adopted for shape memory alloy cable [7].
+                                         –                            0.3
+                                                                              Parameter                 Unit                 1  27                    77
+q                                       kg=m3                         7850
+                                                                              E                         GPa                    40                        74
+                                                                                                         –                    0.3                      0.3
+wire rope and exceeding the phase transformation start                        b                           –                    5.5                      6.3
+                                                                              H                         MPa                    488                      400
+stress (rs ), a significant amount of normal strains may be                   R                         MPa                    104                       96
+                                                                                                         
+generated in the components of the cable due to the phase                     T0                           C                  25                      25
+                                                                                                         
+transformation region (Figure 10a), and the normal stress                     As                           C                  12                      14
+                                                                                                         
+                                                                              Af                           C                   5                      10
+induced in cable components seems to have the same behav-                     Ms                         
+                                                                                                           C                  30                      30
+ior and stress values. Furthermore, since outer layers (B- to                 eL                          –                   0.055                    0.055
+D-type wires) are wrapped around the core (A-type) upon
+applying tensile load, torsional torque and consequently                      the normal stress-strain curve the elongation of strands and
+shear stress can be generated in the wire rope (Figure 10b).                  wires increase with rising the helix angle. Regarding Figure
+Note that the shear stress in the core is highly affected by                  14 the uppermost axial force in components varies with the
+the outer layers (interwire contact) in which the ordinary                    displacement or strain; thus, the higher stress in the inner
+trend may not be appeared, while its amount of shear stress                   layers (B-type) is attributed to lower cross-sectional area,
+is much smaller than those of other cable components; thus,                   however, the core wire always withstands the lowest amount
+the highest amount of shear stress is dedicated to wires with                 of axial force. As discussed previously, due to the wire inter-
+two axes of twisting (D-type). There are a large number of                    action and the effect of outer layers on the core, shear stress
+D-type wires in construction of the 7  7 cable so this sub-                  may be expanded in the wire rope while in the shear stress-
+stantial cross-sectional area (A0 in Table 5) may lead to                     strain diagram of the cable components (Figure 15), the sign
+bearing the highest portion of axial load exerted on the                      of stress varies with the change of wire lay (left-handed lay).
+cable (Figure 11a). In contrast to normal stress, the core (A-                Moreover, considering torque magnitude or shear stress of
+type) accounts for the lowest axial load, and other compo-                    the 7  7 and 1  27 cables, it is obvious that this stress for
+nents (B- and C-type) have almost the similar value. The                      latter is significantly larger than the former attributing to
+axial force for the full cable is illustrated in Figure 11(b).                larger helix angle in 1  27 wire rope. In the experimental
+                                                                              work, to prevent the wires from rotating about longitudinal
+                                                                              axis, they clamped and pressed the ends of the wire rope,
+5.2. SE wire rope with the configuration of 1 3 27
+                                                                              however, these effects as well as considering unsymmetric
+The normal and shear stress-strain behavior of a single-helix                 material behavior in tension and compression have been
+wire rope (1  27) and its components are evaluated in this                   ignored in the present work.
+section. As it is clear in Figure 12, for normal and shear
+stress, the maximum difference between the FEA and
+                                                                              5.3. SME wire rope with the configuration of 7 3 7
+experimental data is about 25%. In Figure 13(a) and 13(b),
+respectively, the results of the normal and shear stress-strain               In the following section, FEA of a 7  7 cable is performed
+diagrams of the 1  27 cable components are presented. In                     under tensile loading and the mechanical behavior of this
+6       S. VAHIDI ET AL.
+
+
+
+
+Figure 6. Parametric and material behavior in tensile test during loading and unloading of SMA cables.
+
+
+
+cable and its components are investigated. The shape mem-                         would remain some residual stress (100 MPa). Regarding
+ory effect occurs in twinned martensitic phase when SMA is                        Figure 18(b), similar trend can also happen for shear stress
+deformed and then unloaded still at a temperature lower                           in the components of a wire rope. On the other hand, upon
+than As (austenite start temperature). Subsequently, when                         going up the temperature, the residual normal stress in the
+the temperature is increased above the austenite finish tem-                      core wire begins decreasing and then reaching the phase
+perature (Af), the material regains its original shape through                    transformation region, inelastic normal- and shear strains in
+reverse phase transformation [37]. To simulate the SMA                            the outer layers and core wire start recovering. It worth
+wire ropes under this feature, all the FE modeling parame-                        mentioning that the wires consist of two axes of twisting
+ters (e.g., loading and boundary conditions, interwire con-                       (D-type) in comparison with other components experience
+tacts, and so on) are considered similar to SE wire rope but                      lower normal- and shear stresses. Furthermore, the axial-
+the temperature is assumed lower than As.                                         force displacement for full cable and its components are
+   Figure 16(a) and 16(b), respectively, represents the dia-                      shown in Figure 19. As mentioned in Sec. 5.1, due to a sig-
+grams of normal- and shear stress-strain-temperature for                          nificant cross-sectional area of D-type wires in the 7  7
+wire rope in which the cable reaches the positive detwinned
+                                                                                  cable, the largest amount of axial load is dedicated to these
+region and then unloads. Subsequently, while heating the
+                                                                                  components. The maximum axial load for core (A-type),
+cable above Af normal and shear strains recovery induce in
+                                                                                  two axes od twisting (D-type) wires and other components
+the whole wires. The rate of recovering the developed inelas-
+                                                                                  (B- and C-type) are about 24, 260 and 60 N, respectively
+tic strains at initial steps is low, however, a significant
+                                                                                  (Figure 19b).
+amount of strain recovery takes place in a small range of
+temperature and time (Figure 17).
+   In Figure 18(a) and 18(b), the normal- and shear stress-                       5.4. SME wire rope with the configuration of 1 3 27
+strain-temperature diagrams of the 7  7 wire rope compo-
+nents under tensile load are illustrated, respectively. As it is                  The mechanical behavior of the 1  27 cable is studied and
+clear, the normal stress rises for the inner strands so that                      normal and shear stress for this cable and its components
+the highest stress about 330 MPa is generated in the core                         are extracted in Figure 20(a). The normal stress-strain-tem-
+(A-type), however, due to the interaction between wires and                       perature diagram of the cable shows that during loading the
+the effects of outer strands (B to D-type), ordinary unload-                      normal stress in several wires may exceed the detwinning
+ing behavior may not appear in the core wire and there                            finish stress (rf ) and then upon unloading in addition to
+                                                                                               MECHANICS OF ADVANCED MATERIALS AND STRUCTURES     7
+
+
+
+
+Figure 7. Mesh modeled and schematics of the cross-section and isometric views of four types of wires (A, B, C, D).
+
+Table 4. Geometric parameters for 1  27 cable and its component [7].              temperature of the full cable is presented in Figure 20(b), in
+Type    N     r (mm)    d (mm)     A0 (mm2)     J0 (mm2)     D (mm)     / (deg)    which the shear stress resultant is negative since the number
+A        1       –       0.226        0.04      2.56e  4     0.113        –       of wires with left-handed lay prevails against right-handed
+B        5     0.226     0.226        0.20      1.15e  2     0.339     30.4
+C        9     0.452     0.226       0.361      7.60e  2     0.565     þ42.5
+                                                                                   lay wires.
+D       12     0.678     0.226       0.481      2.24e  1     0.791     47.9         In the normal stress-strain-temperature diagram of the
+Cable   27       –         –         1.083      3.12e  1     0.791        –       cable components (Figure 21), the core wire possesses a sig-
+                                                                                   nificant normal stress in detwinned region (680 MPa), and
+                                                                                   then the subsequent maximum normal stress might be
+induced inelastic strains some residual stresses may remain                        applied to the B-type wire and then to C- and D-type layers,
+in the cable, the latter attributes to interactions between the                    respectively. However, the maximum axial load may differ
+wires. These remained strains and stresses can be recovered;                       according to the amount of displacement in which at very
+thus, the cable returns to its original shape when tempera-                        initial step of loading it goes to core wire, then by increasing
+ture goes up above Af. The diagram of shear stress-strain-                         the cable elongation the highest value may be dedicated to
+8       S. VAHIDI ET AL.
+
+
+Table 5. Geometric parameters for 7  7 cable and its component [7].
+Type              N                  r (mm)                  d (mm)              A0 (mm2)              J0 (mm2)     D (mm)          / (deg)
+A                1                       –                    0.295               0.068                7.43e  4    0.1475              –
+B                6                    0.286                   0.277               0.361                3.30e  2    0.4245            þ11.3
+C                6                    0.822                   0.275               0.356               2.443e  1    0.9595            þ16.9
+D                36              0.5545 to 1.0895             0.260               1.944                   1.44      1.2195         5.6 to 28.2
+Cable            49                      –                      –                 2.697                   1.72      1.2195              –
+
+
+
+
+Figure 8. Comparison between the present work and experimental study for 7  7 SMA cable.
+
+
+
+
+Figure 9. Normal stress comparison between the present work and experimental study for 7  7 and 1  7 SMA cable.
+
+
+
+
+Figure 10. Normal and shear stress for 7  7 SMA cable components.
+
+
+
+B-, then C-type and finally in the outmost layer (Figure 22).                  6. Optimization of SME wire rope
+The shear stress developed in the inner layers owing to the                    In this section, we optimize a 1  6 SME cables to achieve
+effect of the outer layer wires are depicted in Figure 23. In                  the maximum amount of specific energy through the method
+the shear stress-strain-temperature diagram of each compo-                     of design and analysis of experiment [36]. In experimental
+nent, a change in the lay direction of the wires leads to a                    design method, by conducting a set of experiments or series
+change in the shear stress sign and finally via heating the                    of runs, input variables of a system may vary purposefully to
+cable, inelastic strains may disappear.                                        identify which input variables can be responsible for changes
+                                                                                               MECHANICS OF ADVANCED MATERIALS AND STRUCTURES   9
+
+
+
+
+Figure 11. The relationship between axial force and displacement for full cable (7  7) and its components.
+
+
+
+
+Figure 12. Comparison between the present work and experimental study for 1  27 SMA cable.
+
+
+
+
+Figure 13. Normal stress-strain comparison between the present work and experiment for B-, C, and D type wires.
+
+
+
+
+Figure 14. The relationship between axial force and displacement for full cable (1  27) and its components.
+10       S. VAHIDI ET AL.
+
+
+
+
+Figure 15. Shear stress-strain comparison between the present work and experimental study for B-, C, and D type wires.
+
+
+
+
+Figure 16. The relationship between normal- and shear stress-strain-temperature for 7  7 SMA cable.
+
+
+                                                                                  where M, F and d denote the mass, applied tensile force, and
+                                                                                  cable displacement. For one-layer strand (Figure 2a), three con-
+                                                                                  trollable factors are diameter of the wires twisted around the
+                                                                                  core and their helix angle as well as diameter of the core; thus,
+                                                                                  in an n-layer strand there could be 2n þ 1 controllable factors.
+                                                                                  Generally, for this quantity of factors (2n þ 1), and each at k
+                                                                                  levels, the factorial design would require k2nþ1 tests. In this
+                                                                                  study, because FEA are performed by considering three levels
+                                                                                  of factors; thus, to reduce run times of solutions, we assume
+                                                                                  the same diameter for both types of wires in accordance with
+                                                                                  the standard provided by Dynalloy Trading Company; two
+                                                                                  controllable factors would be diameter (D) with the levels of
+                                                                                  0.10, 0.20, and 0.38 mm and helix angle (/) with the levels of
+Figure 17. Strain-time relationship during heating and phase transformation       54.9, 63.0, and 72.0 degrees. Consequently, based on factorial
+for 7  7 SMA cable.
+                                                                                  design 32 finite element models (Table 6) will be required to
+                                                                                  run. It should be mentioned that in design experiment method,
+                                                                                  to ensure the accuracy of the results dimensions of the element
+in response; thus, these variables affecting output response
+                                                                                  are chosen small enough to minimize the errors related to the
+are named controllable factors.
+                                                                                  meshed model.
+    In this FEA of SMA cables, the output response is spe-
+                                                                                     Being obtained the output response data and then com-
+cific energy (g), and can be obtained as
+                                                                                  puted with a statistical software package (Design-Expert),
+                                        FD                                        the interpolation equation of cable specific energy in terms
+                                  g¼                                     (17)
+                                        M                                         of controllable variables yields as
+                                                                                              MECHANICS OF ADVANCED MATERIALS AND STRUCTURES   11
+
+
+
+
+Figure 18. normal and shear stress-strain-temperature for 7  7 SMA components.
+
+
+
+
+Figure 19. The relationship between axial force and displacement for full cable (7  7) and its components.
+
+
+
+
+Figure 20. Normal and shear stress-strain-temperature diagram of the 1  27 SMA cable.
+12       S. VAHIDI ET AL.
+
+
+
+
+Figure 21. Normal stress-strain-temperature diagram of the 1  27 SMA cable components.
+
+
+
+
+Figure 22. The relationship between axial force and displacement for full cable (1  27) and its components.
+
+
+
+
+Figure 23. Shear stress-strain-temperature diagram of the 1  27 cable components.
+                                                                                           MECHANICS OF ADVANCED MATERIALS AND STRUCTURES               13
+
+
+Table 6. Factorial design of finite element models regarding levels of control-   obtained through FEA and then compared with experimen-
+lable variables.
+                                                                                  tal data. Furthermore, single- and double-helix SME cables
+Model                              / (deg)                             D (mm)
+                                                                                  are simulated and the relationship between of both normal
+1                                  54.9                                0.10
+2                                  63.0                                0.10
+                                                                                  and shear stresses with strain and temperature variation
+3                                  72.0                                0.10       along with force-displacement diagrams for components are
+4                                  54.9                                0.20       investigated. Moreover, optimization of the 1  27 SME
+5                                  63.0                                0.20
+6                                  72.0                                0.20
+                                                                                  cable to fulfill the maximum specific energy is carried out in
+7                                  54.9                                0.38       terms of two controllable variables including wire diameter
+8                                  63.0                                0.38       and helix angle and then the optimized corresponding val-
+9                                  72.0                                0.38
+                                                                                  ues are suggested. The force-displacement and normal
+                                                                                  stress-strain diagrams show that although the axial force in
+                                                                                  core wires seems to be relatively insignificant, due to small
+                                                                                  cross-sectional area these wires have always the largest nor-
+                                                                                  mal stress. From inner layers to outers, the normal stress
+                                                                                  starts decreasing while the axial force does not follow a spe-
+                                                                                  cific trend so that for different elongations different cable
+                                                                                  components could have the highest axial force. In the shear
+                                                                                  stress-strain-temperature diagram of SME cables, lays of
+                                                                                  individual components contribute to positive and/or nega-
+                                                                                  tive sign of shear stress. Finally, upon heating these cables,
+                                                                                  they recover inelastic strains in very short range of time and
+                                                                                  specific range of temperature. The results of optimization
+                                                                                  also shows that the more wire diameter and the less helix
+                                                                                  angle can lead to the greater specific energy of a wire rope.
+
+
+                                                                                  Funding
+                                                                                  This work was supported by the National Research Foundation of
+                                                                                  Korea (NRF) grant funded by the Korea government (MSIT) (Project
+                                                                                  No. NRF 2020R1A4A-1018826).
+
+
+
+Figure 24. Response surface plot of controllable variables.
+                                                                                  References
+    g ¼ þ2:19  0:0056D  0:17/  0:11D/ þ 0:065D2                                 [1]   B. Reedlunn, S. Daly, and J. Shaw, Superelastic shape memory
+                                                                                         alloy cables: Part I – isothermal tension experiments. Int. J.
+        þ 0:11/2  0:091D2 / þ 0:12D/2                                   (20)            Solids Struct., vol. 50, no. 20–21, pp. 3009–3026, 2013. DOI: 10.
+                                                                                         1016/j.ijsolstr.2013.03.013.
+    Therefore, in Figure 24, we depict the response surface                        [2]   G.A. Costello, Theory of Wire Rope, Springer, New York, 1998.
+plot showing the relationship between the independent vari-                        [3]   W.S. Utting and N. Jones, The response of wire rope strands to
+ables and the output response. Among all the different com-                              axial tensile loads part I: Experimental results and theoretical
+binations of controllable factors affecting the response, the                            predictions, Int. J. Mec. Sci., vol. 29, no. 9, pp. 605–619, 1987.
+                                                                                         DOI: 10.1016/0020-7403(87)90033-6.
+optimal level is suggested as D ¼ 0.38 mm, and /¼54.9 ,                           [4]   E. Stanova, G. Fedorko, M. Fabian, and S. Kmet, Computer
+which is very close to Model 7 represented in Table 6, that                              modelling of wire strands and ropes part I: Theory and com-
+is, the more decrease and increase in helix angle and wire                               puter implementation, Adv. Eng. Softw., vol. 42, no. 6, pp.
+diameter, respectively, can lead to the higher cable spe-                                305–315, 2011. DOI: 10.1016/j.advengsoft.2011.02.008.
+cific energy.                                                                      [5]   E. Stanova, G. Fedorko, M. Fabian, and S. Kmet, Computer
+                                                                                         modelling of wire strands and ropes part II: Finite element-
+                                                                                         based applications, Adv. Eng. Softw., vol. 42, no. 6, pp.
+                                                                                         322–331, 2011. DOI: 10.1016/j.advengsoft.2011.02.010.
+7. Summary and conclusions                                                         [6]   D. Wang, D. Zhang, S. Wang, and S. Ge, Finite element ana-
+In the present paper, a detailed study of the mechanical                                 lysis of hoisting rope and fretting wear evolution and fatigue
+                                                                                         life estimation of steel wires, Eng. Fail. Anal., vol. 27, pp.
+behavior of two configurations of single- and double-helix                               173–193, 2013. DOI: 10.1016/j.engfailanal.2012.08.014.
+SMA cables under two characteristics of SE and SME is dis-                         [7]   B. Reedlunn, S. Daly, and J. Shaw, Superelastic shape memory
+cussed. For validation of geometry and modeling of the                                   alloy cables: Part II – subcomponent isothermal responses. Int.
+cables, FEA of 1  37 steel wire rope is achieved and then                               J. Solids Struct., vol. 50, no. 20–21, pp. 3027–3044, 2013. DOI:
+compared with existing numerical results. Extracting mater-                              10.1016/j.ijsolstr.2013.03.015.
+                                                                                   [8]   A. Ostadrahimi and F. Taheri-Behrooz, Analytical solution for
+ial parameters from the experimental study of 1  27 and                                 twinning deformation effect of pre-strained shape memory
+7  7 SE wire ropes under tensile load, the normal and shear                             effect beam-columns, J. Intell. Mater. Syst. Struct., vol. 30, no.
+stress-strain for full cables and their components are                                   14, pp. 2147–2165, 2019. DOI: 10.1177/1045389X19862380.
+14      S. VAHIDI ET AL.
+
+
+ [9]   E. Choi, A. Ostadrahimi, and J.H. Lee, Pullout resistance of               [25]   S. Cao, O.E. Ozbulut, S. Wu, Z. Sun, and J. Deng, Multi-level
+       crimped reinforcing fibers using cold-drawn NiTi SMA wires,                       SMA/lead rubber bearing isolation system for seismic protec-
+       Constr. Build. Mater., vol. 265, p. 120858, 2020. DOI: 10.1016/j.                 tion of bridges, Smart Mater. Struct., vol. 29, no. 5, p. 055045,
+       conbuildmat.2020.120858.                                                          2020. DOI: 10.1088/1361-665X/ab802b.
+[10]   E. Choi, A. Ostadratimi, and J. Park, On mechanical properties             [26]   D. Liang, Y. Zheng, C. Fang, M.C.H. Yam, and C. Zhang,
+       of NiTi SMA wires prestrained by cold rolling, Smart Mater.                       Shape memory alloy (SMA)-cable-controlled sliding bearings:
+       Struct., vol. 29, p. 065009, 2020.                                                Development, testing, and system behavior, Smart Mater.
+[11]   E. Choi, A. Ostadrahimi, and H. Youn, Analytical and experi-                      Struct., vol. 29, no. 8, p. 085006, 2020. DOI: 10.1088/1361-
+       mental study of shape memory alloy reinforcement on the per-                      665X/ab8f68.
+       formance of butt-fusion welded joints in high-density                      [27]   Y. Zheng, Y. Dong, and Y. Li, Resilience and life-cycle perform-
+       polyethylene pipe, J. Intell. Mater. Syst. Struct., vol. 31, no. 17,              ance of smart bridges with shape memory alloy (SMA)-cable-
+       pp. 2029–2043, 2020. DOI: 10.1177/1045389X20942583.                               based bearings, Constr. Build. Mater., vol. 158, pp. 389–400,
+[12]   E. Choi, A. Ostadrahimi, W. Kim, and J. Seo, Prestressing effect
+                                                                                         2018. DOI: 10.1016/j.conbuildmat.2017.10.031.
+       of embedded Fe-based SMA wire on the flexural behavior of
+                                                                                  [28]   S. Li, F. Hedayati Dezfuli, J.-q. Wang, and M. Shahria Alam,
+       mortar beams, Eng. Struct., vol. 227, p. 111472, 2021. DOI: 10.
+                                                                                         Seismic vulnerability and loss assessment of an isolated simply
+       1016/j.engstruct.2020.111472.
+                                                                                         supported highway bridge retrofitted with optimized superelas-
+[13]   H.V. Ho, E. Choi, D. Kim, and J. Kang, Straining behavior of
+       mortar reinforced by cold drawn crimped and dog-bone-shaped                       tic shape memory alloy cable restrainers, Bull. Earthquake Eng.,
+       fibers under monotonic and cyclic compressions, Materials, vol.                   vol. 18, no. 7, pp. 3285–3316, 2020. DOI: 10.1007/s10518-020-
+       14, no. 6, p. 1522, 2021. DOI: 10.3390/ma14061522.                                00812-4.
+[14]   E. Choi, H.V. Ho, and J.S. Jeon, Active reinforcing fiber of               [29]   F. Fantoni, A. Bacigalupo, and M. Paggi, Multi-field asymptotic
+       cementitious materials using crimped NiTi SMA fiber for                           homogenization of thermo-piezoelectric materials with periodic
+       crack-bridging and pullout resistance, Materials, vol. 13, no. 17,                microstructure, Int. J. Solids Struct., vol. 120, pp. 31–56, 2017.
+       p. 3845, 2020. DOI: 10.3390/ma13173845.                                           DOI: 10.1016/j.ijsolstr.2017.04.009.
+[15]   F. Taheri-Behrooz, M.J. Mahdavizade, and A. Ostadrahimi,                   [30]   F. Fantoni, A. Bacigalupo, and M. Paggi, Design of thermo-
+       Micromechanics of stress transfer in shape memory alloy rein-                     piezoelectric microstructure bending actuators via multi-field
+       forced three-phase composites, J. Intell. Mater. Syst. Struct., vol. 29,          asymptotic homogenization, Int. J. Mech. Sci., vol. 146–147, pp.
+       no. 15, pp. 3151–3164, 2018. DOI: 10.1177/1045389X18783086.                       319–336, 2018. DOI: 10.1016/j.ijmecsci.2018.07.019.
+[16]   D.C. Lagoudas, Shape Memory Alloys: Modeling and                           [31]   K. Tanaka, A thermomechanical sketch of shape memory effect:
+       Engineering Applications, Springer, New York, 2008.                               One-dimensional tensile behavior. Res. Mech., vol. 2, no. 3,
+[17]   Ft Wayne Metals, Personal communication, 2010. http://www.                        pp. 59–72, 1986.
+       fwmetals.com/strands.php.                                                  [32]   A.C. Souza, E. Mamiya, and N. Zouain, Three-dimensional
+[18]   L. Wang, J. Xu, and Q. Han, Effects of cross-sectional size and                   model for solids undergoing stress induced phase transforma-
+       shape on the longitudinal tensile and anchoring properties of                     tions, Eur. J. Mech. A Solids, vol. 17, no. 5, pp. 789–806, 1998.
+       CFRP cables, J. Mater. Civ. Eng., vol. 31, no. 5, pp. 1–10, 2019.                 DOI: 10.1016/S0997-7538(98)80005-3.
+[19]   R. Mirzaeifar, R. DesRoches, and A. Yavari, A combined analyt-             [33]   M. Fremond, Shape Memory Alloy: A Thermomechanical
+       ical, numerical, and experimental study of shape-memory-alloy                     Macroscopic Theory. Cism Courses and Lectures, Springer,
+       helical springs, Int. J. Solids Struct., vol. 48, no. 3–4, pp.                    New York, vol. 351, pp. 3–68, 1996.
+       611–624, 2011. DOI: 10.1016/j.ijsolstr.2010.10.026.                        [34]   A. Ostadrahimi, J. Arghavani, and S. Poorasadion, An analytical
+[20]   B. Mas, D. Biggs, I. Vieito, A. Cladera, J. Shaw, and F.                          study on the bending of prismatic SMA beams, Smart Mater.
+       Martınez-Abella, Superelastic shape memory alloy cables for                      Struct., vol. 24, no. 12, p. 125035, 2015. DOI: 10.1088/0964-
+       reinforced concrete applications, Constr. Build. Mater., vol. 148,
+                                                                                         1726/24/12/125035.
+       pp. 307–320, 2017. DOI: 10.1016/j.conbuildmat.2017.05.041.
+                                                                                  [35]   L.C. Brinson, One-dimensional constitutive behavior of shape
+[21]   O.E. Ozbulut, S. Daghash, and M.M. Sherif, Shape memory
+                                                                                         memory alloys: Thermomechanical derivation with non-con-
+       alloy cables for structural applications, J. Mater. Civ. Eng., vol.
+                                                                                         stant material functions and redefined martensite internal vari-
+       28, no. 4, p. 04015176, 2016. DOI: 10.1061/(ASCE)MT.1943-
+       5533.0001457.                                                                     able, J. Intel. Mat. Syst. Struct., vol. 4, no. 2, pp. 229–242, 1993.
+[22]   M.M. Sherif and O.E. Ozbulut, Thermomechanical and elec-                          DOI: 10.1177/1045389X9300400213.
+       trical response of a superelastic NiTi shape memory alloy cable,           [36]   D.C. Montgomery, Design and Analysis of Experiments, John
+       J. Intell. Mater. Syst. Struct., vol. 31, no. 19, pp. 2229–2242,                  Wiley & Sons, Arizona State University, 2008.
+       2020. DOI: 10.1177/1045389X20943952.                                       [37]   J. Arghavani, F. Auricchio, R. Naghdabadi, A. Reali, and S.
+[23]   C. Fang, Y. Zheng, J. Chen, M.C.H. Yam, and W. Wang,                              Sohrabpour, A 3-D phenomenological constitutive model for
+       Superelastic NiTi SMA cables: Thermal-mechanical behavior,                        SMAs under multiaxial loadings, Int. J. Plast., vol. 26, no. 7, pp.
+       hysteretic modeling, and seismic application, Eng. Struct., vol.                  976–991, 2010. DOI: 10.1016/j.ijplas.2009.12.003.
+       183, pp. 533–549, 2019. DOI: 10.1016/j.engstruct.2019.01.049.              [38]   F. Auricchio and L. Petrini, A three-dimensional model describ-
+[24]   F. Shi, G. Saygili, O.E. Ozbulut, and Y. Zhou, Risk-based main-                   ing stress-temperature induced solid phase transformations:
+       shock-aftershock performance assessment of SMA braced steel                       Thermomechanical coupling and hybrid composite applications,
+       frames, Eng. Struct., vol. 212, no. 1, p. 110506, 2020. DOI: 10.                  Int. J. Numer. Meth. Engng., vol. 61, no. 5, pp. 716–716–37,
+       1016/j.engstruct.2020.110506.                                                     2004. DOI: 10.1002/nme.1087.
+
