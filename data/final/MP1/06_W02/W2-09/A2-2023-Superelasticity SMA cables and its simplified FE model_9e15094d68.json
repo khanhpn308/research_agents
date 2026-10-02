@@ -1,0 +1,166 @@
+{
+  "source": {
+    "paper_id": "9e15094d68",
+    "filename": "A2-2023-Superelasticity SMA cables and its simplified FE model.pdf",
+    "sha256": "9e15094d685bf8ee21ad0b5fa9e67b3fccb0a33dc2ef5d7c9cbd47d6eca26d89",
+    "page_count": 9,
+    "char_count": 26834,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 21450,
+    "completion_tokens": 7506,
+    "total_tokens": 28956,
+    "thinking_tokens": 5264,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Jiaxing Liu",
+      "Zhongwei Zhao",
+      "Xiaomeng Zhang",
+      "Bingzhen Zhao",
+      "Ye Yuan",
+      "Yuyang Bao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Isotropic material behavior for the shape memory alloy (SMA).",
+      "Isothermal conditions during superelastic loading and unloading cycles.",
+      "Auricchio superelastic constitutive model defining forward and reverse stress-induced phase transformations using four threshold stress values (starting/final forward transformation stresses, starting/final reverse transformation stresses) and maximum residual strain.",
+      "Coupled sections in the simplified FE model act like rigid cross-sections where relative translational displacements of nodes within the section are constrained to zero, while nodes outside remain unaffected and uncoupled.",
+      "Squeezing effects and contact behavior between adjacent outer wires are omitted in the simplified FE model.",
+      "SMA wires remain in the elastic/superelastic regime, mitigating some computational errors introduced by omitting wire-to-wire squeezing."
+    ],
+    "control_variables": [
+      "SMA chemical composition: 55.5 wt% Ni, ~44.477 wt% Ti, with trace elements (C 0.011 wt%, Cu 0.003 wt%, Co < 0.003 wt%, Cr < 0.003 wt%, Nb < 0.003 wt%).",
+      "SMA material parameters: elastic modulus E = 1.33 × 10^4 MPa, phase transition temperature = -10 °C, tensile strength = 1530 MPa, elongation = 22.18%, transformation stresses (starting forward = 400 MPa, final forward = 600 MPa, starting reverse = 300 MPa, final reverse = 100 MPa), maximum residual strain = 0.22.",
+      "Cable construction: 7-wire strand (1 straight core wire and 6 outer helical wires); 7×7 wire rope (7 strands, 49 wires).",
+      "Outer strand pitch length Lp2 for the 7×7 wire rope held constant at 80 mm.",
+      "Normal stiffness factor of 0.8 for contact elements in the refined FE model."
+    ],
+    "dependent_variables": [
+      "Hysteresis loop shape and outer hysteresis loop area (energy dissipation capacity).",
+      "Tensile force corresponding to the upper horizontal transformation plateau segment.",
+      "Von Mises stress distributions across central and outer wires or strands.",
+      "Initial stiffness of the strand or rope.",
+      "Ductility of the strand compared to individual wires.",
+      "Computational solution time and numerical convergence rate."
+    ],
+    "doi": "10.1007/s40430-022-03957-2",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A simplified FE modeling method using coupled nodal cross-sections at periodic intervals eliminates contact elements, reducing computational run time from 23 hours to approximately 30 minutes while closely reproducing the hysteretic response of refined contact models.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          1,
+          4,
+          8
+        ]
+      },
+      {
+        "claim": "Varying the pitch length (Lp1) of superelastic SMA strands has negligible influence on the hysteresis loop area (energy dissipation changes remain within 5.8%), whereas increasing pitch length raises the tensile force of the upper horizontal transformation segment.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          1,
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "Superelastic SMA strands achieve greater ductility than single SMA wires because outer helical wires remain elastic while the central core wire transitions into the strain hardening phase.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          1,
+          6,
+          8
+        ]
+      },
+      {
+        "claim": "For the simplified FE modeling approach, numerical accuracy is maintained when the interval between coupled sections (Δl) is less than one-fifth of the pitch length, and a model length of one-eighth the pitch length is sufficient for analysis.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "In 7×7 SMA wire ropes under axial tension, individual strand pitch length (Lp1) has negligible effect on the overall hysteresis loops, with the central core strand sustaining 13.3% higher stress than outer strands.",
+        "evidence_type": "simulation",
+        "page_numbers": [
+          7
+        ]
+      },
+      {
+        "claim": "SMA strands and ropes exhibit weak bending stiffness and pseudoelastic energy dissipation, presenting potential utility in flexible damping, isolation, and self-centering applications.",
+        "evidence_type": "literature review",
+        "page_numbers": [
+          1
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Uniaxial tensile stress-strain characterization of superelastic NiTi SMA wire (diameter approximately 0.5 mm, provided by Gaohan metal materials Co. Ltd., Guangdong, China) used to calibrate constitutive material parameters for numerical simulations; the paper is predominantly numerical and does not detail a physical experimental test apparatus for multi-wire strands or ropes."
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Pitch length of the wire strand (Lp1: 10 mm, 20 mm, 40 mm, and infinity/parallel wires).",
+      "Pitch length of wires in 7×7 wire rope (Lp1: 80 mm, 160 mm, 320 mm).",
+      "Distance between adjacent coupled sections (Δl: 2 mm, 4 mm, 8 mm).",
+      "Finite element model length (l: 5 mm, 10 mm, 20 mm, 40 mm).",
+      "Finite element modeling methodology (simplified coupled-section model vs. refined contact-element model using CONTA174 and TARGE170).",
+      "Rope lay configuration (regular lay vs. lang lay)."
+    ],
+    "limitations_inferred": [
+      "The study relies almost exclusively on numerical finite element models without full-scale experimental cyclic tension testing of multi-wire strands or 7×7 ropes to experimentally validate simulated hysteresis loops.",
+      "The analysis is restricted to monotonic and cyclic pure axial tension, omitting bending, torsional, or multi-axial loading states relevant to flexible robotic joints or continuum mechanisms.",
+      "Inter-wire friction and relative sliding dissipation are omitted in the simplified coupled-section model.",
+      "Thermal effects, strain-rate dependencies, and latent heat generation during cyclic transformation are not evaluated due to the isothermal assumption."
+    ],
+    "limitations_stated_by_authors": [
+      "The simplified numerical model neglects the squeezing effect between outer and inner wires, reducing the stress on inner wires and potentially introducing computational error.",
+      "Coupling translational degrees of freedom at coupled sections creates localized errors in stress distribution restricted to the coupled sections.",
+      "Contact behavior between adjacent outer wires is not considered in the refined FE model.",
+      "Setting the distance between adjacent coupled sections (Δl) excessively large prevents effective wire constraint and degrades the initial stiffness of the cable model.",
+      "Numerical scale was limited to a 7×7 wire rope (49 wires) due to computational power requirements."
+    ],
+    "main_results": [
+      "The simplified FE model matches the hysteresis loop of the refined contact model while lowering computation time from 23 hours to about 30 minutes and preventing numerical non-convergence.",
+      "Pitch length (Lp1) has negligible impact on the hysteresis loop area of SMA strands, with total area variation staying within 5.8%.",
+      "Tensile force corresponding to the forward transformation upper horizontal segment increases as pitch length Lp1 increases.",
+      "SMA strands demonstrate higher ductility than individual SMA wires because the outer helical wires remain elastic when the central wire enters the hardening stage.",
+      "In 7×7 SMA wire ropes, pitch length Lp1 has almost no influence on hysteresis behavior or tensile force, and stress in the central strand is 13.3% higher than in outer strands.",
+      "Numerical accuracy for the simplified model is preserved if the coupled section interval Δl is less than 0.2 times the pitch length, and an FE model length of one-eighth the pitch length yields satisfactory results."
+    ],
+    "modeling_methods": [
+      "Finite element (FE) modeling and numerical analysis in ANSYS.",
+      "Refined 3D solid FE model using surface-to-surface contact elements (CONTA174 on central wire surface and TARGE170 on outer wire surfaces).",
+      "Simplified FE model using coupled sections that couple translational degrees of freedom of cross-sectional nodes at spacing Δl without contact elements.",
+      "Auricchio 3D superelasticity material formulation (accessed via TB, SMA in ANSYS)."
+    ],
+    "performance_metrics": [
+      "Hysteresis loop area and percentage variation in energy dissipation capacity (within 5.8%).",
+      "Computation time (reduction from 23 h to 30 min).",
+      "Tensile force at the upper transformation plateau.",
+      "Von Mises stress magnitude and stress ratio between core and outer strands (central strand 13.3% higher).",
+      "Ductility comparison between strands and individual wires.",
+      "Initial stiffness of the strand or rope."
+    ],
+    "possible_gap_implications": [
+      "The coupled-section modeling methodology could provide a computationally efficient framework for simulating multi-wire superelastic SMA tendons or cable bundles in soft and continuum robotics without contact non-convergence.",
+      "The decoupling of energy dissipation area from pitch length suggests that strand geometry can be tailored for higher ductility or tailored plateau tension in flexible damping mechanisms without sacrificing cyclic energy absorption, though validation under robotic bending conditions is required."
+    ],
+    "research_objective": "To reveal the hysteresis behavior of shape memory alloy (SMA) strands and ropes, investigate the influence of pitch length on their mechanical performance, and develop a simplified finite element model that avoids contact elements to facilitate the numerical analysis of large-scale SMA wire ropes.",
+    "research_problem": "Numerical modeling of large-scale SMA wire ropes and strands is computationally prohibitive, highly nonlinear, and prone to non-convergence due to the necessity of defining inter-wire contact elements between dozens of adjacent slender helical wires.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Shape memory alloy superelasticity (pseudoelasticity)",
+      "Stress-induced solid phase transformation"
+    ],
+    "title": "Superelasticity SMA cables and its simplified FE model",
+    "year": "2023"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "source": {
+    "paper_id": "56793dea9b",
+    "filename": "2025-Finite Element Method for Mechanical Behavior of Shape Memory Alloy .pdf",
+    "sha256": "56793dea9b3dcbb4224e7c61297f37983f9ff0abcf43d1d782c0e0ad26355b61",
+    "page_count": 8,
+    "char_count": 18300,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 25280,
+    "completion_tokens": 7512,
+    "total_tokens": 32792,
+    "thinking_tokens": 5033,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "KANG Zetian",
+      "WANG Zhiyong",
+      "ZHOU Bo",
+      "XUE Shifeng"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Plastic strain is neglected (ij_epsilon = ij_epsilon^e + ij_epsilon^th + ij_epsilon^tr).",
+      "State variables governing the material behavior are the shape memory factor (eta), temperature (T), and stress (sigma).",
+      "The shape memory alloy is treated as isotropic during the phase transformation process.",
+      "The direction of phase transformation strain increment is derived from a transformation potential analogous to the von Mises plastic flow rule.",
+      "Poisson's ratio is assumed to remain constant during the phase transformation process.",
+      "Linear elastic behavior is assumed for pure austenite loading and pure martensite loading/unloading before transformation triggers.",
+      "Material parameters are assumed to remain constant within each incremental calculation step.",
+      "Critical phase transformation start and finish stresses vary linearly with temperature according to Brinson's formulation.",
+      "Smooth, frictionless contact is assumed between adjacent SMA wire strands to maintain numerical convergence."
+    ],
+    "control_variables": [
+      "Testing/ambient temperature (25.0 °C)",
+      "SMA wire diameter (0.885 mm)",
+      "Cable length (20 mm)",
+      "Strand assembly structure (49 wires arranged in a 7x7 helical configuration)",
+      "Boundary conditions preventing axial rotation (tied constraint to rigid cylindrical fixtures at ends)",
+      "Frictionless contact formulation between wire strands",
+      "SMA material parameters (EA = 28.8 GPa, EM = 17.2 GPa, Poisson's ratio = 0.25, maximum transformation strain H = 4.8%)"
+    ],
+    "dependent_variables": [
+      "Nominal tensile stress-strain curves of the core strand and the entire cable",
+      "Martensite phase transformation start stress and finish stress",
+      "Reverse phase transformation start stress and finish stress",
+      "Initial loading elastic modulus and initial post-transformation unloading elastic modulus",
+      "Equivalent (von Mises) stress distribution in the strands",
+      "Shape memory factor (eta) distribution across the core and outer strands"
+    ],
+    "doi": "10.3901/JME.2020.14.065",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Superelastic SMA cables involve dual nonlinearities of material constitutive behavior and inter-wire contact, making general theoretical modeling challenging while experimental testing is costly and sensitive to environmental conditions.",
+        "evidence_type": "background / problem formulation",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "Small-diameter superelastic SMA wires stranded into multi-wire cables provide higher structural strength, stability, and damping compared to solid large-diameter SMA rods, while increasing the surface-area-to-volume ratio to maintain thermal stability during phase transformations.",
+        "evidence_type": "background / mechanism analysis",
+        "page_numbers": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "An incremental SMA constitutive model based on the shape memory factor concept was derived and implemented in ABAQUS via a user material subroutine (UMAT), accounting for elastic modulus changes during phase transformation.",
+        "evidence_type": "constitutive modeling / numerical formulation",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "FEA simulations using simplified cross-sectional geometries (configurations a and b) reproduced experimental uniaxial tensile responses of NiTi core strands from published literature, predicting transformation start stresses within 4.1% and 2.7% error respectively.",
+        "evidence_type": "simulation validation against literature experiment",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Stress and transformation field contours reveal that mutual contact compression between outer strands and the core strand produces stress concentrations and initiates martensitic transformation at strand-to-strand contact interfaces.",
+        "evidence_type": "simulation result",
+        "page_numbers": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Compared to an isolated straight core strand, the 7x7 stranded SMA cable exhibits lower initial elastic modulus, lower forward transformation start/finish stresses, and lower reverse transformation start/finish stresses in both simulation and experiment.",
+        "evidence_type": "comparative simulation and experimental analysis",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Neglecting friction between adjacent wire strands in the finite element discrete model leads to numerical underestimation of cable nominal tensile stress relative to experimental measurements at identical strains.",
+        "evidence_type": "model limitation analysis",
+        "page_numbers": [
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Increasing the outer strand pitch from 40 mm to 50 mm and 60 mm decreases the overall nominal tensile stress level at identical strain, lowers transformation start/finish stresses, and reduces both initial loading and post-transformation unloading moduli.",
+        "evidence_type": "parametric simulation analysis",
+        "page_numbers": [
+          6,
+          7
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Finite element discrete model of a 20 mm long, 7x7 stranded NiTi cable (49 wires of 0.885 mm diameter) with two simplified cross-sectional configurations (a and b).",
+      "ABAQUS finite element simulation using C3D4 tetrahedral solid elements for the SMA wires and C3D8R solid elements for rigid boundary fixtures.",
+      "Boundary conditions: full displacement constraints at one end; axial displacement allowed at the other end while preventing rotation via tied rigid cylindrical bases.",
+      "Comparative experimental baseline: published experimental data from Mas et al. (2017) on uniaxial tensile loading and unloading of NiTi core strands and 7x7 cables at 25.0 °C."
+    ],
+    "future_work": [
+      "The authors state that the proposed finite element method and results can provide calculation methods and technical guidance for the structural design and engineering applications of SMA superelastic cables."
+    ],
+    "independent_variables": [
+      "Cable outer strand pitch l0 (40 mm, 50 mm, 60 mm)",
+      "Cable cross-sectional simplified geometric configuration (configuration a vs configuration b)",
+      "Axial tensile strain / displacement",
+      "Structural component type (isolated core strand vs full stranded cable)"
+    ],
+    "limitations_inferred": [
+      "The numerical framework was validated only against literature tensile data at a single quasi-static temperature (25.0 °C) without evaluation under dynamic, cyclic, or varying thermal conditions.",
+      "Latent heat generation and dissipation during phase transformation are not coupled into the formulation (fully isothermal mechanical assumption).",
+      "Plastic strain accumulation, functional fatigue, and degradation of superelastic recovery over repeated loading cycles are not accounted for.",
+      "Cross-sectional simplification of the 7x7 wire bundle neglects localized strand cross-sectional flattening and complex multi-point slipping behaviors."
+    ],
+    "limitations_stated_by_authors": [
+      "To maintain numerical convergence during computation, the finite element discrete model does not incorporate frictional contact between individual wire strands (frictionless smooth contact was assumed), causing the simulated cable nominal stress to be significantly lower than experimental measurements at identical strain.",
+      "The actual 7x7 multi-wire cross-sectional geometry had to be simplified into simplified geometric configurations to facilitate meshing and ensure convergence."
+    ],
+    "main_results": [
+      "Simplified cross-section configuration a simulated core strand martensitic transformation start and finish stresses of 486.5 MPa and 518.9 MPa (4.1% and 2.8% error vs experiment 507.4 MPa and 534.1 MPa), and reverse transformation start and finish stresses of 255.9 MPa and 230.6 MPa (4.0% and 9.9% error vs experiment 266.7 MPa and 255.9 MPa).",
+      "Simplified cross-section configuration b simulated core strand transformation start and finish stresses of 493.7 MPa and 526.1 MPa (2.7% and 1.5% error), and reverse transformation start and finish stresses of 263.1 MPa and 223.4 MPa (1.3% and 12.7% error).",
+      "Under 390.0 MPa tensile stress, the highest equivalent stresses and earliest phase transformations occur at contact regions between the core strand and outer strands, as well as between adjacent outer strands.",
+      "At 25.0 °C, the full cable exhibits a lower transformation plateau than the core strand: simulated cable transformation start and finish stresses are 404.6 MPa and 445.9 MPa (18.0% and 15.2% lower than the core strand), and reverse transformation start and finish stresses are 225.4 MPa and 162.6 MPa (14.3% and 27.2% lower than the core strand).",
+      "Increasing the outer strand pitch l0 from 40 mm to 50 mm and 60 mm decreases overall cable nominal stress, reduces transformation initiation and completion stresses, and lowers the initial loading and unloading elastic moduli."
+    ],
+    "modeling_methods": [
+      "Incremental shape memory alloy constitutive model derived from total-formulation equations using the shape memory factor concept",
+      "ABAQUS user material subroutine (UMAT) implementation considering phase-dependent elastic modulus variation",
+      "Finite element modeling with C3D4 tetrahedral elements for SMA strands and C3D8R brick elements for rigid cylindrical end grips",
+      "Simplified geometric cross-sectional representations (configurations a and b) for 7x7 helical stranded cables",
+      "Contact mechanics algorithm using smooth, frictionless surface contact between individual wire strands"
+    ],
+    "performance_metrics": [
+      "Martensite transformation start stress (sigma_MS) and finish stress (sigma_MF) in MPa",
+      "Martensite reverse transformation start stress (sigma_AS) and finish stress (sigma_AF) in MPa",
+      "Relative error percentage between FEA simulation predictions and experimental literature measurements",
+      "Equivalent stress (von Mises stress) distribution in MPa",
+      "Shape memory factor (eta) distribution (dimensionless, 0 to 1)",
+      "Initial loading elastic modulus and initial unloading elastic modulus"
+    ],
+    "possible_gap_implications": [
+      "Although SMA superelastic cables provide flexible load transmission and variable effective stiffness, neglecting inter-strand friction in structural models underestimates load-bearing capacity and hysteresis energy dissipation.",
+      "For variable-stiffness or continuum mechanical components, developing advanced contact algorithms that incorporate inter-wire friction and thermomechanical latent heat coupling is necessary for accurate predictive design under cyclic operating conditions."
+    ],
+    "research_objective": "To derive an incremental SMA constitutive formulation based on the shape memory factor, implement it within ABAQUS via a user material subroutine (UMAT) considering elastic modulus changes during transformation, numerically simulate the phase transformation and mechanical behavior of superelastic SMA cables under tension, validate against literature experiments, and analyze the effect of outer strand pitch on overall cable mechanical response.",
+    "research_problem": "Describing the mechanical behavior of superelastic shape memory alloy (SMA) cables through analytical theoretical modeling is difficult due to coupled material and contact non-linearities, whereas physical experiments incur high costs and vulnerability to external environmental factors.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "shape memory alloy superelasticity",
+      "stress-induced martensitic phase transformation"
+    ],
+    "title": "Finite Element Method for Mechanical Behavior of Shape Memory Alloy Superelastic Cables (形状记忆合金超弹性缆索力学行为的有限单元法)",
+    "year": "2020"
+  }
+}

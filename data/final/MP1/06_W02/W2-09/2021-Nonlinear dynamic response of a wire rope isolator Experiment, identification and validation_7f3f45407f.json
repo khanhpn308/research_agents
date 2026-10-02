@@ -1,0 +1,182 @@
+{
+  "source": {
+    "paper_id": "7f3f45407f",
+    "filename": "2021-Nonlinear dynamic response of a wire rope isolator Experiment, identification and validation.pdf",
+    "sha256": "7f3f45407f507d3afacef392a99869a274865a8f0575e2fb5e9f7217202b462f",
+    "page_count": 11,
+    "char_count": 36152,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 24467,
+    "completion_tokens": 8082,
+    "total_tokens": 32549,
+    "thinking_tokens": 5927,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Andrea Salvatore",
+      "Biagio Carboni",
+      "Li-Qun Chen",
+      "Walter Lacarbonara"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "The restoring and damping force of the isolator is modeled as the superposition of a linear elastic term, an asymmetric hysteretic term, an asymmetric cubic elastic term, and a viscous damping term.",
+      "The hysteretic restoring force follows an asymmetric Bouc-Wen formulation incorporating a pinching function and velocity-dependent control functions to eliminate non-physical asymmetric stiffness effects during unloading branches.",
+      "The uncontrolled structure is assumed to behave linearly as a single-degree-of-freedom clamped cantilever beam with tip mass and viscous material/boundary damping.",
+      "The isolated structure is modeled as a lumped-parameter two-degree-of-freedom system with the isolator in series with the two parallel cantilever beams."
+    ],
+    "control_variables": [
+      "Cantilever beam dimensions: width of 30 mm, thickness of 2 mm, length of 7.5 cm",
+      "Lumped masses: 0.24 kg at each beam tip (0.48 kg total), 0.45 kg on the isolator support",
+      "Wire rope isolator specifications: 4 mm cable diameter with 7x7 construction of 0.4 mm stainless-steel wires",
+      "Vertical excitation direction corresponding to tension-compression mode",
+      "Frequency sweep rate: 0.5 octave/min"
+    ],
+    "dependent_variables": [
+      "Displacement response and displacement frequency response curves (FRCs)",
+      "Absolute acceleration response and acceleration frequency response curves (FRCs)",
+      "Transmissibility coefficients (H) for displacement and acceleration across frequency",
+      "Equivalent stiffness and equivalent hysteretic damping as functions of displacement amplitude",
+      "Restoring and damping force cycles (dynamic hysteresis loops)",
+      "Spectral harmonic and superharmonic components obtained via FFT"
+    ],
+    "doi": "10.1016/j.engstruct.2021.112121",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A wire rope isolator demonstrates asymmetric hysteretic restoring force characterized by softening under compression and hardening under tension due to interwire friction and geometric cable nonlinearities.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "A generalized asymmetric Bouc-Wen model with velocity-dependent control functions and asymmetric cubic polynomials accurately captures the hysteretic loops and removes asymmetric stiffness artifacts along unloading branches.",
+        "evidence_type": "computational modeling",
+        "page_numbers": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Parameters identified purely from quasi-static cyclic tests using a differential evolution algorithm are sufficient to predict the dynamic frequency response curves of the isolator.",
+        "evidence_type": "computational and experimental validation",
+        "page_numbers": [
+          3,
+          4,
+          9
+        ]
+      },
+      {
+        "claim": "Coupling the wire rope isolator to a flexible cantilever system reduces acceleration and displacement transmissibility by approximately an order of magnitude across a 5 to 100 Hz frequency band.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Asymmetry in the restoring force activates even superharmonics (such as 2:1 resonances at 7.5 Hz and 11.8 Hz) when dynamic oscillations exceed the static gravity deflection and cross into the positive displacement regime.",
+        "evidence_type": "experimental and computational",
+        "page_numbers": [
+          4,
+          5,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Even superharmonic excitations at high base acceleration levels can exceed primary resonances and channel energy directly into higher structural flexural modes, degrading isolation performance.",
+        "evidence_type": "experimental and computational",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Maintaining the wire rope isolator under continuous compression throughout dynamic cycles suppresses the onset of even superharmonics and prevents superharmonic resonance amplification.",
+        "evidence_type": "analytical and experimental observation",
+        "page_numbers": [
+          9,
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Compact wire rope isolator comprising two metal plates joined by a 4 mm diameter stainless-steel wire rope (7x7 construction of 0.4 mm wires)",
+      "Two symmetric cantilever steel beams (30 mm wide, 2 mm thick, 7.5 cm long) carrying 0.24 kg tip masses, mounted on a 0.45 kg support mass",
+      "Electrodynamical shaker providing vertical base excitation across a frequency range of 5 Hz to 100 Hz",
+      "Four PCB Piezotronics accelerometers mounted on the beam tip masses, support mass, and shaker head",
+      "Signal conditioning using Savitzky-Golay filtering, double numerical integration, and high-pass filtering to evaluate velocities and displacements from acceleration data",
+      "Quasi-static cyclic loading tests at multiple displacement amplitudes (from 2.5 mm to 15 mm)"
+    ],
+    "future_work": [],
+    "independent_variables": [
+      "Excitation frequency (swept from 5 Hz to 100 Hz)",
+      "Base acceleration excitation amplitude (0.1 g, 0.25 g, 0.5 g, 0.75 g, 1.0 g, 1.25 g)",
+      "Quasi-static cyclic displacement amplitude (0, +/-2.5, +/-5, +/-7.5, +/-10, +/-12.5, +/-15 mm)",
+      "Structural isolation configuration (non-isolated vs. isolated structure)"
+    ],
+    "limitations_inferred": [
+      "Testing and identification are restricted to uniaxial vertical loading (tension-compression mode), omitting multi-axis coupling or combined shear-roll dynamics.",
+      "Model parameters identified under quasi-static rates were transferred directly to dynamic predictions without evaluating potential high-frequency or rate-dependent thermal and frictional changes.",
+      "The experimental structure was simplified to a stylized two-degree-of-freedom cantilever system, which may not capture multi-modal dynamics of complex machinery or robotic systems."
+    ],
+    "limitations_stated_by_authors": [
+      "Wire rope isolators can experience substantial degradation in vibration isolation performance due to superharmonic resonances.",
+      "Asymmetric hysteretic behavior produces both odd and even superharmonics, causing unwanted multiplication and combination of superharmonic resonances when displacements expand into the positive displacement range.",
+      "Dynamic testing introduced a static equilibrium drift due to system weight, unlike the symmetric baseline in quasi-static cyclic tests."
+    ],
+    "main_results": [
+      "The isolated system demonstrated an order-of-magnitude reduction in transmissibility over the 5–100 Hz range, reducing average transmissibility from approximately 75 in the non-isolated configuration to around 4 in the isolated configuration.",
+      "The device exhibited marked asymmetric stiffness, softening under compression and hardening under tension, with equivalent hysteretic damping displaying an overall decreasing trend with displacement amplitude.",
+      "Primary resonances of the isolated system occurred at approximately 14 Hz (isolator elongation mode) and 74 Hz (cantilever flexural mode), both displaying mild softening behavior.",
+      "Odd (3:1 at 24 Hz) and even (2:1 at 7.5 Hz and 11.8 Hz) superharmonic resonances were observed; at 1.0 g and 1.25 g, the 7.5 Hz superharmonic peak exceeded the primary resonance in amplitude.",
+      "Numerical predictions generated from the generalized Bouc-Wen model calibrated with quasi-static data matched experimental dynamic frequency response curves and superharmonic behaviors with high accuracy."
+    ],
+    "modeling_methods": [
+      "Modified asymmetric Bouc-Wen hysteretic formulation with velocity-dependent control functions and asymmetric cubic polynomials",
+      "Differential evolution optimization algorithm for parameter identification from quasi-static cyclic test data",
+      "Lumped-parameter two-degree-of-freedom (2DOF) dynamic modeling using coupled second-order ordinary differential equations",
+      "Numerical time-domain integration of equations of motion and Fast Fourier Transform (FFT) stationary response analysis",
+      "Analytical transfer function and closed-form frequency response function modeling for the linear uncontrolled cantilever structure"
+    ],
+    "performance_metrics": [
+      "Transmissibility coefficient (H) for displacement and absolute acceleration across 5–100 Hz",
+      "Peak displacement and acceleration amplitudes at primary and superharmonic resonances",
+      "Resonant frequency shift between non-isolated and isolated configurations",
+      "Equivalent secant stiffness and equivalent hysteretic damping across displacement amplitudes",
+      "Spectral power distribution of fundamental and superharmonic frequencies via FFT"
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that asymmetric hysteretic elements provide high damping and transmissibility reduction, but designers must account for even superharmonics transferring energy to higher flexible modes when operating across tension-compression regimes.",
+      "The generalized Bouc-Wen modeling approach with velocity-dependent switching functions provides a potential framework for modeling asymmetric friction and hysteresis in cable-driven or tendon-actuated flexible structures."
+    ],
+    "research_objective": "To experimentally and numerically investigate the nonlinear dynamic response, asymmetric hysteretic behavior, and vibration isolation performance of a compact wire rope isolator in a two-degree-of-freedom structure under vertical base excitation, and to validate a generalized phenomenological Bouc-Wen model calibrated with quasi-static data.",
+    "research_problem": "Characterizing and predicting the nonlinear dynamic behavior and vibration isolation capabilities of wire rope isolators under vertical base excitation (tension-compression mode), specifically addressing asymmetric hysteresis, modeling unloading stiffness, and accounting for isolation performance loss caused by superharmonic resonances.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "curved wire rope assembly undergoing interwire friction and geometric nonlinearities",
+      "asymmetric tension-compression stiffness exhibiting softening under compression and hardening under tension",
+      "tightening of spiral cable strands under tension and loosening under compression"
+    ],
+    "title": "Nonlinear dynamic response of a wire rope isolator: Experiment, identification and validation",
+    "year": "2021"
+  }
+}

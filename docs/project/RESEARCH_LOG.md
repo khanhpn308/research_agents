@@ -859,3 +859,14 @@ Canonical fast-start state đã được đồng bộ tại:
 
 - `docs/project/CURRENT_EXECUTION_SNAPSHOT.md`;
 - `docs/project/research_state.json`.
+
+## Phase 33 — MP1-R Chapter 1–2 working draft and mentor-gate preservation (2026-09-29)
+
+Mentor feedback dated 2026-09-29 was converted into a separate MP1-R working draft:
+
+- `docs/project/MP1_CHAPTERS_1_2_WORKING_DRAFT_2026-09-29_VI.md`
+- `outputs/plans/MP1_R_CH1_CH2_EVIDENCE_MATRIX_2026-09-29.json`
+
+The draft keeps the title and research questions interface-neutral until a mentor-confirmed cross-section and force-direction sketch identifies whether the controlled interface is wire–wire, wire–sleeve, or both. It separates Bench A (external pressure only) from Bench B (SMA-spring-driven piston) and preserves H0b as the live competitor. H1 remains unproven; rejection of a constant-modulus model is not treated as evidence for H1.
+
+This entry records planning and writing only. It does not modify `research_state.json`, the historical D1/M1 decision, MP1-V001/MP1-V002 verification rounds, W02/WR1 state, or historical outputs. Chương 3–5 remain conditional placeholders pending the pre-Chapter-3 gate: confirmed geometry/interface, interface-specific friction measurements, source and near-specimen pressure sensing, predeclared uncertainty/stop criteria, and an explicit MRI constraint-versus-validation decision.

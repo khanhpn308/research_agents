@@ -1,0 +1,197 @@
+{
+  "source": {
+    "paper_id": "9f4295be23",
+    "filename": "2025-A new mechanical model of short wire ropes Theory and experimental.pdf",
+    "sha256": "9f4295be2368f46bab9394f062b7f3cd8570093ed7855d2815c37c6cedc186a6",
+    "page_count": 13,
+    "char_count": 62617,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32604,
+    "completion_tokens": 6953,
+    "total_tokens": 39557,
+    "thinking_tokens": 4230,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "F. Barsi",
+      "B. Carboni",
+      "W. Lacarbonara"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Infinitesimal deformation theory with equilibrium equations enforced in the initial reference configuration (linearized regime).",
+      "Individual wires behave as shear-deformable curvilinear beams with circular cross-sections according to Saint-Venant theory extended to curved rods.",
+      "Cross-section rotations of individual wires coincide with the cross-section rotation of the wire rope.",
+      "Constituent wires have linear elastic isotropic material behavior defined by Young's modulus E and shear modulus G.",
+      "Limiting assumption that all wires across the rope cross-section simultaneously occupy the same stick-slip state.",
+      "In the perfect stick state (S1), eigenstrains are zero and classical monolithic beam kinematics apply.",
+      "In the partial stick state (S2), wire eigenstrains cancel wire elongation induced by beam bending curvature while allowing tangential sliding.",
+      "In the full slip state (S3), wire eigenstrains eliminate contributions of beam curvature to both wire elongation and wire shear strains, treating wires as independently bending.",
+      "In the axial-torsional state (S4), wire eigenstrains cancel the transverse shear strains of the wires.",
+      "The rope constitutive stiffness matrix is independent of the axial coordinate s when all wires share the same stick-slip regime."
+    ],
+    "control_variables": [
+      "Prescribed loading frequency of 0.2 Hz to enforce quasi-static loading conditions.",
+      "14 loading-unloading cycles per displacement test, evaluating the 7th cycle to avoid initial wire settling effects.",
+      "Wire material properties (AISI 304 stainless steel with Young's modulus E = 200 GPa and Poisson's ratio nu = 0.3).",
+      "Free horizontal sliding of one clamped end to eliminate axial stretching forces and isolate pure flexural response."
+    ],
+    "dependent_variables": [
+      "Transverse restoring force / end shear force (F2 or Q2).",
+      "Force-displacement hysteresis loops.",
+      "Minimum bending stiffness (k_min) fitted along the linear loading branch.",
+      "Maximum bending stiffness (k_max) fitted at the onset of the unloading branch.",
+      "Centerline displacement and rotation profiles.",
+      "Bending moment distributions.",
+      "Axial stiffness (N / epsilon) and reactive torque-to-axial force ratio (T / N) under axial-torsional loading."
+    ],
+    "doi": "10.1016/j.engstruct.2024.119217",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A Timoshenko shear-deformable beam model incorporating incompatible eigenstrains predicts the upper and lower bounds of bending stiffness in short single- and multi-strand wire ropes.",
+        "evidence_type": "modeling",
+        "page_numbers": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Classical beam theory assuming perfect stick between wires overestimates maximum bending stiffness by roughly an order of magnitude due to unavoidable interwire sliding at small flexural deformations.",
+        "evidence_type": "experimental / modeling comparison",
+        "page_numbers": [
+          4,
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Assuming a partial stick state via eigenstrains (where bending curvature induces no axial elongation in the wires) accurately predicts the experimental maximum bending stiffness with errors between 7% and 32%.",
+        "evidence_type": "experimental / modeling comparison",
+        "page_numbers": [
+          5,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Assuming a full slip state via eigenstrains (where beam curvature contributes neither elongation nor shear strains to wires) predicts the experimental minimum bending stiffness with errors between 1% and 37%.",
+        "evidence_type": "experimental / modeling comparison",
+        "page_numbers": [
+          5,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "claim": "Accounting for relative wire slip leads to a positive-definite but non-symmetric 6x6 constitutive stiffness matrix that couples bending with shear in addition to axial-torsional coupling.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "When wire rope length is shorter than the lay pitch of the lateral strands (e.g., length of 5 cm versus pitch of 7 cm in R2), boundary and torsional effects become pronounced, increasing divergence from uniform 1D beam theory.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          12
+        ]
+      },
+      {
+        "claim": "The eigenstrain formulation accurately predicts axial-torsional response without parameter calibration, achieving relative errors under 4% for fixed-end and free-end axial stiffness and reactive torque.",
+        "evidence_type": "experimental / modeling comparison",
+        "page_numbers": [
+          11,
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Universal testing machine (MTS 810) configured with a custom pure bending fixture for short wire ropes.",
+      "Two rigid arms with two-plate steel clamps and cylindrical housings tightened by four bolts to secure the rope ends.",
+      "Left arm anchored rigidly to the MTS 810 load cell to measure total restoring shear force.",
+      "Right arm attached to the machine actuator piston via a bottom plate equipped with a low-friction horizontal slider to accommodate end shortening and prevent tension.",
+      "Displacement-controlled quasi-static cyclic tests at 0.2 Hz across various amplitudes and rope lengths for single-strand (R1) and seven-strand (R2) ropes.",
+      "Tension-torsional testing machine (reported from literature by Utting and Jones 1987) applying prescribed axial elongation under fixed-rotation and free-rotation boundary conditions."
+    ],
+    "future_work": [
+      "Extending the mechanical formulation to predict the complete nonlinear hysteresis cycles and energy dissipation loops.",
+      "Developing models capable of handling coupled simultaneous bending and tensile loadings.",
+      "Investigating non-uniform sliding regimes where individual wires across the cross-section occupy different stick-slip states."
+    ],
+    "independent_variables": [
+      "Wire rope architecture (single-strand R1 with 1+6+12+18+24 wires vs. multi-strand R2 with 1+6 strands of 1+6+12 wires each).",
+      "Wire rope length L (10, 12, 15, and 20 cm for R1; 5, 7.5, 10, and 12 cm for R2).",
+      "Prescribed transverse displacement amplitude (2 to 50 mm for R1; 2.5 to 35 mm for R2).",
+      "Boundary condition type (pure transverse displacement with fixed end rotations; fixed vs. free end rotation in axial-torsional tests).",
+      "Assumed stick-slip kinematic state (perfect stick S1, partial stick S2, full slip S3, axial-torsional S4)."
+    ],
+    "limitations_inferred": [
+      "Local contact stress distributions, cross-sectional distortion, and interwire contact pressures are not solved explicitly, relying instead on idealized cross-section-wide eigenstrain kinematic states.",
+      "Progressive wire-by-wire slip transitions (e.g., slipping initiating in outer layers before inner layers) are not resolved.",
+      "Environmental and tribological parameters such as lubrication, surface roughness, temperature, and wear are not explicitly accounted for."
+    ],
+    "limitations_stated_by_authors": [
+      "The upper and lower bounds of bending stiffness are evaluated under the limiting hypothesis that all wires simultaneously undergo the exact same stick-slip sliding regime.",
+      "The formulation is restricted to the linear elastic regime and does not predict the force-displacement hysteresis loop shape or damping dissipation.",
+      "The current model does not account for coupled bending and tension loading programs.",
+      "For very short rope lengths where the lateral strand pitch exceeds the total rope length (e.g., L = 5 cm for R2), boundary and torsional effects become significant and the model is less representative.",
+      "Equilibrium equations are enforced in the undeformed configuration (infinitesimal deformation theory), even though specimens experimentally experienced moderately large curvatures.",
+      "Precision of clamping devices and degree of clamping tightness introduce experimental boundary uncertainties that may alter effective specimen length."
+    ],
+    "main_results": [
+      "The full slip eigenstrain state (S3) accurately predicts the lower bound (minimum stiffness k_min) across all tested lengths with relative errors between 1.0% and 37.0%, aligning with the Foti-Martinelli model.",
+      "The partial stick eigenstrain state (S2) accurately captures the upper bound (maximum stiffness k_max) with relative errors between 7.2% and 31.9%, aligning near the lower bound of the experimental confidence region.",
+      "The classical beam theory / perfect stick assumption (S1) overestimates maximum bending stiffness by approximately an order of magnitude compared to experimental measurements.",
+      "A reduction in maximum bending moment of approximately 73% occurs between the partial stick and full slip conditions for a 10 cm single-strand rope subjected to 5 mm transverse displacement.",
+      "The model analytically captures axial-torsional coupling without empirical parameter calibration, yielding 2.3% error on fixed-end axial stiffness, 2.6% error on reactive torque ratio, and 4.0% error on free-end axial stiffness.",
+      "The derived 6x6 stiffness matrix exhibits coupling between bending and shear (k25, k36, k52, k63) and is non-symmetric (k_ij != k_ji) in sliding regimes."
+    ],
+    "modeling_methods": [
+      "One-dimensional shear-deformable beam theory (Timoshenko beam model) for the overall wire rope.",
+      "Saint-Venant beam theory extended to curvilinear thin rods with circular cross-sections for individual constituent wires.",
+      "Parametric analytical geometric modeling of helical wires and superhelical (doubly-twisted) wires using Frenet-Serret frames.",
+      "Incompatible eigenstrain formulation incorporated into individual wire strain measures to represent interwire stick-slip sliding modes.",
+      "Analytical closed-form solution of Dirichlet boundary value problems for pure bending and axial-torsional loading.",
+      "Derivation of a 6x6 generalized cross-sectional constitutive stiffness matrix relating stress resultants to beam generalized strains."
+    ],
+    "performance_metrics": [
+      "Effective bending stiffness k = F2 / u2 (in kN/mm).",
+      "Relative percentage error err(%) = |k_exp - k_the| / k_exp * 100.",
+      "Axial stiffness N / epsilon (in kN).",
+      "Axial-torsional coupling ratio T / N (in mm).",
+      "Experimental mean (mu) and standard deviation (sigma) confidence intervals for stiffness."
+    ],
+    "possible_gap_implications": [
+      "The calibration-free analytical prediction of lower and upper bounding stiffnesses could aid the structural design of tendon-driven continuum robot backbones, flexible catheter shafts, or variable-stiffness segments utilizing wire ropes by providing rapid bounds on flexural compliance without heavy FE contact simulations.",
+      "Because the model only provides lower and upper bounds in the linear regime, employing it in real-time control or shape reconstruction of continuum robots would require extending it to predict full hysteretic damping and coupled tension-bending kinematics."
+    ],
+    "research_objective": "To formulate and validate an analytical 1D shear-deformable beam model using eigenstrains that provides robust, parameter-calibration-free predictions of the minimum and maximum bending stiffnesses (associated with full slip and partial stick states) as well as axial-torsional stiffness for short single-strand and multi-strand wire ropes.",
+    "research_problem": "Accurately estimating the upper and lower bounds of bending stiffness across hysteresis cycles for short wire ropes without relying on case-by-case empirical parameter fitting or computationally demanding 3D finite element contact models prone to severe convergence issues, overcoming classical beam theory's order-of-magnitude overestimation of maximum bending stiffness.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "relative sliding between individual wires",
+      "interwire stick-slip (perfect stick, partial stick, and full slip states)",
+      "internal frictional forces at wire contact interfaces",
+      "helical and superhelical wire geometry (pitch, helix radius, lay orientation)",
+      "shear deformability of constituent curvilinear wires"
+    ],
+    "title": "A new mechanical model of short wire ropes: Theory and experimental validation",
+    "year": "2025"
+  }
+}

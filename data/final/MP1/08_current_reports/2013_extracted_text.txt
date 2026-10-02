@@ -1,0 +1,1153 @@
+=== PAGE 1 ===
+536
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+A Biologically Inspired Wet Shape Memory Alloy
+Actuated Robotic Pump
+Matthew D. Pierce and Stephen A. Mascaro, Member, IEEE
+Abstract—This paper presents the concept, design, optimiza-
+tion, and experimental analysis of a biologically inspired wet shape
+memory alloy (SMA) actuated pump for robotic and mechatronic
+systems. Just as the human heart provides energy to the muscles in
+the body, the robotic SMA pump distributes thermoﬂuidic energy
+to arrays of SMA actuators that function as robotic muscles. Fur-
+thermore, the robotic pump draws from its own ﬂuidic output to
+assist in the actuation of its own internal SMA actuators, just as a
+portion of the blood pumped by the human heart supplies energy
+to its own muscles. A feasibility analysis provides insight to lim-
+its of conﬁguration parameters. Through dynamic modeling and
+simulation of the system, various conﬁgurations can be analyzed
+for optimization of the output. The effects of changing conﬁgura-
+tion parameters were explored via simulation and validated with
+experimentation. The current prototype of the SMA heart is capa-
+ble of pumping 2.1 times more ﬂuid than is required to sustain its
+own actuation. This is the ﬁrst successful implementation of such a
+robotic pump, such that it has a net positive thermoﬂuidic output
+to provide to other actuators while sustaining its own actuation via
+thermoﬂuidic feedback. Furthermore, this SMA pump is capable
+of pumping a net output of 66 mL/min, which is two orders of
+magnitude larger than the output of any other SMA pump.
+Index Terms—Actuators, mechanical energy, pumps, shape
+memory alloys (SMAs).
+I. INTRODUCTION
+A
+S ROBOTIC and mechatronic systems become increas-
+ingly inspired by biological systems, the need for bioin-
+spired actuation technologies increases. Common methods of
+actuation include the use of electrical motors, pneumatics, and
+hydraulics. The use of smart materials such as electroactive
+polymers and shape memory alloys (SMAs) are becoming in-
+creasingly popular in robotics due to their resemblance to muscle
+[1] and their biocompatibility [2]. These properties make them
+good candidates for hand and facial prosthetics research [3], [4].
+In addition to their biocompatibility, there are also many other
+advantages to using SMA actuators for nonbiological mecha-
+nisms including thermostats [5], adaptive wings [6], and even
+humanoid robots [7], [8].
+SMAs are actuated by a temperature-induced phase transfor-
+mation and are traditionally employed in wire form. As heat is
+Manuscript received November 1, 2011; revised March 17, 2012; accepted
+July 8, 2012. Date of publication August 20, 2012; date of current version
+January 10, 2013. Recommended by Technical Editor A. Menciassi. This work
+was supported by the National Science Foundation under Award 1031848.
+M. D. Pierce is with L-3 Communications, New York, NY 10016 USA
+(e-mail: m.pierce@utah.edu).
+S. A. Mascaro is with the Department of Mechanical Engineering, University
+of Utah, Salt Lake City, UT 84112 USA (e-mail: smascaro@mech.utah.edu).
+Color versions of one or more of the ﬁgures in this paper are available online
+at http://ieeexplore.ieee.org.
+Digital Object Identiﬁer 10.1109/TMECH.2012.2211032
+Fig. 1.
+Wet SMA actuator concept.
+applied, a nonlinear phase transformation occurs and the SMA
+wire begins to contract. By cooling the SMA and applying an
+opposing force, the material relaxes to its original state. It is
+this muscle-like actuation that makes SMAs desirable for the
+development of biologically inspired robots.
+SMAs are commonly used for applications that do not require
+high reciprocation rates due to their limited bandwidth. This is
+due to the difﬁculty of heating and cooling the SMA quickly and
+efﬁciently. For this reason, the wet SMA actuator was developed
+to allow for more efﬁcient actuation and increased rates using
+forced convection by using both thermoﬂuidic and electrical
+heating [9]. Fig. 1 shows a diagram of the wet SMA actuator
+concept. A wet SMA actuator consists of SMA wire enveloped in
+ﬂuid that is contained within a compliant tube. This compliance
+allows for the actuator to expand and contract with minimal
+spring resistance. The ﬂuid inlet of the actuator is connected to
+a terminal that is supplied with hot or cold ﬂuids and the outlet
+is connected to a terminal that dumps the used ﬂuid into a lower
+pressure reservoir. Entire wet SMA actuator arrays have been
+developed to control hand and ﬁnger movement [10] and could
+be used to control other high degree-of-freedom mechanisms as
+well.
+As more biologically inspired mechanisms are developed us-
+ing wet SMA, it is necessary to develop ways of making these
+robots self-sustaining (i.e., untethered). One step toward en-
+abling these wet SMA robots is the development of an onboard
+pump that can provide heating and cooling to sustain the actu-
+ation of external subsystems using wet SMA technology. Just
+as the wet SMA actuators behave like muscles with a cardio-
+vascular system, a pump using wet SMA actuators would be
+analogous to a heart.
+One unique attribute of the heart is that it is able to pump
+blood and provide energy to the muscles of the heart itself,
+forming a self-sustaining pumping system. In the same way,
+the SMA pump would need to be able to provide energy to
+sustain self-actuation in addition to that of external wet SMA
+systems as shown in Fig. 2 where the arrows represent the
+ﬂow of energy from the pump to other subsystems. One such
+1083-4435/$31.00 © 2012 IEEE
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 2 ===
+PIERCE AND MASCARO: BIOLOGICALLY INSPIRED WET SHAPE MEMORY ALLOY ACTUATED ROBOTIC PUMP
+537
+Fig. 2.
+Diagram demonstrating a pump that provides energy to external sys-
+tems and itself, forming a self-sustaining pump analogous to a heart.
+device has previously been designed and implemented by Ertel
+and Mascaro [11], [12], but the output performance was not
+sufﬁcient to sustain the actuation of its own wet SMA actuators.
+In order for such a device to be viable for external subsystems,
+the amount of ﬂuid output of the pump must be greater than
+the amount of ﬂuid input required to cause actuation for the
+pumping action. This corresponds to having an output-to-input
+ratio greater than 1.0.
+While this is the ﬁrst SMA device to use its own thermoﬂuidic
+output to help sustain self-actuation, it is not the ﬁrst SMA pump.
+Multiple microscale SMA pumps have been developed for de-
+livering small amounts of ﬂuid for various MEMS-based chem-
+ical delivery systems. One thin-ﬁlm SMA diaphragm pump is
+capable of providing 50 μL/min [13]. Another novel recipro-
+cating peristaltic pump prototype is capable of outputs up to
+1000 μL/min of ﬂuid using SMA springs [14]. These electrically
+heated and passively cooled SMA pumps are feasible on the mi-
+croscale because the time constants with unforced convection
+are much faster at the microscale. Since the robotic pump must
+be able to actuate external wet SMA systems on a macroscale,
+high net volume outputs on the order of mL/min are necessary.
+To make these SMA pumps feasible at the macroscale, we can
+take advantage of the forced-convection principles employed
+in previous work [9], as well as novel bioinspiration from the
+human heart.
+This paper presents the design, theoretical analysis, and
+implementation of a biologically inspired wet SMA actuated
+robotic pump that can distribute thermal energy via forced ﬂuid
+convection to external wet SMA subsystems on a macroscale
+over prolonged periods of time. The SMA pump uniquely draws
+from its own thermoﬂuidic output to assist in actuating its own
+internal SMA actuators. Simulations and experiments are used
+to characterize the performance of the pump, and to demonstrate
+that it can operate in a self-sustaining cycle with a net positive
+output that is orders of magnitude larger than other SMA pumps.
+Portions of this work have been previously published in [15]
+and [16]. This paper expands upon these and incorporates
+the feasibility analysis from [12] to provide a comprehensive
+analysis and comparison of the theoretical and experimental
+performance.
+II. SMA PUMP CONCEPTUAL DESIGN
+There are many features that comprise the entire robotic pump
+system. As with all pumps, there needs to be a mechanism that
+causes ﬂuid volume displacement from one location to another.
+Fig. 3.
+Conceptual design schematic of the wet SMA robotic pump using
+thermoﬂuidic feedback for self-actuation.
+The type chosen was a reciprocating positive displacement di-
+aphragm pump, the same type as a heart. A schematic of the
+entire system is shown in Fig. 3.
+Since the SMA pump has to be able to provide both hot and
+cold ﬂuids to other subsystems, there are two separate pumping
+systems. Each pump system is comprised of an accumulator, a
+reservoir, a pumping chamber, and a wet SMA actuator. The
+accumulators provide the pressure necessary to force the ﬂuids
+through the tubing and across the SMA actuators attached to a
+lever, which is attached to the pumping chambers. The reservoirs
+hold the ﬂuids after they have passed through the actuators. The
+pumping chambers draw the ﬂuid from the reservoirs and pump
+it back to the accumulators with the aid of check valves to
+ensure unidirectional ﬂow. A set of timed valves control the
+routing manifold to send alternating hot and cold ﬂuid to the
+actuators. After the hot and cold ﬂuids are passed through the
+actuators, a similar manifold is used to separate the exiting
+hot and cold ﬂuids into their respective reservoirs. The timing
+of the valves could be replaced with a mechanically parasitic
+valve mechanism, much like the cam-valve mechanism in an
+automobile engine.
+In this conceptual arrangement, the pumping chambers share
+a common lever that allows the SMA actuators to use mechan-
+ical advantage to increase displacement at the expense of force
+and vice versa. This allows for variation in accumulator pressure
+while still being able to cause some displacement in the pump-
+ing chambers. This arrangement also requires that the hot and
+cold chambers pump 180◦out of phase to avoid any unwanted
+additional tension on the SMA actuators.
+A primary requirement for this robotic pump is that it must
+be able to pump ﬂuids over an extended period of time without
+adding additional ﬂuid. In order to accomplish this, heat must
+be added to the hot ﬂuid while simultaneously keeping the cold
+ﬂuid at room temperature; otherwise, heat would eventually
+be lost and the system would no longer perform at a desired
+level. One way to maintain the temperature necessary to cause
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 3 ===
+538
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+SMA actuation is to continually add energy to the hot ﬂuid in
+system. This can be accomplished by heating the ﬂuid within the
+hot accumulator using an electrical heating coil or a chemical
+reaction. Supplementary Joule heating may also be used in the
+wet SMA actuators themselves.
+III. FEASIBILITY STUDY
+A feasibility study of the robotic pump system involves the
+analysis of the net volumetric output in terms of output-to-
+input ratio. Seven parameters largely inﬂuence this output per-
+formance: SMA wire diameter, inner tube diameter, actuator
+length, accumulator pressure, pumping chamber cross-sectional
+area, mechanical advantage, and ﬂow duration. For example,
+the diameter of the SMA wire affects the performance such that
+larger diameter wires allow for higher force generation, but at
+the cost of a lower rate of wire temperature change and, thus,
+slower contraction. The inner tube diameter of the actuator also
+affects the rate of temperature change of the SMA wire. How-
+ever, increasing the tube diameter also increases the volumetric
+input required into the system. Similarly, longer actuator lengths
+require higher input volumes, but also provide larger strokes in
+the pumping chambers, thus, increasing the volumetric output
+of the robotic pump.
+The operating accumulator pressure affects the performance
+in many ways. A higher accumulator pressure will lead to an in-
+crease in ﬂow rate through the actuator and decrease in the actu-
+ation time, but will also impose a stronger opposing force to the
+actuators and output pumping chambers. Increasing the cross-
+sectional area of the pumping chambers only compounds this
+problem, but also increases the potential output of the system.
+This can be somewhat alleviated by way of using mechanical
+advantage through a lever.
+Flow duration affects the amount of contraction in the ac-
+tuators. Large ﬂow durations may increase stroke, but at the
+cost of volume input. However, too short of ﬂow durations will
+not cause insufﬁcient contraction and limit stroke. Determining
+limits of these parameters can be used to determine feasibility
+of a given conﬁguration.
+A. Net Positive Output
+As discussed in [12], there are multiple ways to mathemat-
+ically analyze the feasibility of the robotic pump. The ﬁrst re-
+quirement of the robotic pump is that it must be able to pump
+more than it requires for actuation. This can be expressed as
+Qout ≥Qin
+(1)
+where Qout is the ﬂow rate output of the pump and Qin is the
+ﬂow rate input required for sustainment. By analyzing the power
+output of the robotic pump, Qout can be expressed as
+Qout = NpσAwϵL
+PCtf
+(2)
+and Qin can be expressed as
+Qin = NAf L
+tf
+(3)
+which leads to the constraint
+Af
+Aw
+≤Npσϵ
+NCP
+(4)
+where Aw is the wire area, Af is the ﬂuidic area, Np is the
+number of contracting actuators, σ is the actuation strength of
+the SMA wire, ϵ is the SMA wire strain, N is the number of
+total number of actuators, L is the actuator length, P is the
+accumulator pressure, and C is a constant representing the ratio
+of contraction time tb to propagation time tf of the actuator
+where C > 1. This condition must be satisﬁed in order for the
+output-to-input ratio to be greater than unity, but is not sufﬁcient
+to show that the entire conﬁguration of the robotic pump will
+perform as required.
+B. Sufﬁcient Heating of Actuators
+The second requirement of the robotic pump is that the tem-
+perature change of the ﬂuid as it propagates through the tube
+satisﬁes ΔTf < ΔTf,max such that a phase transformation oc-
+curs along the entire SMA wire. A linear approximation of the
+temperature gradient of the ﬂuid along the length of the wire by
+assuming the heat leaving the ﬂuid is equal to the heat entering
+the wire can be expressed as
+ΔTf
+L
+= ρwcp,wAwΔTwtf
+ρf cp,f Af uf tb
+(5)
+where ρw, cp,w, and ΔTw are the density, speciﬁc heat, and
+change in temperature of the SMA wire, respectively, and ρf ,
+cp,f , and ΔTf ,max are the density, speciﬁc heat, and maximum
+allowable temperature change of the ﬂuid, respectively. Substi-
+tuting ΔTf < ΔTf ,max and assuming constant ﬂow velocity uf
+along the entire wire leads to the following constraint:
+Af
+Aw
+≥1
+C
+ρwcp,wΔTw
+ρf cp,f ΔTf,max
+(6)
+where C is the same as in (4). Note that this constraint assumes
+that the ﬂuid temperature is sufﬁciently hot prior to entering
+the actuators. The max ﬂuid temperature depends on the boiling
+point of the working ﬂuid (in our case water), which depends
+on atmospheric pressure and, thus, elevation.
+C. Adequate Flow Duration
+By applying Newton’s Law of Cooling to the ﬂuid and SMA
+wire, the wire temperature rate of change can be expressed as
+˙Tw =
+1
+τw,f
+(Tf −Tw)
+(7)
+τw,f = ρwcp,wDw(Dt −Dw)
+kf Nu
+(8)
+where Dw is the SMA wire diameter, Dt is the inner tube
+diameter, kf is the ﬂuid thermal conductivity, and Nu is the
+Nusselt number at the wire. By assuming that the time constant
+τ w,f is less than some fraction c of the contraction time where
+τ w,f ≤ctb, the following constraint is found:
+ctb ≥ρwcp,wDw(Dt −Dw)
+4kf Nu
+(9)
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 4 ===
+PIERCE AND MASCARO: BIOLOGICALLY INSPIRED WET SHAPE MEMORY ALLOY ACTUATED ROBOTIC PUMP
+539
+where c < 1. As presented here, tb can also be viewed as the
+heartbeat period. Note that as the system size increases with
+increasing wire and actuator tube diameters, the heartbeat time
+must also increase. This is an interesting parallel to nature since
+larger animals also have larger heartbeat times.
+D. Power Output
+Another guide to designing the robotic pump can be derived
+by solving for the time in (4) and substituting the beat time into
+(9), yielding
+NpL ≥1
+c
+ρwcp,w
+πkf Nu
+(Dt −Dw)
+Dw
+PQout
+σϵ
+(10)
+which demonstrates that in order to increase the power output
+of the pump, longer actuators or more contracting actuators are
+required. The maximum theoretical output-to-input ratio of a
+speciﬁc conﬁguration can be determined by assuming full con-
+traction and no volumetric loss within the pumping chambers.
+This maximum output-to-input ratio can be expressed as
+Qout
+Qin
+= NpσϵAw
+NCPAf
+.
+(11)
+By substituting values into the constraints, it can be deter-
+mined if a set of values, or conﬁguration, is feasible for an
+output-to-input ratio greater than unity. Consider the list of typ-
+ical parameter values is provided in Table I. By substituting
+values into (4) and (6) and combining the constraints, a range
+for Dt/Dw is determined to be 1.18 ≤Dt/Dw ≤7.37 for fea-
+sibility. The conﬁguration in Table I gives Dt/Dw = 6.3 which
+falls within this range. It should be noted that since there is an
+initial temperature requirement prior to the ﬂuid entering the
+actuators, electrical heating assistance can be used to bypass
+constraint (6) at higher elevations by decreasing the contraction
+time, thus, decreasing the value of C.
+Finally, constraints (9) and (10) are satisﬁed upon substi-
+tution of values suggesting this conﬁguration is feasible. By
+substituting the values into (11), the maximum possible output-
+to-input ratio for this conﬁguration is 1.38. This suggests that
+this set of parameters could potentially be used to create a vi-
+able SMA robotic pump. Limitations to this are heat loss to the
+environment, underactuation of the actuators, and mechanical
+losses in the pumping system. Again, electrical heating assis-
+tance can be used to decrease the value of C in (11) to further
+increase the maximum output. With the advantage of being able
+to analyze feasibility of a system, the performance of various
+conﬁgurations can be explored through dynamic modeling and
+simulation.
+E. Efﬁciency
+In addition to knowing the feasibility of the pump, it is impor-
+tant to know the maximum theoretical efﬁciency of this pump
+in order to obtain a reference point of what to expect in terms of
+power requirements for any physical implementations. This can
+be calculated by evaluating how much work the SMA actuators
+can perform per amount of energy required to cause actuation.
+Assuming that no heat is lost to the environment at any point in
+TABLE I
+CONFIGURATION PARAMETERS FOR FEASIBILITY ANALYSIS
+the system and that no mixing of hold and cold ﬂuids occurs,
+the efﬁciency can represented as
+ηP ≤wout
+qin
+(12)
+where ηP is the efﬁciency of the pump, wout is the speciﬁc
+work output of the SMA actuators, and qin is the speciﬁc energy
+input to the actuators to cause phase transformation and, thus,
+actuation. The speciﬁc work output of an SMA actuator can be
+expressed as
+wout = σϵ
+ρw
+(13)
+and the speciﬁc energy required to cause actuation can be ex-
+pressed as
+qin = LT + cp,wΔTw
+(14)
+where LT is the latent heat of transformation of the SMA wire.
+Substituting the values from Table I into (13) and (14) and eval-
+uating (12), the maximum efﬁciency that can be achieved with
+this pump system is 3.4%. This value agrees with the efﬁciency
+projections of other researchers who propose ﬂuidic heating of
+SMA actuators [17], and is much higher than the maximum the-
+oretical efﬁciency of electrically heated SMA actuators since
+much of the electrical energy goes into wasteful heating of the
+surrounding ﬂuid. Note that as long as ﬂuidic heating is used
+(where the hot ﬂuid is recycled), the use of supplemental Joule
+heating should not degrade the efﬁciency since any electrical
+energy that goes into heating the hot ﬂuid is no longer a waste.
+In an actual implementation of the proposed pump, the practi-
+cal efﬁciency will be less than 3.4% due to mixing of the hot and
+cold ﬂuids, heat loss to the environment, and parasitic mechan-
+ical losses within the system. Although the system is relatively
+inefﬁcient compared to pumps driven by electric motors, one
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 5 ===
+540
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+advantage of the SMA pump is that it is capable of running
+off of thermal energy. This is advantageous because the thermal
+energy could be provided by a chemical energy source with an
+energy density that is signiﬁcantly higher than that of batteries.
+For example, the energy density of propane is 46 MJ/kg, whereas
+the energy density of a lithium ion battery is only 460 kJ/kg.
+Therefore, the 3.4% maximum efﬁciency is offset by a 100 to 1
+advantage in energy storage.
+IV. DYNAMIC MODELING AND SIMULATION
+It is beneﬁcial to model the SMA pump dynamics in order
+to predict the behavior of the system under various conditions.
+This helps alleviate the number of experiments required in order
+to ﬁnd the set of parameters that yields optimal output perfor-
+mance. In order to model the entire pump system, dynamic
+models of both the SMA actuators and the rest of the system are
+required. A modiﬁed version of the dynamic model derived by
+Ertel and Mascaro [11], [18] will be used for this application.
+Modiﬁcations to the model include the use of a differential hys-
+teresis model of the SMA actuators [19], temperature-dependent
+ﬂuid properties, the ability to use complex timing schemes, and
+the ability to apply Joule heating to the SMA actuators.
+A. Dynamic Model
+Ertel and Mascaro’s dynamic model was derived using energy
+bond graphs and state-space methods. This allowed for combin-
+ing individual wet SMA actuator models with the pumping sys-
+tem model. Fig. 4 shows the complete bond graph used to derive
+the state equations. In this ﬁgure, the actuators are divided into
+three segments per actuator as opposed to 20 segments used in
+the actual model. This bond graph couples two opposing actu-
+ators each of which are attached to its own pumping chamber
+through a lever with a given mechanical advantage. The effort
+sources Se are martensite fractions modulated by SMA wire
+temperature. These temperatures, determined by simulation of
+hot and cold water passing through the wet SMA actuators, will
+now be discussed.
+By establishing the inlet temperature of the hot and cold ﬂuid
+into the wet SMA actuators, the temperature rate of change of
+the ﬂuid along the length of the actuator is given by
+∂Tf
+∂t = Tw −Tf
+τf,w(x) + Tt −Tf
+τf,t(x) −uf
+∂Tf
+∂x
+(15)
+where Tf is the ﬂuid temperature, Tw is the wire temperature,
+Tt is the compliant tube temperature, uf is the ﬂuid velocity,
+and x is the length along the actuator. The time constants in the
+denominators are given by
+τf,w(x) =
+cp,f ρf (Df −Dw)
+
+D2
+f −D2
+w
+
+4Dwkf Nuw(x)
+(16)
+τf,t(x) =
+cp,f ρf (Df −Dw)
+
+D2
+f −D2
+w
+
+4Dwkf Nut(x)
+(17)
+where cp,f is the speciﬁc heat of the ﬂuid, ρf is the ﬂuid den-
+sity, Df is the inner diameter of the compliant tube, Dw is the
+Fig. 4.
+Bond graph of the entire SMA pumping system consisting of two wet
+SMA actuators and two pumping chambers for hot and cold ﬂuid.
+diameter of the wire, kf is the thermal conductivity of the ﬂuid,
+Nuw(x) is the Nusselt number between the ﬂuid and the SMA
+wire, and Nut(x) is the Nusselt number between the ﬂuid and
+the inner surface of the compliant tube. The Nusselt numbers
+are determined experimentally.
+By obtaining the temperature of the ﬂuid along the actuator,
+it is now possible to calculate the heat transfer from the ﬂuid to
+the compliant tube and to the SMA wire. The temperature rate
+of change of the compliant tube is given by
+∂Tt
+∂t = Tf −Tt
+τt,f (x) + Ta −Tt
+τt,a
+(18)
+where Ta is the ambient temperature surrounding the actuators.
+The thermal time constants are
+τt,f (x) =
+cp,tρt (Df −Dw)
+
+D2
+t −D2
+f
+
+4Df kf Nut(x)
+(19)
+τt,a =
+cp,f ρt
+
+D2
+t −D2
+f
+
+4kaNua
+(20)
+where cp,t is the speciﬁc heat of the tube, ρt is the density of
+the tube, Dt is the outer diameter of the tube, ka is the thermal
+conductivity of air, and Nua is the Nusselt number between the
+tube and the ambient air. The rate of temperate change of the
+SMA wire within the actuator is given by
+∂Tw
+∂t
+= Tf −Tw
+τw,f (x)
+(21)
+and the time constant is
+τw,f (x) = cp,wρwDw (Df −Dw)
+4kf Nuw (x)
+.
+(22)
+The incorporation of electrical actuation will modify (21). By
+adding electrical heating in addition to the ﬂuidic convection, the
+overall output of the system is increased while also potentially
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 6 ===
+PIERCE AND MASCARO: BIOLOGICALLY INSPIRED WET SHAPE MEMORY ALLOY ACTUATED ROBOTIC PUMP
+541
+lowering the ﬂuid input at the same time. The rate of change in
+temperature of an SMA actuator is given by
+∂Tw
+∂t
+=
+4i2R
+πD2wρwcp,w
++ ∂Tw,f
+∂t
+(23)
+where i is the electrical current, R is the electrical resistance of
+the SMA wire per unit length of wire, and ∂Tw,f /∂t is given in
+(21). This temperature change is used for modulating the SMA
+wire martensite fraction and does not affect the bond graph or
+the state equations. This effect was not previously considered in
+Ertel and Mascaro’s original work [12].
+Upon calculating the temperatures of the components within
+the wet SMA actuators, the martensite fractions can then be
+determined along the lengths of the SMA wires. Due to the
+nonlinear behavior of martensite fraction and temperature, a
+hysteresis model needs to be applied. As described in [19],
+the hysteresis can be approximated with a cumulative normal
+distribution curve. The martensite fraction Rm can be expressed
+as
+Rm(x) = 1
+2
+
+1 −erf
+Tw(x) −¯T
+σT
+√
+2
+
+(24)
+where ¯T is the average transformation temperature and σT is
+the standard deviation of the transformation temperature. These
+values differ depending on whether the transformation is from
+martensite to austenite or vice versa and are used accordingly in
+the model as given by the SMA manufacturer’s speciﬁcations.
+Other methods have been used to model this same phase hys-
+teresis [20], [21], but this method has proved to be reliable based
+on Ertel and Mascaro’s application and results.
+Before listing the dynamic states of the model, it is still nec-
+essary to mention other modulating variables such as strain and
+stress within the SMA wire of the actuators as they are inﬂu-
+enced by the phase transformation. Noting that the actuators
+are divided into segments, the strain of each of the SMA wire
+segments is given by
+ϵ =
+4F/πD2
+w
+Ea + Rm (Em −Ea)
+(25)
+for ϵ ≤ϵy
+m
+ϵ = 4F/πD2
+w −Rmϵy
+m (Em −Et)
+Ea + Rm (Et −Ea)
+(26)
+for ϵy
+m < ϵ ≤ϵd
+m, and
+ϵ = 4F/πD2
+w −Rm
+
+ϵy
+m (Em −Et) + ϵd
+m (Et −Ed)
+	
+Ea + Rm (Ed −Ea)
+(27)
+for ϵ > ϵd
+m where ε is the strain, ϵy
+m is the yield strain of fully
+twinned martensite, ϵd
+m is the minimum strain of detwinned
+martensite, F is the force in the actuator segment, and Ea, Em,
+Et, and Ed are the moduli of elasticity for austenite, martensite,
+twinned and detwinned martensite, respectively. By calculating
+the strain, the stress σ can be expressed as
+σ = Emϵ
+(28)
+for ϵ ≤ϵy
+m
+σ = Emϵy
+m + Et(ϵ −ϵy
+m)
+(29)
+for ϵy
+m < ϵ ≤ϵd
+m, and
+σ = Emϵy
+m + Et(ϵd
+m −ϵy
+m) + Ed(ϵ −ϵd
+m)
+(30)
+for ϵ > ϵd
+m and can be used to calculate the force in the actuators.
+With all of the modulating variables now accounted for, the
+states of the model will now be presented. The states include
+actuator force, stress and strain, piston position and velocity,
+pumping chamber pressure, and volume output. The force state
+equation is
+˙F = π
+4 D2
+w[Ea(1 −Rm)˙ϵ −Ea ˙Rmϵ + Rm ˙σ + ˙Rmσ]. (31)
+The state equations for ˙ϵ and ˙σ are
+˙ϵi = 1
+R
+⎡
+⎣1
+n
+⎛
+⎝
+n
+
+j=1
+Fj + R
+ΔLVm
+⎞
+⎠−Fi
+⎤
+⎦
+(32)
+˙σ =
+⎧
+⎪
+⎨
+⎪
+⎩
+Em ˙ϵ,
+ϵ ≤ϵy
+m
+Et ˙ϵ,
+ϵy
+m < ϵ ≤ϵd
+m
+Ed ˙ϵ,
+ϵ > ϵd
+m
+(33)
+where R is the linear damping coefﬁcient, n is the number of
+actuator segments, Fj is the force in each segment force, ΔL is
+the length of each segment, and Vm is the velocity of the end of
+the actuators. The state equation for Vm is
+˙Vm = 1
+m
+×
+⎡
+⎣Ap
+M (Pc2 −Pc1) + 1
+n
+⎛
+⎝
+n
+
+j=1
+Fj,2 −
+n
+
+j=1
+Fj,1 −2R
+ΔLVm
+⎞
+⎠
+⎤
+⎦
+(34)
+where m is the number of time steps, Ap is the surface area of
+the piston, M is the mechanical advantage through the lever, and
+Pc1 and Pc2 are the pumping chamber pressures.
+The state equations for the two pumping chambers are ex-
+pressed as
+˙Pc1 =
+1
+CV
+Ap
+M Vm −
+1
+Rout
+(Pc1 −Paccum) −
+1
+Rin
+Pc1
+
+(35)
+˙Pc2 =
+1
+CV
+
+−Ap
+M Vm −
+1
+Rout
+(Pc2 −Paccum) −
+1
+Rin
+Pc2
+
+(36)
+where CV is the volumetric capacitance within the piston cham-
+bers, Paccum is the accumulator pressure, and Rin and Rout are
+the ﬂuidic resistances in and out of the pumping chambers,
+respectively. The values of these ﬂuidic resistances approach
+inﬁnity against check valves.
+B. Parameter Sensitivity
+In order to effectively test for optimal performance by ex-
+perimentation, it is necessary to ﬁnd a range for which optimal
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 7 ===
+542
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+Fig. 5.
+Simulation results of output-to-input ratio demonstrating sensitivity to
+actuator length and mechanical advantage.
+performance is expected. This is possible by varying key pa-
+rameters and modeling their inﬂuence on output performance.
+Key parameters include actuator length, mechanical advantage
+in the pumping lever, ﬂow duration through the actuators, ﬂuid
+temperature, and the use of electrical actuation. The working
+ﬂuid used for simulation was water.
+While using longer actuators can be advantageous for larger
+pump stroke, more ﬂow input is required and the heat loss to
+the environment is increased. Due to this tradeoff, an optimal
+actuator length is expected for peak performance. Similarly, a
+high mechanical advantage can be beneﬁcial for overpowering
+the accumulator pressure, but in a trade for decreased pump
+stroke. Fig. 5 provides simulation results of output-to-input ratio
+for varying actuator lengths and mechanical advantages.
+Flow durations of 4 s with a stagnation periods of 2 s were
+used for actuation timing over two complete cycles. The ﬁgure
+suggests that the performance of the pump is expected to reach
+its maximum potential with actuator lengths between 35 and
+45 cm. Also, as the mechanical advantage decreases, the output
+increases for nearly all actuator lengths. Similar trends hold
+true for other ﬂow durations as well. A mechanical advantage of
+0.84 will be used for the remaining simulations since modeling
+suggests that this conﬁguration produces the highest volume
+output. Simulations using lower mechanical advantages suggest
+higher outputs, but also indicate that the tensile stress in the
+actuators may exceed the pulling strength of the SMA.
+The ﬂow duration of the ﬂuid passing through the actuators
+is critical to the performance of the pump. The optimal timing
+will depend greatly on the actuator length. Longer actuators will
+require longer ﬂow durations in order to cause full phase trans-
+formation along the entire wire within the actuator while smaller
+actuators will require less. In order to fully understand the re-
+lationship between actuator length, ﬂow duration, and output
+performance, multiple simulations need to be completed.
+Fig. 6 presents the results of 24 simulations of varying actua-
+tor lengths and ﬂow durations. A hot water temperature of 88 ◦C
+was used to match the local boiling point and compensate for the
+heat loss from the accumulator to the actuators. An accumulator
+pressure of 15 kPa was used to match that which will be used in
+Fig. 6.
+Simulation results of output-to-input ratio demonstrating the relation-
+ship of ﬂow duration and actuator length.
+the actual experiments. In the ﬁgure, it is shown that there exists
+an optimal ﬂow duration for each actuator length. For example,
+the optimal ﬂow duration for a 40-cm actuator is 4 s and yields a
+performance ratio of 0.84 which also happens to be the highest
+predicted performance of the pump using ﬂuid-only actuation.
+As expected, longer ﬂow durations for smaller actuators result
+in lower performance since input ﬂow is being wasted and not
+inducing signiﬁcant additional actuation. Conversely, smaller
+ﬂow durations are not causing enough actuation in longer ac-
+tuators, thus also reducing the performance. It should be noted
+that the required ﬂuid propagation time through the actuators is
+generally less than 1.0 s for actuators less than 40 cm with an
+accumulator pressure of 15 kPa.
+The performance of the robotic pump will vary depending
+on the temperature of the hot ﬂuid. Since water is the work-
+ing ﬂuid, a simulation analysis of the performance of the pump
+versus temperature will now be provided. The dependence of
+the output-to-input ratio on hot water temperature is provided
+in Fig. 7. Similar parameters were used to those mentioned
+previously with 40-cm actuators and ﬂow duration of 4 s. As
+is apparent, the performance varies signiﬁcantly based on the
+hot water temperature. At sea level where the boiling point is
+roughly 100 ◦C, the performance is expected to exceed a ratio
+of 1.0. At higher elevations, this performance ratio may be un-
+reachable without internal accumulator heating or the assistance
+of electrical actuation.
+Simulating the performance of the SMA robotic pump using
+electrical actuation provides useful insight to the expected in-
+crease in volume output-to-input ratio since less ﬂuid input is
+required. While a performance increase is expected with elec-
+trical actuation, there are multiple ways of implementing it.
+Perhaps, one effective way to implement it is to run ﬂuid-only
+actuation for some duration of time, and then provide the elec-
+trical current to ﬁnish the SMA phase transformation. This can
+be accomplished either during the ﬂuid ﬂow or after. By varying
+the time at which electrical actuation begins, the optimal timing
+can be determined.
+Fig. 8 provides the simulation results for various ﬂow du-
+rations and electrical timings. The lead time is deﬁned as the
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 8 ===
+PIERCE AND MASCARO: BIOLOGICALLY INSPIRED WET SHAPE MEMORY ALLOY ACTUATED ROBOTIC PUMP
+543
+Fig. 7.
+Simulation results of output-to-input ratio and the dependence on hot
+water temperature within an effective range for water.
+Fig. 8.
+Simulation results of output-to-input ratio and various timing schemes
+of ﬂuid-only ﬂow duration and electrical actuation lead timing.
+amount of time prior to ﬂuidic ﬂow stopping that the electrical
+actuation begins. A lead time of 0.0 s means that the electri-
+cal actuation begins at the time the ﬂuid stops. An electrical
+duration of 1 s was used for these simulations since prolonged
+durations of passing current through the actuators can cause
+permanent deformation. The electrical current used for the sim-
+ulations was 4.5 A. The remaining parameters used reﬂect those
+used to obtain the maximum ﬂuid-only performance discussed
+previously.
+The data presented in the ﬁgure suggest that ﬂow durations
+between 1.5 and 2.0 s with little or no lead time yield the highest
+overall performance. This seems intuitive since additional ﬂow
+may be unnecessary with the electrical actuation. The data also
+suggest that there is a point at which ﬂow duration is too small
+since the ﬂuid propagation time through a 40-cm actuator is
+roughly only 0.8 s. This is because the electrical actuation does
+not provide enough heat to contract the SMA actuators with
+colder ﬂuid surrounding them. The only way to compensate for
+this effect would be to increase the amount of current being
+passed through the SMA actuators. This would require more
+capable power supplies to accommodate currents above 5 A.
+TABLE II
+OPTIMAL CONFIGURATION PARAMETERS
+C. Optimal Conﬁguration Parameters
+Based on simulation results, there are two sets of parameters
+that will lead to optimal performance: one set for ﬂuid-only ac-
+tuation and another set incorporating electrical actuation. The
+optimal sets of parameters for these two conﬁgurations are pro-
+vided in Table II. It should be noted that the hot water tempera-
+tures listed in the table represent that which would be expected
+during actual experimentation at an elevation of roughly 1400 m.
+By improving the existing model, implementing electrical
+actuation, and determining an optimal set of parameters with
+which the pump will exceed an output-to-input ratio greater
+than 1.0, it can now be expected that the prototype will meet the
+necessary requirements to be able to supply ﬂuids to external
+SMA subsystems. The next step is to validate the model by
+providing actual experimental results and comparing them to
+the simulation results presented in this chapter. This validation
+is crucial to being able to continue manipulating the model to
+ﬁnd other sets of parameters that could improve the performance
+future iterations.
+V. EXPERIMENTAL IMPLEMENTATION AND RESULTS
+The previous section presented the output-to-input results of
+multiple simulations where key parameters were varied to ﬁnd
+an optimal set that would yield maximum performance. Two
+types of sets were presented: one using ﬂuid-only actuation and
+the other incorporating the assistance of electrical actuation.
+A. Prototype
+In order to accurately compare experimental results with sim-
+ulated results, a prototype was built, which is a completely real-
+ized physical embodiment of the dynamic model. The prototype
+utilizes complex timing control, electrical actuation, ﬂuid sep-
+aration and recycling, and continuous heat addition. Fig. 9 is
+an actual photograph of the working prototype used for experi-
+mental testing.
+This prototype allows for parameter variation such as actuator
+length and mechanical advantage. A heating element is located
+inside the hot water accumulator in order to sustain performance
+over extended periods of time. The ﬂow path is controlled by
+four solenoid valves: two of them control the ﬂuid input to the
+actuators through a control manifold and the other two separate
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 9 ===
+544
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+Fig. 9.
+Design prototype capable of various wire lengths, mechanical advan-
+tages, complex timing, ﬂuid separation, and allows for electrical actuation.
+the hot and cold ﬂuid output from the actuators through a sepa-
+ration manifold. Two power supplies are used to actuate the two
+individual actuators.
+B. Validating Simulation Results
+In order to validate the simulation results, the optimal ﬂow
+duration was found for each actuator length by using simulation
+results in Fig. 5 as a baseline and then performing quick tests
+to determine the optimal ﬂow duration by monitoring the out-
+put. Upon obtaining the optimal timing for each actuator length,
+formal ﬂuid-only actuation tests were conducted varying actu-
+ator length and mechanical advantage to obtain results similar
+to Fig. 4. As predicted, using a mechanical advantage of 0.84
+yielded the best output results for all actuator lengths.
+Fig. 10 compares the maximum output-to-input ratios
+achieved both experimentally and by simulation. As is evi-
+dent from the plot, the simulation results are within 5–10%
+of the experimental results. It is also apparent that higher out-
+puts were achieved with longer actuator lengths. The maximum
+output-to-input ratio obtained with ﬂuid-only actuation under
+the conditions provided in Table II was 0.88. By lowering the
+accumulator pressure, higher performance was obtained, but this
+required longer ﬂow durations that were unsuitable for practical
+application toward actuating external wet SMA subsystems.
+Since the performance of the ﬂuid-only experiments did not
+exceed a volume output-to-input ratio greater than 1.0, electrical
+actuation assistance is required. Electrical actuation tests were
+then performed by varying ﬂow duration for 40-cm actuators
+with a mechanical advantage of 0.84. All electrical actuation
+tests were performed with the lead times in accordance with
+Fig. 7 which suggests that the performance is best with no lead
+except when the ﬂow duration is 1.5 s, at which point the optimal
+lead time is 0.5 s.
+Fig. 10.
+Comparison of maximum experimental and simulation results of
+output-to-input ratio for various actuator lengths using ﬂuid-only actuation.
+Fig. 11.
+Comparison of experimental and simulation results of output-to-input
+ratio for optimal conﬁgurations using electrical actuation.
+A comparison of the experimental and simulation output-to-
+input performance results is provided in Fig. 11. It is evident
+that the model is able to predict the experimental performance
+with some accuracy for ﬂow durations longer than 1.0 s. The
+model underestimates the performance when the ﬂow duration
+is 1.0 s. The maximum output-to-input ratio reached experimen-
+tally with using the aid of electrical actuation was 1.54 under the
+conditions provided. This type of performance already meets the
+requirements necessary to supply ﬂuid to additional wet SMA
+subsystems while still being able to induce self-actuation.
+C. Heat Addition
+Without continuous heat addition to the system, the perfor-
+mance of the pump degrades over time. Conversely, with heat
+input, the performance is expected to be sustained and even ex-
+ceed that of the nonheated system. This is because the boiling
+point of the water will be higher due to the increased pressure
+within the accumulators. An experimental comparison of the
+output-to-input ratio over time using ﬂuid-only and electrical
+actuation with 40-cm actuators with and without heat addition
+is provided in Figs. 12 and 13, respectively. The results in the
+ﬁgures conﬁrm that performance is sustained and that the per-
+formance is signiﬁcantly higher with continuous heat addition
+than without.
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 10 ===
+PIERCE AND MASCARO: BIOLOGICALLY INSPIRED WET SHAPE MEMORY ALLOY ACTUATED ROBOTIC PUMP
+545
+Fig. 12.
+Experimental performance with ﬂuid-only actuation and 40-cm ac-
+tuators, with and without heat input to the hot accumulator water.
+Fig. 13.
+Experimental performance with electrical actuation and 40-cm actu-
+ators, with and without heat input to the hot accumulator water.
+The SMA robotic pump’s maximum output-to-input ratio
+reached 1.35 for ﬂuid-only actuation which is close to the pre-
+dicted value of 1.38 from (11) as mentioned earlier. With elec-
+trical heating assistance, an output-to-input ratio of 2.1 was
+reached using 40-cm actuators and ﬂow duration of 1.5 s. With
+this electrical conﬁguration, the pump is capable of pumping a
+net output of 66 mL/min.
+VI. CONCLUSION
+A biologically inspired wet SMA robotic pump has been cre-
+ated that can provide thermal energy via ﬂuidic convection to
+external wet SMA subsystems. The robotic pump uses its own
+thermoﬂuidic output to assist in actuation of its own internal
+SMA actuators similar to a heart. It has been shown by sim-
+ulation and experimentation that the SMA pump is capable of
+providing sufﬁcient amounts of ﬂuid to actuate external SMA
+systems on a macroscale. This is evident by the volumetric
+output-to-input ratios of 1.4 using ﬂuid-only actuation and 2.1
+with the assistance of Joule heating. The pump is capable of
+pumping a net output of 66 mL/min, which is two orders of
+magnitude larger than any other SMA pump. This output can
+be increased, as suggested in (10), by increasing the number of
+contracting actuators.
+Future improvements planned for the robotic pump include
+making the system more compact in volume, removing the need
+for auxiliary electric inputs, and optimizing the practical efﬁ-
+ciency of the pump. Making the system more compact while
+maintaining a comparable volumetric output would require a
+creative use of space while taking care not to impair the con-
+traction of the SMA actuators. Methods to decrease the electrical
+dependence include using ﬂuid-only heating and using mechan-
+ically timed valves.
+As mentioned previously, the maximum theoretical efﬁciency
+that this system can achieve is 3.4%. The actual efﬁciency of this
+prototype system is much less, but the goal at this stage was not
+to optimize efﬁciency but rather to ﬁrst demonstrate that a net
+positive volumetric output was practically achievable. In future
+work, we will seek to characterize and optimize the practical
+efﬁciency of the system by minimizing thermal and mechanical
+losses. The efﬁciency of the optimized system will still be much
+lower than a pump driven by electric motors. However, this
+efﬁciency disadvantage is theoretically offset by a 100 to 1
+advantage in chemical versus electric energy storage. The SMA
+pump also has the unique advantage of silent operation, which
+may be important for certain applications. In theory, the SMA
+pump could operate continuously and silently with only a high-
+energy-density chemical energy source to keep the hot ﬂuid hot.
+REFERENCES
+[1] I. W. Hunter and S. Lafontaine, “Comparison of muscle with artiﬁcial
+actuators,” in Proc. IEEE Solid-State Sensor Actuator Workshop, Hilton
+Head Island, SC, Jun. 1992, pp. 178–185.
+[2] W. Haider, N. Munroe, C. Pulletikurthi, P. Gill, and S. Amruthaluri, “A
+comparative biocompatibility analysis of ternary nitinol alloys,” J. Mater.
+Eng. Perform., vol. 18, pp. 760–764, 2009.
+[3] K. T. O’Toole, M. M. McGrath, and E. Coyle, “Analysis and evaluation of
+the dynamic performance of SMA actuators for prosthetic hand design,”
+in J. Mater. Eng. Perform., vol. 18, pp. 781–786, 2009.
+[4] Y. Yam, K.-F. Lei, and P. Baranyi, “Control of a SMA actuated artiﬁcial
+face via neuro-fuzzy techniques,” in Proc. IEEE Int. Conf. Fuzzy Syst.,
+Melbourne, Australia, 2001, pp. 1315–1318.
+[5] B. J. Huang, J. H. Wang, J. H. Wu, and P. E. Yang, “A fast response heat
+pump water heater using thermostat made from shape memory alloy,”
+Appl. Thermal Eng., vol. 29, pp. 56–63, 2009.
+[6] U. Icardi and L. Ferrero, “SMA actuated mechanism for an adaptive wing,”
+J, Aerosp. Eng., vol. 24, pp. 140–143, 2011.
+[7] Y. Tadesse, D. Hong, and S. Priya, “Twelve degree of freedom baby
+humanoid head using shape memory alloy actuators,” J. Mech. Robot.,
+vol. 3, no. 1, pp. 1–18, 2011.
+[8] R. Kratz, S. Klug, M. Stelzer, and O. Von Stryk, “Biologically inspired
+reﬂex based stabilization control of a humanoid robot with artiﬁcial SMA
+muscles,” in Proc. IEEE Int. Conf. Robot. Biomimetics, Kunming, China,
+Dec. 2006, pp. 1089–1094.
+[9] S. A. Mascaro and H. H. Asada, “Wet shape memory alloy actuators for
+active vasculated robotic ﬂesh,” in Proc. IEEE Int. Conf. Robot. Autom.,
+Taipei, Taiwan, Sep. 2003, pp. 282–287.
+[10] L. Flemming and S. Mascaro, “Wet SMA actuator array with matrix
+vasoconstriction device,” in Proc. ASME Int. Mech. Eng. Congr. Expo.,
+Orlando, FL, 2005, pp. 1751–1758.
+[11] J. D. Ertel, “Design and modeling of a shape memory alloy actuated
+robotic heart,” M.S. thesis, Dept. Mech. Eng., Univ. Utah, Salt Lake City,
+UT, 2007.
+[12] J. Ertel and S. Mascaro, “Wet shape memory alloy actuated robotic heart,”
+in Proc. ASME Dyn. Syst. Control Conf., Hollywood, CA, 2009, pp. 1033–
+1040.
+[13] W. L. Benard, H. Kahn, A. H. Heuer, and M. A. Huff, “Titanium-nickel
+shape-memory alloy actuated micropump,” in Proc. Int. Conf. Solid-State
+Sensors Actuators, Chicago, IL, 1997, pp. 361–364.
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+
+=== PAGE 11 ===
+546
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 18, NO. 2, APRIL 2013
+[14] G. Shuxiang, S. Xuesong, K. Ishii, and G. Jian, “SMA actuator-based
+novel type of peristaltic micropump,” in Proc. Int. Conf. Inf. Autom.,
+2008, pp. 1620–1625.
+[15] M. D. Pierce and S. A. Mascaro, “Wet shape memory alloy actuated
+robotic heart with thermoﬂuidic feedback,” in Proc. IEEE/RSJ Int. Conf.
+Intell. Robots Syst., Sep. 2011, pp. 402–407.
+[16] M. Pierce, “Design and optimization of a shape memory alloy actuated
+pump with thermoﬂuidic feedback,” M.S. thesis, Dept. Mech. Eng., Univ.
+Utah, Salt Lake City, UT, 2011.
+[17] O. K. Rediniotis, D. C. Lagoudas-Dimitris, H. Y. Jun, and R. D. Allen,
+“Fuel-powered compact SMA actuator,” in Proc. SPIE Conf. Smart Struct.
+Mater., 2002, vol. 4698, pp. 441–453.
+[18] J. D. Ertel and S. A. Mascaro, “Dynamic thermomechanical modeling of
+a wet shape memory alloy actuator,” Trans. ASME, J. Dyn. Syst., Meas.
+Control, vol. 132, pp. 1–9, 2010.
+[19] S. M. Dutta and F. H. Ghorbel, “Differential hysteresis modeling of a
+shape memory alloy wire actuator,” IEEE/ASME Trans. Mechatronics,
+vol. 10, no. 2, pp. 189–197, Apr. 2005.
+[20] M. Kadkhodaei, R. K. N. D. Rajapakse, M. Mahzoon, and M. Salimi,
+“Modeling of the cyclic thermomechanical response of SMA wires at
+different strain rates,”
+Smart Mater. Struct., vol. 16, pp. 2091–2101,
+2007.
+[21] J. Abadie, N. Chaillet, and C. Lexcellent, “Modeling of a new SMA
+micro-actuator for active endoscopy applications,” Mechatronics, vol. 19,
+pp. 437–442, 2009.
+Matthew D. Pierce received the B.S. and M.S. de-
+grees in mechanical engineering from the Univer-
+sity of Utah, Salt Lake City, in 2009 and 2011,
+respectively.
+From 2009 to 2011, he was an Assistant Engineer
+in the Navigation Systems Division, Northrop Grum-
+man. Since 2011, he has been a mechanical engineer
+at L-3 Communications, New York, NY.
+Stephen A. Mascaro (S’97–M’03) received the B.A.
+degree in physics from Houghton College, Houghton,
+NY, in 1995, the B.S. degree in mechanical engi-
+neering from Clarkson University, Potsdam, NY, in
+1995, and the M.S. and Ph.D. degrees in mechani-
+cal engineering from the Massachusetts Institute of
+Technology (MIT), Cambridge, in 1997 and 2002,
+respectively.
+From 2002 to 2003, he was a Postdoctoral Asso-
+ciate in the Department of Mechanical Engineering,
+MIT. From 2003 to 2004, he was an Assistant Profes-
+sor of mechanical engineering at North Dakota State University, Fargo. Since
+2005, he has been an Assistant Professor in the Department of Mechanical
+Engineering, University of Utah, Salt Lake City. His current research interests
+include robotics and control, system dynamics, human–machine interaction,
+haptics, and bioinspired actuation.
+Dr. Mascaro received the Best Paper Award at the 1999 IEEE International
+Conference on Robotics and Automation for his original work on ﬁngernail
+sensors, which was published in the IEEE TRANSACTIONS ON ROBOTICS AND
+AUTOMATION in 2001 and 2004. He is a member of the American Society of
+Mechanical Engineers.
+Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:27:21 UTC from IEEE Xplore.  Restrictions apply. 
+

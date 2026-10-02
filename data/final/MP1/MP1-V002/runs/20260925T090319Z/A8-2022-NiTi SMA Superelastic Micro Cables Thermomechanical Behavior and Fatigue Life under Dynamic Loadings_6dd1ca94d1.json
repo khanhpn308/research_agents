@@ -1,0 +1,183 @@
+{
+  "source": {
+    "paper_id": "6dd1ca94d1",
+    "filename": "A8-2022-NiTi SMA Superelastic Micro Cables Thermomechanical Behavior and Fatigue Life under Dynamic Loadings.pdf",
+    "sha256": "6dd1ca94d1a4bef674d5382f74bc6ef6e1444e86cbfa870836db459ff056dcc2",
+    "page_count": 21,
+    "char_count": 57149,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 32785,
+    "completion_tokens": 6394,
+    "total_tokens": 39179,
+    "thinking_tokens": 3751,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [],
+    "authors": [
+      "Paulo C. S. Silva",
+      "Estephanie N. D. Grassi",
+      "Carlos J. Araújo",
+      "João M. P. Q. Delgado",
+      "Antonio G. B. Lima"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Linear relationship between forward/reverse phase transformation start stresses and temperature governed by the Clausius-Clapeyron relation (CM and CA coefficients).",
+      "Equivalent linear viscoelastic element assumption for evaluating the equivalent viscous damping factor (ξ) from dissipated energy and stored elastic energy.",
+      "Nominal engineering stress calculated using the initial undeformed cross-sectional area across progressive individual filament failures.",
+      "Uniform axial tension along the 30 mm gauge length between grips."
+    ],
+    "control_variables": [
+      "Gauge length (30 mm for micro cable and reference wire dynamic tests; 12.6 mm for core wire DMA tests)",
+      "Ambient room temperature (22 ± 2 °C)",
+      "Tensile strain amplitude range (5% peak-to-peak, oscillating between 2.5% and 7.5% strain)",
+      "Pre-strain level (5.0% strain)",
+      "Pre-cycling conditioning protocol (128 cycles at 0.25 Hz to stabilize superelastic behavior)",
+      "Sinusoidal loading waveform",
+      "Equivalent nominal cross-sectional area between the 1 × 7 micro cable and the solid reference wire"
+    ],
+    "dependent_variables": [
+      "Specimen surface temperature (mean temperature Tmean, temperature amplitude Tamp, and peak cycle temperature)",
+      "Peak tensile stress (σpeak) and percentage peak stress difference between 1st and 128th cycles (Δσ)",
+      "Critical self-heating frequency (fc)",
+      "Dissipated energy per cycle (ED)",
+      "Equivalent viscous damping factor (ξ)",
+      "Structural fatigue life (number of cycles to first failure Nf, and sequential failures Nif for i = 1 to 7)",
+      "Upper Plateau Strength (UPS) and Lower Plateau Strength (LPS)"
+    ],
+    "doi": "10.3390/s22208045",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Repeated cyclic loading above a critical self-heating frequency causes latent heat accumulation, elevating internal temperature and shifting transformation stresses upward according to the Clausius-Clapeyron law, which stiffens the SMA element during dynamic cycling.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8,
+          9,
+          10,
+          20
+        ]
+      },
+      {
+        "claim": "The 1 × 7 NiTi micro cable displays a lower self-heating critical frequency (0.99 Hz) and higher temperature increase (80% increase after 128 cycles at 10 Hz) compared to a solid reference wire (1.76 Hz and 52% increase), attributed to inter-filament friction heat generation.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10,
+          11,
+          20
+        ]
+      },
+      {
+        "claim": "Multi-filament micro cable geometry achieves higher dissipated energy and damping capacity (15% to 30% higher ED and 20% to 47% higher ξ) than a monolithic wire of equivalent area due to additional friction between twisted filaments.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8,
+          13,
+          14,
+          20
+        ]
+      },
+      {
+        "claim": "Dissipated energy per cycle and damping ratio degrade with increasing cycle count and increasing dynamic frequency across both micro cables and solid wires.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          12,
+          13,
+          20
+        ]
+      },
+      {
+        "claim": "The multi-filament micro cable exhibits a shorter fatigue life to first filament failure than a solid wire due to inter-strand fretting friction and manufacturing dimples, but provides progressive redundancy and delayed complete failure through sequential breakage of individual wires.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          2,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "1 × 7 NiTi superelastic micro cable (outer diameter 0.4064 mm, composed of six 0.1354 mm outer wires twisted at a -15° helix angle around a straight core wire; nominal 55 wt.% Ni, EDS measured 53.8 wt.% Ni).",
+      "Monolithic superelastic NiTi reference wire (0.35 mm diameter) with equivalent total cross-sectional area.",
+      "ElectroPuls E10000 electrical dynamic testing machine (INSTRON) equipped with a 10 kN load cell, operated under strain control.",
+      "K-type micro thermocouple (100 µm diameter) affixed with adhesive to the outer surface of the specimen, recorded by an HBM Quantum X data acquisition system at 100 Hz.",
+      "TA Instruments Q800 Dynamic Mechanical Analyzer (DMA) for isothermal tensile testing of single core wire (12.6 mm gauge length, 0.5%/min strain rate, 35 °C to 85 °C).",
+      "TA Instruments Q20 Differential Scanning Calorimeter (DSC) for transformation temperatures (-60 °C to 100 °C, 10 °C/min rate under nitrogen).",
+      "TESCAN VEGA3 Scanning Electron Microscope (SEM) with BSE detector and Oxford Instruments X-act Energy Dispersive Spectrometer (EDS)."
+    ],
+    "future_work": [
+      "Conducting detailed statistical fatigue analyses across larger specimen cohorts to establish probabilistic fatigue life distributions.",
+      "Investigating varying environmental convective and conductive heat transfer boundary conditions to control self-heating.",
+      "Optimizing cable manufacturing processes to minimize surface defect generation (e.g., dimples) that accelerate crack initiation."
+    ],
+    "independent_variables": [
+      "Dynamic cyclic loading frequency (0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 Hz)",
+      "Number of loading cycles (1 to 128 cycles for thermomechanical evaluation; up to ~6000 cycles for fatigue life)",
+      "Specimen geometry/architecture (1 × 7 twisted multi-strand micro cable vs. single solid reference wire of equivalent area)",
+      "Test temperature during isothermal DMA testing of core wire (35 °C to 85 °C)"
+    ],
+    "limitations_inferred": [
+      "Dynamic mechanical testing was performed exclusively under uniaxial tension, leaving bending, torsional, or multi-axial loading uncharacterized.",
+      "Surface thermocouple measurement at a single external location may not accurately capture internal radial temperature gradients inside the twisted multi-filament bundle.",
+      "Only a single pre-strain (5%) and strain amplitude (5% peak-to-peak) were evaluated dynamically, without exploring performance under smaller or larger strain amplitudes.",
+      "No active robotic system, soft actuator, or continuum manipulator was constructed or tested with the micro cables."
+    ],
+    "limitations_stated_by_authors": [
+      "The distance between grips was set equal to the 30 mm gauge length due to sample limitations, differing from the ASTM F2516 standard recommendation of at least 150 mm grip separation for wire diameters ≤ 0.2 mm.",
+      "The 128 cycles utilized during frequency sweep testing were insufficient to reach steady-state thermal equilibrium.",
+      "The structural fatigue evaluation was preliminary, lacking statistical analysis across multiple samples.",
+      "Manufacturing-induced surface defects, such as dimples, were observed on the micro cables, contributing to reduced structural fatigue life."
+    ],
+    "main_results": [
+      "The critical self-heating frequency (fc) was determined as 0.99 Hz for the NiTi micro cable and 1.76 Hz for the solid reference wire.",
+      "Above fc, accumulation of latent heat and inter-wire friction raised specimen temperature (e.g., reaching 49.25 °C at 10 Hz after 128 cycles for the micro cable, an 80% increase relative to 0.25 Hz), leading to upward shifting of superelastic loops and strain hardening due to the Clausius-Clapeyron relation.",
+      "Dissipated energy per cycle (ED) and equivalent damping factor (ξ) decreased with increasing cycling and loading frequency, dropping by up to ~45-50% at 10 Hz compared to 1 Hz.",
+      "The micro cable exhibited 15% to 30% higher dissipated energy (ΔED) and 20% to 47% higher equivalent damping factor (Δξ) compared to the monolithic wire due to inter-filament friction.",
+      "Structural fatigue life to first wire failure was shorter for the micro cable (~2000 cycles at frequencies ≥ 2 Hz) than for the monolithic wire (3000 to 6000 cycles) due to fretting friction and surface dimples.",
+      "The micro cable displayed progressive sequential failure across all 7 filaments, sustaining mechanical load and energy dissipation (up to ~1 MJ/m³) until the final wire broke."
+    ],
+    "modeling_methods": [
+      "Calculation of dissipated energy per cycle (ED) via numerical integration of the stress-strain hysteresis loop (closed contour integral of σ dε).",
+      "Calculation of equivalent viscous damping factor (ξ) using the dissipated energy normalized by 4π times the equivalent linear stored elastic energy.",
+      "Identification of the critical self-heating frequency (fc) via interpolation of the zero-crossing of percentage peak stress difference (Δσ = 0) between the 1st and 128th cycles.",
+      "Linear Clausius-Clapeyron phase diagram regression to determine temperature stress coefficients CM (5.54 MPa/°C) and CA (6.28 MPa/°C).",
+      "Asymptotic non-linear regression modeling of cycle temperature amplitude (Tamp) as a function of loading frequency.",
+      "Linear regression modeling of 128th cycle mean temperature (Tmean) and cycles to failure (Nf) as functions of loading frequency."
+    ],
+    "performance_metrics": [
+      "Critical self-heating frequency (fc, in Hz)",
+      "Dissipated energy per cycle (ED, in MJ/m³)",
+      "Equivalent viscous damping factor (ξ, in %)",
+      "Upper Plateau Strength (UPS, in MPa) and Lower Plateau Strength (LPS, in MPa)",
+      "Peak tensile stress (σpeak, in MPa) and peak stress variation (Δσ, in %)",
+      "Temperature amplitude (Tamp, in °C) and mean temperature (Tmean, in °C)",
+      "Cycles to failure (Nf for first failure and Nif for the ith failure, in cycles)"
+    ],
+    "possible_gap_implications": [
+      "Understanding the self-heating threshold and dynamic thermomechanical stiffening in NiTi micro cables could inform frequency boundaries and thermal management strategies for SMA-based tendons or variable-stiffness components in dynamic structural and robotic applications, though robotic efficacy remains to be directly evaluated."
+    ],
+    "research_objective": "To investigate the effect of thermomechanical coupling and heat accumulation during dynamic tensile cycling (frequencies from 0.25 Hz to 10 Hz) on the mechanical behavior, functional damping properties, and fatigue life (both structural and functional) of NiTi SMA micro cables, determining the critical self-heating frequency and characterizing progressive individual filament failure relative to a solid reference wire.",
+    "research_problem": "The lack of understanding regarding the influence of high loading frequencies, strain rates, and cumulative self-heating on the functional energy dissipation properties, thermomechanical stiffening, and fatigue life of multi-strand NiTi shape memory alloy micro cables under dynamic cyclic loading.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "superelasticity",
+      "stress-induced martensitic phase transformation",
+      "thermomechanical coupling / temperature-induced stiffening governed by the Clausius-Clapeyron law"
+    ],
+    "title": "NiTi SMA Superelastic Micro Cables: Thermomechanical Behavior and Fatigue Life under Dynamic Loadings",
+    "year": "2022"
+  }
+}

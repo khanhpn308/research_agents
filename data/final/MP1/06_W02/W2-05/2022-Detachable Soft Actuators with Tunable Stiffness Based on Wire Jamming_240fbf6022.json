@@ -1,0 +1,205 @@
+{
+  "source": {
+    "paper_id": "240fbf6022",
+    "filename": "2022-Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming.pdf",
+    "sha256": "240fbf60229a87953954c85c3d858bebf945c06c2689f5dcb7c8d5c51742b2b5",
+    "page_count": 14,
+    "char_count": 51905,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 27094,
+    "completion_tokens": 7096,
+    "total_tokens": 34190,
+    "thinking_tokens": 4178,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Pneumatic actuation (positive air pressure for fiber-reinforced soft bending actuator)",
+      "Vacuum pressure (negative air pressure for wire jamming structure)"
+    ],
+    "authors": [
+      "Long Bai",
+      "Hao Yan",
+      "Jiafeng Li",
+      "Jiefeng Shan",
+      "Penghao Hou"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "When vacuum pressure is off (unjammed state), inter-wire gaps are non-negligible and each wire is assumed to act as an independent beam.",
+      "When vacuum pressure is on (jammed state), wires become cohesive due to friction and are analyzed together as a single unified beam.",
+      "Cantilever beam deformation follows Euler-Bernoulli beam theory under applied point force Fe.",
+      "Velcro strain-limiting layer is assumed to be inextensible.",
+      "Internal air channel geometry is ignored in the finite element (FE) simulation of the fiber-reinforced soft actuator.",
+      "Silicone rubber exhibits hyper-elastic material behavior (characterized via uniaxial tensile testing)."
+    ],
+    "control_variables": [
+      "Wire diameter (empirically fixed at 1 mm)",
+      "Wire length (pre-cut to 150 mm and trimmed to 140–150 mm)",
+      "Envelope material and film thickness (HDPE film, 0.08 mm thickness)",
+      "Cross-sectional layout and installation scheme (rectangular arrangement, layout 2)",
+      "Loading speed of the force sensor during bending stiffness measurement (kept slow to match elastic reaction force)",
+      "Number of repeated experimental trials per test condition (each test repeated five times)",
+      "Fabrication mold parameters and Velcro fastener types (ONE-WRAP 29 double-sided fastener, velour 3165 loop fastener)"
+    ],
+    "dependent_variables": [
+      "Bending stiffness (ratio of applied force to deflection)",
+      "Applied reaction force under specified deflection",
+      "Torsional stiffness and measured torque under rotation angle",
+      "Free bending angle of soft actuators under inflation pressure",
+      "Tip contact force / resistance under deflection",
+      "Maximum grasping payload mass of the soft robotic gripper",
+      "Maximum lifting weight capacity of the detachable soft glove",
+      "Slip threshold deflection and transition regimes (pre-slip, transition, post-slip)"
+    ],
+    "doi": "10.3390/app12073582",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Wire/fiber jamming structures transition between unjammed and jammed states via vacuum-controlled inter-wire friction, markedly increasing bending stiffness while retaining low unjammed torsional impedance for multi-directional dexterity.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          5,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Rectangular wire arrangements eliminate circumferential wire sliding and misalignment observed in circular arrangements, while reverse-gradient trimming of free wire ends prevents localized twisting or arching during bending.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          4,
+          5
+        ]
+      },
+      {
+        "claim": "Euler-Bernoulli cantilever beam modeling predicts that bending stiffness of the wire jamming structure scales significantly with the number of wire layers in the thickness direction.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          5
+        ]
+      },
+      {
+        "claim": "Bending stiffness of an 8 mm thick kraft rope wire jamming structure increased by nearly seven times (reaching 0.89 N/mm at 15 mm deflection) when vacuum pressure changed from 0 kPa to -85 kPa.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8
+        ]
+      },
+      {
+        "claim": "Compared with layer jamming, wire jamming exhibits lower torsional stiffness across rotation angles (0° to 60°), enabling better multidirectional compliance and twistability for multi-DOF applications.",
+        "evidence_type": "comparative experimental",
+        "page_numbers": [
+          9
+        ]
+      },
+      {
+        "claim": "Integrating double-sided Velcro as a strain-limiting layer and connector provides a reliable, detachable interface enabling rapid assembly and modular replacement of the wire jamming layer on soft actuators.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          3,
+          6,
+          7
+        ]
+      },
+      {
+        "claim": "Assembling the wire jamming layer increases passive stiffness, requiring 145 kPa positive air pressure to achieve a 90° bend compared to 87 kPa for the bare actuator, while vacuum activation substantially increases tip contact stiffness.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "A three-actuator soft gripper doubled its maximum grasping payload under -85 kPa vacuum compared to 0 kPa, and an unassisted detachable soft glove lifted a water payload over 10,000 g at 165 kPa positive pressure and -85 kPa vacuum.",
+        "evidence_type": "application demonstration",
+        "page_numbers": [
+          10,
+          11
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Three-point bending characterization testbed with support platform, peristaltic vacuum pump (KVP8 PLUS-KB-S), precision digital pressure regulator (ITV2090-312BL5), and a slow-moving force sensor.",
+      "Torsional stiffness testbed holding one end fixed with an air hose coupler and the opposite end connected to a servo-driven rotating fixture (0° to 60°) while permitting axial sliding, monitored with a torque sensor.",
+      "Soft actuator free bending angle setup utilizing a nine-axis tip-mounted gyroscope (JY901S) under variable positive inflation pressures.",
+      "Tip contact stiffness testbed measuring force versus deflection perpendicularly at the tip of the assembled actuator under combined positive inflation and vacuum pressures.",
+      "Three-actuator robotic gripper grasping test setup lifting a hollow plastic carrier loaded incrementally with steel balls until grasp failure.",
+      "Detachable soft glove load capacity setup testing an empty glove (without a human hand) pressurized at 165 kPa and -85 kPa vacuum grasping a plastic bucket filled incrementally with water until failure.",
+      "Uniaxial tensile testing setup measuring silicone rubber stress-strain response and comparative peel/tensile tests evaluating Velcro adhesive methods."
+    ],
+    "future_work": [
+      "Further research into 3D printing materials and advanced printing devices suitable for soft robotics.",
+      "Exploring application prospects of stiffness-tunable soft actuators in medical devices, biomimetic robots, and immersive haptic feedback for VR/AR.",
+      "Adding or replacing specialized sensing and driving units onto the modular soft gloves for diverse working tasks."
+    ],
+    "independent_variables": [
+      "Vacuum pressure inside wire jamming envelope (e.g., 0 kPa, -30 kPa, -60 kPa, -85 kPa)",
+      "Jamming medium material (kraft rope, hemp rope, nylon wire, and kraft paper layer jamming for comparison)",
+      "Jamming structure thickness d (4 mm, 6 mm, 8 mm)",
+      "Deflection distance in bending tests (0 to 15 mm)",
+      "Rotation angle in torsion tests (0° to 60°)",
+      "Positive inflation air pressure Pin inside the fiber-reinforced actuator (0 to 165 kPa)",
+      "Wire arrangement geometry (circular vs. rectangular cross-section; trimmed vs. untrimmed free ends)"
+    ],
+    "limitations_inferred": [
+      "Vacuum pressurization and evacuation response times and dynamic switching bandwidth between jammed and unjammed states were not measured or reported.",
+      "Long-term durability, cyclic fatigue life, and wear characteristics of the inter-wire friction contact, Velcro fastener attachment, and thin 0.08 mm HDPE envelope under repeated bending cycles were not investigated.",
+      "The manual reverse-gradient trimming of wire ends is empirical and may pose repeatability or manufacturing challenges for automated production.",
+      "The Euler-Bernoulli beam model treats wires as either completely independent or fully monolithic, without capturing microscopic stick-slip contact mechanics, friction distribution, or 3D cross-sectional deformation.",
+      "Glove payload tests were performed without a human hand inside, leaving ergonomics, human-robot interaction forces, and biomechanical compliance unaddressed."
+    ],
+    "limitations_stated_by_authors": [
+      "Assembly of the wire jamming structure significantly reduces the bending performance of the actuator, requiring higher positive air pressure (145 kPa vs. 87 kPa) to achieve a 90° bending angle.",
+      "Bending induces a gradient elongation effect at the free end of the wires, which can cause localized twisting, arching, and irreversible envelope deformation if untrimmed or unaccommodated.",
+      "Circular wire packing arrangements are prone to wire circumferential sliding during bending, resulting in misalignment and pre-jamming.",
+      "Nylon wire exhibits high initial unjammed stiffness and localized rearrangement, whereas hemp rope displays lower jammed stiffness due to thin surface fiber branches.",
+      "Layer jamming structures outperform wire jamming structures in bending stiffness and stiffness range, but wire jamming is inferior in single-plane bending stiffness.",
+      "Excessive jamming structure thickness increases initial unjammed stiffness, overall structure volume, and gradient elongation severity.",
+      "Velcro is inextensible, restricting its combination with stretchable substrate materials in wearable devices.",
+      "Current 3D printing technologies suffer from limitations in speed, material compatibility, and resolution when fabricating soft robotic components."
+    ],
+    "main_results": [
+      "All three tested wire jamming media (kraft rope, hemp rope, nylon wire) exhibited substantial stiffness increases when transitioning from 0 kPa to -60 kPa vacuum pressure, with kraft rope selected for its balance of low initial unjammed stiffness and high jammed stiffness without rearrangement.",
+      "Adopting a rectangular wire arrangement and reverse-gradient trimmed wire ends successfully mitigated circumferential sliding, pre-jamming, and localized twisting/arching during bending.",
+      "For an 8 mm thick kraft rope jamming structure, switching vacuum from 0 to -85 kPa increased bending stiffness nearly seven-fold (achieving 0.89 N/mm at 15 mm deflection).",
+      "Wire jamming structures exhibited lower torsional impedance and smoother rotational response (0° to 60°) than layer jamming structures, with torsional stiffness increasing from 32.63 to 47.5 N*mm as thickness increased from 6 mm to 8 mm.",
+      "The assembled stiffness-tunable actuator achieved higher resistance to external tip deflections under -85 kPa vacuum across multiple bending states.",
+      "A soft robotic gripper equipped with three assembled actuators doubled its maximum payload grasping capacity when vacuum pressure was shifted from 0 to -85 kPa.",
+      "An unassisted detachable soft glove lifted a water bucket load exceeding 10,000 g under 165 kPa positive pressure and -85 kPa vacuum pressure."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli cantilever beam theoretical modeling for unjammed (individual independent beams) and jammed (unified solid composite beam) wire states.",
+      "Theoretical modeling of the fiber-reinforced soft actuator bending behavior to determine actuator geometric parameters.",
+      "Finite element (FE) simulation of the fiber-reinforced soft actuator bending state under positive air pressure."
+    ],
+    "performance_metrics": [
+      "Bending stiffness (N/mm, defined as the ratio of applied force to deflection)",
+      "Bending stiffness increase ratio under vacuum (up to ~7x increase at -85 kPa vs. 0 kPa)",
+      "Torsional torque (N*mm) and torsional stiffness range (ratio between jammed and unjammed states, 1.88 to 2.02)",
+      "Free bending angle (degrees) as a function of positive air pressure (kPa)",
+      "Maximum payload mass of the soft robotic gripper (g)",
+      "Maximum lifting weight capacity of the detachable soft glove (g / kg)",
+      "Initial (unjammed) stiffness and stiffness variation range"
+    ],
+    "possible_gap_implications": [
+      "The deliberate choice of wire jamming to maintain low torsional impedance facilitates multi-DOF dexterous compliance, but this lower torsional rigidity could be a drawback in applications requiring high resistance to out-of-plane torsional perturbations during heavy grasping.",
+      "The substantial increase in positive inflation pressure required to bend the actuator once the jamming layer is attached (145 kPa vs. 87 kPa for 90°) highlights an inherent trade-off between passive unjammed compliance and overall variable-stiffness payload capacity.",
+      "Relying on manual wire trimming and heat-sealed thin HDPE envelopes reveals an open engineering gap in automated, robust manufacturing methods for multidirectional fiber/wire jamming skins."
+    ],
+    "research_objective": "To design, model, and fabricate a stiffness-tunable soft actuator based on a wire/fiber jamming mechanism with wide-range stiffness variation, universal adaptability, and high dexterity, utilizing a modular Velcro attachment scheme for rapid detachment and integration into soft robotic grippers and wearable exoskeletons.",
+    "research_problem": "Soft actuators suffer from low stiffness and hyper-elastic properties that restrict their use in high-load, high-speed, and precision tasks; conventional stiffening approaches often reduce flexibility, particle jamming can cause passive pre-jamming that limits bending range, and layer jamming is primarily restricted to single-plane deformation. In addition, existing stiffness-tunable soft actuators frequently rely on permanent adhesion or non-modular integration, making component replacement difficult upon leakage or wear.",
+    "robot_type": "Fiber-reinforced soft pneumatic actuator, soft robotic gripper, and wearable exoskeleton (detachable soft glove and detachable elbow sleeve)",
+    "stiffness_mechanism": [
+      "wire jamming",
+      "fiber jamming"
+    ],
+    "title": "Detachable Soft Actuators with Tunable Stiffness Based on Wire Jamming",
+    "year": "2022"
+  }
+}

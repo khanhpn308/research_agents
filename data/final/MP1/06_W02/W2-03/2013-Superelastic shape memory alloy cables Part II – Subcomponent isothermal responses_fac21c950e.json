@@ -1,0 +1,222 @@
+{
+  "source": {
+    "paper_id": "fac21c950e",
+    "filename": "2013-Superelastic shape memory alloy cables Part II – Subcomponent isothermal responses.pdf",
+    "sha256": "fac21c950ecbe7dcc0ef246a6cf958186112529fc3f98be8241fb81d0dc7a284",
+    "page_count": 37,
+    "char_count": 100377,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 41651,
+    "completion_tokens": 9199,
+    "total_tokens": 50850,
+    "thinking_tokens": 6210,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "thermally-responsive actuation",
+      "tendon-driven actuation"
+    ],
+    "authors": [
+      "Benjamin Reedlunn",
+      "Samantha Daly",
+      "John Shaw"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Cross-sections of multi-wire cable components elongate and rotate as monolithic units without relative sliding between adjacent wire layers.",
+      "Mechanical interactions (such as radial contact and Hertzian contact stresses between wire layers) can be neglected on average with respect to global mechanical behavior.",
+      "Thermal interactions and radial temperature gradients within individual wires and between adjacent layers can be neglected under slow quasi-static loading (Biot number Bi << 1).",
+      "Wire geometry is idealized using integer ratios of normalized mean helix radius to wire diameter (r0/d) without accounting for curvature effects on projected wire sections.",
+      "Individual wires are assumed to be loaded predominantly in direct uniaxial tension for shallow helix angles, neglecting local wire bending and twisting."
+    ],
+    "control_variables": [
+      "Ambient room temperature air (~18 to 22 °C) with thermal drift monitored and corrected.",
+      "Specimen free length (~74.7 mm to 76.0 mm) and laser extensometer gage length (~49.0 mm to 50.2 mm).",
+      "Specimen boundary conditions (rigidly clamped ends enforcing zero-rotation constraints).",
+      "Specimen preparation and surface condition (new, dry specimens lightly painted with a specular pattern for DIC and IR emissivity).",
+      "Prescribed constant elongation ramp rates during loading and unloading segments."
+    ],
+    "dependent_variables": [
+      "Normalized axial load (P/A0) and raw axial tensile force (P).",
+      "Normalized axial reaction torque (Mz*R/J0) and raw axial reaction torque (Mz).",
+      "Two-dimensional axial (E_zz^L) and tangential (E_tt^L) surface strain fields from stereo digital image correlation (DIC).",
+      "Specimen temperature deviation (Delta Ts) and surface temperature fields from infrared (IR) thermography.",
+      "Phase transformation front propagation velocity, front morphology, and spatial distribution.",
+      "Deduced individual layer-by-layer axial load and torque contributions.",
+      "Ultimate failure strain / elongation at rupture."
+    ],
+    "doi": "10.1016/j.ijsolstr.2013.03.015",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Shallow wire helix angles in 7x7 NiTi cable components cause the core wire, 1x7 core strand, and full 7x7 cable to behave similarly to parallel wire bundles, exhibiting only minor reductions in transformation stress plateaus (517 MPa for core wire vs. 506 MPa for 1x7 strand).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          6,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Propagating transformation fronts occur in 7x7 components during loading and unloading; stereo DIC reveals that the macroscopic front in the 1x7 core strand consists of clustered, staggered fronts in individual helical wires revolving synchronously around the tensile axis.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Progressive addition of outer wire layers with increasing helix angles and radii in 1x27 cables substantially increases axial compliance (secant modulus drops from 23.7 GPa to 7.3 GPa) and extends failure strain from 11.2% in the core wire to nearly 40% in the full cable.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          11,
+          12,
+          13,
+          32
+        ]
+      },
+      {
+        "claim": "Propagating transformation fronts are absent in 1x27 multi-layer strands and the full cable; instead, distributed, non-propagating strain and temperature localizations appear, originating from contact indentations (dimples, divots, and line indents) created during manufacturing.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          15,
+          16,
+          17,
+          21,
+          22,
+          32
+        ]
+      },
+      {
+        "claim": "Alternating lay handedness between concentric layers in 1x27 components produces non-monotonic, complex axial reaction torque under zero-rotation conditions, switching sign between the 1x6 (negative), 1x15 (positive), and full 1x27 cable (negative).",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          12,
+          13,
+          14,
+          17,
+          18,
+          19,
+          21,
+          22
+        ]
+      },
+      {
+        "claim": "Subtracting measured subcomponent responses deduces individual layer force and torque contributions, establishing that inner layers transform prior to outer layers (R+ -> M+ initiates at 2.2% in layer B, 6.0% in layer C, and 8.8% in layer D) and explaining the full cable's stair-step torque and multi-knee force curves.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          2,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ]
+      },
+      {
+        "claim": "Simple analytical predictions assuming uniaxial tension accurately predict transformation plateau stress for shallow helix angles (1x7 strand) but significantly overpredict it for steeper helix angles (1x6 strand) because local wire bending and twisting are omitted.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          8,
+          9,
+          10,
+          16,
+          17
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Mechanical testing machine operating under displacement control at constant slow elongation rates (1e-5 s^-1 for 7x7 components; 1e-4 s^-1 for 1x27 components) to ensure isothermal conditions in room-temperature air.",
+      "Rigid flat knurled plate clamping grips enforcing zero-rotation boundary conditions at specimen ends.",
+      "Reaction torque load cell with a capacity of 2824 N-mm measuring axial reaction moment.",
+      "Laser extensometer monitoring reflective tags over a ~50 mm gage length to measure axial engineering strain.",
+      "Stereo digital image correlation (DIC) system capturing high-resolution surface axial and tangential strain fields in a localized field of view.",
+      "Infrared (IR) thermography camera (256 x 256 pixel sensor) capturing full gage length surface temperature field transients.",
+      "Specimen thermocouple measuring local specimen surface temperature transients alongside ambient laboratory temperature sensors.",
+      "Scanning electron microscope (SEM) for post-test examination of wire surface contact damage, line indentations, dimples, and divots."
+    ],
+    "future_work": [
+      "Developing reliable 3D structural and computational constitutive modeling tools to simulate the thermomechanical behavior of SMA cables.",
+      "Gathering multiaxial constitutive data on tension, torsion, and bending of SMA wires to improve model fidelity.",
+      "Exploring alternative cable cross-sections, lay architectures, and NiTi alloy compositions.",
+      "Investigating shape memory behavior at elevated or sub-ambient transformation temperatures for thermally-responsive, high-tension cable actuators in flexible robotic and prosthetic systems."
+    ],
+    "independent_variables": [
+      "Cable construction architecture (7x7 right regular lay vs. 1x27 alternating lay).",
+      "Hierarchical subcomponent level tested (core wire, 1x7 strand, and full 7x7 cable; core wire, 1x6 strand, 1x15 strand, and full 1x27 cable).",
+      "Prescribed axial elongation / gage strain (delta_e / L_e) and cyclic strain amplitudes (up to 40% strain).",
+      "Wire geometric parameters (helix angle, mean helix radius, pitch, and lay handedness).",
+      "Prescribed nominal elongation rate (1e-5 s^-1 for 7x7; 1e-4 s^-1 for 1x27)."
+    ],
+    "limitations_inferred": [
+      "Tests were conducted strictly under quasi-static, isothermal conditions; rate-dependent thermomechanical coupling and rapid self-heating effects were not evaluated.",
+      "Loading was restricted to uniaxial tension with zero-rotation end constraints; bending over sheaves, pure torsion, and multiaxial loading were not tested.",
+      "Wire cross-section geometries were idealized with integer radius-to-diameter ratios, omitting cross-sectional deformation and flattening induced during manufacturing."
+    ],
+    "limitations_stated_by_authors": [
+      "All specimen fractures occurred at the knurled clamping grips due to severe radial pressure stress concentrations; observed failure strains likely underestimate intrinsic cable ductility.",
+      "Digital image correlation was restricted to a limited field of view along the specimen length due to CCD camera resolution limits.",
+      "Infrared sensor spatial resolution was limited (specimen width spanned only 1 pixel for the core strand), causing radiation splitting and edge inaccuracies.",
+      "Response subtraction magnifies experimental error and relies on idealizing assumptions that may neglect localized radial contact pressures on internal core wires.",
+      "Uniaxial analytical models overpredict transformation stresses for strands with large helix angles because local bending and twisting are omitted.",
+      "Ambient laboratory temperature drifted up to ~1 °C over several hours during slow testing, requiring baseline subtraction.",
+      "Minor grip slippage occurred at high loads during large-strain cyclic tests.",
+      "DIC results for the 1x6 strand test (Exp. S2a) were lost due to a computer hardware failure prior to publication."
+    ],
+    "main_results": [
+      "7x7 cable components exhibited normalized tensile responses closely resembling bundles of parallel straight wires with flat transformation stress plateaus; loading plateau stress decreased only slightly from 517 MPa in the core wire to 506 MPa in the 1x7 strand.",
+      "Propagating phase transformation fronts occurred in all 7x7 components, with stereo DIC demonstrating that the macroscopic front in the 1x7 core strand comprises clustered, staggered fronts in individual helical wires moving synchronously around the cable axis.",
+      "1x27 cable components demonstrated increasing compliance and increased elongation at failure as successive layers were added, with ultimate strains reaching 11.2% in the core wire, 16.4% in the 1x6 strand, 29.3% in the 1x15 strand, and 39.2% to 40% in the full cable.",
+      "Propagating transformation fronts were absent in 1x27 multi-layer strands and the full cable; non-propagating, distributed strain/temperature localizations were traced to pre-existing contact dimples and indentations from cable manufacturing.",
+      "1x27 components developed complex, non-monotonic axial torque responses due to alternating lay handedness between layers, with torque sign reversing from the 1x6 strand (negative) to the 1x15 strand (positive) and back to the 1x27 cable (negative).",
+      "Subcomponent response subtraction successfully identified layer-by-layer contributions and revealed that phase transformation progresses from inner to outer layers (R+ -> M+ begins at 2.2% in layer B, 6.0% in layer C, and 8.8% in layer D)."
+    ],
+    "modeling_methods": [
+      "Analytic estimation of axial transformation force plateau for helical wire strands based on wire lay angle and tensile transformation stress.",
+      "Analytic estimation of transformation-induced reaction torque for helical wire strands.",
+      "Steady-state transformation front velocity relationship and local strain rate amplification formula.",
+      "Subcomponent response subtraction methodology to infer individual wire layer force and torque contributions.",
+      "Biot number heat transfer calculation assessing the validity of isothermal conditions in stagnant air."
+    ],
+    "performance_metrics": [
+      "Loading and unloading transformation plateau stress levels (MPa).",
+      "Transformation plateau strain lengths and extents (%).",
+      "Initial elastic modulus and tensile secant modulus at specified strain levels (GPa).",
+      "Axial reaction torque magnitude (N-mm) and normalized torque (GPa).",
+      "Residual unrecovered strain upon complete unloading (%).",
+      "Ultimate strain at failure / breaking strain (%).",
+      "Specimen surface temperature excursion amplitude (Delta Ts in °C)."
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that helical architecture and lay angle selection allow tuning of axial compliance and force-displacement stroke in superelastic SMA cables, offering a mechanism to design tailored tendons for continuum robots and soft grippers.",
+      "Reveals that distributed manufacturing indentations suppress propagating transformation fronts and disperse heat generation, providing an approach to minimize localized thermal instability in high-rate SMA robotic actuation.",
+      "Shows how alternating lay directions can balance or manipulate reaction torques under axial loading, enabling torque-neutral or deliberately twisting tendon drives for robotic joints."
+    ],
+    "research_objective": "To experimentally measure the room-temperature quasi-static tensile and reaction torque responses of excised subcomponents (core wires, core strands, and multi-layer strands) of 7x7 and 1x27 superelastic NiTi cables, and determine the hierarchical subcomponent and layer-by-layer contributions to overall compliance, transformation front propagation, and reaction torque.",
+    "research_problem": "The thermomechanical behavior and isothermal tensile responses of superelastic shape memory alloy cables exhibit architecture-dependent phenomena (including high compliance, lack of localized self-heating, multi-knee force curves, and non-monotonic reaction torque), but the role of individual subcomponents and wire layers in governing these behaviors was not understood.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "superelasticity",
+      "stress-induced martensitic transformation",
+      "stress-induced rhombohedral phase (R-phase) transformation",
+      "helical wire cable architecture / lay angle adjustment"
+    ],
+    "title": "Superelastic Shape Memory Alloy Cables: Part II – Subcomponent Isothermal Responses",
+    "year": "2013"
+  }
+}

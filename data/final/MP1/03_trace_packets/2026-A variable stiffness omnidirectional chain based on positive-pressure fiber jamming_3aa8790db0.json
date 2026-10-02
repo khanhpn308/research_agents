@@ -1,0 +1,213 @@
+{
+  "source": {
+    "paper_id": "3aa8790db0",
+    "filename": "2026-A variable stiffness omnidirectional chain based on positive-pressure fiber jamming.pdf",
+    "sha256": "3aa8790db042279ff0fe1f61876b3cdcc573878fd25a50be6ddc6f9ec7b8577f",
+    "page_count": 13,
+    "char_count": 60058,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 30769,
+    "completion_tokens": 8146,
+    "total_tokens": 38915,
+    "thinking_tokens": 5018,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "positive-pressure pneumatic actuation",
+      "internal inflatable bladder"
+    ],
+    "authors": [
+      "Shuai Zhang",
+      "Jiantao Yao"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Euler-Bernoulli beam theory applies to the fiber jamming rod under bending (plane sections remain plane, shear deformation neglected).",
+      "Inter-fiber frictional contact obeys Coulomb friction with a constant static friction coefficient (tau = mu * p).",
+      "The internal inflatable bladder acts as a compliant pressure-transmission medium whose bending stiffness and membrane non-uniform deformation are neglected.",
+      "Jamming hydrostatic pressure p applied to the fiber bundle is assumed uniform and equal to bladder pressure.",
+      "Axial elongation of individual fibers under bending is negligible compared to inter-fiber sliding displacement.",
+      "Applied bending moment is uniformly distributed among identical constituent fibers (m = M / N).",
+      "The slipped cross-sectional area ratio varies quadratically with shear force Q between QJ and QS as a phenomenological engineering approximation.",
+      "Shear stress distributions are approximated using equivalent rectangular cross-sections for determining the onset of slip in shaft and lateral bending modes.",
+      "Support boundaries in three-point bending are treated as approximately simply supported."
+    ],
+    "control_variables": [
+      "Support span length (L = 100 mm)",
+      "Indenter contact width (10 mm)",
+      "Quasi-static loading deflection rate (20 mm/min)",
+      "Cavity geometry of chain links (semi-cylindrical channel radius R = 6 mm, height a = 3 mm, h = 4 mm, center-to-center link distance = 12 mm, base-to-shaft distance = 5 mm)",
+      "Fiber bundle specifications (700 nylon fibers, individual diameter 0.4 mm)",
+      "Inflatable bladder specifications (polyethylene material, width 10 mm, thickness 0.1 mm)",
+      "Number of repeated tests per condition (5 repetitions)",
+      "Initial specimen straightness alignment prior to testing"
+    ],
+    "dependent_variables": [
+      "Applied bending force / load (F) as a function of deflection (delta)",
+      "Critical transition loads FJ (onset of slip) and FS (full slipping state)",
+      "Critical shear forces QJ and QS",
+      "Bending stiffness in high-stiffness stage (KH) and low-stiffness stage (KL)",
+      "Equivalent area moment of inertia in jammed state (IJ) and slipping state (IS)",
+      "Experimental load standard deviation and data dispersion across repetitions"
+    ],
+    "doi": "10.5194/ms-17-481-2026",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Conventional vacuum-based fiber jamming is intrinsically restricted by the ~1 atm (~100 kPa) atmospheric pressure limit, constraining maximum load capacity and stiffness tuning; using an internal inflatable bladder within a rigid chain housing enables positive jamming pressures well above 1 atm.",
+        "evidence_type": "experimental and analytical background",
+        "page_numbers": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "claim": "Under bending, a fiber jamming rod exhibits three distinct mechanical states: a high-stiffness jamming state behaving as a monolithic solid, an intermediate transition state where slip progressively propagates from peak shear stress regions, and a low-stiffness slipping state where all inter-fiber interfaces slide.",
+        "evidence_type": "analytical modeling",
+        "page_numbers": [
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "claim": "The critical shear force for slip initiation (QJ) is governed by cross-sectional geometry, friction coefficient, and jamming pressure, while the lower bound for the full-slipping state (QS) equals the product of total fiber cross-sectional area, friction coefficient, and jamming pressure.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          6
+        ]
+      },
+      {
+        "claim": "During full slipping, bending resistance is provided both by individual fibers bending about their own centroids and by frictional energy dissipation between sliding fibers, leading to an equivalent moment of inertia (IS) that scales with jamming pressure.",
+        "evidence_type": "analytical derivation",
+        "page_numbers": [
+          3,
+          4,
+          11
+        ]
+      },
+      {
+        "claim": "The equivalent moment of inertia in the jammed state (IJ) is governed primarily by the compacted cross-sectional geometry and fiber elastic modulus, remaining largely insensitive to jamming pressure once jammed.",
+        "evidence_type": "analytical and experimental evidence",
+        "page_numbers": [
+          1,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "The VSOC prototype achieves omnidirectional articulation through double-conical joints with connecting shafts, exhibiting two primary orthogonal bending modes (shaft bending and lateral bending) with differing neutral axis orientations and critical transition loads.",
+        "evidence_type": "structural design and kinematic analysis",
+        "page_numbers": [
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Experimental three-point bending tests over 0 to 300 kPa demonstrate that critical shear forces and slipping-state equivalent inertia increase approximately linearly with jamming pressure, while jamming-state inertia remains stable.",
+        "evidence_type": "experimental validation",
+        "page_numbers": [
+          1,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "Effective structural parameters extracted from 0 kPa bending and full-slipping regressions were an inter-fiber static friction coefficient of 0.3665 and an effective fiber modulus of 4.85 GPa, yielding theoretical critical load predictions matching experimental fits within 7.6% to 8.5% relative error.",
+        "evidence_type": "experimental parameter identification and model validation",
+        "page_numbers": [
+          1,
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Chain link specimens fabricated from 3D-printed resin shells forming an internal cavity (R = 6 mm, h = 4 mm, a = 3 mm) housing 700 nylon fibers (diameter 0.4 mm).",
+      "Positive-pressure actuation using an internal polyethylene inflatable bladder (width 10 mm, thickness 0.1 mm) placed along the cavity base.",
+      "Adjacent chain links connected via stainless-steel shafts seated in opposing double-conical holes with 12 mm center-to-center link spacing.",
+      "Three-point bending fixture on a 3D-printed ABS support frame with span length L = 100 mm and 5 mm diameter cylindrical support heads featuring 1 mm alignment grooves.",
+      "Universal testing machine equipped with a load cell and 10 mm wide flat indenter loading at a constant displacement rate of 20 mm/min.",
+      "Pneumatic regulation system consisting of an external air pump, pressure-control valve, and dedicated pressure gauge controlling bladder pressure from 0 to 300 kPa in 50 kPa increments.",
+      "Straightening fixture used prior to test mounting to standardize initial specimen straightness.",
+      "Testing performed separately for shaft bending and lateral bending modes with five repetitions per condition (60 test curves analyzed)."
+    ],
+    "future_work": [
+      "Optimizing the dynamic response of the variable stiffness structure.",
+      "Refining the inter-fiber friction model to accommodate varying slip velocities.",
+      "Exploring integrated sensing for closed-loop stiffness control.",
+      "Conducting direct, independent material testing to cross-validate the fiber elastic modulus E.",
+      "Developing more refined theoretical formulations and detailed experiments to characterize stochastic stick-slip behavior, non-uniform pressure transmission, and local fiber compaction."
+    ],
+    "independent_variables": [
+      "Jamming pressure p in the inflatable bladder (0, 50, 100, 150, 200, 250, and 300 kPa)",
+      "Bending mode (shaft bending mode vs. lateral bending mode)",
+      "Applied central deflection / displacement (0 to 10 mm)"
+    ],
+    "limitations_inferred": [
+      "Testing was performed only under quasi-static loading (20 mm/min), leaving rate-dependent viscoelasticity, dynamic loading, and impact behaviors uncharacterized.",
+      "Cyclic fatigue, mechanical wear of the nylon fibers, and bladder durability/leakage risks under repetitive pressurization and bending cycles were not evaluated.",
+      "Experimental characterization was restricted to uncoupled, single-axis planar bending along two principal axes; multi-axis, combined bending, and torsional loading responses were not investigated.",
+      "Miniaturization feasibility and scaling laws for micro-scale or large-scale applications were not demonstrated."
+    ],
+    "limitations_stated_by_authors": [
+      "The quadratic relationship between slipped area ratio and shear force Q in the transition regime is a phenomenological engineering approximation rather than a rigorously derived micromechanical law.",
+      "The inflatable bladder membrane effects and non-uniform deformation are neglected, assuming ideal compliant pressure transmission.",
+      "Shear stress distributions across the compacted cross-section are approximated using equivalent rectangular beam equations rather than exact cross-sectional elasticity solutions.",
+      "Experimental assessment was limited to a single prototype with a single fiber material, diameter (0.4 mm), and fiber count (700), without cross-specimen validation across varying geometric or material parameters.",
+      "The fiber modulus E was identified at the structural level from 0 kPa bending data rather than independently measured via direct material testing.",
+      "The prototype relies on an external positive-pressure source (air pump and pressure-control valve), which may constrain portability and system integration.",
+      "Moderate R^2 values in QJ vs p regressions suggest unmodeled sources of experimental dispersion, such as stochastic stick-slip, non-uniform pressure distribution, and local packing variations."
+    ],
+    "main_results": [
+      "Critical transition shear forces (QJ, QS) and slipping-state stiffness/equivalent moment of inertia (IS) increased approximately linearly with positive jamming pressure up to 300 kPa for both bending modes.",
+      "Jamming-state equivalent moment of inertia (IJ) remained relatively insensitive to pressure changes (mean IJ of 47.02 mm^4 for shaft bending and 43.22 mm^4 for lateral bending), confirming it is primarily governed by compacted cross-sectional geometry.",
+      "An effective structural fiber modulus of E = 4.85 GPa (95% CI: [4.765, 4.925] GPa) was determined from the 0 kPa bending response.",
+      "An effective inter-fiber static friction coefficient of mu = 0.3665 (95% CI: [0.3433, 0.3897], R^2 = 0.817) was identified from the full-slipping shear force vs. pressure relationship.",
+      "Theoretical predictions of critical shear force slopes matched experimental regression slopes within 8.5% relative error for shaft bending (theoretical 9.9763 N/kPa vs experimental 9.0591 N/kPa) and 7.6% relative error for lateral bending (theoretical 11.3065 N/kPa vs experimental 10.4563 N/kPa), with theoretical values falling within experimental 95% confidence intervals.",
+      "Data dispersion grew with increasing jamming pressure, with maximum load standard deviation rising from 0.0354 N (0 kPa) to 5.4215 N (300 kPa) for lateral bending, attributed to stochastic inter-fiber stick-slip."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli beam theory applied to fiber jamming rods under bending",
+      "Three-state mechanical framework defining jamming, transition, and slipping states",
+      "Parabolic shear stress distribution analysis and conjugate shear stress theorem to formulate state transition criteria",
+      "Work-energy balance under pure bending equating external moment work to elastic strain energy and Coulomb frictional sliding dissipation",
+      "Derivation of pressure-dependent equivalent area moments of inertia (IJ and IS) adapted to compacted geometry under shaft and lateral bending modes",
+      "Phenomenological quadratic interpolation of slipped cross-sectional area ratio across the transition regime (QJ <= Q <= QS)",
+      "Adaptive piecewise linear regression algorithm using R^2 maximization to autonomously identify critical loads (FJ, FS) and stiffnesses (KH, KL) from experimental load-deflection data"
+    ],
+    "performance_metrics": [
+      "Critical shear force for slip initiation QJ (N) and critical load FJ (N)",
+      "Critical shear force for full slipping QS (N) and critical load FS (N)",
+      "High-stiffness stage equivalent moment of inertia IJ (mm^4) and stiffness KH (N/mm)",
+      "Low-stiffness / slipping state equivalent moment of inertia IS (mm^4) and stiffness KL (N/mm)",
+      "Effective fiber elastic modulus E (GPa) and 95% confidence interval",
+      "Effective inter-fiber static friction coefficient mu and 95% confidence interval",
+      "Coefficient of determination (R^2) for linear fits and parameter regressions",
+      "Relative error between theoretical and experimentally fitted critical force-pressure coefficients (%)",
+      "Load standard deviation band (N) across repeated tests"
+    ],
+    "possible_gap_implications": [
+      "Demonstrates that integrating an internal positive-pressure bladder within a rigid chain structure allows fiber jamming to exceed the intrinsic ~1 atm vacuum limitation, potentially widening the load-bearing and stiffness-tuning envelope for soft robotic joints.",
+      "Provides an analytical mechanics model linking positive conﬁning pressure to bending state transitions and equivalent stiffness, offering a theoretical basis that could assist future design and control of pressurized fiber jamming mechanisms.",
+      "Highlights the necessity of accounting for stick-slip dynamics and non-uniform conﬁnement pressure when modeling multi-fiber contact mechanics at elevated conﬁning pressures."
+    ],
+    "research_objective": "To present the design, analytical modeling, and prototype-level experimental assessment of a variable stiffness omnidirectional chain (VSOC) based on positive-pressure fiber jamming, extending the tunable pressure range beyond the conventional vacuum limit (~1 atm) and formulating an analytical bending mechanics model to capture pressure-dependent state transitions and stiffness evolution.",
+    "research_problem": "Conventional fiber jamming mechanisms rely on vacuum actuation, which is intrinsically limited to a pressure differential of approximately 1 atm (~100 kPa), restricting maximum stiffness and load-bearing capacity; furthermore, analytical mechanics models linking positive jamming pressure to bending state transitions, critical loads, and equivalent bending stiffness in fiber bundles remain underdeveloped.",
+    "robot_type": "variable stiffness omnidirectional chain (VSOC)",
+    "stiffness_mechanism": [
+      "positive-pressure fiber jamming",
+      "fiber jamming"
+    ],
+    "title": "A variable stiffness omnidirectional chain based on positive-pressure fiber jamming",
+    "year": "2026"
+  }
+}

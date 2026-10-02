@@ -23,6 +23,7 @@ For the current thesis execution phase, continue with the Vietnamese M1 architec
 - `NEXT_SESSION_START_HERE.md`: immediate entry checkpoint for the next session.
 - `PROJECT_HANDOFF_CURRENT.md`: current project entry point.
 - `MP1_MENTOR_PIVOT_CURRENT.md`: final disposition of mentor-proposed MP1 alternative (viable alternative, not selected).
+- `MP1_THESIS_OUTLINE_AND_RESEARCH_MASTER_PROMPT_VI.md`: five-chapter thesis outline, skill routing, and copyable research master prompt for the provisional MP1 direction.
 - `MENTOR_PIVOT_STATUS.md`: historical pre-V001 note.
 - `RESEARCH_STATE.md` and `research_state.json`: human- and machine-readable state.
 - `RESEARCH_LOG.md`: research decision timeline.

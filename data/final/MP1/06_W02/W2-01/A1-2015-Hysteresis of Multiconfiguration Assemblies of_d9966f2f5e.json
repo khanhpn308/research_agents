@@ -1,0 +1,191 @@
+{
+  "source": {
+    "paper_id": "d9966f2f5e",
+    "filename": "A1-2015-Hysteresis of Multiconfiguration Assemblies of.pdf",
+    "sha256": "d9966f2f5e9d44133bbeccb28d897ec4d4998308c9fcce9a8987029dc27926d2",
+    "page_count": 16,
+    "char_count": 66967,
+    "source_type": "verification",
+    "verification_id": "MP1-V002"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 35222,
+    "completion_tokens": 7687,
+    "total_tokens": 42909,
+    "thinking_tokens": 5143,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "External displacement-controlled cyclic actuation applied by a Material Testing System (MTS) hydraulic actuator (piston P)"
+    ],
+    "authors": [
+      "Biagio Carboni",
+      "Walter Lacarbonara",
+      "Ferdinando Auricchio"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Additive decomposition of the total restoring force into an elastic component (linear or combined linear-cubic) and a hysteretic displacement component",
+      "Modulation of the hysteretic tangent stiffness near the origin using a two-parameter bell-shaped pinching function h(x) = 1 - zeta * exp(-x^2 / x_c)",
+      "Positivity condition on total tangent stiffness requiring the linear stiffness parameter to be greater than or equal to the absolute minimum hysteretic tangent stiffness",
+      "Focus on softening restoring force behavior by restricting Bouc-Wen parameters to gamma + beta > 0 with exponent n = 1 (or close to 1)",
+      "One-dimensional uniaxial thermomechanical formulation for shape memory alloys based on Ivshin-Pence free-energy formulation with an internal martensitic fraction variable between 0 and 1",
+      "Strictly isothermal testing conditions for shape memory alloy components (rate of temperature change is zero)",
+      "Parallel force additivity for multiple Nitinol wires forming the secondary stiffness group"
+    ],
+    "control_variables": [
+      "Ambient room temperature maintained to ensure isothermal conditions during cyclic deformation",
+      "Prescribed loading rate for uniaxial tensile tests (constant 10 mm/min)",
+      "Prescribed cyclic actuation frequency for multiconfiguration assemblies (omega = 0.418 rad/s, equivalent to 0.066 Hz)",
+      "Number of stabilization cycles recorded before parameter extraction (15 cycles for tensile tests, 10 cycles for assemblies)",
+      "Differential Evolution algorithm hyperparameters (population size of 40 vectors, 150 iterations, mutation scale factor F = 0.9, crossover probability threshold = 0.5)"
+    ],
+    "dependent_variables": [
+      "Total vertical restoring force of the multiconfiguration strand assemblies",
+      "Relative horizontal displacement and distance variation between the sliding blocks b2",
+      "Restoring force and axial elongation/strain in uniaxial tensile testing of Nitinol wires and strands",
+      "Pinched hysteresis loop topology (pinching width, pinching severity, geometric hardening slope, and residual strain upon complete unloading)",
+      "Identified phenomenological constitutive parameters of the extended Bouc-Wen and Ivshin-Pence models",
+      "Mean square error (MSE, %) between measured restoring force and model predictions"
+    ],
+    "doi": "10.1061/(ASCE)EM.1943-7889.0000852",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Multiconfiguration assemblies of Nitinol strands, wires, and steel wire ropes can produce three distinct constitutive behaviors: strong hardening pinched hysteresis, quasi-linear softening, and an intermediate pinched-hardening response depending on boundary constraints and strand stiffness ratios.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "claim": "The combination of geometric rope stretching, interwire friction, and thermoelastic martensitic phase transformations produces pinching at the origin of force-displacement loops and residual strain upon complete unloading.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "An extended Bouc-Wen phenomenological model incorporating a two-parameter bell-shaped pinching function accurately characterizes the origin-pinched hysteretic restoring force across diverse strand assemblies.",
+        "evidence_type": "analytical",
+        "page_numbers": [
+          1,
+          3,
+          4,
+          5,
+          11
+        ]
+      },
+      {
+        "claim": "The uniaxial tensile hysteretic response of superelastic Nitinol wires and seven-wire strands is accurately identified using the one-dimensional Ivshin-Pence constitutive model.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          1,
+          8,
+          9,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "claim": "Seven-wire Nitinol strands exhibit lower axial stress per unit area at equivalent strain than single straight wires because of pitch length extension under tension and interwire frictional sliding.",
+        "evidence_type": "experimental",
+        "page_numbers": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "claim": "Differential evolution metaheuristic optimization successfully identifies constitutive parameters for pinched hysteretic systems without needing objective function gradients or initial linearization points.",
+        "evidence_type": "computational",
+        "page_numbers": [
+          1,
+          2,
+          7,
+          8,
+          10,
+          11,
+          12
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "In-house built rheological testing apparatus comprising an outer squared frame F1 attached to the MTS actuator piston and an inner assembly F2 attached to the stationary MTS load cell",
+      "Principal stiffness group (PSG) composed of pairs of Nitinol strands or steel wire ropes clamped between the vertical bars of F1 and two movable steel bars b2",
+      "Inner assembly F2 containing central bar b1, two horizontal sliding bars b2, two smooth rods s1 and s2 with self-lubricating PTFE bushings for frictionless sliding, and a threaded rod s3",
+      "Three boundary constraint configurations: S1 (threaded rod s3 clamped with bolts to prevent horizontal translation, producing bending-tension), S2 (threaded rod s3 unclamped, allowing free sliding and pure bending), and S3 (threaded rod s3 unclamped, with bars b2 constrained by a secondary stiffness group)",
+      "Secondary stiffness group (SSG) consisting of Nitinol wires or strands connecting the sliding bars b2 horizontally",
+      "MTS material testing system equipped with a load cell measuring vertical restoring force and an internal displacement transducer measuring horizontal translation between sliding blocks b2",
+      "Specialized tensile cyclic testing layout with mechanical grips mounted in the MTS frame for testing single Nitinol wires (NiTi1) and seven-wire strands (NiTi7)"
+    ],
+    "future_work": [
+      "Developing systematic procedures for selecting a unified, amplitude-independent parameter set for dynamic simulations (such as identifying parameters from an average displacement amplitude or minimizing MSE across multiple amplitudes simultaneously)",
+      "Applying multiconfiguration strand assemblies and the extended Bouc-Wen pinching model to passive or semiactive nonlinear vibration control devices and nonlinear vibration absorbers"
+    ],
+    "independent_variables": [
+      "Vertical displacement amplitude applied to the assembly (cyclic amplitudes ranging from +/- 5 mm to +/- 25 mm)",
+      "Structural assembly configuration (Configuration S1 with locked sliding, Configuration S2 with free sliding, and Configuration S3 with SSG constraint)",
+      "Material and strand composition of the Principal Stiffness Group (NiTi7, NiTi19, or ST49 steel rope) and Secondary Stiffness Group (NiTi1 single wire or NiTi7 strand)",
+      "Number and length of ropes/strands used in the PSG and SSG",
+      "Prescribed displacement amplitude and engineering strain in uniaxial tension tests (displacement from 4.00 mm to 14.43 mm; strain from 2.35% to 5.66%)"
+    ],
+    "limitations_inferred": [
+      "Experiments were conducted only under slow, quasi-static cyclic conditions (0.066 Hz and 10 mm/min), leaving high-frequency dynamic responses and potential self-heating effects uncharacterized",
+      "The device was evaluated as a benchtop rheological mechanism rather than being integrated into an operational robotic limb, gripper, or continuum structure",
+      "Model calibration evaluated only stabilized cycles, without modeling cycle-to-cycle evolution, shakedown, or long-term fatigue degradation of the wire strands"
+    ],
+    "limitations_stated_by_authors": [
+      "The restoring force developed specifically within the secondary stiffness group (SSG) could not be measured directly due to the practical difficulty of placing load cells at strand ends without altering SSG stiffness",
+      "Identified constitutive parameters exhibited non-negligible variation across different displacement amplitudes for the same physical assembly configuration",
+      "Functional parameter redundancy in the Bouc-Wen formulation allows multiple parameter combinations to yield identical hysteresis loop shapes",
+      "Selecting a single optimal parameter set for dynamic simulations across varying excitation amplitudes presents significant difficulty",
+      "The differential evolution optimization method lacks rigorous mathematical proofs of convergence",
+      "Slight asymmetric loop behavior was observed experimentally due to minor mounting misalignments and slight initial non-straightness of strands and wires"
+    ],
+    "main_results": [
+      "Configuration S1 (PSG subjected to bending-tension) produced strong geometric hardening and pronounced pinched hysteresis loops due to the coupling of Nitinol phase transformations and geometric cable stretching",
+      "Configuration S2 (PSG subjected to pure bending) demonstrated quasi-linear softening hysteresis where energy dissipation was governed entirely by interwire friction",
+      "Configuration S3 displayed intermediate pinched-hardening behavior with geometric hardening and pinching severity directly tunable via the stiffness ratio of the SSG to the PSG",
+      "The proposed extended Bouc-Wen model incorporating a two-parameter pinching function achieved excellent identification accuracy across all configurations and amplitudes, with mean square errors below 1%",
+      "Uniaxial tensile behavior of superelastic Nitinol wires and strands was accurately calibrated using the Ivshin-Pence model (MSE < 0.9%), with stranded cables exhibiting reduced effective axial stress and residual strain due to helix geometry and interwire friction",
+      "The differential evolutionary algorithm reliably optimized multi-parameter phenomenological models without requiring gradient calculations or initial linearization"
+    ],
+    "modeling_methods": [
+      "Extended Bouc-Wen (BW) phenomenological hysteresis model augmented with a two-parameter bell-shaped pinching function h(x) modulating origin tangent stiffness",
+      "Linear-cubic elastic restoring force formulation combined with the hysteretic displacement variable",
+      "Ivshin-Pence one-dimensional thermomechanical constitutive model for shape memory alloy wires and strands under uniaxial tension",
+      "Differential Evolution (DE) metaheuristic optimization algorithm for parameter calibration via mean square error minimization"
+    ],
+    "performance_metrics": [
+      "Mean Square Error (MSE, %) between experimental force-displacement measurements and model predictions",
+      "Hysteretic energy dissipation per cycle represented by the enclosed loop area",
+      "Hysteretic tangent stiffness and upper/lower bounds of the hysteretic force variable",
+      "Residual strain / displacement upon full unloading at zero restoring force"
+    ],
+    "possible_gap_implications": [
+      "While intended for vibration control, the demonstrated concept of combining cable assemblies, boundary constraint modulation, and SMA phase transformation could provide mechanisms for tunable stiffness and passive damping in continuum robots, soft robotic joints, and adaptive grippers",
+      "The extended Bouc-Wen pinching model could serve as an effective framework for capturing pinched hysteresis and interwire/tendon friction in tendon-driven continuum manipulators and soft actuators"
+    ],
+    "research_objective": "To experimentally characterize the cyclic hysteretic behavior of multiconfiguration assemblies of Nitinol strands, wires, and steel wire ropes under shear-bending-tension; to develop an extended Bouc-Wen phenomenological model with a two-parameter pinching function; to model uniaxial Nitinol strands using the Ivshin-Pence formulation; and to calibrate model parameters using a differential evolutionary algorithm.",
+    "research_problem": "Accurately modeling and identifying the complex, multimechanism hysteretic behavior (geometric hardening, interwire friction, and shape-memory phase transformation-induced pinching) of wire rope and Nitinol strand assemblies under varied kinematic configurations and cyclic amplitudes.",
+    "robot_type": "",
+    "stiffness_mechanism": [
+      "Geometric hardening (tensile stretching induced by constrained kinematics during flexural deformation)",
+      "Thermoelastic martensitic phase transformation / superelasticity of Nitinol wires and strands",
+      "Interwire friction / contact sliding between individual wires within strands and wire ropes",
+      "Kinematic reconfiguration / boundary constraint adjustment (locking horizontal sliding, permitting free sliding, or elastically coupling sliding blocks with a secondary stiffness group to alter the stiffness ratio)"
+    ],
+    "title": "Hysteresis of Multiconfiguration Assemblies of Nitinol and Steel Strands: Experiments and Phenomenological Identification",
+    "year": "2014"
+  }
+}

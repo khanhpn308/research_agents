@@ -1,0 +1,232 @@
+{
+  "source": {
+    "paper_id": "2cd907e77a",
+    "filename": "2022-Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon.pdf",
+    "sha256": "2cd907e77a983f289850ca4519da87f99b5fd5b26f6455fff5275ecc5baf8b6b",
+    "page_count": 12,
+    "char_count": 40755,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 26021,
+    "completion_tokens": 8690,
+    "total_tokens": 34711,
+    "thinking_tokens": 5394,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Electrical Joule heating (PWM-controlled AC for SMP, direct AC for SMA)",
+      "Pneumatic vacuum / air evacuation (below -90 kPa) and air injection",
+      "Manual external deformation (applied external load)"
+    ],
+    "authors": [
+      "Kazuto Takashima",
+      "Toshiki Imazawa",
+      "Hiroki Cho"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Euler-Bernoulli linear beam bending under a concentrated point load at the cantilever tip (P/delta = 3*n*E*I / L^3)",
+      "Linear elastic force-displacement relationship below 20 N force and 10 mm displacement",
+      "Isotropic linear elastic modulus for SMP below Tg (1350 MPa) and above Tg (4.5 MPa)",
+      "Isotropic linear elastic modulus for Ni-Ti SMA in martensite (28 GPa) and austenite (75-83 GPa) phases",
+      "Assumption of decoupled outer membrane deflection in the unjammed state below Tg (membrane deforms locally without engaging SMP)",
+      "Assumption of unified composite bending deformation between outer membrane and shape-memory core in the jammed state"
+    ],
+    "control_variables": [
+      "Automatic stage velocity (2 mm/s)",
+      "Applied displacement amplitude in Condition 1 (10 mm) and Condition 2 (2 mm)",
+      "Force threshold for linear stiffness calculation (below 20 N)",
+      "Data acquisition sampling frequency (20 Hz)",
+      "Vacuum pressure level during jamming (below -90 kPa)",
+      "Heating temperature setpoint for SMP (70 deg C) maintained via PWM control",
+      "Applied AC heating voltage (8 V AC for SMP, 3 V AC for SMA)",
+      "Dead weight magnitude for shape fixity test (2 kg)",
+      "Cantilever beam length tested (L = 50 mm)",
+      "Outer silicone membrane dimensions (outer diameter 34 mm, thickness 2 mm, length 100 mm) and material (ECOFLEX 00-30)",
+      "Granular jamming media type (coarse coffee grounds, 24 g for Prototype 1, 26 g for Prototype 2)"
+    ],
+    "dependent_variables": [
+      "Bending stiffness (N/mm, gradient of linear approximation of force-displacement)",
+      "Reaction force (N)",
+      "Tip displacement (mm) under point loading and constant 2 kg load",
+      "Shape recovery time (s / min) and residual distance from initial position (mm)",
+      "Reaction force hysteresis and cyclic degradation over 10 reciprocating cycles",
+      "Self-weight supporting capability in horizontal cantilever configuration",
+      "Object gripping success across five distinct test items"
+    ],
+    "doi": "10.20965/jrm.2022.p0466",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "Shape-memory polymers exhibit a reversible elastic modulus change between glassy and rubbery states on the order of 100 to 1000 times across the glass transition temperature, enabling low-load deformation when heated and rigid shape fixity when cooled.",
+        "evidence_type": "literature review / background principle",
+        "page_numbers": [
+          1
+        ]
+      },
+      {
+        "claim": "Granular jamming achieves rapid transitions between compliant fluid-like and rigid load-bearing solid-like states upon air evacuation on millisecond timescales.",
+        "evidence_type": "literature review / background principle",
+        "page_numbers": [
+          1,
+          2,
+          8
+        ]
+      },
+      {
+        "claim": "By integrating a shape-memory material (SMP or SMA) with granular jamming within an elastomeric membrane, the variable-stiffness link achieves four distinct stiffness states.",
+        "evidence_type": "experimental result",
+        "page_numbers": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          10
+        ]
+      },
+      {
+        "claim": "For the SMP-based link (Prototype 1), vertical bending stiffness varied by approximately 33 times between the unjammed state above Tg and the jammed state below Tg, with granular jamming exerting a greater effect on stiffness change than SMP temperature modulation alone.",
+        "evidence_type": "experimental result",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "In contrast to conventional granular jamming manipulators that struggle to support their self-weight horizontally, both hybrid prototypes supported their own weight in an unjammed horizontal cantilever configuration.",
+        "evidence_type": "experimental result",
+        "page_numbers": [
+          5,
+          6,
+          10
+        ]
+      },
+      {
+        "claim": "In the unjammed state below Tg, measured stiffness (0.23 N/mm) was lower than Euler-Bernoulli beam calculations (0.56 N/mm) because the outer membrane deformed locally without deforming the SMP core, whereas under jamming the stiffness difference across Tg (0.68 N/mm) closely matched calculation (0.56 N/mm) due to coupled composite deformation.",
+        "evidence_type": "experimental and analytical comparison",
+        "page_numbers": [
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Prototype 2 using four circular SMA wires recovered its initial shape in 0.24 times the duration required by Prototype 1 with SMP sheets.",
+        "evidence_type": "experimental result",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Both prototype links sustained a constant 2 kg dead load at the cantilever tip for 1 hour without continuous creep after initial deflection, verifying rigid shape fixity.",
+        "evidence_type": "experimental result",
+        "page_numbers": [
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Neither prototype achieved perfect shape recovery to the initial position, which was attributed to the small recovery force of thin SMP sheets and non-uniform distribution of coffee grounds in the membrane.",
+        "evidence_type": "experimental result and limitation",
+        "page_numbers": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "The links successfully conformed to and gripped diverse geometric objects (spanner, spring, pen, spray can cap, ballpoint pen) utilizing shape fixity prior to vacuum evacuation to expand contact area.",
+        "evidence_type": "experimental demonstration",
+        "page_numbers": [
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Prototype 1 fabrication: Two polyurethane SMP sheets (MP4510, Tg = 45 deg C, 74 mm x 31 mm x 1.5 mm) with embedded nichrome heating wires (0.26 mm diameter, 5.2 ohm total resistance) stacked on a 3D-printed jig in cantilever configuration, encased in a silicone rubber membrane (ECOFLEX 00-30, outer diameter 34 mm, thickness 2 mm, length 100 mm) filled with 24 g of coarse coffee grounds, sealed with air filters and connected to a vacuum pump evacuating below -90 kPa. Joule heating maintained at 70 deg C via 8 V AC transformer and LabVIEW PWM control with surface thermocouple feedback.",
+      "Prototype 2 fabrication: Four straight Ni-Ti SMA wires (diameter 1.0 mm, circle diameter 30 mm, As = 60 deg C, 0.46 ohm total resistance) fixed into a 3D-printed jig with silicone plug and air filters, encased in an identical silicone membrane with 26 g coarse coffee grounds, powered directly with 3 V AC.",
+      "Stiffness test bench: Prototype link fixed horizontally in cantilever mode on an automated motorized stage (Sigma Koki SGSP26-50, translation speed 2 mm/s) applying point loads against a Kyowa LVS-2KA load cell under Condition 1 (monotonic 10 mm deflection, 5 trials) and Condition 2 (10 reciprocating cycles of 2 mm deflection at 20 Hz acquisition) along vertical and horizontal axes.",
+      "Shape fixity apparatus: Cantilever prototype loaded with a 2 kg dead weight at 50 mm position horizontally for 1 hour, with tip displacement recorded continuously using a Keyence IL-S100 / IL-1000 laser displacement sensor.",
+      "Gripping evaluation: Manual conformal wrapping around five test objects of varied shapes and masses (18 g spanner, 3 g spring, 20 g pen, 5 g spray can cap, 11 g ballpoint pen) followed by cooling/shape fixity and vacuum evacuation."
+    ],
+    "future_work": [
+      "Optimize internal structures according to shape-memory material properties, including forming SMA wires into complex 3D shapes such as coils.",
+      "Optimize selection and formulation of SMP and SMA materials to tailor transition temperatures, hysteresis, and recovery strains to application requirements.",
+      "Optimize granular filler material and incorporate internal membrane partitions to prevent particle redistribution and ensure uniform distribution.",
+      "Implement closed-loop temperature control for SMA wires similar to the SMP control system.",
+      "Develop autonomous actuation/deformation mechanisms to eliminate reliance on manual shaping.",
+      "Integrate the deformable link onto a robotic arm and evaluate performance in realistic manipulation tasks.",
+      "Quantitatively evaluate gripping capacity through load-cell pull-off force testing."
+    ],
+    "independent_variables": [
+      "Thermal state of shape-memory element (below Tg vs. above Tg at 70 deg C for SMP; low-temperature martensite vs. Joule-heated austenite for SMA)",
+      "Pneumatic pressure state of granular jamming mechanism (atmospheric unjammed vs. evacuated below -90 kPa jammed)",
+      "Loading direction relative to orthotropic SMP sheet orientation (vertical vs. horizontal)",
+      "Shape-memory material type and geometry (two stacked SMP sheets vs. four circular SMA wires)",
+      "Number of cyclic loading iterations (up to 10 cycles in Condition 2)",
+      "Loading duration under constant 2 kg load (up to 1 hour)"
+    ],
+    "limitations_inferred": [
+      "The linear Euler-Bernoulli beam model neglects complex non-linear contact mechanics, friction between particles, hyperelastic membrane deformation, and coupled torsion-bending observed experimentally.",
+      "Elevated operating temperatures (70 deg C for SMP, As = 60 deg C for SMA) could induce thermal fatigue or material degradation of the surrounding elastomer membrane and organic granular filler over repeated cycling.",
+      "Manual deformation restricts practical deployment in fully autonomous robotic systems without external assisting manipulators or actuators.",
+      "Passive cooling to ambient air limits cycle bandwidth and operational speed in tasks requiring rapid repeated softening and stiffening cycles.",
+      "Organic coffee grounds may be prone to moisture absorption, compaction, or degradation over time compared to engineered synthetic particles."
+    ],
+    "limitations_stated_by_authors": [
+      "The prototype links could not return to their initial shape perfectly, retaining residual deformation after recovery.",
+      "The SMP sheet employed was thin, resulting in small shape recovery force.",
+      "The granular powder (coffee grounds) within the membrane was not optimized for the proposed link.",
+      "Coffee grounds were distributed non-uniformly inside the silicone rubber membrane, contributing to incomplete shape recovery in Prototype 2.",
+      "The prototypes were deformed manually during testing rather than via integrated robotic actuation.",
+      "Joule heating of shape memory materials is a relatively slow process that can slow down overall robotic operational speed.",
+      "Prototype 1 possesses orthotropic deformation resistance, potentially introducing unwanted waiting time if link axial rotation is required to reorient stiffness.",
+      "Prototype 2 lacked closed-loop temperature feedback control during SMA heating.",
+      "Gripping performance was assessed qualitatively without quantitative pull-off force measurements."
+    ],
+    "main_results": [
+      "Demonstrated successful realization of four distinct stiffness levels by combining jamming pressure states and shape-memory material thermal states.",
+      "Prototype 1 achieved a maximum vertical bending stiffness change of approximately 33 times between unjammed state above Tg and jammed state below Tg, with jamming exerting a stronger stiffness effect than SMP thermal switching.",
+      "Prototype 1 exhibited significant orthotropic behavior: horizontal stiffness was greater than vertical stiffness, with horizontal loading producing non-linear response due to combined bending and twisting.",
+      "Unjammed stiffness below Tg for Prototype 1 (0.23 N/mm) was lower than beam calculation (0.56 N/mm) due to decoupled membrane deformation, while jammed stiffness difference across Tg (0.68 N/mm) closely matched theoretical prediction (0.56 N/mm).",
+      "Prototype 2 with SMA wires demonstrated substantially higher stiffness than Prototype 1, and its unjammed stiffness matched martensite beam model predictions (0.13 N/mm).",
+      "Both prototypes overcame the self-weight sag limitation of conventional unjammed granular manipulators, supporting their own weight horizontally when unjammed.",
+      "Prototype 2 recovered its shape in 0.24 times the duration required by Prototype 1, though both exhibited incomplete shape recovery.",
+      "Both prototypes held a 2 kg dead load stably for 1 hour with minimal deflection after initial loading, verifying robust shape fixity.",
+      "Cyclic loading (10 cycles) showed hysteresis and progressive reduction in reaction force across iterations for both prototypes.",
+      "Both prototypes successfully conformed to and gripped five distinct everyday objects without dropping."
+    ],
+    "modeling_methods": [
+      "Euler-Bernoulli linear beam bending / cantilever deflection model: P/delta = 3*n*E*I / L^3",
+      "Linear regression approximation of force versus displacement curves below 20 N force to calculate bending stiffness (gradient)"
+    ],
+    "performance_metrics": [
+      "Bending stiffness (N/mm)",
+      "Stiffness variation ratio (up to ~33-fold change)",
+      "Tip deflection over time under 2 kg load (mm)",
+      "Shape recovery duration (s / min) and relative recovery speed ratio (0.24x)",
+      "Residual tip displacement after recovery (mm)",
+      "Hysteresis and reaction force loss across 10 reciprocating cycles (N)",
+      "Self-weight retention capability in horizontal unjammed cantilever state"
+    ],
+    "possible_gap_implications": [
+      "Embedding shape-memory backbones within granular jamming envelopes directly resolves the self-weight sagging failure mode typical of unjammed granular continuum structures while adding multi-tier stiffness modulation.",
+      "However, the reliance on thermal phase transitions introduces inherent temporal delays and thermal dissipation challenges that must be overcome before hybrid variable-stiffness links can match the bandwidth of purely fluidic or motorized continuum mechanisms in dynamic environments."
+    ],
+    "research_objective": "To design, fabricate, and experimentally evaluate a variable-stiffness deformable link combining shape-memory materials (SMP or SMA) and granular jamming to achieve four stiffness states, shape fixity, self-weight support in the unjammed state, and shape recovery for robot arm and gripping applications.",
+    "research_problem": "Soft robots struggle to achieve high positioning accuracy and large load-bearing capacity, while conventional rigid motor-driven robots lack backdrivability and safety for human interaction; additionally, conventional granular jamming manipulators cannot support their own weight in a horizontal unjammed state, and shape memory materials suffer from slow Joule heating.",
+    "robot_type": "variable-stiffness and deformable link",
+    "stiffness_mechanism": [
+      "shape-memory polymer (SMP) phase transition",
+      "shape-memory alloy (SMA) phase transformation",
+      "granular jamming transition phenomenon"
+    ],
+    "title": "Variable-Stiffness and Deformable Link Using Shape-Memory Material and Jamming Transition Phenomenon",
+    "year": "2022"
+  }
+}

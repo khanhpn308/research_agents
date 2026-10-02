@@ -1,0 +1,187 @@
+{
+  "source": {
+    "paper_id": "d3b3b6963f",
+    "filename": "2026-Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon.pdf",
+    "sha256": "d3b3b6963f6db95a7f1715b4aae26d7fc4309ddee186e7858bd74e86151c5bba",
+    "page_count": 12,
+    "char_count": 46616,
+    "source_type": "verification",
+    "verification_id": "MP1-V001"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "usage": {
+    "prompt_tokens": 28284,
+    "completion_tokens": 8018,
+    "total_tokens": 36302,
+    "thinking_tokens": 4747,
+    "cache_read_tokens": 0
+  },
+  "paper": {
+    "actuation": [
+      "Joule heating / electrical heating of shape-memory alloy wires via slidac transformer (3 VAC)",
+      "Pneumatic / vacuum pressure (exhausting air to below -90 kPa using a vacuum pump for jamming; injecting air to unjam)",
+      "Robotic arm / automated stage external actuation (pushing and pressing using Dobot Magician robot arms or linear automatic stages)"
+    ],
+    "authors": [
+      "Kazuto Takashima",
+      "Yuma Hirose",
+      "Hidetaka Suzuki",
+      "Hiroki Cho"
+    ],
+    "confidence": "high",
+    "constitutive_assumptions": [
+      "Static Coulomb friction model assumption for slip initiation at a critical inclination angle (theta = tan^-1(mu)), assuming slip occurs when link bending causes the inclination angle to exceed the angle defined by the static friction coefficient between the silicone rubber membrane and the object material."
+    ],
+    "control_variables": [
+      "Vacuum level for granular jamming (exhausted to below -90 kPa)",
+      "Electrical power supply for SMA heating (3 VAC applied directly using a slidac transformer)",
+      "Thermal reset protocol between trials in payload and accuracy tests (heating SMA to recover initial straight shape and subsequent cooling)",
+      "Total link mass and constituent quantities (152 g total link mass, 4 SMA wires, 26 g coarse coffee grounds, KE-106 plug, Ecoflex 00-30 outer membrane)",
+      "Lubricated baseline control in Procedure 0 (silicone spray applied even when no mold was used to maintain constant conditions)",
+      "Object placement coordinates and initial pick-and-place trajectory",
+      "Sample sizes for specific experimental evaluations (5 trials for mold replacement time, deformation force, and contact length; 10 trials for payload success rate and positioning accuracy; 3 trials for repeated motion durability)"
+    ],
+    "dependent_variables": [
+      "Time required to change molds (seconds)",
+      "Pick-and-place success rate across different payloads (percentage)",
+      "Durability in repeated motion without thermal reset (number of successful pick-and-place cycles up to 500)",
+      "Structural and geometric changes after repeated cycles (link width, height, length, and inclination angle in mm and degrees)",
+      "Force required to deform the link / pressing force (N)",
+      "Contact length / contact area length between the link and the target object (mm)",
+      "Positioning accuracy at the placement area (mean center of gravity coordinates and standard deviations along X- and Y-axes)"
+    ],
+    "doi": "https://doi.org/10.20965/jrm.2026.p0646",
+    "evidence_relevant_to_topic": [
+      {
+        "claim": "A variable-stiffness deformable link integrates four Ni-Ti shape-memory alloy wires and coarse coffee grounds in a silicone membrane, enabling compliant deformation at room temperature, shape fixation via granular jamming under vacuum below -90 kPa, and thermal shape recovery via Joule heating above 60 °C.",
+        "evidence_type": "experimental_specification",
+        "page_numbers": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "In earlier mold-insertion methods (Procedure 0), applying silicone spray lubricant led to object slippage during handling and constrained allowable shapes to profiles that thickened gradually from the tip.",
+        "evidence_type": "experimental_observation",
+        "page_numbers": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "claim": "An automated two-robot-arm setup utilizing a rotatable multi-mold (Procedure 2) reduced mold-change duration to 4.7 s, achieving a 94% time reduction compared to manual mold screw-fastening in Procedure 0.",
+        "evidence_type": "quantitative_metric",
+        "page_numbers": [
+          1,
+          5,
+          6
+        ]
+      },
+      {
+        "claim": "Eliminating lubricant and directly pressing the link with molds increased friction and payload capacity, yielding a 100% pick-and-place success rate across loads up to 990 g (651% of link weight).",
+        "evidence_type": "experimental_result",
+        "page_numbers": [
+          1,
+          7,
+          8
+        ]
+      },
+      {
+        "claim": "Conforming the link cross-section to the target object distributed mechanical contact stresses, maintaining shape stability and sustaining over 500 consecutive cycles, whereas non-molded links bent up to 29 degrees and failed by object dropping.",
+        "evidence_type": "experimental_result",
+        "page_numbers": [
+          1,
+          8
+        ]
+      },
+      {
+        "claim": "A static friction relationship (theta = arctan(mu)) accounts for object dropping when the link bending angle surpasses the material-dependent friction threshold between silicone rubber and the payload.",
+        "evidence_type": "analytical_modeling",
+        "page_numbers": [
+          8,
+          9
+        ]
+      },
+      {
+        "claim": "Positioning accuracy in object placement improved when the link was formed using object-matching molds, and larger pressing travel distances increased contact length and lowered placement coordinate variance.",
+        "evidence_type": "experimental_result",
+        "page_numbers": [
+          1,
+          9,
+          10
+        ]
+      }
+    ],
+    "experimental_setup": [
+      "Prototype link constructed with four straight Ni-Ti SMA wires (outer diameter 1.0 mm, austenite start temperature As = 60 °C, series resistance 0.46 Ohm) inserted into a 3D-printed PLA jig and KE-106 silicone rubber plug, encased in an Ecoflex 00-30 silicone outer membrane containing 26 g coarse coffee grounds (total weight 152 g).",
+      "Actuation hardware comprising a slidac transformer supplying 3 VAC for Joule heating of SMA wires and a vacuum pump evacuating internal membrane pressure to below -90 kPa.",
+      "Robotic apparatus consisting of Robot arm I (Dobot Magician) carrying the prototype link and Robot arm II (Dobot Magician) mounting a rotatable 3D-printed multi-mold (Mold 3) in Procedure 2, or two linear automatic stages (Sigma Koki SGSP20-85, SGSP26-50) holding interchangeable molds (Molds 1 and 2) in Procedure 1.",
+      "Deformation tooling including a 3D-printed inclined block for initial bending, interchangeable molds (Molds 0, 1, 2, 3), and a load cell (Kyowa LU-5KA) placed beneath the block to record pressing forces.",
+      "Payload evaluation using two target objects (Objects 1 and 2) hooked with calibrated weights (320 g, 640 g, 990 g) representing 211%, 421%, and 651% of link weight.",
+      "Position tracking and vision measurement using a top-view USB camera (Hozan Tool L-835, 1280x960 resolution, 30 fps) with C-mount lens, using NI Vision Assistant for binarization, particle filtering, and center-of-gravity computation (calibration of 1 mm to 7.8 pixels)."
+    ],
+    "future_work": [
+      "Using the variable-stiffness link to wrap around and grip objects directly during pick-and-place motions rather than hanging or hooking objects.",
+      "Utilizing pre-bent SMA wires to achieve an initial bent configuration without needing an external inclined block for bending deformation.",
+      "Preparing molds with more than two distinct shapes on the rotatable fixture to accommodate a wider variety of objects.",
+      "Attaching a multi-finger robot hand to the secondary robot arm to perform repeated pressing from multiple directions to form arbitrary link geometries."
+    ],
+    "independent_variables": [
+      "Link deformation method / procedure (Procedure 0 with mold insertion and lubricant; Procedure 1 with stage pressing on inclined block without lubricant; Procedure 2 with two-robot-arm pressing and rotating mold without lubricant)",
+      "Presence vs. absence of silicone spray lubricant",
+      "Application of cross-sectional mold-pressing motion (with motion (ii)/(ii') vs. without motion (ii)/(ii'))",
+      "Object payload weight (baseline object weight plus 320 g, 640 g, or 990 g)",
+      "Mold pressing displacement / travel distance (full distance: 15.2 mm for object 1, 12.4 mm for object 2; half distance: 7.6 mm for object 1, 6.2 mm for object 2)",
+      "Target object geometry (Object 1 with triangular mold vs. Object 2 with circular mold)"
+    ],
+    "limitations_inferred": [
+      "Thermal cycle times required for resistive heating and passive cooling of the SMA wires (49 s recovery time reported) inherently restrict the speed of consecutive reconfiguration cycles.",
+      "The link shaping process relies on rigid pre-fabricated external molds, restricting arbitrary real-time geometric adaptation to unmodeled or novel payloads.",
+      "Experimental repeated-motion evaluation was capped at 500 cycles, leaving long-term fatigue of the Ecoflex silicone membrane and particle attrition uncharacterized.",
+      "Spatial reconfiguration is primarily limited to planar bending and cross-sectional indentation compatible with the motion range of the table-top robot arms."
+    ],
+    "limitations_stated_by_authors": [
+      "In Procedure 0, inserting the link into the mold was impossible without lubricant, and the formed geometry was restricted to profiles that thickened gradually from the tip.",
+      "Using silicone spray lubricant caused handled objects to slip off the prototype link.",
+      "Handling tasks in the study were restricted to hanging/hooking objects onto the link rather than fully wrapping around or actively grasping them.",
+      "The initial link geometry was straight, necessitating external bending against an inclined block.",
+      "Procedure 1 required manual mold exchanges via loosening and fastening four screws according to the target object.",
+      "In Procedure 2 with lubricant present, success rates declined when cross-sectional molding was omitted, confirming that lubricant degrades payload holding performance."
+    ],
+    "main_results": [
+      "Deforming the link without silicone lubricant (Procedures 1 and 2) substantially improved weight capacity and motion stability, yielding a 100% pick-and-place success rate across all payloads up to 990 g (651% of link weight), whereas Procedure 0 failed with heavier payloads.",
+      "Automating mold switching using the secondary robot arm with a rotatable multi-mold (Procedure 2) reduced mold change time to 4.7 +- 0.1 s, a 94% reduction relative to Procedure 0 (85 +- 8 s) and Procedure 1 (135 +- 4 s).",
+      "Matching the cross-sectional shape of the link to the payload via mold pressing expanded the contact length, which dispersed shock loads and enabled over 500 successful repeated cycles without shape deterioration, whereas unshaped links experienced progressive bending up to 29 degrees and dropped objects.",
+      "Forming the link to match the object geometry significantly enhanced object placement accuracy by reducing placement position variance across trials.",
+      "For Object 1, pressing the full mold distance produced larger contact length and tighter placement repeatability than half distance; for Object 2 (cylindrical), half distance achieved equivalent accuracy with lower required pressing force (6.8 N vs 17.3 N)."
+    ],
+    "modeling_methods": [
+      "Static friction slipping threshold formulation: theta = tan^-1(mu), calculating the critical inclination angle at which an object begins to slip on the inclined link surface based on the static friction coefficient mu between silicone rubber and payload materials.",
+      "Geometric calculation of link tip inclination angle from measured post-experiment dimensions (width, height, length) to evaluate structural stability against the critical slip angle."
+    ],
+    "performance_metrics": [
+      "Mold exchange duration: 85 +- 8 s (Procedure 0), 135 +- 4 s (Procedure 1), 4.7 +- 0.1 s (Procedure 2).",
+      "Payload capacity success rate: 100% across all payloads (up to 990 g / 651% link weight) for Procedures 1 and 2, compared to 0% at 990 g for Procedure 0 without motion (ii).",
+      "Durability cycle count: > 500 cycles for Procedures 1 and 2 with motion (ii'), 372 cycles for Procedures 1 and 2 without motion (ii'), 2 cycles for Procedure 0 with motion (ii), and 0 cycles for Procedure 0 without motion (ii).",
+      "Deformation pressing force: 20.9 +- 0.5 N (Procedure 1, triangle, full), 20.1 +- 0.6 N (Procedure 1, circle, full), 18.6 +- 0.3 N (Procedure 2, triangle, full), 8.1 +- 0.5 N (Procedure 2, triangle, half), 17.3 +- 0.3 N (Procedure 2, circle, full), 6.8 +- 0.3 N (Procedure 2, circle, half).",
+      "Placement position standard deviation: lower standard deviations along X- and Y-axes when molded (e.g., Object 1 X/Y standard deviation reduced with motion (ii') and full distance).",
+      "Contact area length: measured in mm across procedures, molds, and movement distances (e.g., higher for full distance than half distance or no mold)."
+    ],
+    "possible_gap_implications": [
+      "Eliminating lubricant during variable-stiffness link shaping avoids surface contamination and slippage, demonstrating that high-friction soft interfaces can support payloads several times their own weight.",
+      "Using an active auxiliary manipulator with rotatable multi-molds resolves the operational bottleneck of manual mold retooling, pointing toward semi-autonomous adaptive tooling for reconfigurable robot arms.",
+      "The ongoing reliance on discrete external molds highlights an unaddressed gap between passive mold-based shaping and autonomous, moldless multi-degree-of-freedom morphing in variable-stiffness continuum/soft links."
+    ],
+    "research_objective": "To propose and evaluate a lubricant-free deformation method for a variable-stiffness and deformable link using shape-memory alloy and granular jamming, and to incorporate a secondary robot arm for automated mold pressing and rotation to improve operational efficiency, payload capacity, and placement accuracy in pick-and-place tasks.",
+    "research_problem": "Previous implementations of the variable-stiffness deformable link required silicone spray lubricant to facilitate link insertion into molds, causing manipulated payloads to slip off, restricting reachable link profiles to shapes that thicken gradually from the tip, and requiring slow manual mold replacement.",
+    "robot_type": "two-robot-arm system equipped with variable-stiffness and deformable link",
+    "stiffness_mechanism": [
+      "shape-memory alloy (Ni-Ti SMA wires; phase transformation from compliant at room temperature to rigid upon resistive heating above austenite start temperature As = 60 °C)",
+      "jamming transition phenomenon / granular jamming (evacuation of air to below -90 kPa around coarse coffee grounds within a silicone rubber membrane)"
+    ],
+    "title": "Pick-and-Place Motion by Two-Robot-Arm System Equipped with Variable-Stiffness and Deformable Link Using Shape-Memory Alloy and Jamming Transition Phenomenon",
+    "year": "2026"
+  }
+}
