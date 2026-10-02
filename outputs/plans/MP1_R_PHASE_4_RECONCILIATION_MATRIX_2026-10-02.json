@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "artifact_type": "MP1_R_PHASE_4_RECONCILIATION_MATRIX",
   "date": "2026-10-02",
-  "release_status": "BLOCKED_FOR_RECONCILIATION",
-  "classification_note": "Full provisional semantic reconciliation is recorded, but Phase 5 release is blocked because A_GEMINI lacks an explicit blindness receipt in the supplied primary artifacts.",
+  "release_status": "READY",
+  "classification_note": "Historical pre-remediation state: release was blocked because the A_GEMINI blindness receipt was missing. The receipt has now validated PASS; the scientific reconciliation entries remain unchanged and the gate is released.",
   "theme_comparison": [
     {
       "id": "T01",
@@ -1240,5 +1240,14 @@
     "S18_corrected_identity": true,
     "original_papers_reopened": 0,
     "broad_literature_searches": 0
+  },
+  "exit_gate": "READY_FOR_PHASE_5_GAP_ADJUDICATION",
+  "gate_resolution": {
+    "original_blocker": "A_GEMINI blindness receipt missing",
+    "remediation_receipt": "outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json",
+    "a_gemini_blindness": "PASS",
+    "b_gpt_blindness": "PASS",
+    "scientific_reconciliation_changed": false,
+    "remaining_blockers": 0
   }
 }

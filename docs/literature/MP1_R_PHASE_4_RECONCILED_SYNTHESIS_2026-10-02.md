@@ -2,11 +2,11 @@
 
 **Date:** 2026-10-02  
 **Run:** `PHASE_4C_RECONCILIATION`  
-**Release status:** `BLOCKED_FOR_RECONCILIATION`
+**Release status:** `READY_FOR_PHASE_5_GAP_ADJUDICATION`
 
 ## Gate and provenance
 
-The supplied A_GEMINI and B_GPT artifacts were read in the required five-file order. B_GPT includes an explicit blindness receipt: no other Phase 4 run, reconciliation artifact, Chapter 2 prose or broad search was accessed. A_GEMINI’s supplied synthesis and handoff contain no explicit blindness receipt. Because the protocol requires each run to independently report these checks, the canonical Phase 5 handoff is retained as a provisional merge and is not released as authority. No scientific claim is upgraded to compensate for this provenance defect.
+The supplied A_GEMINI and B_GPT artifacts were read in the required five-file order. B_GPT includes an explicit blindness receipt: no other Phase 4 run, reconciliation artifact, Chapter 2 prose or broad search was accessed. At the initial reconciliation, A_GEMINI’s supplied synthesis and handoff contained no explicit blindness receipt; that historical provenance defect blocked release. The additive A_GEMINI receipt now validates PASS, so the canonical Phase 5 handoff is released. No scientific claim was upgraded or changed.
 
 The Phase 3 handoff remains the evidence authority. S19 and S21 remain quarantined, S20 remains retired and unused as scientific evidence, and corrected S18 is treated as a vacuum-confined PVC layer-jamming analogue. No original papers were reopened and no broad literature search was performed.
 
@@ -303,7 +303,7 @@ A reports 16 sources; B reports 17. The difference is S17, used by B for metric-
 | Check | Result |
 |---|---|
 | Primary files read | 5 / 5 |
-| A blindness receipt | MISSING — blocking |
+| A blindness receipt | PASS |
 | B blindness receipt | PASS |
 | Phase 3 authority | PASS; hash matches |
 | Source IDs resolve | PASS |
@@ -314,7 +314,7 @@ A reports 16 sources; B reports 17. The difference is S17, used by B for metric-
 | Every UQ maps to evidence | PASS |
 | Original papers reopened | 0 |
 | Broad literature searches | 0 |
-| Phase 5 authority released | NO — blocked |
+| Phase 5 authority released | YES — released |
 
 
 ## Provenance paths
@@ -328,3 +328,15 @@ The reconciliation stops here. It does not declare a research gap, novelty, cont
 ## Provenance gate release note — 2026-10-02
 
 The original release blocker was the absence of an explicit A_GEMINI blindness receipt. The validated receipt is now recorded at `outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json`; its required fields validate `PASS`. The existing B_GPT blindness receipt also validates `PASS`. Scientific reconciliation content was unchanged: five canonical themes, 21 canonical propositions, the existing hypothesis states, causal-chain conclusion and disagreement resolutions remain intact. The Phase 5 gate is released, and the canonical handoff is now the single authoritative Phase 4 handoff for Phase 5.
+
+## Phase 4C Gate Release
+
+- **Original blocker:** missing explicit A_GEMINI blindness receipt
+- **Remediation artifact:** `outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json`
+- **A_GEMINI blindness validation:** PASS
+- **B_GPT blindness validation:** PASS
+- **Scientific reconciliation changed:** NO
+- **Remaining provenance blockers:** 0
+- **Remaining scientific blockers:** 0
+- **Final gate:** `READY_FOR_PHASE_5_GAP_ADJUDICATION`
+- **Canonical Phase 5 authority:** `outputs/plans/MP1_R_PHASE_4_RECONCILED_PHASE_5_HANDOFF_2026-10-02.json`
