@@ -4,9 +4,9 @@
   "date": "2026-10-02",
   "timezone": "Asia/Bangkok",
   "run_label": "PHASE_4C_RECONCILIATION",
-  "exit_gate": "BLOCKED_FOR_RECONCILIATION",
-  "release_status": "NOT_AUTHORITY_PENDING_A_GEMINI_BLINDNESS_RECEIPT",
-  "authority": "Not released as Phase 5 authority. The provisional canonical merge below becomes authoritative only after A_GEMINI blindness is explicitly confirmed and this gate is rerun.",
+  "exit_gate": "READY_FOR_PHASE_5_GAP_ADJUDICATION",
+  "release_status": "READY",
+  "authority": "This file is the single authoritative Phase 4 handoff for Phase 5 gap adjudication.",
   "canonical_theme_structure": [
     {
       "id": "T01",
@@ -1760,7 +1760,10 @@
       "handoff_path": "outputs/plans/MP1_R_PHASE_4_PHASE_5_HANDOFF_A_GEMINI_2026-10-02.json",
       "handoff_sha256": "ab5e1a362cc64d1d089ceb9bce59a985d25b548ebb4a3e247072b1fca839cb22",
       "status": "READY_FOR_PHASE_4_RECONCILIATION",
-      "blindness_receipt": "NOT_PRESENT_IN_SUPPLIED_ARTIFACTS"
+      "blindness_receipt": "outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json",
+      "blindness_receipt_path": "outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json",
+      "blindness_receipt_sha256": "c43bfb6535a4ad18789bd4a6ced119cd6286eff6c126ab30d542b41ae974cc55",
+      "blindness_receipt_validation": "PASS"
     },
     "B_GPT": {
       "synthesis_path": "docs/literature/MP1_R_PHASE_4_CROSS_STUDY_SYNTHESIS_B_GPT_2026-10-02.md",
@@ -1807,9 +1810,20 @@
     "json_parseable": true,
     "broad_literature_searches": 0,
     "original_papers_reopened": 0,
-    "blocking_issue": "A_GEMINI supplied artifacts do not explicitly report the required blindness checks."
+    "blocking_issue": null,
+    "A_GEMINI_blindness_receipt_valid": true,
+    "B_GPT_blindness_receipt_valid": true,
+    "scientific_content_unchanged": true
   },
   "reconciled_artifact": "docs/literature/MP1_R_PHASE_4_RECONCILED_SYNTHESIS_2026-10-02.md",
   "reconciliation_matrix_artifact": "outputs/plans/MP1_R_PHASE_4_RECONCILIATION_MATRIX_2026-10-02.json",
-  "phase5_authority_pointer": "This handoff points to the reconciled artifact above; it is not released as authority until the A_GEMINI blindness receipt is repaired."
+  "phase5_authority_pointer": "Single authoritative Phase 4 handoff for Phase 5; scientific registers were unchanged during gate remediation.",
+  "provenance_release": {
+    "original_blocker": "Missing explicit A_GEMINI blindness receipt.",
+    "A_GEMINI_receipt": "outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json",
+    "A_GEMINI_receipt_validation": "PASS",
+    "B_GPT_receipt_validation": "PASS",
+    "scientific_content_unchanged": true,
+    "released_at": "2026-10-02 Asia/Bangkok"
+  }
 }

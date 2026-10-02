@@ -324,3 +324,7 @@ A reports 16 sources; B reports 17. The difference is S17, used by B for metric-
 - Phase 3 authority: `outputs/plans/MP1_R_PHASE_3_PHASE_4_HANDOFF_2026-10-02.json` (sha256 `d47c33316e92397f0c4a0ba0512562fb8e06665f41bfe0b56471d415a81a854b`); appraisal: `docs/literature/MP1_R_PHASE_3_METHODOLOGICAL_APPRAISAL_AND_EVIDENCE_INTEGRITY_2026-10-02.md` (sha256 `98cb37bc018a42fd5682964606a3ba0d66f43176c8d132778abcea2b5d3f1d2b`).
 
 The reconciliation stops here. It does not declare a research gap, novelty, contribution, H1, final thesis question or Chapter 2 prose.
+
+## Provenance gate release note — 2026-10-02
+
+The original release blocker was the absence of an explicit A_GEMINI blindness receipt. The validated receipt is now recorded at `outputs/plans/MP1_R_PHASE_4_BLINDNESS_RECEIPT_A_GEMINI_2026-10-02.json`; its required fields validate `PASS`. The existing B_GPT blindness receipt also validates `PASS`. Scientific reconciliation content was unchanged: five canonical themes, 21 canonical propositions, the existing hypothesis states, causal-chain conclusion and disagreement resolutions remain intact. The Phase 5 gate is released, and the canonical handoff is now the single authoritative Phase 4 handoff for Phase 5.
