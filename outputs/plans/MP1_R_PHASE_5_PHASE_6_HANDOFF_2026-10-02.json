@@ -1,0 +1,1205 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "MP1_R_PHASE_5_PHASE_6_HANDOFF",
+  "date": "2026-10-02",
+  "timezone": "Asia/Bangkok",
+  "workstream": "MP1-R — Rescope",
+  "phase5_status": "READY_FOR_PHASE_6_CHAPTER_2_DRAFTING",
+  "phase6_authority": "This file is the single authoritative Phase 5 handoff for Phase 6 Chapter 2 drafting within the approved MP1-R boundary.",
+  "authoritative_mp1r_scope": "MP1-R: pressure-conditioned bending characterization of a defined TiNi wire bundle, with external-pressure structural characterization and optional SMA-spring/piston integration.",
+  "approved_gap_need_classifications": {
+    "G1": 0,
+    "G2": 2,
+    "G3": 0,
+    "G4": 5,
+    "G5": 0,
+    "G6": 1,
+    "G7": 1,
+    "G8": 1,
+    "G9": 1
+  },
+  "research_gap_register": [
+    {
+      "id": "GAP01",
+      "source_uq": "UQ01a",
+      "exact_gap_wording": "Defined reaction surfaces and candidate interfaces must be fixed before interpreting pressure-conditioned mechanics.",
+      "classification": "G8_NOT_A_GAP",
+      "evidence_supporting": [
+        "RP016",
+        "RP017",
+        "mentor rescope scope constraints"
+      ],
+      "evidence_limiting": [
+        "The issue is an unspecified project geometry, not a demonstrated literature deficit."
+      ],
+      "generalizability": "None as a gap; the fixed geometry defines the domain of any later result.",
+      "testability": "Directly testable as a design/control prerequisite.",
+      "required_observations": [
+        "confirmed cross-section",
+        "force-direction sketch",
+        "packing/sleeve/reaction geometry"
+      ],
+      "allowed_thesis_wording": "Geometry and candidate reaction paths were explicitly defined before inference.",
+      "prohibited_stronger_wording": "The current geometry uncertainty is a new scientific gap.",
+      "contribution_enabled": "Enables valid interpretation of C1–C4; no standalone contribution."
+    },
+    {
+      "id": "GAP02",
+      "source_uq": "UQ01b",
+      "exact_gap_wording": "Pressure-to-local-contact transmission bounds for the defined TiNi-bundle configuration are not established.",
+      "classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+      "evidence_supporting": [
+        "RP016",
+        "RP017",
+        "UQ01"
+      ],
+      "evidence_limiting": [
+        "Related models assume or infer pressure/contact relations; no MP1-R local calibration is present."
+      ],
+      "generalizability": "Moderate if expressed as a transferable measurement/bounding procedure; numerical values remain configuration-bounded.",
+      "testability": "Yes, with independent pressure, geometry, resistance and local-N constraints.",
+      "required_observations": [
+        "OBS01",
+        "OBS03",
+        "OBS06",
+        "OBS07",
+        "OBS09"
+      ],
+      "allowed_thesis_wording": "Pressure-to-contact transmission is identified or bounded for the defined configuration.",
+      "prohibited_stronger_wording": "Pressure directly equals local normal force in general.",
+      "contribution_enabled": "C1 and conditional C2/C4."
+    },
+    {
+      "id": "GAP03",
+      "source_uq": "UQ01c",
+      "exact_gap_wording": "The contributions of sleeve compliance, packing, end motion and reaction-path motion to apparent stiffness are not separated for the defined system.",
+      "classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+      "evidence_supporting": [
+        "RP016",
+        "RP017",
+        "UQ01"
+      ],
+      "evidence_limiting": [
+        "This is a confounder-control requirement for MP1-R, not a literature-wide knowledge gap."
+      ],
+      "generalizability": "Low-to-moderate; method may transfer, parameter values do not automatically transfer.",
+      "testability": "Yes, by geometry/deformation measurements and bounded alternative paths.",
+      "required_observations": [
+        "OBS03",
+        "OBS05",
+        "OBS06",
+        "OBS08"
+      ],
+      "allowed_thesis_wording": "Alternative sleeve, packing and boundary contributions are bounded in the tested regime.",
+      "prohibited_stronger_wording": "Any residual after unmeasured boundary motion demonstrates H1.",
+      "contribution_enabled": "C1 and C3."
+    },
+    {
+      "id": "GAP04",
+      "source_uq": "UQ02a",
+      "exact_gap_wording": "The pressure-conditioned contribution of wire–wire versus wire–sleeve resistance is not identified from global response alone.",
+      "classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+      "evidence_supporting": [
+        "RP009",
+        "RP013",
+        "RP018",
+        "UQ02"
+      ],
+      "evidence_limiting": [
+        "Interface-specific methods exist; their joint application to MP1-R is not demonstrated."
+      ],
+      "generalizability": "Moderate as an identification protocol; dominance result is configuration-specific.",
+      "testability": "Yes if independent interface constraints are feasible; otherwise report non-identifiability.",
+      "required_observations": [
+        "OBS01",
+        "OBS06",
+        "OBS07",
+        "OBS08",
+        "OBS09"
+      ],
+      "allowed_thesis_wording": "Interface contribution is identified or bounded under independent constraints.",
+      "prohibited_stronger_wording": "Interface disambiguation is already a demonstrated scientific knowledge gap or global bending proves dominance.",
+      "contribution_enabled": "C2 and conditional C4."
+    },
+    {
+      "id": "GAP05",
+      "source_uq": "UQ02b",
+      "exact_gap_wording": "The association between global branches and local slip, rather than sleeve/end motion, is not established for MP1-R.",
+      "classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+      "evidence_supporting": [
+        "RP003",
+        "RP005",
+        "RP016",
+        "RP018",
+        "UQ02"
+      ],
+      "evidence_limiting": [
+        "Related systems show branch/slip behavior, but MP1-R local slip is not directly measured."
+      ],
+      "generalizability": "Moderate for the branch-identification method; result is system-bounded.",
+      "testability": "Yes with local slip/strain and boundary-motion observations.",
+      "required_observations": [
+        "OBS03",
+        "OBS05",
+        "OBS06",
+        "OBS08"
+      ],
+      "allowed_thesis_wording": "Global transitions are associated with local slip only where local evidence supports the association.",
+      "prohibited_stronger_wording": "A global branch or loop uniquely proves local slip.",
+      "contribution_enabled": "C2 and C3."
+    },
+    {
+      "id": "GAP06",
+      "source_uq": "UQ03a",
+      "exact_gap_wording": "Whether same-lot TiNi transformation is active in the accessible bending strain/temperature/history domain is not characterized.",
+      "classification": "G2_EMPIRICAL_CHARACTERIZATION_GAP",
+      "evidence_supporting": [
+        "RP006",
+        "RP012",
+        "UQ03"
+      ],
+      "evidence_limiting": [
+        "Transformation-sensitive response is established in other domains; transfer to pressured bending is not direct."
+      ],
+      "generalizability": "Moderate across matched same-lot regimes, not universal across TiNi products.",
+      "testability": "Yes with same-lot constitutive, temperature and history measurements; phase-sensitive data if needed.",
+      "required_observations": [
+        "OBS04",
+        "OBS05",
+        "OBS10",
+        "OBS13 as needed"
+      ],
+      "allowed_thesis_wording": "The work characterizes transformation activity in the accessed same-lot domain.",
+      "prohibited_stronger_wording": "TiNi identity proves transformation or transformation-dominated hysteresis.",
+      "contribution_enabled": "C1 and supporting material-state interpretation."
+    },
+    {
+      "id": "GAP07",
+      "source_uq": "UQ03b",
+      "exact_gap_wording": "Transformation, friction and sleeve losses cannot be partitioned from aggregate loop work without independent observations.",
+      "classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+      "evidence_supporting": [
+        "RP012",
+        "UQ03"
+      ],
+      "evidence_limiting": [
+        "Global loop work, DMA loss and F–δ measures are not interchangeable or independently partitioned."
+      ],
+      "generalizability": "Moderate as an attribution procedure; fractions remain regime-specific.",
+      "testability": "Partly; MP1-R may bound rather than fully partition contributions.",
+      "required_observations": [
+        "OBS04",
+        "OBS05",
+        "OBS07",
+        "OBS08",
+        "OBS10",
+        "OBS13 if needed"
+      ],
+      "allowed_thesis_wording": "Contributions are partitioned or bounded within the tested regime.",
+      "prohibited_stronger_wording": "Aggregate hysteresis identifies the fraction caused by transformation or friction.",
+      "contribution_enabled": "Conditional C2/C4."
+    },
+    {
+      "id": "GAP08",
+      "source_uq": "UQ04a",
+      "exact_gap_wording": "Predictive adequacy of a locked conventional contact/friction/transformation-aware model for MP1-R is not quantitatively established.",
+      "classification": "G2_EMPIRICAL_CHARACTERIZATION_GAP",
+      "evidence_supporting": [
+        "RP005",
+        "RP007",
+        "RP008",
+        "RP011",
+        "RP019",
+        "UQ04"
+      ],
+      "evidence_limiting": [
+        "Conventional formulations already exist; the missing result is bounded model validation, not a new law."
+      ],
+      "generalizability": "Moderate if the validity protocol and boundary variables are reported; model parameters remain configuration-specific.",
+      "testability": "Yes with locked parameters, reserved paths and uncertainty-aware metrics.",
+      "required_observations": [
+        "OBS01",
+        "OBS03",
+        "OBS04",
+        "OBS05",
+        "OBS06",
+        "OBS08",
+        "OBS10"
+      ],
+      "allowed_thesis_wording": "The work evaluates the predictive adequacy and validity limits of a conventional model for the defined configuration.",
+      "prohibited_stronger_wording": "An exact equation is absent from the literature, therefore conventional mechanics are insufficient.",
+      "contribution_enabled": "C3, with C1 as the empirical base."
+    },
+    {
+      "id": "GAP09",
+      "source_uq": "UQ04b",
+      "exact_gap_wording": "Whether an additional state-conditioned pressure/contact/material term is identifiable and predictively necessary is not demonstrated.",
+      "classification": "G9_GAP_NOT_DEMONSTRATED",
+      "evidence_supporting": [
+        "RP019",
+        "UQ04"
+      ],
+      "evidence_limiting": [
+        "H0a and H0b remain plausible; the corpus supplies no basis for a broader gap or required new law."
+      ],
+      "generalizability": "Potentially high only if a repeatable, transferable, held-out residual survives all controls; currently unproven.",
+      "testability": "Conditional and high burden; not required for thesis success.",
+      "required_observations": [
+        "all core observations",
+        "locked H0a/H0b alternatives",
+        "reserved paths",
+        "repeatable residual and identifiability analysis"
+      ],
+      "allowed_thesis_wording": "An added term may be evaluated conditionally after conventional alternatives are bounded.",
+      "prohibited_stronger_wording": "A new constitutive law is required or H1 is the expected outcome.",
+      "contribution_enabled": "Conditional C7 only."
+    },
+    {
+      "id": "GAP10",
+      "source_uq": "UQ05a",
+      "exact_gap_wording": "The reachable and recoverable pressure–volume envelope of the proposed SMA-spring/piston under connected load is uncharacterized.",
+      "classification": "G6_ENGINEERING_VALIDATION_NEED",
+      "evidence_supporting": [
+        "RP010",
+        "RP020",
+        "UQ05"
+      ],
+      "evidence_limiting": [
+        "SMA-to-fluid precedents exist; arrangement-specific capability is an engineering validation need."
+      ],
+      "generalizability": "Low-to-moderate; operating-envelope characterization may support design transfer.",
+      "testability": "Yes with actuator, piston, pressure and load measurements.",
+      "required_observations": [
+        "OBS01",
+        "OBS02",
+        "OBS04",
+        "OBS11",
+        "OBS12"
+      ],
+      "allowed_thesis_wording": "The proposed source is characterized for its reachable and recoverable operating envelope.",
+      "prohibited_stronger_wording": "The source arrangement is a new scientific SMA-fluid mechanism because it uses a different geometry.",
+      "contribution_enabled": "C5 supporting."
+    },
+    {
+      "id": "GAP11",
+      "source_uq": "UQ05b",
+      "exact_gap_wording": "Matched integrated and externally pressurized bending responses are not validated for the proposed system.",
+      "classification": "G7_INTEGRATION_VALIDATION_NEED",
+      "evidence_supporting": [
+        "RP014",
+        "RP020",
+        "UQ05"
+      ],
+      "evidence_limiting": [
+        "No matched MP1-R data exist; integration agreement is not itself a general scientific discovery."
+      ],
+      "generalizability": "Low-to-moderate as a validated integration protocol.",
+      "testability": "Yes with matched pressure, temperature, loading, history and response metrics.",
+      "required_observations": [
+        "OBS01",
+        "OBS02",
+        "OBS03",
+        "OBS04",
+        "OBS05",
+        "OBS11"
+      ],
+      "allowed_thesis_wording": "The integrated source is validated against the externally controlled structural envelope under matched conditions.",
+      "prohibited_stronger_wording": "Unmatched source/structure differences prove H1 or a new coupling.",
+      "contribution_enabled": "C6 supporting."
+    }
+  ],
+  "gap_adjudication_matrix": [
+    {
+      "parent_id": "UQ01",
+      "parent_question": "What is the pressure-to-reaction-to-contact-force map in the proposed cross-section?",
+      "parent_disposition": "Mixed: UQ01a is a project prerequisite; UQ01b/UQ01c are system-identification requirements.",
+      "subquestions": [
+        {
+          "id": "UQ01a",
+          "question": "Which reaction surfaces and candidate wire–wire/wire–sleeve paths exist after geometry is fixed?",
+          "primary_classification": "G8_NOT_A_GAP",
+          "rationale": "The cross-section, reaction surfaces and interface candidates must be specified before a scientific claim can be posed. Their current absence is a scope/design condition, not evidence of a literature knowledge deficit.",
+          "mp1_can_answer": "Yes, by fixing and documenting the geometry; the result defines the system rather than closing a general scientific gap.",
+          "minimum_observations": [
+            "mentor-confirmed cross-section and force-direction sketch",
+            "packing, sleeve and reaction geometry",
+            "candidate interface map",
+            "boundary and seal locations"
+          ],
+          "allowed_wording": "The study defines and controls the candidate reaction paths before interpreting pressure-conditioned response.",
+          "prohibited_stronger_wording": "The unspecified geometry represents a new scientific gap or proves a previously unknown mechanism."
+        },
+        {
+          "id": "UQ01b",
+          "question": "How does near-specimen pressure map to local N or defensible transmission bounds?",
+          "primary_classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+          "rationale": "Pressure, reaction load and local normal force are distinct. Existing models provide routes or assumptions, but the MP1-R path and local distribution are not identified without independent constraints.",
+          "mp1_can_answer": "Yes, as a bounded system-identification result using synchronized pressure, geometry, resistance and a local-N proxy or calibrated bounds. It need not recover a unique field everywhere.",
+          "minimum_observations": [
+            "near-specimen and source pressure",
+            "confirmed reaction geometry",
+            "interface resistance with parasitic bounds",
+            "local-normal-force proxy or calibrated transmission bounds",
+            "bending force/moment and curvature"
+          ],
+          "allowed_wording": "The study identifies or bounds the pressure-to-contact transmission for the defined configuration.",
+          "prohibited_stronger_wording": "Fluid pressure equals inter-wire or wire–sleeve normal force universally."
+        },
+        {
+          "id": "UQ01c",
+          "question": "How much do sleeve compliance, packing, end and reaction motion contribute to apparent stiffness?",
+          "primary_classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+          "rationale": "These alternative load paths can change the measured bending response and must be separated from pressure-conditioned contact. Their contribution is system-specific and not a demonstrated general literature gap.",
+          "mp1_can_answer": "Yes, by measuring geometry/deformation and bounding end, sleeve and packing effects in the tested regime.",
+          "minimum_observations": [
+            "sleeve/reaction deformation",
+            "packing and boundary geometry",
+            "end/reaction motion or a bound on it",
+            "pressure and M–κ/force–deflection histories",
+            "repeatability and drift"
+          ],
+          "allowed_wording": "The experiment bounds the contribution of sleeve, packing and boundary motion in the tested configuration.",
+          "prohibited_stronger_wording": "Any residual after an uncontrolled test proves a new pressure–material mechanism."
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ02",
+      "parent_question": "Can interface contributions and local slip be identified from augmented observations?",
+      "parent_disposition": "G4 system-identification requirements; Phase 3 explicitly prevents upgrading interface disambiguation into a literature gap.",
+      "subquestions": [
+        {
+          "id": "UQ02a",
+          "question": "Which interface dominates pressure-conditioned resistance under independent interface constraints?",
+          "primary_classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+          "rationale": "Wire–wire and wire–sleeve resistance can both contribute. Existing dedicated tests are precedents, but global bending alone is confounded.",
+          "mp1_can_answer": "Yes, if independent interface constraints and resistance measurements are feasible; otherwise it must report bounded non-identifiability.",
+          "minimum_observations": [
+            "separate wire–wire and wire–sleeve resistance tests or constraints",
+            "near-specimen pressure",
+            "local slip/strain or equivalent interface proxy",
+            "global bending response and parasitic bounds"
+          ],
+          "allowed_wording": "The study identifies the pressure-conditioned interface contribution within the tested geometry, or reports that dominance remains bounded but unresolved.",
+          "prohibited_stronger_wording": "The literature contains a demonstrated interface-discovery gap, or global bending alone proves wire–wire dominance."
+        },
+        {
+          "id": "UQ02b",
+          "question": "Do global branches correspond to local slip onset/progression rather than sleeve or end motion?",
+          "primary_classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+          "rationale": "Branch changes and hysteresis can arise from local slip, sleeve compliance, end motion or material state. The question concerns pathway attribution in the actual system.",
+          "mp1_can_answer": "Yes, with synchronized local relative-slip/strain observations and sleeve/end controls; otherwise retain branch labels as phenomenological.",
+          "minimum_observations": [
+            "local relative slip or structural-wire strain",
+            "sleeve/end motion bound",
+            "pressure and M–κ paths",
+            "cycle order, rate and repeatability"
+          ],
+          "allowed_wording": "Observed global branches are associated with local slip only when independent local and boundary evidence supports that attribution.",
+          "prohibited_stronger_wording": "A force–deflection branch or loop by itself proves local slip."
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ03",
+      "parent_question": "How should TiNi state and aggregate hysteresis be interpreted?",
+      "parent_disposition": "G2 material-domain characterization plus G4 attribution; transformation is not assumed from the material name.",
+      "subquestions": [
+        {
+          "id": "UQ03a",
+          "question": "Does structural TiNi transformation occur in the accessible bending domain?",
+          "primary_classification": "G2_EMPIRICAL_CHARACTERIZATION_GAP",
+          "rationale": "Transformation-sensitive TiNi response is established in other material domains, but activation in the same-lot strain/temperature/rate/history domain of this bending test is not established. This is a bounded material-domain characterization question, not a new mechanism claim.",
+          "mp1_can_answer": "Yes, by same-lot constitutive and temperature/history measurements matched to the accessed domain; a phase-sensitive measurement is useful if ordinary calibration cannot distinguish alternatives.",
+          "minimum_observations": [
+            "same-lot stress/strain response",
+            "wire temperature and rate/history",
+            "accessible bending strain/temperature domain",
+            "phase-sensitive measurement when needed"
+          ],
+          "allowed_wording": "The study characterizes whether transformation is active in the accessed same-lot domain.",
+          "prohibited_stronger_wording": "TiNi identity proves active transformation or transformation-dominated hysteresis."
+        },
+        {
+          "id": "UQ03b",
+          "question": "Can transformation, friction and sleeve losses be partitioned beyond aggregate loop work?",
+          "primary_classification": "G4_SYSTEM_IDENTIFICATION_REQUIREMENT",
+          "rationale": "Aggregate loop work is not an identifiable partition. Separate material, interface and boundary observations are required; the question is attribution in one system rather than discovery of a new loss law.",
+          "mp1_can_answer": "Partly. MP1-R can produce bounded attribution or show that full partition is not identifiable with available observables.",
+          "minimum_observations": [
+            "same-lot material baseline",
+            "interface resistance and local slip",
+            "sleeve/end motion bounds",
+            "temperature and loading histories",
+            "defined loop-work metric; phase-sensitive data if required"
+          ],
+          "allowed_wording": "The study partitions or bounds the measured contributions within the tested regime.",
+          "prohibited_stronger_wording": "Aggregate hysteresis proves the fraction due to transformation or friction."
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ04",
+      "parent_question": "What model capability and coupling claim are justified?",
+      "parent_disposition": "G2 empirical model-adequacy characterization plus G9 for any additional-law claim.",
+      "subquestions": [
+        {
+          "id": "UQ04a",
+          "question": "Can an appropriate locked conventional model predict reserved pressure–curvature paths and available local observables?",
+          "primary_classification": "G2_EMPIRICAL_CHARACTERIZATION_GAP",
+          "rationale": "Conventional contact, slip and transformation-aware formulations exist, but their predictive adequacy for the defined MP1-R configuration is not quantified. The missing result is model discrimination in a bounded system, not a new constitutive principle.",
+          "mp1_can_answer": "Yes, with locked parameters, predeclared metrics, calibration/validation separation and reserved pressure–curvature paths.",
+          "minimum_observations": [
+            "locked conventional baseline",
+            "source and near-specimen pressure",
+            "M–κ or declared stiffness metric",
+            "independent local/interface observations where claimed",
+            "reserved paths and uncertainty-aware error"
+          ],
+          "allowed_wording": "The study tests the predictive adequacy and validity limits of a conventional model for the defined configuration.",
+          "prohibited_stronger_wording": "The absence of an exact MP1-R equation proves conventional mechanics are insufficient."
+        },
+        {
+          "id": "UQ04b",
+          "question": "After alternatives are bounded, is an additional state-conditioned pressure/contact/material term identifiable and predictively necessary?",
+          "primary_classification": "G9_GAP_NOT_DEMONSTRATED",
+          "rationale": "The validated corpus does not justify claiming a broader scientific gap or a new law. This can become a conditional result only after H0a/H0b, confounders and reserved predictions are tested.",
+          "mp1_can_answer": "Only conditionally. MP1-R can support a residual/additional-term claim if it is repeatable, identifiable, transferable beyond a fit and required by held-out prediction; otherwise report no need for a new term.",
+          "minimum_observations": [
+            "all core pressure/material/interface controls",
+            "locked H0a/H0b alternatives",
+            "reserved predictions",
+            "repeatable residual pattern",
+            "identifiability and uncertainty analysis"
+          ],
+          "allowed_wording": "An additional term is considered only if conventional alternatives fail predictively under bounded conditions.",
+          "prohibited_stronger_wording": "A new constitutive coupling law is required because the literature lacks the exact equation."
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ05",
+      "parent_question": "Can Bench B reproduce the controlled-pressure structural envelope when integrated?",
+      "parent_disposition": "G6 actuator validation plus G7 integration validation; not automatically scientific novelty.",
+      "subquestions": [
+        {
+          "id": "UQ05a",
+          "question": "Can the SMA spring/piston reach and recover the connected-load pressure–volume envelope?",
+          "primary_classification": "G6_ENGINEERING_VALIDATION_NEED",
+          "rationale": "This is a capability and operating-envelope question for the proposed source. SMA-to-fluid precedents exist; a different arrangement does not create scientific novelty by itself.",
+          "mp1_can_answer": "Yes, by measuring stroke, force, temperature, source/near-specimen pressure and recovery under known load/compliance.",
+          "minimum_observations": [
+            "piston stroke and return",
+            "spring/actuator force and temperature",
+            "source and specimen pressure",
+            "connected-load pressure–volume behavior",
+            "repeatability and drift"
+          ],
+          "allowed_wording": "The study characterizes the reachable and recoverable pressure–volume envelope of the proposed source.",
+          "prohibited_stronger_wording": "The spring/piston arrangement is a new SMA-fluid mechanism solely because its geometry differs."
+        },
+        {
+          "id": "UQ05b",
+          "question": "At matched pressure, temperature, loading and history, does integrated response agree with externally pressurized response?",
+          "primary_classification": "G7_INTEGRATION_VALIDATION_NEED",
+          "rationale": "Agreement or mismatch between Bench A and Bench B tests whether separately characterized components integrate consistently. It is an integration-validation result unless a generalizable mechanism is established.",
+          "mp1_can_answer": "Yes, with matched specimen pressure, temperature, loading, history and synchronized response metrics.",
+          "minimum_observations": [
+            "matched near-specimen pressure",
+            "temperature and history controls",
+            "common geometry and protocol",
+            "external and integrated M–κ/force–deflection response",
+            "source transient records"
+          ],
+          "allowed_wording": "The integrated source is validated against the externally controlled structural envelope within stated conditions.",
+          "prohibited_stronger_wording": "Unmatched integrated differences prove H1 or a new coupling."
+        }
+      ]
+    }
+  ],
+  "primary_contribution": "Quantitative pressure-conditioned bending characterization of the defined TiNi-bundle configuration, with a locked conventional model-discrimination baseline.",
+  "secondary_contributions": [
+    "Interface/local-slip system identification when independent constraints are available.",
+    "Predictive discrimination of existing conventional mechanics on reserved paths."
+  ],
+  "supporting_contributions": [
+    "SMA-spring/piston operating-envelope characterization.",
+    "Matched external/integrated system validation."
+  ],
+  "conditional_stretched_contributions": "An additional pressure/contact/material term only if independently identifiable and predictively necessary; not required for thesis success.",
+  "contribution_boundary_register": [
+    {
+      "id": "CONTRIB01",
+      "category": "C1_EMPIRICAL_CHARACTERIZATION",
+      "priority": "PRIMARY",
+      "title": "Quantitative pressure-conditioned bending characterization of the defined TiNi bundle.",
+      "required_evidence": [
+        "repeatable near-specimen pressure and M–κ/declared stiffness maps",
+        "controlled geometry, temperature and history",
+        "uncertainty-resolved pressure-conditioned effects or bounded null result"
+      ],
+      "hypothesis_dependence": "Does not require H1; valid under H0a or H0b.",
+      "generalizability": "Defined material/geometry/regime, with transferable measurement boundary conditions rather than universal coefficients.",
+      "thesis_wording": "A quantitative characterization of pressure-conditioned bending response and its repeatability in the defined TiNi-bundle configuration.",
+      "forbidden_wording": "A universal pressure–stiffness law or first pressure-friction mechanism.",
+      "failure_safe_interpretation": "If pressure has no repeatable effect, report the measured null/limit and the conditions under which modulation was not observed."
+    },
+    {
+      "id": "CONTRIB02",
+      "category": "C3_MODEL_DISCRIMINATION",
+      "priority": "SECONDARY",
+      "title": "Discrimination of a locked conventional model against reserved MP1-R response.",
+      "required_evidence": [
+        "predeclared conventional model and parameters",
+        "calibration/validation separation",
+        "reserved pressure–curvature paths",
+        "uncertainty-aware prediction error and residual analysis"
+      ],
+      "hypothesis_dependence": "H0b may be supported; H1 is not required.",
+      "generalizability": "Validity-boundary evidence for the tested class and regime; no universal model rejection.",
+      "thesis_wording": "A controlled test of whether an existing conventional model predicts the defined response within stated bounds.",
+      "forbidden_wording": "Conventional models are insufficient because one fit or simplification fails.",
+      "failure_safe_interpretation": "If H0b predicts well, the result is a positive model-adequacy/validity-boundary finding."
+    },
+    {
+      "id": "CONTRIB03",
+      "category": "C2_MECHANISM_SYSTEM_IDENTIFICATION",
+      "priority": "SECONDARY",
+      "title": "Interface and local-slip system identification under independent constraints.",
+      "required_evidence": [
+        "wire–wire and wire–sleeve constraints or tests",
+        "local slip/strain and boundary-motion observations",
+        "pressure/contact bounds independent of the resistance fit"
+      ],
+      "hypothesis_dependence": "Supports interpretation of H0b/H1 but does not require H1.",
+      "generalizability": "Method-level transfer is possible; dominance results remain configuration-specific.",
+      "thesis_wording": "The study identifies or bounds pressure-conditioned interface contributions in the defined bundle.",
+      "forbidden_wording": "Global bending alone identifies interface dominance or discovers a new friction mechanism.",
+      "failure_safe_interpretation": "If interfaces cannot be separated, report non-identifiability and retain the broader C1/C3 contribution."
+    },
+    {
+      "id": "CONTRIB04",
+      "category": "C4_METHODOLOGICAL_CONTRIBUTION",
+      "priority": "CONDITIONAL",
+      "title": "Validated measurement/decomposition method for separating source, pressure-path, interface and material effects.",
+      "required_evidence": [
+        "synchronized Bench A/Bench B observations",
+        "independent controls and repeatable decomposition",
+        "demonstrated improvement in claim identifiability over global bending alone"
+      ],
+      "hypothesis_dependence": "Independent of H1; it can support H0b or a bounded null.",
+      "generalizability": "Potentially methodological if the protocol is explicitly validated and transferable.",
+      "thesis_wording": "A validated decomposition protocol that enables bounded attribution in this class of pressure-conditioned bundles.",
+      "forbidden_wording": "Building two benches is inherently novel or proves causality without matched controls.",
+      "failure_safe_interpretation": "If decomposition is not validated, treat the benches as controls/objectives only."
+    },
+    {
+      "id": "CONTRIB05",
+      "category": "C5_ACTUATOR_CHARACTERIZATION",
+      "priority": "SUPPORTING",
+      "title": "Operating-envelope characterization of the SMA-spring-driven piston source.",
+      "required_evidence": [
+        "stroke/force/temperature",
+        "source and near-specimen pressure",
+        "connected-load reach/recovery and repeatability"
+      ],
+      "hypothesis_dependence": "Independent of H1; supports Bench B feasibility.",
+      "generalizability": "Arrangement-specific engineering characterization.",
+      "thesis_wording": "Characterization of the source pressure–volume and recovery envelope.",
+      "forbidden_wording": "A first SMA-fluid mechanism solely from the actuator arrangement.",
+      "failure_safe_interpretation": "If the source misses the envelope, retain Bench A structural characterization and report integration infeasibility."
+    },
+    {
+      "id": "CONTRIB06",
+      "category": "C6_SYSTEM_INTEGRATION",
+      "priority": "SUPPORTING",
+      "title": "Matched validation of integrated SMA/piston and externally pressurized structural response.",
+      "required_evidence": [
+        "matched p, temperature, load, history and geometry",
+        "common response metric and uncertainty comparison"
+      ],
+      "hypothesis_dependence": "Independent of H1; agreement can support H0b.",
+      "generalizability": "Integration-specific.",
+      "thesis_wording": "The integrated source is validated against the external-pressure structural envelope under stated conditions.",
+      "forbidden_wording": "Integration mismatch at unmatched conditions proves coupled physics.",
+      "failure_safe_interpretation": "If integration fails, report source/transport limits without converting them into a material mechanism."
+    },
+    {
+      "id": "CONTRIB07",
+      "category": "C7_NEW_CONSTITUTIVE_THEORETICAL_CONTRIBUTION",
+      "priority": "CONDITIONAL",
+      "title": "Additional state-conditioned pressure/contact/material law, only if independently necessary.",
+      "required_evidence": [
+        "H0a/H0b alternatives bounded",
+        "repeatable residual on held-out data",
+        "identifiable additional state variable/term",
+        "predictive improvement beyond refit and transfer test"
+      ],
+      "hypothesis_dependence": "Requires evidence supporting H1; never a thesis prerequisite.",
+      "generalizability": "Must extend beyond one geometry/fit to merit a theoretical claim; currently unestablished.",
+      "thesis_wording": "A candidate additional term is proposed only if the controlled evidence shows it is identifiable and predictively necessary.",
+      "forbidden_wording": "A new constitutive law is required in advance.",
+      "failure_safe_interpretation": "If H0b suffices or the term is not identifiable, no theoretical-law contribution is claimed."
+    }
+  ],
+  "final_candidate_research_questions": {
+    "primary_research_question": {
+      "id": "PRQ01",
+      "question": "For a fixed TiNi-bundle geometry, material lot and loading history, how does controlled near-specimen pressure change the bending response, and how accurately does a locked conventional contact/friction/transformation-aware model predict reserved pressure–curvature paths?",
+      "maps_to_gaps": [
+        "GAP02",
+        "GAP03",
+        "GAP08"
+      ],
+      "maps_to_contributions": [
+        "CONTRIB01",
+        "CONTRIB02"
+      ],
+      "required_observables": [
+        "OBS01",
+        "OBS03",
+        "OBS04",
+        "OBS05",
+        "OBS06",
+        "OBS10"
+      ],
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ]
+    },
+    "secondary_research_questions": [
+      {
+        "id": "SRQ01",
+        "question": "Which pressure-conditioned resistance pathway—wire–wire, wire–sleeve, or sleeve/end motion—can be identified or bounded using independent interface and local-slip observations?",
+        "maps_to_gaps": [
+          "GAP04",
+          "GAP05"
+        ],
+        "maps_to_contributions": [
+          "CONTRIB03",
+          "CONTRIB04"
+        ],
+        "required_observables": [
+          "OBS06",
+          "OBS07",
+          "OBS08",
+          "OBS09"
+        ],
+        "hypotheses": [
+          "H0b-R",
+          "H1-R"
+        ]
+      },
+      {
+        "id": "SRQ02",
+        "question": "Does the same-lot TiNi undergo transformation in the accessed strain/temperature/history domain, and what material-state control is required to interpret the measured response?",
+        "maps_to_gaps": [
+          "GAP06",
+          "GAP07"
+        ],
+        "maps_to_contributions": [
+          "CONTRIB01",
+          "CONTRIB02"
+        ],
+        "required_observables": [
+          "OBS04",
+          "OBS05",
+          "OBS10",
+          "OBS13"
+        ],
+        "hypotheses": [
+          "H0a-R",
+          "H0b-R",
+          "H1-R"
+        ]
+      }
+    ],
+    "experimental_engineering_objectives": [
+      {
+        "id": "OBJ01",
+        "objective": "Fix and document the cross-section, reaction surfaces, interface candidates, packing, sleeve and boundary conditions before interpreting pressure effects.",
+        "supports": [
+          "GAP01",
+          "GAP03"
+        ]
+      },
+      {
+        "id": "OBJ02",
+        "objective": "Measure repeatable pressure-conditioned bending response with near-specimen pressure, calibrated force/moment/curvature, temperature and loading-history controls.",
+        "supports": [
+          "GAP02",
+          "GAP03",
+          "GAP08"
+        ]
+      },
+      {
+        "id": "OBJ03",
+        "objective": "Establish same-lot material and interface/local-slip controls sufficient to distinguish material state, friction and boundary alternatives to the extent feasible.",
+        "supports": [
+          "GAP04",
+          "GAP05",
+          "GAP06",
+          "GAP07"
+        ]
+      },
+      {
+        "id": "OBJ04",
+        "objective": "Lock, calibrate and test a conventional baseline on reserved pressure–curvature paths with uncertainty-aware comparison.",
+        "supports": [
+          "GAP08",
+          "GAP09"
+        ]
+      },
+      {
+        "id": "OBJ05",
+        "objective": "Characterize the SMA-spring/piston pressure–volume envelope and compare integrated and external-source responses under matched conditions.",
+        "supports": [
+          "GAP10",
+          "GAP11"
+        ]
+      }
+    ],
+    "optional_scientific_extensions": [
+      {
+        "id": "EXT01",
+        "extension": "Evaluate an additional state-conditioned pressure/contact/material term only after H0a/H0b and confounders are bounded.",
+        "condition": "Repeatable held-out residual plus identifiable predictive improvement."
+      },
+      {
+        "id": "EXT02",
+        "extension": "Attempt fuller transformation/friction/sleeve loss partition beyond aggregate loop work.",
+        "condition": "Independent local, material and interface observations are available."
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "OBJ01",
+      "objective": "Fix and document the cross-section, reaction surfaces, interface candidates, packing, sleeve and boundary conditions before interpreting pressure effects.",
+      "supports": [
+        "GAP01",
+        "GAP03"
+      ]
+    },
+    {
+      "id": "OBJ02",
+      "objective": "Measure repeatable pressure-conditioned bending response with near-specimen pressure, calibrated force/moment/curvature, temperature and loading-history controls.",
+      "supports": [
+        "GAP02",
+        "GAP03",
+        "GAP08"
+      ]
+    },
+    {
+      "id": "OBJ03",
+      "objective": "Establish same-lot material and interface/local-slip controls sufficient to distinguish material state, friction and boundary alternatives to the extent feasible.",
+      "supports": [
+        "GAP04",
+        "GAP05",
+        "GAP06",
+        "GAP07"
+      ]
+    },
+    {
+      "id": "OBJ04",
+      "objective": "Lock, calibrate and test a conventional baseline on reserved pressure–curvature paths with uncertainty-aware comparison.",
+      "supports": [
+        "GAP08",
+        "GAP09"
+      ]
+    },
+    {
+      "id": "OBJ05",
+      "objective": "Characterize the SMA-spring/piston pressure–volume envelope and compare integrated and external-source responses under matched conditions.",
+      "supports": [
+        "GAP10",
+        "GAP11"
+      ]
+    }
+  ],
+  "optional_scientific_extensions": [
+    {
+      "id": "EXT01",
+      "extension": "Evaluate an additional state-conditioned pressure/contact/material term only after H0a/H0b and confounders are bounded.",
+      "condition": "Repeatable held-out residual plus identifiable predictive improvement."
+    },
+    {
+      "id": "EXT02",
+      "extension": "Attempt fuller transformation/friction/sleeve loss partition beyond aggregate loop work.",
+      "condition": "Independent local, material and interface observations are available."
+    }
+  ],
+  "h0a_h0b_h1_role": [
+    {
+      "hypothesis": "H0a-R",
+      "definition": "TiNi thermomechanical/material behavior sufficiently explains most observed response.",
+      "role": "Live explanatory alternative and material-control branch, not a required result.",
+      "support_evidence": [
+        "same-lot transformation-sensitive response in accessed domain",
+        "pressure contrasts with sleeve/end effects bounded",
+        "material baseline predicts relevant response features"
+      ],
+      "weakening_evidence": [
+        "no transformation in accessed domain",
+        "pressure effect persists after material state is controlled",
+        "contact/interface evidence explains response better"
+      ],
+      "required_observations": [
+        "OBS04",
+        "OBS05",
+        "OBS08",
+        "OBS10",
+        "OBS13 if needed"
+      ],
+      "thesis_success_dependency": "NO; a negative or weak H0a result still supports C1/C3."
+    },
+    {
+      "hypothesis": "H0b-R",
+      "definition": "Existing contact/friction/stick–slip and transformation-aware material/boundary models suffice without a new constitutive coupling law.",
+      "role": "Primary baseline comparator; it must be tested before any added-law claim.",
+      "support_evidence": [
+        "locked conventional model predicts reserved paths within predeclared bounds",
+        "independent interface and boundary observations are consistent",
+        "no repeatable residual requiring added coupling"
+      ],
+      "weakening_evidence": [
+        "repeatable held-out residual after all confounders are bounded",
+        "independent observations show omitted state dependence"
+      ],
+      "required_observations": [
+        "OBS01",
+        "OBS03",
+        "OBS05",
+        "OBS06",
+        "OBS07/08 where mechanism claims are made",
+        "OBS10"
+      ],
+      "thesis_success_dependency": "NO; supporting H0b is a valid thesis outcome."
+    },
+    {
+      "hypothesis": "H1-R",
+      "definition": "Additional coupled pressure–contact–material interaction is needed beyond simpler alternatives.",
+      "role": "Conditional stretch hypothesis and optional extension; never the success criterion.",
+      "support_evidence": [
+        "orthogonal pressure/material contrasts",
+        "H0a/H0b locked and tested",
+        "repeatable residual on reserved data",
+        "identifiable and predictive additional term"
+      ],
+      "weakening_evidence": [
+        "H0b predicts within uncertainty",
+        "residual disappears under interface/temperature/boundary controls",
+        "additional term is non-identifiable or only refits data"
+      ],
+      "required_observations": [
+        "all core observations plus OBS07–OBS10 and, if needed, OBS13"
+      ],
+      "thesis_success_dependency": "NO"
+    }
+  ],
+  "minimum_evidence_burden": {
+    "core": [
+      "OBS01",
+      "OBS03",
+      "OBS04",
+      "OBS05",
+      "OBS06"
+    ],
+    "model_discrimination": [
+      "locked conventional baseline",
+      "reserved paths",
+      "uncertainty-aware metrics"
+    ],
+    "mechanism_claims": [
+      "OBS07",
+      "OBS08",
+      "OBS09",
+      "OBS10"
+    ],
+    "integration": [
+      "OBS02",
+      "OBS11",
+      "OBS12"
+    ]
+  },
+  "success_null_kill_conditions": [
+    {
+      "contribution_id": "CONTRIB01",
+      "success_condition": "Repeatable pressure-conditioned M–κ/declared stiffness branches are resolved beyond measurement and history uncertainty for the defined geometry and regime.",
+      "null_baseline_success": "A small or absent pressure effect, when uncertainty-resolved, is a valid bounded characterization and can still support C3 by defining a null regime.",
+      "kill_condition": "Pressure/specimen state cannot be measured or controlled, geometry remains ambiguous, or repeatability is below the declared uncertainty so no quantitative response map is defensible."
+    },
+    {
+      "contribution_id": "CONTRIB02",
+      "success_condition": "A locked conventional model either predicts reserved paths within predeclared bounds or fails with a repeatable, uncertainty-resolved residual after confounders are bounded.",
+      "null_baseline_success": "H0b predicts well; model adequacy and validity boundary are positive results, and no new law is claimed.",
+      "kill_condition": "No parameter lock, no reserved paths, or no independent observations sufficient to distinguish fit quality from leakage/confounding."
+    },
+    {
+      "contribution_id": "CONTRIB03",
+      "success_condition": "Independent interface/local-slip observations identify a dominant contribution or produce defensible bounds on competing pathways.",
+      "null_baseline_success": "No dominance can be identified; report non-identifiability while retaining C1/C3.",
+      "kill_condition": "Only global bending is measured, or interface tests cannot be made independent of the same unknowns."
+    },
+    {
+      "contribution_id": "CONTRIB05",
+      "success_condition": "The source reaches and recovers a characterized connected-load pressure–volume envelope with repeatable timing and force/temperature records.",
+      "null_baseline_success": "The envelope is insufficient; Bench A can remain the structural study and the source limitation is reported as engineering validation failure.",
+      "kill_condition": "No reliable pressure/stroke/force record or no connected-load characterization."
+    },
+    {
+      "contribution_id": "CONTRIB06",
+      "success_condition": "Integrated and external responses agree within declared uncertainty under matched p, temperature, load, history and geometry, or the mismatch is traced to a bounded source/path effect.",
+      "null_baseline_success": "No integration claim is required if the source cannot reproduce the envelope; C1/C3 remain possible.",
+      "kill_condition": "Conditions cannot be matched or the source/structural clocks cannot be synchronized."
+    },
+    {
+      "contribution_id": "CONTRIB07",
+      "success_condition": "Only after H0a/H0b controls, a repeatable held-out residual requires an identifiable additional term that improves prediction beyond refitting.",
+      "null_baseline_success": "H0b suffices or the term is not identifiable; no new-law contribution is made.",
+      "kill_condition": "Residual disappears with controls, is fit-only, or cannot be separated from parameter/boundary uncertainty."
+    }
+  ],
+  "evidence_strength_restrictions": [
+    "Use RP001–RP010 and E01–E05 only within their stated architecture/material/metric boundaries.",
+    "Treat RP011–RP016 as supported connections/analogue-only where marked.",
+    "Treat RP017–RP020 as unresolved; do not use them as established mechanisms.",
+    "S15 remains contextual review support; S18 identity/restrictions remain corrected; S19/S20/S21 have no scientific support role."
+  ],
+  "novelty_boundaries": {
+    "scientific_novelty": {
+      "status": "NOT_DEMONSTRATED_AT_PHASE_5_START",
+      "boundary": "No generalizable new pressure–contact–material law or mechanism is currently established. A scientific novelty claim is conditional on a repeatable, transferable, held-out result beyond H0a/H0b."
+    },
+    "system_novelty": {
+      "status": "POSSIBLE_ENGINEERING_COMBINATION_ONLY",
+      "boundary": "The SMA-spring/piston, fluid path and TiNi structure may form a new implementation combination, but combination alone is not scientific novelty."
+    },
+    "empirical_novelty": {
+      "status": "DEFENSIBLE_BOUNDED",
+      "boundary": "New quantitative characterization of pressure-conditioned bending in the defined TiNi-bundle regime may be claimed without a universal or first-ever statement."
+    },
+    "methodological_novelty": {
+      "status": "CONDITIONAL",
+      "boundary": "A validated decomposition/identification protocol may be a methodological contribution if it demonstrably enables claims unavailable from global bending alone."
+    },
+    "engineering_novelty": {
+      "status": "SUPPORTING_ONLY",
+      "boundary": "Source operating envelope, packaging and integration performance may be engineering contributions and must be labelled accordingly."
+    }
+  },
+  "allowed_claims": [
+    {
+      "wording": "Validated related architectures show architecture-scoped pressure/confinement effects on bending response.",
+      "basis": [
+        "RP001",
+        "RP002"
+      ],
+      "boundary": "No universal pressure–stiffness law or MP1-R transfer."
+    },
+    {
+      "wording": "Conventional contact/slip and transformation-aware formulations exist and can serve as locked comparators.",
+      "basis": [
+        "RP005",
+        "RP007",
+        "RP008",
+        "RP011"
+      ],
+      "boundary": "Existence is not adequacy proof."
+    },
+    {
+      "wording": "The pressure-to-local-contact map, interface dominance, TiNi-state activation in the accessed domain and matched source integration are not established for MP1-R.",
+      "basis": [
+        "RP017",
+        "RP018",
+        "RP019",
+        "RP020"
+      ],
+      "boundary": "These are unresolved/project-specific questions, not automatically literature gaps."
+    },
+    {
+      "wording": "Bench A/B separation is a design rationale for attribution.",
+      "basis": [
+        "RP014"
+      ],
+      "boundary": "It is not evidence that two benches are uniquely novel or mandatory."
+    }
+  ],
+  "conditional_claims": [
+    {
+      "claim": "Pressure changes bending response in the defined TiNi bundle.",
+      "required_result": "Repeatable, uncertainty-resolved near-specimen pressure and bending response under fixed geometry/history."
+    },
+    {
+      "claim": "A particular interface dominates or contributes a bounded fraction.",
+      "required_result": "Independent interface constraints and local/boundary observations."
+    },
+    {
+      "claim": "TiNi transformation is active in the accessed domain.",
+      "required_result": "Same-lot matched constitutive/temperature/history or phase-sensitive evidence."
+    },
+    {
+      "claim": "A conventional model predicts or fails on MP1-R.",
+      "required_result": "Locked parameters, reserved paths, declared metrics and uncertainty-aware comparison."
+    },
+    {
+      "claim": "An additional coupling term is necessary.",
+      "required_result": "H0a/H0b and confounders bounded, repeatable held-out residual, identifiable predictive improvement."
+    },
+    {
+      "claim": "Integrated SMA/piston response reproduces or fails to reproduce external-pressure response.",
+      "required_result": "Matched pressure, temperature, load, history, geometry and synchronized response."
+    }
+  ],
+  "prohibited_claims": [
+    "First positive-pressure variable-stiffness structure or first positive-pressure fiber-jamming principle/model.",
+    "First SMA/friction mechanism or first SMA-controlled friction modulation of wire-based structures.",
+    "First NiTi wire-jamming system or first wire/fiber jamming system.",
+    "Fluid pressure directly equals every inter-wire or wire–sleeve normal force.",
+    "Global bending proves wire–wire jamming or identifies interface dominance.",
+    "NiTi transformation necessarily dominates MP1-R hysteresis.",
+    "NiTi identity alone proves active transformation in the accessible bending domain.",
+    "Conventional models are insufficient, definitively falsified, or rejected because one simplification fails.",
+    "A new constitutive pressure–contact–material coupling law is required.",
+    "Interface disambiguation is already a demonstrated literature-wide scientific knowledge gap.",
+    "No relevant prior work combines any of the MP1-R mechanisms.",
+    "S18 proves positive-pressure fiber jamming or is a direct S03 precursor.",
+    "S19, S20 or S21 supplies scientific mechanics evidence; S20's retired identity may not be restored.",
+    "SMA spring-to-fluid displacement is novel solely because the drive or geometry differs.",
+    "Universal SMA cooling/response time inferred from S04.",
+    "Integrated response differences at unmatched pressure, temperature or history prove H1.",
+    "Different geometry, material, pressure levels, more FEA/measurements or held-out testing alone establish novelty.",
+    "A global loop, DMA loss tangent or F–δ slope directly equals M–κ bending work or local friction loss.",
+    "A source pressure gauge alone establishes specimen pressure or contact force.",
+    "No previous research has studied this mechanism.",
+    "The unresolved pressure/contact map is itself a demonstrated scientific knowledge gap.",
+    "The project contribution requires H1-R to be supported.",
+    "A null pressure effect or successful H0b result makes the thesis scientifically invalid.",
+    "The current working title can be used as causal evidence that pressure-controlled friction has already been demonstrated in MP1-R."
+  ],
+  "approved_chapter2_gap_wording": [
+    {
+      "gap_id": "GAP02",
+      "safe_strongest_wording": "The validated literature establishes pressure-dependent response in related architectures, but does not establish the pressure-to-local-contact transmission for the defined TiNi-bundle configuration.",
+      "more_conservative_wording": "The pressure-to-contact relation remains unestablished for this configuration and must be bounded experimentally.",
+      "prohibited_wording": "No previous research has studied pressure-to-contact transmission."
+    },
+    {
+      "gap_id": "GAP04",
+      "safe_strongest_wording": "Interface-specific resistance tests provide precedents, while pressure-conditioned wire–wire versus wire–sleeve contribution remains a system-identification question for MP1-R.",
+      "more_conservative_wording": "The dominant interface cannot be inferred from global bending alone.",
+      "prohibited_wording": "Interface disambiguation is a literature-wide scientific gap."
+    },
+    {
+      "gap_id": "GAP06",
+      "safe_strongest_wording": "NiTi state-sensitive response is established in tested domains, but transformation activity in the accessed same-lot bending domain is not established.",
+      "more_conservative_wording": "The study will characterize whether transformation is active in the measured domain.",
+      "prohibited_wording": "TiNi necessarily transforms and dominates hysteresis."
+    },
+    {
+      "gap_id": "GAP08",
+      "safe_strongest_wording": "Existing conventional formulations provide a comparator, but their predictive adequacy for the defined MP1-R configuration has not been quantitatively tested on reserved paths.",
+      "more_conservative_wording": "A locked conventional baseline is required before any stronger coupling claim.",
+      "prohibited_wording": "The literature lacks the exact equation, so a new law is required."
+    },
+    {
+      "gap_id": "GAP10/GAP11",
+      "safe_strongest_wording": "The proposed source operating envelope and matched integrated/external response remain to be validated for the selected architecture.",
+      "more_conservative_wording": "Actuator and integration performance are supporting validation tasks.",
+      "prohibited_wording": "A different spring/piston arrangement is automatically a new scientific mechanism."
+    }
+  ],
+  "chapter3_implication_boundary": {
+    "intervention": "Controlled near-specimen pressure applied to a fixed, mentor-confirmed cross-section; Bench B source operation is a separate intervention clock.",
+    "control": "Geometry, packing, reaction/sleeve path, material lot, temperature, loading rate, history, source versus specimen pressure, and cycle order.",
+    "measurement": "M–κ or predeclared stiffness metric, near-specimen pressure, temperature, histories, boundary motion, local/interface observations and source records as required by the claim.",
+    "comparison": "Externally pressurized Bench A versus integrated SMA/piston Bench B only at matched p, temperature, load, history and geometry.",
+    "validation": "Uncertainty-aware repeatability, calibration/validation separation, independent interface/material controls and explicit null handling.",
+    "held_out_test": "Reserved pressure–curvature paths for the locked conventional model; no post-hoc threshold or term selection.",
+    "claim_mapping": {
+      "C1": "OBS01/03/04/05/06",
+      "C2": "OBS07/08/09",
+      "C3": "locked model + OBS01/03/05/06/08/10",
+      "C5/C6": "OBS02/04/11/12"
+    }
+  },
+  "working_title_audit": {
+    "current_title": "Characterization of Bending Stiffness in TiNi Wire Bundles Using Pressure-Controlled Friction Generated by an SMA-Spring-Driven Piston",
+    "status": "REVISE",
+    "finding": "The current title presupposes pressure-controlled friction and gives the piston a causal role before pressure-to-interface mapping and integration are established.",
+    "conservative_title": "Pressure-Conditioned Bending Characterization of TiNi Wire Bundles with an SMA-Spring-Driven Pressure Source",
+    "mechanism_focused_conditional_title": "Interface-Resolved Pressure–Friction–Bending Response of TiNi Wire Bundles under SMA-Spring-Driven Pressurization",
+    "conditional_title_use": "Use only after interface dominance and pressure-to-contact evidence are independently established."
+  },
+  "canonical_phase4_provenance": {
+    "phase4_authority_path": "outputs/plans/MP1_R_PHASE_4_RECONCILED_PHASE_5_HANDOFF_2026-10-02.json",
+    "phase4_authority_exit_gate": "READY_FOR_PHASE_5_GAP_ADJUDICATION",
+    "phase4_authority_release_status": "READY",
+    "phase4_reconciled_report": "docs/literature/MP1_R_PHASE_4_RECONCILED_SYNTHESIS_2026-10-02.md",
+    "phase4_reconciliation_matrix": "outputs/plans/MP1_R_PHASE_4_RECONCILIATION_MATRIX_2026-10-02.json",
+    "phase4_canonical_themes": 5,
+    "phase4_canonical_propositions": 21,
+    "phase4_hypotheses": {
+      "H0a-R": "PLAUSIBLE",
+      "H0b-R": "PLAUSIBLE",
+      "H1-R": "NOT_YET_DISTINGUISHABLE"
+    },
+    "phase4_critical_weakest_link": "radial reaction → local wire–wire / wire–sleeve contact normal forces",
+    "source_boundary": "Phase 4 canonical propositions, evidence-strength map and Phase 3 restrictions; no new literature search.",
+    "secondary_material_reopened": false,
+    "original_papers_reopened": 0,
+    "broad_literature_searches": 0
+  },
+  "release_conditions": {
+    "defensible_contribution_exists": true,
+    "primary_gap_need_classification_explicit": true,
+    "final_rqs_bounded": true,
+    "novelty_wording_controlled": true,
+    "hypothesis_roles_clear": true,
+    "no_contribution_requires_h1": true,
+    "unsupported_scientific_gap_claims_remaining": false,
+    "chapter2_claim_boundary_stable": true
+  },
+  "validation": {
+    "primary_inputs_read": 3,
+    "broad_literature_searches": 0,
+    "original_papers_reopened": 0,
+    "phase4_artifacts_modified": false,
+    "h1_required_for_thesis_success": false,
+    "new_constitutive_law_currently_justified": "CONDITIONAL",
+    "unsupported_scientific_gap_claims_remaining": false,
+    "all_phase4_source_ids_resolve": true
+  },
+  "canonical_phase4_source_usage": {
+    "source_ids_resolved": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S15",
+      "S17",
+      "S18",
+      "S22",
+      "V-W02"
+    ],
+    "source_usage_reconciliation": {
+      "A_GEMINI_count": 16,
+      "B_GPT_count": 17,
+      "A_unique_or_omitted": "S17 is absent from A's declared synthesis support; B uses it for metric-definition caution. S15 is present in both contextual pressure/theme use.",
+      "B_unique_or_omitted": "No additional B source outside A's core set except S17.",
+      "canonical_decision": "Retain S17 as secondary/contextual support for RP015 only; it does not change mechanics conclusions.",
+      "S19_S20_S21": "Excluded/quarantined/retired; no scientific support role."
+    },
+    "restriction_note": "S19/S20/S21 remain excluded/quarantined/retired; S20 has no scientific support role; corrected S18 restrictions are inherited unchanged."
+  }
+}
