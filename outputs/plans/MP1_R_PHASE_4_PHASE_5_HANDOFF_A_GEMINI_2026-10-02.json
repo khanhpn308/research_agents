@@ -1,0 +1,311 @@
+{
+  "run_label": "A_GEMINI",
+  "status": "READY_FOR_PHASE_4_RECONCILIATION",
+  "date": "2026-10-02",
+  "validated_synthesis_themes": [
+    "Pressure-Controlled Variable Stiffness",
+    "Friction, Contact and Stick-Slip in Multi-Element Structures",
+    "TiNi Material and Transformation Effects",
+    "SMA as Actuator vs TiNi as Structural Material",
+    "Interface Identifiability",
+    "Experimental Decoupling (Bench A vs Bench B)"
+  ],
+  "established_propositions": [
+    "Confinement pressure alters bending stiffness via friction.",
+    "Frictional interfaces create slip-dependent bounds.",
+    "Distinct internal interfaces can be experimentally isolated.",
+    "NiTi material phase influences structural compliance."
+  ],
+  "supported_cross_study_connections": [
+    "SMA thermal actuation can modulate contact friction."
+  ],
+  "unresolved_questions": [
+    "Outward fluid pressure uniquely increases TiNi inter-wire friction.",
+    "A novel constitutive coupling law is required."
+  ],
+  "agreement_map": [
+    {
+      "proposition": "Confinement pressure alters bending stiffness via friction.",
+      "supporting_sources": ["S01", "S02", "S03", "S18"],
+      "compatibility": "High",
+      "evidence_strength": "STRONG",
+      "caveat": "Uniform pressure distributions are typically assumed, not measured."
+    },
+    {
+      "proposition": "Frictional interfaces create slip-dependent bounds.",
+      "supporting_sources": ["S03", "S04", "S06", "S18"],
+      "compatibility": "High",
+      "evidence_strength": "STRONG",
+      "caveat": "Specific values depend on the testing boundary and geometry."
+    },
+    {
+      "proposition": "Distinct internal interfaces can be experimentally isolated.",
+      "supporting_sources": ["S04", "S22"],
+      "compatibility": "High",
+      "evidence_strength": "MODERATE",
+      "caveat": "Methods exist, but no joint partition experiment is reported in a TiNi bundle."
+    },
+    {
+      "proposition": "NiTi material phase influences structural compliance.",
+      "supporting_sources": ["S05", "S13"],
+      "compatibility": "High",
+      "evidence_strength": "STRONG",
+      "caveat": "Often confounded with inter-wire friction in macroscopic tests."
+    },
+    {
+      "proposition": "SMA thermal actuation can modulate contact friction.",
+      "supporting_sources": ["S04"],
+      "compatibility": "High",
+      "evidence_strength": "LIMITED",
+      "caveat": "Demonstrated for wire-rubber only, not generalized."
+    }
+  ],
+  "disagreement_map": [
+    {
+      "issue": "Hysteresis cycle prediction",
+      "source_a": "S06",
+      "source_b": "S11",
+      "difference": "S06 provides bounds and avoids cycle prediction; S11 fits phenomenological loops.",
+      "type": "MEASUREMENT_DEFINITION_DIFFERENCE",
+      "resolution": "Both valid; predictive constitutive loops remain an open challenge."
+    },
+    {
+      "issue": "Interface dominance",
+      "source_a": "S22",
+      "source_b": "S04",
+      "difference": "S22 isolates internal wire-wire layers; S04 isolates wire-rubber boundary.",
+      "type": "DIFFERENT_RESEARCH_QUESTION",
+      "resolution": "Both methods are valid precedents; MP1-R must test both to find which dominates."
+    },
+    {
+      "issue": "Pressure-to-friction mapping",
+      "source_a": "S02",
+      "source_b": "S03",
+      "difference": "S02 infers pressure-dependent equivalent E; S03 fits effective \u03bc.",
+      "type": "MODEL_ASSUMPTION_DIFFERENCE",
+      "resolution": "Neither independently measures local N; both assume uniform transfer."
+    }
+  ],
+  "h0_h1_state": {
+    "H0a-R": {
+      "collective_supporting_evidence": "S05, S13",
+      "collective_counter_evidence": "S03, S04",
+      "current_status": "PLAUSIBLE",
+      "critical_missing_observation": "Single-wire material calibration vs bundle response under matched conditions."
+    },
+    "H0b-R": {
+      "collective_supporting_evidence": "S03, S06, S12, V-W02",
+      "collective_counter_evidence": "None locked to MP1-R",
+      "current_status": "PLAUSIBLE",
+      "critical_missing_observation": "High-fidelity local slip and independent interface resistance tests."
+    },
+    "H1-R": {
+      "collective_supporting_evidence": "S11, S13 (interpretations)",
+      "collective_counter_evidence": "None locked to MP1-R",
+      "current_status": "NOT_YET_DISTINGUISHABLE",
+      "critical_missing_observation": "Orthogonal pressure/material-state contrasts showing residuals beyond H0b uncertainty."
+    }
+  },
+  "causal_chain_evidence_status": [
+    {
+      "causal_link": "fluid pressure \u2192 membrane deformation",
+      "supporting_sources": ["S02", "S03"],
+      "evidence_type": "Experiment",
+      "transferability": "CONDITIONALLY_COMPARABLE",
+      "status": "PARTIALLY_SUPPORTED"
+    },
+    {
+      "causal_link": "membrane deformation \u2192 radial reaction",
+      "supporting_sources": ["S02", "S03"],
+      "evidence_type": "Model",
+      "transferability": "MECHANISTIC_ANALOGUE",
+      "status": "MODEL_DEPENDENT"
+    },
+    {
+      "causal_link": "radial reaction \u2192 local contact normal force",
+      "supporting_sources": ["S03"],
+      "evidence_type": "Model",
+      "transferability": "MECHANISTIC_ANALOGUE",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "causal_link": "local contact normal force \u2192 friction capacity",
+      "supporting_sources": ["S03", "S04", "S18", "S22"],
+      "evidence_type": "Exp/Model",
+      "transferability": "CONDITIONALLY_COMPARABLE",
+      "status": "ESTABLISHED"
+    },
+    {
+      "causal_link": "friction capacity \u2192 slip state",
+      "supporting_sources": ["S03", "S06", "S18", "S22"],
+      "evidence_type": "Exp/Model",
+      "transferability": "CONDITIONALLY_COMPARABLE",
+      "status": "ESTABLISHED"
+    },
+    {
+      "causal_link": "slip state \u2192 bending stiffness",
+      "supporting_sources": ["S01", "S03", "S04", "S06", "S18"],
+      "evidence_type": "Exp/Model",
+      "transferability": "DIRECTLY_COMPARABLE (conceptually)",
+      "status": "ESTABLISHED"
+    }
+  ],
+  "testable_questions": [
+    {
+      "question": "Under externally controlled pressure, how does effective bending stiffness of the TiNi bundle vary?",
+      "classification": "CORE"
+    },
+    {
+      "question": "Which interface (wire-wire or wire-sleeve) dominates the pressure-induced friction change?",
+      "classification": "CORE"
+    },
+    {
+      "question": "Can the measured M-\u03ba response be explained by a conventional contact/friction baseline (H0b-R) without an additional coupling law?",
+      "classification": "CORE"
+    },
+    {
+      "question": "What is the thermal lag, actuation speed, and pressure limit of the SMA-spring-driven piston?",
+      "classification": "SUPPORTING"
+    },
+    {
+      "question": "Does the actuator's heating cycle conductively alter the structural bundle's material phase?",
+      "classification": "OPTIONAL"
+    }
+  ],
+  "required_observables": [
+    {
+      "observable": "Fluid pressure at specimen",
+      "classification": "ESSENTIAL",
+      "mechanism": "Confinement",
+      "hypothesis": "All",
+      "identifiability_purpose": "Normal force baseline."
+    },
+    {
+      "observable": "Interface-specific slip resistance",
+      "classification": "ESSENTIAL",
+      "mechanism": "Friction/Contact",
+      "hypothesis": "H0b-R",
+      "identifiability_purpose": "Disambiguate wire-wire vs wire-sleeve."
+    },
+    {
+      "observable": "Bundle M-\u03ba hysteresis loops",
+      "classification": "ESSENTIAL",
+      "mechanism": "Bending stiffness",
+      "hypothesis": "All",
+      "identifiability_purpose": "Quantify macroscopic dissipation and tangent rigidity."
+    },
+    {
+      "observable": "Single-wire material response",
+      "classification": "HIGH_VALUE",
+      "mechanism": "TiNi Phase",
+      "hypothesis": "H0a-R",
+      "identifiability_purpose": "Establish material-only baseline to isolate friction."
+    },
+    {
+      "observable": "Piston displacement/force",
+      "classification": "HIGH_VALUE",
+      "mechanism": "SMA Actuation",
+      "hypothesis": "N/A",
+      "identifiability_purpose": "Characterize actuator efficiency and limits."
+    },
+    {
+      "observable": "Bundle temperature",
+      "classification": "OPTIONAL",
+      "mechanism": "TiNi Phase",
+      "hypothesis": "H0a-R, H1-R",
+      "identifiability_purpose": "Isolate actuator thermal cross-talk."
+    }
+  ],
+  "evidence_strength_map": [
+    {
+      "scientific_proposition": "Pressure-controlled stiffening",
+      "strength": "MODERATE",
+      "source_set": ["S01", "S02", "S03", "S15", "S18"],
+      "comparability": "CONDITIONALLY_COMPARABLE / MECHANISTIC_ANALOGUE",
+      "limitation": "Uniform pressure assumptions, no direct TiNi bundle transfer."
+    },
+    {
+      "scientific_proposition": "Friction/stick-slip bending bounds",
+      "strength": "STRONG",
+      "source_set": ["S04", "S06", "S12", "S18", "S22"],
+      "comparability": "MECHANISTIC_ANALOGUE",
+      "limitation": "Dependent on specific interface conditions."
+    },
+    {
+      "scientific_proposition": "TiNi thermomechanics / transformation",
+      "strength": "STRONG",
+      "source_set": ["S05", "S07", "S11", "S12", "S13"],
+      "comparability": "CONDITIONALLY_COMPARABLE",
+      "limitation": "No study partitions transformation loss from friction loss in MP1-R."
+    },
+    {
+      "scientific_proposition": "Interface disambiguation",
+      "strength": "MODERATE",
+      "source_set": ["S04", "S22"],
+      "comparability": "MECHANISTIC_ANALOGUE",
+      "limitation": "No joint partition experiment reported."
+    }
+  ],
+  "chapter_2_blueprint": [
+    {
+      "subsection_title": "1. Pressure-Controlled Variable Stiffness",
+      "scientific_purpose": "Establish confinement-induced stiffening.",
+      "primary_claim": "Controlled pressure modulates apparent structural stiffness via friction.",
+      "supporting_sources": ["S01", "S02", "S03", "S18"],
+      "comparison_required": "Positive pressure in S02/S03 versus vacuum in S01/S18.",
+      "contrast_required": "Fiber contacts vs particle contacts vs layer contacts.",
+      "critical_limitation": "Previous studies rely on uniform pressure assumptions and lack direct TiNi bundle normal-force measurements.",
+      "connection_to_next_subsection": "Connects bulk pressure to the frictional stick-slip mechanisms that dictate structural stiffness.",
+      "prohibited_wording": "First positive-pressure variable-stiffness structure."
+    },
+    {
+      "subsection_title": "2. Friction and Contact in Multi-Element Structures",
+      "scientific_purpose": "Define the stick-slip mechanistic baseline.",
+      "primary_claim": "Frictional interfaces create slip-dependent bounds and hysteresis in bending.",
+      "supporting_sources": ["S04", "S06", "S22"],
+      "comparison_required": "Eigenstrain limits (S06) versus isolated sliding tests (S04, S22).",
+      "contrast_required": "Internal cable layers (S22) versus wire-sleeve boundary (S04).",
+      "critical_limitation": "Global M-\u03ba tests obscure which interface dominates the loss.",
+      "connection_to_next_subsection": "Introduces the need to consider material properties alongside friction.",
+      "prohibited_wording": "Conventional models are insufficient."
+    },
+    {
+      "subsection_title": "3. TiNi Thermomechanics and Bending",
+      "scientific_purpose": "Introduce the material-level complexity.",
+      "primary_claim": "NiTi components exhibit transformation-dependent properties that interact with structural kinematics.",
+      "supporting_sources": ["S05", "S07", "S11", "S13"],
+      "comparison_required": "Frictionless models (S07) versus lumped-parameter experiments (S11, S13).",
+      "contrast_required": "DIC local evidence (S05) versus global modulus changes (S13).",
+      "critical_limitation": "No study cleanly partitions transformation loss from friction loss in a pressure-controlled bending setup.",
+      "connection_to_next_subsection": "Distinguishes the structural TiNi wires from the separate SMA actuator.",
+      "prohibited_wording": "NiTi transformation necessarily dominates hysteresis."
+    },
+    {
+      "subsection_title": "4. Experimental Decoupling and Interface Identifiability",
+      "scientific_purpose": "Justify the MP1-R experimental architecture (Bench A / Bench B).",
+      "primary_claim": "Separating the pressure source from the structure, and isolating specific interfaces, is necessary for valid mechanistic attribution.",
+      "supporting_sources": ["S04", "S09", "S22"],
+      "comparison_required": "Thermal actuator lag (S04, S09) versus structural response.",
+      "contrast_required": "Integrated setups (S04) versus isolated tests (S22).",
+      "critical_limitation": "Interface isolation requires dedicated fixtures; SMA thermal dynamics cannot be assumed instantaneous.",
+      "connection_to_next_subsection": "Sets up the testable questions for Phase 5.",
+      "prohibited_wording": "Interface disambiguation is a scientific knowledge gap."
+    }
+  ],
+  "prohibited_overclaims": [
+    "First positive-pressure variable-stiffness structure.",
+    "First SMA-friction mechanism.",
+    "First NiTi wire-jamming system.",
+    "Fluid pressure directly equals inter-wire normal force.",
+    "Global bending proves inter-wire jamming.",
+    "NiTi transformation necessarily dominates hysteresis.",
+    "Conventional models (H0b) are insufficient or definitively falsified.",
+    "A new constitutive coupling law is required.",
+    "Interface disambiguation is a newly discovered scientific knowledge gap.",
+    "No prior work combines relevant mechanisms."
+  ],
+  "questions_requiring_phase_5_adjudication": [
+    "Does outward fluid pressure uniquely map to wire-wire vs wire-sleeve normal forces in the MP1-R architecture?",
+    "Can the measured response be predicted by a conventional Coulomb stick-slip model combined with TiNi thermomechanics (H0b-R), or is a new coupling law required?"
+  ]
+}
