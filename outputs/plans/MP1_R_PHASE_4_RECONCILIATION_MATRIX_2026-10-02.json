@@ -1,0 +1,1244 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "MP1_R_PHASE_4_RECONCILIATION_MATRIX",
+  "date": "2026-10-02",
+  "release_status": "BLOCKED_FOR_RECONCILIATION",
+  "classification_note": "Full provisional semantic reconciliation is recorded, but Phase 5 release is blocked because A_GEMINI lacks an explicit blindness receipt in the supplied primary artifacts.",
+  "theme_comparison": [
+    {
+      "id": "T01",
+      "title": "Confinement architectures, pressure paths and local-force mapping",
+      "purpose": "Establish architecture-scoped pressure/confinement effects and keep pressure, reaction load and local contact force distinct.",
+      "sources": [
+        "S01",
+        "S02",
+        "S03",
+        "S15",
+        "S18",
+        "S22"
+      ],
+      "maps": {
+        "A": [
+          "Pressure-Controlled Variable Stiffness"
+        ],
+        "B": [
+          "T01 — Pressure paths, confinement and the missing local-force map"
+        ]
+      }
+    },
+    {
+      "id": "T02",
+      "title": "Slip-conditioned bending and interface identifiability",
+      "purpose": "Define friction/stick-slip baselines and the independent observations needed to distinguish wire–wire from wire–sleeve contributions.",
+      "sources": [
+        "S03",
+        "S04",
+        "S06",
+        "S11",
+        "S18",
+        "S22",
+        "V-W02"
+      ],
+      "maps": {
+        "A": [
+          "Friction, Contact and Stick-Slip in Multi-Element Structures",
+          "Interface Identifiability"
+        ],
+        "B": [
+          "T02 — Slip-conditioned bending and interface identifiability"
+        ]
+      }
+    },
+    {
+      "id": "T03",
+      "title": "Structural TiNi thermomechanics and competing material/contact explanations",
+      "purpose": "Separate direct transformation evidence, aggregate hysteresis and existing transformation-aware contact formulations; preserve H0a/H0b/H1 competition.",
+      "sources": [
+        "S05",
+        "S07",
+        "S11",
+        "S12",
+        "S13",
+        "V-W02"
+      ],
+      "maps": {
+        "A": [
+          "TiNi Material and Transformation Effects"
+        ],
+        "B": [
+          "T03 — Structural TiNi state, hysteresis and conventional transformation-aware models",
+          "T05 — Competing explanations and claim boundaries"
+        ]
+      }
+    },
+    {
+      "id": "T04",
+      "title": "SMA actuation, fluid generation and Bench A/Bench B decomposition",
+      "purpose": "Distinguish SMA-as-actuator from TiNi-as-structure and bound what separate source and structure characterization can establish.",
+      "sources": [
+        "S03",
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "maps": {
+        "A": [
+          "SMA as Actuator vs TiNi as Structural Material",
+          "Experimental Decoupling (Bench A vs Bench B)"
+        ],
+        "B": [
+          "T04 — SMA actuation, fluid generation and experimental decomposition"
+        ]
+      }
+    },
+    {
+      "id": "T05",
+      "title": "Evidence-bounded model adequacy and unresolved attribution",
+      "purpose": "Compare conventional model capabilities and state what remains undetermined without declaring a gap or contribution.",
+      "sources": [
+        "S03",
+        "S05",
+        "S06",
+        "S12",
+        "S18",
+        "V-W02"
+      ],
+      "maps": {
+        "A": [
+          "Friction, Contact and Stick-Slip in Multi-Element Structures",
+          "TiNi Material and Transformation Effects"
+        ],
+        "B": [
+          "T05 — Competing explanations and claim boundaries"
+        ]
+      }
+    }
+  ],
+  "proposition_comparison": [
+    {
+      "canonical_id": "RP001",
+      "canonical_proposition": "Confinement-based jamming changes bending response in the tested fiber and granular architectures.",
+      "A_GEMINI": "Confinement pressure alters bending stiffness via friction.",
+      "B_GPT": "P401: confinement-based jamming can change bending stiffness in tested fiber and granular structures.",
+      "phase3_support": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "final_strength": "STRONG",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Direct architecture-scoped findings; wording excludes a universal relation or MP1-R transfer."
+    },
+    {
+      "canonical_id": "RP002",
+      "canonical_proposition": "Positive-pressure jamming has been demonstrated in tested granular and nylon-fiber structures.",
+      "A_GEMINI": "Confinement pressure alters bending stiffness via friction.",
+      "B_GPT": "P402: positive-pressure jamming demonstrated in granular and nylon-fiber structures.",
+      "phase3_support": [
+        "S02",
+        "S03"
+      ],
+      "final_strength": "STRONG",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Direct findings in two pressure-path architectures; no common coefficient or TiNi inference."
+    },
+    {
+      "canonical_id": "RP003",
+      "canonical_proposition": "Pressure sensitivity can differ between bending/slip branches in the tested nylon-fiber chain.",
+      "A_GEMINI": "Confinement pressure alters bending stiffness via friction.",
+      "B_GPT": "P403: pressure sensitivity can depend on bending/slip branch.",
+      "phase3_support": [
+        "S03"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Single-prototype, model-assisted branch interpretation; local slip is not directly measured."
+    },
+    {
+      "canonical_id": "RP004",
+      "canonical_proposition": "SMA circumferential tightening changes wire–rubber sliding resistance and structural response in the tested robot.",
+      "A_GEMINI": "SMA thermal actuation can modulate contact friction.",
+      "B_GPT": "P404: SMA circumferential tightening changes wire–rubber sliding resistance and bending response.",
+      "phase3_support": [
+        "S04"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Narrow direct finding is stronger than the broad generalization; no transfer to MP1-R interface is assumed."
+    },
+    {
+      "canonical_id": "RP005",
+      "canonical_proposition": "Slip-state mechanics provide tested stiffness limits for short steel ropes.",
+      "A_GEMINI": "Frictional interfaces create slip-dependent bounds.",
+      "B_GPT": "P405: equivalent-beam mechanics predicts slip-state stiffness limits for tested short steel ropes.",
+      "phase3_support": [
+        "S06"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Validated in the stated steel-rope regime; no hysteresis-cycle law or TiNi transfer."
+    },
+    {
+      "canonical_id": "RP006",
+      "canonical_proposition": "NiTi cable/component tests show transformation-sensitive local response in their tension domain.",
+      "A_GEMINI": "NiTi material phase influences structural compliance.",
+      "B_GPT": "P406: NiTi cable/component tension measurements reveal transformation-sensitive local response.",
+      "phase3_support": [
+        "S05"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Direct material evidence, conservatively downgraded for cross-domain pressured bending."
+    },
+    {
+      "canonical_id": "RP007",
+      "canonical_proposition": "Existing numerical formulations combine transformation-aware response with frictional cable contact.",
+      "A_GEMINI": "NiTi material phase influences structural compliance.",
+      "B_GPT": "P407: transformation-aware constitutive response and frictional contact can be combined numerically.",
+      "phase3_support": [
+        "S12",
+        "V-W02"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Numerical precedent is established; it is not independent physical replication or adequacy proof."
+    },
+    {
+      "canonical_id": "RP008",
+      "canonical_proposition": "A conventional continuum friction/slip model exists for vacuum-confined PVC layer beams.",
+      "A_GEMINI": "Confinement pressure alters bending stiffness via friction.",
+      "B_GPT": "P408: conventional continuum friction/slip modeling exists for vacuum-confined PVC layer beams.",
+      "phase3_support": [
+        "S18"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Corrected S18 identity and restrictions retained; it is a theoretical/mechanistic analogue, not positive-pressure fiber evidence."
+    },
+    {
+      "canonical_id": "RP009",
+      "canonical_proposition": "Dedicated specimens can measure selected internal cable-layer or wire–tube sliding resistance.",
+      "A_GEMINI": "Distinct internal interfaces can be experimentally isolated.",
+      "B_GPT": "P409/P413: selected internal-layer and wire–tube resistance tests are methodological precedents.",
+      "phase3_support": [
+        "S04",
+        "S22"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Methods exist in separate systems; they do not jointly identify MP1-R interface dominance."
+    },
+    {
+      "canonical_id": "RP010",
+      "canonical_proposition": "SMA-to-fluid displacement and coupled thermal/fluid/mechanical modeling have prior art.",
+      "A_GEMINI": "SMA as actuator vs TiNi as structural material.",
+      "B_GPT": "P410: SMA-to-fluid displacement and thermal/fluid/mechanical modeling have prior art.",
+      "phase3_support": [
+        "S09"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Direct actuator precedent, but not the proposed spring/piston performance."
+    },
+    {
+      "canonical_id": "RP011",
+      "canonical_proposition": "Friction/slip constraints can bound or modulate bending response and provide a conventional baseline.",
+      "A_GEMINI": "Frictional interfaces create slip-dependent bounds.",
+      "B_GPT": "P411: slip-state bounds and continuum sliding models provide complementary conventional baselines.",
+      "phase3_support": [
+        "S03",
+        "S04",
+        "S06",
+        "S18",
+        "S22",
+        "V-W02"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "A called this STRONG, but B correctly separates heterogeneous bounds, models and tests; narrow cross-study wording avoids false replication."
+    },
+    {
+      "canonical_id": "RP012",
+      "canonical_proposition": "Transformation and contact losses can coexist; global hysteresis does not partition their contributions.",
+      "A_GEMINI": "NiTi material phase influences structural compliance.",
+      "B_GPT": "P412: transformation and contact losses can coexist; global hysteresis alone does not partition them.",
+      "phase3_support": [
+        "S05",
+        "S11",
+        "S13"
+      ],
+      "final_strength": "LIMITED",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "Authors and observations support coexistence, but fractions are not independently measured."
+    },
+    {
+      "canonical_id": "RP013",
+      "canonical_proposition": "Internal-layer and wire–sleeve resistance methods are distinct identification precedents.",
+      "A_GEMINI": "Distinct internal interfaces can be experimentally isolated.",
+      "B_GPT": "P413: internal cable-layer and wire–tube resistance tests are separate methodological precedents.",
+      "phase3_support": [
+        "S04",
+        "S22"
+      ],
+      "final_strength": "ANALOGUE_ONLY",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "Transfer requires matched interface, packing and boundary controls."
+    },
+    {
+      "canonical_id": "RP014",
+      "canonical_proposition": "Independent pressure and actuator characterization supports attribution of structural versus source dynamics.",
+      "A_GEMINI": "Experimental decoupling (Bench A vs Bench B).",
+      "B_GPT": "P414: independent pressure and actuator characterization supports attribution.",
+      "phase3_support": [
+        "S03",
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "final_strength": "ANALOGUE_ONLY",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "Method/design rationale, not validation of hardware or evidence that two physical rigs are uniquely required."
+    },
+    {
+      "canonical_id": "RP015",
+      "canonical_proposition": "Global force–deflection slopes, bending rigidity, DMA loss and loop work are not interchangeable stiffness/loss measures.",
+      "A_GEMINI": "Friction, contact and stick-slip; metric caveat implicit.",
+      "B_GPT": "P415: branch slopes, rigidity, DMA loss and loop work cannot be pooled.",
+      "phase3_support": [
+        "S03",
+        "S06",
+        "S13",
+        "S17"
+      ],
+      "final_strength": "ANALOGUE_ONLY",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "Metric conversion needs geometry, boundary and dimensional checks; S17 is a compatible extension omitted by A."
+    },
+    {
+      "canonical_id": "RP016",
+      "canonical_proposition": "Membrane, sleeve and reaction-path mechanics limit transfer of pressure/friction models between architectures.",
+      "A_GEMINI": "Pressure-to-friction mapping differs by model assumption.",
+      "B_GPT": "P416: membrane and reaction-path mechanics can limit transfer.",
+      "phase3_support": [
+        "S02",
+        "S03",
+        "S18"
+      ],
+      "final_strength": "ANALOGUE_ONLY",
+      "final_status": "SUPPORTED_CONNECTION",
+      "adjudication": "Supported as cross-study inference; not experimentally quantified in MP1-R."
+    },
+    {
+      "canonical_id": "RP017",
+      "canonical_proposition": "The validated corpus does not establish that fluid pressure uniquely determines local wire contact forces or MP1-R bending stiffness.",
+      "A_GEMINI": "Outward fluid pressure uniquely increases TiNi inter-wire friction (unresolved).",
+      "B_GPT": "P417: fluid pressure uniquely determines local wire contact forces and bending stiffness (unresolved).",
+      "phase3_support": [
+        "S02",
+        "S03",
+        "S18",
+        "S22"
+      ],
+      "final_strength": "NOT_ESTABLISHED",
+      "final_status": "UNRESOLVED",
+      "adjudication": "Models assume or infer the map; no proposed-geometry calibration or independent local-N measurement."
+    },
+    {
+      "canonical_id": "RP018",
+      "canonical_proposition": "The validated corpus does not establish that global bending uniquely identifies wire–wire versus wire–sleeve dominance.",
+      "A_GEMINI": "Which interface actually dominates remains unresolved.",
+      "B_GPT": "P418: global bending uniquely identifies the dominant interface (unresolved).",
+      "phase3_support": [
+        "S03",
+        "S04",
+        "S22"
+      ],
+      "final_strength": "NOT_ESTABLISHED",
+      "final_status": "UNRESOLVED",
+      "adjudication": "Material, sleeve, contact and end terms are confounded without independent constraints."
+    },
+    {
+      "canonical_id": "RP019",
+      "canonical_proposition": "The adequacy of a locked conventional model, and any need for an additional coupling law, remains unestablished.",
+      "A_GEMINI": "A novel constitutive coupling law is required (unresolved).",
+      "B_GPT": "P419: conventional model adequacy or new-law necessity (unresolved).",
+      "phase3_support": [
+        "S05",
+        "S06",
+        "S07",
+        "S12",
+        "S18",
+        "V-W02"
+      ],
+      "final_strength": "NOT_ESTABLISHED",
+      "final_status": "UNRESOLVED",
+      "adjudication": "No MP1-R measurements or locked baseline; failure of one simplification cannot reject the model family."
+    },
+    {
+      "canonical_id": "RP020",
+      "canonical_proposition": "It is unestablished whether the SMA spring/piston reproduces the externally imposed structural envelope under matched conditions.",
+      "A_GEMINI": "Bench A/B integration losses remain uncertain.",
+      "B_GPT": "P420: spring/piston reproduces external envelope under matched conditions (unresolved).",
+      "phase3_support": [
+        "S03",
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "final_strength": "NOT_ESTABLISHED",
+      "final_status": "UNRESOLVED",
+      "adjudication": "No integrated pressure/temperature/loading/history-matched MP1-R evidence."
+    },
+    {
+      "canonical_id": "RP021",
+      "canonical_proposition": "The laminar-jamming review provides scoped mechanism orientation but excludes fiber/particle coverage and is not primary mechanics replication.",
+      "A_GEMINI": "Pressure-Controlled Variable Stiffness (review context).",
+      "B_GPT": "S15 use in T01/BP01 as secondary orientation.",
+      "phase3_support": [
+        "S15"
+      ],
+      "final_strength": "MODERATE",
+      "final_status": "ESTABLISHED",
+      "adjudication": "Review scope is retained as context only; it cannot validate positive-pressure fiber/granular mechanics."
+    }
+  ],
+  "hypothesis_comparison": [
+    {
+      "hypothesis": "H0a-R",
+      "definition": "TiNi thermomechanical/material behavior sufficiently explains most observed response.",
+      "A_status": "PLAUSIBLE",
+      "B_status": "PLAUSIBLE",
+      "canonical_status": "PLAUSIBLE",
+      "supporting_evidence": [
+        "S05",
+        "S13"
+      ],
+      "missing_observation": "Same-lot state/rate/history-matched material baseline plus pressure contrasts with sleeve/end effects bounded."
+    },
+    {
+      "hypothesis": "H0b-R",
+      "definition": "Existing contact/friction/stick–slip and transformation-aware material/boundary models suffice without a new constitutive coupling law.",
+      "A_status": "PLAUSIBLE",
+      "B_status": "PLAUSIBLE",
+      "canonical_status": "PLAUSIBLE",
+      "supporting_evidence": [
+        "S03",
+        "S06",
+        "S12",
+        "S18",
+        "V-W02"
+      ],
+      "missing_observation": "Locked, calibrated conventional baseline tested on reserved pressure–curvature paths with independent contact/slip constraints."
+    },
+    {
+      "hypothesis": "H1-R",
+      "definition": "Additional coupled pressure–contact–material interaction is needed beyond simpler alternatives.",
+      "A_status": "NOT_YET_DISTINGUISHABLE",
+      "B_status": "NOT_YET_DISTINGUISHABLE",
+      "canonical_status": "NOT_YET_DISTINGUISHABLE",
+      "supporting_evidence": [
+        "S11",
+        "S13"
+      ],
+      "missing_observation": "Orthogonal pressure/material-state contrasts with local slip/strain and temperature, compared with defined H0a/H0b predictions."
+    }
+  ],
+  "causal_chain_comparison": [
+    {
+      "id": "L01",
+      "causal_link": "fluid pressure → membrane/enclosure response",
+      "A_status": "PARTIALLY_SUPPORTED",
+      "B_status": "MODEL_DEPENDENT",
+      "canonical_status": "MODEL_DEPENDENT",
+      "evidence": [
+        "S02",
+        "S03",
+        "S18"
+      ],
+      "reason": "Confinement response is demonstrated/modelled in other architectures, but MP1-R material, compliance, fluid and pressure reference differ."
+    },
+    {
+      "id": "L02",
+      "causal_link": "membrane/enclosure response → radial reaction",
+      "A_status": "MODEL_DEPENDENT",
+      "B_status": "INFERRED",
+      "canonical_status": "INFERRED",
+      "evidence": [
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "reason": "Reaction follows an architecture-specific boundary model; outward MP1-R force path is not measured."
+    },
+    {
+      "id": "L03",
+      "causal_link": "radial reaction → local wire–wire / wire–sleeve contact normal forces",
+      "A_status": "NOT_ESTABLISHED",
+      "B_status": "NOT_ESTABLISHED",
+      "canonical_status": "NOT_ESTABLISHED",
+      "evidence": [
+        "S03",
+        "S18",
+        "S22"
+      ],
+      "reason": "Uniform confinement or F/μ inversion is not independent local-N calibration; contact distribution and interface sign remain unknown."
+    },
+    {
+      "id": "L04",
+      "causal_link": "local contact normal force → friction capacity",
+      "A_status": "ESTABLISHED",
+      "B_status": "MODEL_DEPENDENT",
+      "canonical_status": "MODEL_DEPENDENT",
+      "evidence": [
+        "S03",
+        "S04",
+        "S18",
+        "S22"
+      ],
+      "reason": "Coulomb relation and resistance observations provide a conventional route, but μ, N, area, parasitics and history are not jointly identified in MP1-R."
+    },
+    {
+      "id": "L05",
+      "causal_link": "friction capacity → slip regime",
+      "A_status": "ESTABLISHED",
+      "B_status": "MODEL_DEPENDENT",
+      "canonical_status": "MODEL_DEPENDENT",
+      "evidence": [
+        "S03",
+        "S06",
+        "S18",
+        "S22"
+      ],
+      "reason": "Branches, prescribed limits and sliding regions are model/measurement-specific; they are not local slip fields for MP1-R."
+    },
+    {
+      "id": "L06",
+      "causal_link": "slip regime → bending stiffness",
+      "A_status": "ESTABLISHED",
+      "B_status": "PARTIALLY_SUPPORTED",
+      "canonical_status": "PARTIALLY_SUPPORTED",
+      "evidence": [
+        "S01",
+        "S03",
+        "S04",
+        "S06",
+        "S18"
+      ],
+      "reason": "Global response effects are observed in related systems, but material, sleeve, end and boundary contributions remain confounded for MP1-R."
+    },
+    {
+      "id": "L07",
+      "causal_link": "source operation → specimen pressure (Bench B)",
+      "A_status": "MODELLED/UNRESOLVED",
+      "B_status": "PARTIALLY_SUPPORTED; MP1-R not established",
+      "canonical_status": "PARTIALLY_SUPPORTED",
+      "evidence": [
+        "S09",
+        "S10",
+        "S03"
+      ],
+      "reason": "Actuator/source precedents exist, but connected-load pressure-volume and two-location transients are not validated for the proposed spring/piston."
+    }
+  ],
+  "unresolved_question_comparison": [
+    {
+      "parent_id": "UQ01",
+      "parent_question": "What is the pressure-to-reaction-to-contact-force map in the proposed cross-section?",
+      "evidence": [
+        "S02",
+        "S03",
+        "S18",
+        "S22"
+      ],
+      "phase5_material": true,
+      "subquestions": [
+        {
+          "id": "UQ01a",
+          "question": "Which reaction surfaces and candidate wire–wire/wire–sleeve paths exist after geometry is fixed?",
+          "A_mapping": "A remaining uncertainty on wire–wire versus wire–sleeve scaling",
+          "B_mapping": "U01",
+          "material_for_phase5": "NO — scope/identifiability prerequisite"
+        },
+        {
+          "id": "UQ01b",
+          "question": "How does near-specimen pressure map to local N or defensible transmission bounds?",
+          "A_mapping": "A unresolved outward pressure→inter-wire friction",
+          "B_mapping": "U02",
+          "material_for_phase5": "YES"
+        },
+        {
+          "id": "UQ01c",
+          "question": "How much do sleeve compliance, packing, end and reaction motion contribute to apparent stiffness?",
+          "A_mapping": "A pressure-transfer caveat",
+          "B_mapping": "U03",
+          "material_for_phase5": "YES"
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ02",
+      "parent_question": "Can interface contributions and local slip be identified from augmented observations?",
+      "evidence": [
+        "S03",
+        "S04",
+        "S06",
+        "S18",
+        "S22"
+      ],
+      "phase5_material": true,
+      "subquestions": [
+        {
+          "id": "UQ02a",
+          "question": "Which interface dominates pressure-conditioned resistance under independent interface constraints?",
+          "A_mapping": "A interface-dominance uncertainty",
+          "B_mapping": "UQ05",
+          "material_for_phase5": "YES"
+        },
+        {
+          "id": "UQ02b",
+          "question": "Do global branches correspond to local slip onset/progression rather than sleeve or end motion?",
+          "A_mapping": "A stick-slip mechanism uncertainty",
+          "B_mapping": "UQ05/UQ07",
+          "material_for_phase5": "YES"
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ03",
+      "parent_question": "How should TiNi state and aggregate hysteresis be interpreted?",
+      "evidence": [
+        "S05",
+        "S11",
+        "S13",
+        "V-W02"
+      ],
+      "phase5_material": true,
+      "subquestions": [
+        {
+          "id": "UQ03a",
+          "question": "Does structural TiNi transformation occur in the accessible bending domain?",
+          "A_mapping": "A material calibration requirement",
+          "B_mapping": "UQ04",
+          "material_for_phase5": "YES"
+        },
+        {
+          "id": "UQ03b",
+          "question": "Can transformation, friction and sleeve losses be partitioned beyond aggregate loop work?",
+          "A_mapping": "A transformation/friction ratio uncertainty",
+          "B_mapping": "UQ06",
+          "material_for_phase5": "YES"
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ04",
+      "parent_question": "What model capability and coupling claim are justified?",
+      "evidence": [
+        "S03",
+        "S05",
+        "S06",
+        "S12",
+        "S18",
+        "V-W02"
+      ],
+      "phase5_material": true,
+      "subquestions": [
+        {
+          "id": "UQ04a",
+          "question": "Can an appropriate locked conventional model predict reserved pressure–curvature paths and available local observables?",
+          "A_mapping": "A H0b missing observation",
+          "B_mapping": "UQ07",
+          "material_for_phase5": "YES"
+        },
+        {
+          "id": "UQ04b",
+          "question": "After alternatives are bounded, is an additional state-conditioned pressure/contact/material term identifiable and predictively necessary?",
+          "A_mapping": "A H1 not distinguishable",
+          "B_mapping": "UQ08",
+          "material_for_phase5": "YES"
+        }
+      ]
+    },
+    {
+      "parent_id": "UQ05",
+      "parent_question": "Can Bench B reproduce the controlled-pressure structural envelope when integrated?",
+      "evidence": [
+        "S03",
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "phase5_material": true,
+      "subquestions": [
+        {
+          "id": "UQ05a",
+          "question": "Can the SMA spring/piston reach and recover the connected-load pressure–volume envelope?",
+          "A_mapping": "A actuator lag/pressure limit uncertainty",
+          "B_mapping": "UQ09",
+          "material_for_phase5": "YES"
+        },
+        {
+          "id": "UQ05b",
+          "question": "At matched pressure, temperature, loading and history, does integrated response agree with externally pressurized response?",
+          "A_mapping": "A Bench A/B integration uncertainty",
+          "B_mapping": "UQ10",
+          "material_for_phase5": "YES"
+        }
+      ]
+    }
+  ],
+  "testable_question_comparison": [
+    {
+      "id": "RQ01",
+      "question": "At controlled material, geometry and history, how does imposed specimen pressure change TiNi-bundle bending branches and repeatability?",
+      "classification": "CORE",
+      "maps_to": [
+        "RP001",
+        "RP003"
+      ],
+      "evidence": [
+        "S02",
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "id": "RQ02",
+      "question": "Which candidate interface resistance changes with pressure when independent interface constraints are introduced?",
+      "classification": "CORE",
+      "maps_to": [
+        "RP009",
+        "RP018"
+      ],
+      "evidence": [
+        "S04",
+        "S22",
+        "S03"
+      ]
+    },
+    {
+      "id": "RQ03",
+      "question": "Can a calibrated conventional contact/friction and transformation-aware baseline predict reserved pressure–curvature response without an additional coupling law?",
+      "classification": "CORE",
+      "maps_to": [
+        "RP011",
+        "RP019"
+      ],
+      "evidence": [
+        "S03",
+        "S06",
+        "S12",
+        "S18",
+        "V-W02"
+      ]
+    },
+    {
+      "id": "RQ04",
+      "question": "Does the SMA spring/piston reach and recover the connected specimen pressure–volume envelope?",
+      "classification": "SUPPORTING",
+      "maps_to": [
+        "RP010",
+        "RP020"
+      ],
+      "evidence": [
+        "S04",
+        "S09",
+        "S10"
+      ]
+    },
+    {
+      "id": "RQ05",
+      "question": "At matched specimen pressure, temperature, loading and history, do integrated and external-source bending responses agree?",
+      "classification": "SUPPORTING",
+      "maps_to": [
+        "RP014",
+        "RP020"
+      ],
+      "evidence": [
+        "S03",
+        "S04",
+        "S09",
+        "S10"
+      ]
+    },
+    {
+      "id": "RQ06",
+      "question": "Does same-lot TiNi exhibit transformation in the strain/temperature domain actually accessed?",
+      "classification": "SUPPORTING",
+      "maps_to": [
+        "RP006",
+        "RP012"
+      ],
+      "evidence": [
+        "S05",
+        "S13"
+      ]
+    },
+    {
+      "id": "RQ07",
+      "question": "Are global transition proxies associated with local slip onset rather than sleeve or end motion?",
+      "classification": "SUPPORTING",
+      "maps_to": [
+        "RP003",
+        "RP005",
+        "RP016"
+      ],
+      "evidence": [
+        "S03",
+        "S06",
+        "S18",
+        "S22"
+      ]
+    },
+    {
+      "id": "RQ08",
+      "question": "After conventional predictions and confounders are bounded, is an additional material/contact term identifiable and predictively necessary?",
+      "classification": "OPTIONAL",
+      "maps_to": [
+        "RP012",
+        "RP019"
+      ],
+      "evidence": [
+        "S05",
+        "S11",
+        "S12",
+        "S13",
+        "V-W02"
+      ]
+    },
+    {
+      "id": "RQ09",
+      "question": "Can transformation and interface contributions be partitioned beyond aggregate bending work?",
+      "classification": "OPTIONAL",
+      "maps_to": [
+        "RP012"
+      ],
+      "evidence": [
+        "S05",
+        "S11",
+        "S13"
+      ]
+    }
+  ],
+  "observable_comparison": [
+    {
+      "id": "OBS01",
+      "observable": "Near-specimen pressure p(t), reference location and synchronization",
+      "priority": "ESSENTIAL",
+      "mechanism": "Boundary input / pressure path",
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Distinguish specimen intervention from source command and align matched histories.",
+      "sources": [
+        "S03",
+        "S10"
+      ]
+    },
+    {
+      "id": "OBS02",
+      "observable": "Source pressure p_source(t) alongside specimen pressure",
+      "priority": "ESSENTIAL",
+      "mechanism": "Bench B source-to-specimen dynamics",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Separate source waveform, storage, transport and leakage from structural response.",
+      "sources": [
+        "S09",
+        "S10"
+      ]
+    },
+    {
+      "id": "OBS03",
+      "observable": "Bending force and calibrated moment with deflection/rotation/curvature",
+      "priority": "ESSENTIAL",
+      "mechanism": "Global bending response",
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Define M–κ or declared stiffness metric and detect fixture contributions.",
+      "sources": [
+        "S03",
+        "S04",
+        "S06"
+      ]
+    },
+    {
+      "id": "OBS04",
+      "observable": "Actuator and structural-wire temperatures, time-aligned",
+      "priority": "ESSENTIAL",
+      "mechanism": "Thermal actuation versus material state",
+      "hypotheses": [
+        "H0a-R",
+        "H1-R"
+      ],
+      "identifiability": "Prevent heat leakage or phase change being misread as pressure/contact effect.",
+      "sources": [
+        "S04",
+        "S05",
+        "S09"
+      ]
+    },
+    {
+      "id": "OBS05",
+      "observable": "Loading/unloading paths, repeatability, drift, cycle order and rate",
+      "priority": "ESSENTIAL",
+      "mechanism": "Hysteresis and history",
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Separate state dependence and drift; compute defined loop work.",
+      "sources": [
+        "S05",
+        "S06",
+        "S11"
+      ]
+    },
+    {
+      "id": "OBS06",
+      "observable": "Confirmed packing, sleeve deformation and reaction geometry",
+      "priority": "HIGH_VALUE",
+      "mechanism": "Pressure transmission and alternative load paths",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Bound sleeve expansion, packing rearrangement and end effects.",
+      "sources": [
+        "S02",
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "id": "OBS07",
+      "observable": "Interface-specific sliding resistance with fixture/parasitic bounds",
+      "priority": "HIGH_VALUE",
+      "mechanism": "Wire–wire and wire–sleeve friction",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Add independent constraints for dominance claims; do not equate resistance with μ or N separately.",
+      "sources": [
+        "S04",
+        "S22"
+      ]
+    },
+    {
+      "id": "OBS08",
+      "observable": "Representative local relative slip and structural-wire strain",
+      "priority": "HIGH_VALUE",
+      "mechanism": "Slip versus material deformation",
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Validate branch labels and distinguish local slip from global hysteresis.",
+      "sources": [
+        "S03",
+        "S05",
+        "S18"
+      ]
+    },
+    {
+      "id": "OBS09",
+      "observable": "Independent local-normal-force proxy or calibrated pressure-to-contact bounds",
+      "priority": "HIGH_VALUE",
+      "mechanism": "N mapping and Coulomb capacity",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Avoid fitting μ and N from the same resistance; constrain RP017.",
+      "sources": [
+        "S03",
+        "S18",
+        "S22"
+      ]
+    },
+    {
+      "id": "OBS10",
+      "observable": "Same-lot constitutive response in matched strain/temperature/rate/history domain",
+      "priority": "HIGH_VALUE",
+      "mechanism": "Structural TiNi material baseline",
+      "hypotheses": [
+        "H0a-R",
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Test material-dominated explanation without importing unrelated lot parameters.",
+      "sources": [
+        "S05",
+        "S07",
+        "V-W02"
+      ]
+    },
+    {
+      "id": "OBS11",
+      "observable": "Piston stroke/return, force and pressure rise/recovery under known connected load/compliance",
+      "priority": "ESSENTIAL",
+      "mechanism": "Bench B pressure–volume envelope",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Characterize source reach/recovery and distinguish dead-head from connected loading.",
+      "sources": [
+        "S04",
+        "S09",
+        "S10"
+      ]
+    },
+    {
+      "id": "OBS12",
+      "observable": "Electrical input and spring force/bias/seal-load evidence",
+      "priority": "HIGH_VALUE",
+      "mechanism": "Actuator force/energy balance",
+      "hypotheses": [
+        "H0b-R",
+        "H1-R"
+      ],
+      "identifiability": "Constrain source work and separate SMA, bias, seal and inertia terms.",
+      "sources": [
+        "S04",
+        "S09"
+      ]
+    },
+    {
+      "id": "OBS13",
+      "observable": "Direct phase-sensitive or expanded local-field measurements",
+      "priority": "OPTIONAL",
+      "mechanism": "Transformation/loss partition",
+      "hypotheses": [
+        "H0a-R",
+        "H1-R"
+      ],
+      "identifiability": "Strengthen phase attribution if simpler calibration cannot distinguish alternatives.",
+      "sources": [
+        "S05",
+        "S13"
+      ]
+    }
+  ],
+  "agreement_register": [
+    {
+      "id": "AC01",
+      "proposition": "Confinement effects are architecture-scoped and alter structural bending response in tested systems.",
+      "A_evidence": "A agreement map; S01/S02/S03/S18",
+      "B_evidence": "P401/P402 and T01",
+      "phase3_check": "C001-C004, C023-C024; pressure-path restrictions retained",
+      "final_strength": "STRONG"
+    },
+    {
+      "id": "AC02",
+      "proposition": "Friction/slip mechanics provide bounds or branches relevant to bending, but do not by themselves identify local forces or a dominant interface.",
+      "A_evidence": "A friction theme/agreement map",
+      "B_evidence": "P405/P411, T02",
+      "phase3_check": "C008/C013/C023/C024",
+      "final_strength": "MODERATE"
+    },
+    {
+      "id": "AC03",
+      "proposition": "Interface-specific resistance methods exist in separate internal and wire–sleeve systems.",
+      "A_evidence": "A interface-identifiability theme; S04/S22",
+      "B_evidence": "P409/P413",
+      "phase3_check": "G1 reframed as system-identification requirement",
+      "final_strength": "MODERATE"
+    },
+    {
+      "id": "AC04",
+      "proposition": "NiTi state influences response in tested material domains, while transformation/friction loss partition in MP1-R is unresolved.",
+      "A_evidence": "A TiNi theme; S05/S13",
+      "B_evidence": "P406/P412/T03",
+      "phase3_check": "C007/C010/C011/C012/C019",
+      "final_strength": "MODERATE"
+    },
+    {
+      "id": "AC05",
+      "proposition": "SMA actuation has prior friction-control and fluid-generation precedents, but the proposed source and structural TiNi roles remain distinct.",
+      "A_evidence": "A S04/S09 comparison",
+      "B_evidence": "P404/P410/T04",
+      "phase3_check": "C005/C015/C016/C018",
+      "final_strength": "MODERATE"
+    },
+    {
+      "id": "AC06",
+      "proposition": "No true cross-study contradiction is established after pressure-path, metric, material and interface restrictions are applied.",
+      "A_evidence": "A disagreement map classifies differences as model/research-question differences",
+      "B_evidence": "B counts true_cross_study_contradictions=0",
+      "phase3_check": "Comparability classifications prohibit pooling",
+      "final_strength": "MODERATE"
+    },
+    {
+      "id": "AC07",
+      "proposition": "H0a-R and H0b-R remain plausible and H1-R is not yet distinguishable.",
+      "A_evidence": "A H0/H1 table",
+      "B_evidence": "B hypothesis_state",
+      "phase3_check": "Phase 3 hypothesis matrix and remaining gaps",
+      "final_strength": "MODERATE"
+    }
+  ],
+  "material_disagreement_register": [
+    {
+      "id": "MD01",
+      "issue": "Strength of pressure-controlled stiffening as a cross-study proposition",
+      "A_position": "STRONG",
+      "B_position": "MODERATE for the synthesis theme (while P401/P402 narrow direct claims are STRONG)",
+      "evidence_authority": "S01-S03 direct architecture findings; S18 is analogue and S15 is review-only",
+      "resolution": "Split the claim: RP001/RP002 STRONG within tested architectures; cross-study transfer and pressure-to-local-force inference are RP016/RP017 and ANALOGUE_ONLY/NOT_ESTABLISHED."
+    },
+    {
+      "id": "MD02",
+      "issue": "Status of interface identifiability",
+      "A_position": "Distinct interfaces can be isolated; MP1-R must test both",
+      "B_position": "Methods exist, but dominance is not identifiable from global bending and G1 is a system-identification requirement",
+      "evidence_authority": "S04/S22 methods plus Phase 3 G1 reframe",
+      "resolution": "Retain RP009 as ESTABLISHED method existence; RP018 remains NOT_ESTABLISHED; do not call it a literature knowledge gap."
+    },
+    {
+      "id": "MD03",
+      "issue": "Status of causal links between pressure and local contact",
+      "A_position": "Pressure→normal force NOT_ESTABLISHED; later friction/slip links ESTABLISHED",
+      "B_position": "N→friction and friction→slip are model-dependent/partially supported for MP1-R",
+      "evidence_authority": "S03/S18 assumptions, S04/S22 resistance tests, Phase 3 chain",
+      "resolution": "Use conservative chain statuses: local N map NOT_ESTABLISHED; downstream capacity and slip are MODEL_DEPENDENT; slip→bending PARTIALLY_SUPPORTED."
+    },
+    {
+      "id": "MD04",
+      "issue": "TiNi evidence strength",
+      "A_position": "NiTi phase influence STRONG",
+      "B_position": "Cross-study TiNi theme ANALOGUE_ONLY; P406 is MODERATE in transfer and P412 LIMITED",
+      "evidence_authority": "S05/S13 direct domains differ from pressured bending",
+      "resolution": "RP006 MODERATE for tested material finding; RP012 LIMITED for coexistence; no claim that transformation dominates MP1-R hysteresis."
+    },
+    {
+      "id": "MD05",
+      "issue": "Theme granularity",
+      "A_position": "Six themes, separating actuator/material and interface/Bench A-B",
+      "B_position": "Five themes, combines pressure/local-force and slip/interface and adds competing explanations",
+      "evidence_authority": "Semantic overlap and distinct synthesis purposes",
+      "resolution": "Adopt five minimum themes T01-T05; retain actuator/structural distinction inside T03/T04 and model competition in T05."
+    },
+    {
+      "id": "MD06",
+      "issue": "Source count",
+      "A_position": "16 approved sources used",
+      "B_position": "17 approved sources used, adding S17",
+      "evidence_authority": "Phase 3 source catalog; S17 E1 review/context",
+      "resolution": "S17 is a compatible extension for metric-definition caution (RP015), not a new mechanics replication. Canonical source use is 17 IDs including S17; count difference does not alter core conclusions."
+    }
+  ],
+  "omission_extension_register": [
+    {
+      "id": "OE01",
+      "item": "Branch-specific pressure sensitivity and explicit pressure-path/local-N distinction from B",
+      "present_in": "B_GPT",
+      "absent_or_compacted_in": "A_GEMINI",
+      "classification": "RETAIN",
+      "reason": "Prevents endpoint stiffening from being generalized to every branch and sharpens RP003/RP017."
+    },
+    {
+      "id": "OE02",
+      "item": "Metric discipline separating F–δ slope, M–κ rigidity, DMA loss and loop work from S17",
+      "present_in": "B_GPT",
+      "absent_or_compacted_in": "A_GEMINI",
+      "classification": "RETAIN",
+      "reason": "Scientifically material for cross-study comparison and observable definitions."
+    },
+    {
+      "id": "OE03",
+      "item": "Explicit conventional transformation/contact formulations and adequacy criterion",
+      "present_in": "B_GPT",
+      "absent_or_compacted_in": "A_GEMINI",
+      "classification": "RETAIN",
+      "reason": "Needed to preserve H0b as a live baseline and avoid premature new-law claims."
+    },
+    {
+      "id": "OE04",
+      "item": "A’s explicit separation of SMA actuator versus structural TiNi and thermal cross-talk",
+      "present_in": "A_GEMINI",
+      "absent_or_compacted_in": "B_GPT",
+      "classification": "RETAIN",
+      "reason": "Compatible extension that clarifies T03/T04 and Bench B confounding."
+    },
+    {
+      "id": "OE05",
+      "item": "A’s phrase that distinct internal interfaces can be experimentally isolated",
+      "present_in": "A_GEMINI",
+      "absent_or_compacted_in": "B_GPT wording",
+      "classification": "RETAIN_NARROWED",
+      "reason": "Retain as method existence RP009; narrow away from any claim of MP1-R dominance or literature gap."
+    }
+  ],
+  "source_usage": {
+    "A_GEMINI_count": 16,
+    "B_GPT_count": 17,
+    "A_unique_or_omitted": "S17 is absent from A's declared synthesis support; B uses it for metric-definition caution. S15 is present in both contextual pressure/theme use.",
+    "B_unique_or_omitted": "No additional B source outside A's core set except S17.",
+    "canonical_decision": "Retain S17 as secondary/contextual support for RP015 only; it does not change mechanics conclusions.",
+    "S19_S20_S21": "Excluded/quarantined/retired; no scientific support role."
+  },
+  "validation": {
+    "source_ids_checked": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S15",
+      "S17",
+      "S18",
+      "S22",
+      "V-W02"
+    ],
+    "phase3_source_catalog_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S05a",
+      "S05b",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "V-W02"
+    ],
+    "S20_scientific_support": false,
+    "S19_S21_restrictions": true,
+    "S18_corrected_identity": true,
+    "original_papers_reopened": 0,
+    "broad_literature_searches": 0
+  }
+}
