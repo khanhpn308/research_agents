@@ -1,0 +1,637 @@
+                                                     International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+                                                                 Contents lists available at ScienceDirect
+
+
+                                          International Journal of Mechanical Sciences
+                                                       journal homepage: www.elsevier.com/locate/ijmecsci
+
+
+
+
+Layer jamming: Modeling and experimental validation
+Fabio Caruso ∗, Giacomo Mantriota, Vincenzo Moramarco, Giulio Reina
+Department of Mechanics, Mathematics and Management, Polytechnic University of Bari, Via E. Orabona 4, 70125, Bari, Italy
+
+
+
+ARTICLE               INFO                              ABSTRACT
+
+Keywords:                                               The ability to control and tune the stiffness of soft structures is one of the most important challenges in
+Layer jamming                                           soft robotics. This is crucial in applications that require both compliance and the ability to withstand high
+Theoretical model                                       forces. Among the various techniques, layer jamming represents a promising solution. Despite the increasing
+Variable stiffness
+                                                        interest, the existing analytical models are not able to describe the behavior of these structures beyond the
+Experimental validation
+                                                        initial deformation phase. In this work, we propose an analytical model that predicts the behavior of these
+Soft robotics
+Vacuum jamming
+                                                        structures in all deformation phases, overcoming the limitations of existing models. Our previous approach
+                                                        is extended by explicitly taking into account the increase in stiffness due to the overhangs of the structure
+                                                        outside the constraining supports. We conduct experimental tests and finite element simulations to validate
+                                                        the predictions of the proposed model. The experimental and finite element results are in good agreement
+                                                        with theoretical predictions, especially considering that no fitting parameters have been used. Additionally,
+                                                        we analyze the effect of the main design parameters, including the number of layers, vacuum pressure and
+                                                        coefficient of friction, as well as the energy dissipated by friction during a load–unload cycle. We believe
+                                                        that this work represents a significant step forward in understanding the complex mechanisms underlying
+                                                        the mechanics of layer jamming structures that could be useful in helping researchers design more advanced
+                                                        variable stiffness applications in soft robotics.
+
+
+
+1. Introduction                                                                             in stiffness. This simple yet effective technique has proven to be useful
+                                                                                            in several applications.
+    In the last two decades, researchers started to design robots using                         In their pioneering work, Brown and colleagues [38] used granular
+compliant materials giving life to a new exciting field called ‘‘soft                       jamming to develop a universal soft gripper able to pick up unfamiliar
+robotics’’ [1–3]. This shift came from the desire to overcome the                           objects of widely varying shape and surface properties. In a subsequent
+limitations of hard robots to safely interact with humans and to adapt
+                                                                                            work [39] the same authors demonstrated that introducing both pos-
+autonomously to unstructured environments [4–6]. However, building
+                                                                                            itive and negative pressure improved gripper’s speed, error tolerance
+robots with soft materials led to new and interesting challenges [7–9].
+                                                                                            and placement accuracy. Using the same concept, Licht et al. [40]
+    One of them is the ability to control and tune the stiffness of the soft
+structures [10–12]. This is particularly important in applications that                     demonstrated that granular jamming grippers can also be used for
+require both compliance and the ability to withstand high forces, such                      grasping tasks in deep-sea environments with ambient pressures ex-
+as minimally invasive surgery [13–15], wearable haptics [16,17], soft                       ceeding 100 atmospheres. As a variable stiffness element, granular
+grippers [18–21] and smart fabrics [22–24]. Depending on the specific                       jamming has been also used in medical applications. Ranzani et al. [41]
+application, researchers came up with different techniques to achieve                       exploited granular jamming to achieve stiffness change in a bioinspired
+stiffness modulation, including thermal [25,26], magnetic [27], electric                    soft endoscope. In a similar work, Cavallo et al. [42] introduced granu-
+[28] and pressure-induced (jamming [29]) stimulation. Among these                           lar jamming in a soft retraction system to ensure both safe introduction
+techniques, jamming-based systems are usually preferred for their easy                      and stable retraction into the abdominal cavity.
+fabrication process and fast and reversible transition between soft and                         Although granular jamming has the advantage to easily conform
+rigid states with very limited volume variation.                                            to complex shapes, it requires a large volume of granular materials
+    The jamming phenomenon generally consists of granules [30,31],
+                                                                                            to provide enough stiffness when jammed. Mathematical models based
+fibers [32–35] or layers [36,37] confined in a thin airtight membrane
+                                                                                            on continuum theories [43–45], discrete element methods [46,47] and
+connected to a vacuum source. When vacuum is introduced inside the
+                                                                                            statistical mechanics [48,49] have been proposed to study the behavior
+membrane frictional coupling increases, resulting in a dramatic change
+
+
+  ∗ Corresponding author.
+     E-mail address: fabio.caruso@poliba.it (F. Caruso).
+
+https://doi.org/10.1016/j.ijmecsci.2023.108325
+Received 20 December 2022; Received in revised form 8 March 2023; Accepted 16 March 2023
+Available online 21 March 2023
+0020-7403/© 2023 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-
+nc-nd/4.0/).
+F. Caruso et al.                                                                                                      International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 1. Stiffness change and slip propagation in layer jamming systems. (a) Visualization of the dramatic change in stiffness when the structure is jammed (70 kPa) and unjammed
+(0 kPa). (b) Fundamental behavior of layer jamming structures subjected to three-point bending tests. (c) Schematic representation of slip propagation. In the pre-slip phase the
+shear stress at each interface remains below the static friction limit, the stiffness is maximum and the system behaves like a single beam. Then as the external load increases, the
+structure enters in the partial-slip phase. Here, slip starts from the central interface and propagates outward. The behavior becomes nonlinear and the stiffness decreases. In the
+last phase (Full-slip) all the layers are in slip and the stiffness is minimum.
+
+
+of these systems, but they are often limited to circular particles and                           Although the increasing interest, few studies tried to develop analyt-
+simple geometries, making them unfeasible to be used in real appli-                          ical models to understand the mechanical behavior of these structures.
+cations. In addition, conventional granular materials do not support                         The mechanics of multi-layer structures is not new and has been
+tensile forces making them unsuitable in applications that require high                      extensively studied for predicting the behavior of laminate composites
+bending stiffness [50].                                                                      [66]. Analytical models [67] and numerical simulations [68] have
+    To overcome these limitations researchers introduced the concept                         been developed to predict both mechanical properties and interlaminar
+of layer jamming. Here, granules are replaced with thin flexible sheets                      failure. However, these models are typically quite complex. They are
+resulting in a more compact design and the ability to withstand high                         based on higher order shear deformation theory to account for stresses
+bending moments. One of the first applications of this concept is repre-                     at the interfaces caused by the variations of internal properties of the
+sented by the snake-like manipulator developed by Kim et al. [51,52]                         layers. While the complexity of these models is essential to accurately
+in which thin layers are assembled into a helical pattern to maximize                        predict the behavior of laminate composites, they are overlay complex
+                                                                                             for layer jamming systems in which the behavior is simply controlled
+stiffness change between jammed and unjammed states. Ou et al.[53]
+                                                                                             by friction and vacuum pressure.
+introduced layer jamming to develop dynamic haptic interfaces with
+                                                                                                 Narang and colleagues [69] were the first to provide an analyti-
+tunable-stiffness capabilities.
+                                                                                             cal model, based on the Euler Bernoulli beam theory, to predict the
+    Inspired by these preliminary works, researchers started to explore
+                                                                                             change in stiffness due to slip propagation in a two-layer cantilever
+the advantages of layer jamming in a wide variety of soft robotic
+                                                                                             jamming structure subjected to a distributed load. In the same work
+applications. Several works employed layer jamming to increase the
+                                                                                             [69] they developed finite element models to extend the predictions
+performance of soft grippers [54–56]. The low stiffness in the rest state                    to many-layer jamming structures. These models were then validated
+allows the fingers to conform to the shape of the object being grasped,                      with experiments showing excellent agreement. Subsequent research
+while the high stiffness upon activation ensures high holding forces                         extended these models introducing a 3D FE-based numerical tool that
+[57–59]. Layer jamming has been also proposed in soft controllable                           predicts the mechanical response of layer jamming structures subjected
+dampers [60] and wearable orthosis [61,62]. Choi et al. [63] designed                        to arbitrary loading and boundary conditions [70].
+a soft wearable linear break in which the breaking force is controlled                           Although these works represent a significant step forward in the
+by the vacuum pressure applied to the layers.                                                effort of understanding layer jamming systems, they have not yet
+    Following the same principle, Narang et al. [64] demonstrated that                       provided analytical models for multi-layer jamming systems beyond the
+layer jamming structures can be used to tune the impact response of                          initial deformation phase. The main problem of finite element models
+aerial robots, while Wanasinghe et al. [65] integrated them in soft                          is that the computational time increases with the number of layers.
+gloves as hand tremor suppressors.                                                           Therefore, for jamming structures with many layers, the computational
+
+                                                                                         2
+F. Caruso et al.                                                                                                            International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 2. Analytical model of four-layer jamming structures. (a) Schematic representation of the axial and shear stress distribution. When the transverse load is equal to 𝐹0 the
+longitudinal shear stress at the central interface reaches the frictional limit (𝜏𝑠𝑙𝑖𝑝 = 𝜇𝑝) and layers 2 and 3 start to slip. As the external load is further increased by the additional
+load 𝐹1 , 𝜏𝑠𝑙𝑖𝑝 is reached also at the interface between layers 1–2 and 3–4 and all the layers enter in slip. (b) Qualitative representation of the change in stiffness and slip propagation
+during a three-point bending test in all the three deformation phases.
+
+
+time may become prohibitive and can significantly delay the design                               2.1. Jamming structures with four layers
+process.
+    To overcome this limitation, recently, we proposed for the first time                            Consider a layer-jamming structure consisting of four layers sub-
+an analytical model extended to a structure with an arbitrary number                             jected to a vacuum pressure p while loaded in a three-point bending
+of layers [71]. We demonstrated that the typical nonlinear behavior of                           test. In the initial phase the shear stress at each interface is below the
+these structures can be well described with a piecewise linear approx-                           friction limit (𝜇𝑝) and the structure behaves like a single beam. As the
+imation between subsequent slips. We also demonstrated how the slip                              external load increases, the structure will shift from the pre-slip to the
+propagates inside the structure and how these slips can be related to the                        partial-slip phase. The central interface is the first one that enters in
+gradual stiffness change (Fig. 1). Analytical predictions were compared                          slip and the load at which this shift occurs is given by the Jourasky
+with finite element simulations, both in a three-point bending and                               formula applied to rectangular cross-sections
+cantilever configuration [72], showing very good agreement.                                             2 𝜏𝑠𝑙𝑖𝑝 𝐴
+    In this work, we extended our previous model to take into account                            𝐹0 =                                                               (1)
+                                                                                                         3
+the phenomenon of curvature reversal caused by the overhanging por-                              where 𝐴 = 4𝑏ℎ is the area of the cross-section and 𝜏𝑠𝑙𝑖𝑝 = 𝜇𝑝 is the
+tion of the structure outside the supports. This phenomenon has been                             maximum shear stress at the interface. The corresponding deflection is
+observed both experimentally and with finite element simulations and                             obtained by substituting 𝐹0 in the formula of a simply supported beam
+causes an increase in bending stiffness. We also conducted experimental
+tests to validate theoretical predictions as well as finite element simula-                              2𝐹0 𝐿3
+tions to further validate the proposed approach. The model was able to                           𝑤0 =                                                                                   (2)
+                                                                                                        48𝐸𝐼𝑝−𝑠
+predict with great accuracy the effect of the number of layers, vacuum
+pressure, friction coefficient, and energy dissipated by friction in a                           where 𝑤0 is the deflection at the middle of the structure, 𝐹0 is the
+load–unload cycle, demonstrating that the complex intrinsic mechanics                            external applied load, E is the Young’s modulus of the layers, 𝐼𝑝−𝑠 is
+of these systems can be well approximated by a 2D analytical model.                              the second moment of area of the pre-slip phase and L is the length of
+    The paper is organized as follows. In Section 2 we describe the                              the internal portion of the structure between the supports. During this
+derivation of the extended analytical model, highlighting the differ-                            phase, the second moment of area is maximum and is given by
+ences with respect to the model previously published by the authors.                                      16𝑏ℎ3
+                                                                                                 𝐼𝑝−𝑠 =                                                                  (3)
+Section 3 describes the experimental details, while Section 4 presents                                      3
+the formulation of the finite element method used to validate the                                where h and b are the height and the width of a single layer. After the
+proposed model. The predictions of the model are compared with ex-                               first slip, we assume that the structure behaves as two distinct beams
+periments and finite element simulations in Section 5. Finally, Section 6                        subjected to the same stress state and external loads.
+concludes the article with the main findings and final considerations.                               From now on we consider the axial stress distribution as the sum of
+                                                                                                 the axial stress generated by 𝐹0 , and that of the additional force 𝐹1 , as
+2. Analytical formulation                                                                        shown in Fig. 2a. As explained in detail in our previous work [71], the
+                                                                                                 value of the additional force that causes the second symmetric slip is
+    In this section, we extend our previously published analytical                               obtained by computing the static equilibrium of layers 1 and 4 along
+model [71], including the increase in stiffness due to the resistance to                         the longitudinal direction in terms of the axial stresses, which gives
+sliding of the overhanging portion of the structure outside the supports.                              𝐹0
+                                                                                                 𝐹1 =                                                                   (4)
+This effect leads to curvature reversal, in which the structure shift from                              4
+positive to negative curvature, an interesting phenomenon that has                                   In this case, the evaluation of the corresponding deflection 𝑤1 is not
+been shown both experimentally and with finite element simulations                               trivial. In a typical simply supported beam the overhanging portion of
+in the work of Narang et al. [69].                                                               the beam outside the supports does not influence the deformation and
+    In order to facilitate the understanding of the model, in the follow-                        therefore is usually neglected. However, in a layer-jamming structure,
+ing subsections we first derive the governing equations for a structure                          this condition is no longer true in presence of slip.
+with only 4 layers and then we provide a general formulation that can                                Indeed, due to the discontinuity in the shear stress caused by the
+be applied to a structure with an arbitrary number of layers.                                    concentrated load at the support, the structure can be divided in
+
+                                                                                             3
+F. Caruso et al.                                                                                                 International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+two regions: an internal region, between the supports, in which the                                                           𝜇 𝑝 𝐿3
+                                                                                        𝑤𝑖 =
+transversal load is constant (V = F/2); an external region, outside the                        3 𝐸 ℎ2 (𝑛3 − 6 (𝑖 − 1) 𝑛2 + (12 (𝑖 − 1)2 − 4) 𝑛 − 8 (𝑖3 − 3 𝑖2 + 2 𝑖))
+supports, in which the transversal load is zero (V = 0). For this reason,                 𝑖 = 3, … ., 𝑛∕2 − 1                                                            (15)
+as the external load increases, the portion of the interfaces between
+the supports will start to slip (when the longitudinal shear stress equals                 Notice that only Eqs. (13)–(15) have been modified to take into
+the frictional limit 𝜇𝑝) while the external region will remain cohesive.                account the effect of the cohesive external region (clamped boundary
+In reality, sliding propagates also in the external regions (Fig. 5b),                  condition), as described in the previous subsection.
+although to a lesser extent.
+                                                                                        3. Materials and experimental methods
+    To keep the complexity of the model at an acceptable level, we
+model the interface between these two adjacent regions as a clamped
+                                                                                            We conducted three-point bending tests to characterize stiffness
+boundary condition. Under this hypothesis, the additional deflection is
+                                                                                        change in layer-jamming structures, as shown in Fig. 3a. We measured
+given by the Euler–Bernoulli formula for a clamped–clamped beam
+                                                                                        force and central displacement using an MTS Alliance RT/30 electrome-
+         2𝐹1 𝐿3                                                                         chanical machine equipped with a 1 kN load cell (MTS-E31665) with
+𝑤1 =                                                                          (5)
+       192𝐸𝐼𝑝𝑎−𝑠                                                                        0.01 𝑁 resolution. In each test, the distance between the support rollers
+   During the Partial-slip phase the second moment of area 𝐼𝑝𝑎−𝑠                        (1 cm diameter) was set to 10 cm. The specimens were loaded at a
+decreases by a factor of four and is given by                                           constant displacement rate of 5 mm/min until a maximum deflection of
+                                                                                        8 mm and then unloaded with the same velocity. Force and deflection
+        4𝑏ℎ3                                                                            data were acquired at a sampling rate of 10 Hz. A vacuum pump (Piab
+𝐼𝑝𝑎−𝑠 =                                                                (6)
+          3                                                                             M10A6-BN) connected to a manual vacuum regulator and a highly
+    As the external load exceeds the value of 2 (𝐹0 + 𝐹1 ), all the layers              flexible TPU tube was used to generate the vacuum pressure inside the
+are in slip and the structure enters in the full-slip phase. During this                specimens.
+phase the stiffness is minimum and the second moment of area of the                         We tested both the influence of the number of layers and vacuum
+structure is given by                                                                   pressure. We fabricated four layer-jamming structures with different
+       𝑏ℎ3                                                                              numbers of layers (8,12,16,20). Each specimen was tested at a constant
+𝐼𝑓 −𝑠 =                                                               (7)               vacuum pressure of 68 kPa. We also tested the 20-layer structure
+         3
+                                                                                        at different vacuum pressure levels (24,48,68 kPa). Before each test,
+   Fig. 2 summarizes the main results of the model: Fig. 2a shows
+                                                                                        specimens were flattened on a rigid planar shelf and then centered on
+the axial and shear stress distributions inside the structure and Fig. 2b
+                                                                                        the supports. Each test was repeated three times and mean and standard
+shows a qualitative plot of the relationship between the applied load F
+                                                                                        deviation were computed.
+and the deflection at the center of the structure w. Fig. 2b also shows
+                                                                                            Specimens were fabricated following three main steps. (i) First,
+a graphical representation of the propagation of slip during the three
+                                                                                        sheets of copy paper (Fabriano, Copy2) with height h = 0.1 mm were
+deformation phases.
+                                                                                        cut in stripes of 18 × 6 cm. (ii) Then, the envelope was created. A thin
+                                                                                        film of TPU (0.009 mm thickness) was cut in a rectangle of dimensions
+2.2. Jamming structures with an arbitrary number of layers
+                                                                                        20 × 13 cm. A 3D printed connector was inserted through a tiny hole
+                                                                                        inside the film and a thin layer of silicone was used to prevent air
+    The model described for a 4-layer-jamming structure can be ex-
+                                                                                        leakage. (iii) Lastly, sheets were inserted inside the envelope and the
+tended to a more general case with an arbitrary number of layers. As
+                                                                                        edges were sealed through a thermosealer with a welding edge of 2 mm.
+in the previous case, in the initial phase the layers are cohesive and the
+                                                                                            In order to compare the experimental results to the theoretical
+stiffness is proportional to (𝑛ℎ)3 . Then, after the first slip, the stiffness
+                                                                                        predictions we experimentally evaluated the coefficient of friction 𝜇 =
+starts to decrease and the behavior becomes nonlinear. In our previous
+                                                                                        0.55 and the Young’s modulus 𝐸 = 1.7 GPa. These values are in
+work [71] we demonstrated that slip propagates in an orderly manner
+                                                                                        accordance with the range of values found in literature [73,74]. Due
+from the central to the external interfaces until the last slip, in which
+                                                                                        to the difficulties involved in the measure of the Poisson’s ratio and
+all the layers have slipped and the stiffness is proportional to 𝑛ℎ3 .
+                                                                                        the little influence on the analytical predictions, we used a value of
+    Here we report only the general expressions of the additional loads
+                                                                                        𝜈 = 0.156 found in literature [69].
+and the corresponding deflections that cause symmetric slips at the 𝑖th
+interfaces. For further details please refer to our previous work [71].
+                                                                                        4. Numerical simulations
+       2𝜇𝑝𝑏ℎ𝑛
+𝐹0 =                                                                          (8)
+         3                                                                                  To better understand the validity of our hypothesis, we analyzed
+     𝜇𝑝𝑏ℎ𝑛                                                                              the behavior of layer-jamming structures subjected to three-point bend-
+𝐹1 =                                                                          (9)
+     3 (𝑛 − 2)                                                                          ing tests using finite element (FE) analyses. All the simulations were
+                (              )                                                        conducted using the commercial package Abaqus/Standard 2017 (the
+       2 𝜇 𝑝 𝑏 ℎ 𝑛2 − 6 𝑛 + 12
+𝐹2 =         (            )                                                  (10)       Abaqus Python script files are available online as Supporting Informa-
+           3 𝑛2 − 6 𝑛 + 8                                                               tion). Due to the symmetry of the problem, only the right half of the
+                                                                                        structure was simulated. Each layer was modeled as a rectangle with
+       2 𝜇 𝑝 𝑏 ℎ (𝑛3 − 6 (𝑖 − 1) 𝑛2 + 12 (𝑖 − 1)2 𝑛 − 8 (𝑖3 − 3 𝑖2 + 2 𝑖))              dimensions equal to those of the structure tested in the experiments.
+𝐹𝑖 =
+        3 (𝑛3 − 6 (𝑖 − 1) 𝑛2 + (12 (𝑖 − 1)2 − 4) 𝑛 − 8 (𝑖3 − 3 𝑖2 + 2 𝑖))                   Each layer was discretized using four-node bilinear hybrid plane
+  𝑖 = 3, … ., 𝑛∕2 − 1                                                        (11)       strain elements with reduced integration (CPE4RH), with a side length
+                                                                                        equal to half of the layer height. A linear isotropic elastic material with
+                                                                                        Young’s modulus and Poisson’s ratio equal to those of the copy paper
+        𝜇 𝑝 𝐿3                                                                          used in the experiments was assigned to the layers. (E = 1.7 GPa and
+𝑤0 =                                                                         (12)       𝜈 = 0.156). A standard surface-to-surface contact with penalty friction
+       3 E ℎ2 𝑛 2
+                                                                                        formulation was used to model the interaction between two adjacent
+            𝜇 𝑝 𝐿3
+𝑤1 =                                                                         (13)       layers. A very low value of maximum elastic slip 5 ∗ 10− 5 was set to
+       6 E ℎ2 𝑛2 (𝑛 − 2)                                                                reduce the undesired non-physical elastic slip.
+               𝜇 𝑝 𝐿3                                                                       Vacuum pressure was simulated imposing a uniformly distributed
+𝑤2 =           (             )                                               (14)
+       6 E ℎ2 𝑛 𝑛2 − 6 𝑛 + 8                                                            load to all the outer edges of the structure. Symmetric boundary
+
+                                                                                    4
+F. Caruso et al.                                                                                                       International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 3. (a) Experimental set-up for the three-point bending tests. (b) Fabrication process of the layer jamming structures. (i) First, sheets of copy paper were cut in stripes. (ii)
+Then the envelope was created using a thin film of TPU and a 3D printed connector for the vacuum tube. (iii) Lastly, sheets were placed inside the envelope and the edges were
+sealed with a thermosealer.
+
+
+conditions were applied on the left edge of each rectangle. The support                       a bending stiffness that scales with 𝑛3 , since it is proportional to the
+was simulated by assigning a zero vertical displacement to a node of                          second moment of area of the entire structure (𝐼𝑝−𝑠 = 𝑏 𝑛3 ℎ3 ∕12).
+the bottom layer 50 mm from the center of the structure.                                          In this phase the stiffness is maximum and layers remain cohesive
+    Lastly, the deflection at the center of the structure was simulated by                    (no slip occurs at the interface between two adjacent layers). As the
+applying a vertical displacement at the first node of the top layer. In                       structure is further deflected, the shear stress increases until it reaches
+all the simulations, nonlinear effects due to large deflections were also                     the frictional limit value 𝜏𝑠𝑙𝑖𝑝 = 𝜇𝑝. at the central interface. The model
+taken into account (Nlgeom ON).                                                               predicts that this shift will happen when the external load reaches 2F0
+                                                                                              Eq. (8) which corresponds to a deflection of w0 Eq. (12), and that these
+5. Results                                                                                    values scale with n and 1/n2 , respectively.
+                                                                                                  Both experiments and numerical simulations confirmed that the
+    This section reports the results of the three-point bending experi-                       model predict this shift with great accuracy. For example, in the case
+ments conducted on layer-jamming structures and the comparison with                           of 8 layers the model predicts that the structure remains in the pre-slip
+finite element analysis and the analytical model predictions. The sec-                        phase until w0 = 11.3 mm. Indeed, in the range of deflection tested
+tion is organized as follows. We first describe the effect of the number                      (from 0 to 8 mm), the behavior of the 8-layer structure remains linear.
+of layers, vacuum pressure and coefficient of friction during loading                         After the first slip the bending stiffness begins to decrease and the
+and unloading tests. Then we discuss the influence of the overhangs                           behavior becomes nonlinear.
+and guidelines for design optimization. Notice that for the coefficient                           As explained in Section 2, we modeled this behavior using a piece-
+of friction no tests were conducted due to the difficulty involved in pre-                    wise linear approximation based on slip propagation. Dots on the model
+cisely controlling this parameter experimentally. Therefore, analytical
+                                                                                              curves indicates the critical load and deflections at which these slip
+predictions were only compared with finite element simulations.
+                                                                                              occur and are described by Eqs. (8)–(15). We can observe that as
+    In all the tests we measured force F and deflection w (Fig. 4a) as
+                                                                                              the number of layers increases, the model underestimates the bending
+described in detail in Section 3. Each combination of parameters was
+                                                                                              stiffness for high deflection with respect to both experiments and
+tested three times and mean curves and standard deviation (shaded
+                                                                                              numerical simulations. The reason behind this difference is probably
+area in Fig. 4b-e) were computed. Notice that in the analytical model
+                                                    𝐸                                         due to the increase in the shear stress caused by the increase in the
+we used the plane-strain Young’s modulus 𝐸 = 1−𝜈      2 as 𝑏 ≫ ℎ.
+                                                                                              contact pressure generated by the interaction with the supports. This
+                                                                                              effect is neglected in our model while it is present in finite element
+5.1. Number of layers
+                                                                                              simulations.
+                                                                                                  The loading phase was stopped at a deflection of 8 mm and the
+    To study the influence of the number of layers, we tested four
+                                                                                              energy dissipated by the friction forces, represented by the area under
+structures with different number of layers n (8,12,16,20) with b = 6 cm
+                                                                                              each hysteresis curve, was evaluated by unloading the structures as
+(width), L = 18 cm (total length), h = 0.1 mm (height of a single layer),
+                                                                                              shown in Fig. 4d. We can observe that the energy loss due to friction
+E = 1.7 GPa (Young’s modulus), 𝜈 = 0.156 (Poisson’s ratio) and 𝜇 =
+0.55 (coefficient of friction). The distance between the support was                          increases with the number of layers and that in the unloading phase the
+set to 10 cm and a constant vacuum pressure of 68 kPa was applied                             system releases the bending energy accumulated in the pre-slip phase.
+inside the structures. Tests were conducted following the experimental                        Analytical predictions are in good agreement with experimental results
+procedure explained in detail in Section 3.                                                   and finite element simulations, demonstrating that the model is also
+    Fig. 4b shows the comparison between the analytical model, finite                         able to accurately capture this hysteretic behavior.
+element simulations and experiments during the loading phase. As
+expected, the behavior of these structures is strongly influenced by the                      5.2. Vacuum pressure
+number of layers. In particular, both experiments and finite element
+simulations confirm the assumption that in the first phase (Pre-slip)                            To evaluate the effect of the vacuum pressure we tested the 20-layer
+layer-jamming structures behave like a single linear elastic beam with                        jamming structure at three different vacuum pressure levels (24, 48,
+
+                                                                                          5
+F. Caruso et al.                                                                                                       International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 4. Comparison between theoretical predictions, finite element simulations and experiments. (a) Photograph of the three-point bending set-up used in all the tests. (b) Influence
+of the number of layers during the loading phase at a constant vacuum pressure (68 kPa). (c) Influence of the vacuum pressure during the loading phase for a 20-layer structure.
+(d) Energy dissipated by friction during a loading and unloading cycle with a different number of layers. (e) Energy dissipated by friction during a loading and unloading cycle
+at different vacuum pressure. (f) Energy dissipated by friction during a loading and unloading cycle with different coefficients of friction.
+
+
+
+68 kPa). Fig. 4c shows the comparison between the analytical model,                           model underestimates the bending stiffness for high deflection as the
+finite element simulations and experiments during the loading phase.                          vacuum pressure increases.
+   The model predicts that the bending stiffness in the initial phase is                          As discussed previously the reason behind this difference is probably
+not influenced by the vacuum pressure and that all the critical loads                         due to the increase in the contact pressure in correspondence of the
+and deflections scale with the vacuum pressure p, as described by                             supports. Even in this case, the loading phase was stopped at 8 mm
+Eqs. (8)–(15). This effect is captured by the model and reflected in both                     and the structures were unloaded (Fig. 4e). Both experiments and
+experiments and finite element simulations. We can observe that the                           finite element simulations confirm that the energy loss due to friction
+
+                                                                                          6
+F. Caruso et al.                                                                                                      International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 5. Influence of the length of the overhangs on the bending stiffness of layer jamming structures. (a) Comparison between theoretical predictions and finite element simulations
+at different overhang lengths 𝐿ℎ . (b) Images extracted from finite element simulations at a deflection of w = 4 mm, showing the propagation of slip both in the internal and
+external regions.
+
+
+increases almost linearly with the vacuum pressure, as predicted by the                      different values of the overhanging length 𝐿ℎ for a structure with 20
+model.                                                                                       layers subjected to a vacuum pressure p = 68 kPa and with all the other
+                                                                                             parameters equal to the real structures used in the experiments.
+5.3. Coefficient of friction                                                                     Fig. 5a shows the comparison between the analytical model de-
+                                                                                             scribed in this work, the analytical model presented in [71] (which
+    As explained previously no tests were conducted to evaluate the                          neglects the overhangs) and finite element simulations at different over-
+influence of the friction coefficient. However, we compared analytical                       hang lengths 𝐿ℎ . In the first phase (Pre-slip), finite element simulations
+predictions with finite element simulations for a structure with 20                          are in excellent agreement with the analytical models, confirming that
+layers with different friction coefficients 𝜇 (0.2, 0.3, 0.4, 0.5). The                      when no slips occur, the presence of the overhangs has no effect on the
+vacuum pressure was set to 70 kPa and all the dimensions were set                            bending stiffness of the structure.
+equal to the real structure used in the experiments.                                             In this initial phase, the structure behaves like a single-layered
+    As expected, changing either the coefficient of friction or the vac-                     beam, since both the internal and external interfaces remain cohesive.
+uum pressure has the same influence on the behavior of the structure,                        However, after the first slip, finite element simulations show that the
+as described by Eqs. (8)–(15). Also in this case the energy dissipated by                    bending stiffness is minimum for 𝐿ℎ = 0 and then increases with
+friction scale almost linearly with the coefficient of friction 𝜇.
+                                                                                             𝐿ℎ until it converges to a maximum value as depicted in Fig. 5a.
+                                                                                             Interestingly, it is worth noting that all the possible behaviors obtained
+5.4. Influence of the overhangs on the bending stiffness of the structure
+                                                                                             by varying 𝐿ℎ fall between an upper and a lower limit that are well
+                                                                                             represented by the analytical model proposed in this work (perfectly
+    For a typical single-layered beam subjected to a 3-point bending
+                                                                                             clamped) and the previously published model [71] (simply supported).
+test, the curvature maintains a constant sign and the overhangs (re-
+                                                                                                 Another important aspect is highlighted in Fig. 5b. Here we show
+gions of the beam outside the supports) do not influence its stiffness.
+                                                                                             images extracted from finite element simulations at the maximum
+However, for layer jamming structures, experiments and finite elements
+                                                                                             deflection w = 4 mm, both at the free end of the external region
+simulations have shown that the curvature sign changes and the over-
+hangs remain almost flat, resembling the elastica of a clamped–clamped                       (green dashed box) and at an internal region between the supports
+beam.                                                                                        (black dashed box), for different values of 𝐿ℎ . Images show that the
+    As described in Section 2, we hypothesize that this counterintuitive                     propagation of slip in the internal region follows an opposite trend with
+behavior can be attributed to the difference in slip propagation between                     respect to the external region. In particular, as 𝐿ℎ increases the number
+the regions inside and outside the supports. In the internal region                          of interfaces that are in slip decrease at the free end while increase in
+(between the supports) the transverse load is constant and equal to                          the internal region.
+(F/2), while outside the support, it is zero. As the transverse load in-                         This fundamental aspect is also captured by the model (blue dots
+creases, the shear stress at the interfaces between the support increases.                   greater than red dots) and can be easily explained by considering that
+Therefore, when the shear stress reaches the frictional limit 𝜇p, the                        the bending stiffness grows with the increase in 𝐿ℎ . Having a higher
+interfaces between the supports begin to slip, while the external regions                    bending stiffness means that the transverse load required to obtain the
+remain attached.                                                                             same deflection will be greater. Thus, higher transverse loads lead to
+    Based on this assumption, in this work we considered the imaginary                       higher shear stress at the interfaces, resulting in more interfaces that
+vertical line starting from the supports and separating the internal and                     reach the frictional limit in the internal region.
+the external regions as perfectly clamped after the first slip. To test the                      Finally, Fig. 6 shows the comparison between the theoretical models
+validity of our hypothesis we conducted finite elements simulations at                       and finite elements simulations at different number of layers, vacuum
+
+                                                                                         7
+F. Caruso et al.                                                                                                   International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+
+
+Fig. 6. Comparison between the model presented in this work, the analytical model of [71] and finite element simulations, varying the number of layers (a) vacuum pressure (b)
+and coefficient of friction (c).
+
+
+pressure and coefficient of friction. All the dimensions, material prop-                  6. Conclusions
+erties and boundary conditions were chosen equal to those used in the
+experiments reported previously.                                                              We presented a novel theoretical approach that predicts the complex
+    As already explained, all the plots show that until reaching the                      nonlinear behavior of multilayer-jamming structures beyond the initial
+first slip, both models and finite elements simulations are in perfect                    deformation phase. We extended our previously published analyti-
+agreement. Then, after the first slip, the model proposed in [71]                         cal model [71] introducing the increase in stiffness caused by the
+underestimates the bending stiffness of the structure while the model                     overhangs outside the supports. The experimental validation of the pro-
+                                                                                          posed approach was discussed by performing three-point bending tests,
+presented in this work remains in very good agreement with finite
+                                                                                          which showed good agreement between the predicted and actual be-
+element results, confirming the importance of introducing the stiffness
+                                                                                          havior, especially considering that no fitting coefficients were adopted.
+increase caused by the overhangs in the analytical formulation.
+                                                                                          Highly accurate finite element models were also constructed to fur-
+                                                                                          ther validate the theoretical predictions, showing how slip propagates
+5.5. Design optimization                                                                  between the layers.
+                                                                                              Experimental and numerical evidence confirmed all the most im-
+    Now that we have experimentally verified the accuracy of our                          portant prediction of the model. Specifically, the model shows that the
+analytical model across a range of conditions, our focus shifts to identi-                nonlinear behavior, beyond the initial deformation phase, can be well
+fying performance characteristics and trends that can provide insights                    described with a piecewise linear approximation between subsequent
+for designing and optimizing layer jamming structures for real-world                      slips. The stiffness declines as the slip propagates inside the structure. In
+applications. For example, consider an application in which we want to                    particular, the model predicts that slip starts at the innermost interface
+maximize the stiffness ratio between the jammed and unjammed states                       and then progressively propagates toward the outer interfaces.
+(e.g. for a soft ankle foot orthosis).                                                        We also discovered that the bending stiffness increases with the
+    The goal is to design a system that is as soft as possible in its rest                length of the overhangs outside the supports, until it converges to a
+state (to ensure comfort) and as rigid as possible upon activation (to                    maximum value, which is well approximated by our theoretical predic-
+prevent ankle sprains). To achieve this goal we need to design a struc-                   tions. Our model also provides a rapid design tool for the fabrication of
+ture with as many layers as possible within the maximum allowable                         improved layer jamming structure, predicting the influence of the main
+                                                                                          design parameters (number of layers, vacuum pressure and coefficient
+total thickness. As described previously, the stiffness ratio between the
+                                                                                          of friction) as well as the energy dissipated by friction during a load–
+jammed and unjammed state scales with the square of the number
+                                                                                          unload cycle. We found that the energy dissipated by friction in a
+of layers (n2 ), thus decreasing the thickness of the layers leads to an
+                                                                                          load–unload cycle scales almost linearly with both the vacuum pressure
+increase in the number of layers and consequently an increase in the
+                                                                                          and the coefficient of friction.
+stiffness ratio.                                                                              We believe that this work represents a significant step forward
+    For example, with a structure of 100 layers with a thickness of                       in understanding the complex intrinsic mechanics of layer-jamming
+0.1 mm (total thickness 1 cm), we would obtain an increase in stiffness                   structures that will help researchers to design more advanced variable
+of 4 order magnitude. However, if the structure is subjected to high                      stiffness applications in soft robotics.
+external loads or deflections (e.g. unexpected fall) the layers will enter
+in slip and the stiffness will dramatically decrease. This problem could                  CRediT authorship contribution statement
+be mitigated by increasing either the vacuum pressure or the coefficient
+of friction, which has the effect of increasing the loads and deflections                     Fabio Caruso: Conceptualization, Software, Validation, Investiga-
+at which the structure will enter in slip, as shown in Fig. 4c and 4.f.                   tion, Data curation, Writing – original draft, Writing – review & editing,
+    Similarly, the vacuum pressure and the coefficient of friction play                   Visualization. Giacomo Mantriota: Conceptualization, Methodology,
+an important role also in applications in which we want to tune                           Validation, Writing – review & editing, Supervision. Vincenzo Mora-
+                                                                                          marco: Software, Validation, Investigation, Writing – review & editing.
+the dynamic response of the systems (e.g. soft dampers, hand tremor
+                                                                                          Giulio Reina: Conceptualization, Methodology, Validation, Writing –
+suppressors). As shown in Fig. 4e–f, the energy dissipated by friction
+                                                                                          review & editing, Supervision.
+scales almost linearly with both the vacuum pressure and the coefficient
+of friction. Therefore, if we want to double the energy dissipated                        Declaration of competing interest
+by the system, then we can double either the vacuum pressure or
+the coefficient of friction. The vacuum pressure can be adjusted on                           The authors declare that they have no known competing finan-
+command by a vacuum regulator, thus the damping tuning can also                           cial interests or personal relationships that could have appeared to
+be controlled in real-time.                                                               influence the work reported in this paper.
+
+                                                                                      8
+F. Caruso et al.                                                                                                           International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+Data availability                                                                                 [30] Hauser S, Robertson M, Ijspeert A, Paik J. Jammjoint: A variable stiffness device
+                                                                                                       based on granular jamming for wearable joint support. IEEE Robot Autom Lett
+                                                                                                       2017;2(2):849–55.
+    Data will be made available on request
+                                                                                                  [31] Jaeger HM. Celebrating soft matter’s 10th anniversary: Toward jamming by
+                                                                                                       design. Soft Matter 2015;11(1):12–27.
+Appendix A. Supplementary data                                                                    [32] Yang B, Baines R, Shah D, Patiballa S, Thomas E, Venkadesan M, et al.
+                                                                                                       Reprogrammable soft actuation and shape-shifting via tensile jamming. Sci Adv
+                                                                                                       2021;7(40):eabh2073.
+    Supplementary material related to this article can be found online
+                                                                                                  [33] Jadhav S, Majit MRA, Shih B, Schulze JP, Tolley MT. Variable stiffness devices
+at https://doi.org/10.1016/j.ijmecsci.2023.108325.                                                     using fiber jamming for application in soft robotics and wearable haptics. Soft
+                                                                                                       Robot 2022;9(1):173–86.
+References                                                                                        [34] Brancadoro M, Manti M, Tognarelli S, Cianchetti M. Fiber jamming transition as
+                                                                                                       a stiffening mechanism for soft robotics. Soft Robot 2020;7(6):663–74.
+                                                                                                  [35] Pinskier J, Brett J, Hanson L, Surdo KL, Howard D. Jammkle: Fibre jamming
+ [1] Whitesides GM. Soft robotics. Angew Chem, Int Ed Engl 2018;57(16):4258–73.
+                                                                                                       3D printed multi-material tendons and their application in a robotic ankle. In:
+ [2] Majidi C. Soft-matter engineering for soft robotics. Adv Mater Technol
+                                                                                                       2022 IEEE/RSJ international conference on intelligent robots and systems. IROS,
+     2019;4(2):1800477.
+                                                                                                       IEEE; 2022, p. 8507–14.
+ [3] Cianchetti M, Laschi C, Menciassi A, Dario P. Biomedical applications of soft
+                                                                                                  [36] Choi WH, Kim S, Lee D, Shin D. Soft, multi-DoF, variable stiffness mech-
+     robotics. Nat Rev Mater 2018;3(6):143–53.
+                                                                                                       anism using layer jamming for wearable robots. IEEE Robot Autom Lett
+ [4] Polygerinos P, Correll N, Morin SA, Mosadegh B, Onal CD, Petersen K, et al.
+                                                                                                       2019;4(3):2539–46.
+     Soft robotics: Review of fluid-driven intrinsically soft devices; manufacturing,
+                                                                                                  [37] Lin Y, Yang G, Liang Y, Zhang C, Wang W, Qian D, et al. Controllable stiffness
+     sensing, control, and applications in human-robot interaction. Adv Energy Mater
+                                                                                                       origami ‘‘skeletons’’ for lightweight and multifunctional artificial muscles. Adv
+     2017;19(12):1700016.
+                                                                                                       Funct Mater 2020;30(31):2000349.
+ [5] Rus D, Tolley MT. Design, fabrication and control of soft robots. Nature
+                                                                                                  [38] Brown E, Rodenberg N, Amend J, Mozeika A, Steltz E, Zakin MR, et al. Universal
+     2015;521(7553):467–75.
+                                                                                                       robotic gripper based on the jamming of granular material. Proc Natl Acad Sci
+ [6] Lee C, Kim M, Kim YJ, Hong N, Ryu S, Kim HJ, et al. Soft robot review. Int J
+                                                                                                       2010;107(44):18809–14.
+     Control Autom Syst 2017;15:3–15.
+                                                                                                  [39] Amend JR, Brown E, Rodenberg N, Jaeger HM, Lipson H. A positive pressure
+ [7] Laschi C, Mazzolai B, Cianchetti M. Soft robotics: Technologies and systems
+                                                                                                       universal gripper based on the jamming of granular material. IEEE Trans Robot
+     pushing the boundaries of robot abilities. Science Robotics 2016;1(1):eaah3690.
+                                                                                                       2012;28(2):341–50.
+ [8] Wang H, Totaro M, Beccai L. Toward perceptive soft robots: Progress and                      [40] Licht S, Collins E, Mendes ML, Baxter C. Stronger at depth: Jamming grippers
+     challenges. Adv Sci 2018;5(9):1800541.                                                            as deep sea sampling tools. Soft Robot 2017;4(4):305–16.
+ [9] Rich SI, Wood RJ, Majidi C. Untethered soft robotics. Nat Electron                           [41] Ranzani T, Gerboni G, Cianchetti M, Menciassi A. A bioinspired soft manipulator
+     2018;1(2):102–12.                                                                                 for minimally invasive surgery. Bioinspiration Biomim 2015;10(3):035008.
+[10] Manti M, Cacucciolo V, Cianchetti M. Stiffening in soft robotics: A review of the            [42] Cavallo A, Brancadoro M, Tognarelli S, Menciassi A. A soft retraction system
+     state of the art. IEEE Robot Autom Mag 2016;23(3):93–106.                                         for surgery based on ferromagnetic materials and granular jamming. Soft Robot
+[11] Wang L, Yang Y, Chen Y, Majidi C, Iida F, Askounis E, et al. Controllable                         2019;6(2):161–73.
+     and reversible tuning of material rigidity for robot applications. Mater Today               [43] Henann DL, Kamrin K. Continuum modeling of secondary rheology in dense
+     2018;21(5):563–76.                                                                                granular materials. Phys Rev Lett 2014;113(17):178001.
+[12] Yang Y, Li Y, Chen Y. Principles and methods for stiffness modulation in soft                [44] Henann DL, Kamrin K. A predictive, size-dependent continuum model for dense
+     robot design and development. Bio-Design Manuf 2018;1(1):14–25.                                   granular flows. Proc Natl Acad Sci 2013;110(17):6730–5.
+[13] Blanc L, Delchambre A, Lambert P. Flexible medical devices: Review of                        [45] Blanc L, François B, Delchambre A, Lambert P. Characterization and modeling of
+     controllable stiffness solutions. In: Actuators. Vol. 6, (3):MDPI; 2017, p. 23.                   granular jamming: models for mechanical design. Granul Matter 2021;23:1–13.
+[14] Runciman M, Darzi A, Mylonas GP. Soft robotics in minimally invasive surgery.                [46] Kumar R, Rommel S, Jauffrès D, Lhuissier P, Martin CL. Effect of packing
+     Soft Robot 2019;6(4):423–43.                                                                      characteristics on the discrete element simulation of elasticity and buckling. Int
+[15] Cianchetti M, Ranzani T, Gerboni G, Nanayakkara T, Althoefer K, Das-                              J Mech Sci 2016;110:14–21.
+     gupta P, Menciassi A. Soft robotics technologies to address shortcomings                     [47] Li L, Marteau E, Andrade JE. Capturing the inter-particle force distribution in
+     in today’s minimally invasive surgery: the STIFF-FLOP approach. Soft Robot                        granular material using LS-DEM. Granul Matter 2019;21:1–16.
+     2014;1(2):122–31.                                                                            [48] Behringer RP, Chakraborty B. The physics of jamming for granular materials: a
+[16] Yin J, Hinchet R, Shea H, Majidi C. Wearable soft technologies for haptic sensing                 review. Rep Progr Phys 2018;82(1):012601.
+     and feedback. Adv Funct Mater 2021;31(39):2007428.                                           [49] Baule A, Morone F, Herrmann HJ, Makse HA. Edwards statistical mechanics for
+[17] Salazar SV, Pacchierotti C, de Tinguy X, Maciel A, Marchal M. Altering the                        jammed granular matter. Rev Modern Phys 2018;90(1):015006.
+     stiffness, friction, and shape perception of tangible objects in virtual reality using       [50] Aktaş B, Narang YS, Vasios N, Bertoldi K, Howe RD. A modeling framework for
+     wearable haptics. IEEE Trans Haptics 2020;13(1):167–74.                                           jamming structures. Adv Funct Mater 2021;31(16):2007554.
+[18] Shintake J, Cacucciolo V, Floreano D, Shea H. Soft robotic grippers. Adv Mater               [51] Kim Y-J, Cheng S, Kim S, Iagnemma K. A novel layer jamming mechanism with
+     2018;30(29):1707035.                                                                              tunable stiffness capability for minimally invasive surgery. IEEE Trans Robot
+[19] Wei Y, Chen Y, Ren T, Chen Q, Yan C, Yang Y, et al. A novel, variable stiffness                   2013;29(4):1031–42.
+     robotic gripper based on integrated soft actuating and particle jamming. Soft                [52] Kim Y-J, Cheng S, Kim S, Iagnemma K. Design of a tubular snake-like manipula-
+     Robot 2016;3(3):134–43.                                                                           tor with stiffening capability by layer jamming. In: 2012 IEEE/RSJ international
+[20] Wang W, Ahn S-H. Shape memory alloy-based soft gripper with variable stiffness                    conference on intelligent robots and systems. IEEE; 2012, p. 4251–6.
+     for compliant and effective grasping. Soft Robot 2017;4(4):379–89.                           [53] Ou J, Yao L, Tauber D, Steimle J, Niiyama R, Ishii H. Jamsheets: thin interfaces
+[21] Zhong G, Hou Y, Dou W. A soft pneumatic dexterous gripper with convertible                        with tunable stiffness enabled by layer jamming. In: Proceedings of the 8th
+     grasping modes. Int J Mech Sci 2019;153:445–56.                                                   international conference on tangible, embedded and embodied interaction. 2014,
+[22] Wang Y, Li L, Hofmann D, Andrade JE, Daraio C. Structured fabrics with tunable                    p. 65–72.
+     mechanical properties. Nature 2021;596(7871):238–43.                                         [54] Yang Y, Zhang Y, Kan Z, Zeng J, Wang MY. Hybrid jamming for bioinspired soft
+[23] Kwon J, Choi I, Park M, Moon J, Jeong B, Pathak P, et al. Selectively stiffening                  robotic fingers. Soft Robot 2020;7(3):292–308.
+     garments enabled by cellular composites. Adv Mater Technol 2022;2101543.                     [55] Fang B, Sun F, Wu L, Liu F, Wang X, Huang H, et al. Multimode grasping soft
+[24] Shah DS, Yang EJ, Yuen MC, Huang EC, Kramer-Bottiglio R. Jamming skins that                       gripper achieved by layer jamming structure and tendon-driven mechanism. Soft
+     control system rigidity from the surface. Adv Funct Mater 2021;31(1):2006915.                     Robot 2022;9(2):233–49.
+[25] Tonazzini A, Mintchev S, Schubert B, Mazzolai B, Shintake J, Flore-                          [56] Wang X, Wu L, Fang B, Xu X, Huang H, Sun F. Layer jamming-based soft robotic
+     ano D. Variable stiffness fiber with self-healing capability. Adv Mater                           hand with variable stiffness for compliant and effective grasping. Cognitive
+     2016;28(46):10142–8.                                                                              Computation Syst 2020;2(2):44–9.
+[26] Baniasadi M, Foyouzat A, Baghani M. Multiple shape memory effect for smart                   [57] Gerez L, Gao G, Liarokapis M. Laminar jamming flexure joints for the de-
+     helical springs with variable stiffness over time and temperature. Int J Mech Sci                 velopment of variable stiffness robot grippers and hands. In: 2020 IEEE/RSJ
+     2020;182:105742.                                                                                  international conference on intelligent robots and systems. IROS, IEEE; 2020, p.
+[27] De Vicente J, Klingenberg DJ, Hidalgo-Alvarez R. Magnetorheological fluids: a                     8709–15.
+     review. Soft Matter 2011;7(8):3701–10.                                                       [58] Gerez L, Gao G, Dwivedi A, Liarokapis M. A hybrid, wearable exoskeleton glove
+[28] Wang T, Zhang J, Li Y, Hong J, Wang MY. Electrostatic layer jamming variable                      equipped with variable stiffness joints, abduction capabilities, and a telescopic
+     stiffness for soft robotics. IEEE/ASME Trans Mechatronics 2019;24(2):424–33.                      thumb. Ieee Access 2020;8:173345–58.
+[29] Fitzgerald SG, Delaney GW, Howard D. A review of jamming actuation in soft                   [59] Dezaki ML, Bodaghi M. Shape memory meta-laminar jamming actuators by 4D
+     robotics. In: Actuators. Vol. 9, (4):MDPI; 2020, p. 104.                                          printing. Soft Matter 2023.
+
+
+                                                                                              9
+F. Caruso et al.                                                                                                       International Journal of Mechanical Sciences 251 (2023) 108325
+
+
+[60] Aktaş B, Howe RD. Flexure mechanisms with variable stiffness and damping                 [67] Sahoo R, Singh B. A new shear deformation theory for the static analysis of
+     using layer jamming. In: 2019 IEEE/RSJ international conference on intelligent                laminated composite and sandwich plates. Int J Mech Sci 2013;75:324–36.
+     robots and systems. IROS, IEEE; 2019, p. 7616–21.                                        [68] Hajianmaleki M, Qatu MS. Vibrations of straight and curved composite beams:
+[61] Ibrahimi M, Paternò L, Ricotti L, Menciassi A. A layer jamming actuator for                   A review. Compos Struct 2013;100:218–32.
+     tunable stiffness and shape-changing devices. Soft Robot 2021;8(1):85–96.                [69] Narang YS, Vlassak JJ, Howe RD. Mechanically versatile soft machines through
+[62] Narang YS, Aktaş B, Ornellas S, Vlassak JJ, Howe RD. Lightweight highly tunable               laminar jamming. Adv Funct Mater 2018;28(17):1707136.
+     jamming-based composites. Soft Robot 2020;7(6):724–35.                                   [70] Vasios N, Narang Y, Aktaş B, Howe R, Bertoldi K. Numerical analysis of periodic
+[63] Choi I, Corson N, Peiros L, Hawkes EW, Keller S, Follmer S. A soft, controllable,             laminar and fibrous media undergoing a jamming transition. Eur J Mech A Solids
+     high force density linear brake utilizing layer jamming. IEEE Robot Autom Lett                2019;75:322–9.
+     2017;3(1):450–7.                                                                         [71] Caruso F, Mantriota G, Afferrante L, Reina G. A theoretical model for multi-layer
+[64] Narang YS, Degirmenci A, Vlassak JJ, Howe RD. Transforming the dynamic                        jamming systems. Mech Mach Theory 2022;172:104788.
+     response of robotic structures and systems through laminar jamming. IEEE Robot           [72] Caruso F, Mantriota G, Reina G. An analytical model for cantilever layer-jamming
+     Autom Lett 2017;3(2):688–95.                                                                  structures. In: The international conference of IFToMM ITALY. Springer; 2022,
+[65] Wanasinghe A, Awantha W, Kavindya A, Kulasekera A, Chathuranga D,                             p. 193–200.
+     Senanayake B. A layer jamming soft glove for hand tremor suppression. IEEE               [73] Johansson A. Paper friction-influence of measurement conditions. Tappi J
+     Trans Neural Syst Rehabil Eng 2021;29:2684–94.                                                1998;81:175.
+[66] Sayyad AS, Ghugal YM. Bending, buckling and free vibration of laminated                  [74] Yoshihara H, Yoshinobu M. Effects of specimen configuration and measurement
+     composite and sandwich beams: A critical review of literature. Compos Struct                  method of strain on the characterization of tensile properties of paper. J Wood
+     2017;171:486–504.                                                                             Sci 2014;60(4):287–93.
+
+
+
+
+                                                                                         10
+

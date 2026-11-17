@@ -1,0 +1,676 @@
+                                                                                                                                 ORIGINAL RESEARCH
+                                                                                                                                published: 19 March 2019
+                                                                                                                           doi: 10.3389/frobt.2019.00012
+
+
+
+
+                                             Toward a Variable Stiffness Surgical
+                                             Manipulator Based on Fiber Jamming
+                                             Transition
+                                             Margherita Brancadoro † , Mariangela Manti*† , Fabrizio Grani, Selene Tognarelli,
+                                             Arianna Menciassi and Matteo Cianchetti
+
+                                             The BioRobotics Institute, Scuola Superiore Sant’Anna, Pisa, Italy
+
+
+
+                                             Soft robots have proved to represent a new frontier for the development of intelligent
+                                             machines able to show new capabilities that can complement those currently performed
+                                             by robots based on rigid materials. One of the main application areas where this shift is
+                                             promising an impact is minimally invasive surgery. In previous works, the STFF-FLOP
+                                             soft manipulator has been introduced as a new concept of using soft materials to
+                                             develop endoscopic tools. In this paper, we present a novel kind of stiffening system
+                                             based on fiber jamming transition that can be embedded in the manipulator to widen
+                             Edited by:      its applicability by increasing its stability and with the possibility to produce and transmit
+                         Helmut Hauser,
+                                             higher forces. The STIFF-FLOP original module has been re-designed in two new versions
+ University of Bristol, United Kingdom
+                                             to incorporate the variable stiffness mechanism. The two designs have been evaluated
+                        Reviewed by:
+                       Dongming Gan,         in terms of dexterity and variable stiffness capability and, despite a general optimization
+                     Khalifa University,     rule did not clearly emerge, the study confirmed that fiber jamming transition can be
+                 United Arab Emirates
+                    Sanja Dogramadzi,        considered an effective technological approach for obtaining variable stiffness in slender
+    University of the West of England,       soft structures.
+                      United Kingdom
+                                             Keywords: soft robotics, surgical manipulator, variable stiffness system, jamming transition, minimally
+                *Correspondence:             invasive surgery
+                   Mariangela Manti
+    mariangela.manti@santannapisa.it
+
+     † These authors have contributed        INTRODUCTION
+                   equally to this work
+                                             Robots today rely on a long tradition in the use of rigid materials for the most of their body.
+                    Specialty section:       The use of rigid materials implies the possibility to use some basic simplifications, assumptions,
+          This article was submitted to      and conventions that can support their design. This framework can lead to very advanced and
+                         Soft Robotics,      complex machines, but most of the times the effectiveness of the robot is still heavily relying
+                a section of the journal     on the control performance. This traditional approach for making intelligent machines has been
+           Frontiers in Robotics and AI
+                                             questioned when roboticists started to look at natural agents (e.g., humans, animals, and even
+         Received: 22 October 2018           plants) and their interaction with the environment (Laschi and Mazzolai, 2016). Observing the
+        Accepted: 18 February 2019           key role played by soft and flexible structures within the body to cope with the unstructured and
+          Published: 19 March 2019
+                                             unpredictable environments in everyday tasks, roboticists started to re-think the basic principle for
+                             Citation:       designing, manufacturing and controlling robots. This paradigmatic revolution is now known as
+      Brancadoro M, Manti M, Grani F,        soft robotics (Rus and Tolley, 2015). In this new paradigm, softness, and flexibility have acquired a
+         Tognarelli S, Menciassi A and
+                                             strategic role for developing versatile, dexterous, and intrinsically safe systems (Shen, 2016), but the
+Cianchetti M (2019) Toward a Variable
+ Stiffness Surgical Manipulator Based
+                                             real game changer that makes soft robotics effective is the variable stiffness capability. This ability
+         on Fiber Jamming Transition.        allows for soft robots to maintain their own structural strength without losing the capability of
+                 Front. Robot. AI 6:12.      reversibly transit between a stiff state and a compliant one for a better adaptation of the shape to
+       doi: 10.3389/frobt.2019.00012         unstructured environments.
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                  1                                   March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                          Stiffening Through Fiber Jamming Transition
+
+
+
+    The attention of researchers approaching the design and                rolling (Steltz et al., 2009), or vibration (Kaufhold et al., 2012). A
+manufacturing of a soft robot is firstly devoted to the                    widespread use of the technology is confirmed by its application
+definition of a body that counts on three main characteristics:            as haptic or tactile interfaces (Follmer et al., 2012; Stanley et al.,
+shape, arrangement, and material properties of the constituting            2013; Li et al., 2014). The phenomenon has been then extended
+elements that serve, wherever it is possible, both as passive              to the use of laminar material inside an elastic membrane in
+(structural) and active elements (Zambrano et al., 2014). This             order to obtain layer jamming (Kim et al., 2013; Ou et al., 2014;
+vision implies a significant increase in bodyware complexity, but          Narang et al., 2018).
+also a simplification on control algorithms: a rich behavior does              Literature analysis demonstrates that research prototypes
+not necessarily come from a complex control, but may be the                are only based on granular and layer jamming, while the
+result of the interaction between body, control and environment            possibility of exploiting jamming transition using fibers as
+(Pfeifer and Bongard, 2006).                                               filler material is completely neglected. A preliminary study of
+    In this framework, the innovative actuation technologies,              this configuration has been investigated, for the first time, by
+investigated and developed by soft roboticists, represent the              Brancadoro et al. (2018): here, a comparative approach has
+ground for a new generation of soft robots with advanced                   been proposed to experimentally assess the performances of the
+abilities, such as elongation, squeezing, growing, self-healing, and       jamming transition induced on fibers. In the same work, a first
+variable stiffness (Laschi et al., 2016). The topic is still an open       discussion on the main parameters affecting the system behavior
+issue. Literature reports some reviews and tentative approaches            has been introduced: fiber material, dimension, cross section and
+to identify, design and combine soft robotics technologies                 shape. The present paper builds upon the main results achieved
+for stiffness tuning (Manti et al., 2016; Sun et al., 2017;                in that previous work and focuses on the integration of a variable
+Wang et al., 2018).                                                        stiffness system based on fiber jamming transition in the STIFF-
+    Among the most corroborated semi-active technologies for               FLOP soft manipulator developed by the same research group
+stiffness tuning (Manti et al., 2016), the material jamming                (Abidi et al., 2018), hereafter called “original” to avoid confusion.
+transition has been largely investigated because of its simplicity,        This manipulator is based on three-flexible fluidic chambers
+versatility, reversibility and possibility to customize the system         that can be inflated to obtain omnidirectional bending and
+according to the target application. The integration of a                  elongation. The STIFF-FLOP manipulator has already proved to
+jamming mechanism into a device involves the presence of                   introduce significant advantages into minimally invasive surgical
+an external soft, elastic membrane filled with solid discrete              procedures and specifically it has been successfully used as an
+material. At atmospheric pressure, the system presents high                endoscope in a total mesorectal excision procedure that was
+softness and compliance given by the fact that filler can                  performed in two human cadaver models (Arezzo et al., 2017).
+easily and freely move inside the soft membrane; upon                      Nevertheless, the manipulator has limited applications as surgical
+the application of vacuum, the membrane collapses on the                   tool because of its poor capability of force application. This is
+filler material, thus freezing the dynamics of the overall                 the reason why, in its current configuration, it is best suited
+system. Consequently, the material is densely packed and                   for endoscopic tasks, where safe interaction with organs and
+the friction prevents every kind of relative displacement. As              delicate tissues and dexterity are the main important features
+a result, the entire structure behaves like a rigid material               (Abidi et al., 2018). An endoscopic tool is devoted to inspection
+(Liu and Nagel, 1998).                                                     within the human body, thus it mainly requires dexterity and
+    The working principle that stands behind the phenomenon                intrinsic safety (softness) in case of interaction with soft tissues.
+is today reproduced and frequently exploited in soft robotic               On the other hand, a surgical tool requires the ability of an
+systems at the macroscale; on the other hand, the physical                 effective interaction with human organs/tissues (e.g., for cutting,
+principle that occurs at the microscale is still under investigation       moving, pushing) thus it needs to be sufficiently rigid or (as in
+(Behringer and Chakraborty, 2018). Despite the fact that                   our case) the ability of tuning its stiffness. It implies that, in the
+the technology is very easy to use and the advantages are                  two-module STIFF-FLOP surgical manipulator, the activation of
+undeniable, there is a lack of information on the underlying               the stiffening system of the proximal module is used to provide
+physical principle involved in the jamming transition and, as              stabilization to the distal module while this latter is interacting
+a consequence, there are no suitable models and tools able to              with the tissues.
+guide the design choice, thus preventing its exploitation at market            Earlier versions of the manipulator could count on a
+level (Amend et al., 2016).                                                variable stiffness system based on granular jamming transition
+    Jamming transition has been investigated, for the first time,          (Ranzani et al., 2015). It was effective and suitable for the
+with grains encapsulated in an elastic membrane that, upon                 surgical environment in terms of safety, but the miniaturization
+the application of vacuum, transit from a compliant state to               process revealed that this technology becomes very ineffective
+a rigid one. This semi-active technology is commonly used                  when used in almost 2D or 1D structures. Grains better act
+in combination with other active actuation technologies to                 with 3D volumes, layers work well in planar structures while
+allow selective stiffening or shape locking of bending states              the mono-dimensionality of fibers is appropriate for long,
+in anthropomorphic grippers (Wall et al., 2015) or in highly               slender systems. Thus, jamming transition based on fibers
+articulated manipulators (Follmer et al., 2012). They can be also          presents the right features for introducing a remarkable variable
+exploited as a mean to introduce selective anisotropies in the             stiffness capability in the original STIFF-FLOP manipulator.
+material behavior thus enabling locomotion patterns, such as               Moreover, the manipulator is already driven by fluidic actuation
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                     2                                            March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                     Stiffening Through Fiber Jamming Transition
+
+
+
+                                                                                       MATERIALS AND METHODS
+                                                                                       Before presenting in detail the new design and the manufacturing
+                                                                                       procedure of the tested modules, it is worth briefly recapping the
+                                                                                       main characteristics the original STIFF-FLOP soft manipulator
+                                                                                       relies on. It includes three pairs of inflatable chambers, radially
+                                                                                       arranged around a central axis, and entirely made of silicone.
+                                                                                       These chambers are lined with a thin inextensible thread in
+                                                                                       a tight helical winding. The minimization of the helical pitch
+                                                                                       brings two advantages: it prevents a radial expansion and
+                                                                                       maximizes the longitudinal elongation when the chamber is
+                                                                                       under pressure (Fraś et al., 2015). This combination enables the
+                                                                                       possibility to obtain omnidirectional bending and longitudinal
+                                                                                       elongation depending on the pressure applied to each chamber.
+                                                                                       The chamber can be considered as an actuator that generates
+                                                                                       one motion primitive (MP). For continuum soft manipulators,
+                                                                                       the traditional degrees of freedom (DoFs) are replaced by MPs
+                                                                                       which result more appropriate for a soft robot that theoretically
+                                                                                       has infinite positions (Abidi et al., 2018). Considering this
+                                                                                       convention, the soft manipulator has three MPs for bending
+                                                                                       motion due to the inflation of each pair of chambers at different
+                                                                                       pressure values and one MP that describes the elongation
+                                                                                       due a simultaneous inflation of all the chambers at the same
+ FIGURE 1 | Representation of the two-module STIFF-FLOP manipulator                    pressure value.
+ attached to a rigid shaft used as support. The proximal module has been                   For this work, the original STIFF-FLOP module has been
+ redesigned to lodge a variable stiffness system that can become rigid on              modified and declined into two different versions according to
+ demand and provide stability to the distal module (unvaried with respect to the       the following specifications:
+ original version).
+                                                                                       • the dimensions of the module itself, in terms of external
+                                                                                         diameter and total length, remain constant in order both to
+                                                                                         pass through the trocar used in MIS and have comparable
+technologies, thus the additional components needed to drive                             results with respect to the workspace covered by the original
+jamming transitions are limited.                                                         STIFF-FLOP module;
+    With this in mind, the main driver of this study is the                            • the module should have at least one motion primitive to
+integration of a variable stiffness system in the STIFF-FLOP soft                        guarantee a minimum level of dexterity and flexibility;
+manipulator. This system already has the flexibility and dexterity                     • the module should have a free lumen.
+needed for a safe tool for medical application. Moreover, the
+system is able to reach remote areas from different points of view                     The first one, referred as Module A in the next section, is
+using the same access port. The integration of the semi-active                         based on the original design but hosts the fiber jamming
+technology extends the already available functionalities of the                        system in the central channel (free lumen), not fulfilling the
+system making possible also surgical actions.                                          third requirement. The second one, referred as Module B,
+    In this framework, the new concept tested in the present work                      counts on a substantial revision of the actuation system: two
+investigates the possibility to re-design the proximal module of                       pairs of fluidic actuators are substituted by two sites for fiber
+the original STIFF-FLOP manipulator to integrate a variable                            jamming, thus affecting the second requirement. While the
+stiffness system without affecting the original dimensions in                          omni directionality can be compensated externally (i.e., using
+terms of diameter and length. This will enable stiffness variation                     the roll DoF of the rigid shaft reported in Figure 1), the free
+that provides support and acts as a stabilizer for the distal                          lumen is something that improves the system functionalities and
+module, which in turn exploits its flexibility and dexterity to                        surgeon’s abilities.
+interact with organs or human tissues. The complete surgical                              Moreover, the integration of the variable stiffness system
+manipulator proposed in Figure 1 will be composed of a                                 does not imply any modifications in terms of modularity of
+proximal module (to be chosen between the two designs                                  the overall final systems as described in Figure 1 or dimensions
+proposed in the present work) where the fiber jamming                                  of the module itself. For this reason, the two designs here
+technology is integrated and a distal module that is the original                      proposed as an alternative to the original proximal STIFF-FLOP
+one, as proposed in Abidi et al. (2018). The whole system could                        module, are still compliant with the miniaturization constraints
+be then attached to a rigid shaft, which can be positioned and                         and, moreover, the covered workspace is comparable with the
+maneuvered at the insertion point by a surgeon or by a robot                           previous results.
+(Diodato et al., 2018) for performing minimally invasive surgery                          The design and the functionalities of each module are
+(MIS) procedures.                                                                      described in the next two subsections while the manufacturing
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                 3                                           March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                              Stiffening Through Fiber Jamming Transition
+
+
+
+
+ FIGURE 2 | Design and section view of (A) Module A and (B) Module B.
+
+
+
+procedure, being mostly the same for both, is presented in a single
+subsequent section.
+
+Re-design of the Module
+Module A. The single module is 50 mm in length and 14.5 mm
+in external diameter thus resulting suitable for standard MIS
+applications (i.e., it is able to pass through a standard 15 mm
+trocar). Figure 2A shows the section view of the module
+containing three pairs of chambers, each measuring 3 mm in
+diameter and able to elongate only. With respect to the original
+version of the STIFF-FLOP module where the lumen (4.5 mm
+in diameter) was properly designed to allow the insertion of
+thin surgical equipment up to the tip, in the current version
+of the module the central channel hosts the fibers to produce
+the jamming transition (called “stiffening chamber”). With this
+design, the module is characterized by the variable stiffness                FIGURE 3 | CAD model for the (A) BT and (B) CT joint.
+functionality and by four MPs that supply the omnidirectional
+bending and the elongation.
+Module B. The single module is again 50 mm in length and
+14.5 mm in external diameter. With respect to Module A, this                reported in the previous work (Brancadoro et al., 2018). In this
+version has only one MP, supplied by a pair of chambers, while              earlier paper, a series of cylindrical samples made of a latex
+the remaining space is equally split into two chambers (each                membrane filled with different fibrous materials has been tested
+one with 27.41 mm2 in area) that host fibers for varying the                and compared to identify the material that present the highest
+module stiffness, as depicted in the section view reported in               stiffness variation. In particular, PTFE, PVC, Nylon, Silicone,
+Figure 2B. This design implies that the module has one single               Waxed cotton, and Leather have been investigated and tested
+bending plane and variable stiffness functionality, while the               in two different configurations: bundle-type (BT) and comb-
+inner free lumen (4.5 mm in diameter) is preserved for inserting            type (CT). The first one (i.e., BT) counts on fibers that are
+suitable surgical tools (e.g., graspers, mini ultrasound probes             longitudinally arranged in a bundle fixed on one side only
+and radio-frequency tools), for housing electric wires (e.g., for a         and without a specific organization (Figure 3A), while the CT
+laparoscopic micro camera) or for routing pressure lines (in case           configuration presents fibers organized as two tooth-interlocking
+of a multi-modules architecture).                                           combs (Figure 3B).
+                                                                                It is worth mentioning that, since the jamming transition is
+Fiber Selection                                                             affected by friction effects among the filling fibers and between
+The choice of the fibers to be used in the jamming-based system             the fibers and the external membrane, the preliminary study
+has been driven by the main achievements that authors have                  proposed in Brancadoro et al. (2018) took this feature into
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                      4                                               March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                                       Stiffening Through Fiber Jamming Transition
+
+
+
+TABLE 1 | Summary of the results from Brancadoro et al. (2018).
+
+Fiber material            Surface finishing             Design approach                  Pressure                 Force max.                       Stiffness variation
+                                                                                           (bar)                      (N)                     (Fmax jammed /Fmax unjammed )
+                                                                                                                                                           (%)
+
+PTFE                      Very smooth                            BT                       1.01325                  5.33 ± 0.16                          +93 ± 13
+                                                                                             0.1                  10.26 ± 0.39
+                                                                CT                        1.01325                  5.89 ± 0.7                           +108 ± 27
+                                                                                             0.1                  12.06 ± 0.12
+PVC                       Smooth                                 BT                       1.01325                  2.75 ± 0.07                        +180.5 ± 10.5
+                                                                                             0.1                   7.70 ± 0.09
+                                                                CT                        1.01325                  2.92 ± 0.08                        +216.5 ± 14.5
+                                                                                             0.1                   9.24 ± 0.17
+Nylon                     Very smooth                            BT                       1.01325                  8.01 ± 0.15                          +135 ± 12
+                                                                                             0.1                  18.79 ± 0.61
+                                                                CT                        1.01325                 19.07 ± 1.59                          +43 ± 19
+                                                                                             0.1                  26.96 ± 1.32
+Silicone                  Rough                                  BT                       1.01325                  4.25 ± 0.11                           +89 ± 8
+                                                                                             0.1                   8.01 ± 0.13
+                                                                CT                        1.01325                  2.55 ± 0.35                          +205 ± 44
+                                                                                             0.1                   7.63 ± 0.05
+Waxed cotton              Very rough                             BT                       1.01325                  2.65 ± 0.11                          +254 ± 20
+                                                                                             0.1                   9.36 ± 0.13
+                                                                CT                        1.01325                  2.56 ± 0.02                         +377.5 ± 7.5
+                                                                                             0.1                  12.23 ± 0.10
+Leather                   Very rough                             BT                       1.01325                  3.54 ± 0.13                         +79.5 ± 14.5
+                                                                                             0.1                   6.35 ± 0.28
+                                                                CT                        1.01325                  3.86 ± 0.07                        +291.5 ± 26.5
+                                                                                             0.1                  15.09 ± 0.76
+
+The fiber type and the design approach selected for the present study is highlighted in the table (BT – Bundle Type; CT – Comb Type).
+
+account investigating the surface finishing of the selected fibers                           inserted into each chamber of Module B, since each fiber has a
+and its correlation with the jamming transition for the two                                  diameter of 0.9 mm.
+configurations. In particular, despite a numerical analysis is
+still missing, in that paper all the materials selected for the
+preliminary assessment have been compared also from this
+                                                                                             Manufacturing
+                                                                                             The manufacturing of the two kinds of module consists of several
+point of view in order to relate the stiffness variation of the
+                                                                                             steps based on silicone molding procedure. All the components
+joint configuration (Bundle type BT or comb type CT) to
+                                                                                             for the module fabrication are realized using a 3D printer
+the material type. In particular, authors noticed that the fiber
+                                                                                             (ProJet MJP 3600, 3D Systems, South Carolina, US). For a better
+roughness order has a role in the effectiveness of the jamming
+                                                                                             representation of the manufacturing procedure, the main phases
+effect, being directly correlated with the sliding capability of
+                                                                                             are listed below and summarized in Figure 4:
+the fibers. In the present study, authors decided to adopt
+the combination of joint configuration and fiber type that                                   a. Firstly, the mold for the chambers is prepared by winding an
+has demonstrated the best performances in terms of stiffness                                    inextensible polyester thread around a 3D printed cylinder.
+variation. Although other materials and configurations are                                      This cylinder is composed of three assembled parts, an inner
+possible, currently there is no specific study or general model,                                core and two side parts (Figure 4a). Six chamber molds
+thus the choice can be only guided by a comparative experimental                                and two chamber molds are prepared for Module A and
+analysis. According to those results (summarized in Table 1), the                               Module B, respectively.
+waxed cotton in the CT configuration has demonstrated the most                               b. The fabrication of Module A starts positioning six chamber
+promising stiffening features (increase of 377.5%) and have been                                molds into a cylindrical-shaped mold composed of three
+incorporated in the modules.                                                                    identical parts and a central cylinder for the realization
+    Fibers have been confined in the dedicated sites by using the                               of the inner free lumen. To guarantee a precise mold
+same guidelines defined in the previous work in terms of packing                                alignment, that is essential for avoiding any asymmetries
+factor (i.e., the volume of the fibers divided by the volume of                                 in the module, a thin Plexiglas plate is located on the
+the section). In particular, keeping the same packing factor, 8                                 top of the module for lodging all molds and for keeping
+fibers have been used for Module A while 14 fibers have been                                    them in place. The Plexiglas component is cut with a laser
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                       5                                                       March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                          Stiffening Through Fiber Jamming Transition
+
+
+
+                                                                              creating the CT configuration, in each module, half of fibers
+                                                                              exceed of 3 mm from the bottom face of the module and the
+                                                                              residual fibers exceed of the same length from the other side.
+                                                                              In this way, it is possible to encapsulate the fibers into the
+                                                                              silicone base, thus guaranteeing that the fibers are arranged as
+                                                                              two tooth-interlocking combs.
+                                                                           d. After fibers integration, the modules are sealed on bottom side
+                                                                              using a dedicated cup mold filled with harder silicone (Smooth
+                                                                              Sil 950, Smooth On Inc., Macungie, PA) (Figure 4d). At this
+                                                                              stage, the pipes for the fluidic actuation (i.e., three for Module
+                                                                              A and only one for Module B) and for the vacuum (i.e., one
+                                                                              for Module A and two for Module B) are incorporated into
+                                                                              the soft structure.
+                                                                           e. The last step concerns the sealing of the top side of the modules
+                                                                              and it follows the same procedure described above (Figure 4e).
+                                                                              The fluidic chambers are connected in pairs through a small
+                                                                              silicone pipe located internally as a bridge between chambers.
+                                                                              Figure 4f shows the final result.
+                                                                           The weight of each module is 9.2 g and 7.6 g for the Module A
+                                                                           and B, respectively.
+
+                                                                           Experimental Set-Up and Protocol
+                                                                           In order to investigate the performances of the two different
+                                                                           modules, several tests were carried out by using an ad
+                                                                           hoc experimental set-up. Four different characteristics
+                                                                           have been experimentally evaluated and compared with
+                                                                           the performances achieved by the original STIFF-FLOP
+                                                                           module: (i) variable stiffness at rest position; (ii) variable
+                                                                           stiffness in bent configuration; (iii) workspace; (iv) shape
+                                                                           locking capability.
+                                                                               The experimental set-up counts on parts that are used
+                                                                           to drive the modules in all the tests (i.e., vacuum pump
+                                                                           and air compressor) while specific equipment is introduced
+                                                                           to perform the single tests (e.g., load cell, magnetic
+                                                                           tracking system).
+                                                                               For driving the modules, a simple On/Off vacuum control
+                                                                           was selected and implemented by using a vacuum pump
+                                                                           (Oil Lubricated Rotary Vane Pumps MM56p2, D.V.P Vacuum
+ FIGURE 4 | (a–f) Modules manufacturing steps.                             Technology s.r.l., Carpanelli S.p.A.). The vacuum working state,
+                                                                           measured by an absolute pressure sensor (SWCN-V01-P3-2,
+                                                                           Camozzi Group), corresponds to 0.1 bar pressure level whereas
+                                                                           the ambient pressure state is set to the atmospheric pressure
+   cutting machine (Universal Laser XLS10MWH, Universal                    (1.01325 bar). Regarding the fluidic actuation, the pressure inside
+   Laser System Inc., US). The fabrication of Module B starts              each pair of chambers is controlled by a proportional pressure
+   from the realization of the mold. It is composed of two                 regulator directly connected to an air compressor (S.A. 30/6 type,
+   chamber molds, two molds for the stiffening chambers,                   Werther International Inc., Houston, USA). The specific tests are
+   an inner cylinder and the upper Plexiglas plate for the                 detailed in the subsections reported below.
+   alignment. Figure 4b shows the two assembly molds. Then,
+   uncured silicone (Ecoflex 0050, Smooth On Inc., Macungie,               Variable Stiffness at Rest Position
+   PA) is poured into the molds and left to cure at room                   This test needed an ad-hoc metallic housing to host the base of
+   temperature. After the silicone has completely cured, all molds         the two modules (i.e., Module A and Module B). The module
+   are removed.                                                            tip was deflected horizontally (along the x-axis referring to
+c. Once this step is completed, a total of 36 fibers (i.e., 8 fibers       the reference Cartesian coordinate system of Figure 5) by an
+   for Module A and 28 fibers for Module B) are inserted with a            anthropomorphic robotic arm with six DoFs (RV-6SL; Mitsubishi
+   CT configuration in the lumen and in the two lateral chambers           Electric) for a distance of 15 mm at a speed of 5 mm/s, as shown in
+   of the Module A and Module B, respectively (Figure 4c). For             Figure 5. An ATI-mini 45 Force/Torque sensor (ATI Industrial
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                     6                                            March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                         Stiffening Through Fiber Jamming Transition
+
+
+
+
+ FIGURE 5 | Setup for testing variable stiffness at rest position (Module A is
+ reported as example).
+
+
+
+
+Automation, USA), mounted on the end-effector of the robotic
+                                                                                      FIGURE 6 | Setup for testing variable stiffness in bent configuration (Module A
+arm, measured the resistive force developed by each module.
+                                                                                      is reported as example).
+The interaction surface between the module tip and the force
+sensor is properly defined for each test such that the application
+point of the force by the load cell to the module is kept as the
+origin of the reference Cartesian coordinate system, guaranteeing
+the same working conditions for all the experimental sessions.                          Maximum force for all tests are recorded and compared;
+This point was conventionally defined as the lowest edge of                          the stiffness variation is also related to the previously tested
+the ATI-mini 45 sensor in contact with the most rigid silicone                       configuration in order to evaluate if the deformed state
+part of the module (the blue one). This point represents the                         of the module affects the stiffening capability of the fiber
+origin of the reference Cartesian coordinate system and it is                        jamming system.
+horizontally centered and vertically positioned 5 mm below the
+module tip. In order to guarantee the same setup for all the                         Module’s Workspace
+bending tests, the application point is manually reached before                      To evaluate the module’s workspace, the bending angle has been
+each test session. This experimental setup was controlled with                       measured in relation with the applied pressure. The input air
+a LabVIEW GUI (LabVIEW System Design Software—National                               pressure ranges from 0 to 1.2 bar with an increment of 0.2 bar
+Instrument), also used for data recording (sample rate of 10 kHz).                   and inflates a pair of chambers for each module. The workspace
+Ten experimental trials were performed for each module: five                         is evaluated as the capability of each chamber to bend the
+tests keeping the stiffening chamber at atmospheric pressure (i.e.,                  module on a single plane. An electro-magnetic system (NDI
+1.01325 bar) and five under vacuum conditions (i.e., 0.1 bar).                       Medical Aurora Northern Digital Inc., Waterloo, Canada), with
+These tests are carried out for quantifying the contribution of the                  0.48 mm as maximum accuracy, was used as a ground truth pose
+fiber jamming transition to the overall stiffness of the modules                     measuring device. In particular, one Aurora Mini 6 DOF Sensor
+when at rest position.                                                               (1.8 × 9 mm) was fixed on the tip of the module while an Aurora
+                                                                                     6 DOF Reference probe (25 mm Disc) is located on the module
+Variable Stiffness in Bent Configuration                                             support, close to the module base (Figure 7A). The two probes
+The same setup has been used to quantify variable stiffness in                       are used to monitor the position and orientation of the module
+bent configuration (Figure 6), but a different protocol has been                     tip with respect to the base. By using the ground truth system,
+followed. Before applying the lateral load, one MP of each module                    the bending angle (α) is derived as the angle between the vectors
+is activated using 1 bar pressure. The robot arm, equipped                           normal to the module base and tip surfaces on the bending
+with the load cell, pushes the module for 10 mm at 5 mm/s                            plane (Figure 7B).
+velocity. Five trials have been carried out with the jamming                            A total of five trials were conducted for each module
+system at atmospheric pressure, and five with the application of                     activating only a pair of chambers. This test aims at evaluating
+vacuum conditions. The application point is the same of the test                     how much the presence of the fibers affects the dexterity of
+mentioned above.                                                                     the manipulator.
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                               7                                                  March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                           Stiffening Through Fiber Jamming Transition
+
+
+
+
+ FIGURE 7 | (A) Test setup used for workspace and shape locking evaluation (Module A is reported as an example) and (B) bending angle (α) evaluation method.
+
+
+
+Shape Locking                                                                       TABLE 2 | Results of the bending tests carried out at rest configuration to
+The same setup described for the workspace evaluation has been                      evaluate the maximum stiffness variation for the three designs [i.e., original
+                                                                                    STIFF-FLOP module (Abidi et al., 2018), Module A and Module B].
+used for the shape locking tests following a multiphase procedure:
+                                                                                    Configuration        Maximum force          Maximum force              Stiffness
+a. The module is bent supplying a 1.2 bar pressure to a pair
+                                                                                                          (Vacuum off)           (Vacuum on)               variation
+   of chambers                                                                                                [N]                    [N]
+b. The angle α 1 is recorded
+c. The vacuum is applied to the stiffening chamber for 30 s                         STIFF-FLOP              0.36 ± 0.03                  -                     -
+d. The pressure is removed from the fluidic chambers                                module
+e. The angle α 2 is recorded.
+                                                                                    Module A                0.47 ± 0.02            0.57 ± 0.04            22 ± 15%
+Five tests for Modules A and B have been carried out.
+                                                                                    Module B                0.33 ± 0.02            0.85 ± 0.03            160 ± 28%
+RESULTS AND DISCUSSION
+In this section, the results obtained for each experimental test are
+reported and discussed. The analysis is based on the comparison                     but, referring to Figure 2, it is easy to see that the cross section of
+between the performances of the two proposed designs with                           Module A relies on a larger part of silicone that opposes to tensile
+respect to the original STIFF-FLOP module.                                          forces developed during bending. In Module B, the most of the
+                                                                                    silicone is substituted by flexible fibers that can easily slide and
+Variable Stiffness at Rest Position                                                 bend when free to move.
+Table 2 summarizes the results concerning the maximum                                   The last column of the Table 2 reports the ratio between the
+stiffness variation that can be achieved for each configuration.                    maximum force measured in the jammed and the unjammed
+For a comprehensive comparative analysis of the system                              condition. This is the most appropriate parameter to assess the
+performances, the maximum force developed by the original                           module performances and to provide a direct comparison of
+STIFF-FLOP module is reported as reference.                                         stiffening capability. The stiffening performance has a trend that
+    A first observation concerns the maximum force generated                        is coherent with the design of the modules, namely the stiffness
+by each single module when the vacuum is not applied. It is                         variation increases with the volume of the stiffening chamber and
+reasonable that the original STIFF-FLOP module presents a                           the number of fibers. Module A contains 8 fibers and presents a
+lower maximum force with respect to Module A, because of the                        very limited stiffness variation with respect to Module B, which
+introduction of fibers in the inner free lumen. This change in                      contains 14 fibers for each stiffening chamber (28 in total).
+the design can introduce an additional resistance to the bending                    Moreover, the location of the fibers plays a significant role. The
+motion that explains a value of 0.47 N for Module A with respect                    bending moment of inertia of the module increases much more
+to 0.36 N of the original STIFF-FLOP module. Furthermore, the                       if the fibers are placed in the outer part of the cross section rather
+maximum force of the Module B is less than the maximum force                        than in the central part.
+of the other two configurations because the Module B has only                           In addition to these quantitative data, it is worth reporting that
+one MP (i.e., two actuation chambers) instead of three (i.e., six                   during these tests, once the imposed displacement is completely
+actuation chambers) and two actuation chambers are more rigid                       removed and no vacuum is applied, the modules equipped with
+than a chamber filled with fibers. This may seem counterintuitive,                  fibers completely recover their initial position without showing
+
+Frontiers in Robotics and AI | www.frontiersin.org                              8                                                     March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                        Stiffening Through Fiber Jamming Transition
+
+
+
+any permanent deformations. This means that fibers remain                               reached by Module B is considerably lower with respect to the
+free to move also when the module is deformed if there is no                            Module A. This different response might be due to the structural
+fluidic input.                                                                          role played by the fibers in the module. In both the cases the fiber
+                                                                                        jamming system is not active, but the fibers experience a sliding
+Variable Stiffness in Bent Configuration                                                motion that is subject to friction. However, Module B includes
+The dominant role played by the fiber jamming is also confirmed                         many more fibers and they are arranged in a way that the area
+in the stiffening test in bent configuration. Module B shows                            moment of inertia is much higher, thus causing a stiffer structure.
+a remarkable stiffness variation, while Module A seems to                                   Observing the performances in terms of workspace for both
+be barely affected by the activation of the fiber jamming                               modules and comparing the results with the STIFF-FLOP module
+system, as reported in Table 3. The presence of two stiffening                          (i.e., the bending angle is 132.2◦ at 1.2 bar Abidi et al., 2018),
+chambers enhances the module ability to keep its shape against                          the integration of the fibers considerably decreases the module
+external disturbances.                                                                  workspace. This effect was predictable and is supported by
+    These data, together with those reported in section Variable                        the data about stiffness variation, but this is an acceptable
+stiffness at rest position, support the overall concept of using such                   limitation for the intended application. In this work, the main
+kind of modules to provide stability to the distal segment of a                         aim is to improve the effectiveness of the two-module surgical
+two-module soft manipulator. The substantial stiffness variation                        manipulator by increasing its stability and this can be done by
+of the proximal module demonstrates the ability to compensate                           using a proximal module equipped with the stiffening systems
+external disturbances providing stability to the distal module that                     (sacrificing part of the workspace) and a distal one with high
+instead remains more dexterous and flexible.                                            dexterity and no stiffening capabilities.
+
+Workspace                                                                               Shape Locking Capability
+The results related to the workspace are limited to the evaluation                      The shape locking capability has been evaluated as the residual
+of the module performances on a single bending plane. In                                bending angle the module is able to maintain once the vacuum
+particular, Figure 8 shows the angles achieved by the module tip                        in the stiffness chambers is activated and the pressure in
+at increasing pressure. For a given pressure, the bending angle                         the fluidic chambers is removed. This effect is strictly related
+                                                                                        to the amount of fibers that are involved in the jamming
+                                                                                        transition phenomenon.
+                                                                                           As expected, Module B presents a higher residual bending
+TABLE 3 | Stiffness variation obtained in bent configuration for the two modules.
+                                                                                        angle (Table 4). This module relies on a higher number of fibers
+Configuration        Maximum force         Maximum force            Stiffness           and, looking at its overall design, its body has less silicone parts
+                      (Vacuum off)          (Vacuum on)             variation           that in general give a large contribution in the elastic return of
+                          [N]                   [N]                                     the module (i.e., recovery of its initial configuration once the
+                                                                                        deformation has been removed).
+Module A               0.28 ± 0.03           0.29 ± 0.02           Statistically
+                                                                    irrelevant
+                                                                                        Overall Comparison
+                                                                                        The results of the comparative analysis are summarized in
+Module B               0.36 ± 0.04           0.70 ± 0.03           99 ± 29%
+                                                                                        Figure 9. Considering the STIFF-FLOP module as a reference
+
+
+
+
+ FIGURE 8 | Experimental results for the angular workspace obtained through the activation of a single pair of chambers of (A) Module A and (B) Module B.
+
+
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                  9                                             March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                           Stiffening Through Fiber Jamming Transition
+
+
+
+starting point, both modules represent an improvement as they                          alter the motion capabilities of the STIFF-FLOP module, the
+both demonstrated stiffening capability. However, this came                            central free lumen can no more be used for instrument
+with a significant reduction on flexibility and dexterity. This                        insertion. Module B keeps the internal free lumen, but can
+affected Module B more than Module A, mainly because of the                            only bend in one direction, meaning that the rotation of the
+higher number of fibers that have been integrated. It implies                          supporting rod (the roll degree of freedom) must be enabled
+that the stiffening/stability is better for Module B (being directly                   to restore omnidirectional bending (with severe implications
+proportional to the number of fibers), but to the detriment of                         on maneuverability).
+dexterity. The only exception is represented by the passive tests                          The results highlight that, so far, there is no optimal
+(reported in Table 2) where the presence of the fibers seems                           solution that satisfies all the desired requirements in terms of
+to have a negative effect more on Module A than B. This                                miniaturized dimensions, free lumen for passing tools up to the
+suggests that: the presence of the fiber jamming system tends to                       tip, stiffness variation, flexibility and dexterity. The approach
+make the module more flexible, but if a fluidic input is applied                       used in this work revealed an inverse relation between stiffness
+(whether it be vacuum to the jamming-based system or inflation                         variation and motion performances, thus an optimal balance
+of the fluidic chambers), a stiffness variation is induced and                         should be identified on the base of the target application. In
+this variation is directly proportional to the volume of the fiber                     particular, stiffness, and motion capabilities can be tuned in
+jamming chamber. This means that the fiber jamming system                              order to guarantee dexterity and flexibility for a soft and delicate
+influences the behavior of the module both through direct or                           navigation within the human body until the target district for
+indirect activation.                                                                   the surgical task (e.g., retraction, suturing, and dissection) is
+    Having a look at the system in terms of MPs and operational                        reached, where on contrary stiffening is required for an effective
+functionalities that a surgical manipulator should have in                             force transmission.
+order to augment surgeon’s abilities, Module A does not
+                                                                                       CONCLUSION AND FUTURE WORK
+TABLE 4 | The table summarizes the residual angles measured for the two                Starting from the preliminary results obtained by Brancadoro
+modules.                                                                               et al. (2018), here we presented a possible exploitation of
+                                                                                       the fiber jamming transition technology as a variable stiffness
+Configuration              α1                    α2            Residual angle
+                     Angle @ 1.2 bar        Angle @ 0 bar        α2 × 100              mechanism integrated in the STIFF-FLOP soft manipulator. The
+                                                                 α1
+                           &                      &                                    STIFF-FLOP original module has been re-designed following
+                       Vacuum off            Vacuum on                                 two different approaches. The two new modules have been
+                                                                                       evaluated in terms of dexterity and variable stiffness capability. A
+Module A              46.66 ± 1.21◦          9.31 ± 0.74◦         20 ± 2.1%
+                                                                                       comparative analysis has been carried out to study to what extent
+                                                                                       these two characteristics influence each other and to identify
+Module B              14.80 ± 1.06◦         10.32 ± 0.80◦      70.18 ± 10.7%
+                                                                                       suitable compromises.
+
+
+
+
+ FIGURE 9 | Module features: for each module architecture, weight, the presence of the inner free lumen (i.e., working channel), the number of MPs, the integration of
+ a variable stiffness mechanism and the performance in terms of stability and flexibility are reported.
+
+
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                10                                                 March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                                    Stiffening Through Fiber Jamming Transition
+
+
+
+    Results allowed defining the layout that presents the better                             introduction of the fiber jamming technology still need to be
+trade-off between technical requirements and stiffness variation.                            tested in a real environment. Future activities will be focused
+A further outcome of the present study regards the awareness that                            on the assessment of the effectiveness and the advantages of
+the technology still needs further studies to be mastered, to define                         such an approach in real surgical procedures (such as organ
+protocols and to standardize the manufacturing procedure,                                    retraction, suturing, or dissection). On the other side, further
+which so far is carried out through multiple manual steps as                                 studies on the physical principle at the base of fiber jamming
+summarized in Figure 4.                                                                      transition itself could elucidate the main parameters affecting its
+    In this view, the fiber jamming technology demonstrated to                               performances and help defining design guidelines for the use of
+have suitable features for enabling a stiffness variation in soft                            this technology.
+bodied devices and in our specific case it is facilitating the shift
+from an endoscopic tool (mainly devoted to inspection and                                    AUTHOR CONTRIBUTIONS
+whose main requirements are dexterity, maneuverability and safe
+interaction), to a surgical tool (that should be able to transfer                            MB, MM, and FG designed and fabricated the modules. All
+effective forces to the tissues and stabilization).                                          authors designed the experiments. MB and FG implemented the
+    While the performances of the original STIFF-FLOP soft                                   scenario and carried out the tests and the data analysis is made
+manipulator used as an endoscopic tool have been already                                     by MB, FG, and ST. MB, MM, and MC wrote the manuscript. ST,
+proved in cadaver tests, the new capabilities enabled by the                                 AM, and MC supervised the study.
+
+
+
+REFERENCES                                                                                   Laschi, C., and Mazzolai, B. (2016). Lessons from animals and plants: the symbiosis
+                                                                                                 of morphological computation and soft robotics. IEEE Robot. Autom. Mag. 23,
+Abidi, H., Gerboni, G., Brancadoro, M., Fras, J., Diodato, A., Cianchetti, M., et al.            107–114. doi: 10.1109/MRA.2016.2582726
+   (2018). Highly dexterous 2-module soft robot for intra-organ navigation in                Laschi, C., Mazzolai, B., and Cianchetti, M. (2016). Soft robotics: technologies
+   minimally invasive surgery. Int. J. Med. Robot. Comput. Assist. Surg. 14:e1875.               and systems pushing the boundaries of robot abilities. Sci. Robot. 1:eaah3690.
+   doi: 10.1002/rcs.1875                                                                         doi: 10.1126/scirobotics.aah3690
+Amend, J., Cheng, N., Fakhouri, S., and Culley, B. (2016). Soft robotics                     Li, M., Ranzani, T., Sareh, S., Seneviratne, L. D., Dasgupta, P., Wurdemann,
+   commercialization: jamming grippers from research to product. Soft. Robot. 3,                 H. A., et al. (2014). Multi-fingered haptic palpation utilizing granular
+   213–222. doi: 10.1089/soro.2016.0021                                                          jamming stiffness feedback actuators. Smart Mater. Struct. 23:095007.
+Arezzo, A., Mintz, Y., Allaix, M. E., Arolfo, S., Bonino, M., Gerboni, G.,                       doi: 10.1088/0964-1726/23/9/095007
+   et al. (2017). Total mesorectal excision using a soft and flexible robotic                Liu, A. J., and Nagel, S. R. (1998). Nonlinear dynamics: jamming is not just cool
+   arm: a feasibility study in cadaver models. Surg. Endosc. 31, 264–273.                        any more. Nature 396:21. doi: 10.1038/23819
+   doi: 10.1007/s00464-016-4967-x                                                            Manti, M., Cacucciolo, V., and Cianchetti, M. (2016). Stiffening in soft robotics:
+Behringer, R. P., and Chakraborty, B. (2018). The Physics of                                     a review of the state of the art. IEEE Robot. Autom. Mag. 23, 93–106.
+   Jamming for Granular Materials: A Review. Reports on Progress                                 doi: 10.1109/MRA.2016.2582718
+   in Physics.                                                                               Narang, Y. S., Vlassak, J. J., and Howe, R. D. (2018). Mechanically versatile
+Brancadoro, M., Manti, M., Tognarelli, S., and Cianchetti, M. (2018). “Preliminary               soft machines through laminar jamming. Adv. Funct. Mater. 28:1707136.
+   experimental study on variable stiffness structures based on fiber jamming                    doi: 10.1002/adfm.201707136
+   for soft robots,” in 2018 IEEE International Conference on Soft Robotics                  Ou, J., Yao, L., Tauber, D., Steimle, J., Niiyama, R., and Ishii, H. (2014). “JamSheets:
+   (RoboSoft) (Livorno: IEEE).                                                                   thin interfaces with tunable stiffness enabled by layer jamming,” in Proceedings
+Diodato, A., Brancadoro, M., De Rossi, G., Abidi, H., Dall’Alba, D., Muradore,                   of the 8th International Conference on Tangible, Embedded and Embodied
+   R., et al. (2018). Soft robotic manipulator for improving dexterity in                        Interaction (Munich: ACM), 65–72.
+   minimally invasive surgery. Surg. Innov. 25, 69–76. doi: 10.1177/1553350617               Pfeifer, R., and Bongard, J. (2006). How the Body Shapes the Way We Think: A New
+   745953                                                                                        View of Intelligence. Kadaikala: MIT Press.
+Follmer, S., Leithinger, D., Olwal, A., Cheng, N., and Ishii, H. (2012). “Jamming            Ranzani, T., Gerboni, G., Cianchetti, M., and Menciassi, A. (2015). A bioinspired
+   user interfaces: programmable particle stiffness and sensing for malleable and                soft manipulator for minimally invasive surgery. Bioinspir. Biomimetics
+   shape-changing devices,” in Proceedings of the 25th Annual ACM Symposium on                   10:035008. doi: 10.1088/1748-3190/10/3/035008
+   User Interface Software and Technology (Massachusetts, MA: ACM).                          Rus, D., and Tolley, M. T. (2015). Design, fabrication and control of soft robots.
+Fraś, J., Czarnowski, J., Maciaś, M., Główka, J., Cianchetti,                                  Nature 521:467. doi: 10.1038/nature14543
+   M., and Menciassi, A. (2015). “New STIFF-FLOP module                                      Shen, H. (2016). Meet the soft, cuddly robots of the future. Nature 530:24.
+   construction idea for improved actuation and sensing,” in 2015                                doi: 10.1038/530024a
+   IEEE      International    Conference    on     Robotics    and     Automation            Stanley, A. A., Gwilliam, J. C., and Okamura, A. M. (2013). “Haptic jamming: a
+   (ICRA) (Seattle, WA:IEEE), 2901–2906. doi: 10.1109/ICRA.2015.71                               deformable geometry, variable stiffness tactile display using pneumatics and
+   39595                                                                                         particle jamming,” in 2013 World Haptics Conference (WHC) (Daejeon: IEEE),
+Kaufhold, T., Böhm, V., and Zimmermann, K. (2012). “Design of a miniaturized                     25–30. doi: 10.1109/WHC.2013.6548379
+   locomotion system with variable mechanical compliance based on amoeboid                   Steltz, E., Mozeika, A., Rodenberg, N., Brown, E., and Jaeger, H. M. (2009). “Jsel:
+   movement,” in 2012 4th IEEE RAS and EMBS International Conference on                          Jamming skin enabled locomotion,” in IEEE/RSJ International Conference on
+   Biomedical Robotics and Biomechatronics (BioRob) (Roma: IEEE), 1060–1065.                     Intelligent Robots and Systems, 2009. IROS 2009 (St. Louis, MO: IEEE), 5672–
+   doi: 10.1109/BioRob.2012.6290779                                                              5677. doi: 10.1109/IROS.2009.5354790
+Kim, Y.-J., Cheng, S., Kim, S., and Iagnemma, K. (2013). A novel layer                       Sun, Y., Yap, H. K., Liang, X., Guo, J., Qi, P., Ang M. H. Jr., et al. (2017).
+   jamming mechanism with tunable stiffness capability for minimally invasive                    Stiffness customization and patterning for property modulation of silicone-
+   surgery. IEEE Trans. Robot. 29, 1031–1042. doi: 10.1109/TRO.2013.22                           based soft pneumatic actuators. Soft Robot. 4, 251–260. doi: 10.1089/soro.
+   56313                                                                                         2016.0047
+
+
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                      11                                                     March 2019 | Volume 6 | Article 12
+Brancadoro et al.                                                                                                                  Stiffening Through Fiber Jamming Transition
+
+
+
+Wall, V., Deimel, R., and Brock, O. (2015). “Selective stiffening of soft actuators        Conflict of Interest Statement: The authors declare that the research was
+  based on jamming,” in 2015 IEEE International Conference on Robotics and                 conducted in the absence of any commercial or financial relationships that could
+  Automation (ICRA) (Seattle, WA: IEEE), 252–257. doi: 10.1109/ICRA.2015.                  be construed as a potential conflict of interest.
+  7139008
+Wang, L., Yang, Y., Chen, Y., Majidi, C., Iida, F., Askounis, E., et al. (2018).           Copyright © 2019 Brancadoro, Manti, Grani, Tognarelli, Menciassi and Cianchetti.
+  Controllable and reversible tuning of material rigidity for robot applications.          This is an open-access article distributed under the terms of the Creative Commons
+  Materials Today 21, 563–576. doi: 10.1016/j.mattod.2017.10.010                           Attribution License (CC BY). The use, distribution or reproduction in other forums
+Zambrano, D., Cianchetti, M., Laschi, C., Hauser, H., Füchslin, R., and                    is permitted, provided the original author(s) and the copyright owner(s) are credited
+  Pfeifer, R. (2014). The morphological computation principles as a                        and that the original publication in this journal is cited, in accordance with accepted
+  new paradigm for robotic design. Opin. Outlooks Morphol. Comput. 214–225.                academic practice. No use, distribution or reproduction is permitted which does not
+  doi: 10.13140/2.1.1059.4242                                                              comply with these terms.
+
+
+
+
+Frontiers in Robotics and AI | www.frontiersin.org                                    12                                                     March 2019 | Volume 6 | Article 12
+

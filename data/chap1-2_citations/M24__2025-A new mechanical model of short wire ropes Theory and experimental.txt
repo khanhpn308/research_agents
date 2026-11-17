@@ -1,0 +1,869 @@
+                                                                  Engineering Structures 323 (2025) 119217
+
+
+                                                                  Contents lists available at ScienceDirect
+
+
+                                                                  Engineering Structures
+                                                      journal homepage: www.elsevier.com/locate/engstruct
+
+
+
+
+A new mechanical model of short wire ropes: Theory and experimental
+validation
+F. Barsi ∗, B. Carboni, W. Lacarbonara
+Department of Structural and Geotechnical Engineering, Sapienza University of Rome, Via Eudossiana 18, Rome, 00184, Italy
+
+
+
+ARTICLE               INFO                               ABSTRACT
+
+Keywords:                                                A new mechanical formulation is presented for assembling the constitutive relationships of single- and multiple-
+Wire ropes                                               strand wire ropes. The model aims to predict the lower and upper bounds of the bending stiffness associated to
+Shear deformable beam                                    the limit behaviors of perfect stick and full slip between the constituting wires. The wire rope is described as
+Eigenstrains
+                                                         a shear deformable beam for which the generalized constitutive equations, accounting for the wires’ geometry
+Curved thin rod
+                                                         and material properties, are derived according to Saint-Venant’s theory extended to curvilinear thin rods. The
+Stick–slip
+Hysteresis cycles
+                                                         distinguished feature of wire ropes, i.e., the possibility of relative sliding between the wires, is accounted for by
+                                                         the introduction of eigenstrains in the wires’ strain measures. An experimental campaign is carried out on two
+                                                         series of short steel wire ropes subjected to quasi-static bending loops obtaining hysteresis cycles for different
+                                                         amplitudes and rope lengths. The model is validated by comparing theoretically predicted and experimentally
+                                                         measured stiffnesses obtained from the bending hysteresis cycles as well as from axial-torsional tests present
+                                                         in the literature.
+
+
+
+1. Introduction                                                                              interfaces and thus the solution of a frictional contact problem. The
+                                                                                             study of the mechanical behavior is then carried out through 3D
+    Wire ropes find countless applications in engineering and are em-                        modeling via finite element discretization. Although this choice can
+ployed in a formidable variety of devices [1–6]. Although the main                           lead to the equilibrium paths and thus the hysteresis cycles of the
+property of these structural elements is their ability to withstand high                     rope through detailed modeling, the strong nonlinearity of the problem
+tensile forces, the idea of taking advantage of the wire ropes capability                    along with the complexity of the wires’ contact regions gives rise to
+to dissipate energy through flexural and torsional mechanisms has                            severe convergence issues and high computational costs.
+become popular in the last century. The purpose is to exploit the                                The second approach is based on the simpler one-dimensional beam
+internal frictional forces resulting from the relative motion that arises                    model supplemented by rheological simplifying assumptions for the
+between the wires when the rope deforms to dissipate energy.                                 description of the dissipation due to frictional contact. Some interest-
+    The precise understanding of the structural response of wire ropes is                    ing results have been obtained following this approach but these are
+of undeniable industrial interest, with significant implications for vari-                   dependent on a case-by-case fitting of several parameters.
+ous applications. However, the description of the mechanical behavior
+                                                                                                 Concerning modeling strategies, a first important reference is the
+of these elements is a hard task, as testified by the large scientific liter-
+                                                                                             book of Costello [15] where each wire is modeled as a spatial
+ature on the subject. Until the 21st century, the dissipative properties
+                                                                                             Kirchhoff–Love-Clebsch thin rod (for reference, see [16]) with no
+of ropes were studied by representing the relationship between hys-
+                                                                                             interaction between them (i.e., no friction effects). Homogenization is
+teretic force and displacement through parameters of limited mechan-
+                                                                                             a well-known technique in continuum mechanics that is often used
+ical significance [7–14]. Moreover, these mathematical models always
+                                                                                             for modeling systems of numerous discrete elements with repetitive
+require an experimental data regarding force–displacement histories for
+                                                                                             structure as a continuum. This method was first applied to cable
+calibration.
+                                                                                             modeling by Hobbs and Raoof [17]. In this model, the classical twisted
+    Recent studies on the mechanical response of wire ropes unfold
+along two main lines of approach. The first one, developed in recent                         rod theory for the behavior of helical wires has been extended to
+years, aims to give a detailed representation of the dissipative behavior                    include a set of kinematic compatibility conditions. The individual layer
+of wire ropes through the description of the actual internal geometry.                       of wires is replaced by an equivalent cylindrical orthotropic sheet,
+This requires the analysis of dissipative forces arising at the wires’                       which is assumed to be thin and to be in a plane stress state. Another
+
+
+  ∗ Corresponding author.
+     E-mail addresses: francesco.barsi@uniroma1.it (F. Barsi), biagio.carboni@uniroma1.it (B. Carboni), walter.lacarbonara@uniroma1.it (W. Lacarbonara).
+
+https://doi.org/10.1016/j.engstruct.2024.119217
+Received 3 July 2024; Received in revised form 28 September 2024; Accepted 21 October 2024
+Available online 3 November 2024
+0141-0296/© 2024 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-
+nc-nd/4.0/).
+F. Barsi et al.                                                                                                          Engineering Structures 323 (2025) 119217
+
+
+semi-continuous model was developed by Blouin and Cardou [18] and                function of the elastic force and the velocity sign and the damping force
+later extended by Jolicoeur and Cardou [19,20]. Also in these models,            constants were empirically related to the dimensions of the springs.
+each layer is replaced with a cylinder of transversely isotropic material        The model agreed well with the experimental results. Sun et al. [33]
+and elastic constants can be used as free parameters to be fitted or             developed an elasto-plastic 3D contact problem of a strand using FE
+else estimated rationally from contact mechanics equations as in the             analysis. In this work the augmented Lagrangian multiplier method has
+case of the orthotropic sheet model. Hoppe presented a model [21] in             been used to handle friction conditions between the centre wire and the
+which the structure and the components are assumed to be subjected to            helical wire. The analyses were carried out by assigning displacements
+pure tensile forces, the bending and torsional stiffness for both of them        as boundary conditions and, despite the constant forces are described
+being neglected. Contact and friction between the components are also            accurately, no hysteresis curves are presented. Ma et al. [34] developed
+neglected, but such an approximation is justified for monotonic axial            a model for several types of wire ropes with metal cores and built a geo-
+loading. It should be noted that this analytical model provides only the         metric model for the 6 × 19 IWS wire rope. A 3D finite element model
+overall tensile behavior. Leech et al. [22], presented a more complex            for calculating the deformation of wire rope was set up. Completely
+quasi-static analysis of fibre ropes and included it in a commercial             constraining one end of the wire rope and applying an axial force to the
+software: fibre rope modeller (FRM). Their analysis is based on the prin-        other, the authors numerically simulated the stresses and deformations
+ciple of virtual work and can take frictional effects into account. The          of the wire, obtaining the deformation distribution of each wire within
+program expresses tension and torque as functions of elongation and              the wire rope under different laying directions. However no friction was
+twist. Leech’s model appears to be very sophisticated, with an accurate          taken into account, hence, hysteresis curves are not discussed. Another
+mechanical modeling of the components of the fibre ropes behavior                3D finite element approach, which considers friction and geometric
+and their interactions. However, only axial and torsional actions are            nonlinearities, is described in [35], where the hysteretic behavior of
+taken into account. Kumar et al. [23] extended Costello’s model to               a short steel strand subjected to coupled tensile-bending cycles was
+obtain analytical expressions for maximum contact stresses induced               obtained. However, the authors highlighted the computational burden
+in the strands with a metallic core. Huang [24] studied the contact              and noted that while the model provided a good qualitative description,
+mode conditions for a seven wire strand. Jolicoeur [25] compared the             it fell short in providing a quantitative match with experimental results.
+results obtained by several mathematical models of a seven wire strand,               The Kirchhoff–Love theory [16] for thin curvilinear beams is often
+specifically chosen with a geometry to explain the different contact             used as a basic model to study the mechanical behavior of wire ropes
+modes. The literature on the effects of interfacial contacts is limited.         subjected to tension and torsion. This approach allows to evaluate the
+Although a few studies have addressed the effects of friction at the             stress state in each wire and to predict the general behavior of the
+interfaces, the results show significant dispersion, since the parame-           rope. However, the stress state of the wires is derived with simplifying
+ters considered vary from author to author. The effects of tangential            assumptions about internal forces distribution, often using differential
+distributed forces at the contact surfaces are seldom considered. These          equations of motion for curved beams thus ignoring the real distri-
+forces cause the wires to slip on the core and hence can change the              bution of contact regions, which are generally discrete. The following
+individual wire as well as the overall strand response. A mathematical           approaches explicitly account for the superhelix (doubly-twisted helix)
+model to represent the effects of tangential and normal distributed              configuration of independent wires for multi-stranded ropes. Elata
+forces in a coupled contact was formulated by Parthasarathy [26].                et al. [36] set two limit kinematic hypotheses that emulate a well
+Gnanavel et al. [27] presented an analytical model explaining the                lubricated rope and infinite friction between adjacent wires equivalent
+importance of the interfacial loads and their effects in coupled contact.        to what is now termed as ‘full slip’ and ‘perfect stick’ states. Comparison
+They identified the threshold limit at which the contact mode changes            with experimental data in terms of stiffnesses showed general agree-
+from a coupled arrangement to the arrangement of core-wire contact.              ment with the model’s predictions, even though the coefficients are
+Ghoreishi et al. [28] developed a nonlinear elastic continuum model              somewhat higher than those measured experimentally. Usabiaga and
+for the analysis of the overall axial stiffness of fibrous structures with       Pagalday [37] set a new wire kinematics based again on the assumption
+a large number of twisted components. By contrast with multilayered              that friction between wires is high enough to prevent wire-sliding be-
+approaches, the structure under consideration is herein depicted as a            tween adjacent wires in the strands, while Xiang et al. [38] developed
+set of coaxial helices only characterized by their external lay angle and        the model under the assumption of absence of friction between the
+corresponding radius. The contact and friction forces are neglected thus         wires. Fraldi et al. [39] investigated the tension-torsion strength and
+no consideration about the energy dissipation is present in their work.          stiffness of helically arranged bundles, observing that the different cross
+Gnanavel and Parthasarathy [29] presented a mathematical model for               sections and helical angles of the layers determine a non-homogeneous
+the static behavior of a seven wire strand subjected to an axial tensile         stress redistribution when one or more wires break.
+load and twisting action. The mathematical model takes into account                   With the aim of exploiting the dissipative capabilities of wire ropes,
+the Poisson-effect in the wires, inter-wire pressure and the effects of          the bending problem of the strand is also addressed in the literature.
+friction between the core and the helical wires to the strand stiffness          When a strand is bent, internal frictional forces arise and initially tend
+coefficients. Sauter and Hagedorn [30] employed distributed Jenkin               to counteract the relative sliding of the strands. When a limit deflection
+elements to model the damper cable of a Stockbridge damper [31].                 is reached, these forces are overcome by the difference in normal forces
+The damper impedances was simulated using data obtained from a                   between adjacent wires, and this causes relative sliding. As already
+simple experiment carried out with a piece of damper cable. In this              mentioned, this phenomenon constitutes a dissipative mechanism ex-
+study the Masing model has been generalized for a continuous system              ploited in applications and gives rise to the experimentally observable
+such as a cable. Gerges [32] conducted an experimental study dealing             hysteretic behavior of ropes subjected to bending. Concerning the
+with wire rope springs deforming in the tension-compression mode.                bending behavior, a first major contribution is the work of Papail-
+The authors developed a semi-analytical model that depends entirely              iou [40], who developed a mechanical model for strands subjected to
+on the dimensions and properties of the springs. This model describes            simultaneous tensile and bending loads and obtains the maximum and
+the restoring force as a function of the displacement and the velocity           minimum stiffnesses.
+sign only. The restoring force was modeled as a direct summation of                   Foti and Martinelli, inspired by the previous ideas, developed a
+two components: an elastic force and a damping force. The nonlinear              simplified beam model for single strands [41] under tension and
+non-hysteretic elastic force was based on an equivalent cross-section            bending. With a particular focus on bending behavior, one of the aims
+having the same area and moment of inertia of the wire rope. The large           of the model is to provide estimates of the maximum and minimum
+displacement analysis was carried out using a consistent curved beam             stiffnesses exhibited by wire ropes undergoing hysteresis cycles. The
+element. The nonlinear hysteretic damping force was modeled as a                 authors provide a complete and formal derivation of the expressions
+
+                                                                             2
+F. Barsi et al.                                                                                                                              Engineering Structures 323 (2025) 119217
+
+
+of maximum and minimum stiffness that were already reported in                    and the constitutive relations are obtained using the geometric and
+Lanteigne [42] but without a full discussion on the derivation. This              material properties of the wires. The basic assumption characterizing
+model has the great advantage of being based on simple kinematic                  the model is the possibility to experience different kinds of slip modes
+assumptions and is able to closely predict the minimum stiffness.                 between individual wires, here introduced as a kinematic hypothesis
+However, as noted by the authors themselves, the maximum stiffness                which considers an incompatible term in the wires’ strain measures
+estimate is far from what is observed experimentally and a more                   affecting the constitutive response. With the aim of capturing the max-
+detailed study of the contact problem is deemed necessary to improve              imum and minimum stiffness across the hysteresis cycles, the model
+these estimates [43]. The same authors later accounted for the de-                is developed according to the infinitesimal deformation theory and
+formability of contact surfaces in modeling the axial-torsional response          assuming that the equilibrium equations can be enforced in the initial
+of metallic strands [44]. The authors also developed a contact model              configuration as is typical for a linearized regime.
+based on some simplifying assumptions borrowed also from the work                      Let (𝒆1 , 𝒆2 , 𝒆3 ) be the standard orthonormal basis of 3D Euclidean
+of Papailiou [40] and Hong et al. [45] in order to obtain methods                 space and (𝑥1 , 𝑥2 , 𝑥3 ) be Cartesian coordinates (see Fig. 1). Consider
+for estimating the yield curvature of ropes subjected to bending and              a straight beam of length 𝐿 whose centerline is collinear with the 𝒆1
+torsion. This allows for a reconstruction of the hysteresis cycles, thus          axis parametrized by the arclength coordinate 𝑠 = 𝑥1 ∈ [0, 𝐿]. The
+providing estimates of the dissipation and self-damping.                          kinematics of the beam is described by the centerline displacement
+    Carboni et al. [46,47] employed a phenomenological approach in                vector 𝒖(𝑠) and the rotation vector 𝝋(𝑠) of the cross-section.
+which they generalized the Bouc-Wen model to identify the hysteresis                   The generalized stress resultants are defined by postulating the
+cycles exhibited by short wire ropes made of steel and NiTiNOL under              existence of a generalized stress resultant vector 𝒏 and a moment vector
+coupled tension-bending loadings. These models provide an accurate                𝒎 acting between any two adjacent beam elements, representing the
+description of hysteretic softening and hardening behaviors resulting             internal actions of the body. The equilibrium equations are then found
+from the interaction of geometric, frictional and material nonlinearities,        to be expressed as
+and they can be suitably applied for both static and dynamic prob-                𝜕𝒏
+                                                                                       + 𝒇 = 𝟎,
+lems [48,49]. However, according to the phenomenological nature, a                 𝜕𝑠
+direct correlation with the mechanical and geometrical properties of              𝜕𝒎
+                                                                                        + 𝒆1 × 𝒏 + 𝒄 = 𝟎,                                                 (1)
+the wire ropes is not established. Furthermore, Carboni et al. [50]                𝜕𝑠
+proposed a semi-phenomenological model consisting of a planar shear-              where 𝒇 and 𝒄 are the distributed forces and couples per unit length,
+deformable beam equipped with material and geometric nonlinearities.              respectively. The application of the virtual work theorem or a direct
+Specifically, a Bouc-Wen relationship between bending moment and                  kinematic analysis lead to the well-known beam strain measures
+curvature was implemented to capture the loading-unloading hysteresis                   𝜕𝒖
+                                                                                  𝜸=        + 𝒆1 × 𝝋,
+cycles, while a fraction of the circular area that encloses the wire ropes’             𝜕𝑠
+section was assumed to estimate the elastic stiffness.                                  𝜕𝝋
+                                                                                  𝝁=        ,                                                             (2)
+    The present work, taking inspiration from previous achievements,                     𝜕𝑠
+proposes a mechanical model providing robust estimates of the maxi-               being 𝜸 the strain vector whose components are the elongation along
+mum and minimum stiffness for short ropes in bending as well as under             𝒆1 , and the two shear strains along 𝒆2 and 𝒆3 , and 𝝁 the curvature
+axial-torsional loading. For the purposes of this research, a short rope is       vector. In order to obtain the constitutive relations between the stress
+defined as a rope element, having a ratio of cross-sectional diameter to          resultants and strain measures, the rope’s internal structure (i.e., the
+length between 1∕12 and 1∕5, whose bending stiffness dominates the                wires’ geometry, disposition, and constituent material) is considered.
+mechanical response in terms of bending moments and shear forces.                 These aspects are addressed in detail in the following sections.
+One of the novelties of the model is the capability of handling multi-
+strands as well as simple-strand ropes. The elastic problem for the beam          2.1. Wire’s geometry
+is solved analytically and the explicit expressions for the displacements
+are given in terms of the beam stiffness matrix coefficients. The elastic-              The present model is capable of describing the mechanical response
+ity matrix for the beam is obtained starting from the internal structure          of single-strand wire ropes, where only helical wires are present be-
+and the geometric and material properties of single wires.                        side the central straight one, as well as multi-strands ropes, where
+    The paper is organized as follows. Section 2 illustrates the mechan-          superhelix (doubly-twisted helix) wires are also present.
+ical model developed for interpreting the structural response of wire                   The position vector of the 𝑖th helical wire admits a parameterization
+ropes in the linear regime. Section 3 presents the experimental setup             in terms of the 𝑠 coordinate as
+                                                                                                           (              )             (              )
+and post-processing of the results in terms of maximum and minimum                 (𝑖)                       2𝜋 𝑠                         2𝜋 𝑠
+stiffness attained in the hysteresis cycles by short ropes subjected to           𝒓𝐻   (𝑠) = 𝑠𝒆1 + 𝑅(𝑖) cos        + 𝜃0(𝑖) 𝒆2 + 𝑅(𝑖) sin        + 𝜃0(𝑖) 𝒆3 , (3)
+                                                                                                             𝑃 (𝑖)                        𝑃 (𝑖)
+pure bending. Finally, Section 4 and Section 5 illustrate the analytical
+solutions of the boundary value problems and the comparisons of                   where 𝑅(𝑖) is the helix radius, 𝑃 (𝑖) is the helix pitch and 𝜃0(𝑖) is the swept
+the theoretical maximum and minimum stiffnesses with experimental                 angle describing the position of the wire at 𝑠 = 0. In this parametric
+results for the bending tests performed and for the axial-torsional tests         representation, the pitch is positive if the helix is wrapped according
+available in the literature, respectively.                                        to a right-hand rule around the central core, and negative otherwise.
+                                                                                      Let (𝒅 1(𝑖) , 𝒅 2(𝑖) , 𝒅 3(𝑖) ) be the Frenet–Serret frame of the 𝑖th helical wire,
+2. Beam model for the analysis of metallic wire ropes                             being 𝒅 (𝑖)
+                                                                                           3
+                                                                                                the tangent unit vector, 𝒅 (𝑖)       1
+                                                                                                                                        the normal unit vector and 𝒅 (𝑖)
+                                                                                                                                                                       2
+                                                                                  the binormal unit vector. The parameterization for the superhelix is
+    Wire ropes are artifacts that, when subjected to suitable loading con-        generated by considering the tubular surface around the lateral strands’
+ditions, undergo geometric rearrangements of the internal structure due           helical centerlines and representing the surface where the superhelix
+to the relative sliding between individual wires. The formulation of a            centerline is wrapped around. This surface has the following equation:
+continuum model that can properly describe the prevailing mechanical
+                                                                                  𝒓𝑇(𝑖) (𝑠, 𝛼 (𝑖) ) = 𝒓(𝑖)
+                                                                                                       𝐻
+                                                                                                           (𝑠) + 𝑟(𝑖) cos 𝛼 (𝑖) 𝒅 1(𝑖) (𝑠) + 𝑟(𝑖) sin 𝛼 (𝑖) 𝒅 (𝑖)
+                                                                                                                                                              2
+                                                                                                                                                                  (𝑠),           (4)
+response should account for this essential feature. In the here proposed
+model, this aspect is accounted for by the introduction of eigenstrains           where 𝑟(𝑖) is the superhelix radius. The superhelix is identified by setting
+affecting the constitutive response of individual wires, as shown below.          the function 𝛼 (𝑖) = 𝛼 (𝑖) (𝑠) equal to the ratio between the number of
+    The constructed beam model is based on the shear-deformable beam              wrappings of the superhelix around the helix and the wrapping of the
+theory, also known as the Timoshenko beam (see, for example, [51]),               helix around the central wire per unit length of the central wire. We can
+
+                                                                              3
+F. Barsi et al.                                                                                                                              Engineering Structures 323 (2025) 119217
+
+
+
+
+                                         Fig. 1. (a) 3D view and (b) cross-section of a multi-stranded wire rope with the coordinate system.
+
+
+
+
+show that a parameterization for the superhelix  √            is obtained in terms of                     𝜕𝒛(𝑖)      1
+                                                                                                  𝒅 (𝑖) −         =       𝒆1 ,                                           (9)
+                                                  𝑃 (𝑖)2 + 4𝜋 2 𝑅(𝑖)2 2𝜋 𝑠                          3     𝜕 𝑠(𝑖)    𝐽 (𝑖)
+the wire’s geometry by setting 𝛼 =      (𝑖)                                    + 𝛼0(𝑖) thus
+                                                         𝑝(𝑖)            𝑃 (𝑖)                    the following relationships are obtained:
+resulting in the following expression:
+                               ( √ (𝑖)2                            )                              𝜸 (𝑖) =
+                                                                                                           1
+                                                                                                                (𝜸 + 𝝁 × 𝒛(𝑖) ),
+                                 2𝜋 𝑃     + 4𝜋 2 𝑅(𝑖)2                                                    𝐽 (𝑖)
+𝒓(𝑖)
+ 𝑆𝐻
+     (𝑠) = 𝒓 (𝑖)
+             𝐻
+                 (𝑠) + 𝑟(𝑖)
+                            cos                         𝑠 +  𝛼 (𝑖)
+                                                               0
+                                                                     𝒅 (𝑖)
+                                                                       1
+                                                                           (𝑠)
+                                      𝑃 (𝑖) 𝑝(𝑖)                                                            1
+                                ( √ (𝑖)2                           )                              𝝁(𝑖) =        𝝁.                                                      (10)
+                                 2𝜋 𝑃     + 4𝜋 2 𝑅(𝑖)2                                                    𝐽 (𝑖)
+                     + 𝑟(𝑖) sin                         𝑠 + 𝛼0(𝑖) 𝒅 (𝑖)2
+                                                                           (𝑠)          (5)       This case, which is referred to in the literature as the ‘stick state’
+                                      𝑃 𝑝(𝑖)
+                                        (𝑖)
+                                                                                                  (see e.g. [52]), shows the classical beam kinematics and it is expected
+where 𝑝(𝑖) is the superhelix pitch and 𝛼0(𝑖) is analogous to the swept angle                      to describe well the maximum stiffness attainable by the rope, under
+and identifies the position of the wire at 𝑠 = 0.                                                 the assumptions that no relative inter-wire sliding occurs. However,
+                                                                                                  it is found that this assumption leads to an overestimation of the
+2.2. Wire’s kinematics                                                                            rope’s maximum stiffness which is an order of magnitude greater than
+                                                                                                  the experimental one (as shown in the next sections and as already
+      Constitutive equations are derived by assuming that individual                              observed in [53]). A possible explanation is that the magnitude of
+wires behave as shear deformable curvilinear beams (see, e.g., [51]).                             the deformations under pure bending for which the rope behaves as a
+By denoting with 𝒖(𝑖) and 𝝋(𝑖) the displacement and the cross-section                             monolithic beam (i.e., perfect stick state) is so small that it becomes
+rotation of the 𝑖th wire, it is possible to show by a standard application                        hard to see it experimentally. From a phenomenological standpoint,
+of the virtual work theorem that the mechanically meaningful strain                               it is observed that the wires within the cable always undergo relative
+measures are the strain vector 𝜸 (𝑖) and the curvature vector 𝝁(𝑖) , given                        sliding, resulting in a kinematic model that, at the macroscopic level,
+by                                                                                                is not compatible with that of a standard beam. As the deformations
+        𝜕𝒖(𝑖)                                                                                     increase, the rope undergoes a change of reference configuration af-
+𝜸 (𝑖) =         + 𝒅 (𝑖)
+                    3
+                        × 𝝋(𝑖) ,
+        𝜕 𝑠(𝑖)                                                                                    fecting the wires’ constitutive response. This feature can be effectively
+        𝜕𝝋(𝑖)                                                                                     described making use of the concept of eigenstrain, (see, e.g., [54]) that
+𝝁(𝑖) =          ,                                                       (6)
+         𝜕 𝑠(𝑖)                                                                                   is widely exploited in studying dislocations, point defects in solids and
+with 𝑠(𝑖) the arclength of the 𝑖th wire’s centerline. Let the rope exhibit                        other structural changes as well as by Eshelby in developing his well-
+the standard beam kinematics; since the rotation of individual wires’                             known theory of inclusions [55]. In the linearized regime, the total
+cross-sections coincides with that of the beam cross-section, the dis-                            compatible strain in the beam is given by the sum of the elastic part
+placement and rotation fields of the individual wire can be expressed                             and the eigenstrain, both of which may be kinematically incompatible.
+by the following relations:                                                                       Thus the wire strain field can be represented as
+                                                                                                           1
+𝒖(𝑖) = 𝒖 + 𝝋 × 𝒛(𝑖) ,                                                                             𝜸 (𝑖) =       (𝜸 + 𝝁 × 𝒛(𝑖) − 𝜷 (𝑖) )                                 (11)
+                                                                                                          𝐽 (𝑖)
+𝝋(𝑖) = 𝝋,                                                                               (7)       where 𝜸 (𝑖) is the elastic part of the strain, 𝜷 (𝑖) is the eigenstrain and
+where 𝒛(𝑖) = (𝒓(𝑖) −𝑠𝒆1 ) and 𝒓(𝑖) is the position vector of the generic wire.                    𝜸 + 𝝁 × 𝒛(𝑖) is the compatible strain. It is found that the eigenstrain term
+It is then possible to express the wires’ strain measures in terms of the                         assumes different expressions depending on the stick–slip conditions
+beam strains from Eq. (6)1                                                                        occurring upon bending. Here three cases are discussed for the bending
+         𝜕𝒖     𝜕𝝋                 𝜕𝒛(𝑖)                                                          regime: the perfect stick state, the partial stick state and the full slip state.
+𝜸 (𝑖) =       +       × 𝒛(𝑖) + 𝝋 ×        + 𝒅 (𝑖)
+                                              3
+                                                  × 𝝋.                    (8)                     The mechanical assumptions are the following:
+        𝜕 𝑠(𝑖) 𝜕 𝑠(𝑖)              𝜕 𝑠(𝑖)
+                                      𝑑 𝑠(𝑖)                              𝑑 𝑠(𝑖)
+By accounting for 𝑑 𝑠(𝑖) =             𝑑𝑠
+                                             𝑑 𝑠,   by setting 𝐽 (𝑖) =     𝑑𝑠
+                                                                                 ,   and by            • in the perfect stick state, the wires behave according to the
+considering                                                                                              classical beam kinematics;
+
+                                                                                              4
+F. Barsi et al.                                                                                                                                           Engineering Structures 323 (2025) 119217
+
+
+          • in the partial stick state, the beam bending curvature does not                                   ⎡ 𝑁 ⎤ ⎡𝑘11        0      0     𝑘14     0      0 ⎤⎡𝜀⎤
+            cause wires’ elongation;                                                                          ⎢ 𝑄2 ⎥ ⎢ 0       𝑘22     0      0     𝑘25     0 ⎥ ⎢ 𝛾2 ⎥
+          • in the full slip state, the beam curvature does not contribute to                                 ⎢ ⎥ ⎢                                            ⎥⎢ ⎥
+                                                                                                              ⎢ 𝑄3 ⎥ = ⎢ 0      0     𝑘33     0      0     𝑘36 ⎥ ⎢ 𝛾3 ⎥
+                                                                                                                                                                        .                   (18)
+            the wires’ shear strains as well as to the wires’ elongation.                                     ⎢ 𝑇 ⎥ ⎢𝑘41        0      0     𝑘44     0      0 ⎥ ⎢𝜇𝑇 ⎥
+                                                                                                              ⎢𝑀 ⎥ ⎢ 0         𝑘52     0      0     𝑘55        ⎥ ⎢
+                                                                                                                                                            0 ⎥ ⎢ 𝜇2 ⎥⎥
+It is further assumed for tension loading that:                                                               ⎢ 2⎥ ⎢
+                                                                                                              ⎣𝑀3 ⎦ ⎣ 0         0     𝑘63     0      0     𝑘66 ⎦ ⎣ 𝜇3 ⎦
+          • in the axial-torsional regime, the wires’ shear strains vanish.
+                                                                                                                  Some remarks about Eq. (18) are necessary to put this more clearly
+The eigenstrains for each state are consequently described by the                                             in the context of the ensuing wire rope model. Firstly, in addition to the
+following expressions:                                                                                        well-known coupling between axial and torsional behavior, a coupling
+                                       (𝑖)
+     perfect stick state:            𝜷 𝑆1  = 𝟎,                                                               between shearing and bending behavior is also observed in the present
+                                       (𝑖)                                                                    model. Furthermore, in general, 𝑘𝑖𝑗 ≠ 𝑘𝑗 𝑖 for 𝑖 ≠ 𝑗 except for the
+      partial stick state:           𝜷 𝑆2  = (𝒅 (𝑖)
+                                                3
+                                                    ⊗ 𝒅 (𝑖)
+                                                        3
+                                                            ) ⋅ 𝝁 × 𝒛(𝑖) ,
+                                                                                                              perfect stick state and thus the stiffness matrix obtained in this way
+                                       (𝑖)
+              full slip state:       𝜷 𝑆3  = 𝝁 × 𝒛(𝑖) ,                                                       is always positive definite but not symmetric except for perfect stick
+                                       (𝑖)
+axial-torsional state:               𝜷 𝑆4  = (𝒅 (𝑖)
+                                                1
+                                                    ⊗ 𝒅 (𝑖)
+                                                        1
+                                                            + 𝒅 (𝑖)
+                                                                2
+                                                                    ⊗ 𝒅 (𝑖)
+                                                                        2
+                                                                            ) ⋅ (𝜸 + 𝝁 × 𝒛(𝑖) ).              (which happens to be the case of classical beam theory). As a matter of
+                                                                                                              a fact, the values of the stiffness matrix coefficients 𝑘11 , 𝑘22 , 𝑘33 , 𝑘41 , 𝑘52
+                                                                                                   (12)
+                                                                                                              and 𝑘63 are the same for all states while 𝑘14 , 𝑘25 , 𝑘36 , 𝑘44 , 𝑘55 and 𝑘66
+We point out that in the partial stick case, a first slip mode is high-                                       attain different values since the eigenstrains affect the way in which the
+lighted, namely the relative sliding of wires along their tangential                                          wire rope curvatures govern the wires’ strains. Another remark is that
+direction occurring when wires’ normal forces gradients exceed fric-                                          the constitutive matrix in Eq. (18) is independent of the coordinate 𝑠
+tional forces. Instead, in the full slip state, the wires behave as if they                                   and preserves the given structure only when all wires belong to the
+were independent from each other under bending.                                                               same stick–slip state. Breaking the symmetry in the wires’ stick–slip
+                                                                                                              states would lead to the emergence of different stiffness matrix coeffi-
+2.3. Stress resultants and constitutive equations                                                             cients with values depending on the position along the rope centerline.
+                                                                                                              Despite this model opens up the possibility for more detailed analyses,
+          The wire generalized stress resultants, given by                                                    in this work it is only shown how the aforementioned limit hypotheses
+𝒏   (𝑖)
+          = 𝑄1(𝑖) 𝒅 (𝑖)
+                    1
+                        + 𝑄(𝑖)
+                           2
+                               𝒅 2(𝑖) + 𝑁 (𝑖) 𝒅 (𝑖)
+                                                3
+                                                    ,                                                         lead to sufficiently accurate predictions of the maximum and minimum
+                                                                                                              stiffnesses in agreement with experimental measurements.
+𝒎(𝑖) = 𝑀1(𝑖) 𝒅 (𝑖)
+               1
+                   + 𝑀2(𝑖) 𝒅 2(𝑖) + 𝑇 (𝑖) 𝒅 (𝑖)
+                                            3
+                                                ,                                                  (13)
+
+are found by enforcing the constitutive equations for curved beams                                            3. Experimental tests on short wire-ropes subjected to bending
+with circular cross-section. By extending the results of the Saint-Venant
+theory of beams, we can assume the following linearized constitutive                                              A quasi-static experimental campaign was performed to collect a set
+equations for the wires (see [51]):                                                                           of representative results to be used for the validation of the model. A
+𝑄(𝑖) = 𝐺(𝑖) 𝐴𝑆(𝑖) 𝛾1(𝑖) ,                                                                                     single-strand and a multi-strand wire rope, with cross-sections shown
+ 1
+                                                                                                              in Fig. 2, were tested by making use of the universal material testing
+𝑄(𝑖)
+ 2
+     = 𝐺(𝑖) 𝐴𝑆(𝑖) 𝛾1(𝑖) ,                                                                                     machine MTS 810 equipped with a custom-made setup, shown in Fig. 3.
+𝑁 (𝑖) = 𝐸 (𝑖) 𝐴(𝑖) 𝜀(𝑖) ,                                                                                     The single-strand rope, henceforth denoted by R1, has an average
+𝑀1(𝑖) = 𝐸 (𝑖) 𝐽 (𝑖) 𝜇1(𝑖) ,                                                                                   diameter of 2 cm, while the seven-strands rope, referred to as R2, has
+                                                                                                              an average diameter of 1 cm.
+𝑀2(𝑖) = 𝐸 (𝑖) 𝐽 (𝑖) 𝜇2(𝑖) ,                                                                                       The target of the experimental tests was the acquisition of the
+𝑇 (𝑖) = 𝐺(𝑖) 𝐽𝑇(𝑖) 𝜇𝑇(𝑖) ,                                                                         (14)       hysteresis cycles of short wire ropes subjected to pure bending loading
+                                                                                                              programs. The setup comprised two rigid arms, each one equipped with
+being 𝐸 (𝑖) the Young modulus, 𝐺(𝑖) the shear modulus, 𝐴(𝑖) the cross-                                        two clamps for constraining the ropes’ ends. The clamps were realized
+sectional area, 𝐽 (𝑖) the cross-sectional moment of inertia, 𝐴(𝑖)
+                                                              𝑆
+                                                                  the shear                                   with two steel plates having cylindrical housings to host the ropes
+area, and 𝐽𝑇(𝑖) the torsional moment of the generic 𝑖th wire. The rope                                        tightened by four bolts. The left arm was rigidly connected to a steel
+stress resultants are then easily found as                                                                    top plate that, in turn, was anchored to the load cell of the MTS 810.
+          ∑
+          𝑁
+                                                                                                              The right arm was connected to a bottom steel plate fixed to the moving
+𝒏=               𝒏(𝑖) ,
+                                                                                                              piston of the testing machine. Fig. 3(a) and (b) show a couple of tested
+          𝑖=1
+                                                                                                              wire ropes in the reference and deformed configuration, respectively.
+          ∑𝑁
+                 ( (𝑖)           )
+𝒎=                𝒎 + 𝒛(𝑖) × 𝒏(𝑖) ,                                                                (15)       In the former, the wire ropes are stress free while, in the latter, they
+           𝑖=1                                                                                                are subjected to flexural deformation due to upward or downward
+where 𝑁 is the total number of wires in the rope. According to the fixed                                      movement of the right arm. In order to avoid hardening effects due to
+basis (𝒆1 , 𝒆2 , 𝒆3 ), the wire rope generalized stress resultants and strain                                 tensile forces in the ropes, a horizontal slider was placed between the
+measures are expressed in components as                                                                       right arm and the bottom steel plate so that the displaced rope ends can
+                                                                                                              freely approach the left ends. In this configuration, when the right rope
+𝒏 = 𝑁 𝒆1 + 𝑄2 𝒆2 + 𝑄3 𝒆3 ,                                                                                    ends are displaced, the load cell connected to the left arm measures the
+𝒎 = 𝑇 𝒆1 + 𝑀2 𝒆2 + 𝑀3 𝒆3 ,                                                                         (16)       total restoring force due to the internal shear forces in the ropes.
+                                                                                                                  The force–displacement cycles were acquired in displacement con-
+and                                                                                                           trol by applying a sinusoidal input having a frequency of 0.2 Hz so as
+𝜸 = 𝜀 𝒆1 + 𝛾2 𝒆2 + 𝛾3 𝒆3 ,                                                                                    to mimic quasi-static loading conditions. The cycles for different rope
+                                                                                                              lengths and displacement amplitudes were thus collected: (𝑖) for R1,
+𝝁 = 𝜇𝑇 𝒆1 + 𝜇2 𝒆2 + 𝜇3 𝒆3 .                                                                        (17)
+                                                                                                              lengths equal to 10 cm, 12 cm, 15 cm, 20 cm and amplitude ranging from
+Under the limit hypothesys that all wires belong to the same stick–                                           2 mm to 50 mm, depending on the rope length; (𝑖𝑖) for R2, lengths equal
+slip states, the outlined methodology yields the following constitutive                                       to 5 cm, 7.5 cm, 10 cm, 12 cm and amplitude ranging from 2.5 mm to
+relationships for the rope:                                                                                   35 mm, depending on the rope length.
+
+                                                                                                          5
+F. Barsi et al.                                                                                                                       Engineering Structures 323 (2025) 119217
+
+
+
+
+                               Fig. 2. (a) Single-strand R1 and (b) multi-stranded R2 wire ropes employed in the experimental campaign.
+
+
+
+
+                      Fig. 3. Experimental setup for the bending tests on short wire ropes: (a) reference configuration; (b) deformed configuration.
+
+
+
+
+3.1. Processing of the experimental acquisitions                                        operation of the experimental data as shown in Fig. 4(b). The minimum
+                                                                                        stiffness is fitted along the linear loading branch while the maximum
+    The experiments are organized into four sets, one for each rope                     stiffness at the beginning of the unloading branch. The stiffness varia-
+length. Within each set, tests with different displacement amplitudes                   tions over the various cycles at the same amplitude is at most around
+were performed, and each test comprised a total number of 14 loading-                   6% and the seventh cycle for each test is used to evaluate the limit
+unloading cycles. Table 1 summarizes the specific lengths of different                  stiffnesses. This choice allows capturing average stiffness values and,
+sets of wire ropes and the specific amplitudes of loading. An example                   at the same time, avoiding wires’ settling effects in the early stages of
+of a hysteretic cycle for the single-strand rope of length 10 cm and                    the tests. Fig. 5 shows the minimum and maximum stiffness values for
+maximum displacement equal to 4 mm (along the 𝑥2 axis) is shown in                      every length of the tested ropes R1 and R2, respectively, together with
+Fig. 4. The maximum and minimum stiffness in terms of end force–                        the mean values. The shaded areas (confidence regions) are obtained
+                         𝐹
+displacement ratio, 𝑘 = 𝑢 2 , has been obtained by a geometric fitting                  as 𝜇 ± 𝜎, being 𝜇 the mean and 𝜎 the standard deviation.
+                           2
+
+
+                                                                                    6
+F. Barsi et al.                                                                                                                             Engineering Structures 323 (2025) 119217
+
+
+
+
+Fig. 4. Force–displacement hysteresis cycles for R1 having length 𝐿 = 10 cm. (a) All cycles and (b) the seventh cycle used to evaluate the maximum and minimum bending
+stiffnesses.
+
+
+
+
+Fig. 5. (a) Minimum and (b) maximum bending stiffness of the R1 wire rope as function of the rope length provided by the experiments. (c) Minimum and (d) maximum bending
+stiffness of the R2 wire rope as function of the rope length provided by the experiments.
+
+
+
+4. Solution and validation of the bending problem                                       and can be solved analytically. The dimensionless solution is expressed
+                                                                                        as
+    The model validation is sought comparing the predictions with ex-                   𝒖    (3𝜉 2 − 2𝜉 3 )𝑘̃ 22 𝑘̃ 33 + 12𝜉(𝑘̃ 33 𝑘̃ 66 − 𝑘̃ 36 𝑘̃ 63 )
+perimental data taking into account the solutions of the boundary-value                    =                                                             𝛿̂ 𝒆2
+                                                                                        𝐿           𝑘̃ 22 𝑘̃ 33 + 12(𝑘̃ 33 𝑘̃ 66 − 𝑘̃ 36 𝑘̃ 63 )
+problem. The differential problem regulating the wire rope’s mechanics
+is governed by the field equations (1), (2), and the constitutive relation-                              6(𝜉 2 − 𝜉)𝑘̃ 22 𝑘̃ 36
+                                                                                              +                                          𝛿̂ 𝒆
+ships given by (18), supplemented by suitable boundary conditions. The                        ̃𝑘22 𝑘̃ 33 + 12(𝑘̃ 33 𝑘̃ 66 − 𝑘̃ 36 𝑘̃ 63 ) 3
+boundary-value problem describing the bending tests, shown in Fig. 6,                                 6(𝜉 2 − 𝜉)𝑘̃ 22 𝑘̃ 33
+is a Dirichlet BVP with homogeneous boundary conditions except for                      𝝋=                                            𝛿̂ 𝒆 ,                                  (19)
+                                                                                           ̃𝑘22 𝑘̃ 33 + 12(𝑘̃ 33 𝑘̃ 66 − 𝑘̃ 36 𝑘̃ 63 ) 3
+the vertical displacement 𝑢2 (𝐿) = 𝑢̂ 2 (hat denoting the problem data),
+
+                                                                                    7
+F. Barsi et al.                                                                                                                               Engineering Structures 323 (2025) 119217
+
+Table 1                                                                                     Table 3
+Sets of displacement amplitudes (in mm) for each rope length.                               Comparison between the values of the stiffness coefficients evaluated by the present
+ R1 lengths (mm)                               R2 lengths (mm)                              model with those obtained by an equivalent prismatic beam model.
+
+ 100          120           150      200       50           75            100    120                                  𝐸 𝐴𝑒𝑞               𝐺𝐴𝑒𝑞            𝐸 𝐽𝑒𝑞             𝐺𝐽𝑝,𝑒𝑞
+                                                                                             Equivalent beam
+                                                                                                                      42 431 kN           13 770 kN       961 N m2          739 N m2
+ 2            2             5        5         2.5          2.5           5      10
+ 4            4             10       10        5            5             7.5    15          Present model            𝑘11                 𝑘22 , 𝑘33       𝑘55 , 𝑘66         𝑘44
+ 6            6             15       15        7.5          7.5           10     20          perfect stick            38 098 kN           14 353 kN       862 N m2          707 N m2
+ 8            8             20       20        10           10            12.5   25          Relative error           11.4%               4.1%            11.5%             4.5%
+              10            30       25        12.5         12.5          15     30
+              14            35       30        15           15            17.5   35
+              16            40       35                     17.5          20
+              18            45       40                     20            22.5
+                                                                                                By focusing on the R1 rope, it is interesting to compare the stiffness
+              20                     45                                   25
+              22                     50                                   27.5              coefficients with those of an equivalent prismatic beam having the
+              24                                                                            same cross-section shown in Fig. 2(a). To make it more precise, one
+                                                                                            can think of the equivalent beam as a fictitious beam consisting of
+                                                                                            a bundle of straight wires welded together along the generators so
+                                                                                            as to ensure compactness. By neglecting the warping of the cross-
+                                                                                            section, the stiffnesses of the equivalent beam can be simply computed
+                                                                                            as 𝐸 𝐴𝑒𝑞 , 𝐺𝐴𝑒𝑞 , 𝐸 𝐽𝑒𝑞 and 𝐺𝐽𝑝,𝑒𝑞 where 𝐴𝑒𝑞 is the area, 𝐽𝑒𝑞 the moment
+                                                                                            of inertia and 𝐽𝑝,𝑒𝑞 the polar moment of the equivalent cross-section.
+                                                                                            Such comparison is shown in Table 3 and exhibits slight differences in
+                                                                                            the stiffnesses values which are due to the inclination of the wires with
+Fig. 6. Mechanical scheme of the bending tests showing the wire rope centerline with        respect to the strand axis.
+the boundary conditions and prescribed end displacement.
+                                                                                            [𝑪]𝑆1 =
+                                                                                              ⎡ 38098 kN          0               0         15.9 kN m          0              0     ⎤
+Table 2                                                                                       ⎢                                                                                     ⎥
+R1 wire rope geometry.                                                                        ⎢     0         14353 kN            0              0        −8.0 kN m           0     ⎥
+                                                                                              ⎢     0             0           14353 kN           0             0          −8.0 kN m⎥⎥
+ Layer            Curve      Lay orientation   Pitch [cm]          Wire diameter [mm]         ⎢
+                                                                                              ⎢15.9 kN m          0               0          707 N m2          0               0    ⎥
+ 1                Line       Straight          –                   2.35                       ⎢                                                                                     ⎥
+ 2                Helix      Left-hand         −5.5                2.10                       ⎢     0         −8.0 kN m           0              0          862 N m2           0    ⎥
+                                                                                              ⎢                                                                                     ⎥
+ 3                Helix      Right-hand        8.0                 2.10                       ⎣     0             0        −8.0 kN m             0             0          862 N m2 ⎦
+ 4                Helix      Left-hand         −12.3               2.10
+                                                                                                                                                                                      (22)
+ 5                Helix      Right-hand        17.5                2.10
+
+
+                                                                                                    ⎡ 38098 kN         0              0          −7.7 kN m         0              0  ⎤
+                                                                                                    ⎢                                                                                ⎥
+                                                                                 𝑢̂ 2               ⎢     0       14353 kN            0               0        3.8 kN m           0  ⎥
+                    𝑠
+where 𝜉 =           𝐿
+                      , 𝜉∈ [0, 1] is the dimensionless coordinate, 𝛿̂ =   is      𝐿
+                                                                                                    ⎢     0            0          14353 kN            0            0        3.8 kN m⎥⎥
+the dimensionless displacement while the stiffness coefficients have                        [𝑪]𝑆2 = ⎢
+                                                                                                    ⎢15.9 kN m         0              0          544 N m2          0             0   ⎥
+been made homogeneous with the physical dimension of force by the                                   ⎢                                                                                ⎥
+                                                                                                    ⎢     0       −8.0 kN m           0               0        38 N m2           0   ⎥
+following relations:                                                                                ⎢                                                                              2⎥
+                                                                                                    ⎣     0            0          −8.0 kN m           0            0        38 N m ⎦
+ 𝑘̃ 11 = 𝑘11 ,   𝑘̃ 22 = 𝑘22 ,   𝑘̃ 33 = 𝑘33 ,
+         𝑘14              𝑘25            𝑘                                                                                                                                            (23)
+𝑘̃ 14 =       , 𝑘̃ 25 =       , 𝑘̃ 36 = 36 ,
+          𝐿                𝐿              𝐿
+         𝑘                𝑘              𝑘                              (20)
+𝑘̃ 41 = 41 , 𝑘̃ 52 = 52 , 𝑘̃ 63 = 63 ,
+          𝐿                𝐿              𝐿                                                 [𝑪]𝑆3 =
+         𝑘                𝑘              𝑘
+𝑘̃ 44 = 44 , 𝑘̃ 55 = 55 , 𝑘̃ 66 = 66 .                                                        ⎡ 38098 kN            0               0               0           0            0    ⎤
+         𝐿2               𝐿2             𝐿2
+                                                                                              ⎢     0          14353 kN             0               0           0            0    ⎥
+The explicit expression of the bending stiffness is given by                                  ⎢                                                                                   ⎥
+                       (                 )                                                    ⎢     0               0          14353 kN             0           0            0    ⎥
+ 𝑄2            12𝑘22 𝑘33 𝑘66 − 𝑘36 𝑘63                                                        ⎢                                                                                   ⎥.
+       =                     (                 ).                       (21)                  ⎢15.9 kN m            0               0            9 N m2         0            0    ⎥
+  𝑢̂ 2   𝐿3 𝑘22 𝑘33 + 12𝐿 𝑘33 𝑘66 − 𝑘36 𝑘63                                                   ⎢                                                                                   ⎥
+                                                                                                    0          −8.0 kN m            0               0        11 N m2         0
+                                                                                              ⎢                                                                                   ⎥
+By way of example, Fig. 7 (left) shows the centerline displacement,                           ⎣     0               0          −8.0 kN m            0           0         11 N m2 ⎦
+consistent with the experimental one, for the R1 wire rope of length                                                                                                                  (24)
+𝐿 = 10 cm and end displacement 𝑢̂ 2 = 5 mm under the partial stick and
+                                                                                            Fig. 9(a) compares the minimum bending stiffness obtained either with
+the full slip conditions. Fig. 7 (right) shows a reduction in maximum
+bending moment of approximately 73% between the two limit cases.                            the proposed formulation or the Foti–Martinelli model [41] with our
+                                                                                            experimental results. Both models properly fit the experimental results
+4.1. R1 wire rope analysis                                                                  considering that the values provided for the different lengths fall on the
+                                                                                            upper bound of the experimental confidence region.
+    The single-strand R1 rope has a 1 + 6 + 12 + 18 + 24 wires layout,                          The results related to the prediction of the maximum stiffness are
+shown in Fig. 2 (left). The pitches have been measured directly on the                      reported in Fig. 9(b) and (c). The values obtained with the proposed
+sample as shown in Fig. 8. Accounting for the reverse lay construction                      formulation in full stick condition are very close to those provided
+with positive pitches corresponding to the right-hand lay orientation,                      by the Foti–Martinelli model with maximum difference for the 10 cm
+the geometric features of R1 are given in Table 2. The wires are made of                    length due to the fact that the present model accounts for the wires’
+AISI 304 steel, possessing Young’s modulus 𝐸 = 200 GPa and Poisson’s                        shear deformability. Both formulations estimate much larger values
+ratio 𝜈 = 0.3.                                                                              than those experimentally acquired. On the other hand, the partial
+    The stiffness matrices under the perfect (S1) and partial stick (S2)                    stick state hypothesis provide values laying approximately on the lower
+states are reported in Eqs. (22) and (23), respectively, and for the full                   bound of the confidence region as highlighted in Fig. 9(b).
+slip (S3) state in Eq. (24).
+
+                                                                                        8
+F. Barsi et al.                                                                                                                               Engineering Structures 323 (2025) 119217
+
+
+
+
+                  Fig. 7. Solution of BVP for the R1 rope of length 10 cm for partial stick and full slip: (a) centerline deformed configuration and (b) bending moment.
+
+
+
+
+                                      Fig. 8. R1 rope pitches and wires’ diameters measurement for the (a) 5th, (b) 4th, (c) 3rd and (d) 2nd layer.
+
+
+4.2. R2 stranded rope analysis                                                                  Table 4
+                                                                                                R2 wire rope geometry.
+                                                                                                 Layer        Curve        Lay orientation        Pitch [cm]        Strands scheme
+
+    The R2 rope shown in Fig. 2(b) has a layout of 1 + 6 strands with                            1            Line         Straight               –                 1 + 6 + 12
+                                                                                                 2            Helix        Right-hand             7.0               1 + 6 + 12
+each strand having 1 + 6 + 12 wires. The pitches have been measured
+directly on the sample as shown in Fig. 10. With the usual pitch sign
+convention, the geometrical features are reported in Tables 4 and 5. The
+wires are made of AISI 304 steel, having Young’s modulus 𝐸 = 200 GPa                            4.3. Discussion
+and Poisson’s ratio 𝜈 = 0.3. Fig. 11 shows the maximum and minimum
+stiffnesses as function of the R2 rope length according to the proposed
+model and the experimental results. As for the single-strand rope, the                              Table 6 shows a summary of the comparisons between the experi-
+full slip and the partial stick states deliver a good prediction of the                         mentally measured and theoretically predicted stiffnesses together with
+minimum and maximum stiffness, respectively. The larger differences                             the relative errors. The relative percentage error is defined as
+between the proposed formulation and the experiments are obtained for                                     |𝑘𝑒𝑥𝑝 − 𝑘𝑡ℎ𝑒 |
+                                                                                                𝑒𝑟𝑟(%) =                 × 100,                                    (25)
+the lowest length of 5 cm. In this case, the model is not completely rep-                                     𝑘𝑒𝑥𝑝
+resentative of the sample response where the boundary effects become
+relevant because the pitch of the lateral strand is larger than the total                       where 𝑘𝑒𝑥𝑝 and 𝑘𝑡ℎ𝑒 are the experimental and theoretical values of the
+length of the rope. This fact became apparent during the experiments                            stiffness, respectively.
+carried out for this short length, where the torsional effects became                             The error for the minimum stiffness is bounded between 1% and
+clear.                                                                                          37%. It should be noted that the minimum stiffness obtained with this
+
+                                                                                            9
+F. Barsi et al.                                                                                                                               Engineering Structures 323 (2025) 119217
+
+
+
+
+Fig. 9. (a) Minimum stiffness for different lengths of the R1 rope obtained with the full slip state, the Foti–Martinelli model and the experimental confidence region. (b) Maximum
+stiffness for different lengths of the R1 rope obtained with the perfect stick and partial stick states, the Foti–Martinelli model and the experimental confidence region; (c) close up
+of part (b) around the experimental confidence region restricted to the stiffness range [0, 0.62] kN/mm.
+
+
+
+
+              Fig. 10. The R2 rope pitch and wire diameter measurements: (a) rope, (b) central strand 3rd layer, (c) lateral strands and (d) central strand 2nd layer.
+
+
+
+                                                                                          10
+F. Barsi et al.                                                                                                                            Engineering Structures 323 (2025) 119217
+
+
+
+
+Fig. 11. (a) Minimum stiffness for different length values of the R2 rope obtained with the full slip state and experimental confidence region. (b) Maximum stiffness for different
+lengths of the R2 rope obtained with the perfect stick and partial stick states and the experimental confidence region; (c) close up of part (b) around the experimental confidence
+region restricted to the stiffness range [0, 0.40] kN/mm.
+
+
+Table 5                                                                                      stiffness with sufficient accuracy, needs to be more thoroughly investi-
+R2 wire rope: strands geometry.
+                                                                                             gated. As for the experimental results, the possible sources of errors
+ Strand layer 1                                                                              are mainly due to the precision of the constraining devices and the
+ Layer       Curve         Lay orientation      Pitch [cm]      Wire diameter [mm]           degree of clamping exerted by them, which may impact the effective
+ 1           Line          Straight             –               0.80                         length of the tested ropes. It should be noted that the maximum
+ 2           Helix         Right-hand           2.0             0.70                         amplitudes reached experimentally by the tested ropes are such that the
+ 3           Helix         Right-hand           3.5             0.70
+                                                                                             problem becomes geometrically nonlinear as the wire rope undergoes
+ Strand layer 2                                                                              moderately large curvatures. However, the experimental set-up was
+ Layer       Curve         Lay orientation      Pitch [cm]      Wire diameter [mm]           designed and laid out so as to minimize the effects of stretching-induced
+ 1           Helix         Straight             –               0.70                         geometric nonlinearities by allowing the rope ends to slide freely in the
+ 2           Superhelix    Left-hand            −2.0            0.63                         horizontal direction, thus significantly reducing hardening effects.
+ 3           Superhelix    Left-hand            −3.5            0.63
+
+
+                                                                                             5. Solution and validation of the axial-torsional problem
+model nearly coincides with that obtained with the model of Foti–
+Martinelli [41]. The error for the maximum stiffness lies between 7%                              The present model is also applied to the case of wire ropes sub-
+and 32%, a range which is very close to that for the minimum stiffness.                      jected to axial displacements aimed at investigating the axial-torsional
+This model is therefore able to capture the maximum stiffness with                           response. The model predictions are compared with the single-strand
+the same accuracy manifested for the minimum stiffness. Modeling and                         rope tests described in [56]. The response to axial and torsional load-
+experimental errors are inherent in the results. As the stiffness is given                   ings has been investigated using a tension-torsional machine able to
+explicitly by Eq. (21), the main source of error in mechanical modeling                      apply a prescribed axial elongation to a straight rope specimen, while
+concerns the physical plausibility of some of the assumptions behind                         measuring the corresponding axial force. When the specimen is fully
+the model. In particular, the estimation of lower and upper bounds of                        clamped at both ends, the reactive torque is measured in order to
+bending stiffness was carried out under the limiting hypothesis that all                     evaluate the axial-torsional coupling. When one end is free to rotate
+wires undergo the same sliding regime. This simplifying assumption,                          still the coupling can be evaluated by comparing the axial stiffness with
+although capable of capturing the upper and lower bounds of bending                          the fully clamped case. The mechanical problem, sketched in Fig. 12,
+                                                                                                                                                                  𝑢̂
+                                                                                             can again be solved analytically when a given elongation 𝜀̂ = 𝐿1 is
+
+                                                                                        11
+F. Barsi et al.                                                                                                                           Engineering Structures 323 (2025) 119217
+
+                  Table 6
+                  Experimental mean values and theoretical estimates with relative error for the bending tests.
+                                                                       [    ]                                [     ]
+                                                                         kN                                     kN
+                                         𝐿 [cm]          Experimental mm                         Theoretical mm                    Error [%]
+
+                                                            𝑘𝑚𝑖𝑛               𝑘𝑚𝑎𝑥                𝑘𝑚𝑖𝑛                𝑘𝑚𝑎𝑥        𝑘𝑚𝑖𝑛                  𝑘𝑚𝑎𝑥
+                                           10               0.114              0.526               0.132               0.480       15.5                  22.4
+                                           12               0.072              0.408               0.076               0.278       6.3                   31.9
+                   Wire rope
+                                           15               0.032              0.200               0.039               0.142       23.7                  29.1
+                                           20               0.012              0.075               0.016               0.060       28.1                  19.7
+                                           5                0.031              0.286               0.021               0.197       31.1                  31.1
+                                           7.5              0.005              0.063               0.006               0.058       22.2                  7.2
+                   Stranded rope
+                                           10               0.002              0.028               0.003               0.025       37.0                  11.3
+                                           12               0.001              0.016               0.001               0.014       1.0                   10.8
+
+
+
+
+                                                                                               bending regime, namely, the full stick state, the partial stick state, and
+                                                                                               the full slip state.
+                                                                                                   The wire’s constitutive relationships were obtained by extending
+                                                                                               Saint-Venant’s theory to curvilinear rods, and the overall rope’s con-
+                                                                                               stitutive relations were accordingly obtained. The model is charac-
+                                                                                               terized by a generally non-symmetric positive-definite stiffness matrix
+                                                                                               exhibiting coupling between bending and shear besides the well-known
+Fig. 12. Mechanical scheme of the axial-torsional tests showing the wire rope center-
+line with the boundary conditions and prescribed end displacement.                             coupling between axial and torsional problems.
+                                                                                                   An experimental campaign was carried out on single- and multi-
+Table 7                                                                                        strand short wire ropes subjected to pure bending making use of a
+Experimental values and theoretical estimates with relative errors for the tension-            tailored experimental apparatus. The experiments were carried out by
+torsional tests.                                                                               subjecting the ropes to quasi-static end displacements by means of a
+                               Fixed end                                    Free end           low frequency input. The results obtained from the experimental tests
+                               𝑁                     𝑇                      𝑁
+                               𝜀
+                                 [kN]                𝑁
+                                                       [mm]                 𝜀
+                                                                              [kN]             in terms of force–displacement cycles at the rope ends were employed
+ Theoretical                   13 849               0.671                   8776               to extract the maximum and minimum stiffness attained across the
+ Experimental                  13 539               0.654                   9140               hysteresis cycles through a linear regression.
+ Error [%]                     2.3                  2.6                     4.0                    With the present model, the boundary-value problem for the rope
+                                                                                               under end displacements could be solved analytically for the cases
+                                                                                               examined and the displacements were provided in dimensionless form
+prescribed. The dimensionless solution, in the case of fixed ends, is                          together with the explicit expression of the stiffness. The model’s
+simply                                                                                         predictions were compared with the experimental results obtained for
+ 𝒖                                                                                             the two ropes tested under bending, showing a good agreement in
+   = 𝜉 𝜀̂ 𝒆1 , 𝝋 = 𝟎,                                           (26)                           both the lower and upper bounds of the stiffness. The theoretical
+𝐿
+                                                                                               predictions were also compared with the experimental results available
+while in the free end case the solution is
+                                                                                               in the literature concerning single-strand wire ropes subjected to axial-
+𝒖                  𝑘̃
+  = 𝜉 𝜀̂ 𝒆1 , 𝝋 = − 41 𝜉 𝜀̂ 𝒆1 .                                                   (27)        torsional tests, showing a good agreement. A remarkable feature of this
+𝐿                  𝑘̃ 44                                                                       model is that no calibration of any physical parameter is required to
+Table 7 shows the comparison between the theoretical predictions and                           accurately estimate the magnitude of the limit stiffnesses.
+the experimental outcomes. The strain regime described by the adopted                              The present linear model provides sufficiently accurate estimates of
+eigenstrains given by (12)4 agrees well with the experiments providing                         the upper/lower stiffnesses. However, the prediction of the hysteresis
+low percentage errors that are similar to those obtained using well                            cycle or the response under bending and tension still requires further
+established literature models [15].                                                            efforts.
+
+
+6. Conclusions                                                                                 CRediT authorship contribution statement
+
+    This paper addressed the problem of modeling the mechanical                                   F. Barsi: Writing – review & editing, Writing – original draft, Val-
+response of metallic wire ropes aiming at providing robust estimates of                        idation, Software, Methodology, Investigation, Formal analysis, Data
+the stiffnesses associated with different regimes, from perfect interwire                      curation, Conceptualization. B. Carboni: Writing – review & editing,
+stick to full slip.                                                                            Writing – original draft, Validation, Supervision, Resources, Project
+    A new mechanical model employing linear constitutive relation-                             administration, Investigation, Funding acquisition, Data curation, Con-
+ships was presented and proven to accurately predict the upper and                             ceptualization. W. Lacarbonara: Writing – review & editing, Writ-
+lower bounds of the stiffness which were experimentally measured. The                          ing – original draft, Validation, Supervision, Resources, Methodology,
+wire rope is modeled as a classical shear-deformable Timoshenko beam                           Funding acquisition, Conceptualization.
+in the linear regime and the constitutive equations are derived taking
+into account accurate wires’ geometry and material properties.
+    An incompatible eigenstrain term was introduced in the wires’                              Declaration of competing interest
+strain measures to account for the inter-slip between adjacent wires.
+The eigenstrains assume different expressions according to the rope’s                              The authors declare that they have no known competing finan-
+strain regime and are assumed to depend linearly on the rope strains.                          cial interests or personal relationships that could have appeared to
+Specifically, three interwire stick–slip conditions were identified for the                    influence the work reported in this paper.
+
+                                                                                          12
+F. Barsi et al.                                                                                                                              Engineering Structures 323 (2025) 119217
+
+
+Acknowledgments                                                                               [24] Huang N. Finite extension of an elastic strand with a central core. ASME J Appl
+                                                                                                   Mech 1978;45.
+                                                                                              [25] Jolicoeur C. Comparative study of two semicontinuous models for wire strand
+    Financial support from Sapienza University of Rome under 2021
+                                                                                                   analysis. J Eng Mech 1997;123(8):792–9.
+project ‘Modelling and experimental validation of a hysteretic absorber                       [26] Parthasarathy N. Effective stiffness and slip-damping of stranded cables (Ph.D.
+for vibration control of multi-story structures’ (grant no.                                        thesis), Ph.D. thesis, University of Visveswaraya College of Engineering,
+RM1221816C52B759) is gratefully acknowledged. Partial financial                                    Bangalore; 1998.
+support from PRIN 2022 program ‘Engineered basement for vibra-                                [27] Gnanavel BK, Gopinath D, Parthasarathy NS. Effect of friction on coupled contact
+                                                                                                   in a twisted wire cable. J Appl Mech 2009;77(2):024501.
+tion protection of artworks and strategic sensitive equipment’ (grant                         [28] Ghoreishi SR, Cartraud P, Davies P, Messager T. Analytical modeling of synthetic
+no. 2022TH5HC2) funded by European Union - NextGenerationEU is                                     fiber ropes subjected to axial loads. Part I: A new continuum model for
+also gratefully acknowledged. This work was carried out within the                                 multilayered fibrous structures. Int J Solids Struct 2007;44(9):2924–42.
+RETURN Extended Partnership funded by European Union - NextGen-                               [29] Gnanavel B, Parthasarathy N. Effect of interfacial contact forces in radial contact
+                                                                                                   wire strand. Arch Appl Mech 2011;81:303–17.
+erationEU (National Recovery and Resilience Plan, NRRP, Mission 4,
+                                                                                              [30] Sauter D, Hagedorn P. On the hysteresis of wire cables in stockbridge dampers.
+Component 2, Investment 1.3 D.D. 1243 2/8/2022, PE0000005).                                        Int J Non-Linear Mech 2002;37(8):1453–9.
+                                                                                              [31] Stockbridge GH. Vibration damper. 1928, US Patent 1675931, Los Angeles.
+Data availability                                                                             [32] Gerges RR. Model for the force–displacement relationship of wire rope springs.
+                                                                                                   J Aerosp Eng 2008;21(1):1–9.
+                                                                                              [33] Sun J-F, Wang G-L, Zhang H-O. Elasto-plastic contact problem of laying wire
+    Data will be made available on request.
+                                                                                                   rope using FE analysis. Int J Adv Manuf Technol 2005;26:17–22.
+                                                                                              [34] Ma J, Ge S-R, Zhang D-K. Distribution of wire deformation within strands of
+                                                                                                   wire ropes. J China Univ Min Technol 2008;18(3):475–8.
+References                                                                                    [35] Lacarbonara W, Talò M, Carboni B, Lanzara G. Tailoring of hysteresis across
+                                                                                                   different material scales. In: Recent trends in applied nonlinear mechanics and
+ [1] Fei H, Long H, Zichen D, Lin C. An analytical method for nonlin-                              physics: selected papers from CSNDD 2016. Springer; 2018, p. 227–50.
+     ear vibration analysis of submerged tensioned anchors. Nonlinear Dynam                   [36] Elata D, Eshkenazy R, Weiss M. The mechanical behavior of a wire rope with
+     2023;111(12):11001–22.                                                                        an independent wire rope core. Int J Solids Struct 2004;41(5–6):1157–72.
+ [2] Goodarzi R, Korayem M, Tourajizadeh H, Nourizadeh M. Nonlinear dynamic                   [37] Usabiaga H, Pagalday J. Analytical procedure for modelling recursively and wire
+     modeling of a mobile spatial cable-driven robot with flexible cables. Nonlinear               by wire stranded ropes subjected to traction and torsion loads. Int J Solids Struct
+     Dynam 2022;108(4):3219–45.                                                                    2008;45(21):5503–20.
+ [3] Wang J, van Horssen WT. On resonances and transverse and longitudinal                    [38] Xiang L, Wang H, Chen Y, Guan Y, Wang Y, Dai L. Modeling of multi-strand
+     oscillations in a hoisting system due to boundary excitations. Nonlinear Dynam                wire ropes subjected to axial tension and torsion loads. Int J Solids Struct
+     2023;111(6):5079–106.                                                                         2015;58:233–46.
+ [4] Long Y, Kang H. Analysis of 1:1 internal resonance of a CFRP cable with an               [39] Fraldi M, Perrella G, Ciervo M, Bosia F, Pugno N. A hybrid deterministic-
+     external 1/3 subharmonic resonance. Nonlinear Dynam 2022;107(4):3425–41.                      probabilistic approach to model the mechanical response of helically arranged
+ [5] Kourani A, Daher N. Three-dimensional modeling of a tethered UAV–buoy system                  hierarchical strands. J Mech Phys Solids 2017;106:338–52.
+     with relative-positioning and directional surge velocity control. Nonlinear Dynam        [40] Papailiou K. On the bending stiffness of transmission line conductors. IEEE Trans
+     2023;111(2):1245–68.                                                                          Power Deliv 1997;12(4):1576–88.
+ [6] Liu G, Lei Z, Law S, Yang Q. The nonlinear behavior of prestressed tuned                 [41] Foti F, Martinelli L. An analytical approach to model the hysteretic bending
+     mass damper for vibration control of wind turbine towers. Nonlinear Dynam                     behavior of spiral strands. Appl Math Model 2016;40(13–14):6451–67.
+     2023;111(12):10939–55.                                                                   [42] Lanteigne J. Theoretical estimation of the response of helically armored cables
+ [7] Tinker ML, Cutchins MA. Damping phenomena in a wire rope vibration isolation                  to tension, torsion, and bending. J Appl Mech 1985;52:423–32, URL https:
+     system. J Sound Vib 1992;157(1):7–18.                                                         //api.semanticscholar.org/CorpusID:121160300.
+ [8] Demetriades GF, Constantinou MC, Reinhorn AM. Study of wire rope systems for             [43] Foti F, Martinelli L. A unified analytical model for the self-damping of stranded
+     seismic protection of equipment in buildings. Eng Struct 1993;15(5):321–34.                   cables under aeolian vibrations. J Wind Eng Ind Aerodyn 2018;176:225–38.
+ [9] Cutchins M, Cochran Jr J, Guest S, Fitz-Coy N, Tinker M. An investigation of             [44] Foti F, Martinelli L. Modeling the axial-torsional response of metallic strands
+     the damping phenomena in wire rope isolators. In: Proc. 1987 ASME design                      accounting for the deformability of the internal contact surfaces: derivation of
+     technology conf.. 1987, p. 197–204.                                                           the symmetric stiffness matrix. Int J Solids Struct 2019;171:30–46.
+[10] Bouc R. Forced vibrations of mechanical systems with hysteresis. In: Proc. of the        [45] Hong K-J, Der Kiureghian A, Sackman JL. Bending behavior of helically wrapped
+     fourth conference on nonlinear oscillations, prague. 1967.                                    cables. J Eng Mech 2005;131(5):500–11.
+[11] Ko J, Ni Y, Tian Q. Hysteretic behavior and emperical modeling of a wire-cable           [46] Carboni B, Lacarbonara W, Auricchio F. Hysteresis of multiconfiguration
+     vibration isolator. 1992.                                                                     assemblies of nitinol and steel strands: experiments and phenomenological
+[12] Ni Y, Ko J, Wong C, Zfaan S. Modelling and identification of a wire-cable                     identification. J Eng Mech 2015;141(3):04014135.
+     viberation isolater via a cyclic loading test Part 1: And experiment and model           [47] Carboni B, Lacarbonara W, Brewick PT, Masri SF. Dynamical response identi-
+     developement. Proc Inst Mech Eng I 1999;213:163–71.                                           fication of a class of nonlinear hysteretic systems. J Intell Mater Syst Struct
+[13] Ni Y, Ko J, Wong C, Zhan S. Modelling and identification of a wire-cable                      2018;29(13):2795–810.
+     vibration isolator via a cyclic loading test Part 2: Identification and response         [48] Carboni B, Lacarbonara W. Nonlinear dynamic characterization of a
+     prediction. Proc Inst Mech Eng I 1999;213:173–82.                                             new hysteretic device: experiments and computations. Nonlinear Dynam
+[14] Wen Y-K. Method for random vibration of hysteretic systems. J Eng Mech Div                    2016;83:23–39.
+     1976;102(2):249–63.                                                                      [49] Carboni B, Lacarbonara W. Nonlinear vibration absorber with pinched hysteresis:
+[15] Costello GA. Theory of wire rope. New York: Springer New York, NY; 2012.                      theory and experiments. J Eng Mech 2016;142(5):04016023.
+[16] Love AEH. A treatise on the mathematical theory of elasticity. New York: Dover           [50] Carboni B, Mancini C, Lacarbonara W. Hysteretic beam model for steel wire
+     Publications; 1944.                                                                           ropes hysteresis identification. In: Structural nonlinear dynamics and diagnosis:
+[17] Hobbs R, Raoof M. Interwire slippage and fatigue prediction in stranded cables                selected papers from CSNDD 2012 and CSNDD 2014. Springer; 2015, p. 261–82.
+     for TLP tethers. Hemisphere Publishing Corp.; 1983, p. 77–99.                            [51] Lacarbonara W. Nonlinear structural mechanics: theory, dynamical phenomena
+[18] Blouin F, Cardou A. A study of helically reinforced cylinders under axially                   and modeling. New York: Springer Science & Business Media; 2013.
+     symmetric loads and application to strand mathematical modelling. Int J Solids           [52] Cardou A, Jolicoeur C. Mechanical Models of Helical Strands. Appl Mech Rev
+     Struct 1989;25(2):189–200.                                                                    1997;50(1):1–14.
+[19] Jolicoeur C, Cardou A. Analytical solution for bending of coaxial orthotropic            [53] Foti F, Martinelli L. An enhanced unified model for the self-damping of stranded
+     cylinders. J Eng Mech 1994;120(12):2556–74.                                                   cables under aeolian vibrations. J Wind Eng Ind Aerodyn 2018;182:72–86.
+[20] Jolicoeur C, Cardou A. Semicontinuous mathematical model for bending of                  [54] Mura T. Micromechanics of defects in solids. Dordrecht: Martinus Nijhoff
+     multilayered wire strands. J Eng Mech 1996;122(7):643–50.                                     Publishers; 1987.
+[21] Hoppe L. Modeling the static behavior of dyneema in wire-rope construction.              [55] Eshelby JD. The determination of the elastic field of an ellipsoidal inclusion, and
+     MTS RTM 1991.                                                                                 related problems. Proc R Soc Lond Ser A Math Phys Sci 1957;241(1226):376–96.
+[22] Leech C, S. Hearle J, Overington M, Banfield S. Modelling tension and torque             [56] Utting W, Jones N. The response of wire rope strands to axial tensile loads
+     properties of fibre ropes and splices. In: ISOPE international ocean and polar                – Part I. Experimental results and theoretical predictions. Int J Mech Sci
+     engineering conference. 1993.                                                                 1987;29(9):605–19.
+[23] Kumar K, Botsis J. Contact stresses in multilayered strands under tension and
+     torsion. J Appl Mech 2001;68(3):432–40.
+
+
+                                                                                         13
+

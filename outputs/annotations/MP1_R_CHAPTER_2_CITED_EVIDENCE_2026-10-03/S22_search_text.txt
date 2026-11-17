@@ -1,0 +1,3854 @@
+PDF PAGE 1
+B0: CABLE VIBRATION CONSIDERING INTERNAL FRICTION
+B1: A THESIS SUBMITTED TO THE GRADUATE DIVISION OF THE
+B2: UNIVERSITY OF HAWAI'I IN PARTIAL FULFILLMENT
+B3: OF THE REQUIREMENTS FOR THE DEGREE OF
+B4: MASTER OF SCIENCE
+B5: IN
+B6: MECHANICAL ENGINEERING
+B7: AUGUST 2004
+B8: By
+Xin Liu
+B9: Thesis Committee:
+B10: Ronald H. Knapp, Chairperson
+B11: YulingYan
+Ian N. Robertson
+B12: 3988
+
+PDF PAGE 2
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: ACKNOWLEDGEMENS
+B12: I wish to express my gratitude to my director, Professor Ronald H. Knapp, for his
+B13: guidance, encouragement and advice during not only the course ofthis study, but also my
+B14: M.S. program at the University ofHawai'i at Manoa.
+B15: I would also like to thank my committee members, Professor Yuling Yan, and Professor
+B16: Ian Robertson.
+B17: 111
+
+PDF PAGE 3
+B0: •
+B1: •
+B2: •
+B3: TABLE OF CONTENTS
+B4: .
+fF'
+..
+LIst 0
+Igures
+Vll
+B5: List ofTables
+ix
+B6: Chapter
+1.
+Introduction
+1
+•
+B7: 1.1.
+Overview
+1
+B8: 1.2.
+Problem Statement
+4
+B9: Chapter 2.
+Equation ofMotion
+5
+•
+B10: •
+B11: 2.1.
+Summary
+5
+B12: 2.2.
+Assumptions
+5
+B13: 2.3.
+Equation ofMotion
+6
+B14: 2.4.
+Discussion
+8
+B15: Chapter 3.
+Numerical Solution Techniques
+10
+•
+B16: 3.1.
+Summary
+10
+B17: 3.2.
+Frictional Bending Model
+10
+B18: 3.2.1
+Cable Components
+10
+•
+3.2.2
+Bending Behavior ofCable Layers
+14
+B19: •
+B20: •
+B21: 3.3.
+NUlllerical Solution
+19
+B22: 3.3.1
+Derivation ofElement Matrices
+19
+B23: 3.3.2
+Methods ofDirect Integration
+25
+B24: 3.3.3
+Newmark's Scheme
+26
+B25: 3.4.
+General Programming
+29
+B26: •
+B27: 3.4.1
+Explanation
+31
+B28: IV
+
+PDF PAGE 4
+B0: 3.5.
+Discussion
+34
+B1: Chapter 4.
+Numerical Results
+35
+B2: 4.1.
+Summary
+35
+B3: 4.2.
+Simply-Supported Cable
+35
+B4: 4.2.1
+Model Parameters
+35
+B5: 4.2.2
+Boundary and Initial Conditions
+35
+B6: 4.2.3
+Results
+37
+B7: 4.3.
+Cantilever Cable
+41
+B8: 4.3.1
+Model Parameters
+41
+B9: 4.3.2
+Boundary and Initial Conditions
+42
+B10: 4.3.3
+Results
+44
+B11: 4.4.
+Discussion
+46
+B12: 4.4.1
+Error Analysis
+47
+B13: Chapter 5.
+Model Verification
+49
+B14: 5.1.
+Summary
+49
+B15: 5.2.
+Experimental Data
+49
+B16: 5.3.
+Model Result and Comparison
+53
+B17: •
+B18: •
+B19: •
+B20: •
+B21: •
+B22: •
+B23: •
+B24: •
+Chapter 6.
+Conclusions
+56
+B25: •
+B26: •
+B27: •
+B28: 6.1.
+Objectives Achieved
+56
+B29: 6.2.
+Future Study
+57
+B30: Appendix A
+Experiment of Intemal Pressure Measurement for Cable Specimens
+58
+B31: A.I. Experiment Preparation and Data Collection
+58
+B32: A.2. Data Analysis and Computation
+62
+B33: v
+
+PDF PAGE 5
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: A.3. Limitation ofExperiment.
+66
+B12: Appendix B Approximate Computation for Flexural Rigidity of Cable Specimens
+68
+B13: Reference
+70
+B14: VI
+
+PDF PAGE 6
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: List of Figures
+B12: Figure
+B13: FIGURE 2.1. FREE VIBRATION OF CABLE
+5
+B14: FIGURE 2.2. FREE-BODY DIAGRAM OF CABLE SEGMENT
+6
+B15: FIGURE 3.1. CABLE CROSS-SECTION
+11
+B16: FIGURE 3.2. HELICAL LAYERS
+12
+B17: FIGURE 3.3. WIRE SLIPS
+14
+B18: FIGURE 3.4. INTERFACE FRICTIONS
+15
+B19: FIGURE 3.5. BENDING MOMENT VS. CURVATURE
+17
+B20: FIGURE 3.6. EI VS. BENDING CURVATURE
+17
+B21: FIGURE 3.7. PROGRAM FLOW CHART
+30
+B22: FIGURE 3.8. CABLE SEGMENT EXAMPLE
+31
+B23: FIGURE 3.9. DISPLACEMENT HISTORY EXAMPLE
+33
+B24: FIGURE 4.1. SIMPLY-SUPPORTED CABLE
+36
+B25: FIGURE 4.2. CABLE DISPLACEMENT HISTORy
+38
+B26: FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)
+39
+B27: FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)
+39
+B28: FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)
+40
+B29: FIGURE 4.2. CABLE DISPLACEMENT HISTORY (CONT.)
+40
+B30: FIGURE 4.3. MID-POINT DISPLACEMENT HISTORy
+'
+41
+B31: FIGURE 4.4. CANTILEVER CABLE
+42
+B32: FIGURE 4.5. CABLE DISPLACEMENT HISTORy
+44
+B33: Vll
+
+PDF PAGE 7
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: FIGURE 4.5. CABLE DISPLACEMENT HISTORY (CONT.)
+45
+B12: FIGURE 4.5. CABLE DISPLACEMENT HISTORY(CONT.)
+45
+B13: FIGURE 4.6. END-POINT DISPLACEMENT HISTORy
+46
+B14: TABLE 4.1. SUM OF THE SQUARED ERROR
+48
+B15: FIGURE 5.1. CABLE FORCED VIBRATION
+50
+B16: FIGURE 5.2. EXPERIMENTAL DISPLACEMENT HISTORy
+51
+B17: FIGURE 5.3. EXPERIMENTAL HYSTERESIS CYCLE.
+52
+B18: FIGURE 5.4. MODEL DISPLACEMENT HISTORY OF END-POINT
+53
+B19: FIGURE 5.5. DISPLACEMENT HISTORY COMPARISON
+54
+B20: FIGURE 5.6. MODEL HYSTERESIS CYCLE
+54
+B21: FIGURE A.1. TEST TABLE
+59
+B22: FIGURE A2. DIMENSIONS OF CABLE SPECIMENS
+59
+B23: FIGURE A.3. CABLE SPECIMEN 1
+60
+B24: FIGURE A.4. CABLE SPECIMEN 2
+60
+B25: FIGURE A5. INSTRON® TEST MACHINE
+60
+B26: FIGURE A.6. DATA RECORDER
+61
+B27: FIGURE A7. TESTING CABLE SPECIMEN
+62
+B28: FIGURE A.8. TEST RESULT 1
+62
+B29: FIGURE A.9. TEST RESULT 2
+64
+B30: FIGURE Al O. CABLE SPECIMEN 1 DETAILED VIEW
+66
+B31: FIGURE All. CABLE SPECIMEN 2 DETAILED VIEW
+67
+B32: FIGURE R1. DIMENSION FOR CROSS-SECTION OF CABLE
+68
+B33: V111
+
+PDF PAGE 8
+B0: I
+B1: I
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: List of Tables
+B12: TABLE 3.1. CABLE MODEL PARAMETERS
+13
+B13: TABLE 4.1 SUM OF THE SQUARED ERROR
+47
+B14: TABLE AI. DESCRIPTION OF TEST MACHINE
+61
+B15: TABLE A2. PRESSURE BETWEEN 2ND LAYER AND 3RD LAYER
+63
+B16: TABLE A3. PRESSURE BETWEEN 1ST LAYER AND 2ND LAyER
+65
+B17: IX
+
+PDF PAGE 9
+B0: •
+B1: •
+B2: 1.1. Overview
+B3: Chapter
+1.
+Introduction
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: The cable consists of an assemblage of wires laid helically around a core. The cable is
+B14: widely used as an efficient structure for use in cable-stayed structures, for signal
+B15: transmission and for power transmission. For overhead power transmission cables, both
+B16: strength and dynamic characteristics are critical design parameters. Due to the inherently
+B17: low damping characteristics of long span cables, vibration can result in damage to
+B18: transmission cables and shorten their useful life. Moreover, for cable-stayed structures,
+B19: vibrations can lead to a decrease in the cable load-carrying capacity.
+In addition,
+B20: agreement on helical cable designs is difficult.
+Cable design choices include jacket
+B21: materials, water blocking techniques, and the number of fibers to place within the cable.
+B22: The cable design chosen depends on the cable's intended application.
+Each different
+B23: application may require a slightly different cable design. The cable must meet minimal
+B24: levels of performance in safety and durability (able to withstand shock, vibration, etc.).
+B25: These current design concerns suggest that the dynamic behavior of cables need to be
+B26: better understood.
+B27: Determination of various mechanical characteristics of helical cables has never been an
+B28: easy task. Substantial work has been accomplished over the past twenty years to model
+B29: the structural behavior of such cables. The most important dynamical property of cables
+B30: is wire slippage that creates large variations in flexural rigidity.
+Various flexural
+B31: rigidities have been predicted by a number of previously developed models. In addition,
+B32: 1
+
+PDF PAGE 10
+B0: I
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: the static and dynamic behavior of cables also have been predicted by previously reported
+B11: models.
+B12: The main focus of recent research has been the response of the cable under dynamic
+B13: loading conditions. The primary dynamic response of cables includes free vibration and
+B14: forced vibration.
+B15: Gutzer, Seemann and Hagedorn (1995) applied a MASING model for a steel cable
+B16: damping vibration system, in which the cable was analyzed as a collection of discrete and
+B17: continuous systems ofbonded layers. Each of the different layers consists ofone or more
+B18: parallel JENKIN or PRANDTL elements. The stick-slip behavior between the structural
+B19: parts was simulated as a special case of static hysteresis. The slowly varying amplitude
+B20: method and the phase method were used in the simulation to identify the damping
+B21: parameters ofthe physical cable.
+B22: Gatti-Bono and Perkins (2003) conducted an analysis of a two-dimensional towed cable
+B23: in an attempt to cover all aspects of cable under tension, torsion, and two-axis bending.
+B24: A numerical algorithm based on separate finite differencing in time and in space is
+B25: described.
+Seabed contact forces are added by modeling the seabed as an elastic
+B26: foundation with a prescribed profile. In deriving the motion of the cable, the cable was
+B27: treated as a one-dimensional dynamic elastic inextensible continuum.
+B28: 2
+
+PDF PAGE 11
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: An alternative approach of cable analysis was suggested by Zhong (2003). The cable is
+B12: modeled as a one-dimensional continuum with varying flexural rigidity.
+A simplified
+B13: cable vibration model, the frictional bending model (FBM), was developed to estimate
+B14: cable damping due to internal friction. Her study showed that the numerical solution can
+B15: be derived by directly integrating the equation of motion of the cable. The results of her
+B16: study showed some agreement with experimental data.
+B17: All of these investigations address the improvements of dynamic analyses of the cable,
+B18: and that the effects of internal dry friction between helical wire layers of a cable playa
+B19: significant role in the dynamic behavior of the cable.
+Although these research studies
+B20: illustrate different applications of the cable, the major focus has been the dynamic
+B21: response of these cables to external load and internal frictions.
+Their results provide
+B22: methods for cable dynamic analyses, and are very helpful for the design of cable systems.
+B23: Some of these analyses have resulted in rather complex stiffness matrixes, while others
+B24: have focused on individual wires of cable layers, which may not be easily applied to
+B25: other types ofcables.
+B26: The objective of this study is to develop a mathematical cable model to predict cable
+B27: vibration and the attendant reduction in vibration amplitude due to internal friction
+B28: caused by relative wire slippage, which allows a faster identification of the vibration
+B29: nature of the cable.
+In addition, a computer program is to be developed to investigate
+B30: 3
+
+PDF PAGE 12
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: cable free vibration cases using the mathematical cable model.
+Finally, the validity of
+B12: this model is to be verified by experimental data for forced vibration.
+B13: 1.2. Problem Statement
+B14: The flexible cable is complex structure made of multiple layers of helically-served and
+B15: axial components with dissimilar materials.
+The cable can have a nonlinear structural
+B16: characteristic where deformations are large, materials have nonlinear stress-strain curves
+B17: and frictional sliding of helical wires occrues. Consequently, the governing equation of
+B18: motion of a cable can be a highly nonlinear. Because the dynamic behavior of cable is
+B19: not fully understood, especially when the loads applied on the cable are a combination of
+B20: tension, torsion and compression, the analytical solution can be impractical to achieve.
+B21: Therefore, numerical methods have to be employed.
+B22: This study uses the flexural rigidity-curvature relationship predicted by CableCAD®
+B23: (2003) into the equation of motion of the cable. In this study, the motion of the cable is
+B24: simulated by applying variational theory and using a fifth-order Hermite interpolation
+B25: function (Ross, 1998).
+The numerical solution of the equation of motion of cable is
+B26: achieved by using Newmark's Method (Stein, 2002) with linear acceleration.
+B27: 4
+
+PDF PAGE 13
+B0: •
+B1: •
+B2: •
+B3: 2.1. Summary
+B4: Chapter 2.
+Equation of Motion
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: In this chapter, the physical model describing the dynamic proprieties of the cable is
+B14: established. The whole cable is modeled as a one-dimensional continuum with variable
+B15: flexural rigidity.
+B16: 2.2. Assumptions
+B17: Figure 2.1. Free Vibration of Cable
+B18: The system shown in Figure 2.1 is an idealized vibration configuration for a simply-
+B19: supported cable.
+Prior to formulating the mathematical model, several assumptions
+B20: presented below have been made in order to simplify the analysis:
+B21: 5
+
+PDF PAGE 14
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: 1.
+Plane sections ofthe cable are allowed to warp due to wires slip;
+B7: 2.
+The cable material is homogeneous, isotropic, and linearly elastic;
+B8: 3.
+The strains are small, and shear deformation and Possion's effects are neglected;
+B9: 4.
+Kinetic friction is neglected;
+B10: 5.
+Elongation ofthe cable caused by tension is neglected.
+B11: 2.3. Equation of Motion
+B12: i
+i
+i
+·_·_·_·_·_·_·_·I°_·To_._._._o_._o_o_.-
+B13: i
+x
+id!::i
+j"
+~i r
+B14: •
+B15: •
+B16: T
+B17: aT
+T +-dx
+ax
+B18: •
+B19: •
+B20: •
+B21: 0L.....-
+...I..-__----I
+_
+B22: Figure 2.2. Free-Body Diagram of Cable Segment
+B23: 6
+
+PDF PAGE 15
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Fig. 2.2 presents a free-body diagram of a cable segment which is undergoing small
+B12: transverse displacements as a result of the distributed loading, I(x,t) (force per unit
+B13: length), and the axial force, T(x,t). Gravitational forces are neglected.
+B14: From the vertical force equilibrium ofthe cable element, the equation ofmotion is:
+B15: I(x,t)dx+ V(x,t) +(T(x,t) +dT(x,t))sin(B+ dB) =
+B16: a
+B17: 2
+(V(x,t) + dV(x,t)) +T(x,t)sinB+ p(x)A(X)-2 w(x,t)dx
+at
+B18: (2.1)
+B19: where V(x,t) is the shear force, T(x,t) is the applied tension, p(x) is the mass density of
+B20: the cable, and A(x) is the cross-sectional area of the cable. The mass per unit length of
+B21: cable, m(x) ,can be defined as
+B22: m(x) =p(x)A(x)
+B23: (2.2)
+B24: The differential form of V can be written as
+B25: (2.3)
+B26: where EI(x) is flexural rigidity, and w(x) is vertical displacement of the cable.
+B27: 7
+
+PDF PAGE 16
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: In the case of small deflections of a uniform cable, the mass density and cross-sectional
+B12: area are constant. In addition,
+B13: 8w a2w
+sin (() +d()) ~ () +d() =-
++-2 dx
+ax
+ax
+B14: (2.4)
+B15: Therefore, the equation of motion (2.1) yields
+B16: a2 (
+a2
+J
+a2
+a2
+aT(x,t) 8w(x,t)
+-2 EI(x,t)-2 w(x,t) +pA-2w(x,t) =T(X,t)-2 w(x,t) +
++ f(x,t)
+ax
+ax
+at
+ax
+ax
+ax
+B17: (2.5)
+B18: For small vibrations, the axial tension can be approximated as a constant. If there is no
+B19: external force and axial tension is a constant (small deformation), the equation of motion
+B20: (2.5) can be simplified as:
+B21: a
+B22: 2
+(
+a
+B23: 2
+J
+a
+B24: 2
+a
+B25: 2
+-2 EI(x,t)-2 w(x,t) +pA-2w(x,t)-T-2w(x,t) =0
+ax
+ax
+at
+ax
+B26: (2.6)
+B27: Note that this equation reqUIres four spatial boundary conditions and two initial
+B28: conditions, one for displacement and one for velocity.
+B29: 2.4. Discussion
+B30: In this chapter, the simplified equation of motion of cable vibration has been derived.
+B31: Because it is a nonlinear partial differential equation with a fourth order derivative with
+B32: 8
+
+PDF PAGE 17
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: respect to x and a second order derivative with respect to time, t , a numerical method has
+B12: been used to solve the equation ofmotion.
+B13: 9
+
+PDF PAGE 18
+B0: •
+B1: •
+B2: •
+B3: Chapter 3.
+B4: 3.1. Summary
+B5: Numerical Solution Techniques
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: •
+B14: In this chapter, the equation of motion is solved by finite element method (FEM) using
+B15: the flexural rigidity-curvature relationship provided by CableCAD® (2003).
+B16: 3.2. Frictional Bending Model
+B17: To solve the nonlinear equation of motion (EI is a discontinuous function of cable
+B18: curvature), a numerical method was applied.
+Due to wire slippage between adjacent
+B19: layers, modeling the cable becomes much more difficult.
+B20: 3.2.1
+Cable Components
+B21: As shown in Figures 3.1 and 3.2, the typical cable comprises several layers, each layer
+B22: having its own material and geometrical properties. Layer frictional interactions strongly
+B23: affect the properties ofthe entire cable. The cable used in this research consists of elastic,
+B24: high modulus, high strength steel wires. When tensioned and bent, helical wires can slip
+B25: relative to wires in adjacent layers resulting in energy dissipation.
+B26: 10
+
+PDF PAGE 19
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+-
+B10: Table 3.1 lists the ge<lmetrical detailes of a dissected cable specimen and its material
+B11: properties. This cable was tested by Sauter and Hagedorn (2002) and is used to evaluate
+B12: the numerical model in this study.
+B13: Figure 3.1. Cable Cross-Section
+B14: 11
+
+PDF PAGE 20
+B0: Layer2
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: Layer3
+B13: Figure 3.2. Helical Layers
+B14: 12
+
+PDF PAGE 21
+B0: •
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+B1: Table 3.1. Cable Model Parameters
+B2: Layer 1
+Layer 2
+Layer 3
+Entire Cable
+B3: Number of Wires
+1
+6
+12
+19
+B4: Layer Inner Diameter (mm)
+0
+2.12
+6.0452
+N/A
+B5: Layer Outer Diameter (mm)
+2.12
+6.12
+10.12
+N/A
+B6: Wire Diameter (mm)
+2.12
+2.0
+2.0
+N/A
+B7: Lay Angle (deg)
+0
+-17.52048
+15.82493
+N/A
+B8: Lay length (mm)
+N/A
+41
+90
+N/A
+B9: Lay Direction
+N/A
+Left
+Right
+N/A
+B10: Area (mm2)
+3.24293
+3.16236
+3.08281
+9.4881
+B11: Bending Moment ofInitial (mm4)
+0.836883
+0.795817
+0.756281
+73.21
+B12: Elastic Modulus (Mpa)
+2E+05
+2E+05
+2E+05
+2E+05
+B13: Poisson's Ratio
+0.29
+0.29
+0.29
+0.29
+B14: Static Friction Coefficient
+0.742
+0.74
+0.74
+0.74
+B15: Kinetic Friction Coefficient
+0.572
+0.57
+0.57
+0.57
+B16: Weight (N/m)
+2.49966E+02
+1.47308E+03
+2.96397E+03
+4.68702E+03
+B17: 1 This is the maximal value, when wire slips, this value will be decreased (see ALl)
+B18: 2 Referenced from http://www.visionengineer.com/ref/friction.shtml
+B19: 13
+
+PDF PAGE 22
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: 3.2.2
+Bending Behavior of Cable Layers
+B7: For a cable with small curvature and suffcient applied tension, the shear forces between
+B8: layers and wires are relatively small in magnitude and can not overcome the friction
+B9: between layers.
+Therefore, sliding will not occur, and energy will not be dissipated
+B10: during the bending cycle.
+In this case, the bending moment-curvature relationship is
+B11: linear and the assumption ofplane-sections remaining plane is observed.
+B12: If the cable is preformed when manufactured so that large radial pressures are developed
+B13: between layers, internal frictional forces can be developed without the application of
+B14: tension. By controlling the degree of perform as a design parameter, the desired degree
+B15: ofinternal frication can be developed to dissipate energy from the vibrating cable.
+B16: •
+B17: •
+B18: •
+B19: - -NA(s=O)
+B20: •
+B21: •
+B22: Figure 3.3. Wire Slips
+B23: 14
+
+PDF PAGE 23
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: Figure 3.3 shows a portion of a helical wire in a bent cable.
+Point A is located at the
+B6: inside of the cable bend, and point B is at the outside of the bend.
+The distance from
+B7: point A to point B along the wire is one-half lay length. If the wire was not slipped, the
+B8: region below the neutral axis (NA) is in compression and the upper region is in tension.
+B9: If wire slip occurs, the compression region of the wire moves toward the tensile region
+B10: until the tension in the wire due to bending is relaxed to zero.
+B11: 1+1
+B12: •
+B13: •
+B14: •
+B15: •
+B16: •
+B17: ______-=--......._-"""
+illb+l
+B18: Wire i in Layer 1
+B19: d:;
+B20: Figure 3.4. Interface Frictions
+B21: _-I...... (NJl+(d~l
+B22: (1-1)
+.. ,
+B23: •
+B24: •
+B25: The source of resistance to sliding is the interlayer friction developed by the radial
+B26: pressure between layers, Pi. This interlayer radial pressure governs the onset of wire slip
+B27: and the attendant dissipated frictional energy. This mechanism is demonstrated in Figure
+B28: 15
+
+PDF PAGE 24
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: 3.4 where three adjacent layers are shown with interlayer frictional forces. Interlayer slip
+B12: occurs when
+B13: dN.
+_'>i'_i'
+ds - Ji
+Ji+1
+B14: (3.1)
+B15: where Ni is wire tension, dNi / ds is the differential change of wire tension per length
+B16: along the wire neutral axis, and 1; and 1;+1 are static frictional forces per element length
+B17: on inside and outside face ofwire i, respectively.
+B18: The bending moment-curvature plot and the EI-bending curvature plot, obtained with
+B19: CableCAD® (2003), are shown in Figure 3.5 and Figure 3.6. To generate these curves,
+B20: frictional forces between wire layers were measured to determine the radial pressures
+B21: acting between layers. With the experimentally determined layer pressures applied to the
+B22: CableCAD® (2003) model, the bend diameters at which each wire layer slips could be
+B23: obtained. Figure 3.6 shows the entire plot of flexural rigidity, EI, vs. Bending Curvature
+B24: obtained with CableCAD® (2003).
+Note that the maximum EI is obtained at zero
+B25: curvature and has a value of almost 6.5 X 107 N-mm2• This agrees with the theoretical
+B26: value ofEI at no-slip as determined in Appendix B.
+B27: 16
+
+PDF PAGE 25
+B0: •
+B1: 0.01
+o.oas
+0.004
+0.006
+Benging Curvature [1/ml
+I.L002
+B2: ,,,
+B3: I
+I
+I
+I
+-- - -- - --- -- -t ---- - -- -- - -- ~ - -- -- -- -- - -- -;-- -- -- - -- - ---:- - -- - -- - -- ---
+B4: I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+O'------'--------'-------'-----.l-..-----'
+o
+B5: 0.02
+B6: 0.05
+B7: 0.04
+B8: 0.07
+B9: 0.08
+B10: MOf'lleflt-Bending Cul'Vaiture
+0.09.-------r,---......,:.-----'1,--/---:;7',------,
+B11: I
+I
+1,..,./
+I
+------------t------------~------------y ---------i------------
+I
+I~:
+I
+------------
+~------------v-----
+~-------------i------------
+:
+~;... :
+:
+:
+B12: I
+........--
+I
+I
+I
+------------~ -./---- --~ --- ---------~------------ -:- - - - - - - - - - --
+B13: --- --- _!~4 ----------
+~------------
+~------------)------------
+I
+I
+I
+I
+I
+----1-'-----1------------j------------j------------.1-------------
+B14: •
+I
+I
+I
+I
+B15: -rl --------1------------j------------1.-----------)-------------
+A:
+:
+:
+:
+I
+I
+I
+I
+I
+I
+I
+I
+B16: 0.06
+B17: 0.01
+B18: EZ
+B19: •
+B20: •
+B21: •
+B22: •
+B23: •
+B24: Figure 3.5. Bending Moment vs. Curvature
+B25: •
+B26: •
+B27: •
+B28: ~4
+B29: Et:
+iii
+:3
+B30: 1
+B31: ,
+A
+:,,
+B32: I
+j'
+I
+j
+I
+_.
+L
+~
+L
+~
+.£
+_
+B33: I
+ill
+I
+,.
+j
+,
+It
+I
+1
+I
+,
+l
+I
+1
+!
+I
+III
+I
+1
+I
+I
+,;;
+I
+if
+i
+I
+ii
+I
+"
+~
+I
+JI
+I
+if
+I
+B34: ~~ ••• wl ••••• w •••••lw •••••• _•• ~, •••• ~.w •••• l.~~•• _ •••• _jww ••••••••
+B35: I
+~
+I
+1
+I
+I
+JI,
+,
+•
+I
+,
+1
+,
+t
+!
+B36: •
+"
+•
+"
+j
+\:
+.~
+::
+:.
+n
+U
+~\,.n..r'"'' 0'"n·t· 0 o'..... 0.to.....uuot"unon"."f0
+0
+0
+0 non.
+B37: \ :
+:
+::
+~
+.................. '""",r ' _- ·..·t·, _ '"
+--t
+-- i..- '"' --""
+'""'.~--
+'"
+B38: ......
+'lI
+,
+.•
+i
+~
+~
+I
+'i
+I'
+I,,'
+j
+Iii
+~
+I
+'.
+iI
+I
+••
+~
+I
+···il
+1 *
+~
+......._ _.._f-,",,' ~_
+, f
+----..-_
+,~.-._ ..-_
+-f-_ '"_ --
+:
+:~;,~L:
+~
+:
+:
+B
+:""~-
+:
+B39: I
+,
+I
+-::::-:-=:'::'::'h_+....""'=~.:.:d
+... ,",';' _ ,
+'"' .. ~
+:.. ,.. '"'
+,: ,..
+--
++
+-.., ..' '
+_
+'"' "',
+,' '
+;;.~ '"
+B40: •
+B41: (l.12
+B42: Figure 3.6. EI vs. Bending Curvature
+B43: •
+B44: 17
+
+PDF PAGE 26
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: When the bending curvature, K, over the length of the cable is smaller than the first
+B12: critical curvature of point A shown in Figure 3.6, there is no interlayer slip at any point
+B13: along the cable, and the cable acts as one entity.
+The stiffuess of this cable is at its
+B14: maximum value, and the bending moment-curvature relationship is linear (line OA
+B15: shown in Figure 3.5). As soon as the curvature reaches the first critical curvature, which
+B16: means that the shear forces between first layer and the second layer overcome the
+B17: frictions between these two layers, the first layer begins to slip.
+Consequently, the
+B18: stiffuess of this cable decreases gradually. At any point along the cable axis where the
+B19: curvature reaches the second critical curvature of point B in Figure 3.6, interlayer slip
+B20: occurs.
+B21: For a two-dimensional curve written in the form ofy =I(x) , the curvature Kis defined
+B22: as:
+B23: (3.2)
+B24: Therefore, the combination of Figure 3.6 and Eq. (3.2) establishes a relationship between
+B25: a deformation curve and the flexural rigidity ofcable.
+B26: 18
+
+PDF PAGE 27
+B0: I
+B1: •
+B2: •
+B3: I
+B4: I
+B5: I
+B6: I
+B7: I
+B8: •
+B9: I
+B10: I
+B11: 3.3. Numerical Solution
+B12: 3.3.1
+Derivation of Element Matrices
+B13: Consider a model partial differential equation
+B14: t.U =f
+inn, U = 0 on an
+B15: (3.3)
+B16: on domain n c.[R2.
+B17: For a domainn c.[Rd , L2(Q) denotes the Lebesgue space of square-integrable functions
+B18: on Q, which is a Hilbert space with the scalar product and norm
+B19: (v, w)Q = fvwdx
+B20: Q
+B21: (3.4)
+B22: L2 (aQ) denotes the space of square-integrable functions defined on the boundary aQ
+B23: equipped with the inner product and norm
+B24: (v, W)8Q = f vwdx
+B25: 8Q
+B26: (3.5)
+B27: 19
+
+PDF PAGE 28
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: The Sobolev space HI (Q) and H
+B12: 2 (Q) consist of those function v E L
+2 (Q) which
+B13: possess
+first-order
+and
+second-order
+(distributional)
+derivatives
+Vv E L
+B14: 2(Qt
+and
+B15: V2v E L
+B16: 2 (Qt
+xd
+B17: • For functions in these spaces, the semi-norms are
+B18: (3.6)
+B19: The space HI (Q) is continuously embedded in the space L2 ( aQ), such that for each
+B20: V E HI (Q), there exists a trace v liJQE L2 (Q).
+Further, the functions in the subspace
+B21: H~ (Q) C HI (Q) are characterized by the property v liJQ= 0.
+The natural solution space
+B22: for the boundary value problem Eq. (3.3) is the Sobolev space V = H~ (Q) defined above.
+B23: The variational formulation of Eqn (3.3) seeks U E V, such that (Vu, Vq» =(t,q» ,
+B24: where Vq> E V (Stein, 2002).
+B25: Now tum the focus to the simplified equation ofthe motion of a cable,
+B26: a
+B27: 2
+(
+a2
+J
+a2
+a2
+-2 EI(x,t)-2 w(x,t) +pA-2w(x,t)-r-2w(x,t)=O
+fu
+fu
+at
+fu
+B28: (3.7)
+B29: For the case of a simply-supported cable, x E [O,L] andt E [0,00], where L is the distance
+B30: between two support points.
+B31: 20
+
+PDF PAGE 29
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: For the equation of motion of a cable, consideringv(x) E H~(Q), multiple vex) at both
+B12: sides and integrate overQ ,and equation ofmotion (3.6) becomes
+B13: a
+B14: 2
+a
+B15: 2
+(
+a
+B16: 2
+J
+a
+B17: 2
+fpA-2w(x,t)v(x)dx+ f-2 EI(x,t)-2 w(x,t) v(x)dx- fT-z w(x,t)v(x)dx =0
+B18: Q
+at
+Q ax
+ax
+Q
+ax
+B19: (3.8)
+B20: Boundary conditions for the simply-supported cable are:
+B21: w(O)=w(I)=O
+B22: (3.9)
+B23: Boundary conditions for the cantilever cable are:
+B24: w(O) =8w(0) =0
+B25: ax
+B26: (3.10)
+B27: A cable is divided into small parts to describe the behavior of the cable, and the
+B28: contribution of each small element is summed.
+The summation gives the entire cable
+B29: 21
+
+PDF PAGE 30
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: mechanical properties.
+The cable has the same deflection and slope at common nodal
+B12: points that satisfy the continuity ofboth the deflection and slope of the cable.
+B13: Appling Green's function (Ross, 1998), and assuming EI to be constant along each of the
+B14: cable elements,
+B15: d2
+a2
+a2
+a
+a
+-2 fPAw(x,t)v(x)dX+ fEI-2w(X,t)-2v(x)dx+ fT-w(x,t)-v(x)dx =0
+B16: dt
+n
+n
+ax
+ax
+n
+ax
+ax
+B17: (3.11)
+B18: The fifth-order Hermite integrator uses higher order derivatives that are explicitly
+B19: calculated from the Hermite interpolation formula in order to construct interpolation
+B20: polynomials of the displacements of cable.
+This keeps the continuity of the third
+B21: derivative ofthe deflection.
+B22: For simplicity, the interpolation functions will be given in terms of dimensionless or
+B23: normalized variables with some dimensional constants.
+The displacement, w, of the
+B24: cable section can be given by
+B25: 6
+w(S-) =INiQ
+B26: i~l
+B27: (3.12)
+B28: or
+B29: (3.13)
+B30: 22
+
+PDF PAGE 31
+B0: •
+B1: •
+B2: •
+B3: An approximate function is proposed:
+B4: (3.14)
+B5: •
+B6: •
+B7: constants.
+B8: The first-order and second-order derivative of w(s) will be
+B9: w'(s) =aj +2azs+3a3sz+4a4s
+B10: 3 +5ass
+4
+B11: w"(s) =2az +6a3S +12a4sz +20ass
+B12: 3
+B13: •
+B14: •
+B15: •
+B16: •
+B17: •
+B18: •
+B19: Substituting S =0 and S =1 yields
+B20: w(O) =ao
+w(1) =ao+ a j +az+a3 +a4 +as
+B21: w'(O) =a j
+B22: w'(1) =a j +2az +3a3 +4a4 +5as
+w"(O) =2az
+w"(1) =2az+6a3 +12a4 +20as
+B23: 23
+B24: (3.15)
+B25: (3.16)
+
+PDF PAGE 32
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Substituting Eq. (3.16) into assumed function, Eq. (3.14), gives
+B12: N, =H,(O) (~) =1-10~3 + 15~4 _6~s
+B13: Nz = HiO) (~) = 10~3 -15~4 + 6~s
+B14: N3 =H?) (~) = ~ - 6~3 + 8~4 - 3~s
+B15: N 4 =Hi') (~) = _4~3 +7~4 -
+3~s
+B16: Ns =H?)(~)=±(~Z _3~3 +3~4 _~s)
+B17: N 6 =H?) (~) =±(~3 _2~4 +~s)
+B18: Thus, the part ofthe integration gives
+B19: L
+mij = fpANiNjdx
+B20: °
+B21: 24
+B22: (3.17)
+B23: (3.18)
+B24: (3.19)
+
+PDF PAGE 33
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: which are the elemental consistent mass matrix, stiffness matrix, and stability matrix,
+B12: respectively.
+B13: Assembling the elemental stiffness matrix, consistent mass matrix, and stability matrix
+B14: into global matrices gives the equation offree vibration without damping:
+B15: [M]q +([K] +[S])q ={O}
+B16: (3.20)
+B17: 3.3.2
+Methods of Direct Integration
+B18: There are many methods for advancing the solution ofEq. (3.20) in time. Essentially, the
+B19: problem has been reduced to solving a set of coupled ordinary differential equations. For
+B20: each time step, the following procedures occur for each element. Given the general nodal
+B21: displacements, velocities, and acting forces in time, T, sum the external forces and use
+B22: the resultant forces acting on the masses at the nodes to predict accelerations at the nodes.
+B23: From the displacements, velocities, and accelerations at time, t, and at a time step, a new
+B24: set ofgeneral nodal displacements can be found.
+B25: The algorithms commonly used can be categorized into two types, explicit methods and
+B26: implicit methods.
+Explicit methods, which predict the next state using the element
+B27: matrices, do not require a large set of equations to be solved at each time interval. The
+B28: equations for one element only calculate forces at neighboring nodes explicitly connected
+B29: to a node given a displacement. If in one time step, only these immediate neighbors are
+B30: 25
+
+PDF PAGE 34
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: affected, then the information in the element matrices is enough to predict the evolution
+B12: of the solution.
+The explicit methods cope well with nonlinearities; eg., plastic
+B13: deformation. However, the explicit methods provide unstable solutions if time steps used
+B14: are too large.
+B15: On the other hand, implicit methods permit a much larger time step, but introduce
+B16: artificial damping, and require a pseudo-static problem (including inertia loading) to be
+B17: solved at each time interval. In structural dynamic problems implicit integration schemes
+B18: give acceptable solutions with time steps usually one or two orders of magnitude larger
+B19: than the stability limit of explicit methods.
+If the time step is too large, higher
+B20: frequencies in the response will be filtered out.
+B21: 3.3.3
+Newmark's Scheme
+B22: The method used in this study is proposed by Newmark (1967). The time dimension is
+B23: represented by a set of discrete points with each time increment b.t apart. The system is
+B24: solved at each of these points in time using data of the solution at a previous time. The
+B25: value of a function at time t =nb.t (n is integer) can be denoted by:
+B26: J(t) =J(nM) =f
+n)
+B27: (3.21)
+B28: The first part ofthe method is to calculate the velocities and accelerations at timet +M .
+B29: Eq. (3.20) then leads to:
+B30: 26
+
+PDF PAGE 35
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: [MJ{qt+at} +([K] +[SD{qt+at} ={O}
+B12: The velocity vector at time t +t:>.t can be denoted by:
+B13: where {q} is the value of {q} on domain [t,t +L:>.t].
+B14: This quantity can be approximated in the following manner:
+B15: {q} =(1- a) {qt}+a {qt+at}
+B16: where 0:::; a :::; 1.
+B17: Thus, Eq. (3.23) becomes
+B18: Other parameters are defined as:
+B19: 1
+r
+1
+a =
+a =- a =-
+o
+13(M)2'
+1
+13M'
+2
+13M
+B20: a = _1_ -1 a =L-1 a = I1t(L-2J
+B21: 3
+213
+'4
+13
+'5
+2
+13
+B22: a6 = M (1- y), a7 = yM
+B23: 27
+B24: (3.22)
+B25: (3.23)
+B26: (3.24)
+B27: (3.25)
+B28: (3.26)
+
+PDF PAGE 36
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Then, the displacement at the time, t +.6.t , can be given by:
+B12: (3.27)
+B13: The acceleration and velocity at the time t +L:.t can be given by:
+B14: {iil+AI} =ao({ql+AI} - {ql })- a2{iII} - a3{iii}
+B15: {iIl+AI}={iII} + a6{iii} +a7{iil+AI }
+B16: (3.28)
+B17: With given{ql} ,{iII} and{iii}' {ql+AI} '{iIl+AI} and {iil+AI} can be calculated using Eqns.
+B18: (3.27) and (3.28). During each time step, nodal positions and velocities first are predicted
+B19: using the known acceleration and the time derivative of the acceleration, and the motion
+B20: then is corrected using the additional derivative information thereby obtained. In other
+B21: words, with the initial conditions (velocity is equal to zero at time 0, displacements are
+B22: given by the assumed configuration of cable) and the given parameters, rand f3 , the
+B23: dynamic response history of cable can be obtained.
+B24: In the linear case as shown above, the initial mechanical equilibrium can be written in the
+B25: following form:
+B26: [M]{ iil+AI} +[K]{ql+AI} = F;+AI
+B27: (3.29)
+B28: 28
+
+PDF PAGE 37
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: In the case of nonlinear analyses, the computation of these vectors requires an iterative
+B12: method. The Newton-Raphson method has been used in this study. Thus, Eq. (3.29) has
+B13: to be written in an incremental form:
+B14: (3.30)
+B15: 3.4. General Programming
+B16: The numerical solution discussed in the previous chapter has been implemented in a
+B17: computer program with the logic described in the flow chart (Figure 3.7).
+B18: Numerical values served as a reference for the following discussion of this chart.
+B19: 29
+
+PDF PAGE 38
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: 2. Applied Tension
+1.Cable Proprieties
+3. Initial Conditions I
+(if any)
+•
+•
+6. Elemental
+4. Elemental
+5. Elemental Mass
+Curvature
+~
+Stability Matrix
+Matrix
+B12: 7. EI-Curvature -----.
+Relationship
+B13: ,r
+...
+8. Elemental
+..
+B14: ~...
+Stiffuess Matrix
+B15: .,ir
+B16: I
+I
+9. Assembled Matrixes
+19. Configuration
+B17: 10. Boundary
+..
+... 1
+Conditions
+...-.
+B18: I
+B19: 11. Reduced Matrixes -.
+12. Eigenvalue
+Problem (optional)
+---I
+B20: I
+•
+B21: I
+I
+I
+I
+I
+B22: I
+13. Newmark's Method
+14. Time Step
+I
+___ J
+•
+I
+B23: 15. Nodal Displacement I
+•
+16. Vertical
+r------+
+17. Least Square
+Displacement
+Curve Fitting
+•
+18. Result Plotting
+B24: Figure 3.7. Program Flow Chart
+B25: 30
+
+PDF PAGE 39
+B0: •
+B1: •
+B2: 3.4.1
+Explanation
+B3: The general idea of this process is to construct the global stiffness, mass, and stability
+B4: •
+B5: matrixes based on given cable properties, initial conditions, and any applied tension, and
+B6: solve the problem numerically using Newmark's scheme to get the dynamical history of
+B7: free vibration.
+•
+B8: •
+B9: w
+B10: ~I
+l
+B11: Jr'C=:...------------------------==~-~ X
+B12: I~
+•
+B13: •
+B14: Figure 3.8. Cable Segment Example
+•
+Figure 3.8 shows a segment of a simply-supported cable with the initial configuration,
+B15: wo(x) (Item 3 in Figure 3.7). A constant tension (Item 2 in Figure 3.7), is applied to this
+•
+B16: cable of span, 1, and the deflections and moments at two pinned ends are zero.
+B17: •
+B18: •
+31
+
+PDF PAGE 40
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: If the proprieties, Item 1 in Figure 3.7, of cable are given, the cable element length can be
+B12: determined by the half of the largest lay length, which is denoted by dx in Figure 3.8.
+B13: The numbers of elements will be calculated byi/dx .
+B14: If Wo can be described as a function ofx , the curvature of each node can be calculated by
+B15: Eq. (3.2).
+Using the EI-curvature relationship predicted by CableCAD® (2003), the
+B16: flexural rigidity of each node can be found. The EI of each element will be given by the
+B17: average EI values of neighboring nodes. For this particular example, there is no moment
+B18: on the two end points, which means the curvatures of these two points are zero.
+B19: Accordingly, EI is set to be constant for the first and last elements. Thus, the elemental
+B20: mass, stiffuess, and stability matrix, shown as Items 3, 4, and 7 in Figure 3.7, can be
+B21: found by using Eq. (3.18). Assembling the elemental matrixes gives the global matrixes,
+B22: shown as Item 8 in Figure 3.7.
+Apply the boundary conditions to eliminate the
+B23: singularity of the global matrices and obtain the reduced matrices, shown as Item lOin
+B24: Figure 3.7.
+B25: The primary shortcoming of this method is that small time steps must be used for stiffer
+B26: systems. Considerable numerical damping will be introduced iflarger time steps are used.
+B27: The Newmark's method ameliorates these difficulties.
+Default values of f3 =0.25 and
+B28: r =0.5 can be used. The two parameters, J3 and r, are the two Newmark parameters to
+B29: determine the stability and accuracy of the algorithm and were initially proposed by
+B30: Newmark as f3 = 1/4 and r = 1/2 thus securing the unconditional stability of the method,
+B31: which means that the solution, for any set of initial conditions, does not grow without
+B32: 32
+
+PDF PAGE 41
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: bound regardless of the time step. Unconditional stability itself does not secure accurate
+B8: and physically sound results.
+B9: The time step must be reasonably small to maintain numerical stability. There are two
+B10: options to determine the time step, shown as Item 13 in Figure 3.7. One is to choose a
+B11: random small number.
+The other way is to solve the eigenvalue problem, Eq. (3.19).
+B12: The range of choices for time steps will be narrowed and the particular choice of a time
+B13: step will be found easily according to the eigenfrequency, shown as Item 12 in Figure 3.7.
+B14: The response gives the generalized displacements at each node. The shape of cable curve
+B15: will be described by the vertical displacement of cable, wo'
+B16: For physical and numerical reasons, the resulting curve may not be smooth. Therefore,
+B17: the least square curve fitting technique has to be applied to smooth the curve after each
+B18: time step.
+WI in Figure 3.8 shows the optimized shape ofcable after the first time step.
+B19: •
+B20: l~'o
+B21: X
+•
+,
+B22: I~
+B23: 1
+B24: ~I
+B25: •
+B26: •
+B27: Figure 3.9. Displacement History Example
+B28: 33
+
+PDF PAGE 42
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: In general, a time domain simulation will begin at time zero with current locations and
+B12: velocities. The vertical displacements will be computed every time step until the desired
+B13: total time is reached and the configurations are plotted for each time step.
+B14: 3.5. Discussion
+B15: In this Chapter, the bending behavior of cable layers has been discussed.
+Elemental
+B16: matrices for cable have been obtained using fifth-order Hermit interpolation. Numerical
+B17: solution for dynamic problem was provided.
+Based on the described procedures, the
+B18: general program has been developed for the computational engine and the graphical user
+B19: interface. The input of the program is the flexible pipe layer configuration and material
+B20: properties. Axial force, internal force or pressures can be applied simultaneously.
+The
+B21: end result of the analysis is displacement histories for specified point of cable or entire
+B22: cable.
+B23: 34
+
+PDF PAGE 43
+B0: •
+B1: •
+B2: •
+4.1. Summary
+B3: Chapter 4.
+Numerical Results
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: This chapter discusses two examples of cable vibration.
+The model developed by
+B13: CableCAD® (2003) has used to predict the nonlinear variation of cable flexural rigidity
+B14: with curvature. After numerical simulation as described in Chapter 3, the displacement
+B15: histories are plotted.
+B16: 4.2. Simply-Supported Cable
+B17: 4.2.1
+Model Parameters
+B18: Recall the model created in the previous chapter. The cable model parameters are listed
+B19: in Table 3.1. The helical wires in the cable have been preformed to develop a frictional
+B20: interface between wire layers. A constant of4000 N is assumed during vibration.
+B21: 4.2.2
+Boundary and Initial Conditions
+B22: Assume the cable is simply supported at two ends, as shown in Figure 4.1. The length of
+B23: the cable is 1 meter, and at time=O, the cable initial configuration can be expressed as a
+B24: function ofx:
+B25: 35
+
+PDF PAGE 44
+B0: •
+B1: •
+B2: •
+B3: (4.1)
+B4: where A, B, C, D, E, and F are arbitrary constants.
+B5: •
+'W
+B6: ..I
+1=1 ill
+B7: It'o
+B8: k""------------------~r_--X
+B9: I~
+•
+B10: •
+B11: •
+B12: Figure 4.1. Simply-Supported Cable
+B13: Obviously, there are no vertical displacements and moments on the two end-points. Thus,
+B14: •
+B15: •
+B16: the boundary conditions are
+B17: wI FO=0
+B18: wlx=z= 0
+B19: 82w
+-I
+-0
+8x2 x=O-
+B20: A2w
+- .' I
+- 0
+8x2 x=z-
+B21: •
+B22: (4.2)
+B23: •
+B24: 36
+
+PDF PAGE 45
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: If the maximum displacement, which is the displacement at the mid-point, is set to be 0.1
+B12: meter, the initial configuration is assumed to be:
+B13: Wo =0.1(3.2x
+B14: 4
+- 6.4x
+B15: 3 +3.2x)
+B16: (4.3)
+B17: Any polynomial that meets the requirements of the boundary conditions and initial
+B18: condition can be chosen as the initial configuration.
+For simplification, the coefficient
+B19: of the forth order term is selected to be 0.32. Other coefficients can be determined by the
+B20: boundary conditions and initial condition.
+B21: Parameters of Newmark's Method, jJandy, are set to the default values of 0.25 and 0.5,
+B22: respectively. The length of the element is set to be 0.05 meters. The time step is set to be
+B23: 1/320 seconds.
+B24: 4.2.3
+Results
+B25: Figure 4.2 shows the displacement history of the entire cable. The number represents the
+B26: displacement of the cable at each time step.
+The star-line represents the initial
+B27: configuration.
+B28: Figure 4.3 shows the displacement history of the mid-point of the cable.
+The entire
+B29: history can be divided into two phases.
+One is the damped vibration phase, while the
+B30: amplitude of the mid-point continues to decay. The reason of this phenomenon is that the
+B31: curvature of the cable was large enough to cause slipping between layers, and the internal
+B32: 37
+
+PDF PAGE 46
+B0: •
+B1: •
+B2: •
+B3: friction dissipated energy that resulted in the decreasing amplitude.
+The other is the
+B4: undamped vibration phase, and the cable will continue to vibrate at constant amplitude
+B5: during this phase.
+The reason of this occurrence is that the curvature of cable was too
+B6: small to cause the large slipping, and then the constant EI cable vibrates without any
+B7: damping.
+B8: •
+B9: 0.1
+B10: 0.08
+B11: 0.06
+•
+0.04
+B12: 0.02
+B13: •
+-0.04
+B14: •
+B15: •
+B16: •
+B17: •
+B18: •
+B19: -0.08
+B20: Figure 4.2. Cable Displacement History
+B21: 38
+
+PDF PAGE 47
+B0: •
+B1: 0.08
+•
+0.06
+B2: 0.04
+B3: 0.02
+•
+0
+B4: -0.02
+•
+B5: "0.04
+B6: -0.06
+B7: 0
+0.1
+0.2
+0.3
+0.7
+0.8
+0.9
+B8: •
+Figure 4.2. Cable Displacement History (cont.)
+B9: •
+B10: 0.05
+B11: 0.04
+B12: 0.03
+B13: 0.02
+•
+0.01
+B14: •
+B15: -0.02
+B16: -0.03
+B17: •
+B18: -0.04 '-------'_----'_--1-_--'-_----'-_--1-_-'-_-'-_---"---_-'.
+o
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+B19: Figure 4.2. Cable Displacement History (cont.)
+B20: •
+B21: •
+39
+
+PDF PAGE 48
+B0: •
+B1: 0.03
+•
+0.Q2
+B2: 0.01
+•
+B3: -0.01
+B4: -0.02
+•
+B5: ·0.03
+0.3
+0
+0.1
+0,2
+0.4
+0.5
+0.6
+0.7
+0.6
+0.9
+B6: •
+Figure 4.2. Cable Displacement History (cont.)
+B7: •
+B8: 0.015
+B9: 0.01
+B10: 0.005
+B11: -0.005
+•
+-0.01
+B12: -0.015
+B13: '0.02
+•
+-0.0250
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+B14: •
+B15: Figure 4.2. Cable Displacement History (cont.)
+B16: •
+B17: •
+40
+
+PDF PAGE 49
+B0: •
+B1: •
+B2: •
+B3: 0.1 ...-----,-----,-------,,-------;r----r------,
+B4: •
+B5: •
+B6: SlIIall constant
+alllplitude
+uibration
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: -0.1 '-----'-----'-------J---J----'r-----''------'
+o
+40
+60
+80
+100
+120
+I
+B14: Figure 4.3. Mid-point Displacement History
+B15: 4.3. Cantilever Cable
+B16: 4.3.1
+Model Parameters
+B17: The same cable described in Table 3.1 is used to model a cantilever cable without any
+B18: tension. This cable too has been preformed with friction developed between wire layers.
+B19: 41
+
+PDF PAGE 50
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: 4.3.2
+Boundary and Initial Conditions
+B7: Assume the cable is fixed at one end and the other end is free, as shown in Figure 4.4, the
+B8: length of the cable is 0.3 meters, and at time=O, the cable initial configuration can be
+B9: expressed as a function ofx:
+B10: (4.4)
+B11: where A, B, C, D, E, and F are arbitrary constants.
+B12: •
+B13: '0
+0
+B14: •
+B15: •
+B16: •
+B17: •
+B18: 0.3111
+B19: Figure 4.4. Cantilever Cable
+B20: There is no vertical displacement at the fixed end and no moment and shear force at the
+B21: free end, and no tension applied to the cable. The governing boundary conditions are:
+B22: 42
+
+PDF PAGE 51
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: (4.5)
+B12: If the initial displacement of the free end is set to be 0.03 meters, the initial configuration
+B13: is assumed to be:
+B14: (4.6)
+B15: Any polynomial that meets the requirements of the boundary conditions and initial
+B16: condition can be chosen as the initial configuration.
+For simplification, the coefficient
+B17: of the fifth order term is selected to be 0.0015. Other coefficients can be determined by
+B18: the boundary conditions and initial condition.
+B19: Parameters of Newmark's Method, ,Bandy, are set to the default values of 0.25 and 0.5,
+B20: respectively. The length of element is set to be 0.015 meters and the time step is set to be
+B21: 1/100 seconds.
+B22: 43
+
+PDF PAGE 52
+B0: •
+B1: •
+B2: 4.3.3
+Results
+B3: •
+B4: Figure 4.5 shows the displacement history ofthe entire cable. The number represents the
+B5: displacement of the cable at each time step.
+The star-line represents the initial
+B6: configuration.
+B7: •
+B8: •
+B9: Similar to the displacement history of a simply-supported cable, the displacement history
+B10: of the end-point of a cantilever cable showed at the beginning that the curvature of the
+B11: cable was large enough to cause slipping between layers.
+When the curvature was too
+B12: small to cause slipping, the cable continues to vibrate.
+B13: •
+B14: •
+B15: •
+B16: •
+B17: CABLE VIBRATION (100/16)
+0.03...----,...-----,.----,--------r---...-----*l------.
+B18: 0.35
+0.3
+0.25
+0.15
+0.1
+B19: ~0.03 L-__--l....-__--L
+L.-.-__....L...__---l...
+L.-.-_----J
+o
+•
+B20: x
+B21: Figure 4.5. Cable Displacement History
+B22: •
+44
+
+PDF PAGE 53
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: CABLE VIBRATION (100/16)
+0.03,-----,-------,-----,-----,-------,-----t-------,
+B6: 0.02
+B7: 0.01
+B8: -om
+B9: 10
+-0.02
+B10: -0.03 L-----'-------,1------'-c-----L-----:,..L,-----.L.-----'
+o
+0.05
+0.1
+0.15
+0.2
+0.25
+03
+0.35
+B11: Figure 4.5. Cable Displacement History (cont.)
+•
+B12: CABLE VIBRATION (100/16)
+0.03
+"
+"
+14
+"
+0.02
+"
+I
+"
+20
+"
+B13: 21
+B14: 1~
+B15: 0.01
+B16: •
+B17: -0.01
+B18: -0.02
+•
+B19: '().03
+B20: 0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+B21: •
+B22: •
+B23: Figure 4.5. Cable Displacement History(cont.)
+B24: 45
+
+PDF PAGE 54
+B0: •
+B1: •
+B2: DISPL Of END-POINT {Total Tirne=2sec}
+B3: 0.02
+B4: •
+B5: •
+B6: 0.01
+B7: o
+B8: -0.01
+B9: -0.02
+B10: 2
+t2L41.6
+1iJ3
+'1
+t
+02
+0.4
+0.6
+0.8
+-0.03 '---_-'--_...1--_--'--_---'-_--'-_--'--_--'__'---_-'------'
+o
+•
+B11: •
+B12: Figure 4.6. End-point Displacement History
+B13: •
+B14: 4.4. Discussion
+B15: A simplified cable vibration model has been developed to estimate cable vibration
+•
+B16: considering internal friction. Instead of adding an extra extend damping device, variable
+B17: flexure rigidity was used in the equation of motion of the cable.
+The software
+B18: •
+B19: CableCAD® (2003) was used to derive the relationship between flexural rigidity and
+B20: curvature ofthe deformed cable configurations.
+B21: •
+B22: •
+46
+
+PDF PAGE 55
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: 4.4.1
+Error Analysis
+B12: The solution follows an incremental iterative scheme for physical and numerical reasons.
+B13: In this case, there are three main sources of errors to be estimated.
+B14: First, the stiffness matrix simulates the cable dynamical propriety, but it might not be the
+B15: same as the actual stiffness matrix of a real cable.
+For example, the cable's EI curve
+B16: shows as many jumps as the number of wire layers that slip.
+When the cable passes
+B17: through a jump, its dynamic propriety changes rapidly. In addition, the stiffness matrix
+B18: in this study focuses on the bending behavior of the cable, and does not cover the
+B19: proprieties ofthe cable undergoing the torsion and tension.
+B20: Secondly, there are some scratches and dents on the surfaces of cable specimens tested
+B21: for interlayer friction (see Appendix A). They are caused during cable manufacture and
+B22: result in measurement error.
+B23: Thirdly, there might be an accumulation of errors during the equation solving process.
+B24: Because the length of each element must not be smaller than the longest half-lay length,
+B25: which is a relatively large element length, it may cause errors during the finite element
+B26: approach.
+Before iteration, least square curve fitting technique is applied and forms
+B27: smooth curves for cable configuration.
+Table 4.1 shows the sum of the squared error
+B28: after the first iteration for the simply supported case. Furthermore, EI of some elements
+B29: are fixed, for example, in the simply supported case, flexural rigidities ofthe first and last
+B30: 47
+
+PDF PAGE 56
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: element are fixed to be the constant because there no moments at the two end-points,
+B12: which may not reflect the real conditions of the elements.
+Due to the reasons stated
+B13: above, errors occur in each equation solutions.
+During the process of time stepping
+B14: iterations, errors accumulate with each time step.
+Subsequently, it causes relatively
+B15: significant errors in the final solutions.
+B16: Table 4.1. Sum of the Squared Error
+B17: Numbers ofData
+Sum of Squared Data
+Sum of Squared Error
+B18: 21
+0.02334933749353
+0.00240399001614
+(after the first iteration)
+B19: It can be concluded that the model established in this study is direct and allows a faster
+B20: identification of vibration nature of cable.
+It shows that cable without any external
+B21: damper damps due to internal friction. This model is further verified by the experimental
+B22: data presented in the subsequent chapter.
+B23: 48
+
+PDF PAGE 57
+B0: •
+B1: •
+B2: •
+5.1. Summary
+B3: Chapter 5.
+Model Verification
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: This section presents a qualitative companson of the measured and modeled cable
+B13: vibration. In order to validate the model presented in this study, a comparison will be
+B14: made to the experimental data published in two papers, "Modeling the Dynamic
+B15: Characteristics of Slack Wire Cables in STOCKBRIDGE Dampers" (Sauter, 2003), and
+B16: "On the Hysteresis of Wire Cables in STOCKBRIDGE Dampers" (Sauter and Hagedorn,
+B17: 2002).
+B18: 5.2. Experimental Data
+B19: The experimental configuration described by Sauter and Hagedorn is shown in Figure 5.1.
+B20: In their experiment, a cyclic transverse force was applied at the free end of cable, and the
+B21: other end is clamped. The experiment is carried out at low frequencies, so that inertia
+B22: effects could be neglected (Sauter and Hagedorn, 2002).
+B23: The length of the cable is 0.3 meters, and at time=O, the cable initial configuration can be
+B24: expressed as a function ofx:
+B25: (5.1)
+B26: 49
+
+PDF PAGE 58
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: where L is the length ofcable, t; =~ , and x is the distance from the fixed end.
+B12: L
+B13: w
+B14: F
+B15: "1.+'0
+:-.."Z'lr---------------------' __ x
+B16: ~o
+B17: I·
+B18: '1.3111
+B19: Figure 5.1. Cable Forced Vibration
+B20: The forcing function is given by:
+B21: The period ofthe forcing function is six seconds and the magnitude is 15 N.
+B22: 50
+B23: (5.2)
+
+PDF PAGE 59
+B0: 10
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: OJ}5 ....-----.----r---..------,----,...--..,.---,----,
+,,
+0,04 _. _. --_. ~ _..----- ~. ------- ~ --------f--------f--------f--------f--------
+B13: I
+I
+I
+I
+,
+,
+,
+I
+I
+I
+•
+I
+I
+I
+I
+I
+I
+I
+I
+I
+,
+0.03 -- -- --- -r-- ------r--------r7~;---- ----;--------
+B14: C
+0.,02 -------- ~ -------- ~ -----A--------~--------~--------~~-------~--------
+'0
+/
+:
+-,
+~
+0.01 -- ------ ~- --- ----~,/.------~------ --i--------i--------i--~m
+_Lum_
+w
+/.
+o
+:
+./:
+:
+:
+:
+:
+:
+"E
+0 -------- ~ -- -..,:~ _. - ~ -------- ~ -------- ~ -------- ~ --------} --------} ---~ --
+E
+!/!
+i
+!
+!
+!
+!
+'"
+~ -0.01
+B15: 1
+-~74--m---rmm..r-..----T-mm;--mm;-----mr..-----
+5 -(LCf2 ~-------~--------~--------~--------;--------;--------;
+--------;--------
+B16: I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+,
+I
+I
+,
+I
+I
+I
+,
+I
+I
+,
+B17: -O~03 --------r----.---~--------~ .-------t--------t--------t--------t--------
+B18: I
+,
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+,
+,
+I
+I
+I
+I
+I
+I
+-iL04 -------- ~ -------- ~ -------- ~ --------f -------- f -------- f ------- -f --------
+B19: ,
+I
+I
+I
+I
+I
+I
+B20: I
+I
+I
+I
+I
+I
+I
+I
+i
+I
+I
+I
+I
+I
+-OJ}5 '---_---'-__--'-__-'-__..L-__L-_----'__--'-__--l
+B21: 6
+6.5
+7
+H
+:8
+l:t5
+9
+9.5
+t (sec)
+B22: Figure 5.2. Experimental Displacement History
+B23: From the measured data, shown in Figure 5.2, the maximum displacement of end-point is
+B24: around 0.03 meters.
+B25: 51
+
+PDF PAGE 60
+B0: •
+B1: 0.04
+0.03
+0 ..02
+B2: .
+~
+~
+..
+B3: o
+0
+---
+_---
+o
+0
+o
+0
+o
+0
+B4: •
+0
+·
+.
+·
+.
+·
+.
+·
+.
+B5: •
+0
+•
+0
+0
+................. _---... "............•.... _-- ....
+·
+.
+.
+·
+.
+.
+·
+.
+.
+·
+.
+.
+o
+•
+•
+o
+•
+•
+o
+•
+0
+o
+0
+0
+o
+0.01
+B6: 17 [m]
+B7: .:
+~
+~
+~
+..
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+·
+.
+.
+.
+.
+... :
+.;
+~
+:
+:
+..
+·
+.
+.
+.
+.
+·
+.
+.
+.
+.
+·
+.
+.
+.
+.
+·
+.
+.
+.
+.
+·
+.
+.
+.
+.
+·
+.
+.
+.
+.
+B8: 5
+,
+.
+B9: 10
+:
+:
+..
+·
+.
+·
+.
+·
+.
+·
+.
+·
+.
+·
+.
+B10: 20r;====::====:::=======::::;T--r---,--~
+Experiment
+15t'--__N±"-·
+...""-'!fo=d...,.le""-1-_-_-----'
+B11: -5
+B12: -10
+B13: -15
+B14: --W04
+-0.03
+-0.02
+-0.0~1
+•
+B15: •
+B16: •
+B17: •
+B18: •
+Figure 5.3. Experimental Hysteresis Cycle
+B19: •
+B20: •
+B21: •
+B22: •
+B23: •
+52
+
+PDF PAGE 61
+B0: •
+B1: •
+B2: 5.3. Model Result and Comparison
+B3: DISPL. OF END-POINT (Total Time=3.2sec)
+B4: •
+B5: •
+B6: •
+B7: •
+B8: 0,04
+B9: 0,035
+B10: 0,03
+B11: 0.025
+B12: 0.02
+g
+B13: 0.Q15
+'tlc:.,
+:>
+B14: 0.01
+B15: 0.005
+B16: 0
+B17: -0.005
+B18: -0.01
+B19: 0
+0,5
+1.5
+t (sec)
+B20: 2
+2,5
+3
+3.5
+B21: •
+B22: •
+B23: •
+B24: •
+B25: •
+B26: Figure 5.4. Model Displacement History of End-point
+B27: Figure 5.4 shows the result predicted by the model. The results from the model agreed
+B28: with those from observed data, which is shown in Figure 5.2 within the expected error
+B29: (10%) (shown in Figure 5.5). Besides sources of errors discussed in Chapter 4, modeling
+B30: based on the idealized cable is the main cause of error between the model and the real
+B31: cable.
+B32: 53
+
+PDF PAGE 62
+B0: 0.035
+B1: I
+B2: •
+B3: •
+B4: I
+B5: I
+B6: I
+B7: I
+B8: •
+B9: •
+B10: •
+B11: •
+B12: DISPL OF END-POINT (Total Tims=1.5sec)
+OJJ:35.---------,-----------r---------,
+,
+,
+,
+,
+OJJ3 -- ---- -oo- -oooo -------- ~oo- oo- _oo __ --- -_oo _oo __ :oo
+-oo_-_._;.;:-::.,.,.-
+B13: :
+I
+~~...x ---
+,
+:
+,x-
+:
+y
+(1.02'5 ---------- ---- ---- ---- - ~-- ---- -oo------- -~-:oo oo----------- -------
+B14: :
+/:
+B15: ~
+~/
+j
+~
+0.02' oo- oo--------- -oo-.oo--f-- --- - ;.i<- --oo- oo- -----,f,--- --- oo~oo ---- -------
+S
+i/
+-
+N:umericaI Data
+B16: ~
+:
+/
+-*
+ExperimentaI Data
+B17: ::J
+0,01:5 ----- ----- --- ---- ---- ,Y-"------ ----------------:----------------------
+// :
+:
+j(
+:
+:
+,
+,
+0.01
+--------------,--------~-----------------------:----------------------
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+(Ul05 -- -- -- '- -- -- -------- -- ~ ---- --- -- -- --- --- -- --- -i----------------------
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+O_-------l.-------...J------------'
+o
+B18: t (sec)
+B19: Figure 5.5. Displacement History Comparison
+B20: Force Hystersis Cycle
+1:6 r---~--...-----,---__._--_,_--___r--___,
+B21: I
+I
+I
+I
+I
+I
+B22: 14 ---------; ----------j----------f---------;----------:-------X~-!::-----
+B23: I
+,
+,
+I
+I
+~
+I
+I
+I
+I
+1.-/
+I
+I
+I
+,
+I
+1./
+/
+I
+12 --------- ~ ----------:- --------- ~ ------ --- ~ ----------:-//-=----~---------
+:
+:
+:
+:
+/y
+:
+:
+:
+:
+:
+,..../..,/'
+:
+I
+,
+,
+' /
+/
+I
+I
+10 ---------: -------- --i----------:---------~7----i----------:---------
+:
+:
+:~..
+:
+:
+I
+I
+I
+/"
+/1
+I
+,
+~
+8 ---------: ----------i---------~--.,/--j- -- --- ----i----------i----------
+B24: ~
+:
+:
+./,/:
+:
+:
+0;
+I
+I
+~
+I
+I
+I
+U.
+6
+m+ mm_ -~7 - ~mm---~mm--- -;---m
+~mm--_
+B25: 4 -----~------!----u--J----u----f-u u-f---------
+:~::::r::::::::I:::::::::::::::::r:::--:-L:--::
+B26: I
+I
+,
+,
+I
+I
+I
+I
+I
+,
+,
+I
+I
+i
+I
+I
+;
+i
+-2 L-__.L.-__-'--__...l-__...L.__.....L__---L__-.l
+B27: o
+0.005
+0.01
+0.015
+0.02'
+0.02'5
+003
+B28: Figure 5.6. Model Hysteresis Cycle
+B29: 54
+
+PDF PAGE 63
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: I
+B8: I
+B9: •
+B10: •
+B11: Figure 5.6 shows the global force hysteresis curve.
+Compared to experimental data
+B12: shown in Figure 5.3, the model hysteresis cycle has the same slope but the enclosed area
+B13: is smaller. Besides the sources of errors discussed in the previous chapter, there are two
+B14: main sources of differences of these two results.
+The cable specimens used in two
+B15: experiments are not exactly the same, which causes some differences in the final results.
+B16: The length of the cable specimen used in the referred experiment is O.3m which is
+B17: slightly larger than three-lay length (see Table 3.1). A shorter cable span also can cause
+B18: some difference in the final results.
+B19: Again, comparison of results from the numerical model with results from experimental
+B20: tests agreed.
+This model can be applied to any kind of cable if the EI-curvature
+B21: relationship is known.
+B22: 55
+
+PDF PAGE 64
+B0: •
+B1: •
+B2: •
+B3: Chapter 6.
+B4: 6.1. Objectives Achieved
+B5: Conclusions
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: •
+B14: In the this study, the cable is considered as a system of helical wires and a core with
+B15: distributed dry friction forces at their interfaces and modeled as a one-dimensional
+B16: continuum, where the wires are not being modeled individually.
+B17: The simplified equation of motion governing the cable vibration is derived, which is a
+B18: nonlinear, fourth order partial differential equation with respect to the span of the cable
+B19: and the second order derivative with respect to time. The finite element method (FEM) is
+B20: applied to solve this equation. The partial differential equation was discretized into time
+B21: and space domains.
+B22: This model also is used to analyze cable vibration. An implicit expression for predicting
+B23: the next state using the elemental matrices is derived. Numerical examples are given to
+B24: show the response history.
+B25: Since researchers have been studying the cable dynamic behavior, many models have
+B26: been developed with different approaches but there was not a unified model that could be
+B27: used by all manufacturers and engineers.
+The model established in this study can be
+B28: 56
+
+PDF PAGE 65
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: applied to any kind of cable assuming the relationship between cable flexural rigidity and
+B12: cable curvature is known.
+B13: 6.2. Future Study
+B14: For future studies, an analytical bending model of cable might be extended to include the
+B15: effects oftorsion, axial elongation, interlayer pressures, and both ofmaterial nonlinearity
+B16: and geometric nonlinearity. A new stiffness matrix may be constructed based on those
+B17: effects.
+B18: The determination of interlayer pressure would require more accurate experimental work.
+B19: Pressure indicating sensor films could be used to obtain a more accurate measurement of
+B20: the interlayer pressure.
+B21: The effect of internal damping also may be interesting for future studies. Also, in order
+B22: to include the external damping effect, the damped vibration of cable should be
+B23: formulated.
+B24: The current model is based on the small deformation assumption. In order to obtain more
+B25: realistic results, the large motion theory should be applied.
+B26: 57
+
+PDF PAGE 66
+B0: •
+B1: •
+B2: •
+B3: Appendix A
+Experiment of Internal Pressure Measurement
+B4: for Cable Specimens
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: •
+B12: •
+B13: The intemallayer pressures ofthe cable are required input data for the CableCAD® (2003)
+B14: software to derive a more accurate value of flexural rigidity.
+A simple pressure
+B15: experiment that can be used to measure interiayer pressures has been performed as
+B16: described below.
+B17: A.I. Experiment Preparation and Data Collection
+B18: In this experiment, a two-hole test table was used (Figure A.I). The diameter of one hole
+B19: is slightly larger than the diameter of first layer of the cable specimen, and the other is
+B20: slightly larger than the outside diameter of second layer of the same cable. Figure A.2
+B21: shows the dimensions of two cable specimens. Cable specimen I (Figure A.3) with the
+B22: third and the second layers cut off is used to measure the pressure between the first layer
+B23: and the second layer. Cable specimen 2 (Figure AA) with the third layer cut off is used
+B24: to measure the pressure between the second layer and the third layer.
+B25: The cable specimens are setup on the test table (Figure A.I).
+When compressing the
+B26: cable specimen (Figure A.7), slipping occurs between layers.
+An INSTRON® test
+B27: machine (Figure A.5) measures the static friction force between adjacent layers, and the
+B28: 58
+
+PDF PAGE 67
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: recorder (Figure A.6) plots the force curve.
+Table A.I shows the parameters for test
+B6: machine used in the experiment.
+B7: Figure A.I. Test Table
+•
+B8: •
+B9: •
+B10: •
+B11: •
+B12: 6
+B13: I
+B14: I 1/4
+L
+B15: Unit: Inch
+B16: 6
+B17: -
+B18: Figure A.2. Dimensions of Cable Specimens
+B19: 59
+
+PDF PAGE 68
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: ..
+B11: Figure A.3. Cable Specimen 1
+B12: Figure A.4. Cable Specimen 2
+B13: Figure A.5. INSTRON@ Test Machine
+B14: 60
+
+PDF PAGE 69
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Table A.t. Description ofTest Machine
+B12: Model Number ofTest Machine
+4206
+B13: Load Cell Weight
+500N
+B14: Test Speed
+1 in/m
+B15: Figure A.6. Data Recorder
+B16: 61
+
+PDF PAGE 70
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: "(oj.
+•
+L
+~
+- ..:-"
+4 .....'
+B12: Figure A.7. Testing Cable Specimen
+B13: A.2. Data Analysis and Computation
+B14: (loBs)
+30L
+-l-
+J
+J_~
+L
+i
+____l
+~__
+:
+I
+:
+I
+I
+I
+I
+I
+t
+I
+I
+I
+I
+I
+2OIr.A-----
+:
+I-----------~----- --r-----:
++_
+B15: 10 ---
+J-------J------J----------L-----l-----+'-
+I
+I
+r
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+:
+I
+:
+:
+~
+~
+~
+~
+L
+L
+~
+~__
+Onon)
+o
+0.1
+0.2
+0.3
+0.4
+0.5
+0.8
+0.7
+B16: Figure A.8. Test Result 1
+B17: Figure A.8 shows the data recorded during the test procedure.
+The average value of
+B18: extreme values of stress can be approximately treated as the static friction force between
+B19: layers 2 and 3.
+B20: 62
+
+PDF PAGE 71
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Table A.2. Pressure between 2nd Layer and 3rd Layer
+B12: Layer 2 Outer Diameter (mm)
+6.12
+B13: Length of specimen (mm)
+120.65
+B14: Contact Area (mm2)
+2319.6829
+B15: Static Friction Coefficient
+0.741
+B16: No.
+Static Friction
+Static Friction
+Normal Force
+Pressure
+Force (Lbs)
+Force (N)
+(N)
+(N/mm2)
+B17: 1
+26.1
+116.928
+158.0108108
+0.068117418
+B18: 2
+25.9
+116.032
+156.8
+0.05002063
+B19: 3
+25
+112
+151.3513514
+0.048282461
+B20: 4
+26.1
+116.928
+158.0108108
+0.05040689
+B21: 5
+25.5
+114.24
+154.3783784
+0.049248111
+B22: Average
+155.7102703
+0.053215102
+B23: 1Referenced from http://www.visionengineer.comlref/friction.shtm1
+B24: If friction force and the friction coefficient are known, the normal force and normal
+B25: pressure easily can be calculated. Table A.2 shows the computation ofpressure between
+B26: the second and third layers.
+B27: 63
+
+PDF PAGE 72
+B0: (LB.}
+B1: I
+I
+I
+I
+I
+I
+I
+60 L
+L__________
+1
+1
+1
+1
+1
+B2: ro ~~M"""~! ~~"~"=~t~"~~=~~~~~~~~§~~~=
+B3: ~O l-----4~--l----------1----------1----------J---------_-L----------L-------
+--1-__
+1
+1
+1
+1
+1
+1
+I
+I
+I
+I
+I
+I
+I
+I
+I
+1
+I
+I
+I
+I
+I
+I
+I
+I
+,
+I
+I
+I
+I
+I
+I
+1
+I
+50
+r-----------~----------t---------...i----------l-----------f----------f----------t---
+I
+I
+I
+I
+I
+I
+I
+I
+I
+1
+I
+I
+I
+I
+1
+1
+I
+1
+I
+I
+I
+I
+1
+I
+I I I
+•
+I
+I
+I
+• ·1
+I
+40 r----------r----------T----------,-----------,-----------r----------r----------r---
+I
+I
+I
+I
+I
+I
+I
+t
+I
+1
+I
+I
+I
+I
+1
+1
+I
+I
+I
+I
+I
+I
+1
+1
+I
+I
+I
+I
+I
+J
+I
+1
+30
+1"""----------r-----------t----------i----------4-----------r----------i----------t--~
+B4: I
+1
+I
+1
+I
+I
+I
+I
+i
+I
+I
+1
+I
+I
+I
+I
+I
+I
+I
+1
+I
+I
+I
+1
+B5: ~O
+r-----------f-~~-------t----------i----------l---------~-f----------t_----------t---
+I
+I
+I
+1
+I
+I
+I
+I
+I
+I
+I
+1
+I
+I
+I
+1
+I
+I
+I
+1
+I
+I
+I
+1
+10 ~----------~----------+----------+----------~-----------~----------~----------t-,.,.
+I
+I
+I
+1
+I
+I
+I
+I
+I
+I
+I
+1
+I i i
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L.
+L
+l
+l
+- __J
+L.
+L
+L___
+(i.n~h)
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: 0.1
+0.3
+0.4
+0.5
+0.6
+0.7
+B12: •
+B13: •
+B14: •
+B15: •
+B16: •
+B17: •
+B18: Figure A.9. Test Result 2
+B19: Figure A.9 shows the data recorded during the test procedure.
+The average value of
+B20: extreme values of stress can be approximately treated as the static friction force between
+B21: the first and second layers.
+B22: 64
+
+PDF PAGE 73
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Table A.3. Pressure between 1st Layer and 2nd Layer
+B12: Layer 1 Outer Diameter (mm)
+2.12
+B13: Length of specimen (mm)
+120.65
+B14: Contact Area (mm2)
+803.55
+B15: Static Friction Coefficient
+0.741
+B16: No.
+Static Friction
+Static Friction
+Normal Force
+Pressure
+Force (Lbs)
+Force (N)
+(N)
+(N/mm2)
+B17: 1
+74.7
+334.656
+452.2378378
+0.562799673
+B18: 2
+78.5
+351.68
+475.2432432
+0.437657737
+B19: 3
+76
+340.48
+460.1081081
+0.423719593
+B20: Average
+462.5297297
+0.474725668
+B21: 1 Referenced from http://www.visionengineer.com/ref/friction.shtml
+B22: Table A.3 shows the computation ofpressure between the second and third layers.
+B23: 65
+
+PDF PAGE 74
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+-
+B10: A.3. Limitation of Experiment
+B11: There are some scratches and dents on the surface of cable specimens (shown in Figure
+B12: A.IO and A.II).
+These scratches and dents were produced when the cable was
+B13: manufactured and they cause some errors in the interlayer pressure measurements. The
+B14: combination of these scratches and dents and the different lay lengths of each layer gives
+B15: the wave-like frictional force history and the sudden change on the curves, which also
+B16: cause some difficulties in the determination of interlayer pressure. Taking the production
+B17: of outside diameter and the length of cable specimen as the contact area for interlayer
+B18: pressure computation also is a source of error.
+B19: Figure A.10. Cable Specimen 1 Detailed View
+B20: 66
+
+PDF PAGE 75
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Figure A.ll. Cable Specimen 2 Detailed View
+B12: 67
+
+PDF PAGE 76
+B0: •
+B1: •
+B2: •
+B3: •
+B4: Appendix B Approximate Computation for Flexural Rigidity
+B5: of Cable Specimens
+B6: The flexural rigidity changes with the bending curvature of the cable. If it is assumed
+B7: that there is no slip between wires or layers, the maximum value of flexural rigidity can
+B8: be computed analytically.
+B9: •
+B10: •
+B11: •
+B12: •
+B13: •
+B14: 0.5439 (mm)
+B15: 1.4861 (mm)
+B16: 2.03 (mm)
+B17: 1.784 (mm)
+B18: Figure B.t. Dimension for cross-section of cable
+B19: 02.12 (nun)
+B20: 02(mm)
+B21: 02 (mm)
+B22: 08.12 (mm)
+B23: 04.12 (mm)
+B24: •
+B25: •
+B26: Lanteigne, J. (1985) gave an equation for the computation of the upper limit of the
+B27: flexural rigidity, Elmax ' of the helical cable. The equation can be written as
+B28: 68
+
+PDF PAGE 77
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: where
+B12: B. = R: cos
+B13: 3
+an [Sin(_4Jr_i) _sin(_4Jr_i + _2_1t_a_n_a-,,-n)]
+B14: In
+!tanan
+Kn
+Kn
+Rn
+B15: Kn is the number of wires of the n-th layer, An' rn, and En are the cross
+B16: section, radius, and Young's modulus of wires in layer n.
+Rn and an are the
+B17: radius and lay angle of layer n.
+Ie and Ee are the wire core polar moments of
+B18: inertia and Young's modulus. The conductor length 1 can be treated as a unit
+B19: length.
+B20: The lay angle oflayer n can also written as
+B21: where An is the lay length oflayer n.
+B22: For the steel cable, the Young's modulus is given as E =20, OOOOMpa. For the
+B23: cable used in this study (see Table 3.1 and the cross-sectional dimension is
+B24: shown
+in
+Figure
+B.1),
+the
+maximum
+bending
+stiffness
+obtained
+B25: isEImax =64.971(Nm 2 ).
+B26: 69
+B27: (B.1)
+B28: (B.2)
+B29: (B.3)
+
+PDF PAGE 78
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Reference
+B12: Babitsky, VI, Krupenin, VL (2001).
+Vibration of Strongly Nonlinear Discontinuous
+B13: Systems, Springer, New York.
+B14: CableCAD® User Manual (2003), Copyright by Structural Solutions, 98-030 Hekaha
+B15: Street, Suite 20, Aiea, Hawaii 96701.
+B16: Chen, W., Atsuta, T. (1976).
+Theory of Beam-Columns,
+Volume 1: IN-PLANE
+B17: BEHAVIOR AND DESIGN, McGraw-Hill Book Company, New York.
+B18: Cook, RD, Malkus, DS, Plesha, ME, Witt, RJ (2002).
+Concepts and Applications of
+B19: Finite Element Analysis, Fourth Edition, John Wiley & Sons, INC., New York.
+B20: Gatti-Bono, c.,
+Perkins,
+NC
+(2003).
+"Numerical
+Simulations of Cable/Seabed
+B21: Interaction", Proc. International Society ofOffshore and Polar Engineering, pp.120.
+B22: Grandin, H JR (1986). Fundamentals ofthe Finite Element Method, Waveland Press, Inc,
+B23: New York.
+B24: Griebel, M., Keyes, DE, Nieminen, RM, Roose, D., Schlick, T. (1999). Lecture Notes in
+B25: Computational Science and Engineering:
+Computational Partial Differential
+B26: Equations Numerical Methods and Diffpack Programming, Springer, New York
+B27: Gutzer, u., Seemann, W. & Hagedorn, P. (1995).
+"Nonlinear Structural Damping
+B28: Described by the Masing Model and the Method of Slowly Varying Amplitude and
+B29: Phase" Proc. 15th Biennial ASME Conference on Vibration and Noise, Vol. 3A,
+B30: Boston, Sept. 17-21, 1995, pp. 773-779.
+B31: Kikuchi, N. (1986). Finite Element Methods in Mechanics, Cambridge University Press,
+B32: New York.
+B33: 70
+
+PDF PAGE 79
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Lanteigne, 1. (1985).
+"Theoretical Estimation of the Response of Helically Armored
+B12: Cables to Tension, Torsion, and Bending" TRANS. ASME, Journal of Applied
+B13: Mechanics, Vol. 52, pp. 423-432.
+B14: Martin, HC, Carey, GF, (1973).
+Introduction to Finite Element Analysis Theory and
+B15: Application, McGraw-Hill Book Company, New York.
+B16: Moretti, PM (2000). Modern Vibrations Primer, CRC Press, Boca Raton, Florida.
+B17: Pilkey, WD (2002). Analysis and Design ofElastic Beams Computational Methods, John
+B18: Wiley & Sons, Inc., New York.
+B19: Przemieniecki, JS (1985).
+Theory of Matrix Structural Analysis, McGraw-Hill Book
+B20: Company, New York.
+B21: Ross, CTF (1998).
+Advanced Applied Finite Element Methods, Horwood Pubulishing
+B22: Limited, ColI House, Westergate, Chichester, West Sussex, England
+B23: Rubinstein, MF (1970). Structural Systems - Statics, Dynamics and Stability, Prentice-
+B24: Hall, Inc., Englewood Cliffs, NJ
+B25: Sauter, D (2003).
+"Modeling the Dynamic Characteristics of Slack Wire Cables in
+B26: STOCKBRIDGE Dampers", Dissertation, Department of Applied Mechanics, TU
+B27: Darmstadt.
+B28: Sauter, D., Hagedorn, P. (2002). "On the Hysteresis of Wire Cables in STOCKBRIDGE
+B29: Dampers", International Journal of Non-Linear Mechanics, Volume 37, Issue 8 ,
+B30: December 2002, Pages 1453-1459
+B31: Soler, AI (1969).
+"Dynamic Response of Single Cables with Initial Sag", Technical
+B32: Report, Under Grant NO. 46-ME24-21, University ofPennsylvania
+B33: 71
+
+PDF PAGE 80
+B0: •
+B1: •
+B2: •
+B3: •
+B4: •
+B5: •
+B6: •
+B7: •
+B8: •
+B9: •
+B10: •
+B11: Stein E. (Editor) (2002). Error-controlled Adaptive Finite Elements in Solid Mechanics,
+B12: John Wiley & Sons Ltd, New York.
+B13: Tagel-Din, H., Meguro, K. (2000).
+"Applied Element Method for Dynamic Large
+B14: Deformation Analysis of Structures" Structural Eng./Earthquake Eng., JSCE, Vol.
+B15: 17, No.2, pp. 215-224.
+B16: Thomson,
+WT (1965).
+Vibration
+Theory and Applications, Prentice-Hall,
+Inc.,
+B17: Englewood Cliffs, NJ
+B18: Vinogradov, OG, Atatekin, IS (1986).
+"Internal Friction Due to Wire Twist in Bent
+B19: Cable", Journal ofEngineering Mechanics, Vol. 112, No.9.
+B20: Zhong, M (2003). "Dynamic Analysis of Cables with Variable Flexural Rigidity", M.S.
+B21: Thesis, University ofHawaii.
+B22: Zhou, N., Clark, JV, Pister, KSJ (1998).
+"Nodal Analysis for MEMS Design Using
+B23: SUGAR vO.5", Technical Proceedings of the 1998 International Conference on
+B24: Modeling and Simulation ofMicrosystems, pp.398-313.
+B25: 72

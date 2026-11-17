@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "MP1_R_PHASE_7_FINDING_REGISTER",
+  "date": "2026-10-03",
+  "workstream": "MP1-R — Rescope",
+  "audit_target": "docs/project/MP1_R_CHAPTER_2_EVIDENCE_CONTROLLED_DRAFT_2026-10-02.docx",
+  "audited_docx": "docs/project/MP1_R_CHAPTER_2_PHASE_7_AUDITED_2026-10-03.docx",
+  "coverage": {
+    "claims": 84,
+    "traceability_claims": "84/84",
+    "citation_appearances": 121,
+    "references": 18,
+    "tables": 4,
+    "subsections": 12,
+    "equations": 1
+  },
+  "findings": [
+    {
+      "finding_id": "P7F001",
+      "severity": "MINOR",
+      "claim_id": null,
+      "docx_location": "P088–P089, References [12]–[13]",
+      "exact_problematic_wording": "Bibliographic entries omit final volume/issue/pages for the two Reedlunn et al. 2013 papers.",
+      "citation_numbers": [
+        12,
+        13
+      ],
+      "source_ids": [
+        "S05a",
+        "S05b"
+      ],
+      "problem_type": "BIBLIOGRAPHIC_INCOMPLETE",
+      "why_problem": "The local Part I PDF is an unpaginated/xxx accepted-version extract and Part II is explicitly an accepted manuscript; repository evidence does not establish final volume/pages.",
+      "source_evidence": "Original PDFs verify authors, titles, journal, year and DOI but retain xxx/accepted-manuscript metadata.",
+      "project_authority_evidence": "Phase 6 and Phase 3 explicitly require conservative omission rather than guessed metadata.",
+      "required_remediation": "Retain DOI-only/conservative entries; do not invent volume/pages.",
+      "changes_scientific_meaning": false,
+      "status": "ACCEPTED_LIMITATION"
+    },
+    {
+      "finding_id": "P7F002",
+      "severity": "MINOR",
+      "claim_id": null,
+      "docx_location": "P092, Reference [16]",
+      "exact_problematic_wording": "S11 entry gives Journal of Engineering Mechanics article identifier 04016023 and DOI but omits volume/issue.",
+      "citation_numbers": [
+        16
+      ],
+      "source_ids": [
+        "S11"
+      ],
+      "problem_type": "BIBLIOGRAPHIC_INCOMPLETE",
+      "why_problem": "The repository PDF reliably exposes the article identifier and DOI; volume/issue is not established in the inspected artifact.",
+      "source_evidence": "Original PDF first page and footer show 04016023 and DOI 10.1061/(ASCE)EM.1943-7889.0001072.",
+      "project_authority_evidence": "Phase 7 instruction prohibits fabrication of absent fields.",
+      "required_remediation": "Retain article identifier and DOI; leave unverified volume/issue blank.",
+      "changes_scientific_meaning": false,
+      "status": "ACCEPTED_LIMITATION"
+    },
+    {
+      "finding_id": "P7F003",
+      "severity": "INFO",
+      "claim_id": null,
+      "docx_location": "P083, Reference [7]",
+      "exact_problematic_wording": "V-W02 is cited as the publisher-verified early-access version dated Aug. 3, 2021.",
+      "citation_numbers": [
+        7
+      ],
+      "source_ids": [
+        "V-W02"
+      ],
+      "problem_type": "BIBLIOGRAPHIC_VERSION_METADATA",
+      "why_problem": "The inspected publisher PDF is explicitly an online-first 2021 version and supplies no final volume/issue/pages.",
+      "source_evidence": "Publisher PDF cover states Published online: 03 Aug 2021 and DOI 10.1080/15376494.2021.1955313.",
+      "project_authority_evidence": "Phase 6 authority directs use of the online-first date without guessing later issue metadata.",
+      "required_remediation": "Keep online-first wording; no metadata expansion.",
+      "changes_scientific_meaning": false,
+      "status": "ACCEPTED_LIMITATION"
+    }
+  ],
+  "summary_counts": {
+    "verdict": {
+      "PASS_DIRECT": 13,
+      "PASS_SYNTHESIS": 37,
+      "PASS_ANALOGY": 3,
+      "PASS_PROJECT_AUTHORITY": 31
+    },
+    "severity": {
+      "CRITICAL": 0,
+      "MAJOR": 0,
+      "MINOR": 2,
+      "INFO": 1
+    },
+    "section": {
+      "bibliography": 3
+    },
+    "source": {
+      "S05a": 1,
+      "S05b": 1,
+      "S11": 1,
+      "V-W02": 1
+    },
+    "problem_type": {
+      "BIBLIOGRAPHIC_INCOMPLETE": 2,
+      "BIBLIOGRAPHIC_VERSION_METADATA": 1
+    }
+  },
+  "prohibited_claim_scan": {
+    "literal_context_hits": [],
+    "substantive_prohibited_claims_found": 0,
+    "substantive_prohibited_claims_remaining": 0
+  },
+  "phase7_exit_readiness": "READY_FOR_PHASE_8_FINALIZATION"
+}

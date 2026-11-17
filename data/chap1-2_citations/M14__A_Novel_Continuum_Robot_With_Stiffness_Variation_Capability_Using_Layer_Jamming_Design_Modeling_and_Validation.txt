@@ -1,0 +1,712 @@
+Received 19 November 2022, accepted 29 November 2022, date of publication 12 December 2022,
+date of current version 20 December 2022.
+Digital Object Identifier 10.1109/ACCESS.2022.3228775
+
+
+
+
+A Novel Continuum Robot With Stiffness
+Variation Capability Using Layer Jamming:
+Design, Modeling, and Validation
+YEMAN FAN               1 , (Student Member, IEEE), DIKAI LIU                           1 , (Senior Member, IEEE), AND LIN YE2
+1 Robotics Institute, Faculty of Engineering and Information Technology, University of Technology Sydney, Sydney, NSW 2007, Australia
+2 School of Aerospace, Mechanical and Mechatronic Engineering, The University of Sydney, Sydney, NSW 2006, Australia
+
+Corresponding author: Yeman Fan (yeman.fan@student.uts.edu.au)
+This work was supported in part by the Australian Research Council (ARC) Discovery Project under Grant DP200102497; and in part by
+the Robotics Institute at the University of Technology Sydney, Australia.
+
+
+
+
+  ABSTRACT This paper presents a novel continuum robot (OctRobot-I) that has controllable stiffness
+  variation capability in both the transverse and axial directions. Robot design, stiffness variation analysis
+  and experimental testing are discussed in detail. Stiffness models based on the Euler-Bernoulli beam theory
+  are developed, and then four static deflection cases are analysed. Experiments are conducted with two types
+  of layer jamming sheaths (overlap numbers n = 3, 5) and four different vacuum pressures (0kPa, 25kPa,
+  50kPa, 75kPa) at three different bending angles (0◦ , 90◦ , 180◦ ). The results demonstrate that the stiffness
+  changing tendency is in compliance with the derived models and show that the robot has a good stiffness
+  variable capability. With the jamming sheath of n = 3, the stiffness ranges (ratios) are 36.4 to 241.7 N/m (6.6)
+  and 92.9 to 19.3 × 103 N/m (207.8) in the transverse and axial directions, respectively. With the jamming
+  sheath of n = 5, the stiffness ranges (ratios) are 65.7 to 398.3 N/m (6.1) and 106.7 to 20.8 × 103 N/m (194.9)
+  in the transverse and axial directions, respectively. Additionally, the actuating and gripping experiments
+  demonstrate that this robot has good performance in real-world applications.
+
+
+  INDEX TERMS Continuum robot, tendon-driven actuation, layer jamming, manipulator, stiffness variation.
+
+I. INTRODUCTION                                                                                mechanisms realise stiffness variation based on a pair of
+Continuum robots (CRs) are recently becoming a research                                        antagonistic forces, which can be easily achieved in tendon-
+focus due to their novel inherent compliance, flexibility, and                                 driven or artificial-muscle CRs [10], [11]. Although antag-
+dexterity [1], [2]. Because of these advantages, CRs have the                                  onism mechanisms are simple and easy to implement, their
+potential to be applied in many application scenarios, such                                    efficiency is relatively low and it needs great extra force or
+as medical services [3], [4], non-destructive inspections [5],                                 high muscle pressure to form antagonistic force pairs, which
+and general grasping tasks [6]. However, this type of robot                                    would result in heavy mass in actuators, i.e. large driven
+may suffer from many problems, and one of them is the need                                     motor or air pump.
+to improve its stiffness variation capability while keeping the                                   Phase transition materials can be part of or filled into the
+same dexterity level [1], [2], [3].                                                            body of CRs to achieve stiffness variation. In [12], a CR
+   Different types of stiffness tuning approaches were                                         for MRI-Guided neurosurgery was presented, the robot back-
+proposed and applied to CRs. Generally, variable stiffness                                     bone was made of shape memory alloy (SMA) springs, and
+capability in CRs can be achieved by utilising antagonism                                      the stiffness control was achieved by directly powering the
+mechanisms, phase transition materials, external magnetic                                      SMA spring to increase its temperature. There was no active
+fields, and jamming mechanisms [7], [8], [9]. Antagonism                                       cooling system in this robot, which means it would take
+                                                                                               a long time to change to rigid status. In order to improve
+   The associate editor coordinating the review of this manuscript and                         the stiff switching time, researchers applied cold and hot
+approving it for publication was Zheng Chen             .                                      water into the temperature control system. In [13], a special
+
+                     This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/
+VOLUME 10, 2022                                                                                                                                                       130253
+                            Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+structure was designed to achieve fast stiffness variation (in               layer pattern was set, the sheaths’ length-changing ability was
+15 seconds) of the continuum manipulator made by low                         mainly determined by the slot length, which was small (4mm
+melting point alloy (LMPA) material. In [14], a LMPA-made                    in [25]) and may affect the length change range. In addition,
+manipulator was designed for minimally invasive surgery                      the design and test targets of previous research were focused
+(MIS) with actively rigid and flexible states controlling (state             on robots’ performance in the transverse direction, and there
+switch time of 9.2-10.3s and 15.4s). Similarly, a flexible                   was no testing conducted in the axial direction [19], [22],
+endoscope manipulator using shape memory polymer (SMP)                       [24], [25], [26].
+was proposed in [15]. Although phase transition materials can                   Furthermore, although some analytical models were
+achieve variable stiffness, they have the disadvantage of either             researched for CRs under external loads, these models
+long response time (passive cooling) or large-size and heavy-                focused on the effect of the tendon’s number or displacement,
+mass temperature management systems (water cycling).                         and they were based on the cantilever beam model [30] or
+   Another stiffness variation method is to use electrorheolog-              Euler-Lagrange equations [31]. To the best of the authors’
+ical (ER) or magnetorheological (MR) fluids. When applying                   knowledge, research works related to approximate models of
+an external magnetic field, their stiffness can be achieved                  continuum robots’ effective stiffness are seldom conducted.
+by changing their viscosity. A manipulator based on MR                          In this paper, we present a novel continuum robot called
+compounds for laparoscopic surgery was presented in [16].                    OctRobot-I. Layer jamming sheaths and a support spine are
+However, MR/ER fluids need a strong magnetic field to                        designed to achieve stiffness variation capability in both the
+change their viscosity and often have limitations in achieving               transverse and axial directions. In order to evaluate the robot’s
+sufficiently high stiffness or yield strength.                               performance, extensive force-deflection experiments are con-
+   Among the stiffness variable technologies, jamming mech-                  ducted in both two directions, and actuating and gripping
+anisms are promising when applied to CRs due to their advan-                 capabilities are validated and demonstrated. The main con-
+tages of easy realisation, shape-locking capability, and quick               tributions of this work include:
+activation. Generally, jamming technology can be divided                        i) A new layer jamming sheath weaving method is pro-
+into fibre jamming, particle jamming, and layer jamming                      posed for continuum robots. Compared to the previous
+according to its filling materials [7], [8]. In fibre jamming                research, this method uses restriction wires on the adjacent
+and particle jamming mechanisms, the jamming materials are                   two layers to restrict the flap and provide a larger relative
+normally filled into CRs and work as main bodies [17], [18],                 movement ability.
+[19]. Compared to particle jamming and fibre jamming, layer                     ii) Approximate stiffness models are developed and used
+jamming uses thin plastic or paper layers as its jamming flaps               for analysing the robot’s effective stiffness and its changing
+and can be easily applied to CRs as a reinforcing sheath [20],               tendency.
+[21], which results in the advantages of lighter weights and                    iii) A novel continuum robot with stiffness variation capa-
+taking up less space of CRs.                                                 bility in both the transverse and axial directions is designed
+   In [22], layer jamming flaps were wrapped into a cylinder                 and fabricated.
+shape to form a manipulator for MIS. A two-section prototype                    iv) Experimental verifications of the continuum robot are
+robot based on spring and layer jamming was designed in                      conducted to test its stiffness variation performance.
+[23]. In [24], a flexible variable stiffness robot combined with                The rest of this paper is organised as follows. Section II
+layer jamming and backbone was developed for nephrectomy.                    presents the design scheme of the robot. Section III describes
+However, these works are limited to small diameters and                      the approximate stiffness models of the robot. Section IV
+stiffness reinforcement ability [8]. Additionally, their actu-               presents the testing experiments and stiffness results. Dis-
+ator units were not compact and took large space than the                    cussions are presented in Section V, and a conclusion is
+robot body. In order to increase stiffness reinforcing ability,              addressed in Section VI.
+several robots with larger diameters were designed. In [19],
+six different continuum manipulator structures (diameters of                 II. ROBOT DESIGN
+41∼48mm) utilising both granular and layer jamming mech-                     A. OVERALL DESIGN OF THE CONTINUUM ROBOT
+anisms were implemented. In [25] and [26], a malleable robot                 In nature, many organs have a continuum structure, such
+combining layer jamming with a flexible spine was devel-                     as elephant trunks, tentacles, and tongues. These organs are
+oped. In [27], a stiffness-tuneable segment for continuum soft               very flexible and also have excellent load capacity. One good
+robots with vertebrae was presented. A revolute joint based on               example that inspired many researchers is the octopus ten-
+layer jamming for robotic exoskeletons was developed [28].                   tacle [1]. Although octopus tentacles lack rigid structures,
+In [29], stiffening sheaths based on layer jamming were built                it has unique biomechanical capabilities that combine sig-
+for continuum robots. These robots have improved with larger                 nificant flexibility with the ability to change and control
+diameters, however, they were limited to shorter lengths, and                their stiffness. Therefore, by imitating an octopus tentacle’s
+there were no actuators.                                                     structure and motion mechanism, a novel continuum robot
+   In the above CRs, layer jamming was sewn along the guide                  named OctRobot-I is designed and implemented, as shown in
+holes and slots by an extra thread to form sheaths. Once the                 Fig. 1.
+
+
+130254                                                                                                                                    VOLUME 10, 2022
+Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+                                                                                   FIGURE 2. A support spine segment. (a) Overall assembly photo.
+                                                                                   (b) Exploded-view drawing.
+
+FIGURE 1. The developed novel continuum robot. (a) Photo of the
+continuum robot. (b) A sectional view of the CAD model showing                     angle of 30◦ ) is used in each segment to make sure it has
+components and overall length/width ratio. (c) Photo of the support                both the flexible bending ability and the hard contact abil-
+spine of the robot.
+                                                                                   ity. Since ball joints lack self-recovery ability, four helical
+                                                                                   compression springs (measured spring constant 493N/m) are
+TABLE 1. Physical properties and performance of the continuum robot.               mounted around the ball joint to provide a certain force for
+                                                                                   the spine to recover to its original position. In addition, the
+                                                                                   aluminium disc spacer and spring constraint disc are used as
+                                                                                   support for the outside layer jamming. The spring constraint
+                                                                                   disc is 3D printed using polylactic acid (PLA) materials, and
+                                                                                   it has four small pins arranged at 90◦ to mount and constrain
+                                                                                   the springs. In order to connect the adjacent segments, three
+                                                                                   aluminium rivets (83.2 × 12mm) are used and arranged at
+                                                                                   120◦ intervals.
+
+                                                                                   2) ACTUATOR UNIT
+                                                                                   In order to actuate the cables for controlling the robot, an actu-
+                                                                                   ator unit is designed by using servo motors and tailored
+                                                                                   aluminium spools. Unlike the robot actuated by ball screws
+                                                                                   [22] and worm gears [24], this design offers a compact,
+                                                                                   lightweight, low-volume actuator unit. Fig. 3(a) shows the
+   The continuum robot consists of a support spine, inner                          concept of four pairs of cables to actuate the whole continuum
+membrane, jamming sheath, outer membrane, and actuator                             robot. The robot has two sections with each section driven by
+unit. The support spine uses ball joints to offer axial support                    two pairs of cables. Stainless steel wire rope with a diameter
+capability, and the jamming sheath is used to realise stiffness                    of 1.2mm is selected. The rope is mounted in the spools, and
+variation capabilities in both the transverse and axial direc-                     its two ends go through its controlling section arranged at an
+tions when compressed. To compress the jamming sheath                              interval of 180◦ . All the rope ends are fixed on the surface of
+and activate its stiffening mechanism, two tubular latex mem-                      the last aluminium disc spacer in each section.
+branes (thickness of 0.3mm) are selected to seal the whole                            Fig. 3(b) and (c) show the design of the actuator unit
+jamming sheath when evacuating the tubular volume between                          and the spool mechanism employed in this continuum
+the two membranes [19], [22], [25]. The whole robot consists                       robot. The actuator unit is composed of four servo motors
+of two sections. Each section is controlled by two pairs of                        (XM430-W350, DYNAMIXEL), four tailored aluminium
+cables, which provide the robot with four degrees of freedom                       spools, four pairs of stainless-steel wire ropes, and support
+in total. The continuum robot properties are summarized in                         frames. In the spool mechanism, the cable goes through the
+Table 1.                                                                           lateral hole of the spool. The two ends of the cable are heli-
+                                                                                   cally coiled on the spool in the clockwise and counterclock-
+B. SUPPORT SPINE AND ACTUATOR                                                      wise directions, respectively. Thus, the same cable length can
+1) SPINE SEGMENT                                                                   be fed in and pulled out from both sides (End I and End II)
+The whole support spine is made of 12 connected spine seg-                         by the rotation of the motor, which can maintain the cable
+ments, as shown in Fig. 1(c). A single segment is composed                         tension at any configuration.
+of two custom aluminium disc spacers, one pair of spring
+constraint discs, four helical compression springs, a ball joint                   C. JAMMING SHEATH
+(SQZ5-RS, China), and a grub screw, as shown in Fig. 2.                            1) JAMMING FLAP STRUCTURE
+  In order to ensure that the spine segment can provide                            The structure of the jamming layer for this continuum robot
+support in the axial direction, the ball joint (maximum tilt                       is based on the double-side flap pattern described in [22].
+
+VOLUME 10, 2022                                                                                                                                     130255
+                                Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+FIGURE 3. (a) Diagram of the driving cable arrangement of the robot,             FIGURE 5. (a) Diagram of the weaving method. (b) Assembled layer
+A1-D1 are for controlling Section 1 (green), A2-D2 are for controlling           jamming sheath that covers the support spine.
+Section 2 (red). (b) Picture of the actuator unit. Note that the motors
+labelled M1/M3 and M2/M4 were spaced 90◦ apart for controlling
+Section 1 and Section 2, respectively. (c) Diagram of a spool mechanism.
+
+
+                                                                                 However, that method had a limitation regarding the length
+                                                                                 changing ability of the layer jamming sheaths due to the slot
+                                                                                 being too short (4mm in [25]).
+                                                                                    In order to improve the length changing ability of the
+                                                                                 layer jamming sheath, a new weaving method is proposed to
+                                                                                 wind up the layer jamming into a tube sheath. To explain the
+                                                                                 weaving method, arbitrary adjacent three layers are selected.
+                                                                                 As shown in Fig. 5(a), a nylon wire with a diameter of 0.6mm
+                                                                                 goes through the external side and internal side of all the
+FIGURE 4. Layer jamming in the double-side flap pattern with guide
+holes.                                                                           jamming flaps alternately via the guide holes. The nylon line
+                                                                                 between the two guide holes is utilised for restricting the
+                                                                                 jamming flaps. The outer flaps and inner flaps of Layer (N )
+In order to suit our support spine of larger diameter (45mm),                    are inserted into the restriction nylon line on Layer (N − 1)
+the flap width W , middle strap length H , flap length L, and                    and Layer (N + 1), respectively. Therefore, the outer flaps of
+inclination angle ϕ are selected according to the requirements                   the Layer (N ) are confined by the line on the Layer (N − 1),
+in this research, as shown in Fig. 4.                                            whereas the inner flaps of the Layer (N ) are astricted by the
+   In order to make this double-side flap, the polyvinyl chlo-                   line on the Layer (N +1). The two sectional view figures (A-A
+ride (PVC) window film (Wf1224pf, Pillar, Australia) with                        and B-B in Fig. 5(a)) show the insert position and restriction
+a thickness of 0.18mm is used and cut into the double-sided                      approach for the flaps. By this approach, the adjacent layers
+shape. The front and back sides of this film have different                      can be woven into a tube sheath and still have the capability
+surface roughness, with each side contacting the opposite                        to be bent, shrunk, and elongated arbitrarily. The completed
+side when weaving into a sheath. The measured coefficient                        layer jamming sheath is shown in Fig. 5(b).
+of friction (COF) is 0.5 between the two sides.
+                                                                                 D. JAMMING SHEATH LENGTH CHANGE EVALUATION
+2) JAMMING SHEATH WEAVING METHOD                                                 The stiffness reinforcement capability of a jamming sheath
+When the continuum robot is bending, the layer jamming                           is determined by the force F required to detach the contact
+sheath is required to change its length correspondingly                          layers. According to the research in [22] and [28], this force
+because the convex position will become longer while the                         can be calculated as F = µnPS, where µ is the COF of the
+concave position will be shorter. Therefore, the layer jam-                      flaps, n is the layer overlap number, P is the applied pressure,
+ming sheath should have enough length changing ability to                        and S is the overlap area which is determined by the overlap
+ensure that the continuum robot can bend at enough angle                         width and length of the flap. From this equation, two variables
+to meet task requirements. For making the layer jamming                          can be adjusted to vary stiffness once the flap pattern is set.
+sheath, researchers [22], [25], [26], [27], [29] used the guide                  The first one is P, which means different applied pressures
+hole and slot method. In that method, jamming flaps were                         would change the compression level of the jamming flaps.
+restricted by a line going through the holes and slots, and                      Then the cumulated friction results in a significant increase in
+the restriction line could shift in the slot. This provided                      rigidity. The second variable, different layer overlap numbers
+the adjacent overlapping jamming flaps to move relative to                       (n), can be used when winding up the layer jamming sheath
+each other, resulting in a length change of the whole sheath.                    to change its thickness.
+
+130256                                                                                                                                        VOLUME 10, 2022
+Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+  According to this jamming flap structure, different layer
+overlap numbers (n) can be achieved by applying different
+winding pitches (dpitch ) as
+                        n = (2L + H )/dpitch                             (1)
+   This is to ensure the inner and outer flaps are always
+moving relatively within the restriction nylon line and never
+out of the restriction. While ignoring the distortion of the flaps
+when weaving into a tube shape, the winding pitch range of
+this double-side flap is determined by
+                     H /2 < dpitch < L + H /2                            (2)
+   Because the layer jamming sheath is used to cover the
+support spine, its default length should be the same length
+as the support spine (l). When the robot is bending, adjacent                      FIGURE 6. Four study cases for the equivalent beam. Case 1 Straight
+jamming flaps will generate relative movement and then                             beam under transverse load, Case 2 Straight beam under axial load,
+                                                                                   Case 3 Curved beam under transverse load, Case 4 Curved beam under
+result in corresponding length changes of jamming sheaths                          axial load.
+as calculated by
+            (
+              1l = β(l/β ± 25) − l = ±25β
+                                                          (3)
+              dr = 1l/(l/dpitch )                                                  has limitations because several parameters of the robot,
+                                                                                   including mechanical error, friction, and the jamming mecha-
+where 1l is the length change of jamming sheaths and
+                                                                                   nism, are difficult to model in simulation software. In order to
+the plus and minus are the representation of the elongation
+                                                                                   define and qualitatively analyse the robot’s effective stiffness
+(convex position) and contraction (concave position) of the
+                                                                                   and its changing tendency, approximate stiffness models are
+jamming sheaths, respectively; β is the central angle of the
+                                                                                   trying to be developed based on the Euler-Bernoulli beam
+robot when bending; dr is the relative movement distance of
+                                                                                   theory [32]. To represent the continuum robot with an equiv-
+adjacent jamming flaps.
+                                                                                   alent beam model, three assumptions are made [31], [33] as
+   In order to evaluate the designed jamming sheaths, the
+                                                                                   follow:
+minimum and maximum length changes of jamming sheaths
+                                                                                      1) The deflection of the continuum robot is only caused
+are calculated by
+            (                                                                      by the position change of all movable parts of the robot, and
+              1lmin = l(H /2)/dpitch − l                                           material strain is not considered.
+                                                         (4)                          2) The analysis of continuum robot deflection is conducted
+              1lmax = l(L + H /2)/dpitch − l
+                                                                                   in the horizontal plane, and gravity is not considered.
+   In this research, dpitch = 35mm and 21mm are selected                              3) The deflection of the continuum robot under external
+when weaving the layer jamming sheath on the support spine.                        load has the same feature as a beam.
+Hence, the overlap layer numbers n = 3, and 5, respec-                                Based on the above assumptions, the continuum robot is
+tively. Then the minimum and maximum length changes                                now modelled as an equivalent cylindrical beam because it
+of jamming sheaths are 1lmin = −352.8mm (n = 3),                                   consists of two main cylindrical parts: a support spine and a
+1lmax = 252.0mm (n = 3), 1lmin = −252.0mm (n = 5), and                             jamming sheath (SI: Equivalent Beam).
+1lmax = 756.0mm (n = 5), respectively. From these results,                            According to different shapes and load conditions of the
+it can be seen that both two types of jamming sheaths can                          continuum robot, deflections of the equivalent beam can be
+meet the length change requirements of 1l = ±78.5mm                                generally categorised into four cases, as shown in Fig. 6.
+when the robot is at the maximum designed bending angle                            When the robot is straight, its deflections can be analysed
+of 180◦ with an outer diameter of 50mm. The relative                               based on the cantilever beam model or fixed-fixed beam
+movement distance of adjacent jamming layer flaps are                              model depending on the directions of external loads [32].
+dr = ±5.5mm (n = 3) and dr = ±3.3mm (n = 5),                                       When the robot is bent, its deflections can be analysed based
+respectively.                                                                      on a cantilever beam model. In order to derive equations
+                                                                                   for analysing the effective stiffness and its changing ten-
+III. APPROXIMATE STIFFNESS MODELS                                                  dency, the following assumptions are made for the equivalent
+A. MODEL DESCRIPTION                                                               beam [32], [34]:
+For analysing the stiffness and its changing tendency for the                         1) The equivalent beam is homogeneous and obeys
+continuum robot under different conditions, corresponding                          Hooke’s law.
+stiffness models are needed. However, due to the complex                              2) Displacements of the equivalent beam are small.
+structure and stiffness variability of the robot, it is hard to                       3) The equivalent beam is in pure bending when it has
+develop ideal beam models, and even finite element analysis                        deflections. (SI: Euler-Bernoulli Beam)
+
+VOLUME 10, 2022                                                                                                                                  130257
+                            Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+B. MODEL DERIVATION                                                            Substituting boundary conditions (9) into (8), the explicit
+In this section, the robot’s effective stiffnesses in the four               deflection solution is
+cases are analysed and derived corresponding to the four
+                                                                                               δ(x) = e(sin ax/ sin al − x/l)                       (10)
+deflection cases. Case 1, 3 and 4 are solved based on the
+Maxwell-Mohr method [21], while Case 2 is based on the                          In (10), since sin al appears in the denominator, the deflec-
+integral method [32].                                                        tion δ(x) will become infinite when al = bπ, (b ∈ Z ). This
+   In the Maxwell-Mohr method, the deflection of a beam can                  phenomenon is called buckling, and the corresponding axial
+be calculated as                                                             load is
+                          Z
+                             M (x)M (x)
+                  δ(x) =                 dx                (5)                                          FA = b2 π 2 D/l 2                           (11)
+                                  D
+where δ(x) is the deflection at x position, x ∈ [0, l] is the                   When b = 1, Fcr = FA |b=1 = π 2 D/l 2 is the critical load
+analytical position on the beam, M (x) is the resultant moment               of bulking. Once the external load FA ≥ Fcr , the beam will
+at x by an external load, M (x) is the moment at x due to the                buckle, and its stiffness will dramatically decrease. Since the
+unit load, D is flexural rigidity of the beam. (SI: Maxwell-                 tip deflection δAS is caused by the deflection δ(x) and both
+Mohr Method)                                                                 the two deflections are small, we assume δAS = max[δ(x)],
+                                                                             then the effective stiffness in this case is
+1) CASE 1 STRAIGHT BEAM UNDER TRANSVERSE LOAD                                        kAS = FT /δAS = FA / max[δ(x)],               FA < Fcr         (12)
+When the continuum robot is straight, and the transverse load
+FT is applied at the tip position, the resultant moment and unit             3) CASE 3 CURVED BEAM UNDER TRANSVERSE LOAD
+moment at section x are                                                      When the continuum robot is curved at a central angle β ∈
+                                                                             (0, π], and the transverse load FT is applied at the tip position,
+                       (
+                         M (x) = FT x
+                                                             (6)             the resultant moment and unit moment at x position are
+                         M (x) = x
+                                                                                                (
+   By substituting (6) into (5) and letting x = l, the effective                                  M (θ ) = FT l sin θ/β
+                                                                                                                                           (13)
+stiffness in this case can be defined as                                                          M (θ) = l sin θ/β
+          kTS = FT /δTS = FT /δ(x) |x=l = 3D/l 3                   (7)       where θ = β(l-x)/l is the central angle between x position
+                                                                             and the tip position.
+where δTS = δ(x) |x=l is the deflection at the tip position.
+                                                                                By substituting (13) into (5) and letting x = l, after corre-
+                                                                             spondingly conversing coordinates, the effective stiffness in
+2) CASE 2 STRAIGHT BEAM UNDER AXIAL LOAD
+                                                                             this case is defined as
+When the continuum robot is straight, and the external load
+FA is applied on the robot’s central axis, the stiffness of the                                kTC = FT /δTC = FT /δ(θ ) |x=l
+robot in the axial direction should be infinite when ignoring                                      = 4Dβ 3 /l 3 (2β − sin 2β)                       (14)
+the material strain. However, due to mechanical errors and
+assembly errors, the central lines of all movable parts cannot               where δTC = δ(θ) |x=l is the deflection at the tip position.
+be kept in an exact line with the robot’s central axis. Hence,                  Noted that β 3 /(2β − sin 2β) in (14) is monotonically
+infinite stiffness is only a theoretical stiffness under ideal               increasing about β. Hence, the effective stiffness kTC will
+conditions. In order to analyse the effective stiffness in the               increase when increasing the robot’s central angle β.
+axial direction, we assume that there is a distance error (e)
+between the external load direction and the robot’s central                  4) CASE 4 CURVED BEAM UNDER AXIAL LOAD
+axis. In addition, an extra lateral force will be generated                  This case is the same as Case 3 while the external load FA
+to restrict the robot’s lateral motion when the axial load is                is in the axial direction. When the axial load FA is applied at
+applied to the robot. Hence, the robot deflection can be anal-               the tip position, the resultant moment and unit moment at x
+ysed based on the fixed-fixed model [32], and its governing                  position are
+equation and general solution are                                                            (
+                                                                                               M (θ) = FA l(1 − cos θ)/β
+        d δ(x)                                                                                                                         (15)
+                      2 d δ(x)
+        4               2                   FA                                                M (θ) = l(1 − cos θ)/β
+                  + a          = 0, a2 =
+              4             2                D              (8)
+        dx              dx
+         δ(x) = C1 cos ax + C2 sin ax + C3 x + C4                               By substituting (15) in (5) and letting x = l, after corre-
+                                                                             spondingly conversing coordinates, the effective stiffness in
+where C1 , C2 , C3 , C4 are constants.
+                                                                             this case is defined as
+  According to the Euler-Bernoulli beam theory, the bound-
+ary conditions for the fixed-fixed model are                                              kAC = FA /δAC = FA /δ(θ) |x=l
+                                                                                              = 4Dβ 3 /l 3 (6β − 8 sin β + sin 2β)
+      (
+        δ(x) |x=0 = 0, δ(x) |x=l = 0                                                                                                                (16)
+                                                       (9)
+        δ 00 (x) |x=0 = 0, δ 00 (x) |x=l = −FA e/D                           where δAC = δ(θ ) |x=l is the deflection at the tip position.
+
+130258                                                                                                                                    VOLUME 10, 2022
+Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+FIGURE 7. Experiment setup. (a) Robot at 0◦ bending. (b) Robot at 90◦
+bending. (c) Robot at 180◦ bending. Note that A and T in the figure
+represent the axial and transverse directions, respectively.
+
+
+
+
+   Noted that β 3 /(6β − 8 sin β + sin 2β) in (16) is mainly
+monotonically decreasing about β. Hence, the effective stiff-
+ness kAC will decrease when increasing the robot’s central
+angle β.
+   When the robot is in a straight shape, equation (7) shows
+that the effective stiffness kTS is a constant with a specific
+flexural rigidity (D); equation (12) shows that the effective
+stiffness kAS is divided into two levels by the critical load
+(Fcr ): high stiffness before buckling and low stiffness after
+bucking. When the robot is bent, considering the monotonic-
+ity of equations (14) and (16), two specific curved angles
+(β = 90◦ , 180◦ ) in the middle point and end point of the angle
+range (β ∈ (0, π]) are selected for the stiffness experiments
+because the effective stiffness kTC and kAC about the curved
+angle (β) are increasing and decreasing, respectively.
+
+IV. EXPERIMENTS AND RESULTS
+A. EXPERIMENT SETUP
+A test rig is built for experiments to test the robot’s stiffness
+under different loading conditions. It consists of a linear actu-
+ator (L12-210-100-12I, Actuonix) and an S-Beam load cell
+(JLBS-M2-10Kg) to generate target deflections and collect
+resistance forces, respectively. In addition, a vacuum pump
+(KMDP-C1-12V) and a pressure sensor (DP-101A-E-P,
+Panasonic) are used to generate different vacuum pressures.
+To investigate the stiffness variation capability, the robot
+is tested at three different bending angles (0◦ , 90◦ , 180◦ )
+and four different vacuum pressures (0kPa, 25kPa, 50kPa,
+75kPa). The tests are shown in Fig. 7. In these experiments,                       FIGURE 8. Force-deflection plots of the robot under transverse
+the external load at the transverse and axial directions are                       (T direction) loads: (a) At 0◦ bending. (b) At 90◦ bending. (c) At 180◦
+                                                                                   bending.
+applied separately.
+
+B. FORCE-DEFLECTION RESULTS
+All the experimental data was collected and analysed using                         jamming sheath (n = 3). When the bending angle is 0◦
+MATLAB software. Each experiment was repeatedly con-                               (Fig. 8(a)), because all jamming layers are tightly contacted,
+ducted five times under the same condition, and the mean                           and there is no relative slip when vacuum pressure is applied,
+value of the measured force in an experiment was calculated.                       it shows the same stiffness tuning ability under different
+Error bars shown in the plots are ±1 standard deviation for                        pressures [21]. Hence, the resisting forces are almost the same
+every 5mm deflection (transverse direction) and every 2mm                          under the three vacuum pressures (25kPa, 50kPa, 75kPa),
+deflection (axial direction). The force-deflection results of the                  with the maximum values of 2.0N (n = 3) and 3.3N (n = 5).
+continuum robot are shown in Fig. 8 and Fig. 9.                                    When the bending angle is 90◦ (Fig. 8(b)), the overlap area of
+  From Fig. 8, it can be seen that both two types of jamming                       contacted jamming layers is changed, and it needs higher vac-
+sheaths can enforce the resistance force in both the transverse                    uum pressure to maintain no relative slip. Hence, the resisting
+and axial directions when vacuum pressures are applied, and                        force data of 50kPa and 75kPa are almost overlapping and
+the jamming sheath (n = 5) shows better ability than the                           higher than 25kPa (slip occurred). The maximum resisting
+
+VOLUME 10, 2022                                                                                                                                         130259
+                                Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+                                                                                 no-slip condition at all vacuum pressures. Therefore, higher
+                                                                                 vacuum pressure will not result in a better stiffening effect
+                                                                                 due to no relative slip occurring. When the bending angle is
+                                                                                 0◦ (Fig. 9(a)), the resistance forces are at the highest level
+                                                                                 and greater than in any other situation because ball joints
+                                                                                 on the support spine can provide hard contact in the axial
+                                                                                 direction, and jamming sheaths cover the spine to restrict
+                                                                                 its tilt movement. The maximum resisting force is 62.6N
+                                                                                 (n = 3) and 65.6N (n = 5) under the vacuum pressure of
+                                                                                 75kPa. When the bending angle is 90◦ (Fig. 9(b)), the robot
+                                                                                 shows almost the same resisting force under the vacuum
+                                                                                 pressure of 25kPa, 50kPa and 75kPa, with a maximum value
+                                                                                 of 7.6N (n = 3, 75kPa) and 8.4N (n = 5, 75kPa). When
+                                                                                 the bending angle changes to 180◦ (Fig. 9(c)), the contact
+                                                                                 layers are more likely to slip due to the change in the overlap
+                                                                                 area. Therefore, the resisting forces are different under all the
+                                                                                 vacuum pressures, and at the lowest level with the maximum
+                                                                                 values of 1.9N (n = 3, 75kPa) and 2.4N (n = 5, 75kPa).
+
+                                                                                 C. STIFFNESS VARIATION RESULTS
+                                                                                 In order to reduce errors and compare the stiffness under
+                                                                                 different conditions, average stiffness is calculated based on
+                                                                                 the force-deflection data presented in Fig. 8 and Fig. 9.
+
+                                                                                 1) STIFFNESS IN THE TRANSVERSE DIRECTION
+                                                                                 According to equations (7) and (14), the effective stiffness kTS
+                                                                                 and kTC should be constant with a specific flexural rigidity
+                                                                                 (D). However, the experimental data in Fig. 8(a)-(c) are only
+                                                                                 approximately linear. This error may result from the friction
+                                                                                 disturbance in the test rig, or the robot may not be perfectly
+                                                                                 replaced by an equivalent beam model when it has deflections
+                                                                                 because of complex structures and mechanical errors of the
+                                                                                 robot. Therefore, to eliminate errors, the average stiffness of
+                                                                                 the robot is calculated by
+                                                                                                                   10
+                                                                                                                   X  Fi
+                                                                                                            ST =              /10                       (17)
+                                                                                                                         δi
+                                                                                                                   i=1
+                                                                                 where ST is the average transverse stiffness, Fi is the resisting
+FIGURE 9. Force-deflection plots of the robot under axial (A direction)
+                                                                                 force at point i, δi is the deflection at point i, i is the deflection
+loads: (a) At 0◦ bending. (b) At 90◦ bending. c) At 180◦ bending.                point at Fig. 8(a)-(c), starting at 5mm and increasing 5mm
+                                                                                 each time to 50mm.
+forces are 9.4N (n = 3, 75kPa) and 10.8N (n = 5, 75kPa).
+                                                                                 2) STIFFNESS IN THE AXIAL DIRECTION
+When the robot is bent by 180◦ (Fig. 8(c)), in the convex part,
+the jamming layer overlap area becomes much less, and it                         When the robot is straight, as analysed in Case 2, the effective
+would be easier for the relative slip to occur. After deflection                 stiffness keeps at a high level before critical load and will
+of 15mm, both two types of jamming sheaths show contact                          decrease to a low level once the robot buckles. In Fig. 9(a),
+layers slipping under all the vacuum pressures and resulting                     this phenomenon can be clearly seen. Before the 2mm deflec-
+in different resisting forces. The maximum resisting forces in                   tion, the robot shows high stiffness and then decreases to
+this situation are 10.2 N (n = 3, 75kPa) and 16.4N (n = 5,                       a low level with the deflection increasing, especially in no
+75kPa).                                                                          vacuum pressure conditions. Therefore, the robot stiffness
+   In the axial direction, Fig. 9(a) and (b) show that the                       should be divided into two parts and calculated as
+                                                                                                     
+three different vacuum pressures (25kPa, 50kPa, 75kPa) have                                             F /δ , (F < Fcr )
+                                                                                                      j=1 j=1 j
+                                                                                                     
+                                                                                                     
+a negligible effect on changing the resisting force. This                                                5
+                                                                                              SAS = X Fj                                     (18)
+is because the axial loads can hardly detach the contact                                                        /4, (Fj ≥ Fcr )
+                                                                                                             δj
+                                                                                                     
+                                                                                                     
+jamming layers, and jamming sheaths always keep at the
+                                                                                                     
+                                                                                                             j=2
+
+130260                                                                                                                                        VOLUME 10, 2022
+Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+                                                                                   FIGURE 11. Photos of the robot actuating and gripping experiments.
+                                                                                   (a)-(f) The robot is at different bending postures. (g) The robot is gripping
+                                                                                   a paper roll with a weight of 590g and a diameter of 145mm. (h) The
+                                                                                   robot is gripping an iron bucket with a weight of 1.2kg and a diameter of
+                                                                                   180mm. (i)-(l) The robot is moving a piece of iron (511g) using its
+                                                                                   end-effector, (i)-(j) show a normal moving task, and (k)-(l) show the task
+                                                                                   with the obstacle. (Supplementary Videos).
+
+
+
+
+                                                                                   (n = 5, 75kPa). When the robot is at a bending of 180◦ ,
+FIGURE 10. Average stiffness results. (a) Transverse direction with n = 3.
+(b) Axial direction with n = 3. (c) Transverse direction with n = 5. (d) Axial
+                                                                                   it has a minimum stiffness of 92.9N/m (n = 3) and 106.7N/m
+direction with n = 5. Note that the red dots denote the average stiffness,         (n = 5) at the vacuum pressure of 0kPa, and the stiffness
+and the blue dots denote the stiffness before buckling.                            increases to 192.4N/m (n = 3) and 249.7N/m (n = 5) when
+                                                                                   the vacuum pressure reached 75kPa. Similarly, the stiffness
+                                                                                   has the same changing trend when the bending angle is 90◦ ,
+where SAS is the average axial stiffness when the robot is                         from 328.6N/m (n = 3, 0kPa) and 344.5N/m (n = 5, 0kPa)
+straight, Fj is the resisting force at point j, δj is the deflection               rising to 816.6N/m (n = 3, 75kPa) and 827.1N/m (n = 5,
+at point j, j is the deflection point at Fig. 9(a), starting at 2mm                75kPa), respectively.
+and increasing 2mm each time to 10mm.
+   When the robot is bent, equation (16) shows that the effec-                     D. ACTUATING AND GRIPPING EXPERIMENTS
+tive stiffness kAC is constant at a specific bending angle, and
+                                                                                   The designed prototype robot can be deployed as a general
+the experimental data in Fig. 9(b) and (c) also show a linear
+                                                                                   manipulator for completing tasks including gripping, moving,
+relationship between force and deflection. Hence, the average
+                                                                                   and inspection. Due to its inherent compliance and flexibility,
+stiffness is calculated as
+                                                                                   this prototype robot can carry an object by its body or end-
+                                    5
+                                    X Fj                                           effector, and it can easily reach behind obstacles. Experiments
+                           SAC =                /5                      (19)       about actuating and gripping are conducted to demonstrate
+                                           δj
+                                     j=1
+                                                                                   that this robot performs well. As an example, an electro-
+   As shown in Fig. 10, the average stiffness results show that                    magnet (GE-66-100-38, Magnetic Sensor Systems, USA) is
+the vacuum pressure can change the robot stiffness at any con-                     attached to the distal of the robot and works as an end-effector
+dition, and the jamming sheath with a layer overlap number                         in moving tasks. The robot performance demonstrations are
+n = 5 has greater stiffness increasing ability compared to                         shown in Fig. 11.
+n = 3. The robot stiffness increases and decreases with the
+bending angle increasing in the transverse direction and axial                     V. DISCUSSION
+direction, respectively. In the transverse direction, the robot                    The designed continuum robot uses ball joints to offer axial
+is bent 0◦ with a vacuum pressure of 0kPa has the minimum                          support, and stiffness variation capabilities in both the trans-
+stiffness, i.e. 36.4N/m (n = 3) and 65.7N/m (n = 5), whereas                       verse and axial directions are realized by combining with the
+the robot at the bending angle of 180◦ with a vacuum pressure                      jamming sheaths. Compared to previous research, this design
+of 75kPa has the maximum stiffness of 241.7N/m (n = 3) and                         has the advantages of higher axial stiffness, larger length
+398.3N/m (n = 5). At the bending angle of 90◦ , the stiffness                      changing ability of jamming sheaths, and a compact actua-
+is between that at bending 0◦ and 180◦ under each vacuum                           tor unit. Therefore, this robot can be deployed to different
+pressure.                                                                          applications and work as a manipulator or end-effector.
+   In the axial direction, when the robot is straight and not                         In the four stiffness cases, although the effective stiffness
+buckling, the robot stiffness increases from 9.2 × 103 N/m                         kTS , kTC , kAS , and kAC of the continuum robot cannot be
+to 19.3 × 103 N/m (n = 3) and 10.1 × 103 N/m to                                    numerically calculated due to the flexural rigidity (D) being
+20.8 × 103 N/m (n = 5) when the vacuum pressure changes                            hard to obtain because of the complex structure and stiffness
+from 0kPa to 75kPa. As presented before, this high stiffness                       variability of the robot, the stiffness changing tendency in
+is mainly a result of the mechanical stiffness of the sup-                         the four cases can instead be analysed qualitatively. When
+port spine. After buckling, the maximum average stiffness                          the robot is straight, the effective stiffness kTS is a constant
+decreases to 8.6×103 N/m (n = 3, 75kPa) and 8.7×103 N/m                            with a specific flexural rigidity (D), and the effective stiffness
+
+VOLUME 10, 2022                                                                                                                                         130261
+                                   Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+kAS is divided into two levels by the critical load (Fcr ): high                     [8] L. Blanc, A. Delchambre, and P. Lambert, ‘‘Flexible medical devices:
+stiffness before buckling and low stiffness after bucking, and                           Review of controllable stiffness solutions,’’ Actuators, vol. 6, no. 3,
+                                                                                         pp. 1–31, Jul. 2017.
+the critical load (Fcr ) is determined by the flexural rigidity                      [9] Y. Yang, Y. Li, and Y. Chen, ‘‘Principles and methods for stiffness modula-
+(D). When the robot is bent, the effective stiffness kTC will                            tion in soft robot design and development,’’ Bio-Des. Manuf., vol. 1, no. 1,
+increase while the effective stiffness kAC will decrease when                            pp. 14–25, Mar. 2018.
+                                                                                    [10] X. Gao, X. Li, C. Zhao, L. Hao, and C. Xiang, ‘‘Variable stiffness struc-
+the central angle of the continuum robot is increasing, respec-                          tural design of a dual-segment continuum with independent stiffness and
+tively. Effective stiffness modelling and flexural rigidity (D)                          angular position,’’ Robot. Comput.-Integr. Manuf., vol. 67, Feb. 2021,
+calculation are part of future work.                                                     Art. no. 102000.
+                                                                                    [11] M. Guan, Y. Yan, and Y. Wang, ‘‘A bio-inspired variable-stiffness method
+                                                                                         based on antagonism,’’ in Proc. 4th Int. Conf. Robot., Control Autom. Eng.
+VI. CONCLUSION                                                                           (RCAE), Nov. 2021, pp. 372–375.
+                                                                                    [12] Y. Kim, S. S. Cheng, and J. P. Desai, ‘‘Active stiffness tuning of a
+In this paper, a novel continuum robot named OctRobot-I is                               spring-based continuum robot for MRI-guided neurosurgery,’’ IEEE Trans.
+presented. By designing and applying support spine and layer                             Robot., vol. 34, no. 1, pp. 18–28, Feb. 2018.
+jamming sheaths, the robot has stiffness variation capability                       [13] Z. Xing, F. Wang, Y. Ji, D. McCoul, X. Wang, and J. Zhao, ‘‘A structure
+                                                                                         for fast stiffness-variation and omnidirectional-steering continuum manip-
+in both transverse and axial directions. A new jamming sheath                            ulator,’’ IEEE Robot. Autom. Lett., vol. 6, no. 2, pp. 755–762, Apr. 2021.
+weaving method using a nylon line and adjacent layers to                            [14] H. Wang, Z. Chen, and S. Zuo, ‘‘Flexible manipulator with low-melting-
+restrict jamming flaps is proposed, and its length changing                              point alloy actuation and variable stiffness,’’ Soft Robot., vol. 9, no. 3,
+                                                                                         pp. 577–590, Jun. 2022.
+ability is evaluated. Four deflection cases of the robot are                        [15] L. Yin, S. Wang, and S. Zuo, ‘‘Water-jet outer sheath with braided
+analysed. Based on the Euler-Bernoulli beam theory and                                   shape memory polymer tubes for upper gastrointestinal tract screening,’’
+Maxwell-Mohr method, the robot’s effective stiffnesses in                                Int. J. Med. Robot. Comput. Assist. Surg., vol. 14, no. 6, Dec. 2018,
+                                                                                         Art. no. e1944.
+four cases are defined and derived.
+                                                                                    [16] S. Kitano, T. Komatsuzaki, I. Suzuki, M. Nogawa, H. Naito, and
+   Experiments are conducted with two types of layer jam-                                S. Tanaka, ‘‘Development of a rigidity tunable flexible joint using
+ming sheaths (overlap numbers n = 3, 5) and four different                               magneto-rheological compounds—Toward a multijoint manipulator for
+                                                                                         laparoscopic surgery,’’ Frontiers Robot. AI, vol. 7, pp. 1–8, Apr. 2020.
+vacuum pressures (0kPa, 25kPa, 50kPa, 75kPa) at three dif-
+                                                                                    [17] W. R. Wockenfus, V. Brandt, L. Weisheit, and W.-G. Drossel, ‘‘Design,
+ferent bending angles (0◦ , 90◦ , 180◦ ). The results show that                          modeling and validation of a tendon-driven soft continuum robot for planar
+when the robot is fitted with the jamming sheath of n = 3, the                           motion based on variable stiffness structures,’’ IEEE Robot. Autom. Lett.,
+                                                                                         vol. 7, no. 2, pp. 3985–3991, Apr. 2022.
+stiffness ranges (ratios) are 36.4 to 241.7N/m (6.6) and 92.9 to
+                                                                                    [18] S. Jadhav, M. R. A. Majit, B. Shih, J. P. Schulze, and M. T. Tolley, ‘‘Variable
+19.3 × 103 N/m (207.8) in the transverse and axial directions,                           stiffness devices using fiber jamming for application in soft robotics and
+respectively. When fitted with the jamming sheath of n = 5,                              wearable haptics,’’ Soft Robot., vol. 9, no. 1, pp. 173–186, Feb. 2022.
+the stiffness ranges (ratios) are 65.7 to 398.3N/m (6.1) and                        [19] A. B. Clark and N. Rojas, ‘‘Assessing the performance of variable stiffness
+                                                                                         continuum structures of large diameter,’’ IEEE Robot. Autom. Lett., vol. 4,
+106.7 to 20.8 × 103 N/m (194.9) in the transverse and axial                              no. 3, pp. 2455–2462, Jul. 2019.
+directions, respectively. In addition, actuating and gripping                       [20] D. S. Shah, E. J. Yang, M. C. Yuen, E. C. Huang, and R. Kramer-Bottiglio,
+experiments demonstrated the control and payload of the                                  ‘‘Jamming skins that control system rigidity from the surface,’’ Adv. Funct.
+                                                                                         Mater., vol. 31, no. 1, Jan. 2021, Art. no. 2006915.
+robot.                                                                              [21] Y. S. Narang, J. J. Vlassak, and R. D. Howe, ‘‘Mechanically versatile soft
+   Future work includes further improvement of the effec-                                machines through laminar jamming,’’ Adv. Funct. Mater., vol. 28, no. 17,
+tiveness of the stiffness model for numerical analysis of the                            pp. 1–9, Apr. 2018.
+                                                                                    [22] Y.-J. Kim, S. Cheng, S. Kim, and K. Iagnemma, ‘‘A novel layer jam-
+stiffness variation capability, workspace analysis, real-time                            ming mechanism with tunable stiffness capability for minimally invasive
+position and stiffness control.                                                          surgery,’’ IEEE Trans. Robot., vol. 29, no. 4, pp. 1031–1042, Aug. 2013.
+                                                                                    [23] J. L. C. Santiago, I. S. Godage, P. Gonthina, and I. D. Walker, ‘‘Soft
+                                                                                         robots and kangaroo tails: Modulating compliance in continuum structures
+REFERENCES                                                                               through mechanical layer jamming,’’ Soft Robot., vol. 3, no. 2, pp. 54–63,
+ [1] S. Kolachalama and S. Lakshmanan, ‘‘Continuum robots for                            Jun. 2016.
+     manipulation applications: A survey,’’ J. Robot., vol. 2020, pp. 1–19,         [24] E. Amanov, T.-D. Nguyen, S. Markmann, and F. J. I. Burgner-Kahrs,
+     Jul. 2020.                                                                          ‘‘Toward a flexible variable stiffness endoport for single-site partial
+                                                                                         nephrectomy,’’ Ann. Biomed. Eng., vol. 46, pp. 1498–1510, May 2018.
+ [2] S. Li and G. Hao, ‘‘Current trends and prospects in compliant continuum
+                                                                                    [25] A. B. Clark and N. Rojas, ‘‘Stiffness-tuneable limb segment with flexible
+     robots: A survey,’’ Actuators, vol. 10, no. 7, p. 145, Jun. 2021.
+                                                                                         spine for malleable robots,’’ in Proc. Int. Conf. Robot. Autom. (ICRA),
+ [3] J. Burgner-Kahrs, D. C. Rucker, and H. Choset, ‘‘Continuum robots for               May 2019, pp. 3969–3975.
+     medical applications: A survey,’’ IEEE Trans. Robot., vol. 31, no. 6,          [26] A. B. Clark and N. Rojas, ‘‘Malleable robots: Reconfigurable robotic arms
+     pp. 1261–1280, Dec. 2015.                                                           with continuum links of variable stiffness,’’ IEEE Trans. Robot., vol. 38,
+ [4] P. E. Dupont, B. J. Nelson, M. Goldfarb, B. Hannaford, A. Menciassi,                no. 6, pp. 3832–3849, Dec. 2022.
+     M. K. O’Malley, N. Simaan, P. Valdastri, and G.-Z. Yang, ‘‘A decade            [27] Z. Liu, L. Xu, X. Liang, and J. Liu, ‘‘Stiffness-tuneable segment for
+     retrospective of medical robotics research from 2010 to 2020,’’ Sci. Robot.,        continuum soft robots with vertebrae,’’ Machines, vol. 10, no. 7, p. 581,
+     vol. 6, no. 60, Nov. 2021, Art. no. eabi8017.                                       Jul. 2022.
+ [5] M. Wang, ‘‘Design, modelling and validation of a novel extra slender           [28] M. Shen, A. B. Clark, and N. Rojas, ‘‘A scalable variable stiffness revolute
+     continuum robot for in-situ inspection and repair in aeroengine,’’ Robot.           joint based on layer jamming for robotic exoskeletons,’’ in Proc. Annu.
+     Comput.-Integr. Manuf., vol. 67, pp. 1–11, Feb. 2021.                               Conf. Towards Auto. Robotic Syst. Cham, Switzerland: Springer, 2020,
+ [6] J. Yan, P. Shi, Z. Xu, and J. Zhao, ‘‘A wide-range stiffness-tunable soft           pp. 3–14.
+     actuator inspired by deep-sea glass sponges,’’ Soft Robot., vol. 9, no. 3,     [29] M. Langer, E. Amanov, and J. Burgner-Kahrs, ‘‘Stiffening sheaths for
+     pp. 625–637, Jun. 2022.                                                             continuum robots,’’ Soft Robot., vol. 5, no. 3, pp. 291–303, Jun. 2018.
+ [7] M. Manti, V. Cacucciolo, and M. Cianchetti, ‘‘Stiffening in soft robotics: A   [30] K. Oliver-Butler, J. Till, and C. Rucker, ‘‘Continuum robot stiffness under
+     review of the state of the art,’’ IEEE Robot. Automat. Mag., vol. 23, no. 3,        external loads and prescribed tendon displacements,’’ IEEE Trans. Robot.,
+     pp. 93–106, Sep. 2016.                                                              vol. 35, no. 2, pp. 403–419, Apr. 2019.
+
+130262                                                                                                                                                VOLUME 10, 2022
+Y. Fan et al.: Novel Continuum Robot With Stiffness Variation Capability Using Layer Jamming: Design, Modeling, and Validation
+
+
+
+
+[31] M. M. Dalvand, S. Nahavandi, and R. D. Howe, ‘‘An analytical loading                                      DIKAI LIU (Senior Member, IEEE) received the
+     model for n-tendon continuum robots,’’ IEEE Trans. Robot., vol. 34, no. 5,                                Ph.D. degree in dynamics and control from the
+     pp. 1215–1225, Apr. 2018.                                                                                 Wuhan University of Technology, Wuhan, China,
+[32] C. M. Wang, J. N. Reddy, and K. H. Lee, ‘‘Buckling of columns,’’ in                                       in 1997.
+     Shear Deformable Beams and Plates, 1st ed. Amsterdam, The Netherlands:                                       He is currently a Professor with the Robotics
+     Elsevier, 2000, pp. 55–75.                                                                                Institute, University of Technology Sydney,
+[33] D. B. Camarillo, C. F. Milne, C. R. Carlson, M. R. Zinn, and J. K. Salisbury,                             Sydney, Australia. His main research interests
+     ‘‘Mechanics modeling of tendon-driven continuum manipulators,’’ IEEE
+                                                                                                               include robotics, including robot perception, plan-
+     Trans. Robot., vol. 24, no. 6, pp. 1262–1273, Dec. 2008.
+                                                                                                               ning and control of mobile manipulators operating
+[34] I. A. Karnovsky and O. Lebed, Advanced Methods of Structural Analysis.
+     Boston, MA, USA: Springer, 2010.                                                                          in complex environments, human–robot collabo-
+                                                                                     ration, multi-robot coordination, and bioinspired robotics.
+
+
+
+
+                                                                                                               LIN YE received the B.E. degree from Harbin
+                         YEMAN FAN (Student Member, IEEE) received                                             Engineering University, in 1982, and the M.E.
+                         the B.E. degree in machine designing, manufac-                                        and Ph.D. degrees from Beihang University, in
+                         turing and automation and the M.E. degree in                                          1984 and 1987, respectively.
+                         agricultural electrification and automation from                                         He is a Professor with the School of Aerospace,
+                         Northwest A&F University, Yangling, China, in                                         Mechanical and Mechatronic Engineering, The
+                         2016 and 2019, respectively. He is currently pur-                                     University of Sydney, Australia. His research
+                         suing the Ph.D. degree with the Robotics Institute,                                   interests include composites science and technol-
+                         University of Technology Sydney, Sydney, NSW,                                         ogy, smart materials and structures, nano-materials
+                         Australia.                                                                            and nano-composites, and structural integrity and
+                            His research interests include continuum robots                                    durability.
+and manipulators, robot control systems, and jamming technology for robot.
+
+
+
+
+VOLUME 10, 2022                                                                                                                                           130263
+

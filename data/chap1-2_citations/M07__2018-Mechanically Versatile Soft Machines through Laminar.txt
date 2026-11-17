@@ -1,0 +1,530 @@
+FULL PAPER
+Metamaterials                                                                                                                  www.afm-journal.de
+
+
+
+Mechanically Versatile Soft Machines through Laminar
+Jamming
+Yashraj S. Narang, Joost J. Vlassak, and Robert D. Howe*
+
+                                                                                                   resolution, as well as resist deformation,
+There are two major structural paradigms in robotics: soft machines, which                         apply high forces, and oscillate with min-
+are conformable, durable, and safe; and traditional rigid robots, which are                        imal decay.
+fast, precise, and capable of applying high forces. Here, the paradigms are                           To make more versatile robots,
+bridged by enabling soft machines to behave like traditional rigid robots                          researchers have aimed to enable soft
+                                                                                                   machines to selectively behave like tra-
+on command. This task is accomplished via laminar jamming, a structural
+                                                                                                   ditional rigid robots. In particular, soft
+phenomenon in which a laminate of compliant strips becomes strongly                                machines have been constructed with
+coupled through friction when a pressure gradient is applied, causing                              materials and structures that can exhibit
+dramatic changes in mechanical properties. Rigorous analytical and finite                          tunable stiffness and damping in order
+element models of laminar jamming are developed, and jamming structures                            to attain the mechanical properties of
+                                                                                                   traditional robots. These components
+are experimentally characterized to show that the models are highly accurate.
+                                                                                                   include low-melting-point materials,[10,11]
+Then jamming structures are integrated into soft machines to enable them to                        shape-memory materials,[12,13] magnetor-
+selectively exhibit the stiffness, damping, and kinematics of traditional rigid                    heological (MR) fluids,[14] and granular
+robots. The models allow jamming structures to efficiently meet arbitrary                          structures.[9,15] Nevertheless, most of
+performance specifications, and the physical demonstrations illustrate how                         these technologies cannot achieve a wide
+to construct systems that can behave like either soft machines or traditional                      range of stiffness and damping values
+                                                                                                   per unit weight (MR fluids, granular
+rigid robots at will, such as continuum manipulators that can rapidly have
+                                                                                                   structures), have low resolution of stiff-
+joints appear and disappear. This study aims to foster a new generation                            ness and damping values (low-melting-
+of mechanically versatile machines and structures that cannot simply be                            point materials), transition between these
+classified as “soft” or “rigid.”                                                                   values slowly (low-melting-point mate-
+                                                                                                   rials, shape-memory materials), and/or
+                                                                                                   have poor resistance to bending moments
+1. Introduction                                                              (MR fluids, granular structures).[9,16] Furthermore, none of
+                                                                             these technologies have yet enabled devices to rapidly transition
+Soft machines and traditional rigid robots have distinct forms               between the continuous deformations typical of soft machines
+and functions. Soft machines (e.g., elastomeric bending actua-               and the discrete, jointed deformations typical of traditional
+tors[1,2] and dielectric elastomer grippers[3,4]) are made of com-           robots. Previous efforts toward this goal have been limited
+pliant materials and bend or twist continuously along their                  by slow transition times, high stiffnesses when no power is
+length. Their actuation mechanism is typically distributed                   applied, and low efficiencies.[10,17]
+throughout their volume. Traditional rigid robots (e.g., robotic                The laminar jamming (a.k.a., “layer jamming”) phenomenon
+arms and humanoids) are made of stiff materials and bend                     is a promising alternative to these technologies (Figure 1A,B).
+or translate discretely at joints. Their actuation mechanism is              Laminar jamming structures are lightweight and can be rapidly
+usually confined to these joints. The structure of soft machines             actuated; moreover, they can achieve excellent range and reso-
+allows them to conform to complex shapes,[5,6] withstand                     lution of stiffness and damping values with high resistance to
+crushing loads,[7] dampen impacts, and interact safely with the              bending moments. A laminar jamming structure consists of a
+body.[8,9] In contrast, the structure of traditional rigid robots            laminate of flexible strips or sheets. In its default state, the lam-
+enables them to perform tasks quickly, precisely, and with high              inate is highly compliant. However, when a pressure gradient is
+                                                                             applied (in this study, by enclosing the laminate in an airtight
+                                                                             envelope and applying a vacuum to the envelope), increased
+Y. S. Narang, Prof. J. J. Vlassak, Prof. R. D. Howe                          frictional interactions dramatically augment the bending stiff-
+Paulson School of Engineering and Applied Sciences                           ness of the structure; in addition, at high loads, the structure
+Harvard University                                                           dissipates energy. Researchers have applied laminar jamming
+Cambridge, MA 02138, USA                                                     to haptics,[18–20] medical devices,[21,22] and soft actuators.[23,24]
+E-mail: howe@seas.harvard.edu
+                                                                             Nevertheless, these studies have not yet provided analytical or
+      The ORCID identification number(s) for the author(s) of this article
+      can be found under https://doi.org/10.1002/adfm.201707136.
+                                                                             computational models for laminar jamming beyond an ini-
+                                                                             tial deformation phase, making design of practical jamming
+DOI: 10.1002/adfm.201707136                                                  structures an arduous process. Furthermore, they have not
+
+
+Adv. Funct. Mater. 2018, 1707136                                  1707136 (1 of 9)               © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                            www.afm-journal.de
+
+
+
+
+Figure 1. Fundamental behavior of laminar jamming structures. A) Schematic of a jamming structure. B) When vacuum is off, the layers bend
+independently, and the structure has low bending stiffness. When vacuum is on, the layers bend as a cohesive unit, and the structure has high bending
+stiffness. C) However, when vacuum is on, the layers are cohesive only until a critical force. For higher forces, longitudinal shear stress is large
+enough to cause the layers to slip at certain points along their interfaces. D) Summary of mechanical behavior. When vacuum is off, the structure has
+low bending stiffness, which is proportional to the slope of the curves. When vacuum is on, the structure has three deformation regimes. In pre-slip,
+the bending stiffness is maximal and constant. After the first critical load, the structure enters the transition regime, in which the layers begin to slip.
+The bending stiffness decreases. After the second critical load, the structure enters full-slip, in which the layers have slipped at all possible points
+along their interfaces. The bending stiffness is minimal and constant. When slip occurs, energy is dissipated to friction between the layers, and the
+structure behaves plastically.
+
+
+yet explored how laminar jamming can be used to transform                       2. Results
+bending kinematics.
+   In this paper, we model laminar jamming in detail and                        2.1. Analytical Modeling
+demonstrate how the technology can bridge the gap between
+soft machines and traditional rigid robots. Specifically, we                    As described earlier, when a vacuum is applied to a laminar jam-
+develop an analytical model that mathematically captures how                    ming structure, the bending stiffness increases dramatically. Pre-
+two-layer jamming structures behave over all major phases                       vious studies have shown that the stiffness increases by a factor
+of deformation. We then develop finite element models that                      of n2, where n is the number of layers in the structure; thus,
+extend these predictions to many-layer jamming structures,                      applying a vacuum to a structure with just 32 layers can increase
+as well as describe how their stiffness and damping depend                      its stiffness by 3 orders of magnitude. However, the vacuumed
+on critical design inputs (e.g., the vacuum pressure). These                    jamming structure sustains this increased stiffness only over a
+models are validated through rigorous experimental charac-                      limited range of loads, beyond which the stiffness declines.[18,21]
+terization. Together, the analytical and finite element models                     In our investigation, physical reasoning suggested that this
+present researchers with the first means to rapidly and accu-                   behavior reflected three phases of deformation in a vacuumed
+rately design jamming structures to meet arbitrary design                       jamming structure (Figure 1C,D): (1) In pre-slip, the layers
+requirements.                                                                   are cohesive, and the stiffness of the structure is a factor of n2
+   We then demonstrate the capabilities of laminar jamming                      greater than the stiffness without vacuum. No energy is dissi-
+structures by integrating them into real-world pneumatic and                    pated, and the damping (i.e., dissipated energy per unit deflec-
+cable-driven soft machines. In the process, we achieve two                      tion) is zero. As the structure is loaded, the longitudinal shear
+novel functions that illustrate how these machines can revers-                  stress along the interfaces between layers begins to rise. (2) In
+ibly emulate traditional rigid robots: (1) shape-locking, in which              the transition regime, the longitudinal shear stress along certain
+a compliant system can selectively manifest a stiff version of                  regions of the interfaces equals the maximum possible shear
+a desired shape and preserve it, even after powering off the                    stress, which is determined by the coefficient of friction and the
+actuators, and (2) variable kinematics, in which a compliant                    pressure gradient. Layers begin to slip along those regions, and
+system can transition between continuous bending and dis-                       the stiffness of the structure decreases. Energy is dissipated to
+crete, jointed bending on command. The variable kinematics                      friction, and the damping increases. (3) In full-slip, all layers
+function is then used to build a two-fingered grasper that can                  have slipped along the full length of their interfaces. The stiff-
+perform pinch grasps on small objects, as well as wrap grasps                   ness of the structure is minimal, and the damping is maximal.
+on objects of eight times the diameter. These demonstra-                           To mathematically capture this behavior, we derived an ana-
+tions prove the feasibility of using laminar jamming to build                   lytical model that rigorously described the deformation and
+mechanically versatile machines and structures that exhibit                     mechanical properties of jamming structures during these
+both soft and traditional behaviors.                                            phases. Our model was based on Euler–Bernoulli beam theory;
+
+
+Adv. Funct. Mater. 2018, 1707136                                    1707136 (2 of 9)                  © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                        www.afm-journal.de
+
+
+
+
+Figure 2. Analytical model of two-layer jamming structures. A) Schematic of example jamming structure. B) Elastica of jamming structure for increasing
+loads. The slipped region is highlighted at each load; because shear stress decreases along the x-direction, the slipped region initiates at the clamped
+end and grows toward the free end. Two-layer finite element models corroborated that slip occurred in analytically predicted regions. C) Bending stiff-
+ness is proportional to the slope of the load-versus-deflection curve; as expected, the stiffness transitions from a minimal to a maximal value. Damping
+is proportional to the slope of the dissipated-energy-versus-deflection curve; damping transitions from zero to a maximal value. Finite element models
+closely corroborated analytically predicted stiffness and damping values. (SI: Analytical Modeling: Case Study)
+
+however, we extended the theory to describe how mechanical                    desire to build real-world jamming structures with additional
+behavior was affected by vacuum pressure, friction at the inter-              layers to further adjust their properties. Our analytical model
+faces between layers, and slip along the interfaces. Governing                can be directly extended to describe many-layer jamming struc-
+equations were derived using equilibrium and moment-stress                    tures (SI: Analytical Modeling: Extending the Model). However,
+relations, and general boundary conditions were formulated                    the process is algebraically taxing, and numerical methods may
+(SI: Analytical Modeling: Governing Equations and Boundary                    be preferred.
+Conditions). The boundary-value problem was then solved for a                    To predict the mechanical behavior of many-layer jamming
+two-layer cantilevered jamming structure under a uniform dis-                 structures, we conducted finite element simulations. The jam-
+tributed load (SI: Analytical Modeling: Explicit Solution); this              ming structures were modeled as 2D plane-strain structures
+case was chosen to illustrate slip propagation (i.e., growth of               with dimensions, material properties, boundary conditions,
+the regions along which layers slip), which is exhibited by most              and loads equal to those of real-world jamming structures used
+jamming structures.                                                           later in experimental validation (SI: Finite Element Modeling:
+   The model predicted the elastica (i.e., the shape), stiffness,             Stiffness and Damping of Many-Layer Jamming Structures).
+dissipated energy, and damping of the jamming structure. The                  Furthermore, simultaneous frictional contact was allowed to
+model also predicted the transition loads (i.e., the loads at which           occur at all interfaces, and large-deformation analysis was ena-
+the jamming structure shifts from one deformation phase to the                bled. No fitting parameters were used.
+next), as well as the length of the region along which the layers                The results of the finite element simulations were used to
+slipped. Furthermore, it provided the functional dependence of                quantify how critical design inputs affected major performance
+all the preceding quantities on dimensions, material properties,              metrics of many-layer jamming structures. Specifically, the
+the vacuum pressure, and the applied load (SI: Analytical Mod-                number of layers, vacuum pressure, and coefficient of friction
+eling: Summary of Formulae). For example, the model showed                    of the layers were varied, and the stiffness and damping values
+that the full-slip damping force was given succinctly by μPbh,                of the jamming structures during pre-slip and full-slip were
+where μ is the coefficient of friction, P is the vacuum pressure,             extracted. The polynomial relationship between each input and
+b is the width of a layer, and h is the height. Dimensionless                 output was determined, and the resulting scaling relations were
+forms of the equations in the model were derived as well (SI:                 tabulated (SI: Finite Element Modeling: Functional Dependen-
+Analytical Modeling: Dimensionless Forms). The model was                      cies). For example, full-slip damping was found to scale linearly
+evaluated for an example structure (Figure 2), and the results                with number of layers, vacuum pressure, and coefficient of
+were corroborated by two-layer finite element models (SI: Finite              friction.
+Element Modeling: Two-Layer Jamming Structures).                                 To evaluate the accuracy of the finite element models, experi-
+                                                                              mental characterization of many-layer jamming structures was
+                                                                              conducted. Jamming structures were fabricated according to
+2.2. Finite Element Modeling and Experimental Characterization                a multistep process (SI: Experimental Characterization: Fab-
+                                                                              rication Process), and the repeatability of the structures was
+Although the analytical model rigorously predicted the mechan-                assessed (SI: Experimental Characterization: Repeatability
+ical behavior of two-layer jamming structures, designers may                  Analysis). The jamming structures were highly repeatable
+
+
+Adv. Funct. Mater. 2018, 1707136                                  1707136 (3 of 9)                 © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                                                             www.afm-journal.de
+
+
+                                         Effect of Number of Layers                    Effect of Vacuum Pressure                       Effect of Coefficient of Friction
+                                         (Vacuum Pressure = 71 kPa,                     (Number of Layers = 20,                           (Number of Layers = 20,
+                                         Coefficient of Friction = 0.65)               Coefficient of Friction = 0.65)                   Vacuum Pressure = 71 kPa)
+                                10                                    20 layers                                     71 kPa                                              µ=0.75
+
+
+                                8
+            Applied force [N]
+
+
+
+
+                                                                      15 layers                                     47 kPa
+                                                                                                                                                                        µ=0.50
+                                6
+
+
+                                4                                     10 layers                                     24 kPa
+                                                                                                                                                                        µ=0.25
+                                2
+                                                                       5 layers
+                                                                                                                         0 kPa
+                                0
+                                     0      2           4         6               80      2           4         6                8 0        2          4            6            8
+                                                Deflection [mm]                               Deflection [mm]                                   Deflection (mm)
+                                         Experimental        Finite element            Experimental        Finite element                          Finite element
+
+Figure 3. Finite element predictions and experimental validation for many-layer jamming structures. Jamming structures were loaded in three-point
+bending. Each experimental curve in fact consists of a mean curve and shaded error bar that spans ±1 standard deviation; the maximum deviation
+on any curve is 0.24 N, indicating high repeatability. The minimum coefficient of determination (R2) between finite element and experimental data is
+0.9879, demonstrating exceptional predictive accuracy. (No experimental data are shown for coefficient of friction, as friction could not be precisely
+adjusted.) Hysteresis and damping predictions were experimentally evaluated as well (Figure S6, Supporting Information).
+
+from loading cycle to loading cycle and sample to sample. The                                         and a cable routed through the substrate to actuate bending
+many-layer jamming structures were then tested in three-point                                         (Figure 5A). Note that when the rubber substrate and the vacu-
+bending for various numbers of layers and vacuum pressures                                            umed state of the jamming structure are considered separately,
+(SI: Experimental Characterization: Stiffness and Damping                                             their bending kinematics are entirely distinct. The substrate
+Characterization Process). Transverse force and maximum                                               bends continuously along its length, whereas the vacuumed
+deflection was recorded, and finite element predictions were                                          jamming structure bends discretely at its narrow gaps, which
+compared to experimental data (Figure 3). The finite ele-                                             act as joints. When the substrate and the jamming structure
+ment models predicted experimental results with exceptional                                           are adhered, the bending kinematics of the system may vary
+accuracy.                                                                                             between these two extremes.
+                                                                                                         To enable the system to transition between continuous and
+                                                                                                      discrete kinematics, the bending stiffnesses of the substrate
+2.3. Useful Functions                                                                                 and jamming structure were judiciously selected. The thickness
+                                                                                                                                                                                     1
+                                                                                                      of the substrate was chosen so that ksub = (kjam
+                                                                                                                                                   nv     v
+                                                                                                                                                       * kjam )2 , where
+2.3.1. Shape-Locking
+                                                                                                                                                         nv
+                                                                                                      ksub is the bending stiffness of the substrate, kjam   is the stiffness
+                                                                                                                                                               v
+Two real-world capabilities of laminar jamming structures                                             of the jamming structure without vacuum, and kjam           is the pre-
+were demonstrated by integrating them into soft machines.                                             slip stiffness of the jamming structure with vacuum. (In equiv-
+First, the shape-locking function was demonstrated. A pneu-                                           alent terms, ksub was the geometric mean of the unjammed and
+matically powered soft bending actuator was fabricated (SI:                                           jammed stiffnesses.) In addition, the number of layers in the
+Functions and Applications: Shape-Locking), and a 20-layer                                            jamming structure was chosen so that kjam   v
+                                                                                                                                                     >> kjamnv
+                                                                                                                                                               . Thus, when
+jamming structure was adhered to the ventral surface (i.e.,                                           no vacuum was applied and the cable was pulled, the stiffness
+the longitudinal surface closer to the center of curvature when                                       of the system would be dominated by ksub, and the system
+the actuator was inflated). The actuator was then pressurized.                                        would bend continuously. When vacuum was applied, the stiff-
+                                                                                                                                        v
+When the actuator was depressurized, the system naturally                                             ness would be dominated by kjam     , and the system would bend
+returned to its undeformed configuration; however, when a                                             discretely.
+vacuum was applied to the jamming structure before the actu-                                             To evaluate this concept prior to prototyping, finite element
+ator was depressurized, the system preserved its shape with                                           simulations of the system were conducted (SI: Finite Element
+high fidelity (Figure 4).                                                                             Modeling: Variable Kinematics). The system was modeled as
+                                                                                                      a multipart 2D plain-strain structure fixed at one end, and to
+                                                                                                      approximate cable loading, a pure moment load was applied at
+2.3.2. Variable Kinematics                                                                            the free end. The shape of the system was visualized, and the
+Next, the variable kinematics function was demonstrated. A                                                                                      κ       
+                                                                                                      ratio of maximum to mean curvature  max  was computed
+robotic system was designed that consisted of three major                                                                                        κ mean 
+parts: a silicone rubber substrate, a three-part jamming struc-                                       along the ventral arc as a measure of discreteness. When no
+ture (i.e., three stacks of material, separated by narrow gaps),                                      vacuum was applied, the system deformed continuously, and
+
+
+
+Adv. Funct. Mater. 2018, 1707136                                                        1707136 (4 of 9)                           © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                         www.afm-journal.de
+
+
+
+
+Figure 4. Demonstration of shape-locking function. A–D) A jamming structure consisting of 20 layers of copy paper was deformed into various shapes;
+vacuum was then applied, and the shape was preserved in all cases. E) A 20-layer jamming structure was then adhered to a pneumatic soft actuator.
+The actuator was initially pressurized to 16 kPa to achieve a desired bending angle. F1) In a first test, no vacuum was applied to the jamming structure,
+and the actuator was depressurized. The composite structure immediately returned to its undeformed state. F2) In a second test, a vacuum pressure
+of 85 kPa was first applied to the jamming structure, and the actuator was then depressurized. Quantity R2 between the arc of the ventral surface in E
+and the same arc in F2 was 0.9835. Thus, the system preserved its shape with high fidelity.
+
+
+ κ max                                                                        2.4. Application
+       remained low. When vacuum was applied, the system
+κ mean
+                          κ max
+deformed discretely, and         increased by a factor of 6.65 at             2.4.1. Two-Fingered Grasper
+                          κ mean
+high loads (Figure 5B,C).
+   Finally, a prototype of the system was fabricated (SI:                     In robotic hands, compliant fingers that bend continuously can
+Functions and Applications: Variable Kinematics). The pro-                    facilitate wrap grasps around large objects,[25] whereas rigid
+totype deformed according to finite element predictions, and                  fingers that bend discretely at joints can facilitate pinch grasps
+application of vacuum allowed it to select between continuous                 around smaller objects;[26,27] it is challenging to design and
+and discrete kinematics (Figure 5D).                                          fabricate hands capable of both. To accomplish the task, we
+
+
+
+
+Figure 5. Finite element modeling and experimental demonstration of variable kinematics function. A) Schematic of variable kinematics system.
+B,C) Finite element simulations of variable kinematics behavior at increasing cable loads. At the highest load, the ratio of maximum to mean curvature
+increased by a factor of 6.65 with vacuum on, quantitatively verifying the creation of joints. D) Experimental validation of variable kinematics system.
+E) A two-fingered grasper was constructed in which each finger consisted of a variable kinematics system with a rounded fingertip. When no vacuum
+was applied to the fingers, the grasper could conform to a large ball, hold it aloft, and resist perturbation, thus performing a stable wrap grasp. When
+vacuum was applied, the grasper could perform a stable pinch grasp on a ball of one-eighth the diameter.
+
+
+Adv. Funct. Mater. 2018, 1707136                                  1707136 (5 of 9)                  © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                            www.afm-journal.de
+
+
+built a two-fingered grasper in which each finger consisted of        jamming structures. These relations provide researchers
+a cable-actuated variable kinematics system with a rounded            with a rapid means to meet arbitrary design requirements.
+fingertip. When no vacuum was applied and the cables were             For instance, if the full-slip stiffness of a jamming structure
+pulled, the fingers bent continuously, and the device could per-      must be reduced by a factor of four (e.g., for an orthosis that
+form a stable wrap grasp on a ball of diameter 20 cm. When            softens at high loads for user safety), the relations show that
+vacuum was applied first, the fingers bent discretely, and the        the number of layers or vacuum pressure can be reduced by
+device could perform a stable pinch grasp on a ball of one-           a factor of four, or the coefficient of friction can be reduced
+eighth the diameter (Figure 5E).                                      by a factor of two (Table S1, Supporting Information). Like-
+   To evaluate the stability of the grasps, multiaxis stiffness       wise, if the full-slip damping of a jamming structure must be
+measurements were conducted and a perturbation test was               increased by a factor of four (e.g., for a field robot that dampens
+performed (SI: Functions and Applications: Two-Fingered               impacts to protect components), then the number of layers,
+Grasper). Stiffness measurements showed that the maximum              vacuum pressure, or coefficient of friction can be increased
+bending stiffness of a finger increased by at least a factor of       by a factor of four. The vacuum pressure can be controlled on
+32 when vacuum was applied. Simultaneously, the off-axis              command with a vacuum regulator; thus, full-slip stiffness
+bending stiffness (i.e., the stiffness along the perpendicular        and damping can be adjusted in real-time. The finite element
+bending axis) increased by a factor of 2.5, and the torsional         models can be used to derive functional dependencies between
+stiffness increased by a factor of 2.7. Furthermore, perturba-        additional performance metrics and design inputs as desired.
+tion tests demonstrated that the force required to dislodge the       Note that although the models and experiments in this study
+small ball was at least a factor of eight greater when vacuum         investigated jamming structures with a maximum of 20 layers,
+was applied and the discretely bending fingers were used, com-        the extracted functional dependencies are applicable to struc-
+pared to when no vacuum was applied and the continuously              tures with arbitrary numbers of layers; however, as the number
+bending fingers were used. As an additional feature, applying         of layers increases, it may become challenging to physically
+vacuum after the continuously bending fingers performed a             achieve a homogeneous vacuum pressure throughout the
+grasp increased their resistance to further deformation.              structure.
+
+
+
+3. Discussion                                                         3.2. Useful Functions
+
+3.1. Modeling                                                         Previous studies applied laminar jamming to diverse applica-
+                                                                      tions. However, these studies almost exclusively used laminar
+Earlier studies of laminar jamming exclusively predicted the          jamming to control stiffness; furthermore, when the jam-
+stiffness of jamming structures during pre-slip, as well as the       ming structures were integrated with actuators, the structures
+first transition load (i.e., the load at which the structures move    controlled the stiffness of the system while the actuators were
+from pre-slip to the transition regime).[18,21,28] In contrast, our   continuously powered. We expanded on these capabilities by
+analytical model predicted the elastica, stiffness, energy dissipa-   demonstrating shape-locking and variable kinematics. The
+tion, and damping of two-layer jamming structures during pre-         former enables soft machines to preserve their shape after the
+slip, the transition regime, and full-slip, as well as determining    actuation input is removed, whereas the latter enables them to
+both the first transition load and the second transition load         select between continuous and discrete bending.
+(i.e., the load at which the structures move from the transition         Shape-locking illustrates one way in which laminar jam-
+regime to full-slip). Our finite element models of many-layer         ming structures can enable soft machines to reversibly emu-
+jamming structures then extended the predictions of the analyt-       late traditional rigid robots. Nearly, all traditional robotic arms
+ical model to structures with arbitrary numbers of layers. Thus,      can navigate to an arbitrary location in their workspace and
+the analytical and finite element models completely described         resist static loading. Furthermore, some arms have brakes
+the mechanical behavior of jamming structures over all three          that allow them to resist loading after power is disconnected.
+phases of deformation.                                                Shape-locking endows soft machines with precisely this
+    Together, the models provide designers with an accurate and       ability, as it enables them to achieve an arbitrary configura-
+efficient means to predict the mechanical behavior of arbitrary       tion, lock in place, and resist static loading, even after dis-
+jamming structures. In particular, no models have existed for         connecting the actuation input. Soft machines can thus save
+mechanical behavior in the transition regime or full-slip. To         power by requiring no control effort to preserve their shape;
+determine how a particular jamming structure will behave in           furthermore, soft machines with high material strain (e.g.,
+these phases, designers have had to fabricate and characterize        McKibben actuators) can be deflated after locking, mitigating
+the structure. In our experience, this process requires hours         the risk of catastrophic rupture. Shape-locking may also be
+of continuous labor per structure. In contrast, the analytical        achieved by combining soft actuators with other materials
+model can predict experimental behavior for a two-layer jam-          and structures capable of tunable stiffness and damping, such
+ming structure immediately, and a finite element simulation           as recently developed thermally activated fibers and compos-
+can predict experimental behavior for a many-layer structure in       ites;[29–31] however, laminar jamming offers a promising com-
+less than one hour without supervision.                               bination of rapid actuation, human safety, and high range of
+    In addition, the functional dependencies of performance           bending stiffness between the deforming and shape-locked
+metrics on design inputs were extracted for many-layer                states.
+
+
+Adv. Funct. Mater. 2018, 1707136                            1707136 (6 of 9)             © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                  www.afm-journal.de
+
+
+   Variable kinematics comprises a second way in which lam-             4. Conclusion
+inar jamming structures can link the behavior of soft machines
+and traditional rigid robots. Specifically, this function can allow     This paper demonstrates how the nonlinear structural phe-
+soft machines to rapidly transform between a highly compliant           nomenon of laminar jamming can bridge the paradigms of soft
+state in which they can conform to arbitrary shapes, and a rigid,       robotics and traditional rigid robotics. We have derived an ana-
+jointed state in which they can behave like a serial manipulator.       lytical model for two-layer jamming structures over all major
+As demonstrated in this study, variable kinematics can enhance          phases of deformation, constructed highly accurate finite ele-
+the performance of robotic graspers. Moreover, this capability          ment models of many-layer laminar jamming structures, and
+can be useful for any device where both conformability and              extracted functional dependencies of major performance met-
+rigidity are desired (e.g., in surgical devices that must traverse      rics on critical design inputs. We have demonstrated two novel
+vasculature, but subsequently apply high forces).                       functions, shape-locking and variable kinematics, that illustrate
+   More generally, variable kinematics facilitates the mod-             how laminar jamming can reversibly endow soft machines
+eling, sensing, and control of soft machines. For traditional           with behavior typical of traditional rigid robots. We also built a
+rigid robots, multirigid-body mechanics can describe forward            simple grasper capable of both pinch grasps and wrap grasps,
+and inverse kinematics; on the other hand, soft machines                demonstrating how laminar jamming can enhance the perfor-
+require the mathematical tools of continuum mechanics,                  mance of real-world soft robotic systems. Collectively, our work
+which are generally far more complex. Furthermore, in tradi-            elucidates the mechanics of laminar jamming, accelerates the
+tional rigid robots, a small number of sensors can accurately           design process of jamming structures, and provides a founda-
+estimate configuration; in soft machines, many sensors are              tion for creating mechanically versatile machines and struc-
+required. Because modeling and sensing is more complex for              tures that cannot simply be categorized as “soft” or “rigid.”
+soft machines, control is inherently more difficult.[32] Variable
+kinematics allows soft machines to behave like multirigid-body
+systems, with rigid links connected by joints. Thus, they can be        5. Experimental Section
+modeled and sensed like traditional rigid robots, greatly simpli-
+                                                                        The following is an abridged description of the methods used in this
+fying their control. (It is interesting to note that octopuses use      study. For complete detail, see Supporting Information.
+variable kinematics to simplify control, creating joints along             Analytical Modeling: The axial strain fields in each layer of the
+their tentacles to facilitate fetching tasks.[33])                      jamming structure were approximated as a superposition of a field that
+                                                                        varied linearly with the vertical coordinate and a field that was constant
+                                                                        with the vertical coordinate. An interfacial displacement variable was
+3.3. Limitations                                                        defined. Moment-stress relations and static equilibrium were used to
+                                                                        derive governing equations for sections of the structure with cohesive
+                                                                        interfaces and sections with slipped interfaces. Boundary conditions
+Our modeling and demonstrations have three notable limita-              were formulated for clamped and free boundaries, and continuity
+tions, each of which can be resolved as described. First, in            conditions were defined to couple cohesive and slipped interfaces. The
+our finite element models of many-layer jamming structures,             boundary-value problem was then explicitly solved to determine the
+the execution time of the simulations scaled linearly with the          elastica of a cantilevered jamming structure with a uniform distributed
+number of layers; for models of jamming structures with                 load in the pre-slip regime, transition regime, and full-slip regime.
+                                                                        During the transition regime, the location of the transition between
+exceptionally high numbers of layers, the time may become
+                                                                        cohesive and slipped interfaces was also determined. The results were
+prohibitive. Nevertheless, as the numbers of layers increases in        then used to derive stiffness, energy dissipation, and damping in each
+a jamming structure with a fixed total thickness, the structure         regime, as well as critical loads between the regimes. Dimensionless
+may be accurately approximated as a single crystal with a single        parameters were defined to nondimensionalize all results.
+slip system. This structure can be simulated more simply than              Finite Element Modeling: All finite element models were constructed
+a multilayer structure, reducing execution time (SI: Finite Ele-        using finite element simulation software (ABAQUS 6.14r2, Dassault
+                                                                        Systèmes, Villacoublay, France). In the finite element models of the two-
+ment Modeling: Limiting Behavior).
+                                                                        layer and many-layer jamming structures, each layer was approximated
+   Second, in our shape-locking demonstration, our prototype            as a 2D plane-strain structure. Pressure equal to vacuum pressure was
+still required a vacuum source to be connected after depres-            applied to all outer surfaces, and loads were subsequently applied. Large-
+surization. Thus, the device would be challenging to operate in         deformation analysis was enabled, and the interfaces between the layers
+environments where supporting equipment is unavailable. This            were defined as contact surfaces with a penalty friction formulation. A
+difficulty could be resolved by using a one-way valve to main-          uniform mesh was used consisting of square four-node bilinear plane-
+tain vacuum after the vacuum input is disconnected.                     strain quadrilateral elements with reduced integration. Each layer was
+                                                                        meshed with two elements across its thickness.
+   Third, in our demonstrations, vacuum was used to actuate                In the finite element models of the variable kinematics structures, the
+the jamming structures. As a result, the maximum pressure               rubber substrate and each of the jamming structures were modeled as
+gradient acting on the jamming structures was limited to the            a homogeneous 2D plane-strain structure. To simulate the vacuum-on
+absolute ambient pressure, which in turn reduced the max-               condition, the elastic modulus of the jamming structure was assigned
+imum load that could be sustained by the structures before              to that of paper, and to simulate the vacuum-off condition, the modulus
+their stiffness declined. This limit may be overcome by using           was reduced by a factor of n2, with n = 20 to match experimental
+                                                                        conditions. Cable actuation was approximated as a pure moment load.
+electrostatic actuation[28] or elastic actuation, in which the layers
+                                                                        Large-deformation analysis was enabled. A uniform mesh was used
+are reversibly compressed by an external elastic structure (e.g.,       consisting of square four-node bilinear plane-strain quadrilateral hybrid
+a mesh envelope[24] or spring clips (SI: Additional Concepts:           elements with reduced integration. The structure was meshed with four
+Spring-Based Jamming)).                                                 elements across its thickness.
+
+
+Adv. Funct. Mater. 2018, 1707136                              1707136 (7 of 9)               © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                           www.afm-journal.de
+
+
+    Fabrication of Jamming Structures: The jamming structures were           assistance. Funding was provided by the National Science Foundation
+fabricated in five distinct steps: (1) Sheets of copy paper (HP Ultra        Graduate Research Fellowship Award 1122374 and the National Science
+White Multipurpose Copy Paper) were cut into strips on a laser cutter        Foundation National Robotics Initiative Grant CMMI-1637838.
+(VLS4.60, Universal Laser Systems, Inc., Scottsdale, AZ). (2) An acrylic
+frame enclosing the strips was cut on the laser cutter. The height of
+the acrylic frame was selected to be greater than the total thickness of
+the strips. The frame was used only for fabrication and did not comprise     Conflict of Interest
+part of the jamming structure. (3) A sheet of thermoplastic polyurethane
+                                                                             The authors declare no conflict of interest.
+(TPU) (American Polyfilm, Inc., Branford, CT) was formed to the acrylic
+frame on a vacuum former (Formech 300XQ, Formech International
+Limited, Hertfordshire, UK). (4) The strips of paper and TPU tubing
+(Eldon James Corp., Denver, CO) were placed into the frame. The TPU
+sheet was folded over its contents, and the assembly was pressed in a
+                                                                             Keywords
+heat press (Powerpress, Fancierstudio, Hayward, CA) at 100 °C. Since         laminar jamming, shape locking, soft robotics, variable impedance,
+the height of the acrylic frame was greater than the total thickness of      variable kinematics
+the strips, the force of the heat press was concentrated on the frame;
+thus, only the region of the TPU sheet above the frame was sealed. The                                                       Received: December 7, 2017
+frame was then removed from the assembly. The remaining components                                                             Revised: January 18, 2018
+comprised a jamming structure. (5) The end of the structure containing                                                                Published online:
+the TPU tubing was sandwiched between two conforming aluminum
+blocks. The blocks were heated to 171 °C on the heat press, creating a
+circumferential seal around the tubing. The blocks were then removed
+from the assembly.                                                             [1] K. Suzumori, S. Iikura, H. Tanaka, IEEE Control Syst. 1993, 12, 21.
+    Experimental Characterization: Jamming structures were tested on          [2] F. Iliesvki, A. D. Mazzeo, R. F. Shepherd, X. Chen, G. M. Whitesides,
+a three-point bending fixture in a universal materials testing device              Angew. Chem. 2011, 50, 1890.
+(Instron 5566, Illinois Tool Works, Norwood, MA). The structures were         [3] O. A. Araromi, I. Gavrilovich, J. Shintake, S. Rosset, M. Richard,
+placed on the fixture and connected to a manual vacuum regulator                   V. Gass, H. R. Shea, IEEE/ASME Trans. Mechatronics 2014, 20, 438.
+(EW-07061-30, Cole-Parmer, Vernon Hills, IL) set to the desired               [4] S. Shian, K. Bertoldi, D. Clarke, Adv. Mater. 2015, 27, 6814.
+pressure. The loading anvil of the testing device was lowered at a rate of    [5] R. V. Martinez, J. L. Branch, C. R. Fish, L. Jin, R. F. Shepherd,
+25 mm min−1 until reaching the desired maximum displacement. Force                 R. M. D. Nunes, Z. Suo, G. M. Whitesides, Adv. Mater. 2013, 25,
+and displacement measurements were simultaneously recorded.                        205.
+    Functions and Applications: All molds were designed using CAD             [6] R. Deimel, O. Brock, Int. J. Rob. Res. 2016, 35, 161.
+software (Solidworks 2015, Dassault Systèmes, Villacoublay, France) and       [7] M. T. Tolley, R. F. Shepherd, B. Mosadegh, K. C. Galloway,
+3D printed using a stereolithography-based printer (Objet30 Scholar,               M. Wehner, M. Karpelson, R. J. Wood, G. M. Whitesides, Soft Rob.
+Stratasys, Ltd., Eden Prairie, MN). For the actuator used in shape-                2014, 1, 213.
+locking demonstrations, a two-part mold was designed, and the actuator
+                                                                              [8] P. Polygerinos, Z. Wang, K. C. Galloway, R. J. Wood, C. J. Walsh,
+was cast from shore 10A platinum-cure silicone rubber (Dragon Skin 10
+                                                                                   Rob. Auton. Syst. 2015, 73, 135.
+Medium, Smooth-On, Inc., Macungie, PA). The actuator and jamming
+                                                                              [9] M. Cianchetti, T. Ranzani, G. Gerboni, T. Nanayakkara, K. Althoefer,
+structure were bonded using silicone building sealant (Dow Corning
+795, Dow Corning, Midland, MI).                                                    P. Dasgupta, A. Menciassi, Soft Rob. 2014, 1, 122.
+    For the substrate used in the variable kinematics demonstrations, a      [10] N. Cheng, G. Ishigami, S. Hawthorne, H. Chen, M. Hansen,
+one-part mold was designed with an inserted rod to create a channel                M. Telleria, R. Playter, K. Iagnemma, in Proc. IEEE Int. Conf. Rob.
+for an actuation cable. The substrate was cast from high-stiffness PDMS            Autom. (ICRA), IEEE, Anchorage, AK, USA 2010, p. 5207.
+rubber (Sylgard 184, Dow Corning, Midland, MI). The substrate and            [11] N. G. Cheng, A. Gopinath, L. Wang, K. Iagnemma, A. E. Hosoi,
+three-part jamming structure were again bonded using silicone building             Macromol. Mater. Eng. 2014, 299, 1279.
+sealant. The cable consisted of braided polyethylene (Hollow Spectra,        [12] C. Laschi, M. Cianchetti, B. Mazzolai, L. Margheri, M. Follador,
+BHP Tackle, Harrington Park, NJ) and was tensioned using a turnbuckle              P. Dario, Adv. Rob. 2012, 26, 709.
+mechanism.                                                                   [13] S. Seok, C. D. Onal, K.-J. Cho, R. J. Wood, D. Rus, S. Kim, IEEE/
+    For the fingertips of the fingers in the two-fingered grasper, a               ASME Trans. Mechatronics 2013, 18, 1485.
+two-part mold was designed, and the fingertip was cast from shore            [14] C. Majidi, R. J. Wood, Appl. Phys. Lett. 2010, 97, 164104.
+00–10A silicone rubber (Ecoflex 00–10, Smooth-On, Inc., Macungie,            [15] E. Brown, N. Rodenberg, J. Amend, A. Mozeika, E. Steltz,
+PA). Multiaxis stiffness tests and perturbation tests were performed               M. R. Zakin, H. Lipson, H. M. Jaeger, Proc. Natl. Acad. Sci. U S A
+using a digital force gauge (Chatillon DFI10, AMETEK Sensors, Test &               2010, 107, 18809.
+Calibration, Berwyn, PA) and custom-built fixtures.                          [16] M. Manti, V. Cacucciolo, M. Cianchetti, IEEE Rob. Autom. Mag.
+                                                                                   2016, 23, 93.
+                                                                             [17] Y. Yang, Y. Chen, Y. Li, M. Z. Q. Chen, Y. Wei, Soft Rob. 2017, 4, 147.
+Supporting Information                                                       [18] S. Kawamura, T. Yamamoto, D. Ishida, T. Ogata, Y. Nakayama,
+                                                                                   O. Tobata, S. Sugiyama, in Proc. IEEE Int. Conf. Rob. Autom. (ICRA),
+Supporting Information is available from the Wiley Online Library or               IEEE, Washington, DC, USA, 2002, p. 248.
+from the author.                                                             [19] S. Kawamura, K. Kanaoka, Y. Nakayama, J. Jeon, D. Fujimoto, in
+                                                                                   Proc. IEEE Int. Conf. Rob. Autom. (ICRA), IEEE, Taipei, Taiwan 2003,
+                                                                                   p. 816.
+                                                                             [20] J. Ou, L. Yao, D. Tauber, J. Steimle, R. Niiyama, H. Ishii, in Proc.
+Acknowledgements                                                                   8th Int. Conf. Tangible Embedded Embodied Interact. (TEI), ACM,
+The authors would like to thank the members of the Harvard Biorobotics             Munich, Germany 2014, p. 65.
+Laboratory; the Vlassak Group; the Harvard Biodesign Laboratory; the         [21] M. Bureau, T. Keller, R. Velik, J. Perry, J. F. Veneman, in Proc. IEEE Int.
+Bertoldi Group; and James Weaver, Ph.D., for their technical advice and            Conf. Rehabil. Rob. (ICORR), IEEE, Zurich, Switzerland 2011, p. 1.
+
+
+
+Adv. Funct. Mater. 2018, 1707136                                  1707136 (8 of 9)                  © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+www.advancedsciencenews.com                                                                                                               www.afm-journal.de
+
+
+[22] Y. J. Kim, S. Cheng, S. Kim, K. Iagnemma, IEEE Trans. Rob. 2013, 29,    [27] Barrett Technology, LLC - “Products” - BarrettHand, http://www.
+     1031.                                                                         barrett.com/products-hand.htm (accessed: January 2018).
+[23] V. Wall, R. Deimel, O. Brock, in Proc. IEEE Int. Conf. Rob. Autom.      [28] M. Henke, G. Gerlach, Microsyst. Technol. 2014, 20, 599.
+     (ICRA), IEEE, Seattle, WA 2015, p. 252.                                 [29] T. P. Chenal, J. C. Case, J. Paik, R. K. Kramer, in Proc. IEEE Int. Conf.
+[24] J. L. C. Santiago, I. S. Godage, P. Gonthina, I. D. Walker, Soft Rob.         Intell. Rob. Sys. (IROS), IEEE, Chicago, Illinois 2014, p. 2827.
+     2016, 3, 54.                                                            [30] A. Tonazzini, S. Mintchev, B. Schubert, B. Mazzolai, J. Shintake,
+[25] Soft Robotics, http://www.softroboticsinc.com/ (accessed: January             D. Floreano, Adv. Mater. 2016, 28, 10142.
+     2018).                                                                   [31] S. Rich, S.-H. Jang, Y.-L. Park, C. Majidi, Adv. Mater. Technol. 2017, 1700179.
+[26] L. U. Odhner, L. P. Jentoft, M. R. Claffee, N. Corson, Y. Tenzer,       [32] C. Duriez, in Proc. IEEE Int. Conf. Rob. Autom. (ICRA), IEEE,
+     R. R. Ma, M. Buehler, R. Kohout, R. D. Howe, A. M. Dollar, Int.               Karlsruhe, Germany 2013, p. 3982.
+     J. Rob. Res. 2014, 33, 736.                                             [33] G. Sumbre, G. Fiorito, T. Flash, B. Hochner, Curr. Biol. 2006, 16, 767.
+
+
+
+
+Adv. Funct. Mater. 2018, 1707136                                  1707136 (9 of 9)                   © 2018 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+

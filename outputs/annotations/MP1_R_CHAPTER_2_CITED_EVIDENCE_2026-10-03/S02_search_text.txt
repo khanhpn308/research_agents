@@ -1,0 +1,710 @@
+PDF PAGE 1
+B0: 8078
+IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 6, NO. 4, OCTOBER 2021
+B1: A Positive Pressure Jamming Based Variable Stiffness
+B2: Structure and its Application on Wearable Robots
+B3: Tianxin Liu
+, Haisheng Xia
+, Dae-Young Lee
+, Amir Firouzeh
+, Yong-Lae Park
+, and Kyu-Jin Cho
+B4: Abstract—Variable stiffness mechanisms establish a bridge be-
+tween rigid, precise robots and soft, compliant robots. In certain
+applications it is necessary to exert high forces while having com-
+pliance, such as in wearable robots, high payload soft grippers, and
+manipulators. Negative pressure based jamming approaches have
+been widely used to tune variable stiffness. However, this variation
+of stiffness and strength is limited to negative one atmospheric
+pressure. To enable a wider pressure range which potentially enable
+wider stiffness range, we proposed a Positive Pressure Jamming
+(PPJ) approach. The PPJ is fabricated by embedding a pneumatic
+actuator inside a cylindrical non-stretchable fabric sleeve which
+contains granules. Pressurizing air into the pneumatic actuator will
+jam the granules, thus stiffening the soft body. To add degrees of
+freedom for the PPJ, we place a pair of friction pads in parallel
+between two PPJ units which act as a self-locking revolute joint.
+Both the PPJs and self-locking joint can be stiffened at the same
+time thus enabling the structure to be jammed in multiple conﬁgu-
+rations. Experiments showed that approximately six-fold stiffness
+increment (0.69N/mm to 4.02N/mm) could be achieved by our PPJ
+wheninputpressureis changedfrom68kPato172kPawithexerted
+force ranges from 4N to 23N. Furthermore, we apply the proposed
+PPJ method into limb support devices, demonstrating a promising
+potential that PPJ has in wearable robot ﬁeld.
+B5: Index Terms—Wearable robotics, mechanism design, stiffness
+variation, positive pressure jamming.
+B6: I. INTRODUCTION
+S
+B7: OFT robots, known as new types of robots which consist of
+deformable material, demonstrate their unique ability to be
+highlycompliantandadaptabletocomplexenvironment[1].The
+B8: Manuscript received March 14, 2021; accepted June 28, 2021. Date of
+publication July 14, 2021; date of current version August 23, 2021. This letter
+was recommended for publication by Associate Editor C. Della Santina and
+Editor C. Gosselin upon evaluation of the reviewers’ comments. This work was
+supported by the National Research Foundation of Korea (NRF) Grant funded
+by the Korean Government (MSIT) (Grant No. NRF-2016R1A5A1938472).
+(Tianxin Liu and Haisheng Xia are co-ﬁrst authors.) (Corresponding author:
+Kyu-jin Cho.)
+B9: Tianxin Liu, Amir Firouzeh, and Kyu-Jin Cho are with the Soft Robotics
+Research Center, BioRobotics Laboratory, Department of Mechanical Engi-
+neering, Institute of Advanced Machines and Design (IAMD), Institute of
+Engineering Research, Seoul National University, Seoul 08826, South Korea
+(e-mail: tliuao@connect.ust.hk; amir.ﬁrouzeh@epﬂ.ch; kjcho@snu.ac.kr).
+B10: Haisheng Xia is with the Department of Automation, University of
+Science and Technology of China, Hefei, Anhui 230026, China (e-mail:
+hsxia@ustc.edu.cn).
+B11: Dae-Young Lee is with the Microrobotics Laboratory, Materials Science
+& Mechanical Engineering, Harvard University, Cambridge, MA 02138 USA
+(e-mail: dylee@seas.harvard.edu).
+B12: Yong-Lae Park is with the Department of Mechanical Engineering, Soft
+Robotics Research Center (SRRC), Institute of Advanced Machines and Design
+(IAMD), the Institute of Engineering Research, Seoul National University, Seoul
+08826, South Korea (e-mail: ylpark@snu.ac.kr).
+Digital Object Identiﬁer 10.1109/LRA.2021.3097255
+B13: growing ﬁeld of soft robotics usually draws inspiration from soft
+creatures in nature such as octopus, earthworms, or even human
+vertebra and muscles [2]. Recently, one of the emerging topics
+related to soft robot is the variability of compliance or stiffness
+[3], [4]. This online stiffness transition capability in soft robots
+enables the stiffness of a structure to be tuned as desired, thus
+broaden their application scope. Such merit of being able to
+sustain a relatively high payload (in the relative stiff state) while
+preserving compliance is largely desired in human interactive
+robots for safety concern [5].
+B14: During the past few decades, researchers have investigated
+a number of novel variable stiffness mechanisms. In general,
+approaches to stiffen a soft robot can be categorized into two
+groups, active [6] and semi-active [7], depending on the stiffen-
+ing principle. Active stiffening approaches use an active actuator
+to directly generate a resisting force to antagonize external load.
+For instance, researchers utilized Shape Memory Alloy (SMA)
+wire to wove in open rectangle loops, which connected with a
+ﬁxing disc and a movable disc to form a variable stiffness linear
+actuator [8]. Similarly, applying voltage on two connected and
+pre-strained Electroactive Polymers (EAPs) could also alter the
+stiffness of the whole structure [3], [6]. Another group named
+semi-active variable stiffness technique is achieved by changing
+the elasticity property of materials, which indirectly alters the
+stiffness of a structure, such as Low Melting Point Material
+(LMPM), Electrorheological or Magnetorheological Materials
+(ERM, MRM) [3]. The above-mentioned methods generally ex-
+hibit good performance in stiffness variation, nevertheless, they
+have some drawbacks like expensive material (EAPs, SMA),
+sophisticated fabrication process (ERM, MRM), or low energy
+efﬁciency (LMPM).
+B15: Jamming approach [9]–[11], being classiﬁed into the semi-
+active stiffening group, has raised much attention among re-
+searchers since it can be a robust, low-cost and easy customized
+way to make reconﬁgurable variable stiffness robots [12]. In
+granular jamming, a cluster of independent particulate material
+has the characteristic of increasing viscosity when densiﬁed
+by external pressure, which can change their overall behavior
+from ﬂuid to solid. Many works related to jamming adopted
+granules or pieces of layers as the medium to create a series of
+applications-soft manipulator [12][13], drone landing damper
+[14], soft robot hand [15], arm support [16], and minimally
+invasive surgery device [17]. Li et al. [18] developed a passive
+jamming gripper based on positive pressure with the granules at
+the top layer of the actuator compressed by the bending of the
+actuator. Though their design enlarged the stiffness variation
+signiﬁcantly, the stiffness variation and gripper’s bending mo-
+tion are coupled. Sridar et al. [27] utilized ﬂuid to jam granules
+for bearing axial compression load in their variable stiffness
+exoskeleton or eliminate bowing problem but it cannot conform
+B16: 2377-3766 © 2021 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+B17: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 2
+B0: LIU et al.: POSITIVE PRESSURE JAMMING BASED VARIABLE STIFFNESS STRUCTURE AND ITS APPLICATION ON WEARABLE ROBOTS
+8079
+B1: Fig. 1.
+(a) Structure of a single PPJ unit, the rubber bladder and silicon tube
+form a soft actuator, which can squeeze the granules and stiffen the PPJ unit. (b)
+Cross-section view of the PPJ unit. (c) Prototype of a single PPJ with a diameter
+of 26mm and length of 50mm.
+B2: to different shapes. We propose a variable stiffness structure that
+can be directly stiffened by Positive Pressure Jamming (PPJ)
+and varying the stiffness does not affect the actuator geometry.
+Speciﬁcally, we squeeze air into a rubber bladder which is
+embedded in the granular medium as a source to provide external
+force for jamming. Detailed design can be seen in the next
+chapter. Based on the nature of positive pressure, this design
+would potentially have several beneﬁts in the following aspects:
+B3: (1 Wider pressure limit. The maximum negative pressure in
+B4: theory is negative one atmosphere relative pressure, while
+positive pressure could exceed positive ten atmospheres
+relative pressure with ease. Thus, with a wider pressure
+limits for PPJ, the force applied on the granular materials
+could be higher [12].
+(2 Easier to be portable. To achieve the same amount of rel-
+B5: ative pressure, PPJ could use smaller pump than negative
+pressure jamming application, which is usually heavy and
+bulky [19].
+The rest of our paper is organized as follows: Section II de-
+scribes detailed design of PPJ and fabrication process. After that,
+several experiments and analysis are presented in Section III.
+Section IV demonstrates an application of PPJ in the wearable
+robot ﬁeld. Finally, an overall summary is drawn in Section V.
+B6: II. DESIGN AND FABRICATION
+B7: A. Concept Design
+B8: The proposed PPJ structure consists of a soft rubber bladder,
+granules, a fabric outer sleeve, two end caps and a silicon tube as
+shown in Fig. 1a. The rubber bladder connecting with the silicon
+tube serves as a soft actuator that can be inﬂated when squeezing
+positive pressure into the rubber bladder. The non-stretchable
+outer fabric sleeve together with two end caps composes a cylin-
+drical shape. In between the outer fabric sleeve and inner rubber
+bladder are granular materials. To reach a relative stiff state,
+B9: Fig. 2.
+(a) 3D modeling of two PPJ units with a self-locking-joint formed by
+sandpaper friction pads and rotation joint. (b) Prototype of two PPJ units with a
+self-locking-joint. (c) Prototype of multiple PPJ units connected by self-locking-
+joints, with the top-left in soft condition and the rest in stiffen condition.
+B10: air is squeezed into the rubber bladder. The volume expansion
+of the rubber bladder could transmit force to granules, and in
+the meantime, the outer fabric sleeve constrains the volume of
+the whole structure, seen in Fig. 1b cross-section view. In this
+way, granular materials within the outer fabric sleeve would be
+squeezed by the inﬂated inner rubber bladder. Thus, its stiffness
+can be dramatically enhanced. Inﬂatable rubber bladder placed
+concentric to the outer cylinder to active jamming when pres-
+surized. When the rubber bladder is deﬂated, the PPJ structure
+again recovers to a soft state, which can be easily bent, twisted,
+or compressed.
+B11: One unit of the jamming structure merely provides cylindrical
+shape conﬁgurations under the stiffened state. To further explore
+the application scope and improve the compliance, we design a
+self-locking mechanism and utilize multiple jamming units in
+serial that can be stiffened in multiple shapes (Fig. 2). We add
+a pair of friction pads and ﬁx one end of the friction pad to the
+end cap and the other end of friction pad penetrate into a PPJ
+chamber through small square holes on the end cap (Fig. 2a).
+Using this structure, when the rubber bladder is inﬂated, not only
+it compresses the granules, but also it compresses the friction
+pads. If an external force is applied on the joint causing a torque,
+the pair of opposite friction force on two friction pads could
+produce a reverse torque to balance that. As a result, one can
+rotate the joint to any angle and lock the joint at that angle by
+pressurizing the rubber bladder. In this case, shape locking and
+stiffening occur simultaneously and are achieved by a single
+actuator. Fig. 2b displays a prototype of this idea with two
+PPJ units as links which are connected by friction pads and
+a rotational joint. Rotation angles range from -50 degrees to 50
+degrees can be achieved and locked by this device. In Fig. 2c,
+we demonstrate more conﬁgurations by employing more PPJ
+units. Fig. 2c top-left shows the natural shape when there is
+B12: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 3
+B0: 8080
+IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 6, NO. 4, OCTOBER 2021
+B1: Fig. 3.
+Fabrication process.
+B2: no additional air pressure. In the rest sub-ﬁgures of Fig. 2c,
+we manually change the shape and then pressurize air into the
+actuator. The shape can be preserved by stiffening for all the
+cases.
+B3: B. Fabrication
+B4: The Fabrication process is shown in Fig. 3. The rubber blad-
+der can be obtained by molding process with silicon or just
+use commercially available rubber bladder (latex balloon, long
+type). We connect the rubber bladder with a tube by adding
+adhesive (LOCTITE 908570 Silicone Sealant) between the outer
+surface of the tube and hole on the rubber bladder, and fasten
+the connection with sewing thread. The outer fabric sleeve is
+made of a common single-ply non-stretchable fabric. We wrap it
+around the 3D printed end cap and use UHU all-purpose glue for
+adhesion. Before the outer fabric sleeve is completely spliced,
+we add granules into this chamber. Shape Memory Polymer
+(SMP, MM type, SMP Technologies. Inc.) granular are selected
+due to the reason that the high rigidity of SMP granular can
+minimize the effects of deformations of the media materials
+on stiffness performance. Each SMP granular roughly has a
+size of 2mm×2mm×3mm in cuboid shape. For the self-locking
+jamming system, the fabrication process is similar to the single
+PPJ unit except for adding rotational joints, two pieces of friction
+pads and a silicon tube connecting rubber bladders in the neigh-
+bor chambers. The friction pad is ﬁxed on the end cap of one
+PPJ and goes into the neighbor PPJ (Fig. 2). And the friction pad
+is fabricated by a lamination process with three layers, of which
+the top and bottom layers are sandpaper and the middle layer
+is thermoplastic polyurethanes. A cylindrical shape PPJ module
+(Fig. 1c) in the size of 26 mm diameter and 50 mm length was
+fabricated for the following test.
+B5: III. EXPERIMENTS AND ANALYSIS
+B6: For evaluation and investigation of the characteristics of the
+proposed PPJ structure, several experiments based on cantilever
+bending test [20] have been conducted to compare the stiffness
+(Fig. 4). A tensile test system (UNITECH, RB302 Microload)
+and load cells (DACELL) were utilized in our experiments for
+force measurement. The general procedure of cantilever bending
+tests is as follows. Firstly, ﬁx one end of the PPJ on the clamp
+and pressurize air into it to reach a stiff state. Then, adjust
+the position of the specimen so that its endpoint contacts the
+load cell. After that, start the test program to let the load cell
+push the specimen downwards to around 11 mm at the speed
+of 20 mm per minute and return with the same speed. Force
+versus displacement data can be automatically recorded on a
+computer with a data acquisition card. Our experiments mainly
+include veriﬁcation for stiffness variation and investigation of
+some parameters which affect the jamming.
+B7: Fig. 4.
+Test on 3 types of specimens. (a) Experiment set up. (b) Rubber bladder.
+(c) Negative pressure jamming unit. (d) Proposed PPJ structure.
+B8: Fig.5.
+Resistingforceversusdisplacementfordifferenttypesoftestspecimen.
+B9: A. Stiffness Characterizations
+B10: The objective of this experiment is to verify the stiffness and
+strength increment achieved by granules jammed with positive
+pressure. For comparison purpose, another same size rubber
+bladder (Fig. 4b), a negative pressure jamming module (Fig. 4c)
+with the same size and same granules volume fraction were
+fabricated as well. We independently conduct the cantilever
+bending tests on the rubber bladder without and with additional
+pressure (62 kPa) as baseline, on the PPJ module with addi-
+tional pressure (62 kPa), and on the fabricated negative pressure
+jamming module with negative pressure (-62 kPa, which is 62
+kPa below atmospheric pressure). As it is shown in Fig. 5, only
+inﬂating the rubber bladder can hardly contribute to the stiffness
+enhancement. When the pressure is transmitted to peripheral
+granules to incur jamming phenomenon, the stiffness can be
+dramatically increased. The negative pressure jamming, shown
+in the brown line, roughly has the same stiffness as PPJ in the
+ﬁrst few steps of displacement. It tends to saturate at a maximum
+force and has large hysteresis [21]. In contrast, PPJ structure is
+less obvious in plastic deformation under the same amount of
+displacement as the inner rubber bladder increases its elasticity.
+B11: During the jamming process, squeezing high-pressure air
+into the inner air bladder can also contribute to the stiffness
+enhancement. Nagase et al. [22] reported compressed air-based
+method for variable stiffness with ﬁber reinforcement pneumatic
+actuator. Therefore, to compare the stiffness variation caused by
+B12: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 4
+B0: LIU et al.: POSITIVE PRESSURE JAMMING BASED VARIABLE STIFFNESS STRUCTURE AND ITS APPLICATION ON WEARABLE ROBOTS
+8081
+B1: Fig. 6.
+Resisting force versus displacement for PPJ under four different
+pressure levels. The mean values of 8 times repeated tests are represented by
+curve lines and the light shaded parts around the curves show the variation with
+95% conﬁdence interval.
+B2: compressed air and granular jamming, we conduct an additional
+group of tests. The input pressure is set to 103 kPa for an
+air sealing cylindrical airbag and our PPJ specimen, and the
+outer diameter of those two are the same. We ﬁnd that the
+granular jamming has 40% higher stiffness than the compressed
+air specimen which indicates granular jamming plays a principal
+role in stiffness enhancement.
+B3: B. Pressure Modulation
+B4: Our proposed PPJ structure takes pressure as an input and out-
+puts stiffness variation. To investigate the relationship between
+the input pressure and output stiffness, four different pressure
+levels: 69 kPa, 103 kPa, 138 kPa, 172 kPa (relative pressure)
+were set up in a PPJ specimen, and cantilever bending tests
+were adopted again. We use the same PPJ specimen as shown
+in Fig. 4d. The result is shown in Fig. 6. It can be seen that for
+the same specimen, the higher input pressure leads to higher
+stiffness. We utilize the measured force value of the ﬁrst 1mm
+displacement of the specimen to calculate the stiffness, which
+is during the elastic deforming period where small deformation
+and payload in-situ is expected. The results for the 4 increasing
+levels of pressure are 0.69 N/mm, 1.72 N/mm, 2.75 N/mm, and
+4.02 N/mm, respectively. And the corresponding R2 value for
+the ﬁtting are 0.992, 0.995, 0.994, and 0.993, respectively.
+B5: The data indicates that the stiffness is approximately propor-
+tional to the input air pressure. Different from layer jamming,
+where maximum pressure is limited to negative one atmospheric
+pressure and the stiffness is usually dependent on the number
+of layers, the stiffness of PPJ can be tuned by input pressure
+[23]. This can be explained by that there is no slip between
+two layers when the shear force is less than the limit of friction
+force. However, for the granular jamming, relative displacement
+between granules occurs at the beginning stage so that the
+friction force (affected by pressure) contributes to the overall
+stiffness [23].
+B6: C. Characterization Vs Geometry
+B7: The previous section shows the stiffness of the PPJ structure
+can be tuned by changing input pressure level, while in this
+section, we will investigate design parameters that affect the
+jamming performance under the same pressure level. Factors
+B8: TABLE I
+EQUIVALENT YOUNG’S MODULUS WITH DIAMETER
+B9: such as the material of granules, the volume fraction of granules
+[24], type of outer fabric, and size of the PPJ structure can
+affect the stiffness of the PPJ when inﬂated. Since selecting
+strong and non-stretchable fabric (higher binding force) and soft
+inner rubber bladder (consume less elastic energy) is preferred
+and intuitive for PPJ design, we simply only investigate the
+size parameter. Outer diameter (D) of fabric sleeve and inner
+diameter (d) of rubber bladder are the two key parameters. We
+manufactured 8 specimens at four different D parameters (26
+mm, 29 mm, 32 mm, 35 mm) with two different d parameters
+(10mm and 15mm) for the cantilever bending tests under one
+atmosphere relative pressure. Nearly a hundred percent granules
+volume fraction (deﬁned in [24]) is adopted to eliminate the
+effect by rubber bladder morphing. We calculate the stiffness and
+equivalent Young’s modulus (bending elastic modulus which
+represents how strong the jammed granules can resist to bending
+deformation) based on the ﬁrst 1 mm displacements during the
+elastic deforming period, where small deformation and payload
+in-situ is expected. Results of 8 repeated tests are shown in Fig. 7.
+B10: For both small and large inner rubber bladders, the stiffness of
+PPJ increases with the increment of outer diameter because the
+moment of inertia of cross-section enlarges as well. However,
+the equivalent Young’s modulus demonstrates a reverse trend.
+This phenomenon could possibly due to that for the specimen
+with a larger outer diameter, it contains more layers of granules
+and the force transmit from inner rubber bladder to outer layers
+deteriorates as outer layers have more granules which make
+the outer layers being compressed less ﬁrmly as compared to
+inner layers of granules. Comparing the result of the same outer
+diameter with different inner diameters, it is noticeable that the
+equivalent Young’s modulus of PPJ were larger with larger inner
+rubber bladder diameter (Table I), which could indicate that PPJ
+with bigger inner rubber bladder was compressed more ﬁrmly
+than PPJ with smaller inner rubber bladder.
+B11: A few simple formulas may better explain this phenomenon.
+Consider jammed granules in the PPJ as a beam with a ring shape
+cross-section (Fig. 1b). We assume the specimen is fully jammed
+by a large enough pressure and it is under tiny deformation (no
+slip between granules), the cantilever bending stiffness K can be
+expressed as
+B12: K = 3EI/L3
+(1)
+B13: where E is equivalent Young’s modulus, I is the moment of
+inertia of cross-section. L is the total length of the PPJ structure.
+For the ring shape cross-section, I is expressed by
+B14: I = π
+B15: 
+B16: D4 −d4
+B17: /64
+(2)
+B18: Assume that granules are evenly distributed in the chamber
+and ignore other factors like fabric material, coefﬁcient of
+friction (being treated as constants), we deﬁne the equivalent
+Young’s modulus of the PPJ structure based on the experimental
+results in Fig. 7. We ﬁnd it possibly proportional to 1/(D2-d2) as
+B19: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 5
+B0: 8082
+IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 6, NO. 4, OCTOBER 2021
+B1: Fig. 7.
+Inﬂuence of size of inner diameter and outer diameter on stiffness (box plot) and equivalent Young’s modulus (dot line). (a) PPJ unit with 10 mm inner
+rubber bladder diameter. (b) PPJ unit with 15 mm inner rubber bladder diameter.
+B2: the equivalent Young’s modulus is related to the average force
+exert on the granules, and higher average force would jam each
+granule ﬁrmer thus increase the stiffness. The cross-section of
+our PPJ is a ring shape (Fig. 1), when the total force exerted on
+the granules is Ft, the average force in one cross section area
+can be expressed as Faverage = 4Ft/π(D2-d2), thus the equivalent
+Young’s modulus is possibly proportional to 1/(D2-d2). There-
+fore, equivalent Young’s modulus of PPJ can be expressed by
+(3), and C is a coefﬁcient (with unit) that is decided by other
+factors like pressure and material, which could be ﬁxed as a
+dimensional constant here.
+B3: E = C/
+B4: 
+B5: D2−d2
+B6: (3)
+B7: Combining (1)(2)(3), the stiffness can be expressed as a
+function of D and d.
+B8: K = 3πC
+B9: 
+B10: D2 + d2
+B11: /64L3
+(4)
+B12: This function shows that both increments of the D and d can
+beneﬁt the stiffness as a larger D means a larger moment of
+inertia and larger d means higher equivalent Young’s modulus.
+Nevertheless, what makes the PPJ structure more meaningful
+than stiffness is the efﬁciency of jamming which is deﬁned as
+stiffness per unit mass, shown in (5).
+B13: K/mass =
+3C
+
+B14: D2 + d2
+B15: 16L4ρ0 (D2 −d2)
+(5)
+B16: where ρ0 is the measured density of granules in a certain space
+and the ﬁrst term in this equation is a constant. Equation (5) is
+depicted in Fig. 8 and we set D = 26 mm and d = 10 mm as
+a baseline. So, each value calculated by equation (5) is relative
+value with respect to baseline with the unit of times. Fig. 8
+illustrates that when D and d get closer to each other, the PPJ
+module can reach a global optimal jamming efﬁciency.
+B17: D. Stiffness of two PPJ Links With a Self-Locking Joint
+B18: In this experiment, we conducted a cantilever bending test on
+our proposed compliant jamming structure, a self-locking joint
+connecting two PPJ links. The diameter (D) and length (L) of
+one PPJ unit are 26 mm and 50 mm respectively which are the
+same as the specimen in Fig. 4d. The rotational joint consists a
+hinge joint and a pair of friction pads, and measures 15 mm (l)
+when the two PPJ units are in a straight line.
+B19: Fig. 8.
+Computational result of stiffness over weight ratio versus inner diam-
+eter and outer diameter.
+B20: Fig. 9.
+Diagram of the cantilever bending test for two PPJ links and a self-
+locking joint. The red dotted lines represent a pair of friction pads.
+B21: The general diagram for the cantilever bending test is depicted
+in Fig. 9 and the reaction force versus displacement is recorded.
+Fig. 10 shows the experimental result for three different levels
+of input pressure conditions. It can be seen that the structure
+undergoes two stages: ﬁrst (within 2 mm displacement), the
+external force (F) only causes bending deformation of the PPJ
+links since the joint is locked by the friction pads. Second (after 2
+mm displacement), the torque at the joint position generated by
+the external force exceeds the limit of the self-locking joint and
+friction pads start to slide. In this stage, the reaction force gradu-
+ally stabilizes while the deformation of the specimen continues
+increasing. The critical point force (Fc) for the self-locking joint
+starting to rotate can be represented by torque balance in (6).
+B22: Fc (L + l/2) = PSμds
+(6)
+B23: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 6
+B0: LIU et al.: POSITIVE PRESSURE JAMMING BASED VARIABLE STIFFNESS STRUCTURE AND ITS APPLICATION ON WEARABLE ROBOTS
+8083
+B1: Fig. 10.
+Force-displacement curve for the cantilever bending test of the self-
+locking joint with PPJ links.
+B2: Fig. 11.
+Test of friction force. (a) Experimental setup, a PPJ unit is ﬁxed by
+a ﬁxture and a sandpaper friction pad is inserted in the PPJ through a hole. A
+clamp with a load cell pulls the sandpaper friction pad out of the PPJ unit. (b)
+Force versus displacement of the sandpaper friction pad. Blue line is the average
+value of 6 tests and light green shade is variation with 95% conﬁdence interval.
+B3: where P is input pressure, S is the total contact area between
+friction pad and granules, μ is the coefﬁcient of maximum static
+force, and ds is the distance between two friction pads. We ignore
+the bending angle when calculating torque generated by external
+force since the angle is very small. Thus, the stiffness of this
+two-link-one-joint structure can be represented by:
+B4: k ≈
+B5: 
+B6: klinks
+, F <= Fc
+0
+, F > Fc
+(7)
+B7: When the external force is less than the critical point, the
+stiffness of the whole structure is close to the stiffness of two
+links connected in serial. However, the joint loses its efﬁciency
+when the external force is larger than the critical point.
+B8: Since the friction force directly leads to the shape locking at
+any arbitrary rotation angle within the range, we measure the
+friction force instead of rotation stiffness. Fig. 11 shows the
+sliding friction force when a piece of sandpaper friction pad is
+pulled out of the PPJ chamber under 137 kPa input pressure,
+from the experiment we could estimate that the coefﬁcient μ is
+1.09. It can be seen that the friction pad could support 30N before
+the locking will fail, indicating the self-locking joint torque limit
+of 0.6Nm.
+B9: Fig.12.
+(a)and(b)WearabledeviceconsistingPPJstructuretohelpsupporting
+the arm and the leg. (c) Electromechanical structure.
+B10: IV. LIMB SUPPORT APPLICATIONS
+B11: Most commercially available limb support devices for force
+assistance purpose adopt rigid material to endure high payload.
+And for rehabilitation purpose, Hashimoto et al. [25] designed
+an upper limb support device with pneumatic cylinder to support
+patients’ arm motion. For those rigid-frame-based limb support
+devices, conformability and safety might be big issues. On the
+contrary, variable stiffness mechanism made from soft material
+is preferable for wearable device as its stiffness can be tuned to
+a proper value for functionality while ensuring safety. It is also
+easy to use since people can simply tune it to soft state rather
+than take off it when the limb does not need support. O’Neill et
+al. [26] developed a soft wearable robot for the shoulder support
+with textile pneumatic actuators, which generated a force of 17
+N at 70 kPa when bending at 90 degrees. Nevertheless, PPJ with
+granule has a potential to make the support more stable as the
+interlocking between each granule has damping effect. Here,
+we demonstrate a PPJ method based limb support device shown
+in Fig. 12. The system mainly consists of two motor pumps
+in serial, a solenoid valve, switches, three PPJ in parallel, an
+Arduino controller, and velcros for anchoring. For arm support,
+the three links are connected in parallel and one end is attached
+to the waist of body and another end is attached to the arm. For
+leg support, one end is attached to the thigh and the other end to
+the shank. Take the arm support for example, when there is no
+additional air pressure in the PPJ units, users can freely raise up
+or low down their arms. Adjusting arm to a desired position and
+activating the motor pumps, the three PPJ units become stiffened
+and have a tendency to transform from curved shape to straight
+cylindrical shape thus generating adequate force to support the
+arm. Release air pressure, the PPJ units return to soft state again.
+The whole system (Fig. 12c) weighs around 400 grams and each
+PPJ unit measures 200 mm in length and 20 mm in diameter.
+Each motor pump can generate roughly 1 atmospheric pressure.
+In our application, we connect two motor pumps in serial to
+achieve larger pressure.
+B12: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 7
+B0: 8084
+IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 6, NO. 4, OCTOBER 2021
+B1: Fig. 13.
+(a) Experimental setup. The specimen is pre-bended to 90 degrees.
+One end is ﬁxed on the ﬁxture and the other end is attached to the load cell head.
+(b) Experiment result of force versus displacement for the three paralleled PPJ
+structure driven by different number of motor pumps.
+B2: To verify and evaluate the performance of the proposed
+limb support device, several stiffness tests have been conducted
+(Fig. 13a). We ﬁx one end of PPJ units on the ﬁxture and bend
+the soft state links to 90 degrees. Align the center of the load
+cell head to the other endpoint of PPJ units. Then we activate the
+motor pump to stiffen the links. After they are fully stiffened,
+control the force measuring head to move down. Force versus
+displacement curve is recorded as shown in Fig. 13b. The initial
+force measured for using one, two and three motor pumps (input
+pressure approximately 100.5 kPa, 195.6kPa, 290.1kPa, respec-
+tively) in serial are 5.2 N, 9.4 N, and 12.8 N respectively while
+the corresponding force increments for 10 mm displacement are
+8.1 N, 12.4 N, and 15.1 N. This experiment indicates that the PPJ
+based device can generate assisting force to help limbs support,
+which withstand part of the force needed for certain postures.
+The force generated in our study is slightly smaller than O’Neill
+et al. [26], possibly due to that they design special structure
+to divide the pneumatic actuator into multiple champers thus
+increase the stiffness. We should also consider adding partitions
+to the PPJ to explore different potential of increasing stiffness.
+B3: V. CONCLUSION AND FUTURE WORK
+B4: This letter illustrates the concept, design, fabrication, ex-
+periment results as well as the characteristic analysis of our
+proposed PPJ structure. A signiﬁcant stiffness enhancement can
+be achieved by our proposed PPJ method. To overcome the
+inherent drawbacks that the shape of one PPJ unit is conﬁned by
+the outer sleeve, we developed a self-locking joint mechanism
+with multiple rotational links for various conﬁgurations. Several
+experiments along with mathematical models related to size
+parameters can be a guide for design. Finally, we demonstrate
+a possible application in wearable robot based on the force
+generation of the PPJ.
+B5: One limitation of our proposed PPJ structure is that it cannot
+have any arbitrary shapes and the stability of jamming perfor-
+mance relies highly on the initial distribution of granules inside
+the fabric sleeve. The maximal angle one PPJ unit could reach
+also depends highly on the initial distribution of the granules,
+as well as the percentage that the granules ﬁll the chamber. To
+increase ﬂexibility, we designed the self-locking joint. Another
+limitation is that we use a soft rubber bladder to enable shape
+forming at atmospheric pressure, which means the air chamber
+at positive pressure can still be deformed, reducing the jamming
+effect. Additionally, the self-locking joint mechanism would
+B6: potentially wear out over time as the sandpaper loses its friction
+due to abrasion.
+B7: In our future work, we should explore using pre-designed
+outer sleeve to make PPJ structure into other shapes such as
+torus shape. We may combine different shapes of PPJ structures
+to form a complex 3D frame for some practical applications such
+as a frame for a tent. PPJ potentially has faster response time
+than negative jamming, especially for wearable application, as
+for pumps with same size, positive pressure pump is usually
+more powerful than vacuum pump. Though more tests are need
+to verify state transition time from soft to stiff and from stiff to
+soft. Future works should explore new materials for the rubber
+bladder to reduce deformation during the stiffened state, and new
+materials for the friction pad to increase durability. In addition,
+we are interested in studying how to stabilize the jamming. For
+example, divide the inner space area of a jamming unit by adding
+some partitions with fabric so that the initial distribution of
+granules can be more even. We hope that this paper can inspire
+more researches in jamming based variable stiffness ﬁeld.
+B8: REFERENCES
+B9: [1] G. M. Whitesides, “Soft robotics,” Angewandte Chemie Int. Ed., vol. 57,
+B10: no. 16, pp. 4258–4273, 2018.
+[2] S. Kim, C. Laschi, and B. Trimmer, “Soft robotics: A bioinspired evolution
+B11: in robotics,” Trends Biotechnol., vol. 31, no. 5, pp. 287–294, 2013.
+[3] M. Manti, V. Cacucciolo, and M. Cianchetti, “Stiffening in soft robotics:
+B12: A review of the state of the art,” IEEE Robot. Autom. Mag., vol. 23, no. 3,
+pp. 93–106, Sep. 2016.
+[4] S. P. M. Babu, A. Sadeghi, A. Mondini, and B. Mazzolai, “Antagonistic
+B13: pneumatic actuators with variable stiffness for soft robotic applications,”
+in Proc. IEEE Int. Conf. Soft Robot., 2019, pp. 283–288.
+[5] A. Stilli, L. Grattarola, H. Feldmann, H. A. Wurdemann, and K. Althoefer,
+B14: “Variable stiffness link (VSL): Toward inherently safe robotic manipula-
+tors,” in Proc. IEEE Int. Conf. Robot. Automat., 2017, pp. 4971–4976.
+[6] R. Pelrine, F. Carpi, D. De Rossi, R. Kornbluh, R. Pelrine, and P. Sommer-
+B15: Larsen, “Variable stiffness mode: Devices and applications,” Dielectric
+Elastomers as Electromechanical Transducers: Fundamentals Mater. De-
+vices Models Appl. Emerg. Electroactive Polym. Technol., pp. 141–145,
+2008.
+[7] A. J. Liu and S. R. Nagel, “Nonlinear dynamics: Jamming is not just cool
+B16: anymore,” Nature, vol. 396, no. 6706, pp. 21–22, 1998.
+[8] D. Nalini, D. J. S. Ruth, and K. Dhanalakshmi, “Design of a variable
+B17: stiffnessactuatorusingshapememoryalloywire,”inProc.IEEE7thPower
+India Int. Conf., 2016, pp. 1–5.
+[9] Y. Chen, Y. Li, Y. Li, and Y. Wang, “Stiffening of soft robotic actuators—
+B18: Jamming approaches,” in Proc. IEEE Int. Conf. Real-Time Comput. Robot.,
+2017, pp. 17–21.
+[10] V. Wall, R. Deimel, and O. Brock, “Selective stiffening of soft actuators
+B19: based on jamming,” in Proc. IEEE Int. Conf. Robot. Automat., 2015,
+pp. 252–257.
+[11] P. Jiang, Y. Yang, M. Chen, and Y. Chen, “A variable stiffness gripper
+B20: based on differential drive particle jamming,” Bioinspiration Biomimetics,
+vol. 14, 2019, Art. no. 036009.
+[12] N. G. Cheng et al., “Design and analysis of a robust, low-cost, highly
+B21: articulated manipulator enabled by jamming of granular media,” in Proc.
+IEEE Int. Conf. Robot. Automat., 2012, pp. 4328–4333.
+[13] J. R. Amend, E. Brown, N. Rodenberg, H. M. Jaeger, and H. Lipson,
+B22: “A positive pressure universal gripper based on the jamming of granular
+material,” IEEE Trans. Robot., vol. 28, no. 2, pp. 341–350, Apr. 2012.
+[14] Y. S. Narang, A. Degirmenci, J. J. Vlassak, and R. D. Howe, “Transforming
+B23: the dynamic response of robotic structures and systems through laminar
+jamming,” IEEE Robot. Autom. Lett., vol. 3, no. 2, pp. 688–695, Apr. 2018.
+[15] K. Mizushima, T. Oku, Y. Suzuki, T. Tsuji, and T. Watanabe, “Multi-
+B24: ﬁngered robotic hand based on hybrid mechanism of tendon-driven
+and jamming transition,” in Proc. IEEE Int. Conf. Soft Robot., 2018,
+pp. 376–381.
+[16] S. Hauser, M. Robertson, A. Ijspeert, and J. Paik, “Jammjoint: A variable
+B25: stiffness device based on granular jamming for wearable joint support,”
+IEEE Robot. Autom. Lett., vol. 2, no. 2, pp. 849–855, Apr. 2017.
+B26: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 
+
+PDF PAGE 8
+B0: LIU et al.: POSITIVE PRESSURE JAMMING BASED VARIABLE STIFFNESS STRUCTURE AND ITS APPLICATION ON WEARABLE ROBOTS
+8085
+B1: [17] M. Cianchetti, T. Ranzani, G. Gerboni, I. De Falco, C. Laschi, and A.
+B2: Menciassi, “STIFF-FLOP surgical manipulator: Mechanical design and
+experimental characterization of the single module,” in Proc. IEEE/RSJ
+Int. Conf. Intell. Robots Syst., 2013, pp. 3576–3581.
+[18] Y. Li, Y. Chen, Y. Yang, and Y. Wei, “Passive particle jamming and its
+B3: stiffening of soft robotic grippers,” IEEE Trans. Robot., vol. 33, no. 2,
+pp. 446–455, Apr. 2017.
+[19] L. Wang et al., “Controllable and reversible tuning of material rigid-
+B4: ity for robot applications,” Mater. Today, vol. 21, no. 5, pp. 563–576,
+2018.
+[20] L. Blanc, B. François, A. Delchambre, and P. Lambert, “Granular jamming
+B5: as controllable stiffness mechanism for endoscopic and catheter applica-
+tions,” in Proc. Congrès Français de Mécanique, 2017.
+[21] A. Jiang, A. Ataollahi, K. Althoefer, P. Dasgupta, and T. Nanayakkara, “A
+B6: variable stiffness joint by granular jamming,” in Proc. Int. Des. Eng. Tech.
+Conf. Comput. Inf. Eng. Conf., 2012, vol. 45035, pp. 267–275.
+[22] J. Nagase, S. Wakimoto, T. Satoh, N. Saga, and K. Suzumori, “Design of
+B7: a variable-stiffness robotic hand using pneumatic soft rubber actuators,”
+Smart Mater. Structures, vol. 20, no. 10, 2011, Art. no. 105015.
+B8: [23] Y. S. Narang, J. J. Vlassak, and R. D. Howe, “Mechanically versatile soft
+B9: machines through laminar jamming,” Adv. Funct. Mater., vol. 28, no. 17,
+2018, Art. no. 1707136.
+[24] A. Jiang, G. Xynogalas, P. Dasgupta, K. Althoefer, and T. Nanayakkara,
+B10: “Design of a variable stiffness ﬂexible manipulator with composite granu-
+lar jamming and membrane coupling,” in Proc. IEEE/RSJ Int. Conf. Intell.
+Robots Syst., 2012, pp. 2922–2927.
+[25] Y. Hashimoto, J. Y. Nagase, N. Saga, and T. Satoh, “Development and
+B11: control of support function for upper limb support device,” in Proc. IEEE
+Int. Conf. Ind. Technol., 2016. pp. 1566–1571.
+[26] C. T. O’Neill, N. S. Phipps, L. Cappello, S. Paganoni, and C. J. Walsh, “A
+B12: soft wearable robot for the shoulder: Design, characterization, and prelim-
+inary testing,” in Proc. Int. Conf. Rehabil. Robot., 2017, pp. 1672–1678.
+[27] S. Sridar, C. J. Majeika, P. Schaffer, M. Bowers, and S. Ueda, A. J. Barth,
+B13: J. L. Sorrells, J. T. Wu, T. R. Hunt, and M. Popovic, “Hydro muscle-a
+novel soft ﬂuidic actuator,” in Proc. IEEE Int. Conf. Robot. Autom. , 2016,
+pp. 4014–4021.
+B14: Authorized licensed use limited to: Viet Nam National University Ho Chi Minh City. Downloaded on September 22,2026 at 03:21:52 UTC from IEEE Xplore.  Restrictions apply. 

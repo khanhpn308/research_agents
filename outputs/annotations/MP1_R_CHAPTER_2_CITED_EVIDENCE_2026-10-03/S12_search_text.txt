@@ -1,0 +1,800 @@
+PDF PAGE 1
+B0: Citation: Narjabadifam, P.;
+B1: Fazlalipour, N.; Mollaei, S.; Momeni,
+B2: M.; Watandoust, A.S.; Chavoshi, M.;
+B3: Babaeian Amini, A.; Karazmay, F.
+B4: Experimental-Numerical Assessment
+B5: of Mechanical Behavior of
+B6: Laboratory-Made Steel and NiTi
+B7: Shape Memory Alloy Wire Ropes.
+B8: Buildings 2024, 14, 1567.
+B9: https://doi.org/
+B10: 10.3390/buildings14061567
+B11: Academic Editor: Boshan Chen
+B12: Received: 1 April 2024
+B13: Revised: 18 May 2024
+B14: Accepted: 23 May 2024
+B15: Published: 28 May 2024
+B16: Copyright: © 2024 by the authors.
+B17: Licensee MDPI, Basel, Switzerland.
+B18: This article is an open access article
+B19: distributed
+under
+the
+terms
+and
+B20: conditions of the Creative Commons
+B21: Attribution (CC BY) license (https://
+B22: creativecommons.org/licenses/by/
+B23: 4.0/).
+B24: buildings
+B25: Article
+Experimental-Numerical Assessment of Mechanical Behavior of
+Laboratory-Made Steel and NiTi Shape Memory Alloy
+Wire Ropes
+B26: Peyman Narjabadifam 1,2,3,*
+, Neda Fazlalipour 1,3
+, Somayeh Mollaei 1,2,3,*
+, Mohammad Momeni 4,5,*
+,
+Ali Saman Watandoust 1, Mahdi Chavoshi 1,2
+, Alireza Babaeian Amini 1,2,3 and Farshad Karazmay 1,2
+B27: 1
+Department of Civil Engineering, Faculty of Engineering, University of Bonab, Bonab 5551395133, Iran;
+a_babaeian@ubonab.ac.ir (A.B.A.)
+2
+Laboratory of Structural Earthquake Engineering (SEE-Lab), University of Bonab, Bonab 5551761167, Iran
+3
+Center for Research on Seismic Resilience (CRSR), University of Bonab, Bonab 5551395133, Iran
+4
+Department of Civil Engineering, Shahrekord Branch, Islamic Azad University, Shahrekord 8813733395, Iran
+5
+Department of Engineering and Architecture, University of Trieste, 34127 Trieste, Italy
+*
+Correspondence: narjabadifam.peyman@ubonab.ac.ir (P.N.); s.mollaei@ubonab.ac.ir (S.M.);
+m.momeni@sutech.ac.ir (M.M.)
+B28: Abstract: The mechanical behaviors of laboratory-fabricated steel and superelastic shape memory
+alloy (SMA) wire ropes are assessed in this study through a comprehensive approach encompassing
+both experimental investigations and finite element (FE) numerical simulations. The assessment
+of steel wire ropes involves experimental scrutiny under sinusoidal cyclic loading and natural
+earthquake loading conditions. In parallel, SMA wire ropes’ behaviors are analyzed utilizing FE
+simulations employing the widely acknowledged ABAQUS software version 2020. The validation of
+all numerical simulations is undertaken against the experimentally observed behaviors. Moreover,
+full-scale steel wire ropes are subjected to shaking table tests to validate the simulations, facilitating a
+comparative analysis between the mechanical responses of SMA and steel wire ropes. The findings
+demonstrate that SMA wire ropes exhibit superelastic behavior akin to SMA wires, with marginal
+variations in overall response observed across distinct configurations, akin to steel wire ropes.
+Furthermore, augmenting the helix angle of SMA wire ropes results in reduced stress and increased
+strain when exposed to the El Centro earthquake scenario. Nevertheless, the mechanical response of
+SMA wire ropes closely mirrors that of a single wire.
+B29: Keywords: shape memory alloy (SMA); experimental-numerical assessment; steel wire ropes;
+mechanical behavior; helix angle; quasi-static sinusoidal loading; earthquake excitation
+B30: 1. Introduction
+B31: Cables are a type of structural element capable of resisting high tensile loads. They
+are formed by twisting multiple wire strands together and are referred to as a “cable” if
+the diameter is less than 3/8 inch or one centimeter, and “wire rope” if the diameter is
+greater. Reverse lay cables have wires twisted in the opposite direction to the strands
+in the cable, providing resistance to pressure and deformation but lower flexibility and
+wear resistance. Lang lay cables have wires twisted in the same direction as the strands,
+resulting in higher wear resistance. Cables have become increasingly important in civil
+engineering, particularly in bridge construction [1,2]. Hosseinzadeh et al. [3] investigated
+the utilization of cable braces to control lateral displacement and enhance bending frame
+resistance. Shiravand et al. [4] studied the impact of cable rupture during earthquakes
+and under uniform support excitation on the seismic response of cable-stayed bridges,
+considering nonlinear behavior.
+B32: SMAs are smart materials known for two remarkable phenomena: shape memory
+effect and superelasticity. They can adapt to environmental changes and possess significant
+B33: Buildings 2024, 14, 1567. https://doi.org/10.3390/buildings14061567
+https://www.mdpi.com/journal/buildings
+
+PDF PAGE 2
+B0: Buildings 2024, 14, 1567
+2 of 19
+B1: damping properties, dissipating energy during seismic events. The Martensite phase
+induces the shape memory effect, enabling SMAs to recover their original shape upon
+stimulation. The Austenite phase induces the superelastic effect, allowing SMAs to undergo
+substantial deformations and revert to their original form when the stimulus is removed.
+Both phenomena entail significant energy dissipation. Numerous studies have investigated
+using SMAs for vibration control of civil structures. For example, Dolce et al. [5] examined
+the advantageous characteristics of SMA-based isolation devices and systems for seismic
+protection. They integrated the optimal mechanical traits of quasi-elastic and elastoplastic
+devices, along with exceptional fatigue resistance and high corrosion resistance inherited
+from NiTi-SMA. Han et al. [6] presented the energy dissipation principle of SMA wire
+and developed an SMA damper device for structural control implementation. Corbi [7]
+explored the advantages of SMA behavior in the dynamic response of structural systems.
+They analyzed the impact of SMA tendons on the strength of an elastic-plastic structural
+model subjected to horizontal shaking and vertical loads. McCormick et al. [8] utilized
+superelastic NiTi shape memory alloy wires and bars to mitigate seismic vibrations in
+buildings. Parulekar et al. [9] deliberated on the utilization of memory SMA dampers
+fabricated from Austenite wires, particularly Nickel Titanium wires, for passive energy
+absorption in earthquake engineering. Hu et al. [10] developed two innovative bracing
+systems to enhance the seismic resilience of buildings. The Partially Self-Centering Brace
+(PSB) combines NiTi-based SMA (NiTi-SMA) and iron-based SMA (Fe-SMA) U-shaped
+dampers, where the NiTi-SMA provides self-centering capability and the Fe-SMA offers
+energy dissipation, allowing flexible control of the self-centering function. In addition,
+they [11] proposed the Hybrid Self-Centering Brace (HSB), which integrates NiTi-based
+SMA U-shaped dampers and frequency-dependent viscoelastic dampers, with the SMA
+dampers providing self-centering to avoid structural damage and the viscoelastic dampers
+introducing velocity-proportional damping for nonstructural damage control. Both studies
+concluded that these bracing systems have promising potential for enhancing the seismic
+resilience of buildings. Although the cost of SMA components is higher than that of
+traditional components, the latest investigations confirmed the life-cycle span benefits of
+SMA-based braces with reduced initial costs [12]. Alternative configurations for SMA-based
+superelasticity-assisted sliders (SSS) were proposed by Narjabadifam et al. [13].
+B2: SMA elements are frequently employed to manage vibrations in structures, but the
+manufacturing of large-diameter SMA bars can be relatively expensive. As a result, the use
+of SMA cables made up of smaller-diameter wires has become a more cost-effective alterna-
+tive. For instance, a 6.35 mm diameter Nitinol bar can cost around $400 per meter, whereas
+a comparable 49-wire Nitinol cable with a similar outer diameter of 7 × 7 × 0.711 mm is
+significantly more affordable at only $60 per meter [14]. This substantial cost difference has
+driven researchers to investigate the performance and applications of superelastic SMA
+cables, which can provide the desired vibration control and energy dissipation capabilities
+at a lower manufacturing cost compared to large solid SMA bars.
+B3: Beltran et al. [15] examined the mechanical characteristics and behavior of CuAlBe
+strands and compared both twisted and parallel configurations under cyclic tension. Reed-
+lunn et al. [14] conducted uniaxial tension experiments to investigate the superelastic
+behavior of two Nitinol cable constructions: 7 × 7 right regular lay and 1 × 27 alternat-
+ing lay. Their study revealed that the 7 × 7 construction behaves similarly to 49 straight
+wires loaded in parallel, while the 1 × 27 construction exhibits different behavior due
+to its larger helix angles. Additionally, the 1 × 27 construction is more compliant and
+stable, trading decreased force for additional elongation. Carboni et al. [16] investigated a
+multiconfiguration rheological apparatus that included Nitinol wires, strands, and steel
+wire ropes. Their study explored various hysteresis phenomena resulting from interwire
+friction, Nitinol phase transformations, and geometric nonlinearities. Ozbulut et al. [17]
+performed uniaxial tensile tests and cyclic tests to evaluate the superelastic properties and
+low-cycle fatigue characteristics of NiTi SMA cables, respectively. Their study demon-
+strated that the SMA cable exhibited excellent superelastic behavior, with the capability
+
+PDF PAGE 3
+B0: Buildings 2024, 14, 1567
+3 of 19
+B1: to undergo deformations of up to 6% strain without residual deformations. Sherif and
+Ozbulut [18] studied the tensile response and functional fatigue of a superelastic NiTi cable.
+In their subsequent research [19], they analyzed a multi-layered SMA cable under cyclic
+loading. Their findings demonstrated that the multi-layered cable displayed superelastic
+behavior with minimal degradation at lower strain amplitudes. Moreover, the stress levels
+and elastic modulus were reduced due to the multi-layering of the cable. Fang et al. [20]
+conducted a comprehensive investigation into superelastic SMA cables, encompassing
+mechanical behavior, annealing schemes, hysteretic modeling, and seismic applications.
+Testing on 7 × 7 SMA cable specimens revealed satisfactory properties, with potential for
+enhancement through moderate annealing. Shi et al. [21] explored the development of an
+SMA-based hybrid self-centering brace that combines NiTi superelastic cables with vis-
+coelastic dampers. The results indicate that the developed SMA-based hybrid self-centering
+braces provide an average of 9% equivalent viscous damping with complete self-centering
+characteristics, leveraging both self-centering ability and energy dissipation capacity. Ra-
+joriya and Mishra [22] investigated the use of an SMA wire to reduce large-amplitude
+oscillations in taut steel cables of cable-stayed bridges caused by wind. They analyzed the
+dynamic behavior of the cable with and without the wire in free and forced vibrations. The
+findings indicate that the SMA wire is found to effectively dissipate cable oscillation.
+B2: Existing research on SMA ropes has largely focused on basic tensile tests and the cyclic
+loading of specific rope designs. However, for practical applications, especially in seismic
+contexts, it is crucial to thoroughly examine their performance under earthquake conditions
+through computer simulations, experimental studies, or both. SMA materials, especially in
+wire rope form, offer promising structural applications due to their super-elastic properties.
+Despite this potential, current studies have predominantly investigated the direct tension
+or cyclic behavior of SMA cables and wires, leaving a significant gap in understanding
+their seismic performance. Given the innovative use of SMA wires for enhancing seismic
+safety in structures, it is essential to conduct comprehensive studies on their behavior under
+various cyclic and earthquake loading conditions. The present study aims to evaluate the
+seismic behavior of SMA ropes with different layouts based on both computer simulations
+and experimental investigations. This study aims to comprehensively investigate and
+compare the dynamic performance of steel and SMA ropes with different configurations
+using finite element (FE) analysis and shaking table modeling. To this end, the commercial
+SMA rope’s behavior is simulated in ABAQUS [23], and the simulation is verified by
+reference to the experimentally evaluated behavior. Subsequently, different rope layouts
+are examined under earthquake excitation and quasi-static sinusoidal loading protocols.
+To validate the simulations, shaking table tests are performed on full-scale steel ropes,
+enabling a comparative analysis of the behaviors exhibited by SMA and steel ropes.
+B3: 2. Research Methodology
+B4: As discussed in the introduction, SMA materials are attractive for structural applica-
+tions due to their super-elastic characteristics, with SMA wire ropes being preferable for
+their ease of production and wide applications. Most studies have focused on the direct
+tension or cyclic behavior of SMA cables and wires. However, to ensure seismic safety in
+structures, it is crucial to comprehensively study the behavior of SMA wires under various
+cyclic and earthquake loading conditions, which is the main objective of the current study.
+The materials had been ordered from “nimesis” (a leading French company) in mid-2013
+referring to the advertised product name of “NTSE01” and no more specific material-related
+information were unfortunately available from the manufacturer.
+B5: To fulfill the objectives of the investigation, the initial step involved the implementation
+of FE simulation based on ABAQUS software to analyze the behavior of SMA wires. The
+outcomes of this simulation were subsequently cross-validated against data obtained from
+laboratory experiments. Following this, FE analysis was conducted to examine various
+configurations of SMA wire arrangements subjected to sinusoidal and seismic loading
+conditions. A parallel investigation was undertaken involving different configurations
+
+PDF PAGE 4
+B0: Buildings 2024, 14, 1567
+4 of 19
+B1: of steel wire ropes, enabling a comparative assessment of the performance between steel
+and SMA cables. This comparative analysis facilitated the validation of the FE simulations
+for SMA wire ropes through real-scale shake table experiments, specifically designed to
+simulate cyclic and seismic loading scenarios. Detailed elucidations are expounded upon
+in the subsequent sections.
+B2: 2.1. Experimental Assessment
+2.1.1. Specimen and Material
+B3: A wire rope is a composite structure composed of twisted steel wires, organized into
+strands and wound around a core. These wires are drawn to precise dimensions and
+intertwined in specific configurations to form each strand. Subsequently, the required
+number of strands is helically wrapped around the core, which may consist of various
+materials such as synthetic or natural fibers, metallic strands, or an independent wire rope
+core (refer to Figure 1). In this study, the rope’s wire size, number, arrangement, strand
+count, lay, and core type were determined based on prior research [14,24,25].
+B4: Core 
+B5: Strand 
+B6: Cable 
+B7: Figure 1. Cross-section schematics and different components of the wire rope.
+B8: The primary objective of the study was to comprehensively investigate and compare
+the dynamic performance of steel and SMA ropes across various configurations. The dis-
+placement and stress responses of these ropes were examined under quasi-static, cyclic, and
+seismic loading conditions. To achieve this objective, six types of ropes were purposefully
+manufactured and subjected to testing. Additionally, numerical modeling and analysis of
+the considered ropes were conducted as part of this study.
+B9: In Figure 1, cross-section schematics depicting the various components of the wire rope
+are provided. The first rope features wires with a diameter of 1 mm. An identifier ‘A × B’
+was designated for the other five types of ropes, where ‘A’ represents the number of strands
+and ‘B’ signifies the number of wires in each strand. For example, 1 × 3, 1 × 7, 1 × 19,
+and 1 × 27 ropes were derived from a single strand comprising 3, 7, 19, and 27 wires,
+respectively. The 1 × 3 rope was a unilayer cable lacking a core, while all other ropes
+consisted of single or multi-layered constructions with an inner core. The 7 × 7 rope (left
+regular lay) comprised 7 strands, with each strand containing 7 wires, each with a diameter
+of 1 mm. Additionally, it was assumed that one of the ropes with a 1 × 7 configuration was
+a bundle.
+B10: Figure 2 presents side-view images of six rope designs, accompanied by the measured
+helix angles of the individual wires relative to the global axis (z-axis) of the rope. It is
+crucial to note that the helix angles reported in Figure 2 differ from those documented in
+earlier research [14,24,25], where each rope layer featured a distinct angle. This difference
+can be attributed to the fact that the ropes in this study were manually woven, whereas
+previous studies focused on industrial ropes. It is noteworthy that the angles of the rope
+layers are all equal in this study.
+
+PDF PAGE 5
+B0: Buildings 2024, 14, 1567
+5 of 19
+B1:  
+B2: Z 
+B3: Figure 2. Side-view images of five rope designs.
+B4: The tensile test was employed to obtain the mechanical properties of a steel wire, as
+illustrated in Figure 3 and Table 1. In this study, the tensile test according to the ASTM
+A931 standard [26] was used to obtain the mechanical characteristics of the steel wires. This
+test involved fixing the wire between two jaws in a tension device and applying force to
+one of the jaws, leading to the elongation of the wire until rupture occurred. Additionally,
+this study utilized a NiTi superelastic cable with mechanical properties detailed in Table 2,
+sourced from prior research conducted by Hushmand et al. [24].
+B5: Stress (N/mm2) 
+B6: Strain % 
+B7: Figure 3. Stress–strain relationship of the utilized steel wire.
+B8: Table 1. Mechanical properties of steel wire.
+B9: Mechanical Characteristics
+Values
+B10: Young Modulus E [N/mm2]
+200 × 103
+B11: Poisson’s ratio
+0.3
+Density [g/mm3]
+7.85 × 10−3
+B12: Table 2. Mechanical characteristics of SMA [24].
+B13: Mechanical Characteristics
+Values
+B14: Martensite-to-Austenite start stress
+420 (MPa)
+Martensite-to-Austenite finish stress
+500 (MPa)
+Austenite-to-Martensite start reverse-stress
+300 (MPa)
+Austenite-to-Martensite finish reverse-stress
+200 (MPa)
+Phase transformation strain
+6.5%
+Martensite-to-Austenite module of elasticity
+40 × 103 (MPa)
+
+PDF PAGE 6
+B0: Buildings 2024, 14, 1567
+6 of 19
+B1: 2.1.2. Testing Procedure and Setup
+B2: In this study, an experiment was undertaken in which a steel structural system was
+positioned on the shake table at the Laboratory of Structural Earthquake Engineering
+(SEE-Lab) at the University of Bonab, located in the East Azerbaijan province of Iran. The
+shake table is a product of SANTAM engineering design company [27] and the tests on
+the ropes within the steel structural system included both cyclic loading and simulated
+earthquake excitations.
+B3: The primary objective is to design a structural configuration capable of withstanding
+the tensile forces exerted by the embedded ropes during seismic events. The design process
+focuses on identifying the rope that generates the highest force within the structure, thereby
+necessitating the consideration of tension forces for that specific rope only. In this context,
+the 7 × 7 rope emerges as the critical element responsible for producing the maximum force
+within the system. An overview representation of the experimental setup is depicted in
+Figure 4. This figure provides a zoomed-in view of the middle section of the device shown
+in Figure 5, enabling a closer observation of the central part of the setup.
+B4:  
+B5: Figure 4. Overview of the experimental setup.
+B6:  
+B7: Figure 5. Components of the steel structure system.
+B8: Figure 5 illustrates the components of the steel structure system requiring design,
+each labeled with specific numbers. Profile number 1, spanning 500 mm, was designed to
+accommodate the 7 × 7 cable force, with an IPE140 section chosen for additional robustness.
+Connection between Profile 1 and the shaking table was achieved using G8.8 screws, 12 mm
+in diameter, while attachment to the base plate utilized a 100 mm gusset and a 4 mm weld
+for secure fixation.
+B9: Profile number 4, characterized by UNP200 with a length of 2850 mm, was obtained,
+and Profile number 9 was designed to prevent any deflection in Profile number 4. The
+
+PDF PAGE 7
+B0: Buildings 2024, 14, 1567
+7 of 19
+B1: connection between Profile 4 and Plate 5 (150 × 200 dimensions) was established through
+full welding, and subsequently, this plate was connected to the side column using two 8 mm
+diameter G8.8 screws. Profiles 7 and 8, consisting of plates with dimensions of 100 × 200,
+were also connected to Profile 4 using full welding techniques. More information regarding
+the design details is presented in Figure 6.
+B2:  
+B3: (a) 
+(b) 
+(c) 
+B4: Figure 6. Details of the testing setup in shake table tests (units: cm). (a) Plate #2; (b) Plan view of the
+connection between profile#1 and plate #2; (c) Profile #5.
+B5: Special rope fasteners were employed to connect the cables, and their types and cable-
+tying methods are depicted in Figure 7. To secure smaller cables like the 1 × 3 rope and
+steel wire where suitable small fasteners were unavailable, an alternative cable was used at
+the fastener location to prevent slippage. Medium-diameter cables required two fasteners,
+whereas 1 × 7 and bundle ropes, with lower cable forces and a reduced risk of fastener
+slippage, necessitated only one fastener.
+B6:  
+(a) 1 × 3 rope 
+(b) 1 × 19 and 1 × 27 ropes 
+B7:  
+(c) 1 × 7 and bundle ropes 
+(d) 7 × 7 rope 
+B8: Figure 7. Special rope fasteners that were used in the test.
+B9: 2.1.3. Experimental Results
+B10: The stress–strain and force–strain relationships of ropes under sinusoidal loading with
+a frequency of 0.1 Hz resulting from the shake table tests are shown in Figure 8. Based on a
+comparison between Figures 3 and 8a, it can be inferred that the maximum stress and force
+generated in a steel wire subjected to sinusoidal and pure tension loading exhibit similar
+values. More accurately, the yield stress is about 200 MPa for both loading scenarios.
+
+PDF PAGE 8
+B0: Buildings 2024, 14, 1567
+8 of 19
+B1: (a) Stress–strain and force–strain curves of steel wire
+B2: (b) Stress–strain and force–strain curves of 1 × 3 rope
+B3: (c) Stress–strain and force–strain curves of 1 × 7 rope
+B4: (d) Stress–strain and force–strain curves of 1 × 7 bundle rope
+B5: Stress (N/mm2) 
+B6: Stress (N/mm2) 
+B7: Stress (N/mm2) 
+B8: Stress (N/mm2) 
+B9: Figure 8. Cont.
+
+PDF PAGE 9
+B0: Buildings 2024, 14, 1567
+9 of 19
+B1:  
+(e) Stress–strain and force–strain curves of 1 × 19 rope 
+B2:  
+B3: (f) Stress–strain and force–strain curves of 1 × 27 rope 
+B4:  
+B5: (g) Stress–strain and force–strain curves of 7 × 7 rope 
+B6: Stress (N/mm2) 
+B7: Stress (N/mm2) 
+B8: Figure 8. Stress–strain and force–strain curves of ropes.
+B9: According to experimental evidence, it can be inferred that the maximum amount
+of stress experienced by ropes is equivalent to that of a single wire (i.e., about 290 MPa).
+However, the maximum force experienced by 1 × 3, 1 × 7, 1 × 7 Bundle, 1 × 19, 1 × 27,
+and 7 × 7 rope configurations is 3, 7, 7, 19, 27, and 49 times greater than the maximum force
+experienced by a single wire, respectively. This is due to the fact that the force has been
+distributed among the cross-sectional areas. It should be noted that due to unintentional
+reasons encountered during the data acquisition process, some of the data were missing,
+resulting in the inability to plot the complete cycle in Figure 8g.
+B10: The instability or fluctuations observed in the cyclic loading curve of the steel wire
+ropes during the loading phase can be attributed to a combination of different factors.
+Frictional effects between the individual twisted wires, the nonlinear behavior of the steel
+material, geometric nonlinearities arising from changes in the rope structure, manufacturing
+imperfections, and dynamic effects induced by the cyclic loading can all contribute to the
+observed instability. Those complex factors, acting individually or in tandem, lead to the
+fluctuations in the loading response.
+
+PDF PAGE 10
+B0: Buildings 2024, 14, 1567
+10 of 19
+B1: 2.2. Numerical Assessment
+B2: In this section, the ABAQUS FE software [23] was utilized to simulate the behavior
+of ropes under sinusoidal and seismic longitudinal displacements. Initially, the ropes
+were designed in SolidWorks using specifications from laboratory experiments and then
+imported into ABAQUS. The material properties of the steel ropes were defined based on
+real stress–strain values obtained from tensile testing, while plastic stress–strain values
+from Table 3 were used for the simulations. Superelastic properties were assigned to SMA
+materials according to Table 3. The FE modeling employed a hexagonal element shape with
+a constant mesh size of 2 mm, following Biggs [25] as a reference (see Figure 9). Figure 9
+illustrates the schematic of the rope and the loading setup.
+B3: Table 3. Plastic stress–strain values.
+B4: Yield Stress
+Plastic Strain
+B5: 198.00
+0.000
+203.94
+0.018
+220.38
+0.030
+240.76
+0.046
+261.40
+0.073
+270.44
+0.093
+276.43
+0.111
+281.01
+0.130
+285.22
+0.156
+289.42
+0.234
+B6:  
+B7:  
+B8:  
+(a) 
+(b) 
+(c) 
+B9: Figure 9. Details of the FE model. (a) FE meshing scheme; (b) the schematic of the loading setup;
+(c) defined reference point (RP) at one end.
+B10: The ropes were modeled using C3D8R solid elements, which are eight-node hexa-
+hedral elements with hourglass control. The “Surface-to-Surface” contact algorithm was
+used to simulate the actual contact between the wires in the wire rope. The penalty friction
+algorithm was applied to model the tangential frictional behavior between the lateral
+surfaces of the individual wires, and the friction coefficient was set to be 0.5. The normal
+behavior between the wires was defined as a hard contact [25,28]. As shown in Figure 9c,
+reference points RP1 and RP2 were defined at the center of each end surface of the rope
+core. The corresponding nodes on each end surface of the wire rope were coupled with
+RP1 and RP2. All the degrees of freedom of RP2 were constrained, while reference point
+1 was allowed to move solely along the rope’s longitudinal axis.
+The loading process in the FE model was simulated using the dynamic explicit method,
+incorporating two types of loads: sinusoidal (0.01 Hz) and seismic excitation (El Centro scaled
+earthquake) applied to reference point 1. The loading was displacement-controlled, with 8 mm
+displacements for the SMA and 11 mm for the steel rope. Sinusoidal loading’s cyclic nature
+enables the simulation of real vibrations and motions induced by earthquakes, machinery,
+transportation, and wind effects. The details of the considered earthquake are presented
+in Table 4 and Figure 10, sourced from the Pacific Earthquake Engineering Research Center
+
+PDF PAGE 11
+B0: Buildings 2024, 14, 1567
+11 of 19
+B1: (PEER), as used in previous publications on structural and earthquake engineering dealing with
+the application of advanced materials for sustainable resilience against earthquakes [29–32].
+B2: Table 4. Details of the earthquake records used in this study.
+B3: EQ Name
+Magnitude (MW)
+Distance (km)
+PGD (cm)
+PGV (cm/s)
+PGA (g)
+B4: El Centro
+6.9
+6.09
+8.7
+30.9
+0.281
+B5:  
+B6: Figure 10. Accelerogram of the El Centro earthquake.
+B7: 2.3. Validation of Numerical Steel Rope Models
+B8: The steel wire used in a tensile test was modeled using the ABAQUS software, with
+dimensions of 210 mm length and 1 mm diameter. A nonlinear general static analysis
+was employed to apply linear axial tension to the wire. The tension load–displacement
+relationship of the wire was compared with the FE model in Figure 11. The results indicate
+that there is a strong correlation between the FE and experimental outcomes. The minor
+discrepancies between the FE and experimental results are due to unmodeled parameters,
+such as potential disparities in the boundary conditions of the specimen and the FE model.
+B9: Figure 11. Comparison between the numerical analysis results of tension load–displacement and the
+experimental results.
+B10: Numerical modeling of steel ropes subjected to sinusoidal (0.01 Hz) and seismic
+excitation, particularly the El Centro scaled earthquake, was performed using the FE
+software ABAQUS in accordance with the previously outlined methodology. The stress–
+strain relationships derived from the simulation were juxtaposed with the experimental
+data, with the results depicted in Figure 12.
+
+PDF PAGE 12
+B0: Buildings 2024, 14, 1567
+12 of 19
+B1:  
+(a) Comparison of stress–strain curves of steel wire 
+(b) Comparison of stress–strain curves of 1 × 3 rope 
+B2:  
+(c) Comparison of stress–strain curves of 1 × 7 rope 
+(d) Comparison of stress–strain curves of 1 × 7 bundle rope 
+B3:  
+B4: (e) Comparison of stress–strain curves of 1 × 19 rope 
+(f) Comparison of stress–strain curves of 1 × 27 rope 
+B5: (g) Comparison of stress–strain curves of 7 × 7 rope 
+B6: Stress (N/mm2) 
+B7: Stress (N/mm2) 
+B8: Stress (N/mm2) 
+B9: Stress (N/mm2) 
+B10: Stress (N/mm2) 
+B11: Stress (N/mm2) 
+B12: Figure 12. Comparison of stress–strain curves between the numerical analysis results and the
+experimental results.
+
+PDF PAGE 13
+B0: Buildings 2024, 14, 1567
+13 of 19
+B1: The diagrams in Figure 12 demonstrate a strong correlation between the experimental
+and FE results. The slight discrepancy between the experimental and numerical results can
+be attributed to inaccuracies in the setup on the shake table and the method of securing the
+cables with steel fasteners. It is worth noting that during some laboratory tests, the fasteners
+were not sufficiently tightened, leading to cable slippage within the fasteners. The observed
+inconsistency was exacerbated by increasing the number of bundles. Consequently, the
+most significant discrepancy between FE and test data occurred in the case of the 7 × 7 right
+regular lay (Figure 12g). The stress–strain curve of the simulated steel ropes, depicted in
+Figure 13, serves as a fundamental basis for comparing different rope arrangements. The
+curve indicates that the behavior of all the various rope arrangements is almost similar,
+with any slight differences attributed to the twisting angle of the ropes.
+B2: Stress (N/mm2) 
+B3: Figure 13. Comparison of stress–strain curves of the numerical analysis results of steel ropes.
+B4: 2.4. Validation of Numerical SMA Rope Models
+B5: This section is dedicated to validating the modeling process for SMA cables. The
+validation is accomplished by employing the FE method to analyze cables with different
+cross-sectional dimensions: 1 × 3, 1 × 27, and 7 × 7. Following this, the results obtained
+are compared with both numerical data and experimental findings from previous research
+studies [14,24,25].
+B6: As depicted in Figure 14, the mechanical simulation of SMA cable responses using
+ABAQUS FEA demonstrates a remarkable level of agreement with the observed responses
+reported in the work by Houshmand et al. [24].
+B7: Figure 14. Comparison of stress–strain numerical analysis results for steel ropes.
+
+PDF PAGE 14
+B0: Buildings 2024, 14, 1567
+14 of 19
+B1: In Biggs’s study [25], SMA cables with varying helix angles of 10◦, 17◦, and 21◦were
+investigated. This study conducts comprehensive simulations and derives stress–strain
+relationships from these simulations. Subsequently, the results are compared to experimental
+data from Biggs’s research [25], with the comparative analysis presented in Figure 15. The
+findings demonstrate a notable alignment between the experimental and FE simulation
+outcomes. Any minor disparities between the two can be attributed to factors such as
+the specification of material properties, including yielding and ultimate stresses, within
+the ABAQUS software. In the context of the Biggs model [25], as depicted in Figure 15,
+it becomes apparent that cable behavior diverges with variations in the twisting angle.
+Specifically, increasing the twisting angle results in higher levels of strain in the cable, while
+simultaneously reducing cable stress levels.
+B2:  
+B3: Figure 15. Comparison between stress–strain curves obtained through numerical analysis and
+experimental data derived from Biggs’ research [25].
+B4: As per the data provided by Reedlun [14], an analysis of the behavior of 7 × 7 and
+1 × 27 cables was conducted using ABAQUS. The results obtained from ABAQUS were
+then compared to the ones obtained from Reedlun [14], and the comparison is illustrated in
+Figure 16. Minor discrepancies between the two results can be ascribed to various factors,
+including insufficient knowledge of the detailed characteristics of SMA behavior, such as
+initial and ultimate stresses, as well as disparities in experimental and numerical behavior.
+B5:  
+B6: Figure 16. Comparison between stress–strain curves obtained through numerical analysis and
+experimental data derived from Reedlunn’ s research [14].
+
+PDF PAGE 15
+B0: Buildings 2024, 14, 1567
+15 of 19
+B1: 3. Discussions
+3.1. Behavior of SMA Ropes under Sinusoidal Load
+B2: In Figure 17, the response of the SMA under sinusoidal loading with a frequency of
+0.01 Hz is shown as a force versus displacement curve. The findings indicate a nearly linear
+relationship between the tensile force of ropes and the number of wires comprising them,
+where the force exerted by the rope is equivalent to the summation of the forces exerted
+by its individual wires. As illustrated in Figure 17a, the force corresponding to maximum
+displacement (8 mm) is approximately 365 N for one SMA wire; this translates to about
+1.09, 2.40, 6.01, 8.1, and 14 kN, respectively for 1 × 3, 1 × 7, 1 × 19, 1 × 27, and 7 × 7 SMA
+ropes. It can be inferred that the tensile efficiency of the rope decreases with an increase in
+the number of wires.
+B3:  
+B4: (a) SMA wire 
+(b) 1 × 3 SMA rope 
+B5:  
+(c) 1 × 7 SMA rope 
+(d) 1 × 7 SMA bundle rope 
+B6:  
+B7: (e) 1 × 19 SMA rope 
+(f) 1 × 27 SMA rope 
+B8: Figure 17. Cont.
+
+PDF PAGE 16
+B0: Buildings 2024, 14, 1567
+16 of 19
+B1: (g) 7 × 7 SMA rope 
+B2: Figure 17. Force–displacement curves of SMA ropes under sinusoidal loading.
+B3: In spite of being stretched to a displacement of 8 mm beyond the loading plateau,
+all the deformation observed in the SMA rope was fully recovered upon unloading. This
+unique behavior renders the SMA rope an attractive material for applications requiring
+high strength and flexibility in a compact form.
+B4: 3.2. Behavior of SMA Ropes under the El Centro Earthquake
+B5: The hysteresis loops representing the responses of SMA-wire, 1 × 3 rope, and 1 × 7 rope
+under the El Centro earthquake scenario scaled to a peak ground acceleration of 0.6 g are
+illustrated in Figure 18.
+B6: (a) SMA wire 
+B7: (b) 1 × 3 SMA rope 
+(c) 1 × 7 SMA rope 
+B8: Figure 18. Force–displacement curves of SMA ropes under the El Centro earthquake scenario.
+
+PDF PAGE 17
+B0: Buildings 2024, 14, 1567
+17 of 19
+B1: Upon comparing the response of the SMA wire, as depicted in Figure 18a, with that
+of its steel wire counterpart, as illustrated in Figure 3, it can be deduced that the seismic
+response of the SMA wire is comparable to that of the steel wire in pure tension, both in
+terms of maximum force and displacement.
+B2: Similarly, upon scrutinizing the responses of SMAs 1 × 3 and 1 × 7, as shown in
+Figure 18b,c, with those in Figure 17b,c, it can be observed that the SMA 1 × 3 and
+1 × 7 ropes exhibit a seismic response that is similar to that under sinusoidal loading, in
+terms of maximum force. This observation underscores the potential of SMA ropes as a
+promising material for applications that require high strength and resilience under seismic
+loads. For example, the maximum force is about 1.1 and 1.09 kN under sinusoidal and
+earthquake loading, respectively.
+B3: 3.3. Study on SMA Rope Behavior Sensitivity to Cable Arrangement
+B4: The stress–strain behavior of SMA ropes under the El Centro earthquake scenario has
+been investigated using the FE method. In this regard, Figure 19 presents a comparison
+of the stress–strain responses of various SMA rope configurations, including wire, 1 × 3,
+1 × 7, 1 × 7 bundle, 1 × 19, 1 × 27, and 7 × 7 ropes with helix angles of 0, 3, 5, 7, 9, and
+13 degrees, respectively. It is noteworthy that all investigated ropes exhibit superelastic
+behavior; however, their mechanical responses vary slightly. For instance, the 7 × 7 rope
+demonstrates a smaller loading plateau stress and a larger plateau strain compared to the
+other ropes. This observation suggests that increasing the helix angle of the ropes leads
+to a decrease in stress and an increase in strain. Nonetheless, in general, their mechanical
+behavior is similar to that of a single wire.
+B5: Stress (N/mm2) 
+B6: Figure 19. Stress–strain comparisons of SMA ropes.
+B7: 4. Conclusions
+B8: In this study, the mechanical behaviors of helically symmetric laboratory-fabricated
+SMA and steel wire ropes when subjected to earthquake excitation and quasi-static sinu-
+soidal loading protocols are explored. Both experimental and numerical methodologies are
+employed to investigate their responses. The conclusions drawn are listed as follows:
+•
+The findings indicated a good agreement between numerical calculations and labora-
+tory outcomes for SMA ropes, suggesting FE simulation as a reliable tool for prelimi-
+nary assessments. Consequently, it is anticipated that the seismic response of SMA
+wires, akin to their steel counterparts, is somewhat influenced by wire configurations
+but largely retains the superelastic attributes akin to a single wire.
+•
+The maximal stress and force observed in steel wires under both sinusoidal and
+pure tension loading are similar. Additionally, under quasi-static sinusoidal loading
+conditions, the maximal force experienced by various rope configurations (1 × 3, 1 × 7,
+
+PDF PAGE 18
+B0: Buildings 2024, 14, 1567
+18 of 19
+B1: 1 × 7 Bundle, 1 × 19, 1 × 27, and 7 × 7) is 3, 7, 7, 19, 27, and 49 times greater than
+that of a single wire, respectively. This discrepancy can be attributed to the effective
+distribution of force over the cross-sectional area of the ropes.
+•
+The numerical simulation method utilized in this study shows promise for predicting
+the mechanical characteristics of helically symmetric SMA and steel wire ropes. Further-
+more, the mechanical responses of different steel rope arrangements under quasi-static
+sinusoidal loading are similar, with minor variations due to twisting angles.
+•
+There’s a near-linear relationship between SMA rope tensile force and the number of
+wires, with full deformation recovery even after stretching beyond the loading plateau.
+•
+The SMA 1 × 3 and 1 × 7 ropes exhibit seismic responses akin to those observed
+under sinusoidal loading conditions, particularly concerning maximum force. This
+observation underscores the potential of SMA ropes as a promising material for
+applications demanding high strength and resilience under seismic loading.
+•
+Under the El Centro earthquake scenario, increasing the helix angle in SMA ropes
+reduces stress and increases strain, while their overall behavior resembles that of a
+single wire. However, further investigations under diverse seismic excitations are
+recommended to enhance our understanding of their performance.
+B2: This study of the mechanical behavior of helically symmetric SMA and steel wire
+ropes under earthquake and quasi-static sinusoidal loading has yielded valuable insights,
+but several opportunities for further research remain to expand the scope and depth of
+the investigation. Exploring a broader range of rope configurations, conducting dynamic
+testing with realistic seismic excitations, investigating the influence of design parameters
+and evaluating durability, and comparing the performance of steel wire and SMA ropes
+under the same seismic conditions as well as assessing their feasibility and performance
+in real-world structures could provide a more comprehensive understanding of the ropes’
+behavior and their potential applications in seismic-resistant structures.
+B3: Author Contributions: Methodology, P.N., N.F., S.M., M.M., A.S.W., M.C., A.B.A. and F.K.; Software,
+P.N., N.F., S.M., M.M., A.S.W., M.C., A.B.A. and F.K.; Validation, P.N., N.F., S.M., M.M., A.S.W., M.C.,
+A.B.A. and F.K. All authors have read and agreed to the published version of the manuscript.
+B4: Funding: This research received no external funding.
+B5: Data Availability Statement: Data available upon request to the corresponding authors.
+B6: Conflicts of Interest: The authors declare no conflict of interest.
+B7: References
+B8: 1.
+Feyrer, K. Wire Ropes; Springer: Berlin/Heidelberg, Germany, 2007.
+2.
+Narjabadifam, P.; Noori, M.; Cardone, D.; Eradat, R.; Kiani, M. Shape memory alloy (SMA)-based Superelasticity-assisted Slider
+(SSS): An engineering solution for practical aseismic isolation with advanced materials. Smart Struct. Syst. 2020, 26, 89–102.
+3.
+Hosseinzadeh, Y.; Barghian, M.; Emtena, M.; Khalese Dehghan, M. Experimental and theoretical investigation of steel moment
+frames retrofitting in using cable bracing. Sharif J. Civ. Eng. 2014, 30, 117–125.
+4.
+Shiravand, M.R.; Parvanehro, P.; Bagheri, S. Seismic response of cable stayed bridges under multi support excitation. J. Struct.
+Constr. Eng. 2017, 4, 58–69.
+5.
+Dolce, M.; Cardone, D.; Marnetto, R. SMA recentering devices for seismic isolation of civil structures. In Smart Structures and
+Materials 2001: Smart Systems for Bridges, Structures, and Highways; SPIE: Bellingham, WA, USA, 2001.
+6.
+Han, Y.L.; Li, Q.; Li, A.Q.; Leung, A.; Lin, P.H. Structural vibration control by shape memory alloy damper. Earthq. Eng. Struct.
+Dyn. 2003, 32, 483–494. [CrossRef]
+7.
+Corbi, O. Shape memory alloys and their application in structural oscillations attenuation. Simul. Model. Pract. Theory 2003, 11,
+387–402. [CrossRef]
+8.
+McCormick, J.; DesRoches, R.; Fugazza, D.; Auricchio, F. Seismic vibration control using superelastic shape memory alloys. J. Eng.
+Mater. Technol. 2006, 128, 294–301. [CrossRef]
+9.
+Parulekar, Y.; Reddy, G.; Vaze, K.; Guha, S.; Gupta, C.; Muthumani, K.; Sreekala, R. Seismic response attenuation of structures
+using shape memory alloy dampers. Struct. Control. Health Monit. 2012, 19, 102–119. [CrossRef]
+10.
+Hu, S.; Alam, M.S.; Zhang, Y.; Ding, Z.; He, X. Partially self-centering braces with NiTi- and Fe-SMA U-shaped dampers.
+Thin-Walled Struct. 2024, 197, 111605. [CrossRef]
+
+PDF PAGE 19
+B0: Buildings 2024, 14, 1567
+19 of 19
+B1: 11.
+Hu, S.; Koetaka, Y.; Chen, Z.-P.; Zhu, S.; Alam, M.S. Hybrid self-centering braces with NiTi-SMA U-shaped and frequency-
+dependent viscoelastic dampers for structural and nonstructural damage control. Eng. Struct. 2024, 308, 117920. [CrossRef]
+12.
+Hu, S.; Zhu, S. Life-cycle benefits estimation for hybrid seismic-resistant self-centering braced frames. Earthq. Eng. Struct. Dyn.
+2023, 52, 3097–3119. [CrossRef]
+13.
+Narjabadifam, P.; Noori, M.; Taciroglu, E.; Zhang, J.; Khoshnevis, B.; Cardone, D.; Basu, D.; Wang, T.; Elghandour, E.; Noroozine-
+jad Farsangi, E.; et al. Stirnimann, Sustainable earthquake resilience with the versatile shape memory alloy (SMA)-based
+superelasticity-assisted slider. Sensors 2022, 22, 6876. [CrossRef] [PubMed]
+14.
+Reedlunn, B.; Daly, S.; Shaw, J. Superelastic shape memory alloy cables: Part I–isothermal tension experiments. Int. J. Solids Struct.
+2013, 50, 3009–3026. [CrossRef]
+15.
+Beltran, J.; Cruz, C.; Herrera, R.; Moroni, O. Shape memory alloy CuAlBe strands subjected to cyclic axial loads. Eng. Struct. 2011,
+33, 2910–2918. [CrossRef]
+16.
+Carboni, B.; Lacarbonara, W.; Auricchio, F. Hysteresis of multiconfiguration assemblies of nitinol and steel strands: Experiments
+and phenomenological identification. J. Eng. Mech. 2015, 141, 04014135. [CrossRef]
+17.
+Ozbulut, O.E.; Daghash, S.; Sherif, M.M. Shape memory alloy cables for structural applications. J. Mater. Civ. Eng. 2016, 28,
+04015176. [CrossRef]
+18.
+Sherif, M.M.; Ozbulut, O.E. Tensile and superelastic fatigue characterization of NiTi shape memory cables. Smart Mater. Struct.
+2017, 27, 015007. [CrossRef]
+19.
+Sherif, M.M.; Ozbulut, O.E. Thermomechanical and electrical response of a superelastic NiTi shape memory alloy cable. J. Intell.
+Mater. Syst. Struct. 2020, 31, 2229–2242. [CrossRef]
+20.
+Fang, C.; Zheng, Y.; Chen, J.; Yam, M.C.; Wang, W. Superelastic NiTi SMA cables: Thermal-mechanical behavior, hysteretic
+modelling and seismic application. Eng. Struct. 2019, 183, 533–549. [CrossRef]
+21.
+Shi, Y.; Qian, H.; Kang, L.; Li, Z.; Xia, L. Cyclic behavior of superelastic SMA cable and its application in an innovative
+self-centering BRB. Smart Mater. Struct. 2021, 30, 095019. [CrossRef]
+22.
+Rajoriya, S.; Mishra, S.S. Analytical assessment of stay cable vibration mitigation using shape memory alloy wire. Eng. Res.
+Express 2023, 5, 025008. [CrossRef]
+23.
+ABAQUS Analysis User’s Manual; Version 2020; Dassault Systems Simulation Corp.: Providence, RI, USA, 2020.
+24.
+Mohammad, H.; Rafezy, B.; Khalili, E.J. Evaluating the seismic performance of steel-SMA hybrid bracing structures. J. Civ.
+Environ. Eng. 2015, 12, 21–30.
+25.
+Biggs, D.B. Thermo-Mechanical Behavior and Shakedown of Shape Memory Alloy Cable Structures; University of Michigan: Ann Arbor,
+MI, USA, 2017.
+26.
+ASTM Standard A 931–96; Standard Test Method for Tension Testing of Wire Ropes and Strand. In Annual Book of ASTM
+Standards: Iron and Steel Products. American Society for Testing & Materials: West Conshohocken, PA, USA, 2002; pp. 489–493.
+27.
+SANTAM Engineering Design Company. Available online: https://www.santamco.com/Products/ShowProduct.aspx?l=1033
+&tmid=25&cid=10234&pid=30632 (accessed on 17 May 2024).
+28.
+Vahidi, S.; Arghavani, J.; Choi, E.; Ostadrahimi, A. Mechanical response of single and double-helix SMA wire ropes. Mech. Adv.
+Mater. Struct. 2022, 29, 5393–5406. [CrossRef]
+29.
+Narjabadifam, P.; Tiong, P.L.Y.; Mousavi-Alanjagh, R. Effects of inherent structural characteristics on seismic performances of
+aseismically base-isolated buildings. Iran J. Sci. Technol. Trans. Civ. Eng. 2020, 44, 1385–1401. [CrossRef]
+30.
+Cardone, D.; Narjabadifam, P.; Nigro, D. Shaking table tests of the Smart Restorable Sliding Base Isolation System (SRSBIS).
+J. Earthq. Eng. 2011, 15, 1157–1177. [CrossRef]
+31.
+Narjabadifam, P.; Hejazirad, F. Practical earthquake protection of multi-story buildings using shape memory alloy (SMA) braces.
+Int. J. Sci. Res. Civ. Eng. 2018, 2, 1–11.
+32.
+Noori, M.; Zhang, J.; Elghandour, E.; Cardone, D.; Narjabadifam, P. Versatile Aseismic Isolation Based on Practical Applications
+of Advanced Materials for Sustainable Resilience Against Earthquakes. In Seismic Isolation, Energy Dissipation and Active Vibration
+Control of Structures, WCSI 2022, Lecture Notes in Civil Engineering; Cimellaro, G.P., Ed.; Springer: Cham, Switzerland, 2023; Volume
+309, pp. 611–622.
+B2: Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.

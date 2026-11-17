@@ -1,0 +1,43 @@
+{
+  "schema_version": "MP1-LR-P1-EVIDENCE-1.0",
+  "purpose": "P2 evidence records only; P1 defines fields and does not populate scientific findings.",
+  "required_fields": {
+    "evidence_id": "string unique",
+    "paper_id": "M01..M39",
+    "canonical_pdf_path": "repo-relative string",
+    "source_sha256": "string SHA-256 from P0 registry",
+    "bibliographic_identity": {
+      "title": "string",
+      "authors": "string",
+      "year": "number/string as source metadata",
+      "doi_or_identifier": "string or null"
+    },
+    "pdf_page": "integer physical page starting at 1",
+    "printed_page": "integer or NOT_REPORTED",
+    "source_section": "string or NOT_REPORTED",
+    "equation_figure_table": "string or NOT_APPLICABLE",
+    "exact_text_anchor": "string or NOT_REPORTED",
+    "original_scientific_finding": "string or NOT_VERIFIED",
+    "vietnamese_technical_explanation": "string or NOT_VERIFIED",
+    "experimental_conditions": "object or NOT_REPORTED",
+    "model_assumptions": "array or NOT_REPORTED",
+    "units": "array or NOT_REPORTED",
+    "validation_and_limitations": "object or NOT_REPORTED",
+    "evidence_type": "enum AUTHOR_RESULT|AUTHOR_INTERPRETATION|AGENT_INFERENCE|COUNTEREVIDENCE|NOT_VERIFIED",
+    "target_thesis_sections": "array section IDs",
+    "verification_status": "enum VERIFIED_FULL_TEXT|LOCATOR_PENDING|NOT_VERIFIED|BLOCKED_IDENTITY",
+    "role": "enum PRIMARY_EVIDENCE|SUPPORTING_EVIDENCE|COUNTEREVIDENCE|METHODOLOGY_SOURCE|RESEARCHER_DEFINED"
+  },
+  "sentinel_values": {
+    "NOT_REPORTED": "Source was checked at the relevant location but does not report the field.",
+    "NOT_APPLICABLE": "Field does not apply to this source/evidence item.",
+    "NOT_VERIFIED": "P2 has not verified this field; never infer a value.",
+    "BLOCKED_IDENTITY": "Source identity is not approved; no scientific extraction allowed."
+  },
+  "provenance_rules": [
+    "Never cite M23 content until P0_M23_REMEDIATION is closed.",
+    "Do not convert AGENT_INFERENCE into AUTHOR_RESULT.",
+    "Use pdf_page as physical page index; record printed_page only when visibly confirmed.",
+    "Keep one evidence record focused on one finding or locator."
+  ]
+}

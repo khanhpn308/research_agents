@@ -1,0 +1,379 @@
+IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 2, APRIL 2022                                                                                        5477
+
+
+
+
+ A 3D Printed Soft Robotic Gripper With a Variable
+Stiffness Enabled by a Novel Positive Pressure Layer
+                Jamming Technology
+                            George B. Crowley , Xianpai Zeng , and Hai-Jun Su , Member, IEEE
+
+
+   Abstract—In this research, a soft robotic gripper with a variable               Soft robots have two main advantages over traditional, “hard”
+stiffness enabled by a novel positive pressure layer jamming tech-              robots: safety and simplified control. Through their compliance,
+nology was developed and fabricated in two materials using cus-                 soft robots are inherently safer for operation around humans.
+tomized additive manufacturing. A novel positive layer jamming                  Additionally, through material and design choices, some control
+technology was developed for tuning stiffness of the gripper. Pos-              functions of a soft robot can be handled by the robot itself.
+itive pressure layer jamming has a higher performance potential
+than conventional vacuum layer jamming since a higher pressure
+                                                                                This idea is called morphological computation [2]. For example,
+can be applied, approximately 1.6x higher in terms of payload ca-               while a “hard” robot might require several degrees of freedom
+pacity. Two different thermoplastics materials are printed together             and force sensors to safely pick up a small item like a box, a
+to form a relatively hard backbone and a relatively soft airtight               pneumatic soft gripper of a similar footprint could be controlled
+actuation bellows. The implementation of positive layer jamming                 with a single solenoid valve and would conform to the box,
+will be described, along with the additive manufacturing techniques             allowing for less precise grasp planning.
+used to produce the gripper and the test results of the final design.              However, due to their compliance, soft robots are limited in
+Experimental tests show that this soft gripper was able to vary its             how much payload weight they can carry. Because of this, much
+stiffness about 25x fold with the positive layer jamming. This work             research has been performed on technologies that can be used to
+demonstrates that the positive pressure jamming offers a novel                  vary the stiffness of soft robots. Methods for controlling stiffness
+method for varying soft robot stiffness with higher payload capacity
+than the conventional vacuum based layer jamming technology.                    can use low-melting-point alloys [3], granular jamming [4], [5],
+                                                                                layer jamming [6], [7], or a number of other solutions [8].
+   Index Terms—Additive manufacturing, grasping, grippers and                   Jamming refers to a class of variable stiffness technologies
+other end-effectors, soft robot applications, soft robot materials              which rely on compression of a substrate in the joint to produce
+and design.                                                                     a locking effect through friction [8]. The substrate is commonly
+                                                                                granules such as ground coffee, or layers such as plastic strips,
+                                                                                and locking is often achieved by vacuum compression, although
+                          I. INTRODUCTION                                       alternate methods and materials, such as tendon-based compres-
+     OFT robots are a rapidly growing field in modern robotics                  sion [5] and fiber substrates [9] have been researched.
+S    with a wide range of potential uses. Compared to traditional
+robots, soft robots have inherent compliance and are designed
+                                                                                   Research has also been performed on optimized design and
+                                                                                manufacture of soft grippers. For example, Mosadegh et al.
+                                                                                produced an optimized soft pneumatic actuator design with 25x
+to undergo high strain as part of their operation [1]. Soft robots
+are typically fabricated from elastomeric or flexible materials                 higher actuation speed and 8x actuation force over contem-
+with a monolithic construction [2]. Research has been done on                   porary designs [10]. While the most commonly used method
+the design of soft robots for food handling, package handling                   for producing soft grippers is silicone molding, increasingly,
+and minimally invasive surgeries, and many more applications.                   research has been done on using additive manufacturing with
+These designs frequently draw inspiration from octopi and ele-                  soft thermoplastics instead. Yap et al. discussed several different
+phant’s trunks, whose appendages lack skeletal structure and                    soft actuator designs printed from TPU and showed fatigue and
+discrete joints like those found in humans [1].                                 performance testing [11]. Additive manufacturing allows for
+                                                                                features that cannot be produced by molding such as complex
+                                                                                internal geometry, or multi-material features like mounting hard
+   Manuscript received September 9, 2021; accepted February 5, 2022. Date       points or sensors. For example, Hainsworth et al. utilized multi-
+of publication March 8, 2022; date of current version March 17, 2022. This      material printing to produce a soft finger with an integrated strain
+work was supported by the National Science Foundation under Grant CMMI-         gauge to measure curvature [12], and Howard et al. demonstrated
+2019648. This letter was recommended for publication by Associate Editor        granular jamming grippers which could be printed and used
+Robert MacCurdy and Editor Kyu-Jin Cho upon evaluation of the reviewers’
+comments. (Corresponding author: Hai-Jun Su.)                                   without further assembly [4].
+   The authors are with the Mechanical and Aerospace Engineering, The
+Ohio State University, Columbus, OH 43210 USA (e-mail: crowley.152@
+buckeyemail.osu.edu; zeng.108@buckeyemail.osu.edu; su.298@osu.edu).
+                                                                                             II. MOTIVATIONS AND DESIGN OVERVIEW
+   This article has supplementary downloadable material available at http:
+//ieeexplore.ieee.org, provided by the authors.
+                                                                                A. Motivations & Background
+   This letter has supplementary downloadable material available at
+https://doi.org/10.1109/LRA.2022.3157448, provided by the authors.
+   Digital Object Identifier 10.1109/LRA.2022.3157448
+
+                        2377-3766 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+                                      See https://www.ieee.org/publications/rights/index.html for more information.
+
+
+
+
+           Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+5478                                                                                  IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 2, APRIL 2022
+
+
+
+   Soft grippers have been shown to be effective in industrial
+applications for package and food handling. They have weight
+and simplicity advantages over traditional robots, containing a
+much lower number of components, and requiring less com-
+plicated control schemes. Despite these advantages, they are
+significantly limited in payload capacity. Integrating a variable
+stiffness technology into a soft gripper would provide a solution
+to this problem, allowing the gripper to conform to payloads
+when grasping them and stiffen to carry heavier loads.
+                                                                                Fig. 1.   Sectional View of the Proposed Positive Layer Jamming Constraint
+   While Zeng et al. [13] demonstrated a layer jamming joint                    Frame.
+with a stiffness increase of 75x, their design partially relied on a
+parallel beam design, which is less applicable to compact grip-
+pers. Applied to soft grippers in a smaller form factor, Wall et al.            pressure and is only limited by the air supply and material
+demonstrated a 3.5x and 2x stiffness increase using layer and                   strength of the bag. Then a higher compressive force can be
+granular jamming respectively [6]. Fiber-based jamming grip-                    applied to the layers, producing higher friction forces and raising
+pers have also shown a similar stiffness increase of 3x [9]. Other              the force required to cause the layers to slip relative to each
+stiffness variation methods, such as Low-Melting-Point Alloys                   other. To implement this design, several changes are made from
+(LMPA) have been shown to increase stiffness by a factor of 477x                vacuum layer jamming. The layers are placed in a segmented,
+in soft manipulators [3]. However, because LMPA activation can                  rigid constraint frame on the top side of the gripper. The rigid
+require approximately 10 seconds [3], jamming is desirable for                  constraint frame is required to react against the expansion of the
+applications requiring faster response times. Limited research                  jamming bag and direct the force into the layers, as shown in
+has been performed on positive pressure jamming solutions,                      Fig. 1.
+but it has been been used with granular jamming to create a
+novel variable stiffness revolute joint [14]. Positive pressure has
+also been used in conjunction with a vacuum granular jamming                    C. Design Overview
+gripper to forcibly eject payload from the gripper [15].                           In this work, the goal of a soft gripper with high stiffness
+                                                                                variation is approached with two solutions: novel positive layer
+                                                                                jamming and the use of multi-material additive manufacturing.
+B. The Principle of Positive Layer Jamming
+                                                                                The proposed design for this gripper consists of a thin, PETG
+   To achieve maximum stiffness variation in a soft gripper, the                strain limiting backbone, soft TPU bellows used for actuation,
+stiffening mechanism should be placed away from the bending                     and a PETG jamming constraint frame, which contains the jam-
+axis of the gripper. Because of this, as the gripper curls, the                 ming layers, TPU jamming bag and actuation spring, as shown
+stiffening mechanism will be required to extend by an amount                    in Fig. 2. While not monolithic, this gripper primarily consists
+proportional to its distance from the bending axis. Of the three                of 3D printed parts, and requires minimal assembly, particularly
+commonly researched types of jamming (granular, fiber and                       when compared to multi-part mold silicone jamming grippers
+layer), layer jamming has the greatest potential for extension-                 like those shown by Wall et al.
+because the layers overlap, they can move relative to each other                   The layers are constructed from 0.13 mm thick sheets of Mylar
+and still provide effective jamming. Compared to designs like                   plastic, selected based on its use in previous research [13]. A
+the “Jamsheets” produced by Ou et al. [16], placing layers away                 single layer is adhered to each segment of the gripper and sized
+from the bending axis maximizes peak stiffness.                                 so that they protrude from the base by an equal amount. With
+   When considering a layer jamming soft gripper, the distance                  this configuration the layers overlap, meaning that the layer fixed
+between the layers and the bending axis of the gripper can at most              at the tip sits on top of all other layers, preventing any from
+be the thickness of the gripper, so to increase performance, other              escaping through gaps in the constraint frame during actuation.
+parts of the design must be considered. From prior research, it                 One additional layer is attached at the base of the gripper and
+is known that layer jamming joint stiffness increases as more                   fixed at its sides to allow the other layers to freely slide past it.
+vacuum pressure is applied to the layers, and that the typical                  This gripper has 11 segments, so with the layer fixed at the base,
+mode of failure (yielding) is slip between the layers [13], [17]. In            a total of 12 layers are used per finger. The rectangular cross
+characterizing Layer Jamming loading performance, Zeng et al.                   section TPU jamming bag detailed in Fig. 2(c) is placed inside
+identified three distinct phases: Phase 1, Pre-slip, Phase 2, Tran-             the constraint frame and fixed at the tip of the gripper so it can
+sition and Phase 3, Slip [13]. In Phase 1, the layers are locked                slide in and out of the constraint frame with the jamming layers.
+together by friction and the stiffness of the jamming joint is                  With dimensions shown in Fig. 2, gap (space not occupied by
+dependent on joint material stiffness [13]. The Transition Phase                the jamming bag or layers) in the constraint channel varies from
+marks where the applied load exceeds the friction force between                 4.17 mm at the tip to 2.74 mm at the base, where all 12 jamming
+the layers and they begin to slip relative to each other [13].                  layers overlap.
+Finally the Slip Phase indicates continuous slip between the                       While most soft grippers require pressure to close on an
+layers [13].                                                                    object, and rely on material elasticity to open, this gripper acts in
+   Most current layer jamming designs use vacuum to lower the                   the opposite way. A 3.7 N constant force spring (McMaster-Carr
+pressure in the membrane containing the layers, compressing the                 9293K113) is fixed at the tip and base and used to pull the gripper
+layers at a maximum of 14.7 psi (101.4 kPa), atmospheric pres-                  into a curve, as seen in steps 2–4 of the cycle shown in Fig. 3.
+sure [16]. Because atmospheric pressure cannot be increased,                    While this force is relatively low, similarly sized springs are
+we propose a design wherein the jamming layers are unenclosed                   available up to 10.2 N of force, so grip strength can be readily
+and compressed instead by an inflatable membrane or jamming                     adjusted and increased. A common inflatable bellows actuator
+bag. In this concept, the jamming bag can be inflated to any                    similar to those shown by Mosadegh et al. is used to act against
+
+         Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+CROWLEY et al.: 3D PRINTED SOFT ROBOTIC GRIPPER WITH A VARIABLE STIFFNESS ENABLED                                                                            5479
+
+
+
+
+Fig. 2. Design Overview. (a) Isometric View of the Positive Pressure Jamming Gripper Showing (1) Strain Limiting PETG Layer, (2) TPU Bellows, (3) Jamming
+Constraint Frame, (4) Actuation Spring Bearing Mount. (b) Open and Closed States. (c) Jamming Bag Key Dimensions. (d) Dual Finger Gripper Designed for
+UR5 Robot. (e) Gripper Sectional View. (d) Detailed View of Inflatable Bellow.
+
+
+
+
+Fig. 3.   (a) Functional Cycle of the Gripper Consists of Five States. (b) Gripper Actuation States.
+
+
+the spring and open the gripper into its straight state [10]. With
+this design, the layers can be placed opposite the bending axis of
+the gripper to maximize their effect on stiffness change. Because
+the jamming layers are placed on the inside radius of the gripper,
+they are placed in tension when under load, thus avoiding the
+layer buckling failure mode observed in other research [13].
+
+                   III. MANUFACTURING METHODS
+   Most current research on soft pneumatic actuators utilize                       Fig. 4. Print in Place Features. (a) Rigid Jamming Constraint Frame. (b) Strain
+a silicone molding process to produce prototypes, frequently                       Limiting Layer. (c) 2 mm Wide Air Channels.
+with 3D printed molds. While this process is effective, it often
+requires significant post processing and cannot be easily used
+to produce airtight actuators with complex internal geometry. In                   limiting layer [10], [6]. As shown in Fig. 4, this can simply be
+the design of this gripper, multi-material 3D printing was used to                 printed with the actuator in one process. Also printed in place
+significantly reduce post processing time and reliably produce                     and shown in Fig. 4 is the rigid constraint frame, a hard plastic
+small internal features. For example, soft grippers commonly                       feature that would need to be glued onto a silicone actuator.
+use a piece of letter or plastic glued into the actuator as a strain               Finally, the small 2 mm air channels shown in Fig. 4 would be
+
+
+
+            Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+5480                                                                                   IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 2, APRIL 2022
+
+
+
+                               TABLE I                                                                  IV. TESTING & RESULTS
+                        3D PRINTING PARAMETERS
+                                                                                 A. Gripper Stiffness
+                                                                                    To test the stiffness of the gripper at different jamming pres-
+                                                                                 sures, it was fixed to a rigid base and allowed to fully retract
+                                                                                 into a curve, then deflected using a force sensor mounted to a
+                                                                                 linear stage, as shown in Fig. 6(a). The gripper was deflected
+                                                                                 by 6 mm, then allowed to return to its initial position. This was
+                                                                                 repeated five times at each pressure, and by plotting the recorded
+                                                                                 force and displacement, the stiffness of the gripper at different
+                                                                                 pressures can be compared.
+                                                                                    Based on the plotted averaged force-displacement data in
+                                                                                 Fig. 6(b), gripper stiffness is roughly saturated for the first
+                                                                                 2 mm of deflection at a jamming pressure of 10 psi (69.0 kPa).
+                                                                                 Despite this, in Fig. 6(b) we can see that average gripper stiffness
+                                                                                 increases with every increase in pressure, although the rate of
+                                                                                 increase does slow. While gripper stiffness at 10 psi (69.0 kPa)
+                                                                                 is comparable to higher pressures at low displacements, it be-
+                                                                                 gins slipping around the 2 mm of deflection, while at 45 psi
+                                                                                 (310.3 kPa) no distinct slip is seen over the entire 6 mm range.
+                                                                                 To compare with vacuum layer jamming, we can examine finger
+                                                                                 stiffness at 14.7 psi (101.4 kPa) of jamming pressure, which
+                                                                                 should be equivalent to a similar finger jammed with best case
+                                                                                 (limited to atmospheric pressure) vacuum pressure of −14.7 psi
+                                                                                 (101.4 kPa). In layer jamming, pressure is applied to the layers to
+                                                                                 increase friction force. Pressurizing the jamming bag to “vacuum
+                                                                                 pressure” should compress the layers with the same pressure as
+                                                                                 vacuum jamming. This comparison can be used to demonstrate
+                                                                                 that increasing the pressure on the layers beyond “vacuum
+Fig. 5. An Overview of the Separate Prints and Post-processing to Fabricate      pressure” can further increase joint stiffness and performance.
+the Gripper.                                                                        In Fig. 6(d) it is clear that jamming the finger at 45 psi
+                                                                                 (310.3 kPa) offers a performance increase over vacuum-
+                                                                                 equivalent jamming at 14.7 psi (101.4 kPa)- average stiffness
+                                                                                 increases by 1.85 N/mm and the 45 psi (310.3 kPa) curve exhibits
+difficult to reliably mold but can be easily produced with 3D                    a constant slope, while the 14.7 psi (101.4 kPa) curve shows a
+printing.                                                                        distinct stiffness decrease at 4.5 mm of deflection, indicating
+   Using customized additive manufacturing to produce soft                       significant slip. The similarly sized vacuum layer jamming
+actuators does, however, introduce other challenges. While the                   grippers produced by Wall et al. showed a stiffness increase
+softest commercially available FDM filament has a hardness of                    of 8x with 12.3 psi (85 kPa) vacuum pressure, comparable to a
+60 A, molding silicones are commonly available as soft as 10 A                   recorded stiffness increase of 13x produced at 12.5 psi (86.2 kPa)
+shore hardness. While the actuator designs were not identical,                   vacuum equivalent jamming [6].
+28 A silicone actuators have been found to withstand up to 106                      The force-deflection data can also be used to analyze hystere-
+actuation cycles, with similar 3D-Printed 85 A TPU actuators                     sis of the gripper, with the metric of residual deformation after
+failing at 600 cycles [10] [11]. Additionally, reliably printing                 loading (hysteresis) as defined in Fig. 6(d). This was measured
+soft filament requires specialized hardware and low print speeds.                by finding the point where force from the force sensor drops
+The print parameters used to produce this finger can be found in                 to zero as the gripper is unloaded. This hysteresis originates
+Table I.                                                                         from the jamming layers slipping relative to each other under
+   Producing the gripper presented here requires four prints and                 deformation. Once the force is removed, the gripper is locked
+minimal post-processing. Multi-material prints are most reliably                 into the new deformed position. During testing at lower pressures
+airtight when the divisions between materials are planar, so that                it was found that hysteresis was extremely inconsistent. This is
+the print heads do not need to be switched for every layer of                    because stiffness at low jamming pressure is sensitive to the
+material. Because of this fact, while it would be possible to                    unpredictable nature of stiction between the layers. However
+produce all components with one print, the prints were divided                   once 35 psi (241.3 kPa) was reached, the layers appear to remain
+as shown in Fig. 5 to maximize reliability. The main body of                     in Phase 1 (no slip) [13] and hysteresis was consistently near
+the gripper is designed to accommodate this, requiring only two                  zero. More future research is necessary to fully characterize this
+automated print head switches throughout the print: PETG to                      behavior.
+TPU to print the bellows on top of the strain limiting layer, and
+TPU to PETG to print the lower half of the jamming constraint
+                                                                                 B. Pull-Out Force
+frame on top of the bellows. After printing, air tubes are glued
+into the TPU jamming bag and gripper, and mylar jamming                             To better quantify the grippers real world performance, it was
+layers cut to the width of the jamming frame are glued to each                   also tested for pull-out force with two of the fingers assembled
+segment of the actuator. Finally, screws are used to fasten the                  into a gripper. Pull-out force is defined here as the peak force
+spring mount covers, TPU bag and actuator together.                              required to pull an object out of the grasp of the two finger
+
+          Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+CROWLEY et al.: 3D PRINTED SOFT ROBOTIC GRIPPER WITH A VARIABLE STIFFNESS ENABLED                                                                             5481
+
+
+
+
+Fig. 6. Finger Stiffness Test Setups & Results. (a) Stiffness Test Experimental Setup. (b) Average Force vs. Displacement of the Finger, 5 trials per pressure. (c)
+Pull-Out Force Test Experimental Setup. (d) Average Force vs. Displacement of the Finger with Standard Deviation and Stiffness Increases, 5 trials per pressure.
+(e) Average Pull-Out Force vs. Jamming Pressure, 5 trials per pressure.
+
+
+gripper. In this test, a cardboard tube was grasped by the gripper                 was able to achieve a peak pullout force of 12 N at 13 psi
+with a cord looped through it attached to a force gauge mounted                    (90 kPa) of vacuum jamming pressure [9]. In the commercial
+on a linear stage, as shown in Fig. 6(c). The force sensor                         space, the mGrip Soft Gripper from Soft Robotics Inc. advertises
+was traversed away from the gripper until the tube was fully                       pickable object masses of up to 3.4 g, or 33.35 N with a 6
+removed from its grasp. This was repeated five times at a range                    finger configuration and no variable stiffness technology from
+of pressures, and average peak force can be seen in Fig. 6(e).                     mGripTM . While the testing methodology for this metric is
+This test further demonstrates the advantage of positive layer                     unknown, our design demonstrates a 2.4x increase in pull-out
+jamming, as pull-out force increases above 12.5 psi (86.2 kPa),                    force compared to the 6 finger mGripTM gripper.
+the limit for many low cost vacuum generators. The payload
+capacity increased until it saturated at 35 psi (241.3 kPa) with                   C. Actuation
+an average force of 80 N. This is a 1.6x increase in force from
+12.5 psi (86.2 kPa) and a 1.16x increase in force from 14.7 psi                       Several aspects of gripper actuation were tested, including
+(101.4 kPa). Once adequate pressure is applied to the jamming                      repeatability of gripper tip position, gripper actuation speed
+layers, their stiffness in the Phase 1 (no slip) regime will not                   and pressure required to fully open the gripper. Gripper tip
+increase further [13]. Because the layers do not slip relative                     position repeatability was measured using the linear stage &
+to each other in Phase 1, the overall stiffness of the gripper                     force sensor. The position of the gripper tip was measured before
+is dependant on the geometric and material properties of the                       and after cycling it open and closed at 45 psi (310.3 kPa). In this
+gripper and layers. At lower jamming pressures, the deformation                    testing, standard deviation of gripper tip position was 0.13 mm.
+required to remove the tube may cause the jamming layers to slip                   This demonstrates that the gripper has adequate closing force
+and enter Phase 3, resulting in a lower pull-out force. However as                 to overcome any un-jammed friction and that its position can
+jamming pressure increases, the deformation required to cause                      be reliably known for automation tasks. Actuation pressure,
+layer slip increases beyond the deformation required to remove                     pressure required to fully open the gripper was also tested. In
+the tube, causing payload to saturate. To further increase pull-out                this test, the gripper was cycled with increasing pressure until it
+force, gripper design could be optimized to increase stiffness in                  was fully open, which required 45 psi (310.3 kPa). While one
+in the Phase 1 regime.                                                             finger opened fully at a lower pressure in testing, this is likely
+   There is slightly higher standard deviation at higher pressures,                due to differences in assembly causing slightly more friction.
+but this can likely be attributed to the unpredictable nature of                   Actuation time was then tested at 45 psi (310.3 kPa) using an
+both the layers slipping relative to each other and the cardboard                  electrically controlled solenoid and slow motion videos. Footage
+tube slipping against the finger as it is pulled out. Liu et al.                   was then analyzed to determine open and close times. Using this
+showed testing of a similarly sized soft variable stiffness gripper                method, recorded average open time was 0.24 s, and average
+with vacuum fiber jamming [9]. Their gripper design utilized                       close time was 0.29 s. These values are are consistent in order of
+three radially symmetric fingers and in similar pull out testing                   magnitude with other pneumatic gripper designs and adequate
+
+
+            Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+5482                                                                                   IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 2, APRIL 2022
+
+
+
+                                                                                    Customized multi-material additive manufacturing was used
+                                                                                 to rapidly iterate the soft gripper design. Multi-Material addi-
+                                                                                 tive manufacturing also allowed for printed-in strain limiting
+                                                                                 features and hard points that would have otherwise required
+                                                                                 an additional assembly step. While optimized print parameters
+                                                                                 for airtight printing were developed over the course of this
+                                                                                 research, future work could be done to improve the robustness
+                                                                                 of the multi-material printing process to allow more complex
+                                                                                 geometries. Additionally, work should be performed to better
+                                                                                 characterize the fatigue life of actuators produced using this
+                                                                                 method.
+
+Fig. 7. A Dual Finger Gripper Mounted on UR5 Picking up Different Payloads.                                  ACKNOWLEDGMENT
+(a) A cup with an Aluminum Cylinder (1.3 kg) with LJ enabled. (b) An Empty
+Cup (0.1 kg) with LJ disabled. (c) An Aluminum Block (1.15 kg) with LJ             Any opinions, findings and conclusions or recommendations
+enabled. (d) A bucket (1.7 kg) with LJ enabled. See the supplemental video for   expressed in this material are those of the author(s) and do not
+more functional tests.
+                                                                                 necessarily reflect the views of the funding agencies.
+
+                                                                                                                     REFERENCES
+                                                                                  [1] D. Trivedi, C. D. Rahn, W. M. Kier, and I. D. Walker, “Soft robotics:
+for real world uses [10]. While the gripper and jamming bag                           Biological inspiration, state of the art, and future research,” Appl. Bionics
+were both tested at pressures up to 60 psi (413.7 kPa), pressure                      Biomech., vol. 5, pp. 99–117, Dec. 2008.
+for both was limited to 45 psi (310.3 kPa), the pressure required                 [2] G. Alici, “Softer is harder: What differentiates soft robotics from hard
+to fully open the gripper. This was chosen so that both could use                     robotics?,” MRS Adv., vol. 3, pp. 1557–1568, Jun. 2018.
+the same air source, and in an attempt to minimize fatigue on                     [3] R. Zhao, Y. Yao, and Y. Luo, “Development of a variable stiffness over
+                                                                                      tube based on low-melting-point-alloy for endoscopic surgery,” J. Med.
+both the gripper and jamming bag.                                                     Devices, vol. 10, Jun. 2016, Art. no. 021002.
+                                                                                  [4] G. D. Howard, J. Brett, J. O’Connor, J. Letchford, and G. W. Delaney,
+                                                                                      “One-shot 3D-printed multimaterial soft robotic jamming grippers,” Soft
+                                                                                      Robot., Jun. 2021, doi: 10.1089/soro.2020.0154.
+                                                                                  [5] J. Choi, D.-Y. Lee, J.-H. Eo, Y.-J. Park, and K.-J. Cho, “Tendon-driven
+D. Functional Results                                                                 jamming mechanism for configurable variable stiffness,” Soft Robot.,
+                                                                                      vol. 8, pp. 109–118, Feb. 2021.
+   A base to integrate two fingers into a gripper was designed to                 [6] V. Wall, R. Deimel, and O. Brock, “Selective stiffening of soft actuators
+test real world functionality. This gripper was installed as the end                  based on jamming,” in Proc. IEEE Int. Conf. Robot. Automat., Seattle,
+effector on a UR5 robot arm. Using solenoid valves connected                          WA, USA, 2015, pp. 252–257.
+to the UR5 control box, actuation and jamming pressure could                      [7] X. Wang, L. Wu, B. Fang, X. Xu, H. Huang, and F. Sun, “Layer jamming-
+                                                                                      based soft robotic hand with variable stiffness for compliant and effective
+be controlled in the UR5 software to pick up a variety of high                        grasping,” Cogn. Comput. Syst., vol. 2, pp. 44–49, Jun. 2020.
+weight payloads. The objects tested are shown in Fig. 7, and the                  [8] L. Blanc, A. Delchambre, and P. Lambert, “Flexible medical devices: Re-
+variety demonstrates both the gripper’s potential for heavy duty                      view of controllable stiffness solutions,” Actuators, vol. 6, no. 3, Jul. 2017,
+applications and its adaptability.                                                    Art. no. 23, doi: 10.3390/act6030023.
+                                                                                  [9] L. Liu, J. Zhang, G. Liu, Z. Zhu, Q. Hu, and P. Li, “Three-fingered
+                                                                                      soft pneumatic gripper integrating joint-tuning capability,” Soft Robot.,
+                                                                                      Oct. 2021, doi: 10.1089/soro.2021.0082.
+                                                                                 [10] B. Mosadegh et al., “Pneumatic networks for soft robotics that actuate
+                                                                                      rapidly,” Adv. Funct. Mater., vol. 24, pp. 2163–2170, Apr. 2014.
+                V. CONCLUSIONS & FUTURE WORK                                     [11] H. K. Yap, H. Y. Ng, and C.-H. Yeow, “High-force soft printable pneu-
+   A novel variable stiffness technology based on positive layer                      matics for soft robotic applications,” Soft Robot., vol. 3, pp. 144–158,
+                                                                                      Sep. 2016.
+jamming was developed and integrated into a soft pneumatic                       [12] T. Hainsworth, L. Smith, S. Alexander, and R. MacCurdy, “A fabrication
+gripper. The pull-out tests showed that the positive layer jam-                       free, 3D printed, multi-material, self-sensing soft actuator,” IEEE Robot.
+ming has more than 1.6x payload than the traditional vacuum                           Autom. Lett., vol. 5, no. 3, pp. 4118–4125, Jul. 2020.
+based layer jamming. The soft gripper produced in this research                  [13] X. Zeng, C. Hurd, H.-J. Su, S. Song, and J. Wang, “A parallel-guided
+demonstrated a very high stiffness change with layer jamming                          compliant mechanism with variable stiffness based on layer jamming,”
+                                                                                      Mechanism Mach. Theory, vol. 148, Jun. 2020, Art. no. 103791.
+activated. However, because the gripper was tested in the curved,                [14] T. Liu, H. Xia, D.-Y. Lee, A. Firouzeh, Y.-L. Park, and K.-J. Cho,
+gripping position, grip force was taken into account for the lower                    “A positive pressure jamming based variable stiffness structure and its
+stiffness value. Because of this, stiffness change results are not                    application on wearable robots,” IEEE Robot. Autom. Lett., vol. 6, no. 4,
+directly comparable with results from vacuum layer jamming                            pp. 8078–8085, Oct. 2021.
+                                                                                 [15] J. R. Amend, E. Brown, N. Rodenberg, H. M. Jaeger, and H. Lipson,
+research on compliant links. In the future, a positive pressure                       “A positive pressure universal gripper based on the jamming of granular
+jamming link will be designed and tested, independent of an                           material,” IEEE Trans. Robot., vol. 28, no. 2, pp. 341–350, Apr. 2012.
+actuator in order to optimize stiffness change performance.                      [16] J. Ou, L. Yao, D. Tauber, J. Steimle, R. Niiyama, and H. Ishii, “jamSheets:
+Parameters such as jamming channel dimensions, number of                              Thin interfaces with tunable stiffness enabled by layer jamming,” in Proc.
+layers and layer material could be tested. Additionally, due to                       8th Int. Conf. Tangible, Embedded Embodied Interact., Munich, Germany,
+                                                                                      ACM Press, 2013, pp. 65–72.
+the inverted design of the actuator and use of an actuation spring,              [17] R. Acevedo et al., “Characterization and modeling of layer jamming
+it has a relatively low grip force, limiting it to certain payloads.                  for designing engineering materials with programmable elastic-plastic
+Future research could find a way to implement this positive                           behavior,” Exp. Mechanics, vol. 60, pp. 1187–1203, Nov. 2020.
+jamming into a more standard gripper design to overcome this.
+
+
+          Authorized licensed use limited to: Univ Of Incheon. Downloaded on February 16,2023 at 13:45:41 UTC from IEEE Xplore. Restrictions apply.
+

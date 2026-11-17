@@ -1,0 +1,1443 @@
+PDF PAGE 1
+B0: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+© Author(s) 2026. This work is distributed under
+the Creative Commons Attribution 4.0 License.
+B1: A variable stiffness omnidirectional chain based on
+B2: positive-pressure ﬁber jamming
+B3: Shuai Zhang and Jiantao Yao
+B4: School of Mechanical Engineering, Yanshan University, Qinhuangdao, 066000, China
+B5: Correspondence: Jiantao Yao (jtyao@ysu.edu.cn)
+B6: Received: 29 January 2026 – Revised: 27 April 2026 – Accepted: 28 April 2026 – Published: 5 May 2026
+B7: Abstract. This paper presents the design, analytical modeling, and prototype-level experimental assessment
+of a variable stiffness omnidirectional chain (VSOC) based on positive-pressure ﬁber jamming. To address the
+intrinsic pressure limitation (∼1 atm) of conventional vacuum-based jamming, an internal inﬂatable bladder
+is used to compact a ﬁber bundle in a rigid chain link, thereby providing a broader tunable pressure range for
+stiffness modulation. A mechanics-based model is developed for a ﬁber jamming rod under bending, deﬁning the
+jamming, transition, and slipping states; deriving the critical shear forces associated with state transitions; and
+introducing a pressure-dependent equivalent area moment of inertia to describe the variation in stiffness. This
+framework is then adapted to the two primary bending modes of VSOC. Three-point bending experiments over
+0–300 kPa are used to evaluate whether the model can capture the observed pressure-dependent behavior of the
+present prototype. Effective parameters, including an inter-ﬁber friction coefﬁcient (µ = 0.3665) and an effective
+ﬁber modulus (E = 4.85 GPa), identiﬁed from the jamming pressure p = 0 kPa bending response, are used in
+the present structure-level model. Within the tested pressure range, the results indicate that critical loads and
+slipping state stiffness increase approximately linearly with jamming pressure, whereas jamming state stiffness
+is comparatively insensitive to pressure and is primarily governed by geometry. This work bridges design, theory,
+and experiment to develop a high-performance variable stiffness structure with signiﬁcant potential for soft
+robotics and wearable devices.
+B8: 1
+Introduction
+B9: The ﬁeld of soft robotics, characterized by the use of com-
+pliant materials, has enabled machines to operate safely and
+adaptively in unstructured environments, extending their ap-
+plication from industrial settings to interactive and service
+domains (Laschi et al., 2016). Recent reviews further show
+that advances in soft robotics depend not only on structural
+and material innovation but also on modeling, planning, and
+control methods that can handle strong nonlinearity and con-
+tinuous deformation (Yu et al., 2026). A fundamental chal-
+lenge in this ﬁeld is the inherent trade-off between com-
+pliance and load-bearing capacity, which has driven signif-
+icant research interest in mechanisms for controllable stiff-
+ness variation (Manti et al., 2016). Such capability allows
+a robotic structure to interact gently, using its inherent soft-
+ness while also augmenting its force exertion when required
+(Wang et al., 2018).
+B10: Among various variable stiffness technologies, jamming-
+based structures have attracted considerable attention due to
+their simple construction, rapid reversibility, and signiﬁcant
+stiffness contrast (Fitzgerald et al., 2020; Liu and Nagel,
+1998). The jamming phenomenon refers to the transition of
+conﬁned discrete elements (granules, layers, or ﬁbers) from
+a ﬂuid-like low-stiffness stage to a solid-like high-stiffness
+stage under applied stress (Liu and Nagel, 1998; Narang et
+al., 2020). This principle has been successfully implemented
+in three primary forms: granular jamming structures (GJSs),
+layer jamming structures (LJSs), and ﬁber jamming struc-
+tures (FJSs) (Akta¸s et al., 2021). LJSs and FJSs were ﬁrst
+introduced as controllable impedance elements for wearable
+devices (Tabata et al., 2000; Kawamura et al., 2002) and have
+since found applications in areas such as compliant grasping
+(Bai et al., 2022; Narang et al., 2018a), haptic feedback (Jad-
+hav et al., 2022; Kawamura et al., 2003), and tunable damp-
+ing (Narang et al., 2018b; Pinskier et al., 2022; Yang et al.,
+B11: Published by Copernicus Publications.
+
+PDF PAGE 2
+B0: 482
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: 2021). GJSs, popularized in soft robotics for grippers and
+morphing structures (Brown et al., 2010; Steltz et al., 2009),
+also represent a major branch of this technology.
+B2: Recent studies further show that variable stiffness design
+is no longer limited to conventional vacuum-driven jamming.
+Positive-pressure and internally pressurized jamming strate-
+gies have been explored across several embodiment levels. In
+granular jamming, positive pressure has been used to build
+controllable organ phantoms with tunable local stiffness and
+morphology for abdominal palpation simulation (He et al.,
+2018), and positive-pressure jamming structures with self-
+locking joints have also been developed for wearable robots
+to enlarge the achievable stiffness range beyond the vacuum
+limit (Liu et al., 2021). In layer jamming systems, positive-
+pressure concepts have enabled soft grippers with a higher
+payload and large stiffness variation (Crowley et al., 2022)
+to be embedded into inﬂated beam robots to selectively acti-
+vate joints for reconﬁguration (Do et al., 2024). These have
+been combined with layered or hybrid architectures to en-
+hance load-bearing performance in bio-inspired shells and
+amphibious morphing limbs (Arleo et al., 2023; Sun et al.,
+2024). Positive-pressure ﬁber jamming has also appeared in
+modular soft arms such as VARISA, where it contributes to
+multidirectional actuation and structure-level stiffness tuning
+(Arleo and Cianchetti, 2024).
+B3: This broader literature is important because it clariﬁes that
+the present work should not be framed simply as a replace-
+ment of vacuum by positive pressure. Existing studies sug-
+gest that positive-pressure jamming can improve load ca-
+pacity, usable pressure range, and architectural integration.
+The remaining gap is more speciﬁc: for ﬁber jamming struc-
+tures, especially under bending, there is still a limited an-
+alytical description of how positive jamming pressure re-
+lates to state transitions, equivalent bending stiffness, and
+load-carrying behavior. Without this mechanics-level clari-
+ﬁcation, distinguishing the contribution of positive-pressure
+FJSs from other positive-pressure variable stiffness systems
+remains difﬁcult.
+B4: Accurate mechanical models are crucial for the design
+and application of these jamming structures. This need for
+structure-speciﬁc modeling is also reﬂected in other com-
+pliant multi-element systems: for example, Wu et al. (2025)
+showed in a tether-net capture system that torsion, distributed
+contact, and deployment dynamics must be incorporated ex-
+plicitly to describe the system response accurately. For LJSs,
+modeling efforts are relatively mature. A widely accepted
+model approximates bending stiffness based on the second
+moment of area of the cross-section, distinguishing between
+a monolithic solid state and a slipped state in which lay-
+ers bend individually (Akta¸s et al., 2021; Henke and Ger-
+lach, 2014; Ibrahimi et al., 2021; Kawamura et al., 2003).
+More comprehensive analytical models based on Euler–
+Bernoulli beam theory have been developed to describe the
+stiffness, deformation, and transition criteria for both can-
+tilever and three-point bending conﬁgurations of multi-layer
+B5: beams (Caruso et al., 2022, 2023; Narang, 2018; Narang et
+al., 2018a). These models provide a strong foundation for
+LJS design.
+B6: In contrast, the analytical modeling of FJSs presents a
+greater challenge due to the complex three-dimensional in-
+teractions and rearrangements in a ﬁber bundle during de-
+formation (Akta¸s et al., 2021). Consequently, research has
+often relied on experimental characterization (Brancadoro et
+al., 2018, 2020) or on numerical methods, such as the ﬁnite-
+element-based homogenization approach developed by Va-
+sios et al. (2019). While analytical models have been pro-
+posed for simpler tensile loading cases (Pinskier et al., 2022;
+Yang et al., 2021) or for speciﬁc ﬁber geometries treated as
+superposed beams (Jadhav et al., 2022), a comprehensive an-
+alytical framework for the bending behavior of FJSs – en-
+compassing distinct stiffness states, transition criteria, and
+the role of jamming hydrostatic pressure – remains under-
+developed. Moreover, although recent positive-pressure jam-
+ming studies indicate the system-level potential of operating
+beyond the vacuum range, they do not yet isolate how pos-
+itive jamming pressure affects bending-state evolution in a
+jammed ﬁber bundle. Furthermore, traditional FJSs typically
+employ vacuum pressure, which intrinsically limits the max-
+imum achievable hydrostatic pressure to approximately one
+atmosphere, thereby constraining their ultimate stiffness and
+load capacity.
+B7: To address these gaps, this paper presents the design, an-
+alytical modeling, and experimental validation of a novel
+variable stiffness omnidirectional chain (VSOC) based on a
+positive-pressure ﬁber jamming structure. The contribution
+of this work is to couple a dedicated positive-pressure FJS
+architecture with a bending model formulated for that archi-
+tecture. At the structural level, the proposed VSOC uses an
+internal inﬂatable bladder to compact the ﬁber bundle inside
+a rigid shell and a double-conical joint to enable multi-axis
+bending, thereby extending ﬁber jamming operation beyond
+the vacuum-pressure limit. At the theoretical level, the model
+distinguishes jamming, transition, and slipping states, derives
+pressure-dependent transition loads from inter-ﬁber friction,
+and represents stiffness evolution through an equivalent area
+moment of inertia adapted to the compacted cross-section
+and two bending modes of the prototype. The experimental
+objective is correspondingly limited: the present study exam-
+ines whether this framework is interpretable and predictive
+for a single VSOC prototype, rather than claiming compre-
+hensive validation over a wider parameter space. Systematic
+three-point bending experiments across 0–300 kPa are there-
+fore used to assess whether the structure model pair can ac-
+count for the measured pressure-dependent critical loads and
+stiffness changes under the tested conditions.
+B8: The remainder of this paper is organized as follows. Sec-
+tion 2 details the theoretical mechanics of a ﬁber jamming
+rod. Section 3 describes the design of the positive-pressure
+VSOC. Section 4 outlines the experimental setup and data
+processing methodology. Section 5 presents the results, in-
+B9: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 3
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+483
+B1: cluding model validation and discussion. Finally, Sect. 6 con-
+cludes the paper.
+B2: 2
+Mechanics analysis of ﬁber jamming rods
+B3: This section establishes the theoretical framework for model-
+ing the bending behavior of a ﬁber jamming rod. The model
+identiﬁes distinct mechanical states governed by inter-ﬁber
+friction, derives the critical shear forces that demarcate tran-
+sitions between these states, and formulates an equivalent
+area moment of inertia to describe the structure’s variable
+bending stiffness.
+B4: 2.1
+Mechanical states and transition criteria
+B5: The mechanical response of a ﬁber jamming rod under bend-
+ing is governed by the interaction between its constituent
+ﬁbers, mediated by inter-ﬁber friction. Three distinct me-
+chanical states are identiﬁed, as shown schematically in
+Fig. 1.
+B6: The jamming state describes the high-stiffness stage. Un-
+der sufﬁciently small external loads, the inter-ﬁber shear
+stress does not exceed the maximum static frictional stress.
+Consequently, no relative sliding occurs between adjacent
+ﬁbers, compelling the entire bundle to deform as a monolithic
+solid. In this state, the structure exhibits its highest bending
+stiffness, and any induced deformation is fully recoverable
+upon unloading, as illustrated in Fig. 1a.
+B7: For the transition state, as the applied load increases, the
+internal shear stress at speciﬁc locations reaches the maxi-
+mum static frictional resistance. Slip initiates at these critical
+interfaces, leading to a gradual decrease in overall structural
+stiffness. This intermediate state is depicted in Fig. 1b.
+B8: The slipping state describes the low-stiffness stage. When
+the applied load becomes sufﬁciently large, sliding occurs at
+all inter-ﬁber interfaces. In this regime, individual ﬁbers are
+primarily free to bend about their own neutral axes, resulting
+in a signiﬁcantly lower collective bending stiffness for the
+rod, as shown in Fig. 1c.
+B9: The transition between states is determined by compar-
+ing the internal shear stress distribution with the inter-ﬁber
+frictional resistance. According to the Euler–Bernoulli beam
+theory, the shear stress τ distribution across the section of the
+rod is parabolic. By the theorem of conjugate shear stresses,
+this longitudinal shear stress is equal to the inter-ﬁber fric-
+tional stress. Slip initiates at the location of maximum shear
+stress when its magnitude equals the maximum static fric-
+tional stress µp, where µ is the inter-ﬁber static friction co-
+efﬁcient and p is the jamming pressure (the hydrostatic pres-
+sure applied to maintain the jamming state). Therefore, the
+condition for the onset of slip, marking the transition from
+the jamming state, is given by
+B10: τmax (Q) = µp,
+(1)
+B11: where Q is the transverse shear force on the cross-section
+and τmax(Q) is the maximum shear stress as a function of Q,
+determined by the cross-sectional geometry. Solving Eq. (1)
+yields the upper-bound shear force for the jamming state, de-
+noted as QJ. This force can be expressed in a generalized
+form as
+B12: QJ = kµp.
+(2)
+B13: Here, k is a geometry-dependent coefﬁcient with dimensions
+of area, determined by the section shape and the elasticity
+law.
+B14: When the applied load is large enough for the rod to enter
+the full-slipping state, the frictional stress is uniformly equal
+to µp at all interfaces. Consequently, the lower-bound shear
+force for the slipping state QS is simply the integral of this
+constant stress over the total cross-sectional area A:
+B15: QS = Aµp.
+(3)
+B16: For ﬁber jamming, A is the sum of the cross-sectional areas
+of all ﬁbers.
+B17: 2.2
+Equivalent bending stiffness model
+B18: The bending stiffness of a beam is directly proportional to
+its area moment of inertia. To describe the variable bending
+stiffness of the ﬁber jamming rod, an equivalent area moment
+of inertia Ieq is deﬁned, which transitions between the values
+corresponding to the jamming and slipping states.
+B19: In the jamming state, the absence of relative sliding forces
+causes all ﬁbers to bend about the global neutral axis of the
+composite rod. The equivalent moment of inertia IJ is there-
+fore calculated using the standard formula for a solid beam,
+integrating over the entire cross-sectional domain D of the
+ﬁber bundle:
+B20: IJ =
+B21: Z
+B22: D
+B23: ydA,
+(4)
+B24: where y is the distance from the area element dA to the neu-
+tral axis.
+B25: In the slipping state, ﬁbers bend primarily about their indi-
+vidual centroids. However, inter-ﬁber friction provides an ad-
+ditional resistive moment that contributes to the overall bend-
+ing stiffness. To derive the equivalent moment of inertia IS,
+a pure bending scenario under an applied moment M is con-
+sidered for a bundle of N ﬁbers, each of length l and with
+an individual area moment of inertia Iﬁb about its own cen-
+troidal axis. According to Euler–Bernoulli theory, the neutral
+axis of the bundle forms a circular arc with a radius of curva-
+ture ρ and a subtended angle θ, as illustrated in Fig. 2. Using
+the equivalent inertia IS, these geometric parameters are de-
+ﬁned as θ = Ml/(EIS) and ρ = EIS/M, where E denotes
+the effective ﬁber modulus used in the present structure-level
+model.
+B26: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
+
+PDF PAGE 4
+B0: 484
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: Figure 1. Schematic of the three mechanical states in a ﬁber jamming rod under bending. (a) Jamming state resulting in a high-stiffness
+stage. (b) Transition state. (c) Slipping state resulting in a low-stiffness stage.
+B2: Figure 2. Geometry and parameters for analyzing the slipping state
+under pure bending.
+B3: The work done by the applied moment is
+B4: W = 1
+B5: 2Mθ = M2l
+2EIS
+.
+(5)
+B6: This work is divided into two components: the elastic strain
+energy stored in the bent ﬁbers and the energy dissipated by
+frictional sliding between ﬁbers. The elastic strain energy in
+a single ﬁber is
+B7: we
+B8: i = 1
+B9: 2mθ =
+m2l
+2EIﬁb
+,
+(6)
+B10: where m is the moment borne by the corresponding ﬁber;
+assuming a uniform moment distribution among identical
+ﬁbers, m = M/N.
+B11: To compute the frictional dissipation, the relative slip dis-
+tance between ﬁbers must be determined. Under pure bend-
+ing, the elongation deformation of an individual ﬁber con-
+tributes negligibly to the overall structural deformation com-
+pared to the inter-ﬁber slip; therefore, ﬁber elongation is ne-
+glected. For a ﬁber located at a distance yi from the bundle’s
+neutral axis, the relative arc length difference si between this
+ﬁber and the neutral axis over length l can be obtained based
+on the geometric relationship, as shown in Fig. 2:
+B12: si = (ρ + yi)θ −l =
+B13: EIS
+B14: M + yi
+B15:  Ml
+B16: EIS
+B17: −l.
+B18: Substituting the expressions for θ and ρ leads to
+B19: si = Ml
+B20: EIS
+B21: yi.
+(7)
+B22: The energy dissipated by friction due to this slip is
+B23: wf
+B24: i = |si|µpcl,
+(8)
+B25: where c is the perimeter length of a single ﬁber’s cross-
+section involved in frictional contact, making cl the total con-
+tact area per ﬁber subject to sliding.
+B26: Invoking the work–energy balance for the system, and
+noting that the frictional dissipation for a single interface
+should be accounted for only once (that is, it should be shared
+equally by the two adjacent ﬁbers), the relationship is
+B27: W =
+B28: XN
+B29: i
+B30: 
+B31: we
+B32: i + 1
+B33: 2wf
+i
+B34: 
+B35: .
+(9)
+B36: Substituting Eqs. (5) to (8) into Eq. (9) yields
+B37: M2l
+2EIS
+=
+B38: XN
+B39: i
+B40:  m2l
+B41: 2EIﬁb
++ 1
+B42: 2
+B43: 
+B44: Ml
+EIS
+B45: yi
+B46: µpcl
+B47: 
+B48: .
+B49: Simplifying this expression, and introducing the geometric
+parameter yC = (1/N)PN
+B50: i |yi|, which is analogous to the
+ﬁrst moment of area about the neutral axis, we obtain the
+equivalent moment of inertia for the slipping state:
+B51: IS = NIﬁb + N
+B52: E µpclρyC.
+(10)
+B53: This formulation captures the combined effect of the intrin-
+sic bending stiffness of individual ﬁbers and the signiﬁcant
+stiffening from inter-ﬁber friction.
+B54: The equivalent moment of inertia Ieq is modeled as a
+function of the applied shear force Q, transitioning between
+IJ and IS. For shear forces below the jamming state limit
+Q < QJ, the rod remains jammed, and Ieq = IJ. For shear
+forces exceeding the slip-state threshold Q > QS, the rod is
+in the slipping state, and Ieq = IS. In the transition region
+QJ ≤Q ≤QS, the mechanical behavior is governed by the
+progressive propagation of inter-ﬁber slip. In the absence of
+a rigorous derivation of the slipped area evolution law, we in-
+troduce a simple assumption to obtain a closed-form model
+for the transition regime. Speciﬁcally, the slipped area ratio
+is assumed to vary quadratically with Q between QJ and QS.
+This choice is made primarily as a low-parameter interpola-
+tion that satisﬁes the two boundary conditions of zero slip at
+B55: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 5
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+485
+B1: Q = QJ and full slip at Q = QS, while ensuring continuity
+of Ieq at both ends of the transition interval:
+B2: Ieq =
+B3: 
+
+B4: 
+B5: IJ,
+Q < QJ
+(IJ −IS) (Q−Qs)2
+B6: (QJ−QS)2 + IS,
+QJ ≤Q ≤QS.
+IS,
+QS < Q
+B7: (11)
+B8: This phenomenological model compactly represents the
+smooth degradation of bending stiffness from the high-
+stiffness jammed state to the low-stiffness slipped state as
+the applied shear force increases. It provides an engineer-
+ing approximation for the transition regime without claiming
+a rigorous derivation of the slipped area evolution law. The
+quadratic interpolation is therefore adopted for model com-
+pleteness, not as a result strictly derived from ﬁber-bundle
+micromechanics.
+B9: 3
+Design of the positive-pressure VSOC
+B10: Traditional ﬁber jamming structures predominantly use vac-
+uum pressure to generate the jamming pressure required
+needed to maintain the jamming state. This approach,
+however, is fundamentally limited to a theoretical maxi-
+mum pressure differential of approximately one atmosphere
+(∼100 kPa), which constrains the load-bearing capacity in
+the high-stiffness stage. To overcome this limitation, we
+propose a positive-pressure ﬁber jamming approach. This
+method conﬁnes a ﬁber bundle in a rigid shell and applies
+jamming pressure via an internal, ﬂexible, and inﬂatable
+bladder, thereby enabling the application of hydrostatic pres-
+sures signiﬁcantly exceeding atmospheric levels. Leveraging
+this principle, we have designed a VSOC based on positive-
+pressure ﬁber jamming, with its core structure illustrated in
+Fig. 3a.
+B11: 3.1
+Structural design and jamming principle
+B12: The VSOC consists of a series of sequentially connected,
+identical chain links. Each link is designed to fulﬁll two pri-
+mary functions: facilitating omnidirectional bending in the
+slipping state in the low-stiffness stage and enabling effective
+ﬁber compaction to achieve the jamming state in the high-
+stiffness stage.
+B13: Omnidirectional bending is achieved through a specialized
+joint mechanism between adjacent links. A shaft is inserted
+into opposing double-conical holes machined into the mat-
+ing surfaces of neighboring link bodies. This conﬁguration
+provides a ball-joint-like connection, enabling multi-axis ro-
+tation while preserving structural integrity and load transfer.
+The conical geometry intrinsically limits the range of motion
+in directions orthogonal to the primary bending axis.
+B14: To house the ﬁber bundle, each link body is constructed
+as a rigid shell with a continuous internal cavity. The cavity
+comprises a semi-cylindrical channel of radius R, integrated
+with a rectangular section of width 2R and height a, which
+B15: together provide a rigid constraint along the entire length of
+the bundle. A key innovation of the design is the integra-
+tion of a positive-pressure actuation system. A soft airtight
+inﬂatable bladder, placed along the ﬂat base of the chan-
+nel, serves as the actuating element. Upon pressurization, the
+bladder expands radially, compacting the ﬁber bundle uni-
+formly against the curved cavity wall. In the present model,
+the bladder is treated as a compliant pressure-transmission
+medium, and its bending stiffness as well as membrane-
+induced non-uniform deformation are neglected in the lo-
+cal pressure distribution. Accordingly, the bladder pressure is
+taken as the effective jamming pressure p acting on the ﬁber
+bundle. This simpliﬁcation is supported by the present proto-
+type conﬁguration, in which the bladder is only 0.1 mm thick
+and made of soft polyethylene, serving primarily to transmit
+pressure and compact the ﬁbers. The resulting contact pres-
+sure p acts as the conﬁning hydrostatic pressure essential for
+ﬁber jamming, as described in Sect. 2, effectively inducing
+and maintaining the bundles’ jamming state.
+B16: 3.2
+Bending stiffness model for shaft and lateral modes
+B17: The unique double-conical joint design leads to two distinct
+bending modes for the VSOC, as depicted in Fig. 3, each
+characterized by distinct kinematic constraints and neutral
+axis orientations.
+B18: The shaft bending is deﬁned as rotation purely about the
+axis of the connecting shafts, as shown in Fig. 3b. The sec-
+tion rotates around the x axis in Fig. 3b. This mode rep-
+resents the chains’ dominant least-constrained deformation
+path. The lateral bending is deﬁned as rotation about an axis
+orthogonal to the shaft axis, as shown in Fig. 3c. The sec-
+tion rotates around the x axis in Fig. 3c. This motion is con-
+strained by the interaction between the shaft and the walls of
+the double-conical holes, resulting in a substantially smaller
+allowable range of motion compared to the shaft bending
+mode.
+B19: The pressurized compaction of the ﬁber bundle critically
+alters its effective cross-sectional geometry for mechanical
+analysis, as shown in Fig. 3b. In the unpressurized state, the
+ﬁbers loosely ﬁll the entire semi-circular area. Under pres-
+sure, the expanding bladder compacts the ﬁbers upward, cre-
+ating a densely packed region. The compaction is character-
+ized by a height χ, measured from the cavity base to the
+lower boundary of the compacted ﬁber mass. Consequently,
+the effective cross-sectional domain D for calculating the
+jammed-state moment of inertia Eq. (4) is not the full semi-
+circle but a truncated circular segment. Accounting for this
+compaction effect is essential for accurate stiffness model-
+ing.
+B20: The equivalent moments of inertia in the jamming state
+differ for the two bending modes because their neutral axes
+are oriented differently relative to the compacted ﬁber cross-
+section. For shaft bending, the neutral axis is parallel to the
+shaft axis and located at distance h from the bottom of the
+B21: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
+
+PDF PAGE 6
+B0: 486
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: Figure 3. Design of the VSOC. (a) Structure of the VSOC. (b) Cross-sectional view under the shaft bending mode. (c) Cross-sectional view
+under lateral bending mode.
+B2: semi-circle. The moment of inertia I sh
+B3: J is derived by integrat-
+ing the second moment of area about this neutral axis over
+the compacted region D (y from χ to R):
+B4: I sh
+B5: J =
+B6: R
+Z
+B7: χ
+B8: 2(y + h)2
+q
+B9: R2 −y2dy.
+(12)
+B10: Here, y + h is the distance from the area element to the shaft
+bending neutral axis, and the term 2
+B11: p
+B12: R2 −y2 is the hori-
+zontal width of the cross-section at height y. Evaluating this
+integral yields
+B13: I sh
+B14: J = π
+B15: 8 R4 −1
+4R4asinχ
+R −χ
+B16: 4
+B17: q
+B18: R2 −χ2
+B19: 
+B20: 2χ2 −R2
+. (13)
+B21: For lateral bending, the neutral axis is orthogonal to the shaft
+axis and lies along the centroidal axis of the compacted cross-
+section. The corresponding moment of inertia I la
+B22: J is calcu-
+lated by integrating about this axis:
+B23: I la
+B24: J = 2
+B25: √
+B26: R2−χ2
+Z
+B27: 0
+B28: y2
+B29: q
+B30: R2 −y2 −χ
+B31: 
+B32: dy,
+(14)
+B33: where the term
+B34: p
+B35: R2 −y2 −χ represents the vertical height
+of the compacted ﬁber area at a given lateral position y for
+χ ≤y.
+B36: 3.3
+Critical shear force for state transition
+B37: The geometric difference between the bending modes also
+inﬂuences the critical shear force QJ for the transition from
+the jamming state, as deﬁned in Eq. (2). The calculation of
+QJ requires knowledge of the maximum shear stress τmax(Q)
+for the speciﬁc cross-sectional shape under a shear force Q.
+To obtain tractable analytical expressions, we approximate
+the shear stress distribution with that of a rectangular sec-
+tion of comparable dimensions, a common simpliﬁcation in
+mechanics for complex geometries.
+B38: For lateral bending, the compacted cross-section is ap-
+proximately symmetric. Using the parabolic shear stress for-
+mula for a rectangle of area A and height 2R, the distribution
+of τ can be expressed as
+B39: τ la (y,Q) = 3
+B40: 2
+Q
+B41: A
+B42: 
+B43: 1 −y2
+B44: R2
+B45: 
+B46: .
+(15)
+B47: Obviously, the maximum occurs at y = 0, giving τ la
+B48: max =
+(2/3)(Q/A). Setting this equal to µp as presented in Eq. (1)
+and solving for Q gives the critical force for this mode:
+B49: Qla
+B50: J = 2
+B51: 3µpA.
+B52: For shaft bending, the cross-section is asymmetric about its
+neutral axis. The approximate shear stress distribution for an
+equivalent rectangle is modiﬁed to
+B53: τ sh (y,Q) = 3
+B54: 2
+Q(R + h)2 −y2
+B55: AR (2R + 3h) .
+B56: The maximum stress occurs at y = h, yielding τ sh
+B57: max =
+[3Q(R+2h)]/[A(2R+3h)]. Applying the slip initiation con-
+dition τ sh
+B58: max = µp leads to the critical shear force for shaft
+bending:
+B59: Qsh
+B60: J = 2(R + a) + 3h
+B61: 3(R + a) + 6hµpA.
+B62: Conversely, the slipping state shear force limit QS (Eq. 3)
+and the slipping state moment of inertia IS (Eq. 8) are inde-
+pendent of the bending mode. QS = µpA depends solely on
+the total ﬁber cross-sectional area A and the friction-pressure
+product. IS, derived from energy considerations involving in-
+dividual ﬁber bending and aggregate frictional dissipation,
+depends on the material properties, ﬁber geometry, and to-
+tal pressure but not on the speciﬁc orientation of the global
+neutral axis during bending.
+B63: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 7
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+487
+B1: 4
+Experimental methods
+B2: To quantitatively characterize the mechanical performance
+and validate the theoretical model of the proposed variable
+stiffness chain, a systematic experimental investigation was
+conducted using a three-point bending test.
+B3: 4.1
+Prototype fabrication and test setup
+B4: Test specimens were fabricated according to the design in
+Sect. 3. Each chain link was assembled by bolting together
+two 3D-printed resin shells to form a cavity with R = 6 mm,
+h = 4 mm, and a = 3 mm. This cavity housed a bundle of 700
+nylon ﬁbers, each measuring 0.4 mm in diameter. Adjacent
+links, with a center-to-center distance of 12 mm, were con-
+nected via stainless-steel shafts seated in opposing double-
+conical holes machined into the mating interfaces. The dis-
+tance from the ﬂat base of the semi-circular cavity to the axis
+of the connecting shaft was 5 mm. The key parameters of the
+link structure are shown in Fig. 4a. A polyethylene inﬂatable
+bladder (selected because of its ﬂexibility and for being air-
+tight), with a width of 10 mm and a thickness of 0.1 mm, was
+integrated along the base of the cavity to apply positive jam-
+ming pressure to the ﬁber bundle.
+B5: The three-point bending setup is illustrated in Fig. 4b. A
+multi-link chain segment was mounted on a custom support
+frame with a ﬁxed span length L = 100 mm. The support
+frame was fabricated from 3D-printed ABS (acrylonitrile bu-
+tadiene styrene). Each support end consisted of a 5 mm diam-
+eter cylindrical head. A 1 mm depth groove was formed in
+the middle of the cylindrical head to suppress off-axis sway
+during bending while still allowing approximate rotational
+freedom at the supports. The contact between the specimen
+and the supports was dry friction, and the overall boundary
+condition was therefore treated as approximately simply sup-
+ported for the present stiffness analysis. A universal testing
+machine equipped with a load cell was used to apply a cen-
+tral deﬂection using a ﬂat indenter with a contact width of
+10 mm at a constant rate of 20 mm min−1, while simultane-
+ously recording the applied force F and the corresponding
+displacement δ. This loading condition can be seen as quasi-
+static.
+B6: To investigate variable stiffness behavior under different
+conﬁnement levels, the jamming pressure in the inﬂatable
+bladder was systematically controlled, ranging from 0 to
+300 kPa in increments of 50 kPa. The bladder pressure was
+supplied by an independent air pump, measured by a ded-
+icated pressure gauge and regulated by a pressure-control
+valve. Before each test, the specimen was ﬁrst placed in a
+straightening ﬁxture to maintain an initially straight conﬁg-
+uration. The bladder was then pressurized to the target value
+by adjusting the control valve, after which the specimen was
+transferred to the support frame for deformation measure-
+ment. For each pressure level, tests were conducted sepa-
+rately for the two primary bending modes: shaft bending and
+B7: lateral bending. Each combination of pressure and bending
+mode was repeated ﬁve times to ensure statistical reliability,
+yielding a complete set of load-deﬂection (F-δ) curves for
+analysis.
+B8: 4.2
+Data processing and parameter extraction algorithm
+B9: The raw experimental data F-δ for both shaft and lateral
+bending modes are plotted as gray dots in Fig. 5a and b. To
+extract statistically representative mechanical responses and
+to evaluate experimental variability, a systematic data pro-
+cessing procedure was implemented.
+B10: To facilitate direct comparison across repeated tests, the
+raw F-δ curves from the ﬁve repetitions for each experimen-
+tal condition (jamming pressure and bending mode) were
+spatially aligned onto a uniﬁed displacement coordinate sys-
+tem. This was achieved by deﬁning a common displacement
+grid with 1000 uniformly spaced points spanning from 0
+to 10 mm. For each individual raw curve, the correspond-
+ing load values were mapped onto this common grid using
+piecewise linear interpolation, ensuring all datasets shared
+an identical abscissa. Subsequently, for each unique com-
+bination of pressure and bending mode, the average load at
+each displacement point was calculated from the ﬁve aligned
+curves, yielding a representative average F-δ curve. Concur-
+rently, the standard deviation of the load was computed at
+each point to quantify data dispersion. A standard deviation
+band, deﬁned as the average curve ±1 standard deviation,
+was then constructed to visually display the data dispersion
+and experimental repeatability.
+B11: The analysis of the standard deviation bands reveals a clear
+trend of increasing data dispersion with higher jamming pres-
+sure. The maximum standard deviation for lateral bending in-
+creased from 0.0354 N at 0 kPa to 5.4215 N at 300 kPa, while
+for shaft bending, it rose from 0.0681 to 1.9934 N over the
+same pressure range. This heightened dispersion under el-
+evated pressure is likely attributable to less-uniform stick-
+slip-like slipping between ﬁbers, which introduces greater
+stochasticity into the macroscopic load-deﬂection response.
+B12: To objectively quantify the key mechanical parameters
+– speciﬁcally, the critical loads at stiffness transitions (FJ,
+FS) and the corresponding stiffness values in the high- and
+low-stiffness stages (KH, KL) – an adaptive piecewise lin-
+ear regression algorithm was developed. This data-driven ap-
+proach was applied to each individual processed F-δ curve
+to autonomously locate the transition points between distinct
+linear-response phases, thereby eliminating subjective bias.
+B13: The algorithm operates in two sequential stages to iden-
+tify the linear regimes corresponding to the jamming (high-
+stiffness) and slipping (low-stiffness) states.
+B14: First stage. Jamming state identiﬁcation: for each deﬂec-
+tion point across the entire displacement range, a propor-
+tional (zero-intercept) linear ﬁt of the form F = KHδ is per-
+formed on all data points up to that deﬂection. The coefﬁcient
+of determination R2 is computed for this ﬁt to quantify the
+B15: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
+
+PDF PAGE 8
+B0: 488
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: Figure 4. Specimen geometry and experimental setup. (a) Key dimensions of a single chain link. (b) Photograph of the three-point bending
+test conﬁguration and an illustration of the pressure-control system.
+B2: Figure 5. Experimental load-deﬂection responses and parameter extraction. Average curves with ±1 standard deviation bands for (a) shaft
+bending and (b) lateral bending under various jamming pressures (0–300 kPa). Representative data at 100 kPa illustrating the adaptive piece-
+wise linear regression algorithm used to identify the critical loads FJ (blue) and FS (green) for (c) shaft bending and (d) lateral bending. The
+curves above show the relationship between deﬂection and the coefﬁcient of determination (R2) for each linear ﬁt.
+B3: linearity of the jamming state response. The deﬂection that
+yields the maximum R2 is selected as the optimal boundary
+between the high-stiffness stage and the subsequent transi-
+tion stage. The corresponding load is recorded as the ﬁrst
+B4: critical load FJ, and the slope of the proportional ﬁt deﬁnes
+the high-stiffness stage stiffness KH.
+B5: Second stage. Slipping state identiﬁcation: the algorithm
+scans the data to locate the onset of the stable low-stiffness
+stage. For each deﬂection point, a standard linear (intercept-
+B6: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 9
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+489
+B1: included) ﬁt F = KLδ + b is performed on all data points
+from that deﬂection to the end of the displacement range. The
+R2 value is again computed, and the deﬂection maximizing
+R2 after FJ is taken as the optimal start of the slipping state.
+The load at this location is recorded as the second critical
+load FS, and the slope of the linear ﬁt to the subsequent data
+segment deﬁnes the slip-state stiffness KL.
+B2: This automated procedure was applied uniformly across
+the entire dataset, except for the 0 kPa condition. Since
+no jamming pressure is applied under this condition, the
+ﬁber bundle remains in a fully slipping state, and its load-
+deﬂection response does not exhibit the distinct three-stage
+characteristics – the jamming, transition, and slipping states
+– required for the piecewise linear algorithm. Therefore, the
+dataset subjected to parameter extraction comprised 60 in-
+dividual curves (6 pressure levels × 2 bending modes × 5
+repeats). For each tested condition, the extracted parameters
+from all ﬁve repeats were aggregated, and their mean val-
+ues along with standard deviations were calculated. This pro-
+vides a statistically reliable foundation for analyzing the re-
+lationship between mechanical behavior and jamming pres-
+sure.
+B3: Figure 5c and d exemplify the parameter identiﬁca-
+tion process for shaft bending and lateral bending, respec-
+tively, under a jamming pressure of 100 kPa. Each subﬁgure
+presents the ﬁve individual F-δ curves. The overlaid blue and
+green lines trace the R2 values for the high-stiffness and low-
+stiffness linear ﬁts, respectively, as the algorithm scans the
+displacement axis. The algorithmically determined FJ and
+FS values for each repeat are marked by blue and green dots
+on the corresponding curves. The mean and standard devi-
+ation of these identiﬁed critical loads are annotated on the
+plots, illustrating the consistency and outcome of the extrac-
+tion method.
+B4: 5
+Results and discussion
+B5: 5.1
+Identiﬁcation of material parameters
+B6: In the present study, the ﬁber modulus E was not obtained
+from an independent material test. Instead, an effective mod-
+ulus suitable for the structure-level model was identiﬁed
+from the bending response under zero jamming pressure
+(p = 0 kPa), where inter-ﬁber friction is absent. At p = 0, the
+inter-ﬁber friction contribution in Eq. (7) vanishes, and the
+slipping state equivalent moment of inertia reduces to IS =
+NIﬁb. For a three-point bending test, the stiffness KL is re-
+lated to the equivalent bending rigidity by KL = 48EIS/L3.
+The value of KL at p = 0 kPa was obtained via linear regres-
+sion (R2 = 0.785) of the corresponding load-deﬂection data.
+Combining this with the known structural geometry yielded
+an effective ﬁber modulus E = 4.85 GPa, with a 95 % conﬁ-
+dence interval of [4.765, 4.925] GPa.
+B7: The model response is sensitive to this parameter. Ac-
+cording to Eq. (10), the friction-related contribution to IS
+B8: scales with 1/E; thus, a larger E reduces the friction-derived
+component of the slipping state equivalent moment of in-
+ertia predicted by the model. In addition, because IJ is
+back-calculated from the measured jamming state stiffness
+through IJ = KHL3/(48E), a larger assumed E leads to a
+proportionally smaller identiﬁed IJ for the same experimen-
+tal stiffness KH. Consequently, variations in E affect both the
+identiﬁed equivalent moments of inertia and the agreement
+between theoretical predictions and experimentally inferred
+parameters.
+B9: The established theoretical model, speciﬁcally Eq. (3),
+QS = µpA, provides the direct way to identify the effective
+static friction coefﬁcient µ between ﬁbers, where the total
+cross-sectional area is A = Nπd2/4, with N = 700 (num-
+ber of ﬁbers) and d = 0.4 mm (ﬁber diameter). Linear re-
+gression was performed on the experimentally identiﬁed full-
+slipping load FS versus jamming pressure p data for both
+shaft and lateral bending modes. In the three-point bend-
+ing conﬁguration, the shear force Q is related to the ap-
+plied load F by Q = F/2. Consequently, the slope dFS/dp
+from the regression relates to the friction coefﬁcient via
+µ = (dFS/dp)/(2A).
+B10: The regression for the combined dataset, shown in Fig. 6b,
+demonstrates a strong linear correlation with a high coef-
+ﬁcient of determination (R2 = 0.817). This statistically sig-
+niﬁcant relationship robustly validates the fundamental as-
+sumption of a pressure-dependent Coulomb friction inter-
+face. The identiﬁed effective inter-ﬁber static friction co-
+efﬁcient is µ = 0.3665, with a 95 % conﬁdence interval of
+[0.3433, 0.3897]. The narrow conﬁdence interval indicates
+a precise estimate, and the value itself falls within a plau-
+sible range for interfacing polymer surfaces under conﬁne-
+ment, lending credibility to the model.
+B11: 5.2
+Validation of critical load models
+B12: The theoretical model predicts a direct proportionality be-
+tween the jamming pressure p and the two critical shear
+forces: QJ for the onset of slip and QS for full slipping.
+The validity of these relationships was tested against the
+experimental data using the material constants identiﬁed in
+Sect. 5.1.
+B13: For shaft bending, the relationship between Qsh
+B14: J
+and p
+is shown in Fig. 6a. Linear regression yields R2 = 0.4311.
+The 95 % conﬁdence interval for the proportionality coefﬁ-
+cient is [6.8795, 10.9578] N kPa−1. This interval perfectly
+encompasses the theoretical value of 9.9763 N kPa−1, cal-
+culated using the identiﬁed µ and the geometric factor ksh
+B15: from Eq. (2). The relative error between the ﬁtted coefﬁ-
+cient (9.0591 N kPa−1) and the theoretical value is 8.5 %.
+Taken together, these results suggest reasonable agreement
+with theory, but they also indicate that jamming pressure is a
+dominant factor rather than the sole determinant of the mea-
+sured critical load.
+B16: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
+
+PDF PAGE 10
+B0: 490
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: Figure 6. Correlation between experimental mechanical parameters and jamming pressure. (a) Critical shear force for jamming-to-slipping
+transition (QJ) versus jamming pressure for both bending modes. (b) Critical shear force for slipping (QS) versus jamming pressure. (c)
+Equivalent moment of inertia in the jammed state (IJ). (d) Equivalent moment of inertia in the slip state (IS).
+B2: Similarly, for lateral bending, the Qla
+B3: J vs. p data (Fig. 6a)
+also support a proportional trend, with a linear ﬁt yield-
+ing R2 = 0.4475. The 95 % conﬁdence interval for the ﬁtted
+coefﬁcient is [8.1129, 12.5543] N kPa−1, which again fully
+contains the theoretical prediction of 11.3065 N kPa−1. The
+relative error between the ﬁtted value (10.4563 N kPa−1) and
+the theoretical value is 7.6 %. The consistency between the
+experimental conﬁdence intervals and the theoretical predic-
+tions for both bending modes conﬁrms the validity of Eq. (2)
+in describing the jammed-state load capacity.
+B4: The relationship for the slipping state QS ∝p is inher-
+ently validated by the high-quality linear ﬁt used to iden-
+tify the friction coefﬁcient µ in Sect. 5.1 and Fig. 6b. Since
+the expression for QS in Eq. (3) is identical for both bend-
+ing modes, the data from both were pooled for this analy-
+sis, resulting in the strong correlation already discussed. By
+contrast, the more moderate R2 values for the QJ–p regres-
+sions suggest that, although the experimental trend is consis-
+tent with the theoretical prediction and the theoretical values
+fall within the ﬁtted conﬁdence intervals, other sources of
+variability are also inﬂuencing the onset of slip. Plausible
+B5: contributors include stochastic stick-slip behavior between
+ﬁbers, non-uniform jamming pressure transmission, and lo-
+cal compaction caused by the bladder and the packing state
+of the bundle. The inﬂuence of these factors requires the con-
+struction of more reﬁned theories and more detailed experi-
+ments for characterization and description.
+B6: 5.3
+Pressure dependence of bending stiffness
+B7: The equivalent area moment of inertia in the jamming state
+IJ was calculated from the measured stiffness KH using the
+relation IJ = KHL3/(48E) and the identiﬁed effective ﬁber
+modulus E used in the present structure-level model. As the-
+orized in Sect. 3.2 and shown in Fig. 6c, IJ remains largely
+independent of jamming pressure p. For shaft bending, the
+mean IJ is 47.02 mm4 (95 % CI: [40.89, 53.14]), and for
+lateral bending, it is 43.22 mm4 (95 % CI: [37.00, 49.43]).
+This pressure independence conﬁrms that, once jammed, the
+ﬁber bundle acts as a monolithic beam whose bending stiff-
+ness is primarily governed by its compacted geometric shape
+and the effective ﬁber modulus used in the present structure-
+B8: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 11
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+491
+B1: level model, rather than by the pressure level itself. The
+mean compaction heights χ inferred from these IJ values are
+5.51 mm for shaft bending and 3.20 mm for lateral bending,
+consistent with the compaction shown in Fig. 4.
+B2: Conversely, the equivalent moment of inertia in the slip-
+ping state IS, derived from the measured stiffness KL, shows
+a clear linear increase with jamming pressure p (Fig. 6d),
+as predicted by Eq. (8). For shaft bending, the ﬁtted slope is
+8.95 mm4 kPa−1 (R2 = 0.651), and for lateral bending, it is
+3.41 mm4 kPa−1 (R2 = 0.551).
+Although only one specimen conﬁguration was tested ex-
+perimentally, the analytical form of the model makes its pa-
+rameter dependence explicit. According to Eq. (2), QJ is pro-
+portional to the friction coefﬁcient µ, the jamming pressure
+p, and the geometry-dependent coefﬁcient k, so variations in
+frictional conditions or section geometry will directly affect
+the onset of slip. According to Eq. (3), QS is proportional to
+µpA. Since the total cross-sectional area A depends directly
+on the number of ﬁbers N and the ﬁber diameter d, both pa-
+rameters are expected to directly inﬂuence the full-slipping
+threshold. Likewise, Eq. (10) shows that IS depends on E,
+N, and Iﬁb, indicating that both material properties and bun-
+dle geometry will modify the slope of the low-stiffness stage.
+Therefore, the model structure allows extension to parameter
+variations, but the robustness of these dependencies has not
+been validated here through inter-specimen experiments us-
+ing different ﬁber types, diameters, or ﬁber counts.
+B3: 6
+Conclusion
+B4: This study presented the design, modeling, and prototype-
+level experimental assessment of a VSOC based on a
+positive-pressure ﬁber jamming mechanism. Compared with
+conventional vacuum-based ﬁber jamming structures, the
+main contribution of this work is not merely the use of a dif-
+ferent pressure source but the establishment of a dedicated
+positive-pressure FJS architecture, together with a bending
+model that links pressure, state transitions, and stiffness evo-
+lution in a uniﬁed framework.
+B5: The model distinguishes the jamming, transition, and slip-
+ping states; derives the critical shear forces governing the
+state transitions; and formulates a pressure-dependent equiv-
+alent area moment of inertia for the two primary bending
+modes of the VSOC. Three-point bending experiments on the
+present prototype were then used to examine this framework
+over the tested pressure range. The experimental trends were
+broadly consistent with the model predictions: both critical
+forces (QJ, QS) and the slipping state stiffness (IS) increased
+approximately linearly with jamming pressure, whereas the
+jamming state stiffness (IJ) remained comparatively insensi-
+tive to pressure and was governed mainly by the compacted
+geometry. These results support the interpretability of the
+proposed structure model framework for the present proto-
+type and tested conditions.
+B6: The present conclusions should also be read together with
+the model limitations. The quadratic relation between slipped
+area ratio and Q is introduced as a phenomenological ap-
+proximation for the transition regime rather than as a rig-
+orously established law. The experimental validation is re-
+stricted to a single VSOC prototype with a single ﬁber type,
+ﬁber diameter, and ﬁber count, so the model’s generality has
+not been tested through cross-specimen experiments. In addi-
+tion, the parameter E is currently the system-level identiﬁed
+effective ﬁber modulus obtained from the p = 0 kPa bending
+response, rather than an independently measured ﬁber mod-
+ulus, and should therefore be cross-validated in future work
+by direct material testing.
+B7: Regarding potential applications and current constraints,
+the proposed VSOC may be useful as a variable stiffness
+joint in soft manipulators or continuum robots, where com-
+pliant motion during interaction and increased stiffness dur-
+ing load bearing are both desirable. It may also be relevant to
+reconﬁgurable gripping and positioning structures that bene-
+ﬁt from omnidirectional articulation together with pressure-
+tunable rigidity. At the same time, the current prototype still
+has practical constraints, most notably the need for an ex-
+ternal positive-pressure source, which may limit portability
+and system integration in some application scenarios. Future
+work will focus on optimizing the dynamic response, reﬁning
+the friction model for varying slip velocities, and exploring
+integrated sensing for closed-loop stiffness control.
+B8: Data availability. No data sets were used in this article.
+B9: Author contributions. JY conceived and supervised the study.
+SZ performed the formal analysis, conducted the experimental in-
+vestigation, and wrote the paper draft. JY reviewed and edited the
+paper.
+B10: Competing interests. The contact author has declared that nei-
+ther of the authors has any competing interests.
+B11: Disclaimer. Publisher’s note: Copernicus Publications remains
+neutral with regard to jurisdictional claims made in the text, pub-
+lished maps, institutional afﬁliations, or any other geographical rep-
+resentation in this paper. The authors bear the ultimate responsibil-
+ity for providing appropriate place names. Views expressed in the
+text are those of the authors and do not necessarily reﬂect the views
+of the publisher.
+B12: Acknowledgements. The authors thank the reviewers for their
+critical and constructive review of the paper.
+B13: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
+
+PDF PAGE 12
+B0: 492
+S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+B1: Financial support. This research has been supported by the
+National
+Natural
+Science
+Foundation
+of
+China
+(grant
+no.
+52375030) and the Hebei Natural Science Foundation (grant no.
+E2025203232).
+B2: Review statement. This paper was edited by Pengyuan Zhao and
+reviewed by two anonymous referees.
+B3: References
+B4: Akta¸s, B., Narang, Y. S., Vasios, N., Bertoldi, K., and Howe, R.
+B5: D.: A Modeling Framework for Jamming Structures, Adv. Funct.
+Mater., 31, 2007554, https://doi.org/10.1002/adfm.202007554,
+2021.
+Arleo, L. and Cianchetti, M.: VARISA – A VARIable Stiffness
+B6: soft robotics Arm based on inverse pneumatic actuators and
+differential drive ﬁber jamming, Mechatronics, 102, 103230,
+https://doi.org/10.1016/j.mechatronics.2024.103230, 2024.
+Arleo, L., Pozzi, J., Pagliarani, N., and Cianchetti, M.: Sea
+B7: Shell Bioinspired Variable Stiffness Mechanism Enabled by
+Hybrid Jamming Transition, in: 2023 IEEE International
+Conference on Soft Robotics (RoboSoft), 2023 IEEE In-
+ternational Conference on Soft Robotics (RoboSoft), 1–7,
+https://doi.org/10.1109/RoboSoft55895.2023.10121930, 2023.
+Bai, L., Yan, H., Li, J., Shan, J., and Hou, P.: Detachable Soft Actu-
+B8: ators with Tunable Stiffness Based on Wire Jamming, Appl. Sci.,
+12, 3582, https://doi.org/10.3390/app12073582, 2022.
+Brancadoro, M., Manti, M., Tognarelli, S., and Cianchetti, M.: Pre-
+B9: liminary experimental study on variable stiffness structures based
+on ﬁber jamming for soft robots, in: IEEE International Con-
+ference on Soft Robotics (RoboSoft), Livorno, Italy, 258–263,
+https://doi.org/10.1109/ROBOSOFT.2018.8404929, 2018.
+Brancadoro, M., Manti, M., Tognarelli, S., and Cianchetti,
+B10: M.:
+Fiber
+Jamming
+Transition
+as
+a
+Stiffening
+Mech-
+anism
+for
+Soft
+Robotics,
+Soft
+Robot.,
+7,
+663–74,
+https://doi.org/10.1089/soro.2019.0034, 2020.
+Brown, E., Rodenberg, N., Amend, J., Mozeika, A., Steltz,
+B11: E., Zakin, M. R., Lipson, H., and Jaeger, H. M.: Uni-
+versal robotic gripper based on the jamming of granu-
+lar material, P. Natl. Acad. Sci. USA, 107, 18809–18814,
+https://doi.org/10.1073/pnas.1003250107, 2010.
+Caruso,
+F.,
+Mantriota,
+G.,
+Afferrante,
+L.,
+and
+Reina,
+G.:
+A
+theoretical
+model
+for
+multi-layer
+jam-
+ming
+systems,
+Mech.
+Mach.
+Theory,
+172,
+104788,
+https://doi.org/10.1016/j.mechmachtheory.2022.104788, 2022.
+Caruso, F., Mantriota, G., Moramarco, V., and Reina, G.: Layer jam-
+B12: ming: Modeling and experimental validation, Int. J. Mech. Sci.,
+251,
+108325,
+https://doi.org/10.1016/j.ijmecsci.2023.108325,
+2023.
+Crowley, G. B., Zeng, X., and Su, H.-J.: A 3D Printed Soft Robotic
+B13: Gripper With a Variable Stiffness Enabled by a Novel Positive
+Pressure Layer Jamming Technology, IEEE Robot. Autom. Lett.,
+7,
+5477–5482,
+https://doi.org/10.1109/LRA.2022.3157448,
+2022.
+Do, B. H., Wu, S., Zhao, R. R., and Okamura, A. M.: Stiff-
+B14: ness Change for Reconﬁguration of Inﬂated Beam Robots, Soft
+B15: Robot., 11, 779–790, https://doi.org/10.1089/soro.2023.0120,
+2024.
+Fitzgerald, S. G., Delaney, G. P., and Howard, D.: A Re-
+B16: view of Jamming Actuation in Soft Robotics, Actuators, 9,
+https://doi.org/10.3390/act9040104, 2020.
+He, L., Herzig, N., de Lusignan, S., and Nanayakkara, T.: Granular
+B17: Jamming Based Controllable Organ Design for Abdominal
+Palpation, in: 2018 40th Annual International Conference of the
+IEEE Engineering in Medicine and Biology Society (EMBC),
+2154–2157,
+https://doi.org/10.1109/EMBC.2018.8512709,
+2018.
+Henke, M. and Gerlach, G.: On a high-potential variable-
+B18: stiffness
+device,
+Microsyst.
+Technol.,
+20,
+599–606,
+https://doi.org/10.1007/s00542-013-1995-5, 2014.
+Ibrahimi,
+M.,
+Paternò,
+L.,
+Ricotti,
+L.,
+and
+Menciassi,
+A.:
+A
+Layer
+Jamming
+Actuator
+for
+Tunable
+Stiffness
+and
+Shape-Changing
+Devices,
+Soft
+Robot.,
+8,
+85–96,
+https://doi.org/10.1089/soro.2019.0182, 2021.
+Jadhav, S., Majit, M. R. A., Shih, B., Schulze, J. P., and Tolley, M.
+B19: T.: Variable Stiffness Devices Using Fiber Jamming for Appli-
+cation in Soft Robotics and Wearable Haptics, Soft Robot., 9,
+173–186, https://doi.org/10.1089/soro.2019.0203, 2022.
+Kawamura, S., Yamamoto, T., Ishida, D., Ogata, T., Nakayama,
+B20: Y., Tabata, O., and Sugiyama, S.: Development of passive
+elements with variable mechanical impedance for wearable
+robots, in: Proceedings of IEEE International Conference on
+Robotics and Automation, IEEE International Conference on
+Robotics and Automation, Washington, DC, USA, 248–253,
+https://doi.org/10.1109/ROBOT.2002.1013369, 2002.
+Kawamura,
+S., Kanaoka,
+K., Nakayama,
+Y.,
+Jinwoo Jeon,
+and
+Fujimoto,
+D.:
+Improvement
+of
+passive
+elements
+for
+wearable
+haptic
+displays,
+in:
+2003
+IEEE
+Interna-
+tional
+Conference
+on
+Robotics
+and
+Automation
+(Cat.
+No.03CH37422), IEEE ICRA 2003, Taipei, Taiwan, 816–
+821, https://doi.org/10.1109/ROBOT.2003.1241694, 2003.
+Laschi,
+C.,
+Mazzolai,
+B.,
+and
+Cianchetti,
+M.:
+Soft
+robotics:
+Technologies
+and
+systems
+pushing
+the
+boundaries
+of
+robot
+abilities,
+Science
+Robotics,
+1,
+https://doi.org/10.1126/scirobotics.aah3690, 2016.
+Liu, A. J. and Nagel, S. R.: Jamming is not just cool any more,
+B21: Nature, 396, 21–22, https://doi.org/10.1038/23819, 1998.
+Liu, T., Xia, H., Lee, D.-Y., Firouzeh, A., Park, Y.-L., and
+B22: Cho,
+K.-J.:
+A
+Positive
+Pressure
+Jamming
+Based
+Vari-
+able
+Stiffness
+Structure
+and
+its
+Application
+on
+Wear-
+able Robots, IEEE Robot. Autom. Lett., 6, 8078–8085,
+https://doi.org/10.1109/LRA.2021.3097255, 2021.
+Manti,
+M.,
+Cacucciolo,
+V.,
+and
+Cianchetti,
+M.:
+Stiff-
+ening
+in
+Soft
+Robotics:
+A
+Review
+of
+the
+State
+of
+the
+Art,
+IEEE
+Robot.
+Automat.
+Mag.,
+23,
+93–106,
+https://doi.org/10.1109/MRA.2016.2582718, 2016.
+Narang,
+Y.
+S.:
+Achieving
+mechanical
+versatility
+in
+robots
+and structures through laminar jamming, PhD Thesis, Har-
+vard
+University,
+https://dash.harvard.edu/entities/publication/
+3cb7edfa-f58f-4f1a-9ab0-fde621ccab57 (last access: 5 May
+2026), 2018.
+Narang, Y. S., Vlassak, J. J., and Howe, R. D.: Mechanically Ver-
+B23: satile Soft Machines through Laminar Jamming, Adv. Funct.
+Mater., 28, 1707136, https://doi.org/10.1002/adfm.201707136,
+2018a.
+B24: Mech. Sci., 17, 481–493, 2026
+https://doi.org/10.5194/ms-17-481-2026
+
+PDF PAGE 13
+B0: S. Zhang and J. Yao: A variable stiffness omnidirectional chain based on positive-pressure ﬁber jamming
+493
+B1: Narang, Y. S., Degirmenci, A., Vlassak, J. J., and Howe, R. D.:
+B2: Transforming the Dynamic Response of Robotic Structures and
+Systems Through Laminar Jamming, IEEE Robot. Autom. Lett.,
+3, 688–695, https://doi.org/10.1109/LRA.2017.2779802, 2018b.
+Narang,
+Y.
+S.,
+Akta¸s,
+B.,
+Ornellas,
+S.,
+Vlassak,
+J.
+J.,
+and
+Howe,
+R.
+D.:
+Lightweight
+Highly
+Tunable
+Jamming-Based
+Composites,
+Soft
+Robot.,
+7,
+724–735,
+https://doi.org/10.1089/soro.2019.0053, 2020.
+Pinskier, J., Brett, J., Hanson, L., Surdo, K. L., and Howard, D.:
+B3: Jammkle: Fibre jamming 3D printed multi-material tendons and
+their application in a robotic ankle, in: 2022 IEEE/RSJ Interna-
+tional Conference on Intelligent Robots and Systems (IROS),
+8507–8514, https://doi.org/10.1109/IROS47612.2022.9982171,
+2022.
+Steltz, E., Mozeika, A., Rodenberg, N., Brown, E., and Jaeger,
+B4: H. M.: JSEL: Jamming Skin Enabled Locomotion, in: 2009
+IEEE/RSJ International Conference on Intelligent Robots and
+Systems (IROS 2009), St. Louis, MO, USA, 5672–5677,
+https://doi.org/10.1109/IROS.2009.5354790, 2009.
+Sun,
+J.,
+Lin,
+B.,
+Ramirez,
+L.
+A.,
+Figueroa,
+E.,
+Baines,
+R.,
+Yang,
+B.,
+Marroquin,
+E.,
+and
+Kramer-Bottiglio,
+R.:
+Performance
+Enhancement
+of
+a
+Morphing
+Limb
+for
+an
+Amphibious Robotic Turtle, in: 2024 IEEE 7th Interna-
+tional Conference on Soft Robotics (RoboSoft), 374–379,
+https://doi.org/10.1109/RoboSoft60065.2024.10521924, 2024.
+Tabata, O., Konishi, S., Cusin, P., Ito, Y., Kawai, F., Hi-
+B5: rai, S., and Kawamura, S.: Microfabricated tunable bend-
+ing stiffness device, in: Proceedings IEEE Thirteenth An-
+nual International Conference on Micro Electro Mechani-
+cal Systems (Cat. No.00CH36308), Miyazaki, Japan, 23–27,
+https://doi.org/10.1109/MEMSYS.2000.838484, 2000.
+B6: Vasios, N., Narang, Y., Akta¸s, B., Howe, R., and Bertoldi, K.: Nu-
+B7: merical analysis of periodic laminar and ﬁbrous media undergo-
+ing a jamming transition, Eur. J. Mech. A-Solid., 75, 322–329,
+https://doi.org/10.1016/j.euromechsol.2019.02.002, 2019.
+Wang, L., Yang, Y., Chen, Y., Majidi, C., Iida, F., Askounis,
+B8: E., and Pei, Q.: Controllable and reversible tuning of mate-
+rial rigidity for robot applications, Mater. Today, 21, 563–576,
+https://doi.org/10.1016/j.mattod.2017.10.010, 2018.
+Wu, C., Zhao, P., Chen, P., Ni, Z., Yue, S., Li, L., Zhang,
+B9: D.,
+and
+Hao,
+G.:
+Design,
+dynamic
+modelling
+and
+ex-
+perimental
+study
+on
+a
+tether-net
+system
+for
+active
+debris
+removal,
+Mech.
+Mach.
+Theory,
+208,
+105958,
+https://doi.org/10.1016/j.mechmachtheory.2025.105958, 2025.
+Yang, B., Baines, R., Shah, D., Patiballa, S., Thomas, E., Venkade-
+B10: san, M., and Kramer-Bottiglio, R.: Reprogrammable soft ac-
+tuation and shape-shifting via tensile jamming, Sci. Adv., 7,
+eabh2073, https://doi.org/10.1126/sciadv.abh2073, 2021.
+Yu, H., Lv, M., Hu, B., Zhang, Y., and Zhao, P.: Review article:
+B11: A review of control technologies for soft robots: from struc-
+tural design to intelligent control, Mech. Sci., 17, 313–332,
+https://doi.org/10.5194/ms-17-313-2026, 2026.
+B12: https://doi.org/10.5194/ms-17-481-2026
+Mech. Sci., 17, 481–493, 2026
